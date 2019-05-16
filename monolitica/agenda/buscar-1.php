@@ -1,6 +1,6 @@
 <?php
 /**
- * Bases de datos 3-2 - buscar-1.php
+ * Agenda (versión monolítica) - buscar-1.php
  *
  * @author    Bartolomé Sintes Marco <bartolome.sintes+mclibre@gmail.com>
  * @copyright 2018 Bartolomé Sintes Marco

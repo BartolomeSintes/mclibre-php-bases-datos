@@ -1,6 +1,6 @@
 <?php
 /**
- * Bases de datos 3-2 - insertar-2.php
+ * Agenda (versión monolítica) - insertar-2.php
  *
  * @author    Bartolomé Sintes Marco <bartolome.sintes+mclibre@gmail.com>
  * @copyright 2018 Bartolomé Sintes Marco

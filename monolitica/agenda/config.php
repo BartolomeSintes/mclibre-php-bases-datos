@@ -1,6 +1,6 @@
 <?php
 /**
- * Bases de datos 3-2 - config.php
+ * Agenda (versión monolítica) - config.php
  *
  * @author    Bartolomé Sintes Marco <bartolome.sintes+mclibre@gmail.com>
  * @copyright 2018 Bartolomé Sintes Marco
@@ -36,8 +36,8 @@ define("MYSQL_TABLA",    "tabla");                  // Nombre de la tabla
 
 // Configuración para SQLite
 
-define("SQLITE_DATABASE", "/home/barto/mclibre/sqlite/mclibre-base-datos-3-2.sqlite"); // Ubicación de la base de datos
-define("SQLITE_TABLA",   "tabla");                                       // Nombre de la tabla
+define("SQLITE_DATABASE", "/home/barto/mclibre/sqlite/clasico-agenda.sqlite"); // Ubicación de la base de datos
+define("SQLITE_TABLA",   "tabla");                                             // Nombre de la tabla
 
 // Configuración Tabla Agenda
 

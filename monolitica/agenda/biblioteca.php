@@ -1,6 +1,6 @@
 <?php
 /**
- * Bases de datos 3-2 - biblioteca.php
+ * Agenda (versión monolítica) - biblioteca.php
  *
  * @author    Bartolomé Sintes Marco <bartolome.sintes+mclibre@gmail.com>
  * @copyright 2018 Bartolomé Sintes Marco
@@ -103,7 +103,7 @@ function cabecera($texto, $menu)
     print "\n";
     print "<body>\n";
     print "  <header>\n";
-    print "    <h1>Bases de datos 3-2 - $texto</h1>\n";
+    print "    <h1>Agenda - $texto</h1>\n";
     print "\n";
     print "    <nav>\n";
     print "      <ul>\n";

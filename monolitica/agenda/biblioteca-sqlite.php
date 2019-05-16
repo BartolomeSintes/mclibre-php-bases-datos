@@ -1,6 +1,6 @@
 <?php
 /**
- * Bases de datos 3-2 - biblioteca-mysql.php
+ * Agenda (versión monolítica) - biblioteca-sqlite.php
  *
  * @author    Bartolomé Sintes Marco <bartolome.sintes+mclibre@gmail.com>
  * @copyright 2018 Bartolomé Sintes Marco
@@ -24,31 +24,26 @@
 
 // Variables globales
 
-$dbDb    = MYSQL_DATABASE;                     // Nombre de la base de datos
-$dbTabla = MYSQL_DATABASE . "." . MYSQL_TABLA; // Nombre de la tabla
+$dbDb    = SQLITE_DATABASE;   // Nombre de la base de datos
+$dbTabla = SQLITE_TABLA;      // Nombre de la tabla
 
 // Consultas
 
-$consultaCreaDb = "CREATE DATABASE $dbDb
-    CHARACTER SET utf8mb4
-    COLLATE utf8mb4_unicode_ci";
-
 $consultaCreaTabla = "CREATE TABLE $dbTabla (
-    id INTEGER UNSIGNED NOT NULL AUTO_INCREMENT,
+    id INTEGER PRIMARY KEY,
     nombre VARCHAR($tamNombre),
     apellidos VARCHAR($tamApellidos),
-    telefono VARCHAR($tamTelefono),
-    PRIMARY KEY(id)
+    telefono VARCHAR($tamTelefono)
     )";
 
-// Funciones comunes de bases de datos (MYSQL)
+// Funciones comunes de bases de datos (SQLITE)
 
 function conectaDb()
 {
+    global $dbDb;
+
     try {
-        $tmp = new PDO(MYSQL_HOST, MYSQL_USER, MYSQL_PASSWORD);
-        $tmp->setAttribute(PDO::MYSQL_ATTR_USE_BUFFERED_QUERY, true);
-        $tmp->exec("set names utf8mb4");
+        $tmp = new PDO("sqlite:" . $dbDb);
         return($tmp);
     } catch(PDOException $e) {
         cabecera("Error grave", MENU_PRINCIPAL);
@@ -62,30 +57,22 @@ function conectaDb()
 
 function borraTodo($db)
 {
-    global $dbDb, $consultaCreaDb, $consultaCreaTabla;
+    global $dbTabla, $consultaCreaTabla;
 
-    $consulta = "DROP DATABASE $dbDb";
+    $consulta = "DROP TABLE $dbTabla";
     if ($db->query($consulta)) {
-        print "    <p>Base de datos borrada correctamente.</p>\n";
+        print "    <p>Tabla borrada correctamente.</p>\n";
         print "\n";
     } else {
-        print "    <p>Error al borrar la base de datos.</p>\n";
+        print "    <p>Error al borrar la tabla.</p>\n";
         print "\n";
     }
-    $consulta = $consultaCreaDb;
+    $consulta = $consultaCreaTabla;
     if ($db->query($consulta)) {
-        print "    <p>Base de datos creada correctamente.</p>\n";
+        print "    <p>Tabla creada correctamente.</p>\n";
         print "\n";
-        $consulta = $consultaCreaTabla;
-        if ($db->query($consulta)) {
-            print "    <p>Tabla creada correctamente.</p>\n";
-            print "\n";
-        } else {
-            print "    <p>Error al crear la tabla.</p>\n";
-            print "\n";
-        }
     } else {
-        print "    <p>Error al crear la base de datos.</p>\n";
+        print "    <p>Error al crear la tabla.</p>\n";
         print "\n";
     }
 }

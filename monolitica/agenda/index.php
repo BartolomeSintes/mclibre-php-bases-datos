@@ -1,6 +1,6 @@
 <?php
 /**
- * Bases de datos 3-2 - borrar-todo-1.php
+ * Agenda (versión monolítica) - index.php
  *
  * @author    Bartolomé Sintes Marco <bartolome.sintes+mclibre@gmail.com>
  * @copyright 2018 Bartolomé Sintes Marco
@@ -24,15 +24,6 @@
 
 require_once "biblioteca.php";
 
-cabecera("Borrar todo 1", MENU_VOLVER);
-
-print "    <form action=\"borrar-todo-2.php\" method=\"" . FORM_METHOD . "\">\n";
-print "      <p>¿Está seguro?</p>\n";
-print "\n";
-print "      <p>\n";
-print "        <input type=\"submit\" value=\"Sí\" name=\"si\" />\n";
-print "        <input type=\"submit\" value=\"No\" name=\"no\" />\n";
-print "      </p>\n";
-print "    </form>\n";
+cabecera("Inicio", MENU_PRINCIPAL);
 
 pie();
