@@ -1,11 +1,11 @@
 <?php
 /**
- * Agenda - buscar-1.php
+ * MVC-NOJS - Agenda (Cliente) - buscar-1.php
  *
  * @author    Bartolomé Sintes Marco <bartolome.sintes+mclibre@gmail.com>
  * @copyright 2018 Bartolomé Sintes Marco
  * @license   http://www.gnu.org/licenses/agpl.txt AGPL 3 or later
- * @version   2018-12-09
+ * @version   2019-05-18
  * @link      http://www.mclibre.org
  *
  *  This program is free software: you can redistribute it and/or modify
@@ -24,15 +24,18 @@
 
 require_once "biblioteca.php";
 
-$db = conectaDb();
 cabecera("Buscar 1", MENU_VOLVER);
 
-$consulta = "SELECT COUNT(*) FROM $dbTabla";
-$result = $db->query($consulta);
-if (!$result) {
-    print "    <p>Error en la consulta.</p>\n";
-} elseif ($result->fetchColumn() == 0) {
-    print "    <p>No se ha creado todavía ningún registro.</p>\n";
+$consulta = http_build_query([
+    "accion"  => "contar-registros-todos",
+]);
+
+$respuesta1 = file_get_contents("$urlServidor?$consulta");
+$respuesta = json_decode($respuesta1, true);
+// print "<pre>"; print_r($respuesta); print "</pre>";
+
+if ($respuesta["resultado"] == NOK) {
+    print "    <p class=\"aviso\">{$respuesta["mensajes"][0]["texto"]}</p>\n";
 } else {
     print "    <form action=\"buscar-2.php\" method=\"" . FORM_METHOD . "\">\n";
     print "      <p>Escriba el criterio de búsqueda (caracteres o números):</p>\n";
@@ -55,6 +58,7 @@ if (!$result) {
     print "      </table>\n";
     print "\n";
     print "      <p>\n";
+    print "        <input type=\"hidden\" name=\"accion\" value=\"buscar-registros\" />\n";
     print "        <input type=\"submit\" value=\"Buscar\" />\n";
     print "        <input type=\"reset\" value=\"Reiniciar formulario\" />\n";
     print "      </p>\n";

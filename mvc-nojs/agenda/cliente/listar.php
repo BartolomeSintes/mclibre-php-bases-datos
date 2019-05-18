@@ -1,11 +1,11 @@
 <?php
 /**
- * Agenda - listar.php
+ * MVC-NOJS - Agenda (Cliente) - listar.php
  *
  * @author    Bartolomé Sintes Marco <bartolome.sintes+mclibre@gmail.com>
  * @copyright 2018 Bartolomé Sintes Marco
  * @license   http://www.gnu.org/licenses/agpl.txt AGPL 3 or later
- * @version   2018-12-09
+ * @version   2019-05-18
  * @link      http://www.mclibre.org
  *
  *  This program is free software: you can redistribute it and/or modify
@@ -30,7 +30,7 @@ $columna = recogeValores("columna", $columnas, "apellidos");
 $orden   = recogeValores("orden", $orden, "ASC");
 
 $consulta = http_build_query([
-    "accion"  => "listar",
+    "accion"  => "seleccionar-registros-todos",
     "columna" => $columna,
     "orden"   => $orden
 ]);
@@ -82,5 +82,4 @@ if ($respuesta["resultado"] == NOK) {
     print "    </table>\n";
 }
 
-$db = null;
 pie();

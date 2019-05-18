@@ -94,7 +94,7 @@ function cabecera($texto, $menu)
     print "  <meta charset=\"utf-8\" />\n";
     print "  <title>\n";
     print "    $texto. ";
-    print "    Bases de datos 3-2. Bases de datos (3).\n";
+    print "    Agenda. Monolítica. Bases de datos.\n";
     print "    Ejercicios. PHP. Bartolomé Sintes Marco. www.mclibre.org\n";
     print "  </title>\n";
     print "  <meta name=\"viewport\" content=\"width=device-width, initial-scale=1.0\" />\n";

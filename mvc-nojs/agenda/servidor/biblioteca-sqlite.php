@@ -1,11 +1,11 @@
 <?php
 /**
- * Agenda - biblioteca-sqlite.php
+ * MVC-NOJS - Agenda (Servidor) - biblioteca-sqlite.php
  *
  * @author    Bartolomé Sintes Marco <bartolome.sintes+mclibre@gmail.com>
  * @copyright 2018 Bartolomé Sintes Marco
  * @license   http://www.gnu.org/licenses/agpl.txt AGPL 3 or later
- * @version   2018-12-09
+ * @version   2019-05-18
  * @link      http://www.mclibre.org
  *
  *  This program is free software: you can redistribute it and/or modify
@@ -44,14 +44,11 @@ function conectaDb()
 
     try {
         $tmp = new PDO("sqlite:" . $dbDb);
-        return($tmp);
+        $resultado = ["resultado" => OK, "mensajes" => [["resultado" => "OK", "texto" => "Conexión con la base de datos realizada."]]];
+        return([$resultado, $tmp]);
     } catch(PDOException $e) {
-        cabecera("Error grave", MENU_PRINCIPAL);
-        print "    <p>Error: No puede conectarse con la base de datos.</p>\n";
-        print "\n";
-        print "    <p>Error: " . $e->getMessage() . "</p>\n";
-        pie();
-        exit();
+        $resultado = ["resultado" => NOK, "mensajes" => [["resultado" => "NOK", "texto" => "No es posible conectar con la base de datos."]]];
+        return [$resultado, null];
     }
 }
 
@@ -60,11 +57,12 @@ function borraTodo($db)
     global $dbTabla, $consultaCreaTabla;
 
     $mensajes = [];
-    $todoOk = OK;
+    $todoOk = NOK;
 
     $consulta = "DROP TABLE $dbTabla";
     if ($db->query($consulta)) {
         $mensajes[] = ["resultado" => OK, "texto" => "Tabla borrada correctamente."];
+        $todoOk = OK;
     } else {
         $mensajes[] = ["resultado" => NOK, "texto" => "Error al borrar la tabla."];
         $todoOk = NOK;
@@ -72,10 +70,12 @@ function borraTodo($db)
     $consulta = $consultaCreaTabla;
     if ($db->query($consulta)) {
         $mensajes[] = ["resultado" => OK, "texto" => "Tabla creada correctamente."];
+        $todoOk = OK;
     } else {
         $mensajes[] = ["resultado" => NOK, "texto" => "Error al borrar la tabla."];
         $todoOk = NOK;
     }
 
     return ["resultado" => $todoOk, "mensajes" => $mensajes];
+
 }

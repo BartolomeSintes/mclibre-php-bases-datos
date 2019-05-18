@@ -1,11 +1,11 @@
 <?php
 /**
- * Agenda - modificar-2.php
+ * MVC-NOJS - Agenda (Cliente) - modificar-2.php
  *
  * @author    Bartolomé Sintes Marco <bartolome.sintes+mclibre@gmail.com>
  * @copyright 2018 Bartolomé Sintes Marco
  * @license   http://www.gnu.org/licenses/agpl.txt AGPL 3 or later
- * @version   2018-12-09
+ * @version   2019-05-18
  * @link      http://www.mclibre.org
  *
  *  This program is free software: you can redistribute it and/or modify
@@ -29,8 +29,8 @@ cabecera("Modificar 2", MENU_VOLVER);
 $id = recoge("id");
 
 $consulta = http_build_query([
-    "accion"  => "seleccionar",
-    "id" => $id
+    "accion" => recoge("accion"),
+    "id"     => $id
 ]);
 
 $respuesta1 = file_get_contents("$urlServidor?$consulta");
@@ -62,7 +62,7 @@ if ($respuesta["resultado"] == NOK) {
     print "      </table>\n";
     print "\n";
     print "      <p>\n";
-    print "        <input type=\"hidden\" name=\"accion\" value=\"modificar\" />\n";
+    print "        <input type=\"hidden\" name=\"accion\" value=\"modificar-registro\" />\n";
     print "        <input type=\"hidden\" name=\"id\" value=\"$id\" />\n";
     print "        <input type=\"submit\" value=\"Actualizar\" />\n";
     print "        <input type=\"reset\" value=\"Reiniciar formulario\" />\n";
@@ -70,5 +70,4 @@ if ($respuesta["resultado"] == NOK) {
     print "    </form>\n";
 }
 
-$db = null;
 pie();

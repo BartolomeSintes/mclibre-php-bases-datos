@@ -1,11 +1,11 @@
 <?php
 /**
- * Agenda - biblioteca.php
+ * MVC-NOJS - Agenda (Cliente) - biblioteca.php
  *
  * @author    Bartolomé Sintes Marco <bartolome.sintes+mclibre@gmail.com>
  * @copyright 2018 Bartolomé Sintes Marco
  * @license   http://www.gnu.org/licenses/agpl.txt AGPL 3 or later
- * @version   2018-12-09
+ * @version   2019-05-18
  * @link      http://www.mclibre.org
  *
  *  This program is free software: you can redistribute it and/or modify
@@ -33,7 +33,7 @@ define("NOK", 0);
 // PATH: Directorio base de la aplicación
 $camino = "http://" . $_SERVER["HTTP_HOST"] . dirname($_SERVER["PHP_SELF"]) . "/";
 $directorio = basename($camino);
-$urlServidor = preg_replace("/" . $directorio . "\/$/", "", $camino) . "servidor/servidor.php";
+$urlServidor = preg_replace("/" . $directorio . "\/$/", "", $camino) . "servidor/index.php";
 
 define("MYSQL",          "MySQL");         // Base de datos MySQL
 define("SQLITE",         "SQLite");        // Base de datos SQLITE
@@ -94,7 +94,7 @@ function cabecera($texto, $menu)
     print "  <meta charset=\"utf-8\" />\n";
     print "  <title>\n";
     print "    $texto. ";
-    print "    Bases de datos 3-2. Bases de datos (3).\n";
+    print "    Agenda. MVC-NOJS. Bases de datos.\n";
     print "    Ejercicios. PHP. Bartolomé Sintes Marco. www.mclibre.org\n";
     print "  </title>\n";
     print "  <meta name=\"viewport\" content=\"width=device-width, initial-scale=1.0\" />\n";
@@ -133,7 +133,7 @@ function pie()
     print "  <footer>\n";
     print "    <p class=\"ultmod\">\n";
     print "      Última modificación de esta página:\n";
-    print "      <time datetime=\"2018-12-09\">9 de diciembre de 2018</time>\n";
+    print "      <time datetime=\"2019-05-18\">18 de mayo de 2019</time>\n";
     print "    </p>\n";
     print "\n";
     print "    <p class=\"licencia\">\n";

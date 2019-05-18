@@ -1,11 +1,11 @@
 <?php
 /**
- * Agenda - buscar-2.php
+ * MVC-NOJS - Agenda (Cliente) - buscar-2.php
  *
  * @author    Bartolomé Sintes Marco <bartolome.sintes+mclibre@gmail.com>
  * @copyright 2018 Bartolomé Sintes Marco
  * @license   http://www.gnu.org/licenses/agpl.txt AGPL 3 or later
- * @version   2018-12-09
+ * @version   2019-05-18
  * @link      http://www.mclibre.org
  *
  *  This program is free software: you can redistribute it and/or modify
@@ -24,7 +24,6 @@
 
 require_once "biblioteca.php";
 
-$db = conectaDb();
 cabecera("Buscar 2", MENU_VOLVER);
 
 $nombre    = recoge("nombre");
@@ -33,68 +32,61 @@ $telefono  = recoge("telefono");
 $columna   = recogeValores("columna", $columnas, "apellidos");
 $orden     = recogeValores("orden", $orden, "ASC");
 
-$consulta = "SELECT COUNT(*) FROM $dbTabla
-    WHERE nombre LIKE :nombre
-    AND apellidos LIKE :apellidos
-    AND telefono LIKE :telefono";
-$result = $db->prepare($consulta);
-$result->execute([":nombre" => "%$nombre%", ":apellidos" => "%$apellidos%", ":telefono" => "%$telefono%"]);
-if (!$result) {
-    print "    <p>Error en la consulta.</p>\n";
-} elseif ($result->fetchColumn() == 0) {
-    print "    <p>No se han encontrado registros.</p>\n";
+$consulta = http_build_query([
+    "accion"    => recoge("accion"),
+    "nombre"    => $nombre,
+    "apellidos" => $apellidos,
+    "telefono"  => $telefono,
+    "columna"   => $columna,
+    "orden"     => $orden
+]);
+
+$respuesta1 = file_get_contents("$urlServidor?$consulta");
+$respuesta = json_decode($respuesta1, true);
+// print "<pre>"; print_r($respuesta); print "</pre>";
+
+if ($respuesta["resultado"] == NOK) {
+    print "    <p class=\"aviso\">{$respuesta["mensajes"][0]["texto"]}</p>\n";
 } else {
-    $consulta = "SELECT * FROM $dbTabla
-        WHERE nombre LIKE :nombre
-        AND apellidos LIKE :apellidos
-        AND telefono LIKE :telefono
-        ORDER BY $columna $orden";
-    $result = $db->prepare($consulta);
-    $result->execute([":nombre" => "%$nombre%", ":apellidos" => "%$apellidos%", ":telefono" => "%$telefono%"]);
-    if (!$result) {
-        print "    <p>Error en la consulta.</p>\n";
-    } else {
-        $datos = "nombre=$nombre&amp;apellidos=$apellidos&amp;telefono=$telefono";
-        print "    <p>Registros encontrados:</p>\n";
-        print "\n";
-        print "    <table class=\"conborde franjas\">\n";
-        print "      <thead>\n";
+    $datos = "accion=buscar-registros&amp;nombre=$nombre&amp;apellidos=$apellidos&amp;telefono=$telefono";
+    print "    <p>Registros encontrados:</p>\n";
+    print "\n";
+    print "    <table class=\"conborde franjas\">\n";
+    print "      <thead>\n";
+    print "        <tr>\n";
+    print "          <th>\n";
+    print "            <a href=\"$_SERVER[PHP_SELF]?$datos&amp;columna=nombre&amp;orden=ASC\">\n";
+    print "              <img src=\"abajo.svg\" alt=\"A-Z\" title=\"A-Z\" width=\"15\" height=\"12\" /></a>\n";
+    print "            Nombre\n";
+    print "            <a href=\"$_SERVER[PHP_SELF]?$datos&amp;columna=nombre&amp;orden=DESC\">\n";
+    print "              <img src=\"arriba.svg\" alt=\"Z-A\" title=\"Z-A\" width=\"15\" height=\"12\" /></a>\n";
+    print "          </th>\n";
+    print "          <th>\n";
+    print "            <a href=\"$_SERVER[PHP_SELF]?$datos&amp;columna=apellidos&amp;orden=ASC\">\n";
+    print "              <img src=\"abajo.svg\" alt=\"A-Z\" title=\"A-Z\" width=\"15\" height=\"12\" /></a>\n";
+    print "            Apellidos\n";
+    print "            <a href=\"$_SERVER[PHP_SELF]?$datos&amp;columna=apellidos&amp;orden=DESC\">\n";
+    print "              <img src=\"arriba.svg\" alt=\"Z-A\" title=\"Z-A\" width=\"15\" height=\"12\" /></a>\n";
+    print "          </th>\n";
+    print "          <th>\n";
+    print "            <a href=\"$_SERVER[PHP_SELF]?$datos&amp;columna=telefono&amp;orden=ASC\">\n";
+    print "              <img src=\"abajo.svg\" alt=\"A-Z\" title=\"A-Z\" width=\"15\" height=\"12\" /></a>\n";
+    print "            Teléfono\n";
+    print "            <a href=\"$_SERVER[PHP_SELF]?$datos&amp;columna=telefono&amp;orden=DESC\">\n";
+    print "              <img src=\"arriba.svg\" alt=\"Z-A\" title=\"Z-A\" width=\"15\" height=\"12\" /></a>\n";
+    print "          </th>\n";
+    print "        </tr>\n";
+    print "      </thead>\n";
+    print "      <tbody>\n";
+    foreach ($respuesta["registros"] as $valor) {
         print "        <tr>\n";
-        print "          <th>\n";
-        print "            <a href=\"$_SERVER[PHP_SELF]?$datos&amp;columna=nombre&amp;orden=ASC\">\n";
-        print "              <img src=\"abajo.svg\" alt=\"A-Z\" title=\"A-Z\" width=\"15\" height=\"12\" /></a>\n";
-        print "            Nombre\n";
-        print "            <a href=\"$_SERVER[PHP_SELF]?$datos&amp;columna=nombre&amp;orden=DESC\">\n";
-        print "              <img src=\"arriba.svg\" alt=\"Z-A\" title=\"Z-A\" width=\"15\" height=\"12\" /></a>\n";
-        print "          </th>\n";
-        print "          <th>\n";
-        print "            <a href=\"$_SERVER[PHP_SELF]?$datos&amp;columna=apellidos&amp;orden=ASC\">\n";
-        print "              <img src=\"abajo.svg\" alt=\"A-Z\" title=\"A-Z\" width=\"15\" height=\"12\" /></a>\n";
-        print "            Apellidos\n";
-        print "            <a href=\"$_SERVER[PHP_SELF]?$datos&amp;columna=apellidos&amp;orden=DESC\">\n";
-        print "              <img src=\"arriba.svg\" alt=\"Z-A\" title=\"Z-A\" width=\"15\" height=\"12\" /></a>\n";
-        print "          </th>\n";
-        print "          <th>\n";
-        print "            <a href=\"$_SERVER[PHP_SELF]?$datos&amp;columna=telefono&amp;orden=ASC\">\n";
-        print "              <img src=\"abajo.svg\" alt=\"A-Z\" title=\"A-Z\" width=\"15\" height=\"12\" /></a>\n";
-        print "            Teléfono\n";
-        print "            <a href=\"$_SERVER[PHP_SELF]?$datos&amp;columna=telefono&amp;orden=DESC\">\n";
-        print "              <img src=\"arriba.svg\" alt=\"Z-A\" title=\"Z-A\" width=\"15\" height=\"12\" /></a>\n";
-        print "          </th>\n";
+        print "          <td>$valor[nombre]</td>\n";
+        print "          <td>$valor[apellidos]</td>\n";
+        print "          <td>$valor[telefono]</td>\n";
         print "        </tr>\n";
-        print "      </thead>\n";
-        print "      <tbody>\n";
-        foreach ($result as $valor) {
-            print "        <tr>\n";
-            print "          <td>$valor[nombre]</td>\n";
-            print "          <td>$valor[apellidos]</td>\n";
-            print "          <td>$valor[telefono]</td>\n";
-            print "        </tr>\n";
-        }
-        print "      </tbody>\n";
-        print "    </table>\n";
     }
+    print "      </tbody>\n";
+    print "    </table>\n";
 }
 
-$db = null;
 pie();

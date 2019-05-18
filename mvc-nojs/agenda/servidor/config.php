@@ -1,11 +1,11 @@
 <?php
 /**
- * Agenda - config.php
+ * MVC-NOJS - Agenda (Servidor) - config.php
  *
  * @author    Bartolomé Sintes Marco <bartolome.sintes+mclibre@gmail.com>
  * @copyright 2018 Bartolomé Sintes Marco
  * @license   http://www.gnu.org/licenses/agpl.txt AGPL 3 or later
- * @version   2018-12-09
+ * @version   2019-05-18
  * @link      http://www.mclibre.org
  *
  *  This program is free software: you can redistribute it and/or modify
@@ -41,7 +41,7 @@ define("SQLITE_TABLA",   "tabla");                                       // Nomb
 
 // Configuración Tabla Agenda
 
-define("MAX_REG_TABLA",  20); // Número máximo de registros en la tabla
+define("MAX_REG_TABLA", 10); // Número máximo de registros en la tabla
 $tamNombre    = 40;           // Tamaño de la columna Nombre
 $tamApellidos = 60;           // Tamaño de la columna Apellidos
 $tamTelefono  = 10;           // Tamaño de la columna Teléfono
