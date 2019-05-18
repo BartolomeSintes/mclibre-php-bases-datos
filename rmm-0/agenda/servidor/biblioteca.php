@@ -1,6 +1,6 @@
 <?php
 /**
- * MVC-NOJS - Agenda (Servidor) - biblioteca.php
+ * RMM-0 - Agenda (Servidor) - biblioteca.php
  *
  * @author    Bartolomé Sintes Marco <bartolome.sintes+mclibre@gmail.com>
  * @copyright 2018 Bartolomé Sintes Marco
@@ -24,17 +24,11 @@
 
 // Constantes y variables globales
 
-define("GET",    "get");                   // Formularios se envían con GET
-define("POST",   "post");                  // Formularios se envían con POST
-
 define("OK", 1);
 define("NOK", 0);
 
 define("MYSQL",          "MySQL");         // Base de datos MySQL
 define("SQLITE",         "SQLite");        // Base de datos SQLITE
-
-define("MENU_PRINCIPAL", "menuPrincipal"); // Menú principal
-define("MENU_VOLVER",    "menuVolver");    // Menú Volver a inicio
 
 $columnas = [                              // Nombre de las columnas de la tabla
     "nombre",

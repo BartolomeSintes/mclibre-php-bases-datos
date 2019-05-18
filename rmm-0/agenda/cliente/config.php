@@ -1,6 +1,6 @@
 <?php
 /**
- * MVC-NOJS - Agenda (Cliente) - config.php
+ * RMM-0 - Agenda (Cliente) - config.php
  *
  * @author    Bartolomé Sintes Marco <bartolome.sintes+mclibre@gmail.com>
  * @copyright 2018 Bartolomé Sintes Marco
@@ -28,7 +28,6 @@ define("FORM_METHOD",    GET);     // Valores posibles: GET o POST
 
 // Configuración Tabla Agenda
 
-define("MAX_REG_TABLA",  20); // Número máximo de registros en la tabla
 $tamNombre    = 40;           // Tamaño de la columna Nombre
 $tamApellidos = 60;           // Tamaño de la columna Apellidos
 $tamTelefono  = 10;           // Tamaño de la columna Teléfono

@@ -1,6 +1,6 @@
 <?php
 /**
- * MVC-NOJS - Agenda (Cliente) - biblioteca.php
+ * RMM-0 - Agenda (Cliente) - biblioteca.php
  *
  * @author    Bartolomé Sintes Marco <bartolome.sintes+mclibre@gmail.com>
  * @copyright 2018 Bartolomé Sintes Marco
@@ -34,9 +34,6 @@ define("NOK", 0);
 $camino = "http://" . $_SERVER["HTTP_HOST"] . dirname($_SERVER["PHP_SELF"]) . "/";
 $directorio = basename($camino);
 $urlServidor = preg_replace("/" . $directorio . "\/$/", "", $camino) . "servidor/index.php";
-
-define("MYSQL",          "MySQL");         // Base de datos MySQL
-define("SQLITE",         "SQLite");        // Base de datos SQLITE
 
 define("MENU_PRINCIPAL", "menuPrincipal"); // Menú principal
 define("MENU_VOLVER",    "menuVolver");    // Menú Volver a inicio
@@ -94,7 +91,7 @@ function cabecera($texto, $menu)
     print "  <meta charset=\"utf-8\" />\n";
     print "  <title>\n";
     print "    $texto. ";
-    print "    Agenda. MVC-NOJS. Bases de datos.\n";
+    print "    Agenda. RMM-0. Bases de datos.\n";
     print "    Ejercicios. PHP. Bartolomé Sintes Marco. www.mclibre.org\n";
     print "  </title>\n";
     print "  <meta name=\"viewport\" content=\"width=device-width, initial-scale=1.0\" />\n";

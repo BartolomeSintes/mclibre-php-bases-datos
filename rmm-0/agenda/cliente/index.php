@@ -1,6 +1,6 @@
 <?php
 /**
- * MVC-NOJS - Agenda (Cliente) - index.php
+ * RMM-0 - Agenda (Cliente) - index.php
  *
  * @author    Bartolomé Sintes Marco <bartolome.sintes+mclibre@gmail.com>
  * @copyright 2018 Bartolomé Sintes Marco
