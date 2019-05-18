@@ -28,15 +28,15 @@ $dbMotor = SQLITE;     // Valores posibles: MYSQL o SQLITE
 
 // Configuración para MYSQL
 
-define("MYSQL_HOST",     "mysql:host=localhost");   // Nombre de host
-define("MYSQL_USER",     "root");                   // Nombre de usuario
-define("MYSQL_PASSWORD", "");                       // Contraseña de usuario
-define("MYSQL_DATABASE", "mclibre_base_datos_3_2"); // Nombre de la base de datos
-define("MYSQL_TABLA",    "tabla");                  // Nombre de la tabla
+define("MYSQL_HOST",     "mysql:host=localhost"); // Nombre de host
+define("MYSQL_USER",     "root");                 // Nombre de usuario
+define("MYSQL_PASSWORD", "");                     // Contraseña de usuario
+define("MYSQL_DATABASE", "rmm_0_agenda");         // Nombre de la base de datos
+define("MYSQL_TABLA",    "tabla");                // Nombre de la tabla
 
 // Configuración para SQLite
 
-define("SQLITE_DATABASE", "/home/barto/mclibre/sqlite/cliente-servidor-agenda.sqlite"); // Ubicación de la base de datos
+define("SQLITE_DATABASE", "/home/barto/mclibre/sqlite/rmm-0-agenda.sqlite"); // Ubicación de la base de datos
 define("SQLITE_TABLA",   "tabla");                                       // Nombre de la tabla
 
 // Configuración Tabla Agenda

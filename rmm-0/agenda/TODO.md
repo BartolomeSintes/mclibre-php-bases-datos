@@ -12,3 +12,5 @@
   ¿la manera cómo la utilizo es segura o no?
 * 2019-05-18. Podría hacer que los listados (listar, borrar-1, buscar-2, modificar-1) se construyeran a partir de la información recibida, para que fuera fácil reutilizarlos con otras tablas.
   ¿Podría hacer algo parecido con los formularios (insertar-1, modificar-2, modificar-2), que también se construyeran a partir de la información recibida?
+* 2019-05-18. Al no poder conectar con la base de datos podría devolver mensajes más concretos (servidor no disponible, usuario y contraseña erróneos, etc.)
+* 2019-05-18. Confirmar que cuando una llamada hace varias acciones, el "resultado" global es OK si todas las acciones individuales son OK
