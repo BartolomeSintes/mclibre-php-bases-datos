@@ -54,35 +54,23 @@ if ($respuesta["resultado"] == NOK) {
     print "    <table class=\"conborde franjas\">\n";
     print "      <thead>\n";
     print "        <tr>\n";
-    print "          <th>\n";
-    print "            <a href=\"$_SERVER[PHP_SELF]?$datos&amp;columna=nombre&amp;orden=ASC\">\n";
-    print "              <img src=\"abajo.svg\" alt=\"A-Z\" title=\"A-Z\" width=\"15\" height=\"12\" /></a>\n";
-    print "            Nombre\n";
-    print "            <a href=\"$_SERVER[PHP_SELF]?$datos&amp;columna=nombre&amp;orden=DESC\">\n";
-    print "              <img src=\"arriba.svg\" alt=\"Z-A\" title=\"Z-A\" width=\"15\" height=\"12\" /></a>\n";
-    print "          </th>\n";
-    print "          <th>\n";
-    print "            <a href=\"$_SERVER[PHP_SELF]?$datos&amp;columna=apellidos&amp;orden=ASC\">\n";
-    print "              <img src=\"abajo.svg\" alt=\"A-Z\" title=\"A-Z\" width=\"15\" height=\"12\" /></a>\n";
-    print "            Apellidos\n";
-    print "            <a href=\"$_SERVER[PHP_SELF]?$datos&amp;columna=apellidos&amp;orden=DESC\">\n";
-    print "              <img src=\"arriba.svg\" alt=\"Z-A\" title=\"Z-A\" width=\"15\" height=\"12\" /></a>\n";
-    print "          </th>\n";
-    print "          <th>\n";
-    print "            <a href=\"$_SERVER[PHP_SELF]?$datos&amp;columna=telefono&amp;orden=ASC\">\n";
-    print "              <img src=\"abajo.svg\" alt=\"A-Z\" title=\"A-Z\" width=\"15\" height=\"12\" /></a>\n";
-    print "            Teléfono\n";
-    print "            <a href=\"$_SERVER[PHP_SELF]?$datos&amp;columna=telefono&amp;orden=DESC\">\n";
-    print "              <img src=\"arriba.svg\" alt=\"Z-A\" title=\"Z-A\" width=\"15\" height=\"12\" /></a>\n";
-    print "          </th>\n";
+    foreach ($respuesta["estructura"]["columnas"] as $columna) {
+        print "          <th>\n";
+        print "            <a href=\"$_SERVER[PHP_SELF]?$datos&aamp;columna=$columna[0]&amp;orden=ASC\">\n";
+        print "              <img src=\"abajo.svg\" alt=\"A-Z\" title=\"A-Z\" width=\"15\" height=\"12\" /></a>\n";
+        print "            $columna[2]\n";
+        print "            <a href=\"$_SERVER[PHP_SELF]?$datos&aamp;columna=$columna[0]&amp;orden=DESC\">\n";
+        print "              <img src=\"arriba.svg\" alt=\"Z-A\" title=\"Z-A\" width=\"15\" height=\"12\" /></a>\n";
+        print "          </th>\n";
+    }
     print "        </tr>\n";
     print "      </thead>\n";
     print "      <tbody>\n";
     foreach ($respuesta["registros"] as $valor) {
         print "        <tr>\n";
-        print "          <td>$valor[nombre]</td>\n";
-        print "          <td>$valor[apellidos]</td>\n";
-        print "          <td>$valor[telefono]</td>\n";
+        foreach ($respuesta["estructura"]["columnas"] as $columna) {
+            print "          <td>{$valor[$columna[0]]}</td>\n";
+        }
         print "        </tr>\n";
     }
     print "      </tbody>\n";

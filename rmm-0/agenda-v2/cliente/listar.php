@@ -42,25 +42,16 @@ $respuesta = json_decode($respuesta1, true);
 if ($respuesta["resultado"] == NOK) {
     print "    <p class=\"aviso\">{$respuesta["mensajes"][0]["texto"]}</p>\n";
 } else {
-    $consulta = http_build_query([
-        "accion"  => "info-tabla"
-    ]);
-
-    $estructra1 = file_get_contents("$urlServidor?$consulta");
-    $estructura = json_decode($estructra1, true);
-    // print "<pre>"; print_r($estructura); print "</pre>";
-
-    // FALTA COMPROBACIÓN QUE LLEGA OK
     print "    <p>Listado completo de registros:</p>\n";
     print "\n";
     print "    <table class=\"conborde franjas\">\n";
     print "      <thead>\n";
     print "        <tr>\n";
-    foreach ($estructura["estructura"]["columnas"] as $columna) {
+    foreach ($respuesta["estructura"]["columnas"] as $columna) {
         print "          <th>\n";
         print "            <a href=\"$_SERVER[PHP_SELF]?columna=$columna[0]&amp;orden=ASC\">\n";
         print "              <img src=\"abajo.svg\" alt=\"A-Z\" title=\"A-Z\" width=\"15\" height=\"12\" /></a>\n";
-        print "            $columna[0]\n";
+        print "            $columna[2]\n";
         print "            <a href=\"$_SERVER[PHP_SELF]?columna=$columna[0]&amp;orden=DESC\">\n";
         print "              <img src=\"arriba.svg\" alt=\"Z-A\" title=\"Z-A\" width=\"15\" height=\"12\" /></a>\n";
         print "          </th>\n";
@@ -70,7 +61,7 @@ if ($respuesta["resultado"] == NOK) {
     print "      <tbody>\n";
     foreach ($respuesta["registros"] as $valor) {
         print "        <tr>\n";
-        foreach ($estructura["estructura"]["columnas"] as $columna) {
+        foreach ($respuesta["estructura"]["columnas"] as $columna) {
             print "          <td>{$valor[$columna[0]]}</td>\n";
         }
         print "        </tr>\n";

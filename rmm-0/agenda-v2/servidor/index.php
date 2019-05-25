@@ -35,7 +35,12 @@ if ($db == null) {
     $todoOk = NOK;
     $mensajes = [];
     $registros = [];
-    $estructura = [];
+    $estructura["columnas"] = [
+        ["nombre",    $tamNombre,    "Nombre"],
+        ["apellidos", $tamApellidos, "Apellidos"],
+        ["telefono",  $tamTelefono,  "Teléfono"]
+    ];
+    $estructura["id"] = "id";
 
     $accion = recoge("accion");
 
@@ -43,14 +48,6 @@ if ($db == null) {
         $resultado = borraTodo($db);
         $todoOk = $resultado["resultado"];
         $mensajes = $resultado["mensajes"];
-    } elseif ($accion == "info-tabla") {
-        $todoOk = OK;
-        $estructura["columnas"] = [
-            ["nombre",    $tamNombre],
-            ["apellidos", $tamApellidos],
-            ["telefono",  $tamTelefono]
-        ];
-        $estructura["id"] = "id";
     } elseif ($accion == "comprobar-limite-registros") {
         $consulta = "SELECT COUNT(*) FROM $dbTabla";
         $result = $db->query($consulta);
