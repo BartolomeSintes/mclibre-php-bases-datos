@@ -25,7 +25,7 @@
 // Constantes y variables globales
 
 define("OK", 1);
-define("NOK", 0);
+define("KO", 0);
 
 define("MYSQL",          "MySQL");         // Base de datos MySQL
 define("SQLITE",         "SQLite");        // Base de datos SQLITE
@@ -92,22 +92,22 @@ function comprueba($campo, $valor)
 
     if ($campo == "nombre") {
         if (mb_strlen($valor, "UTF-8") > $tamNombre) {
-            $mensajes[] = ["resultado" => NOK, "texto" => "El nombre no puede tener más de $tamNombre caracteres."];
-            $todoOk = NOK;
+            $mensajes[] = ["resultado" => KO, "texto" => "El nombre no puede tener más de $tamNombre caracteres."];
+            $todoOk = KO;
         } else {
             $mensajes[] = ["resultado" => OK, "texto" => "El nombre parece admisible."];
         }
     } elseif ($campo == "apellidos") {
         if (mb_strlen($valor, "UTF-8") > $tamApellidos) {
-            $mensajes[] = ["resultado" => NOK, "texto" => "Los apellidos no pueden tener más de $tamApellidos caracteres."];
-            $todoOk = NOK;
+            $mensajes[] = ["resultado" => KO, "texto" => "Los apellidos no pueden tener más de $tamApellidos caracteres."];
+            $todoOk = KO;
         } else {
             $mensajes[] = ["resultado" => OK, "texto" => "Los apellidos parecen admisibles."];
         }
     } elseif ($campo == "telefono") {
         if (mb_strlen("telefono", "UTF-8") > $tamTelefono) {
-            $mensajes[] = ["resultado" => NOK, "texto" => "El teléfono no puede tener más de $tamTelefono caracteres."];
-            $todoOk = NOK;
+            $mensajes[] = ["resultado" => KO, "texto" => "El teléfono no puede tener más de $tamTelefono caracteres."];
+            $todoOk = KO;
         } else {
             $mensajes[] = ["resultado" => OK, "texto" => "El teléfono parece admisible."];
         }

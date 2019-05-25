@@ -14,7 +14,7 @@
 * 2019-05-18. Confirmar que cuando una llamada hace varias acciones, el "resultado" global es OK si todas las acciones individuales son OK
 * 2019-05-18. No sé si la dirección del servidor debería estar en config.php
 
-* 2019-05-25. Tal y como está ahora, la respuesta del servidor tiene un campo "resultado", que puede ser OKO o NOK. ¿Qué pasa si no se recibe ese campo? ¿cómo tendría que reaccionar la página?
+* 2019-05-25. Tal y como está ahora, la respuesta del servidor tiene un campo "resultado", que puede ser OKO o KO. ¿Qué pasa si no se recibe ese campo? ¿cómo tendría que reaccionar la página?
 * 2019-05-25. "estructura"/"columnas" no da nombre a los campos, [0] es el nombre en la tabla, [1] es el tamaño, etc. ¿debería poner nombre a esos campos?
 * 2019-05-25. Al mostrar la tabla de registros, las columnas van en el orden que aparecen en el json.  ¿Siempre voy a querer ese orden?
 * 2019-05-25. ¿Cómo poner autofocus en el primer campo del formulario? ¿Añadiendo "autofocus" en "estructura"?

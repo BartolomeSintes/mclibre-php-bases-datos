@@ -23,8 +23,8 @@ Petición
   * "id" (puede ser un valor o una matriz de valores), "nombre", "apellidos", "telefono", "columna", "orden"
 
 Respuesta
-* "resultado": OK / NOK
-* "mensajes": matriz de mensajes, cada mensaje es una matriz ["resultado" : OK/NOK, "texto" : texto]
+* "resultado": OK / KO
+* "mensajes": matriz de mensajes, cada mensaje es una matriz ["resultado" : OK/KO, "texto" : texto]
 * "registros": matriz de registros
   * [valor numérico] para consultas COUNT
   * [columna1 : valor1, columna2 : valor2, etc.]

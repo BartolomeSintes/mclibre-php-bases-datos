@@ -52,7 +52,7 @@ function conectaDb()
         $resultado = ["resultado" => OK, "mensajes" => [["resultado" => "OK", "texto" => "Conexión con la base de datos realizada."]]];
         return ([$resultado, $tmp]);
     } catch (PDOException $e) {
-        $resultado = ["resultado" => NOK, "mensajes" => [["resultado" => "NOK", "texto" => "No es posible conectar con la base de datos."]]];
+        $resultado = ["resultado" => KO, "mensajes" => [["resultado" => "KO", "texto" => "No es posible conectar con la base de datos."]]];
         return [$resultado, null];
     }
 }
@@ -62,15 +62,15 @@ function borraTodo($db)
     global $dbDb, $consultaCreaDb, $consultaCreaTabla;
 
     $mensajes = [];
-    $todoOk = NOK;
+    $todoOk = KO;
 
     $consulta = "DROP DATABASE $dbDb";
     if ($db->query($consulta)) {
         $mensajes[] = ["resultado" => OK, "texto" => "Base de datos borrada correctamente."];
         $todoOk1 = OK;
     } else {
-        $mensajes[] = ["resultado" => NOK, "texto" => "Error al borrar la base de datos."];
-        $todoOk1 = NOK;
+        $mensajes[] = ["resultado" => KO, "texto" => "Error al borrar la base de datos."];
+        $todoOk1 = KO;
     }
 
     $consulta = $consultaCreaDb;
@@ -82,13 +82,13 @@ function borraTodo($db)
             $mensajes[] = ["resultado" => OK, "texto" => "Tabla creada correctamente."];
             $todoOk3 = OK;
         } else {
-            $mensajes[] = ["resultado" => NOK, "texto" => "Error al crear la tabla."];
-            $todoOk3 = NOK;
+            $mensajes[] = ["resultado" => KO, "texto" => "Error al crear la tabla."];
+            $todoOk3 = KO;
         }
     } else {
-        $mensajes[] = ["resultado" => NOK, "texto" => "Error al crear la base de datos."];
-        $todoOk2 = NOK;
-        $todoOk3 = NOK;
+        $mensajes[] = ["resultado" => KO, "texto" => "Error al crear la base de datos."];
+        $todoOk2 = KO;
+        $todoOk3 = KO;
     }
 
     if ($todoOk1 == OK && $todoOk2 == OK && $todoOk3 == OK) {

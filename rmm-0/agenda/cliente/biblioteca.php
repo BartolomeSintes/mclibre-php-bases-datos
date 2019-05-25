@@ -28,7 +28,7 @@ define("GET",    "get");                   // Formularios se envían con GET
 define("POST",   "post");                  // Formularios se envían con POST
 
 define("OK", 1);
-define("NOK", 0);
+define("KO", 0);
 
 // PATH: Directorio base de la aplicación
 $camino = "http://" . $_SERVER["HTTP_HOST"] . dirname($_SERVER["PHP_SELF"]) . "/";

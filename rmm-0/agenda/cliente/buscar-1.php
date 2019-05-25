@@ -34,7 +34,7 @@ $respuesta1 = file_get_contents("$urlServidor?$consulta");
 $respuesta = json_decode($respuesta1, true);
 // print "<pre>"; print_r($respuesta); print "</pre>";
 
-if ($respuesta["resultado"] == NOK) {
+if ($respuesta["resultado"] == KO) {
     print "    <p class=\"aviso\">{$respuesta["mensajes"][0]["texto"]}</p>\n";
 } else {
     print "    <form action=\"buscar-2.php\" method=\"" . FORM_METHOD . "\">\n";

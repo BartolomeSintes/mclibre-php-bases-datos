@@ -27,12 +27,12 @@ require_once "biblioteca.php";
 [$resultado, $db] = conectaDb();
 
 if ($db == null) {
-    $todoOk = NOK;
+    $todoOk = KO;
     $mensajes = $resultado["mensajes"];
     $registros = [];
     $estructura = [];
 } else {
-    $todoOk = NOK;
+    $todoOk = KO;
     $mensajes = [];
     $registros = [];
     $estructura["columnas"] = [
@@ -52,11 +52,11 @@ if ($db == null) {
         $consulta = "SELECT COUNT(*) FROM $dbTabla";
         $result = $db->query($consulta);
         if (!$result) {
-            $mensajes[] = ["resultado" => NOK, "texto" => "Error en la consulta $consulta."];
-            $todoOk = NOK;
+            $mensajes[] = ["resultado" => KO, "texto" => "Error en la consulta $consulta."];
+            $todoOk = KO;
         } elseif ($result->fetchColumn() >= MAX_REG_TABLA) {
-            $mensajes[] = ["resultado" => NOK, "texto" => "Se ha alcanzado el número máximo de registros que se pueden guardar. Por favor, borre algún registro antes."];
-            $todoOk = NOK;
+            $mensajes[] = ["resultado" => KO, "texto" => "Se ha alcanzado el número máximo de registros que se pueden guardar. Por favor, borre algún registro antes."];
+            $todoOk = KO;
         } else {
             $mensajes[] = ["resultado" => OK, "texto" => "No se ha alcanzado el número máximo de registros que se pueden guardar."];
             $todoOk = OK;
@@ -71,17 +71,17 @@ if ($db == null) {
 
         if ($nombreOk["resultado"] && $apellidosOk["resultado"] && $telefonoOk["resultado"]) {
             if ($nombre == "" && $apellidos == "" && $telefono == "") {
-                $mensajes[] = ["resultado" => NOK, "texto" => "Hay que rellenar al menos uno de los campos. No se ha guardado el registro."];
-                $todoOk = NOK;
+                $mensajes[] = ["resultado" => KO, "texto" => "Hay que rellenar al menos uno de los campos. No se ha guardado el registro."];
+                $todoOk = KO;
             } else {
                 $consulta = "SELECT COUNT(*) FROM $dbTabla";
                 $result = $db->query($consulta);
                 if (!$result) {
-                    $mensajes[] = ["resultado" => NOK, "texto" => "Error en la consulta $consulta."];
-                    $todoOk = NOK;
+                    $mensajes[] = ["resultado" => KO, "texto" => "Error en la consulta $consulta."];
+                    $todoOk = KO;
                 } elseif ($result->fetchColumn() >= MAX_REG_TABLA) {
-                    $mensajes[] = ["resultado" => NOK, "texto" => "Se ha alcanzado el número máximo de registros que se pueden guardar. Por favor, borre algún registro antes."];
-                    $todoOk = NOK;
+                    $mensajes[] = ["resultado" => KO, "texto" => "Se ha alcanzado el número máximo de registros que se pueden guardar. Por favor, borre algún registro antes."];
+                    $todoOk = KO;
                 } else {
                     $consulta = "SELECT COUNT(*) FROM $dbTabla
                     WHERE nombre=:nombre
@@ -90,11 +90,11 @@ if ($db == null) {
                     $result = $db->prepare($consulta);
                     $result->execute([":nombre" => $nombre, ":apellidos" => $apellidos, ":telefono" => $telefono]);
                     if (!$result) {
-                        $mensajes[] = ["resultado" => NOK, "texto" => "Error en la consulta."];
-                        $todoOk = NOK;
+                        $mensajes[] = ["resultado" => KO, "texto" => "Error en la consulta."];
+                        $todoOk = KO;
                     } elseif ($result->fetchColumn() > 0) {
-                        $mensajes[] = ["resultado" => NOK, "texto" => "El registro ya existe."];
-                        $todoOk = NOK;
+                        $mensajes[] = ["resultado" => KO, "texto" => "El registro ya existe."];
+                        $todoOk = KO;
                     } else {
                         $consulta = "INSERT INTO $dbTabla
                         (nombre, apellidos, telefono)
@@ -103,8 +103,8 @@ if ($db == null) {
                         if ($result->execute([":nombre" => $nombre, ":apellidos" => $apellidos, ":telefono" => $telefono])) {
                             $mensajes[] = ["resultado" => OK, "texto" => "Registro <strong>$nombre $apellidos</strong> creado correctamente."];
                         } else {
-                            $mensajes[] = ["resultado" => NOK, "texto" => "Error al crear el registro <strong>$nombre $apellidos</strong>."];
-                            $todoOk = NOK;
+                            $mensajes[] = ["resultado" => KO, "texto" => "Error al crear el registro <strong>$nombre $apellidos</strong>."];
+                            $todoOk = KO;
                         }
                     }
                 }
@@ -117,18 +117,18 @@ if ($db == null) {
         $consulta = "SELECT COUNT(*) FROM $dbTabla";
         $result = $db->query($consulta);
         if (!$result) {
-            $mensajes[] = ["resultado" => NOK, "texto" => "Error en la consulta."];
-            $todoOk = NOK;
+            $mensajes[] = ["resultado" => KO, "texto" => "Error en la consulta."];
+            $todoOk = KO;
         } elseif ($result->fetchColumn() == 0) {
-            $mensajes[] = ["resultado" => NOK, "texto" => "No se ha creado todavía ningún registro."];
-            $todoOk = NOK;
+            $mensajes[] = ["resultado" => KO, "texto" => "No se ha creado todavía ningún registro."];
+            $todoOk = KO;
         } else {
             $consulta = "SELECT * FROM $dbTabla
             ORDER BY $columna $orden";
             $result = $db->query($consulta);
             if (!$result) {
-                $mensajes[] = ["resultado" => NOK, "texto" => "Error en la consulta."];
-                $todoOk = NOK;
+                $mensajes[] = ["resultado" => KO, "texto" => "Error en la consulta."];
+                $todoOk = KO;
             } else {
                 $mensajes[] = ["resultado" => OK, "texto" => "Registros seleccionados correctamente."];
                 foreach ($result as $valor) {
@@ -145,8 +145,8 @@ if ($db == null) {
     } elseif ($accion == "borrar-registros-id") {
         $id = recogeMatriz("id");
         if (count($id) == 0) {
-            $mensajes[] = ["resultado" => NOK, "texto" => "No se ha seleccionado ningún registro."];
-            $todoOk = NOK;
+            $mensajes[] = ["resultado" => KO, "texto" => "No se ha seleccionado ningún registro."];
+            $todoOk = KO;
         } else {
             foreach ($id as $indice => $valor) {
                 $consulta = "SELECT COUNT(*) FROM $dbTabla
@@ -154,11 +154,11 @@ if ($db == null) {
                 $result = $db->prepare($consulta);
                 $result->execute([":indice" => $indice]);
                 if (!$result) {
-                    $mensajes[] = ["resultado" => NOK, "texto" => "Error en la consulta."];
-                    $todoOk = NOK;
+                    $mensajes[] = ["resultado" => KO, "texto" => "Error en la consulta."];
+                    $todoOk = KO;
                 } elseif ($result->fetchColumn() == 0) {
-                    $mensajes[] = ["resultado" => NOK, "texto" => "Registro no encontrado."];
-                    $todoOk = NOK;
+                    $mensajes[] = ["resultado" => KO, "texto" => "Registro no encontrado."];
+                    $todoOk = KO;
                 } else {
                     $consulta = "DELETE FROM $dbTabla
                     WHERE id=:indice";
@@ -166,8 +166,8 @@ if ($db == null) {
                     if ($result->execute([":indice" => $indice])) {
                         $mensajes[] = ["resultado" => OK, "texto" => "Registro borrado correctamente."];
                     } else {
-                        $mensajes[] = ["resultado" => NOK, "texto" => "Error al borrar el registro."];
-                        $todoOk = NOK;
+                        $mensajes[] = ["resultado" => KO, "texto" => "Error al borrar el registro."];
+                        $todoOk = KO;
                     }
                 }
             }
@@ -180,19 +180,19 @@ if ($db == null) {
         $result = $db->prepare($consulta);
         $result->execute([":id" => $id]);
         if (!$result) {
-            $mensajes[] = ["resultado" => NOK, "texto" => "Error en la consulta."];
-            $todoOk = NOK;
+            $mensajes[] = ["resultado" => KO, "texto" => "Error en la consulta."];
+            $todoOk = KO;
         } elseif ($result->fetchColumn() == 0) {
-            $mensajes[] = ["resultado" => NOK, "texto" => "Registro no encontrado."];
-            $todoOk = NOK;
+            $mensajes[] = ["resultado" => KO, "texto" => "Registro no encontrado."];
+            $todoOk = KO;
         } else {
             $consulta = "SELECT * FROM $dbTabla
             WHERE id=:id";
             $result = $db->prepare($consulta);
             $result->execute([":id" => $id]);
             if (!$result) {
-                $mensajes[] = ["resultado" => NOK, "texto" => "Error en la consulta."];
-                $todoOk = NOK;
+                $mensajes[] = ["resultado" => KO, "texto" => "Error en la consulta."];
+                $todoOk = KO;
             } else {
                 $mensajes[] = ["resultado" => OK, "texto" => "Registro seleccionado."];
                 $valor = $result->fetch();
@@ -216,22 +216,22 @@ if ($db == null) {
 
         if ($nombreOk["resultado"] && $apellidosOk["resultado"] && $telefonoOk["resultado"]) {
             if ($id == "") {
-                $mensajes[] = ["resultado" => NOK, "texto" => "No se ha seleccionado ningún registro."];
-                $todoOk = NOK;
+                $mensajes[] = ["resultado" => KO, "texto" => "No se ha seleccionado ningún registro."];
+                $todoOk = KO;
             } elseif ($nombre == "" && $apellidos == "" && $telefono == "") {
-                $mensajes[] = ["resultado" => NOK, "texto" => "Hay que rellenar al menos uno de los campos. No se ha modificado el registro."];
-                $todoOk = NOK;
+                $mensajes[] = ["resultado" => KO, "texto" => "Hay que rellenar al menos uno de los campos. No se ha modificado el registro."];
+                $todoOk = KO;
             } else {
                 $consulta = "SELECT COUNT(*) FROM $dbTabla
                 WHERE id=:id";
                 $result = $db->prepare($consulta);
                 $result->execute([":id" => $id]);
                 if (!$result) {
-                    $mensajes[] = ["resultado" => NOK, "texto" => "Error en la consulta."];
-                    $todoOk = NOK;
+                    $mensajes[] = ["resultado" => KO, "texto" => "Error en la consulta."];
+                    $todoOk = KO;
                 } elseif ($result->fetchColumn() == 0) {
-                    $mensajes[] = ["resultado" => NOK, "texto" => "Registro no encontrado."];
-                    $todoOk = NOK;
+                    $mensajes[] = ["resultado" => KO, "texto" => "Registro no encontrado."];
+                    $todoOk = KO;
                 } else {
                     // La consulta cuenta los registros con un id diferente porque MySQL no distingue
                     // mayúsculas de minúsculas y si en un registro sólo se cambian mayúsculas por
@@ -247,11 +247,11 @@ if ($db == null) {
                         ":telefono" => $telefono, ":id" => $id
                     ]);
                     if (!$result) {
-                        $mensajes[] = ["resultado" => NOK, "texto" => "Error en la consulta."];
-                        $todoOk = NOK;
+                        $mensajes[] = ["resultado" => KO, "texto" => "Error en la consulta."];
+                        $todoOk = KO;
                     } elseif ($result->fetchColumn() > 0) {
-                        $mensajes[] = ["resultado" => NOK, "texto" => "Ya existe un registro con esos mismos valores. No se ha guardado la modificación."];
-                        $todoOk = NOK;
+                        $mensajes[] = ["resultado" => KO, "texto" => "Ya existe un registro con esos mismos valores. No se ha guardado la modificación."];
+                        $todoOk = KO;
                     } else {
                         $consulta = "UPDATE $dbTabla
                         SET nombre=:nombre, apellidos=:apellidos, telefono=:telefono
@@ -264,7 +264,7 @@ if ($db == null) {
                             $mensajes[] = ["resultado" => OK, "texto" => "Registro modificado correctamente."];
                             $todoOk = OK;
                         } else {
-                            $mensajes[] = ["resultado" => NOK, "texto" => "Error al modificar el registro."];
+                            $mensajes[] = ["resultado" => KO, "texto" => "Error al modificar el registro."];
                             $todoOk = OK;
                         }
                     }
@@ -275,13 +275,13 @@ if ($db == null) {
         $consulta = "SELECT COUNT(*) FROM $dbTabla";
         $result = $db->query($consulta);
         if (!$result) {
-            $mensajes[] = ["resultado" => NOK, "texto" => "Error en la consulta."];
-            $todoOk = NOK;
+            $mensajes[] = ["resultado" => KO, "texto" => "Error en la consulta."];
+            $todoOk = KO;
         } else {
             $numeroRegistros = $result->fetchColumn();
             if ($numeroRegistros == 0) {
-                $mensajes[] = ["resultado" => NOK, "texto" => "No se ha creado todavía ningún registro."];
-                $todoOk = NOK;
+                $mensajes[] = ["resultado" => KO, "texto" => "No se ha creado todavía ningún registro."];
+                $todoOk = KO;
             } else {
                 $mensajes[] = ["resultado" => OK, "texto" => "Registros contados correctamente."];
                 $registros[] = [$numeroRegistros];
@@ -302,11 +302,11 @@ if ($db == null) {
         $result = $db->prepare($consulta);
         $result->execute([":nombre" => "%$nombre%", ":apellidos" => "%$apellidos%", ":telefono" => "%$telefono%"]);
         if (!$result) {
-            $mensajes[] = ["resultado" => NOK, "texto" => "Error en la consulta."];
-            $todoOk = NOK;
+            $mensajes[] = ["resultado" => KO, "texto" => "Error en la consulta."];
+            $todoOk = KO;
         } elseif ($result->fetchColumn() == 0) {
-            $mensajes[] = ["resultado" => NOK, "texto" => "No se ha encontrado ningún registro."];
-            $todoOk = NOK;
+            $mensajes[] = ["resultado" => KO, "texto" => "No se ha encontrado ningún registro."];
+            $todoOk = KO;
         } else {
             $consulta = "SELECT * FROM $dbTabla
                 WHERE nombre LIKE :nombre
@@ -316,8 +316,8 @@ if ($db == null) {
             $result = $db->prepare($consulta);
             $result->execute([":nombre" => "%$nombre%", ":apellidos" => "%$apellidos%", ":telefono" => "%$telefono%"]);
             if (!$result) {
-                $mensajes[] = ["resultado" => NOK, "texto" => "Error en la consulta."];
-                $todoOk = NOK;
+                $mensajes[] = ["resultado" => KO, "texto" => "Error en la consulta."];
+                $todoOk = KO;
             } else {
                 $mensajes[] = ["resultado" => OK, "texto" => "Registros encontrados correctamente."];
                 $todoOk = OK;
@@ -332,8 +332,8 @@ if ($db == null) {
             }
         }
     } else {
-        $resultado = NOK;
-        $mensajes = [["resultado" => "NOK", "texto" => "Acción no disponible."]];
+        $resultado = KO;
+        $mensajes = [["resultado" => "KO", "texto" => "Acción no disponible."]];
         $registros = [];
     }
 
