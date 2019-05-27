@@ -28,3 +28,5 @@ Respuesta
 * "registros": matriz de registros
   * [valor numérico] para consultas COUNT
   * [columna1 : valor1, columna2 : valor2, etc.]
+* "estructura": matriz de columnas
+  * ["nombreColumna", tamañoColumna, "TextoCabecera"]

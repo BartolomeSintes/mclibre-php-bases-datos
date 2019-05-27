@@ -34,7 +34,7 @@ if (!isset($_REQUEST["si"]) && !isset($_REQUEST["resi"]) && !isset($_REQUEST["fi
     el nombre de usuario en MySQL/SQLITE y su contraseña y pulse el botón <strong>Instalar</strong>.</p>
   <p>Se creará el usuario administrador de nombre <strong>root</strong>
     con contraseña <strong>root</strong>.</p>
-  <p>Una vez instalada la aplicación, borre la carpeta /instacion.</p>
+  <p>Una vez instalada la aplicación, borre la carpeta /instalacion.</p>
   <p><button type=\"submit\" value=\"Sí\" name=\"si\">Instalar aplicación</button></p>
 </form>\n";
 } elseif (isset($_REQUEST["si"])) {

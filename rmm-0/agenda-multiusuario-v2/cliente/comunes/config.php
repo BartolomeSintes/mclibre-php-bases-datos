@@ -26,6 +26,11 @@
 
 define("FORM_METHOD",    GET);     // Valores posibles: GET o POST
 
+// Configuración Tabla Usuarios de la web
+
+$administradorNombre   = "root";  // Nombre del usuario Administrador
+$administradorPassword = "root";  // Password del usuario Administrador
+
 // Configuración Tabla Agenda
 
 $tamNombre    = 40;           // Tamaño de la columna Nombre

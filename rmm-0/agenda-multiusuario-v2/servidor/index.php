@@ -26,33 +26,49 @@ require_once "biblioteca.php";
 
 [$resultado, $db] = conectaDb();
 
-if ($db == null) {
-    $todoOk = KO;
-    $mensajes = $resultado["mensajes"];
-    $registros = [];
-    $estructura = [];
-} else {
-    $todoOk = KO;
-    $mensajes = [];
-    $registros = [];
-    $estructura["columnas"] = [
-        ["nombre",    $tamNombre,    "Nombre"],
-        ["apellidos", $tamApellidos, "Apellidos"],
-        ["telefono",  $tamTelefono,  "Teléfono"]
-    ];
-    $estructura["id"] = "id";
+$todoOk = KO;
+$mensajes = [];
+$registros = [];
+$estructura = [];
 
+if ($db == null) {
+    $mensajes = $resultado["mensajes"];
+} else {
     $accion = recoge("accion");
 
-    if ($accion == "borrar-todo") {
-        $resultado = borraTodo($db);
-        $todoOk = $resultado["resultado"];
-        $mensajes = $resultado["mensajes"];
+    if ($accion == "usuario-campos") {
+        $todoOk = OK;
+        $mensajes[] = ["resultado" => OK, "texto" => "Información de los campos"];
+        $estructura["columnas"] = [
+            ["usuario",  $tamUsuariosWebUsuario,  "Nombre:"],
+            ["password", $tamUsuariosWebPassword, "Contraseña:"]
+        ];
+    } elseif ($accion == "usuario-validar") {
+        $usuario   = recoge("usuario");
+        $password  = recoge("password");
+        if (!$usuario) {
+            $mensajes[] = ["resultado" => KO, "texto" => "Error: Nombre de usuario no permitido."];
+            $todoOk = KO;
+        } else {
+            $consulta = "SELECT * FROM $dbTablaUsuariosWeb
+                WHERE usuario=:usuario";
+            $result = $db->prepare($consulta);
+            $result->execute([":usuario" => $usuario]);
+            $valor = $result->fetch();
+            if (!$result) {
+                $mensajes[] = ["resultado" => KO, "texto" => "Error en la consulta."];
+                $todoOk = KO;
+            } else {
+                $mensajes[] = ["resultado" => OK, "texto" => "Usuario validado."];
+                $registros[] = ["nivel" => $valor["nivel"]];
+                $todoOk = OK;
+            }
+        }
     } elseif ($accion == "agenda-comprobar-limite-registros") {
         $consulta = "SELECT COUNT(*) FROM $dbTabla";
         $result = $db->query($consulta);
         if (!$result) {
-            $mensajes[] = ["resultado" => KO, "texto" => "Error en la consulta $consulta."];
+            $mensajes[] = ["resultado" => KO, "texto" => "Error en la consulta."];
             $todoOk = KO;
         } elseif ($result->fetchColumn() >= MAX_REG_TABLA) {
             $mensajes[] = ["resultado" => KO, "texto" => "Se ha alcanzado el número máximo de registros que se pueden guardar. Por favor, borre algún registro antes."];
@@ -77,7 +93,7 @@ if ($db == null) {
                 $consulta = "SELECT COUNT(*) FROM $dbTabla";
                 $result = $db->query($consulta);
                 if (!$result) {
-                    $mensajes[] = ["resultado" => KO, "texto" => "Error en la consulta $consulta."];
+                    $mensajes[] = ["resultado" => KO, "texto" => "Error en la consulta."];
                     $todoOk = KO;
                 } elseif ($result->fetchColumn() >= MAX_REG_TABLA) {
                     $mensajes[] = ["resultado" => KO, "texto" => "Se ha alcanzado el número máximo de registros que se pueden guardar. Por favor, borre algún registro antes."];
@@ -111,6 +127,13 @@ if ($db == null) {
             }
         }
     } elseif ($accion == "agenda-seleccionar-registros-todos") {
+        $estructura["columnas"] = [
+            ["nombre",    $tamAgendaNombre,    "Nombre"],
+            ["apellidos", $tamAgendaApellidos, "Apellidos"],
+            ["telefono",  $tamAgendaTelefono,  "Teléfono"]
+        ];
+        $estructura["id"] = "id";
+
         $columna = recogeValores("columna", $columnas, "apellidos");
         $orden   = recogeValores("orden", $orden, "ASC");
 
@@ -173,6 +196,13 @@ if ($db == null) {
             }
         }
     } elseif ($accion == "agenda-seleccionar-registro-id") {
+        $estructura["columnas"] = [
+            ["nombre",    $tamAgendaNombre,    "Nombre"],
+            ["apellidos", $tamAgendaApellidos, "Apellidos"],
+            ["telefono",  $tamAgendaTelefono,  "Teléfono"]
+        ];
+        $estructura["id"] = "id";
+
         $id    = recoge("id");
 
         $consulta = "SELECT COUNT(*) FROM $dbTabla
@@ -272,6 +302,13 @@ if ($db == null) {
             }
         }
     } elseif ($accion == "agenda-contar-registros-todos") {
+        $estructura["columnas"] = [
+            ["nombre",    $tamAgendaNombre,    "Nombre"],
+            ["apellidos", $tamAgendaApellidos, "Apellidos"],
+            ["telefono",  $tamAgendaTelefono,  "Teléfono"]
+        ];
+        $estructura["id"] = "id";
+
         $consulta = "SELECT COUNT(*) FROM $dbTabla";
         $result = $db->query($consulta);
         if (!$result) {
@@ -332,11 +369,10 @@ if ($db == null) {
             }
         }
     } else {
-        $resultado = KO;
-        $mensajes = [["resultado" => "KO", "texto" => "Acción no disponible."]];
-        $registros = [];
+        $mensajes = [["resultado" => "KO", "texto" => "Acción no disponible."]];;
     }
 
     $db = null;
 }
+
 print json_encode(["resultado" => $todoOk, "mensajes" => $mensajes, "registros" => $registros, "estructura" => $estructura]);

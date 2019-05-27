@@ -30,6 +30,10 @@ define("KO", 0);
 define("MYSQL",          "MySQL");         // Base de datos MySQL
 define("SQLITE",         "SQLite");        // Base de datos SQLITE
 
+define("NIVEL_1",           "1");          // Usuario web de nivel Usuario
+define("NIVEL_2",           "2");          // Usuario web de nivel Administrador
+define("NIVEL_3",           "3");          // Usuario web de nivel Gran Jefe
+
 $columnas = [                              // Nombre de las columnas de la tabla
     "nombre",
     "apellidos",
@@ -51,6 +55,13 @@ if ($dbMotor == MYSQL) {
 }
 
 // Funciones comunes
+
+function encripta($var)
+{
+    // Si se cambia el algortimo de encriptación hay que cambiar $tamPassword
+    // Esta función también está en cliente/biblioteca.php
+    return (md5($var));
+}
 
 function recoge($var)
 {

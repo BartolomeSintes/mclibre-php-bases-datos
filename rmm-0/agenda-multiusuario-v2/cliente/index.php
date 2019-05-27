@@ -28,7 +28,7 @@ session_start();
 
 cabecera("Inicio", MENU_PRINCIPAL, 0);
 
-if (!isset($_SESSION["id"])) {
+if (!isset($_SESSION["usuario"])) {
     print "    <p><strong>Nota</strong>: El usuario Administrador se llama "
         . "<strong>$administradorNombre</strong> y su contraseña es "
         . "<strong>$administradorPassword</strong>.</p>\n";

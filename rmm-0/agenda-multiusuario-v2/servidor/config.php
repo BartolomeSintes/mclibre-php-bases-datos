@@ -36,12 +36,24 @@ define("MYSQL_TABLA",    "tabla");                // Nombre de la tabla
 
 // Configuración para SQLite
 
-define("SQLITE_DATABASE", "/home/barto/mclibre/sqlite/rmm-0-agenda.sqlite"); // Ubicación de la base de datos
-define("SQLITE_TABLA",   "tabla");                                       // Nombre de la tabla
+define("SQLITE_DATABASE", "/home/barto/mclibre/sqlite/rmm-0-agenda-multiusuario.sqlite"); // Ubicación de la base de datos
+define("SQLITE_TABLA_USUARIOS_WEB", "usuariosweb");               // Nombre de la tabla de Usuarios de la web
+define("SQLITE_TABLA_AGENDA",       "agenda");                    // Nombre de la tabla de Agenda
+
+// Configuración Tabla Usuarios de la web
+
+define("MAX_REG_TABLA_USUARIOS_WEB",  20); // Número máximo de registros en la tabla de Usuarios de la web
+
+$tamUsuariosWebUsuario  = 20;  // Tamaño del campo Usuarios de la web > Usuario
+$tamUsuariosWebPassword = 20;  // Tamaño del campo Usuarios de la web > Contraseña
+$tamUsuariosWebCifrado  = 32;  // Tamaño del campo Usuarios de la web > Contraseña encriptada
+
+$administradorNombre   = "root";  // Nombre del usuario Administrador
+$administradorPassword = "root";  // Password del usuario Administrador
 
 // Configuración Tabla Agenda
 
-define("MAX_REG_TABLA", 10); // Número máximo de registros en la tabla
-$tamNombre    = 40;           // Tamaño de la columna Nombre
-$tamApellidos = 60;           // Tamaño de la columna Apellidos
-$tamTelefono  = 10;           // Tamaño de la columna Teléfono
+define("MAX_REG_TABLA_AGENDA", 20); // Número máximo de registros en la tabla Agenda
+$tamAgendaNombre    = 40;           // Tamaño del campo Agenda > Nombre
+$tamAgendaApellidos = 60;           // Tamaño del campo Agenda > Apellidos
+$tamAgendaTelefono  = 10;           // Tamaño del campo Agenda > Teléfono

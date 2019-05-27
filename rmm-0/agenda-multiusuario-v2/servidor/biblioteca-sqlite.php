@@ -24,16 +24,27 @@
 
 // Variables globales
 
-$dbDb    = SQLITE_DATABASE;   // Nombre de la base de datos
-$dbTabla = SQLITE_TABLA;      // Nombre de la tabla
+
+$dbDb               = SQLITE_DATABASE;            // Nombre de la base de datos
+$dbTablaUsuariosWeb = SQLITE_TABLA_USUARIOS_WEB;  // Nombre de la tabla de Usuarios de la web
+$dbTablaAgenda      = SQLITE_TABLA_AGENDA;        // Nombre de la tabla de Agenda
 
 // Consultas
 
-$consultaCreaTabla = "CREATE TABLE $dbTabla (
+$consultaCreaTablaUsuariosWeb = "CREATE TABLE $dbTablaUsuariosWeb (
+    usuario VARCHAR($tamUsuariosWebUsuario) PRIMARY KEY,
+    password VARCHAR($tamUsuariosWebCifrado),
+    nivel INTEGER NOT NULL
+    )";
+
+$consultaCreaTablaAgenda = "CREATE TABLE $dbTablaAgenda (
     id INTEGER PRIMARY KEY,
-    nombre VARCHAR($tamNombre),
-    apellidos VARCHAR($tamApellidos),
-    telefono VARCHAR($tamTelefono)
+    usuario VARCHAR($tamUsuariosWebUsuario),
+    nombre VARCHAR($tamAgendaNombre),
+    apellidos VARCHAR($tamAgendaApellidos),
+    telefono VARCHAR($tamAgendaTelefono),
+    FOREIGN KEY(usuario) REFERENCES $dbTablaUsuariosWeb(usuario)
+    ON DELETE CASCADE ON UPDATE CASCADE
     )";
 
 // Funciones comunes de bases de datos (SQLITE)
@@ -54,30 +65,62 @@ function conectaDb()
 
 function borraTodo($db)
 {
-    global $dbTabla, $consultaCreaTabla;
+    global $dbTablaUsuariosWeb, $consultaCreaTablaUsuariosWeb,
+        $dbTablaAgenda, $consultaCreaTablaAgenda,
+        $administradorNombre, $administradorPassword;
 
     $mensajes = [];
     $todoOk = KO;
 
-    $consulta = "DROP TABLE $dbTabla";
+    $consulta = "DROP TABLE $dbTablaUsuariosWeb";
     if ($db->query($consulta)) {
-        $mensajes[] = ["resultado" => OK, "texto" => "Tabla borrada correctamente."];
+        $mensajes[] = ["resultado" => OK, "texto" => "Tabla <strong>Usuarios de la web</strong> borrada correctamente."];
         $todoOk1 = OK;
     } else {
-        $mensajes[] = ["resultado" => KO, "texto" => "Error al borrar la tabla."];
+        $mensajes[] = ["resultado" => KO, "texto" => "Error al borrar la tabla <strong>Usuarios de la web</strong>."];
         $todoOk1 = KO;
     }
 
-    $consulta = $consultaCreaTabla;
+    $consulta = "DROP TABLE $dbTablaAgenda";
     if ($db->query($consulta)) {
-        $mensajes[] = ["resultado" => OK, "texto" => "Tabla creada correctamente."];
+        $mensajes[] = ["resultado" => OK, "texto" => "Tabla <strong>Agenda</strong> borrada correctamente."];
         $todoOk2 = OK;
     } else {
-        $mensajes[] = ["resultado" => KO, "texto" => "Error al borrar la tabla."];
+        $mensajes[] = ["resultado" => KO, "texto" => "Error al borrar la tabla <strong>Agenda</strong>."];
         $todoOk2 = KO;
     }
 
-    if ($todoOk1 == OK && $todoOk2 == OK) {
+    $consulta = $consultaCreaTablaUsuariosWeb;
+    if ($db->query($consulta)) {
+        $mensajes[] = ["resultado" => OK, "texto" => "Tabla <strong>Usuarios de la web</strong> creada correctamente."];
+        $todoOk3 = OK;
+    } else {
+        $mensajes[] = ["resultado" => KO, "texto" => "Error al crear la tabla <strong>Usuarios de la web</strong>."];
+        $todoOk3 = KO;
+    }
+
+    $consulta = $consultaCreaTablaAgenda;
+    if ($db->query($consulta)) {
+        $mensajes[] = ["resultado" => OK, "texto" => "Tabla <strong>Agenda</strong> creada correctamente."];
+        $todoOk4 = OK;
+
+        if ($administradorNombre != "") {
+            $consulta = "INSERT INTO $dbTablaUsuariosWeb
+                VALUES ('$administradorNombre', '" . encripta($administradorPassword) . "', '" . NIVEL_3 . "')";
+            if ($db->query($consulta)) {
+                $mensajes[] = ["resultado" => OK, "texto" => "Registro de <strong>Usuario root</strong> creado correctamente."];
+                $todoOk5 = OK;
+            } else {
+                $mensajes[] = ["resultado" => OK, "texto" => "Error al crear el registro de <strong>Usuario root</strong>."];
+                $todoOk5 = KO;
+            }
+        }
+    } else {
+        $mensajes[] = ["resultado" => KO, "texto" => "Error al crear la tabla de Agenda."];
+        $todoOk4 = KO;
+    }
+
+    if ($todoOk1 == OK && $todoOk2 == OK && $todoOk3 == OK && $todoOk4 == OK &&$todoOk5) {
         $todoOk = OK;
     }
 
