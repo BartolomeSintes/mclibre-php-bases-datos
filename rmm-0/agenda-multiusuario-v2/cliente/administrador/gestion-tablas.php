@@ -1,6 +1,6 @@
 <?php
 /**
- * RMM-0 - Agenda multiusuario (Cliente) - db-usuarios/insertar-2.php
+ * RMM-0 - Agenda multiusuario (Cliente) - administrador/gestion-tablas.php
  *
  * @author    Bartolomé Sintes Marco <bartolome.sintes+mclibre@gmail.com>
  * @copyright 2019 Bartolomé Sintes Marco
@@ -26,31 +26,12 @@ session_start();
 
 require_once "../comunes/biblioteca.php";
 
-if (!isset($_SESSION["nivel"]) || $_SESSION["nivel"] != NIVEL_3) {
+if (!isset($_SESSION["nivel"]) || ($_SESSION["nivel"] != NIVEL_3 && $_SESSION["nivel"] != NIVEL_2 && $_SESSION["nivel"] != NIVEL_1)) {
     header("location:../index.php");
     exit();
 }
 
-cabecera("Tabla Usuarios - Añadir 2", MENU_TABLA_USUARIOS_WEB, 1);
+cabecera("Gestión tablas", MENU_GESTION_TABLAS, 1);
 
-$consulta = http_build_query([
-    "accion"   => recoge("accion"),
-    "usuario"  => recoge("usuario"),
-    "password" => recoge("password"),
-    "nivel"    => recoge("nivel")
-]);
-
-$respuesta1 = file_get_contents("$urlServidor?$consulta");
-$respuesta = json_decode($respuesta1, true);
-// print "<pre>Respuesta: "; print_r($respuesta); print "</pre>";
-
-if ($respuesta["resultado"] == KO) {
-    foreach ($respuesta["mensajes"] as $mensaje) {
-        if ($mensaje["resultado"] == OK) {
-            print "    <p>$mensaje[texto]</p>\n";
-        } else {
-            print "    <p class=\"aviso\">$mensaje[texto]</p>\n";
-        }
-    }
-}
 pie();
+?>

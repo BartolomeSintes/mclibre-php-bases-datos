@@ -34,7 +34,7 @@ $usuario   = recoge("usuario");
 $password  = recoge("password");
 
 $consulta = http_build_query([
-    "accion"   => "usuario-validar",
+    "accion"   => "usuarios-validar",
     "usuario"  => $usuario,
     "password" => $password
 ]);

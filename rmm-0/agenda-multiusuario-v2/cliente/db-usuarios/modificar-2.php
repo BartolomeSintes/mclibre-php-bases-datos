@@ -26,75 +26,67 @@ session_start();
 
 require_once "../comunes/biblioteca.php";
 
-if (!isset($_SESSION["id"]) || $_SESSION["nivel"] != NIVEL_3) {
+if (!isset($_SESSION["nivel"]) || $_SESSION["nivel"] != NIVEL_3) {
     header("location:../index.php");
     exit();
 }
 
-$db = conectaDb();
 cabecera("Tabla Usuarios - Modificar 2", MENU_TABLA_USUARIOS_WEB, 1);
 
 $id = recoge("id");
 
-if ($id == "") {
-    print "    <p>No se ha seleccionado ningún registro.</p>\n";
+$consulta = http_build_query([
+    "accion" => recoge("accion"),
+    "id"     => $id
+]);
+
+$respuesta1 = file_get_contents("$urlServidor?$consulta");
+$respuesta = json_decode($respuesta1, true);
+// print "<pre>Respuesta: "; print_r($respuesta); print "</pre>";
+
+if ($respuesta["resultado"] == KO) {
+    print "    <p class=\"aviso\">{$respuesta["mensajes"][0]["texto"]}</p>\n";
 } else {
-    $consulta = "SELECT COUNT(*) FROM $dbTablaUsuariosWeb
-       WHERE id=:id";
-    $result = $db->prepare($consulta);
-    $result->execute([":id" => $id]);
-    if (!$result) {
-        print "    <p class=\"aviso\">Error en la consulta.</p>\n";
-    } elseif ($result->fetchColumn() == 0) {
-        print "    <p>Registro no encontrado.</p>\n";
-    } else {
-        $consulta = "SELECT * FROM $dbTablaUsuariosWeb
-            WHERE id=:id";
-        $result = $db->prepare($consulta);
-        $result->execute([":id" => $id]);
-        if (!$result) {
-            print "    <p class=\"aviso\">Error en la consulta.</p>\n";
+    $valor = $respuesta["registros"][0];
+    print "    <form action=\"modificar-3.php\" method=\"" . FORM_METHOD . "\">\n";
+    print "      <p>Modifique los campos que desee:</p>\n";
+    print "\n";
+    print "      <table>\n";
+    print "        <tbody>\n";
+    print "          <tr>\n";
+    print "            <td>{$respuesta["estructura"]["columnas"][0][2]}:</td>\n";
+    print "            <td><input type=\"text\" name=\"{$respuesta["estructura"]["columnas"][0][0]}\" size=\"{$respuesta["estructura"]["columnas"][0][1]}\" "
+        . "maxlength=\"{$respuesta["estructura"]["columnas"][0][1]}\" value=\"$valor[usuario]\" autofocus=\"autofocus\"/></td>\n";
+    print "          </tr>\n";
+    print "          <tr>\n";
+    print "            <td>{$respuesta["estructura"]["columnas"][1][2]}:</td>\n";
+    print "            <td><input type=\"{$respuesta["estructura"]["columnas"][1][0]}\" name=\"password\" size=\"{$respuesta["estructura"]["columnas"][1][1]}\" "
+        . "maxlength=\"{$respuesta["estructura"]["columnas"][1][1]}\" /></td>\n";
+    print "          </tr>\n";
+    print "          <tr>\n";
+    print "            <td>Nivel:</td>\n";
+    print "            <td>\n";
+    print "              <select name=\"nivel\">\n";
+    foreach ($usuariosWebNiveles as $valorNivel) {
+        if ($valor["nivel"] == $valorNivel[1]) {
+            print "                <option value=\"$valorNivel[1]\" selected>$valorNivel[0]</option>\n";
         } else {
-            $valor = $result->fetch();
-            print "    <form action=\"modificar-3.php\" method=\"" . FORM_METHOD . "\">\n";
-            print "      <p>Modifique los campos que desee:</p>\n";
-            print "\n";
-            print "      <table>\n";
-            print "        <tbody>\n";
-            print "          <tr>\n";
-            print "            <td>Nombre de usuario:</td>\n";
-            print "            <td><input type=\"text\" name=\"usuario\" size=\"$tamUsuariosWebUsuario\" maxlength=\"$tamUsuariosWebUsuario\" value=\"$valor[usuario]\" autofocus=\"autofocus\"/></td>\n";
-            print "          </tr>\n";
-            print "          <tr>\n";
-            print "            <td>Contraseña:</td>\n";
-            print "            <td><input type=\"text\" name=\"password\" size=\"$tamUsuariosWebPassword\" maxlength=\"$tamUsuariosWebPassword\" /></td>\n";
-            print "          </tr>\n";
-            print "          <tr>\n";
-            print "            <td>Nivel:</td>\n";
-            print "            <td>\n";
-            print "              <select name=\"nivel\">\n";
-            foreach ($usuariosWebNiveles as $valorNivel) {
-                if ($valor["nivel"] == $valorNivel[1]) {
-                    print "                <option value=\"$valorNivel[1]\" selected>$valorNivel[0]</option>\n";
-                } else {
-                    print "                <option value=\"$valorNivel[1]\">$valorNivel[0]</option>\n";
-                }
-            }
-            print "              </select>\n";
-            print "            </td>\n";
-            print "          </tr>\n";
-            print "        </tbody>\n";
-            print "      </table>\n";
-            print "\n";
-            print "      <p>\n";
-            print "        <input type=\"hidden\" name=\"id\" value=\"$id\" />\n";
-            print "        <input type=\"submit\" value=\"Actualizar\" />\n";
-            print "        <input type=\"reset\" value=\"Reiniciar formulario\" />\n";
-            print "      </p>\n";
-            print "    </form>\n";
+            print "                <option value=\"$valorNivel[1]\">$valorNivel[0]</option>\n";
         }
     }
+    print "              </select>\n";
+    print "            </td>\n";
+    print "          </tr>\n";
+    print "        </tbody>\n";
+    print "      </table>\n";
+    print "\n";
+    print "      <p>\n";
+    print "        <input type=\"hidden\" name=\"accion\" value=\"usuarios-modificar-registro\" />\n";
+    print "        <input type=\"hidden\" name=\"id\" value=\"$id\" />\n";
+    print "        <input type=\"submit\" value=\"Actualizar\" />\n";
+    print "        <input type=\"reset\" value=\"Reiniciar formulario\" />\n";
+    print "      </p>\n";
+    print "    </form>\n";
 }
 
-$db = null;
 pie();

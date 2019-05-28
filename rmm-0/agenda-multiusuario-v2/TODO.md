@@ -21,3 +21,7 @@
 
 * 2019-05-27. ¿Podría proteger el fichero instalar.php para que sólo se pudiera ejecutar desde localhost? El problema es que sin navegador no se podría realizar la instalación.
 * 2019-05-27. Hay cosas duplicadas en la configuración del cliente y del servidor. Debería indicarlo para que si se cambia uno, que se cambie el otro.
+
+* 2019-05-27. Buscar 999 para pensar y corregir (nivel de usuarios en json)
+* 2019-05-27. No tengo claro que sea buena idea pasar los valores de password al listar
+* 2019-05-27. Al mostrar nivel, muestra valores numéricos no palabras.

@@ -26,12 +26,11 @@ session_start();
 
 require_once "../comunes/biblioteca.php";
 
-if (!isset($_SESSION["id"]) || $_SESSION["nivel"] != NIVEL_3) {
+if (!isset($_SESSION["nivel"]) || $_SESSION["nivel"] != NIVEL_3) {
     header("location:../index.php");
     exit();
 }
 
-$db = conectaDb();
 cabecera("Tabla Usuarios - Modificar 3", MENU_TABLA_USUARIOS_WEB, 1);
 
 $usuario  = recoge("usuario");
@@ -111,5 +110,4 @@ if ($usuarioOk && $passwordOk && $nivelOk) {
     }
 }
 
-$db = null;
 pie();

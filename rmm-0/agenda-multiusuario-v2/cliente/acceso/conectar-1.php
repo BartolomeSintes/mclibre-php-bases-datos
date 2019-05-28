@@ -33,7 +33,7 @@ require_once "../comunes/biblioteca.php";
 cabecera("Identificar 1", MENU_IDENTIFICAR, 1);
 
 $consulta = http_build_query([
-    "accion"  => "usuario-campos"
+    "accion"  => "usuarios-campos"
 ]);
 
 $respuesta1 = file_get_contents("$urlServidor?$consulta");
@@ -59,7 +59,7 @@ if ($respuesta["resultado"] == KO) {
         . "maxlength=\"{$respuesta["estructura"]["columnas"][0][1]}\" autofocus=\"autofocus\"/></td>\n";
     print "          </tr>\n";
     print "          <tr>\n";
-    print "            <td>{$respuesta["estructura"]["columnas"][0][2]}:</td>\n";
+    print "            <td>{$respuesta["estructura"]["columnas"][1][2]}:</td>\n";
     print "            <td><input type=\"{$respuesta["estructura"]["columnas"][1][0]}\" name=\"password\" size=\"{$respuesta["estructura"]["columnas"][1][1]}\" "
         . "maxlength=\"{$respuesta["estructura"]["columnas"][1][1]}\" /></td>\n";
     print "          </tr>\n";

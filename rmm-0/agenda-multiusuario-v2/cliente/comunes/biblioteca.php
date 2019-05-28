@@ -42,7 +42,7 @@ define("MENU_INSTALAR",           "menuInstalar");         // Menú Instalar
 define("MENU_IDENTIFICAR",        "menuIdentificar");      // Menú Indentificar usuario
 define("MENU_GESTION_TABLAS",     "menuGestionTablas");    // Menú Gestión Tablas
 define("MENU_TABLA_USUARIOS_WEB", "menuTablaUsuariosWeb"); // Menú Gestión Tabla Usuarios Web
-define("MENU_TABLA_FAMILIA",      "menuTablaAgenda");     // Menú Gestión Tabla Agenda
+define("MENU_TABLA_AGENDA",       "menuTablaAgenda");      // Menú Gestión Tabla Agenda
 define("MENU_ERROR",              "menuError");            // Menú Error conexión con BD
 
 define("NIVEL_1",           "1");                    // Usuario web de nivel Usuario
@@ -136,14 +136,7 @@ function cabecera($texto, $menu, $profundidadDirectorio)
         } elseif ($menu == MENU_GESTION_TABLAS) {
             print "        <li><a href=\"../index.php\">Inicio</a></li>\n";
             print "        <li><a href=\"../db-usuarios/index.php\">Usuarios</a></li>\n";
-            print "        <li><a href=\"../db-familia/index.php\">Familias</a></li>\n";
-            print "        <li><a href=\"../db-subfamilia/index.php\">Subfamilias</a></li>\n";
-            print "        <li><a href=\"../db-instrumento/index.php\">Instrumento</a></li>\n";
-            print "        <li><a href=\"../db-autor/index.php\">Autor</a></li>\n";
-            print "        <li><a href=\"../db-titulo/index.php\">Título</a></li>\n";
-            print "        <li><a href=\"../db-partitura/index.php\">Partitura</a></li>\n";
-            print "        <li><a href=\"../db-musico/index.php\">Músico</a></li>\n";
-            print "        <li><a href=\"../db-asociacion/index.php\">Asociacion</a></li>\n";
+            print "        <li><a href=\"../db-agenda/index.php\">Agenda</a></li>\n";
         } elseif ($menu == MENU_TABLA_USUARIOS_WEB) {
             print "        <li><a href=\"../administrador/gestion-tablas.php\">Volver</a></li>\n";
             print "        <li><a href=\"insertar-1.php\">Añadir registro</a></li>\n";
@@ -151,11 +144,13 @@ function cabecera($texto, $menu, $profundidadDirectorio)
             print "        <li><a href=\"borrar-1.php\">Borrar</a></li>\n";
             print "        <li><a href=\"buscar-1.php\">Buscar</a></li>\n";
             print "        <li><a href=\"modificar-1.php\">Modificar</a></li>\n";
-        } elseif ($menu == MENU_TABLA_FAMILIA) {
+        } elseif ($menu == MENU_TABLA_AGENDA) {
             print "        <li><a href=\"../administrador/gestion-tablas.php\">Volver</a></li>\n";
             print "        <li><a href=\"insertar-1.php\">Añadir registro</a></li>\n";
             print "        <li><a href=\"listar.php\">Listar</a></li>\n";
             print "        <li><a href=\"borrar-1.php\">Borrar</a></li>\n";
+        } else {
+            print "        <li>Error en la selección de menú</li>\n";
         }
     }
     print "      </ul>\n";

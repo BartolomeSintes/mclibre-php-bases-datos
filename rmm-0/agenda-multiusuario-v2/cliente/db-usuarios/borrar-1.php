@@ -26,79 +26,65 @@ session_start();
 
 require_once "../comunes/biblioteca.php";
 
-if (!isset($_SESSION["id"]) || $_SESSION["nivel"] != NIVEL_3) {
+if (!isset($_SESSION["nivel"]) || $_SESSION["nivel"] != NIVEL_3) {
     header("location:../index.php");
     exit();
 }
 
-$db = conectaDb();
 cabecera("Tabla Usuarios - Borrar 1", MENU_TABLA_USUARIOS_WEB, 1);
 
 $columna = recogeValores("columna", $columnasUsuariosWeb, "usuario");
 $orden   = recogeValores("orden", $orden, "ASC");
 
-$consulta = "SELECT COUNT(*) FROM $dbTablaUsuariosWeb";
-$result = $db->query($consulta);
-if (!$result) {
-    print "    <p class=\"aviso\">Error en la consulta.</p>\n";
-} elseif ($result->fetchColumn() == 0) {
-    print "    <p>No se ha creado todavía ningún registro.</p>\n";
+$consulta = http_build_query([
+    "accion"  => "usuarios-seleccionar-registros-todos",
+    "columna" => $columna,
+    "orden"   => $orden
+]);
+
+$respuesta1 = file_get_contents("$urlServidor?$consulta");
+$respuesta = json_decode($respuesta1, true);
+// print "<pre>Respuesta: "; print_r($respuesta); print "</pre>";
+
+if ($respuesta["resultado"] == KO) {
+    print "    <p class=\"aviso\">{$respuesta["mensajes"][0]["texto"]}</p>\n";
 } else {
-    $consulta = "SELECT * FROM $dbTablaUsuariosWeb
-        ORDER BY $columna $orden";
-    $result = $db->query($consulta);
-    if (!$result) {
-        print "    <p class=\"aviso\">Error en la consulta.</p>\n";
-    } else {
-        print "    <form action=\"borrar-2.php\" method=\"" . FORM_METHOD . "\">\n";
-        print "      <p>Marque los registros que quiera borrar:</p>\n";
-        print "\n";
-        print "      <table class=\"conborde franjas\">\n";
-        print "        <thead>\n";
-        print "          <tr>\n";
-        print "            <th>Borrar</th>\n";
+    print "    <form action=\"borrar-2.php\" method=\"" . FORM_METHOD . "\">\n";
+    print "      <p>Marque los registros que quiera borrar:</p>\n";
+    print "\n";
+    print "      <table class=\"conborde franjas\">\n";
+    print "        <thead>\n";
+    print "          <tr>\n";
+    print "            <th>Borrar</th>\n";
+    foreach ($respuesta["estructura"]["columnas"] as $columna) {
         print "            <th>\n";
-        print "              <a href=\"$_SERVER[PHP_SELF]?columna=usuario&amp;orden=ASC\">\n";
+        print "              <a href=\"$_SERVER[PHP_SELF]?columna=$columna[0]&amp;orden=ASC\">\n";
         print "                <img src=\"../img/abajo.svg\" alt=\"A-Z\" title=\"A-Z\" width=\"15\" height=\"12\" /></a>\n";
-        print "              Usuario\n";
-        print "              <a href=\"$_SERVER[PHP_SELF]?columna=usuario&amp;orden=DESC\">\n";
+        print "              $columna[2]\n";
+        print "              <a href=\"$_SERVER[PHP_SELF]?columna=$columna[0]&amp;orden=DESC\">\n";
         print "                <img src=\"../img/arriba.svg\" alt=\"Z-A\" title=\"Z-A\" width=\"15\" height=\"12\" /></a>\n";
         print "            </th>\n";
-        print "            <th>\n";
-        print "              <a href=\"$_SERVER[PHP_SELF]?columna=password&amp;orden=ASC\">\n";
-        print "                <img src=\"../img/abajo.svg\" alt=\"A-Z\" title=\"A-Z\" width=\"15\" height=\"12\" /></a>\n";
-        print "              Contraseña (hash)\n";
-        print "              <a href=\"$_SERVER[PHP_SELF]?columna=password&amp;orden=DESC\">\n";
-        print "                <img src=\"../img/arriba.svg\" alt=\"Z-A\" title=\"Z-A\" width=\"15\" height=\"12\" /></a>\n";
-        print "            </th>\n";
-        print "            <th>\n";
-        print "              <a href=\"$_SERVER[PHP_SELF]?columna=nivel&amp;orden=ASC\">\n";
-        print "                <img src=\"../img/abajo.svg\" alt=\"A-Z\" title=\"A-Z\" width=\"15\" height=\"12\" /></a>\n";
-        print "              Nivel\n";
-        print "              <a href=\"$_SERVER[PHP_SELF]?columna=nivel&amp;orden=DESC\">\n";
-        print "                <img src=\"../img/arriba.svg\" alt=\"Z-A\" title=\"Z-A\" width=\"15\" height=\"12\" /></a>\n";
-        print "            </th>\n";
-        print "          </tr>\n";
-        print "        </thead>\n";
-        print "        <tbody>\n";
-        foreach ($result as $valor) {
-            print "          <tr>\n";
-            print "            <td class=\"centrado\"><input type=\"checkbox\" name=\"id[$valor[id]]\" /></td>\n";
-            print "            <td>$valor[usuario]</td>\n";
-            print "            <td>$valor[password]</td>\n";
-            print "            <td>" . $usuariosWebNiveles[$valor["nivel"] - 1][0] . "</td>\n";
-            print "          </tr>\n";
-        }
-        print "        </tbody>\n";
-        print "      </table>\n";
-        print "\n";
-        print "      <p>\n";
-        print "        <input type=\"submit\" value=\"Borrar registro\" />\n";
-        print "        <input type=\"reset\" value=\"Reiniciar formulario\" />\n";
-        print "      </p>\n";
-        print "    </form>\n";
     }
+    print "          </tr>\n";
+    print "        </thead>\n";
+    print "        <tbody>\n";
+    foreach ($respuesta["registros"] as $valor) {
+        print "          <tr>\n";
+        print "            <td class=\"centrado\"><input type=\"checkbox\" name=\"id[$valor[usuario]]\" /></td>\n";
+        foreach ($respuesta["estructura"]["columnas"] as $columna) {
+            print "            <td>{$valor[$columna[0]]}</td>\n";
+        }
+        print "          </tr>\n";
+    }
+    print "        </tbody>\n";
+    print "      </table>\n";
+    print "\n";
+    print "      <p>\n";
+    print "        <input type=\"hidden\" name=\"accion\" value=\"usuarios-borrar-registros-id\" />\n";
+    print "        <input type=\"submit\" value=\"Borrar registro\" />\n";
+    print "        <input type=\"reset\" value=\"Reiniciar formulario\" />\n";
+    print "      </p>\n";
+    print "    </form>\n";
 }
 
-$db = null;
 pie();

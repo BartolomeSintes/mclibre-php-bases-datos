@@ -34,7 +34,13 @@ define("NIVEL_1",           "1");          // Usuario web de nivel Usuario
 define("NIVEL_2",           "2");          // Usuario web de nivel Administrador
 define("NIVEL_3",           "3");          // Usuario web de nivel Gran Jefe
 
-$columnas = [                              // Nombre de las columnas de la tabla
+$columnasUsuariosWeb = [             // Nombre de las columnas de la tabla Usuarios web
+    "usuario",
+    "password",
+    "nivel"
+];
+
+$columnasAgenda = [                              // Nombre de las columnas de la tabla
     "nombre",
     "apellidos",
     "telefono"
@@ -96,33 +102,61 @@ function recogeValores($var, $valoresValidos, $valorPredeterminado)
 
 function comprueba($campo, $valor)
 {
-    global $tamNombre, $tamApellidos, $tamTelefono;
+    global $tamUsuariosWebUsuario, $tamUsuariosWebPassword,
+        $tamAgendaNombre, $tamAgendaApellidos, $tamAgendaTelefono;
 
     $mensajes = [];
     $todoOk = OK;
 
-    if ($campo == "nombre") {
-        if (mb_strlen($valor, "UTF-8") > $tamNombre) {
-            $mensajes[] = ["resultado" => KO, "texto" => "El nombre no puede tener más de $tamNombre caracteres."];
+    if ($campo == "usuario") {
+        if ($valor == "") {
+            $mensajes[] = ["resultado" => KO, "texto" => "El nombre de usuario no puede estar vacío."];
+            $todoOk = KO;
+        } elseif (mb_strlen("usuario", "UTF-8") > $tamUsuariosWebUsuario) {
+            $mensajes[] = ["resultado" => KO, "texto" => "El nombre de usuario no puede tener más de $tamUsuariosWebUsuario caracteres."];
+            $todoOk = KO;
+        } else {
+            $mensajes[] = ["resultado" => OK, "texto" => "El nombre de usuario parece admisible."];
+        }
+    } elseif ($campo == "password") {
+        if ($valor == "") {
+            $mensajes[] = ["resultado" => KO, "texto" => "La contraseña no puede estar vacía."];
+            $todoOk = KO;
+         } elseif (mb_strlen("usuario", "UTF-8") > $tamUsuariosWebPassword) {
+            $mensajes[] = ["resultado" => KO, "texto" => "La contraseña no puede tener más de $tamUsuariosWebPassword caracteres."];
+            $todoOk = KO;
+        } else {
+            $mensajes[] = ["resultado" => OK, "texto" => "La contraseña parece  admisible."];
+        }
+    } elseif ($campo == "nivel") {
+        if ($valor != NIVEL_1 && $valor != NIVEL_2 && $valor != NIVEL_3) {
+            $mensajes[] = ["resultado" => KO, "texto" => "Nivel incorrecto."];
+            $todoOk = KO;
+        } else {
+            $mensajes[] = ["resultado" => OK, "texto" => "El nombre de usuario parece admisible."];
+        }
+    } elseif ($campo == "nombre") {
+        if (mb_strlen($valor, "UTF-8") > $tamAgendaNombre) {
+            $mensajes[] = ["resultado" => KO, "texto" => "El nombre no puede tener más de $tamAgendaNombre caracteres."];
             $todoOk = KO;
         } else {
             $mensajes[] = ["resultado" => OK, "texto" => "El nombre parece admisible."];
         }
     } elseif ($campo == "apellidos") {
-        if (mb_strlen($valor, "UTF-8") > $tamApellidos) {
-            $mensajes[] = ["resultado" => KO, "texto" => "Los apellidos no pueden tener más de $tamApellidos caracteres."];
+        if (mb_strlen($valor, "UTF-8") > $tamAgendaApellidos) {
+            $mensajes[] = ["resultado" => KO, "texto" => "Los apellidos no pueden tener más de $tamAgendaApellidos caracteres."];
             $todoOk = KO;
         } else {
             $mensajes[] = ["resultado" => OK, "texto" => "Los apellidos parecen admisibles."];
         }
     } elseif ($campo == "telefono") {
-        if (mb_strlen("telefono", "UTF-8") > $tamTelefono) {
-            $mensajes[] = ["resultado" => KO, "texto" => "El teléfono no puede tener más de $tamTelefono caracteres."];
+        if (mb_strlen("telefono", "UTF-8") > $tamAgendaTelefono) {
+            $mensajes[] = ["resultado" => KO, "texto" => "El teléfono no puede tener más de $tamAgendaTelefono caracteres."];
             $todoOk = KO;
         } else {
             $mensajes[] = ["resultado" => OK, "texto" => "El teléfono parece admisible."];
         }
     }
 
-    return ["resultado" => $todoOk, "mensajes" => $mensajes];
+    return [$todoOk, $mensajes];
 }

@@ -26,21 +26,23 @@ session_start();
 
 require_once "../comunes/biblioteca.php";
 
-if (!isset($_SESSION["id"]) || $_SESSION["nivel"] != NIVEL_3) {
+if (!isset($_SESSION["nivel"]) || $_SESSION["nivel"] != NIVEL_3) {
     header("location:../index.php");
     exit();
 }
 
-$db = conectaDb();
 cabecera("Tabla Usuarios - Añadir 1", MENU_TABLA_USUARIOS_WEB, 1);
 
-$consulta = "SELECT COUNT(*) FROM $dbTablaUsuariosWeb";
-$result = $db->query($consulta);
-if (!$result) {
-    print "    <p class=\"aviso\">Error en la consulta.</p>\n";
-} elseif ($result->fetchColumn() >= MAX_REG_TABLA_USUARIOS_WEB) {
-    print "    <p class=\"aviso\">Se ha alcanzado el número máximo de registros que se pueden guardar.</p>\n";
-    print "    <p class=\"aviso\">Por favor, borre algún registro antes.</p>\n";
+$consulta = http_build_query([
+    "accion"  => "usuarios-comprobar-limite-registros"
+]);
+
+$respuesta1 = file_get_contents("$urlServidor?$consulta");
+$respuesta = json_decode($respuesta1, true);
+// print "<pre>Respuesta: "; print_r($respuesta); print "</pre>";
+
+if ($respuesta["resultado"] == KO) {
+    print "    <p class=\"aviso\">{$respuesta["mensajes"][0]["texto"]}</p>\n";
 } else {
     print "    <form action=\"insertar-2.php\" method=\"" . FORM_METHOD . "\">\n";
     print "      <p>Escriba los datos del nuevo registro:</p>\n";
@@ -48,12 +50,14 @@ if (!$result) {
     print "      <table>\n";
     print "        <tbody>\n";
     print "          <tr>\n";
-    print "            <td>Nombre de usuario:</td>\n";
-    print "            <td><input type=\"text\" name=\"usuario\" size=\"$tamUsuariosWebUsuario\" maxlength=\"$tamUsuariosWebUsuario\" autofocus=\"autofocus\"/></td>\n";
+    print "            <td>{$respuesta["estructura"]["columnas"][0][2]}:</td>\n";
+    print "            <td><input type=\"text\" name=\"{$respuesta["estructura"]["columnas"][0][0]}\" size=\"{$respuesta["estructura"]["columnas"][0][1]}\" "
+        . "maxlength=\"{$respuesta["estructura"]["columnas"][0][1]}\" autofocus=\"autofocus\"/></td>\n";
     print "          </tr>\n";
     print "          <tr>\n";
-    print "            <td>Contraseña:</td>\n";
-    print "            <td><input type=\"text\" name=\"password\" size=\"$tamUsuariosWebPassword\" maxlength=\"$tamUsuariosWebPassword\" /></td>\n";
+    print "            <td>{$respuesta["estructura"]["columnas"][1][2]}:</td>\n";
+    print "            <td><input type=\"{$respuesta["estructura"]["columnas"][1][0]}\" name=\"password\" size=\"{$respuesta["estructura"]["columnas"][1][1]}\" "
+        . "maxlength=\"{$respuesta["estructura"]["columnas"][1][1]}\" /></td>\n";
     print "          </tr>\n";
     print "          <tr>\n";
     print "            <td>Nivel:</td>\n";
@@ -69,11 +73,11 @@ if (!$result) {
     print "      </table>\n";
     print "\n";
     print "      <p>\n";
+    print "        <input type=\"hidden\" name=\"accion\" value=\"usuarios-insertar-registro\" />\n";
     print "        <input type=\"submit\" value=\"Añadir\" />\n";
     print "        <input type=\"reset\" value=\"Reiniciar formulario\" />\n";
     print "      </p>\n";
     print "    </form>\n";
 }
 
-$db = null;
 pie();

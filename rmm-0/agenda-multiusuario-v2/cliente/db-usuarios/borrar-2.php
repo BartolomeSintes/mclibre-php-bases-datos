@@ -26,49 +26,28 @@ session_start();
 
 require_once "../comunes/biblioteca.php";
 
-if (!isset($_SESSION["id"]) || $_SESSION["nivel"] != NIVEL_3) {
+if (!isset($_SESSION["nivel"]) || $_SESSION["nivel"] != NIVEL_3) {
     header("location:../index.php");
     exit();
 }
 
-$db = conectaDb();
 cabecera("Tabla Usuarios - Borrar 2", MENU_TABLA_USUARIOS_WEB, 1);
 
-$id = recogeMatriz("id");
+$consulta = http_build_query([
+    "accion"    => recoge("accion"),
+    "id"        => recogeMatriz("id")
+]);
 
-if (count($id) == 0) {
-    print "    <p>No se ha seleccionado ningún registro.</p>\n";
-} else {
-    foreach ($id as $indice => $valor) {
-        $consulta = "SELECT COUNT(*) FROM $dbTablaUsuariosWeb";
-        $result = $db->prepare($consulta);
-        $result->execute([":indice" => $indice]);
-        if (!$result) {
-            print "    <p class=\"aviso\">Error en la consulta.</p>\n";
-        } elseif ($result->fetchColumn() == 1) {
-            print "    <p>No se puede borrar el último usuario de la tabla.</p>\n";
-        } else {
-            $consulta = "SELECT COUNT(*) FROM $dbTablaUsuariosWeb
-                WHERE id=:indice";
-            $result = $db->prepare($consulta);
-            $result->execute([":indice" => $indice]);
-            if (!$result) {
-                print "    <p class=\"aviso\">Error en la consulta.</p>\n";
-            } elseif ($result->fetchColumn() == 0) {
-                print "    <p>Registro no encontrado.</p>\n";
-            } else {
-                $consulta = "DELETE FROM $dbTablaUsuariosWeb
-                    WHERE id=:indice";
-                $result = $db->prepare($consulta);
-                if ($result->execute([":indice" => $indice])) {
-                    print "    <p>Registro borrado correctamente.</p>\n";
-                } else {
-                    print "    <p class=\"aviso\">Error al borrar el registro.</p>\n";
-                }
-            }
-        }
+$respuesta1 = file_get_contents("$urlServidor?$consulta");
+$respuesta = json_decode($respuesta1, true);
+// print "<pre>Respuesta: "; print_r($respuesta); print "</pre>";
+
+foreach ($respuesta["mensajes"] as $mensaje) {
+    if ($mensaje["resultado"] == OK) {
+        print "    <p>$mensaje[texto]</p>\n";
+    } else {
+        print "    <p class=\"aviso\">$mensaje[texto]</p>\n";
     }
 }
 
-$db = null;
 pie();
