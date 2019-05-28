@@ -1,6 +1,6 @@
 <?php
 /**
- * RMM-0 - Agenda multiusuario (Cliente) - index.php
+ * RMM-0 - Agenda multiusuario (Cliente) - db-agenda/index.php
  *
  * @author    Bartolomé Sintes Marco <bartolome.sintes+mclibre@gmail.com>
  * @copyright 2019 Bartolomé Sintes Marco
@@ -22,8 +22,15 @@
  *  along with this program.  If not, see <http://www.gnu.org/licenses/>.
  */
 
-require_once "biblioteca.php";
+session_start();
 
-cabecera("Inicio", MENU_PRINCIPAL);
+require_once "../comunes/biblioteca.php";
+
+if (!isset($_SESSION["nivel"]) || $_SESSION["nivel"] != NIVEL_3) {
+    header("location:../index.php");
+    exit();
+}
+
+cabecera("Tabla Usuarios - Inicio", MENU_TABLA_AGENDA, 1);
 
 pie();

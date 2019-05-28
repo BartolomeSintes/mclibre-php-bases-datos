@@ -1,6 +1,6 @@
 <?php
 /**
- * RMM-0 - Agenda multiusuario (Cliente) - buscar-2.php
+ * RMM-0 - Agenda multiusuario (Cliente) - db-agenda/buscar-2.php
  *
  * @author    Bartolomé Sintes Marco <bartolome.sintes+mclibre@gmail.com>
  * @copyright 2019 Bartolomé Sintes Marco
@@ -22,9 +22,16 @@
  *  along with this program.  If not, see <http://www.gnu.org/licenses/>.
  */
 
-require_once "biblioteca.php";
+session_start();
 
-cabecera("Buscar 2", MENU_VOLVER);
+require_once "../comunes/biblioteca.php";
+
+if (!isset($_SESSION["nivel"]) || $_SESSION["nivel"] != NIVEL_3) {
+    header("location:../index.php");
+    exit();
+}
+
+cabecera("Tabla Agenda - Buscar 2", MENU_TABLA_AGENDA, 1);
 
 $nombre    = recoge("nombre");
 $apellidos = recoge("apellidos");
@@ -43,7 +50,7 @@ $consulta = http_build_query([
 
 $respuesta1 = file_get_contents("$urlServidor?$consulta");
 $respuesta = json_decode($respuesta1, true);
-// print "<pre>"; print_r($respuesta); print "</pre>";
+// print "<pre>Respuesta: "; print_r($respuesta); print "</pre>";
 
 if ($respuesta["resultado"] == KO) {
     print "    <p class=\"aviso\">{$respuesta["mensajes"][0]["texto"]}</p>\n";
@@ -57,10 +64,10 @@ if ($respuesta["resultado"] == KO) {
     foreach ($respuesta["estructura"]["columnas"] as $columna) {
         print "          <th>\n";
         print "            <a href=\"$_SERVER[PHP_SELF]?$datos&aamp;columna=$columna[0]&amp;orden=ASC\">\n";
-        print "              <img src=\"abajo.svg\" alt=\"A-Z\" title=\"A-Z\" width=\"15\" height=\"12\" /></a>\n";
+        print "              <img src=\"../img/abajo.svg\" alt=\"A-Z\" title=\"A-Z\" width=\"15\" height=\"12\" /></a>\n";
         print "            $columna[2]\n";
         print "            <a href=\"$_SERVER[PHP_SELF]?$datos&aamp;columna=$columna[0]&amp;orden=DESC\">\n";
-        print "              <img src=\"arriba.svg\" alt=\"Z-A\" title=\"Z-A\" width=\"15\" height=\"12\" /></a>\n";
+        print "              <img src=\"../img/arriba.svg\" alt=\"Z-A\" title=\"Z-A\" width=\"15\" height=\"12\" /></a>\n";
         print "          </th>\n";
     }
     print "        </tr>\n";

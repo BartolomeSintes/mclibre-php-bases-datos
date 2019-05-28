@@ -1,6 +1,6 @@
 <?php
 /**
- * RMM-0 - Agenda multiusuario (Cliente) - modificar-3.php
+ * RMM-0 - Agenda multiusuario (Cliente) - db-agenda/modificar-3.php
  *
  * @author    Bartolomé Sintes Marco <bartolome.sintes+mclibre@gmail.com>
  * @copyright 2019 Bartolomé Sintes Marco
@@ -22,9 +22,16 @@
  *  along with this program.  If not, see <http://www.gnu.org/licenses/>.
  */
 
-require_once "biblioteca.php";
+session_start();
 
-cabecera("Modificar 3", MENU_VOLVER);
+require_once "../comunes/biblioteca.php";
+
+if (!isset($_SESSION["nivel"]) || $_SESSION["nivel"] != NIVEL_3) {
+    header("location:../index.php");
+    exit();
+}
+
+cabecera("Tabla Usuarios - Modificar 3", MENU_TABLA_AGENDA, 1);
 
 $consulta = http_build_query([
     "accion"    => recoge("accion"),
@@ -36,7 +43,7 @@ $consulta = http_build_query([
 
 $respuesta1 = file_get_contents("$urlServidor?$consulta");
 $respuesta = json_decode($respuesta1, true);
-// print "<pre>"; print_r($respuesta); print "</pre>";
+// print "<pre>Respuesta: "; print_r($respuesta); print "</pre>";
 
 foreach ($respuesta["mensajes"] as $mensaje) {
     if ($mensaje["resultado"] == OK) {
