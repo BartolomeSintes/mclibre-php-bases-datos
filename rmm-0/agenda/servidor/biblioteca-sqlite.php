@@ -73,7 +73,7 @@ function borraTodo($db)
         $mensajes[] = ["resultado" => OK, "texto" => "Tabla creada correctamente."];
         $todoOk2 = OK;
     } else {
-        $mensajes[] = ["resultado" => KO, "texto" => "Error al borrar la tabla."];
+        $mensajes[] = ["resultado" => KO, "texto" => "Error al crear la tabla."];
         $todoOk2 = KO;
     }
 

@@ -93,7 +93,7 @@ function cabecera($texto, $menu)
     print "<head>\n";
     print "  <meta charset=\"utf-8\" />\n";
     print "  <title>\n";
-    print "    $texto. ";
+    print "    $texto. \n";
     print "    Agenda. Monolítica. Bases de datos.\n";
     print "    Ejercicios. PHP. Bartolomé Sintes Marco. www.mclibre.org\n";
     print "  </title>\n";

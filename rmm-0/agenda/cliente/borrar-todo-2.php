@@ -33,7 +33,7 @@ if (!isset($_REQUEST["si"])) {
     $consulta = http_build_query(["accion" => "borrar-todo"]);
     $respuesta1 = file_get_contents("$urlServidor?$consulta");
     $respuesta = json_decode($respuesta1, true);
-    // print "<pre>"; print_r($respuesta); print "</pre>";
+    // print "<pre>Respuesta: "; print_r($respuesta); print "</pre>";
 
     foreach ($respuesta["mensajes"] as $mensaje) {
         if ($mensaje["resultado"] == OK) {
