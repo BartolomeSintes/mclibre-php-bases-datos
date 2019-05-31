@@ -56,19 +56,19 @@ if ($respuesta["resultado"] == KO) {
     print "          <tr>\n";
     print "            <td>{$respuesta["estructura"]["columnas"][0][2]}:</td>\n";
     print "            <td><input type=\"text\" name=\"{$respuesta["estructura"]["columnas"][0][0]}\" size=\"{$respuesta["estructura"]["columnas"][0][1]}\" "
-        . "maxlength=\"{$respuesta["estructura"]["columnas"][0][1]}\" autofocus=\"autofocus\"/></td>\n";
+        . "maxlength=\"{$respuesta["estructura"]["columnas"][0][1]}\" autofocus/></td>\n";
     print "          </tr>\n";
     print "          <tr>\n";
     print "            <td>{$respuesta["estructura"]["columnas"][1][2]}:</td>\n";
     print "            <td><input type=\"{$respuesta["estructura"]["columnas"][1][0]}\" name=\"password\" size=\"{$respuesta["estructura"]["columnas"][1][1]}\" "
-        . "maxlength=\"{$respuesta["estructura"]["columnas"][1][1]}\" /></td>\n";
+        . "maxlength=\"{$respuesta["estructura"]["columnas"][1][1]}\"></td>\n";
     print "          </tr>\n";
     print "        </tbody>\n";
     print "      </table>\n";
     print "\n";
     print "      <p>\n";
-    print "        <input type=\"submit\" value=\"Identificar\" />\n";
-    print "        <input type=\"reset\" value=\"Borrar\" />\n";
+    print "        <input type=\"submit\" value=\"Identificar\">\n";
+    print "        <input type=\"reset\" value=\"Borrar\">\n";
     print "      </p>\n";
     print "    </form>\n";
 }

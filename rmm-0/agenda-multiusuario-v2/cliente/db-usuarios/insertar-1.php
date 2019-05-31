@@ -52,12 +52,12 @@ if ($respuesta["resultado"] == KO) {
     print "          <tr>\n";
     print "            <td>{$respuesta["estructura"]["columnas"][0][2]}:</td>\n";
     print "            <td><input type=\"text\" name=\"{$respuesta["estructura"]["columnas"][0][0]}\" size=\"{$respuesta["estructura"]["columnas"][0][1]}\" "
-        . "maxlength=\"{$respuesta["estructura"]["columnas"][0][1]}\" autofocus=\"autofocus\"/></td>\n";
+        . "maxlength=\"{$respuesta["estructura"]["columnas"][0][1]}\" autofocus/></td>\n";
     print "          </tr>\n";
     print "          <tr>\n";
     print "            <td>{$respuesta["estructura"]["columnas"][1][2]}:</td>\n";
     print "            <td><input type=\"{$respuesta["estructura"]["columnas"][1][0]}\" name=\"password\" size=\"{$respuesta["estructura"]["columnas"][1][1]}\" "
-        . "maxlength=\"{$respuesta["estructura"]["columnas"][1][1]}\" /></td>\n";
+        . "maxlength=\"{$respuesta["estructura"]["columnas"][1][1]}\"></td>\n";
     print "          </tr>\n";
     print "          <tr>\n";
     print "            <td>Nivel:</td>\n";
@@ -73,9 +73,9 @@ if ($respuesta["resultado"] == KO) {
     print "      </table>\n";
     print "\n";
     print "      <p>\n";
-    print "        <input type=\"hidden\" name=\"accion\" value=\"usuarios-insertar-registro\" />\n";
-    print "        <input type=\"submit\" value=\"Añadir\" />\n";
-    print "        <input type=\"reset\" value=\"Reiniciar formulario\" />\n";
+    print "        <input type=\"hidden\" name=\"accion\" value=\"usuarios-insertar-registro\">\n";
+    print "        <input type=\"submit\" value=\"Añadir\">\n";
+    print "        <input type=\"reset\" value=\"Reiniciar formulario\">\n";
     print "      </p>\n";
     print "    </form>\n";
 }

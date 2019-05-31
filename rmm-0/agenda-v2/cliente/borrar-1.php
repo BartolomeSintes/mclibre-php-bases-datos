@@ -52,10 +52,10 @@ if ($respuesta["resultado"] == KO) {
         foreach ($respuesta["estructura"]["columnas"] as $columna) {
             print "            <th>\n";
             print "              <a href=\"$_SERVER[PHP_SELF]?columna=$columna[0]&amp;orden=ASC\">\n";
-            print "                <img src=\"abajo.svg\" alt=\"A-Z\" title=\"A-Z\" width=\"15\" height=\"12\" /></a>\n";
+            print "                <img src=\"abajo.svg\" alt=\"A-Z\" title=\"A-Z\" width=\"15\" height=\"12\"></a>\n";
             print "              $columna[2]\n";
             print "              <a href=\"$_SERVER[PHP_SELF]?columna=$columna[0]&amp;orden=DESC\">\n";
-            print "                <img src=\"arriba.svg\" alt=\"Z-A\" title=\"Z-A\" width=\"15\" height=\"12\" /></a>\n";
+            print "                <img src=\"arriba.svg\" alt=\"Z-A\" title=\"Z-A\" width=\"15\" height=\"12\"></a>\n";
             print "            </th>\n";
         }
         print "          </tr>\n";
@@ -63,7 +63,7 @@ if ($respuesta["resultado"] == KO) {
         print "        <tbody>\n";
         foreach ($respuesta["registros"] as $valor) {
             print "          <tr>\n";
-            print "            <td class=\"centrado\"><input type=\"checkbox\" name=\"id[$valor[id]]\" /></td>\n";
+            print "            <td class=\"centrado\"><input type=\"checkbox\" name=\"id[$valor[id]]\"></td>\n";
             foreach ($respuesta["estructura"]["columnas"] as $columna) {
                 print "            <td>{$valor[$columna[0]]}</td>\n";
             }
@@ -73,9 +73,9 @@ if ($respuesta["resultado"] == KO) {
         print "      </table>\n";
         print "\n";
         print "      <p>\n";
-        print "        <input type=\"hidden\" name=\"accion\" value=\"borrar-registros-id\" />\n";
-        print "        <input type=\"submit\" value=\"Borrar registro\" />\n";
-        print "        <input type=\"reset\" value=\"Reiniciar formulario\" />\n";
+        print "        <input type=\"hidden\" name=\"accion\" value=\"borrar-registros-id\">\n";
+        print "        <input type=\"submit\" value=\"Borrar registro\">\n";
+        print "        <input type=\"reset\" value=\"Reiniciar formulario\">\n";
         print "      </p>\n";
         print "    </form>\n";
     }

@@ -51,7 +51,7 @@ if ($respuesta["resultado"] == KO) {
     print "        <tbody>\n";
     print "          <tr>\n";
     print "            <td>Nombre de usuario:</td>\n";
-    print "            <td><input type=\"text\" name=\"usuario\" size=\"$tamUsuariosWebUsuario\" maxlength=\"$tamUsuariosWebUsuario\" autofocus=\"autofocus\"/></td>\n";
+    print "            <td><input type=\"text\" name=\"usuario\" size=\"$tamUsuariosWebUsuario\" maxlength=\"$tamUsuariosWebUsuario\" autofocus/></td>\n";
     print "          </tr>\n";
     print "          <tr>\n";
     print "            <td>Nivel:</td>\n";
@@ -68,9 +68,9 @@ if ($respuesta["resultado"] == KO) {
     print "      </table>\n";
     print "\n";
     print "      <p>\n";
-    print "        <input type=\"hidden\" name=\"accion\" value=\"usuarios-buscar-registros\" />\n";
-    print "        <input type=\"submit\" value=\"Buscar\" />\n";
-    print "        <input type=\"reset\" value=\"Reiniciar formulario\" />\n";
+    print "        <input type=\"hidden\" name=\"accion\" value=\"usuarios-buscar-registros\">\n";
+    print "        <input type=\"submit\" value=\"Buscar\">\n";
+    print "        <input type=\"reset\" value=\"Reiniciar formulario\">\n";
     print "      </p>\n";
     print "    </form>\n";
 }

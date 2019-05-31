@@ -31,13 +31,13 @@ function cabecera()
     print "<!DOCTYPE html>\n";
     print "<html lang=\"es\">\n";
     print "<head>\n";
-    print "  <meta charset=\"utf-8\" />\n";
+    print "  <meta charset=\"utf-8\">\n";
     print "  <title>\n";
     print "    Instalación. \n";
     print "    Agenda multiusuario. RMM-0. Bases de datos.\n";
     print "    Ejercicios. PHP. Bartolomé Sintes Marco. www.mclibre.org\n";
     print "  </title>\n";
-    print "  <meta name=\"viewport\" content=\"width=device-width, initial-scale=1.0\" />\n";
+    print "  <meta name=\"viewport\" content=\"width=device-width, initial-scale=1.0\">\n";
     print "  <style>html { font-family: sans-serif; .aviso { color: red; }</style>\n";
     print "</head>\n";
     print "\n";
