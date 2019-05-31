@@ -120,6 +120,7 @@ function cabecera($texto, $menu, $profundidadDirectorio)
             print "        <li><a href=\"borrar-1.php\">Borrar</a></li>\n";
             print "        <li><a href=\"buscar-1.php\">Buscar</a></li>\n";
             print "        <li><a href=\"modificar-1.php\">Modificar</a></li>\n";
+            print "        <li><a href=\"acceso/salir.php\">Salir</a></li>\n";
         } elseif ($menu == MENU_VOLVER) {
             print "        <li><a href=\"index.php\">Página inicial</a></li>\n";
         } else {

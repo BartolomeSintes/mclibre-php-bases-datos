@@ -63,10 +63,10 @@ if ($respuesta["resultado"] == KO) {
     print "        <tr>\n";
     foreach ($respuesta["estructura"]["columnas"] as $columna) {
         print "          <th>\n";
-        print "            <a href=\"$_SERVER[PHP_SELF]?$datos&aamp;columna=$columna[0]&amp;orden=ASC\">\n";
+        print "            <a href=\"$_SERVER[PHP_SELF]?$datos&amp;columna=$columna[0]&amp;orden=ASC\">\n";
         print "              <img src=\"../img/abajo.svg\" alt=\"A-Z\" title=\"A-Z\" width=\"15\" height=\"12\" /></a>\n";
         print "            $columna[2]\n";
-        print "            <a href=\"$_SERVER[PHP_SELF]?$datos&aamp;columna=$columna[0]&amp;orden=DESC\">\n";
+        print "            <a href=\"$_SERVER[PHP_SELF]?$datos&amp;columna=$columna[0]&amp;orden=DESC\">\n";
         print "              <img src=\"../img/arriba.svg\" alt=\"Z-A\" title=\"Z-A\" width=\"15\" height=\"12\" /></a>\n";
         print "          </th>\n";
     }

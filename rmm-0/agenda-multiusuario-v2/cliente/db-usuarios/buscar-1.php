@@ -33,12 +33,16 @@ if (!isset($_SESSION["nivel"]) || $_SESSION["nivel"] != NIVEL_3) {
 
 cabecera("Tabla Usuarios - Buscar 1", MENU_TABLA_USUARIOS_WEB, 1);
 
-$consulta = "SELECT COUNT(*) FROM $dbTablaUsuariosWeb";
-$result = $db->query($consulta);
-if (!$result) {
-    print "    <p class=\"aviso\">Error en la consulta.</p>\n";
-} elseif ($result->fetchColumn() == 0) {
-    print "    <p>No se ha creado todavía ningún registro.</p>\n";
+$consulta = http_build_query([
+    "accion"  => "usuarios-contar-registros-todos",
+]);
+
+$respuesta1 = file_get_contents("$urlServidor?$consulta");
+$respuesta = json_decode($respuesta1, true);
+// print "<pre>Respuesta: "; print_r($respuesta); print "</pre>";
+
+if ($respuesta["resultado"] == KO) {
+    print "    <p class=\"aviso\">{$respuesta["mensajes"][0]["texto"]}</p>\n";
 } else {
     print "    <form action=\"buscar-2.php\" method=\"" . FORM_METHOD . "\">\n";
     print "      <p>Escriba el criterio de búsqueda (caracteres o números):</p>\n";
@@ -48,10 +52,6 @@ if (!$result) {
     print "          <tr>\n";
     print "            <td>Nombre de usuario:</td>\n";
     print "            <td><input type=\"text\" name=\"usuario\" size=\"$tamUsuariosWebUsuario\" maxlength=\"$tamUsuariosWebUsuario\" autofocus=\"autofocus\"/></td>\n";
-    print "          </tr>\n";
-    print "          <tr>\n";
-    print "            <td>Contraseña:</td>\n";
-    print "            <td><input type=\"text\" name=\"password\" size=\"$tamUsuariosWebPassword\" maxlength=\"$tamUsuariosWebPassword\" /></td>\n";
     print "          </tr>\n";
     print "          <tr>\n";
     print "            <td>Nivel:</td>\n";
@@ -68,6 +68,7 @@ if (!$result) {
     print "      </table>\n";
     print "\n";
     print "      <p>\n";
+    print "        <input type=\"hidden\" name=\"accion\" value=\"usuarios-buscar-registros\" />\n";
     print "        <input type=\"submit\" value=\"Buscar\" />\n";
     print "        <input type=\"reset\" value=\"Reiniciar formulario\" />\n";
     print "      </p>\n";

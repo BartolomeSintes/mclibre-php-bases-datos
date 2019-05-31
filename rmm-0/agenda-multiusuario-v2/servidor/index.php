@@ -45,7 +45,7 @@ if ($db == null) {
     } elseif ($accion == "usuarios-validar") {
         $usuario   = recoge("usuario");
         $password  = recoge("password");
-        if (!$usuario) {
+        if ($usuario == "") {
             $mensajes[] = ["resultado" => KO, "texto" => "Error: Nombre de usuario no permitido."];
             $todoOk = KO;
         } else {
@@ -94,7 +94,7 @@ if ($db == null) {
         [$nivelOk,    $tmp] = comprueba("nivel", $nivel);
         $mensajes = array_merge($mensajes, $tmp);
 
-        if ($usuarioOk["resultado"] && $passwordOk["resultado"] && $nivelOk["resultado"]) {
+        if ($usuarioOk && $passwordOk && $nivelOk) {
             $consulta = "SELECT COUNT(*) FROM $dbTablaUsuariosWeb";
             $result = $db->query($consulta);
             if (!$result) {
@@ -105,11 +105,9 @@ if ($db == null) {
                 $todoOk = KO;
             } else {
                 $consulta = "SELECT COUNT(*) FROM $dbTablaUsuariosWeb
-                    WHERE usuario=:usuario
-                    AND password=:password
-                    AND nivel=:nivel";
+                    WHERE usuario=:usuario";
                 $result = $db->prepare($consulta);
-                $result->execute([":usuario" => $usuario, ":password" => encripta($password), ":nivel" => $nivel]);
+                $result->execute([":usuario" => $usuario]);
                 if (!$result) {
                     $mensajes[] = ["resultado" => KO, "texto" => "Error en la consulta."];
                     $todoOk = KO;
@@ -123,6 +121,7 @@ if ($db == null) {
                     $result = $db->prepare($consulta);
                     if ($result->execute([":usuario" => $usuario, ":password" => encripta($password), ":nivel" => $nivel])) {
                         $mensajes[] = ["resultado" => OK, "texto" => "Registro <strong>$usuario</strong> creado correctamente."];
+                        $todoOk = OK;
                     } else {
                         $mensajes[] = ["resultado" => KO, "texto" => "Error al crear el registro <strong>$usuario</strong>."];
                         $todoOk = KO;
@@ -176,7 +175,7 @@ if ($db == null) {
         } else {
             foreach ($id as $indice => $valor) {
                 $consulta = "SELECT COUNT(*) FROM $dbTablaUsuariosWeb
-                WHERE usuario=:indice";
+                    WHERE usuario=:indice";
                 $result = $db->prepare($consulta);
                 $result->execute([":indice" => $indice]);
                 if (!$result) {
@@ -243,57 +242,71 @@ if ($db == null) {
         $password = recoge("password");
         $nivel    = recoge("nivel");
 
-        $usuarioOk  = comprueba("usuario", $usuario);
-        $passwordOk = comprueba("password", $password);
-        $nivelOk    = comprueba("nivel", $nivel);
+        [$usuarioOk,  $tmp] = comprueba("usuario", $usuario);
+        $mensajes = array_merge($mensajes, $tmp);
+        [$passwordOk, $tmp] = comprueba_password_sin_vacio("password", $password);
+        $mensajes = array_merge($mensajes, $tmp);
+        [$nivelOk,    $tmp] = comprueba("nivel", $nivel);
+        $mensajes = array_merge($mensajes, $tmp);
 
-        if ($usuarioOk["resultado"] && $passwordOk["resultado"] && $nivelOk["resultado"]) {
+        if ($usuarioOk && $passwordOk && $nivelOk) {
             $consulta = "SELECT COUNT(*) FROM $dbTablaUsuariosWeb";
             if ($id == "") {
                 $mensajes[] = ["resultado" => KO, "texto" => "No se ha seleccionado ningún registro."];
                 $todoOk = KO;
-            } elseif ($usuario == "" && $apellidos == "" && $telefono == "") {
-                $mensajes[] = ["resultado" => KO, "texto" => "Hay que rellenar al menos uno de los campos. No se ha modificado el registro."];
-                $todoOk = KO;
             } else {
-                $consulta = "SELECT COUNT(*) FROM $dbTabla
-                WHERE id=:id";
-                $result = $db->prepare($consulta);
-                $result->execute([":id" => $id]);
-                if (!$result) {
-                    $mensajes[] = ["resultado" => KO, "texto" => "Error en la consulta."];
-                    $todoOk = KO;
-                } elseif ($result->fetchColumn() == 0) {
-                    $mensajes[] = ["resultado" => KO, "texto" => "Registro no encontrado."];
-                    $todoOk = KO;
-                } else {
-                    // La consulta cuenta los registros con un id diferente porque MySQL no distingue
-                    // mayúsculas de minúsculas y si en un registro sólo se cambian mayúsculas por
-                    // minúsculas MySQL diría que ya hay un registro como el que se quiere guardar.
-                    $consulta = "SELECT COUNT(*) FROM $dbTabla
-                    WHERE nombre=:nombre
-                    AND apellidos=:apellidos
-                    AND telefono=:telefono
-                    AND id<>:id";
+                if ($usuario != $id) {
+                    $usuarioDisponible = false;
+                    $consulta = "SELECT COUNT(*) FROM $dbTablaUsuariosWeb
+                        WHERE usuario=:usuario";
                     $result = $db->prepare($consulta);
-                    $result->execute([
-                        ":nombre" => $nombre, ":apellidos" => $apellidos,
-                        ":telefono" => $telefono, ":id" => $id
-                    ]);
+                    $result->execute([":usuario" => $usuario]);
                     if (!$result) {
                         $mensajes[] = ["resultado" => KO, "texto" => "Error en la consulta."];
                         $todoOk = KO;
                     } elseif ($result->fetchColumn() > 0) {
-                        $mensajes[] = ["resultado" => KO, "texto" => "Ya existe un registro con esos mismos valores. No se ha guardado la modificación."];
+                        $mensajes[] = ["resultado" => KO, "texto" => "Ya existe un usuario con ese nombre."];
                         $todoOk = KO;
                     } else {
-                        $consulta = "UPDATE $dbTabla
-                        SET nombre=:nombre, apellidos=:apellidos, telefono=:telefono
-                        WHERE id=:id";
+                        $usuarioDisponible = true;
+                    }
+                } else {
+                    $usuarioDisponible = true;
+                }
+                if ($usuarioDisponible) {
+                    $consulta = "SELECT COUNT(*) FROM $dbTablaUsuariosWeb
+                        WHERE usuario=:id";
+                    $result = $db->prepare($consulta);
+                    $result->execute([":id" => $id]);
+                    if (!$result) {
+                        $mensajes[] = ["resultado" => KO, "texto" => "Error en la consulta."];
+                        $todoOk = KO;
+                    } elseif ($result->fetchColumn() == 0) {
+                        $mensajes[] = ["resultado" => KO, "texto" => "Registro no encontrado."];
+                        $todoOk = KO;
+                    } else {
+                        if ($password == "") {
+                            $consulta = "SELECT * FROM $dbTablaUsuariosWeb
+                            WHERE usuario=:id";
+                            $result = $db->prepare($consulta);
+                            $result->execute([":id" => $id]);
+                            if (!$result) {
+                                $mensajes[] = ["resultado" => KO, "texto" => "Error en la consulta."];
+                                $todoOk = KO;
+                            } else {
+                                $valor = $result->fetch();
+                                $password = $valor["password"];
+                            }
+                        } else {
+                            $password = encripta($password);
+                        }
+                        $consulta = "UPDATE $dbTablaUsuariosWeb
+                            SET usuario=:usuario, password=:password, nivel=:nivel
+                            WHERE usuario=:id";
                         $result = $db->prepare($consulta);
                         if ($result->execute([
-                            ":nombre" => $nombre, ":apellidos" => $apellidos,
-                            ":telefono" => $telefono, ":id" => $id
+                            ":usuario" => $usuario, ":password" => $password,
+                            ":nivel" => $nivel, ":id" => $id
                         ])) {
                             $mensajes[] = ["resultado" => OK, "texto" => "Registro modificado correctamente."];
                             $todoOk = OK;
@@ -327,6 +340,52 @@ if ($db == null) {
                 $mensajes[] = ["resultado" => OK, "texto" => "Registros contados correctamente."];
                 $registros[] = [$numeroRegistros];
                 $todoOk = OK;
+            }
+        }
+    } elseif ($accion == "usuarios-buscar-registros") {
+        $estructura["columnas"] = [
+            ["usuario",  $tamUsuariosWebUsuario,  "Usuario"],
+            ["password", $tamUsuariosWebPassword, "Contraseña (hash)"],
+            ["nivel",    999,  "Nivel"]
+        ];
+        $estructura["id"] = "usuario";
+
+        $usuario = recoge("usuario");
+        $nivel   = recoge("nivel");
+        $columna = recogeValores("columna", $columnasUsuariosWeb, "usuario");
+        $orden   = recogeValores("orden", $orden, "ASC");
+
+        $consulta = "SELECT COUNT(*) FROM $dbTablaUsuariosWeb
+            WHERE usuario LIKE :usuario
+            AND nivel LIKE :nivel";
+        $result = $db->prepare($consulta);
+        $result->execute([":usuario" => "%$usuario%", ":nivel" => "%$nivel%"]);
+        if (!$result) {
+            $mensajes[] = ["resultado" => KO, "texto" => "Error en la consulta."];
+            $todoOk = KO;
+        } elseif ($result->fetchColumn() == 0) {
+            $mensajes[] = ["resultado" => KO, "texto" => "No se ha encontrado ningún registro."];
+            $todoOk = KO;
+        } else {
+            $consulta = "SELECT * FROM $dbTablaUsuariosWeb
+                WHERE usuario LIKE :usuario
+                AND nivel LIKE :nivel
+                ORDER BY $columna $orden";
+            $result = $db->prepare($consulta);
+            $result->execute([":usuario" => "%$usuario%", ":nivel" => "%$nivel%"]);
+            if (!$result) {
+                $mensajes[] = ["resultado" => KO, "texto" => "Error en la consulta."];
+                $todoOk = KO;
+            } else {
+                $mensajes[] = ["resultado" => OK, "texto" => "Registros encontrados correctamente."];
+                $todoOk = OK;
+                foreach ($result as $valor) {
+                    $registros[] = [
+                        "usuario"    => $valor["usuario"],
+                        "password" => $valor["password"],
+                        "nivel"  => $valor["nivel"]
+                    ];
+                }
             }
         }
     } elseif ($accion == "agenda-comprobar-limite-registros") {
@@ -634,7 +693,8 @@ if ($db == null) {
             }
         }
     } else {
-        $mensajes = [["resultado" => "KO", "texto" => "Acción no disponible."]];;
+        $mensajes = [["resultado" => "KO", "texto" => "Acción no disponible."]];
+        ;
     }
 
     $db = null;

@@ -33,81 +33,23 @@ if (!isset($_SESSION["nivel"]) || $_SESSION["nivel"] != NIVEL_3) {
 
 cabecera("Tabla Usuarios - Modificar 3", MENU_TABLA_USUARIOS_WEB, 1);
 
-$usuario  = recoge("usuario");
-$password = recoge("password");
-$nivel    = recoge("nivel");
-$id        = recoge("id");
+$consulta = http_build_query([
+    "accion"   => recoge("accion"),
+    "id"       => recoge("id"),
+    "usuario"  => recoge("usuario"),
+    "password" => recoge("password"),
+    "nivel"    => recoge("nivel")
+]);
 
-$usuarioOk  = false;
-$passwordOk = false;
-$nivelOk    = false;
+$respuesta1 = file_get_contents("$urlServidor?$consulta");
+$respuesta = json_decode($respuesta1, true);
+// print "<pre>Respuesta: "; print_r($respuesta); print "</pre>";
 
-if ($usuario == "") {
-    print "    <p class=\"aviso\">El nombre de usuario no puede estar vacío.</p>\n";
-    print "\n";
-} elseif (mb_strlen($usuario, "UTF-8") > $tamUsuariosWebUsuario) {
-    print "    <p class=\"aviso\">El nombre de usuario no puede tener más de $tamUsuariosWebUsuario caracteres.</p>\n";
-    print "\n";
-} else {
-    $usuarioOk = true;
-}
-
-if ($password == "") {
-    print "    <p class=\"aviso\">La contraseña no puede estar vacía.</p>\n";
-    print "\n";
-} elseif (mb_strlen($password, "UTF-8") > $tamUsuariosWebPassword) {
-    print "    <p class=\"aviso\">La contraseña no puede tener más de $tamUsuariosWebPassword caracteres.</p>\n";
-    print "\n";
-} else {
-    $passwordOk = true;
-}
-
-if ($nivel != NIVEL_1 && $nivel != NIVEL_2 && $nivel != NIVEL_3) {
-    print "    <p class=\"aviso\">Nivel incorrecto.</p>\n";
-    print "\n";
-} else {
-    $nivelOk = true;
-}
-
-if ($usuarioOk && $passwordOk && $nivelOk) {
-    if ($id == "") {
-        print "    <p>No se ha seleccionado ningún registro.</p>\n";
+foreach ($respuesta["mensajes"] as $mensaje) {
+    if ($mensaje["resultado"] == OK) {
+        print "    <p>$mensaje[texto]</p>\n";
     } else {
-        $consulta = "SELECT COUNT(*) FROM $dbTablaUsuariosWeb
-            WHERE id=:id";
-        $result = $db->prepare($consulta);
-        $result->execute([":id" => $id]);
-        if (!$result) {
-            print "    <p class=\"aviso\">Error en la consulta.</p>\n";
-        } elseif ($result->fetchColumn() == 0) {
-            print "    <p>Registro no encontrado.</p>\n";
-        } else {
-            // La consulta cuenta los registros con un id diferente porque MySQL no distingue
-            // mayúsculas de minúsculas y si en un registro sólo se cambian mayúsculas por
-            // minúsculas MySQL diría que ya hay un registro como el que se quiere guardar.
-            $consulta = "SELECT COUNT(*) FROM $dbTablaUsuariosWeb
-                WHERE usuario=:usuario
-                AND id<>:id";
-            $result = $db->prepare($consulta);
-            $result->execute([":usuario" => $usuario, ":id" => $id]);
-            if (!$result) {
-                print "    <p class=\"aviso\">Error en la consulta.</p>\n";
-            } elseif ($result->fetchColumn() > 0) {
-                print "    <p>Ya existe un registro con ese nombre. "
-                    . "No se ha guardado la modificación.</p>\n";
-            } else {
-                $consulta = "UPDATE $dbTablaUsuariosWeb
-                    SET usuario=:usuario, password=:password, nivel=:nivel
-                    WHERE id=:id";
-                $result = $db->prepare($consulta);
-                if ($result->execute([":usuario" => $usuario, ":password" => encripta($password), ":nivel" => $nivel, ":id" => $id])) {
-                    print "    <p>Registro modificado correctamente.</p>\n";
-                } else {
-                    print "    <p class=\"aviso\">Error al modificar el registro.</p>\n";
-                }
-            }
-        }
+        print "    <p class=\"aviso\">$mensaje[texto]</p>\n";
     }
 }
-
 pie();

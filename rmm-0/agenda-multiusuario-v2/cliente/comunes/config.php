@@ -28,6 +28,10 @@ define("FORM_METHOD",    GET);     // Valores posibles: GET o POST
 
 // Configuración Tabla Usuarios de la web
 
+$tamUsuariosWebUsuario  = 20;  // Tamaño del campo Usuarios de la web > Usuario
+$tamUsuariosWebPassword = 20;  // Tamaño del campo Usuarios de la web > Contraseña
+$tamUsuariosWebCifrado  = 32;  // Tamaño del campo Usuarios de la web > Contraseña encriptada
+
 $administradorNombre   = "root";  // Nombre del usuario Administrador
 $administradorPassword = "root";  // Password del usuario Administrador
 

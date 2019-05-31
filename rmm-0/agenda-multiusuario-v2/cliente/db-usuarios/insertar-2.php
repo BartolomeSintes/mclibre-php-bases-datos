@@ -44,13 +44,11 @@ $respuesta1 = file_get_contents("$urlServidor?$consulta");
 $respuesta = json_decode($respuesta1, true);
 // print "<pre>Respuesta: "; print_r($respuesta); print "</pre>";
 
-if ($respuesta["resultado"] == KO) {
-    foreach ($respuesta["mensajes"] as $mensaje) {
-        if ($mensaje["resultado"] == OK) {
-            print "    <p>$mensaje[texto]</p>\n";
-        } else {
-            print "    <p class=\"aviso\">$mensaje[texto]</p>\n";
-        }
+foreach ($respuesta["mensajes"] as $mensaje) {
+    if ($mensaje["resultado"] == OK) {
+        print "    <p>$mensaje[texto]</p>\n";
+    } else {
+        print "    <p class=\"aviso\">$mensaje[texto]</p>\n";
     }
 }
 pie();

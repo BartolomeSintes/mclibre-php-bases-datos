@@ -40,67 +40,48 @@ $nivel    = recoge("nivel");
 $columna = recogeValores("columna", $columnasUsuariosWeb, "usuario");
 $orden   = recogeValores("orden", $orden, "ASC");
 
-$consulta = "SELECT COUNT(*) FROM $dbTablaUsuariosWeb
-    WHERE (usuario LIKE :usuario
-    AND password LIKE :password
-    AND nivel LIKE :nivel)";
-$result = $db->prepare($consulta);
-$result->execute([":usuario" => "%$usuario%", ":password" => "%$password%", ":nivel" => "%$nivel%"]);
-if (!$result) {
-    print "    <p class=\"aviso\">Error en la consulta.</p>\n";
-} elseif ($result->fetchColumn() == 0) {
-    print "    <p>No se han encontrado registros.</p>\n";
+$consulta = http_build_query([
+    "accion"  => recoge("accion"),
+    "usuario" => $usuario,
+    "nivel"   => $nivel,
+    "columna" => $columna,
+    "orden"   => $orden
+]);
+
+$respuesta1 = file_get_contents("$urlServidor?$consulta");
+$respuesta = json_decode($respuesta1, true);
+// print "<pre>Respuesta: "; print_r($respuesta); print "</pre>";
+
+if ($respuesta["resultado"] == KO) {
+    print "    <p class=\"aviso\">{$respuesta["mensajes"][0]["texto"]}</p>\n";
 } else {
-    $consulta = "SELECT * FROM $dbTablaUsuariosWeb
-        WHERE (usuario LIKE :usuario
-        AND password LIKE :password
-        AND nivel LIKE:nivel)
-        ORDER BY $columna $orden";
-    $result = $db->prepare($consulta);
-    $result->execute([":usuario" => "%$usuario%", ":password" => "%$password%", ":nivel" => "%$nivel%"]);
-    if (!$result) {
-        print "    <p class=\"aviso\">Error en la consulta.</p>\n";
-    } else {
-        $datos = "usuario=$usuario&amp;password=$password&amp;nivel=$nivel";
-        print "    <p>Registros encontrados:</p>\n";
-        print "\n";
-        print "    <table class=\"conborde franjas\">\n";
-        print "      <thead>\n";
-        print "        <tr>\n";
+    $datos = "accion=usuarios-buscar-registros&amp;usuario=$usuario&amp;nivel=$nivel";
+    print "    <p>Registros encontrados:</p>\n";
+    print "\n";
+    print "    <table class=\"conborde franjas\">\n";
+    print "      <thead>\n";
+    print "        <tr>\n";
+    foreach ($respuesta["estructura"]["columnas"] as $columna) {
         print "          <th>\n";
-        print "            <a href=\"$_SERVER[PHP_SELF]?$datos&amp;columna=usuario&amp;orden=ASC\">\n";
+        print "            <a href=\"$_SERVER[PHP_SELF]?$datos&amp;columna=$columna[0]&amp;orden=ASC\">\n";
         print "              <img src=\"../img/abajo.svg\" alt=\"A-Z\" title=\"A-Z\" width=\"15\" height=\"12\" /></a>\n";
-        print "            Usuario\n";
-        print "            <a href=\"$_SERVER[PHP_SELF]?$datos&amp;columna=usuario&amp;orden=DESC\">\n";
+        print "            $columna[2]\n";
+        print "            <a href=\"$_SERVER[PHP_SELF]?$datos&amp;columna=$columna[0]&amp;orden=DESC\">\n";
         print "              <img src=\"../img/arriba.svg\" alt=\"Z-A\" title=\"Z-A\" width=\"15\" height=\"12\" /></a>\n";
         print "          </th>\n";
-        print "          <th>\n";
-        print "            <a href=\"$_SERVER[PHP_SELF]?$datos&amp;columna=password&amp;orden=ASC\">\n";
-        print "              <img src=\"../img/abajo.svg\" alt=\"A-Z\" title=\"A-Z\" width=\"15\" height=\"12\" /></a>\n";
-        print "            Contraseña (encriptada)\n";
-        print "            <a href=\"$_SERVER[PHP_SELF]?$datos&amp;columna=password&amp;orden=DESC\">\n";
-        print "              <img src=\"../img/arriba.svg\" alt=\"Z-A\" title=\"Z-A\" width=\"15\" height=\"12\" /></a>\n";
-        print "          </th>\n";
-        print "          <th>\n";
-        print "            <a href=\"$_SERVER[PHP_SELF]?$datos&amp;columna=nivel&amp;orden=ASC\">\n";
-        print "              <img src=\"../img/abajo.svg\" alt=\"A-Z\" title=\"A-Z\" width=\"15\" height=\"12\" /></a>\n";
-        print "            Nivel\n";
-        print "            <a href=\"$_SERVER[PHP_SELF]?$datos&columna=nivel&amp;orden=DESC\">\n";
-        print "              <img src=\"../img/arriba.svg\" alt=\"Z-A\" title=\"Z-A\" width=\"15\" height=\"12\" /></a>\n";
-        print "          </th>\n";
-        print "        </tr>\n";
-        print "      </thead>\n";
-        print "      <tbody>\n";
-        foreach ($result as $valor) {
-            print "        <tr>\n";
-            print "          <td>$valor[usuario]</td>\n";
-            print "          <td>$valor[password]</td>\n";
-            print "          <td>" . $usuariosWebNiveles[$valor["nivel"] - 1][0] . "</td>\n";
-            print "        </tr>\n";
-        }
-        print "      </tbody>\n";
-        print "    </table>\n";
     }
+    print "        </tr>\n";
+    print "      </thead>\n";
+    print "      <tbody>\n";
+    foreach ($respuesta["registros"] as $valor) {
+        print "        <tr>\n";
+        foreach ($respuesta["estructura"]["columnas"] as $columna) {
+            print "          <td>{$valor[$columna[0]]}</td>\n";
+        }
+        print "        </tr>\n";
+    }
+    print "      </tbody>\n";
+    print "    </table>\n";
 }
 
 pie();

@@ -106,57 +106,77 @@ function comprueba($campo, $valor)
         $tamAgendaNombre, $tamAgendaApellidos, $tamAgendaTelefono;
 
     $mensajes = [];
-    $todoOk = OK;
+    $todoOk = KO;
 
     if ($campo == "usuario") {
         if ($valor == "") {
             $mensajes[] = ["resultado" => KO, "texto" => "El nombre de usuario no puede estar vacío."];
-            $todoOk = KO;
         } elseif (mb_strlen("usuario", "UTF-8") > $tamUsuariosWebUsuario) {
             $mensajes[] = ["resultado" => KO, "texto" => "El nombre de usuario no puede tener más de $tamUsuariosWebUsuario caracteres."];
-            $todoOk = KO;
         } else {
-            $mensajes[] = ["resultado" => OK, "texto" => "El nombre de usuario parece admisible."];
+            // $mensajes[] = ["resultado" => OK, "texto" => "El nombre de usuario parece admisible."];
+            $todoOk = OK;
         }
     } elseif ($campo == "password") {
         if ($valor == "") {
             $mensajes[] = ["resultado" => KO, "texto" => "La contraseña no puede estar vacía."];
-            $todoOk = KO;
-         } elseif (mb_strlen("usuario", "UTF-8") > $tamUsuariosWebPassword) {
+        } elseif (mb_strlen("usuario", "UTF-8") > $tamUsuariosWebPassword) {
             $mensajes[] = ["resultado" => KO, "texto" => "La contraseña no puede tener más de $tamUsuariosWebPassword caracteres."];
-            $todoOk = KO;
         } else {
-            $mensajes[] = ["resultado" => OK, "texto" => "La contraseña parece  admisible."];
+            // $mensajes[] = ["resultado" => OK, "texto" => "La contraseña parece  admisible."];
+            $todoOk = OK;
         }
     } elseif ($campo == "nivel") {
         if ($valor != NIVEL_1 && $valor != NIVEL_2 && $valor != NIVEL_3) {
             $mensajes[] = ["resultado" => KO, "texto" => "Nivel incorrecto."];
-            $todoOk = KO;
         } else {
-            $mensajes[] = ["resultado" => OK, "texto" => "El nombre de usuario parece admisible."];
+            // $mensajes[] = ["resultado" => OK, "texto" => "El nivel parece admisible."];
+            $todoOk = OK;
         }
     } elseif ($campo == "nombre") {
         if (mb_strlen($valor, "UTF-8") > $tamAgendaNombre) {
             $mensajes[] = ["resultado" => KO, "texto" => "El nombre no puede tener más de $tamAgendaNombre caracteres."];
-            $todoOk = KO;
         } else {
-            $mensajes[] = ["resultado" => OK, "texto" => "El nombre parece admisible."];
+            // $mensajes[] = ["resultado" => OK, "texto" => "El nombre parece admisible."];
+            $todoOk = OK;
         }
     } elseif ($campo == "apellidos") {
         if (mb_strlen($valor, "UTF-8") > $tamAgendaApellidos) {
             $mensajes[] = ["resultado" => KO, "texto" => "Los apellidos no pueden tener más de $tamAgendaApellidos caracteres."];
-            $todoOk = KO;
         } else {
-            $mensajes[] = ["resultado" => OK, "texto" => "Los apellidos parecen admisibles."];
+            // $mensajes[] = ["resultado" => OK, "texto" => "Los apellidos parecen admisibles."];
+            $todoOk = OK;
         }
     } elseif ($campo == "telefono") {
         if (mb_strlen("telefono", "UTF-8") > $tamAgendaTelefono) {
             $mensajes[] = ["resultado" => KO, "texto" => "El teléfono no puede tener más de $tamAgendaTelefono caracteres."];
-            $todoOk = KO;
         } else {
-            $mensajes[] = ["resultado" => OK, "texto" => "El teléfono parece admisible."];
+            // $mensajes[] = ["resultado" => OK, "texto" => "El teléfono parece admisible."];
+            $todoOk = OK;
         }
     }
 
     return [$todoOk, $mensajes];
+}
+
+function comprueba_password_sin_vacio($campo, $valor)
+{
+    global $tamUsuariosWebPassword;
+
+    $mensajes = [];
+    $todoOk = KO;
+
+    if ($campo == "password") {
+        if (mb_strlen("usuario", "UTF-8") > $tamUsuariosWebPassword) {
+            $mensajes[] = ["resultado" => KO, "texto" => "La contraseña no puede tener más de $tamUsuariosWebPassword caracteres."];
+        } else {
+            // $mensajes[] = ["resultado" => OK, "texto" => "La contraseña parece  admisible."];
+            $todoOk = OK;
+        }
+    }
+    return [$todoOk, $mensajes];
+}
+
+function comprueba_registro_existe()
+{
 }

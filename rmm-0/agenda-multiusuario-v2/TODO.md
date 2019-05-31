@@ -14,7 +14,7 @@
 * 2019-05-18. Confirmar que cuando una llamada hace varias acciones, el "resultado" global es OK si todas las acciones individuales son OK
 * 2019-05-18. No sé si la dirección del servidor debería estar en config.php
 
-* 2019-05-25. Tal y como está ahora, la respuesta del servidor tiene un campo "resultado", que puede ser OKO o KO. ¿Qué pasa si no se recibe ese campo? ¿cómo tendría que reaccionar la página?
+* 2019-05-25. Tal y como está ahora, la respuesta del servidor tiene un campo "resultado", que puede ser KO o KO. ¿Qué pasa si no se recibe ese campo? ¿cómo tendría que reaccionar la página?
 * 2019-05-25. "estructura"/"columnas" no da nombre a los campos, [0] es el nombre en la tabla, [1] es el tamaño, etc. ¿debería poner nombre a esos campos?
 * 2019-05-25. Al mostrar la tabla de registros, las columnas van en el orden que aparecen en el json.  ¿Siempre voy a querer ese orden?
 * 2019-05-25. ¿Cómo poner autofocus en el primer campo del formulario? ¿Añadiendo "autofocus" en "estructura"?
@@ -25,3 +25,8 @@
 * 2019-05-27. Buscar 999 para pensar y corregir (nivel de usuarios en json)
 * 2019-05-27. No tengo claro que sea buena idea pasar los valores de password al listar
 * 2019-05-27. Al mostrar nivel, muestra valores numéricos no palabras.
+
+* 2019-05-30. Cosas para hacer en este orden:
+** pasar a html5
+** sigo sin aclararme si tengo que separar en la api "estructura" de "registros". Por ejemplo, para hacer un formulario de insertar registros, si uno de los campos es una clave externa, ¿es mejor incluir los posibles valores en la misma llamada a la api o hacer una llamada aparte? Parece que es mejor hacerlo aparte, es más flexible. Pues lo mismo con la petición de la estructura. Pero entonces hay que hacer varias peticiones para construir una página. Cuando lo hablé con Vicente Forner me dio la idea de enviar varias acciones en la misma petición.
+
