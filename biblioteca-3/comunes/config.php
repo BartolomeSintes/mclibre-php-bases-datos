@@ -11,14 +11,13 @@ $dbMotor = SQLITE;                        // Valores posibles: MYSQL o SQLITE
 
 // Algoritmo hash para encriptar la contraseña de usuario
 
-define("HASH_ALGORITHM", "sha256");       // Algoritmo hash: Nombre
-define("HASH_SIZE", 64);                  // Algoritmo hash: Longitud
+$cfg["hashAlgorithm"] = SHA_256;          // Algoritmo hash: Nombre. Valores posibles: SHA_256
 
 // Configuración Tabla Usuarios
 
 define("MAX_REG_TABLE_USUARIOS", 20);     // Número máximo de registros en la tabla Usuarios
 $tamUsuariosUsuario         = 20;         // Tamaño de la columna Usuarios > Nombre de Usuario
-$tamUsuariosPasswordCifrado = HASH_SIZE;  // Tamaño de la columna Usuarios > Contraseña de Usuario cifrada
+$tamUsuariosPasswordCifrado = $cfg["hashSize"];  // Tamaño de la columna Usuarios > Contraseña de Usuario cifrada
 $tamUsuariosPassword        = 20;         // Tamaño de la Contraseña de Usuario en el formulario
 
 // Configuración Tabla Personas
@@ -63,4 +62,4 @@ define("SESSION_NAME", "biblioteca");       // Nombre de sesión
 
 // Zona horaria
 
-define("ZONA_HORARIA",        "Europe/Madrid");  // Zona horaria del servidor
+define("ZONA_HORARIA", "Europe/Madrid");  // Zona horaria del servidor

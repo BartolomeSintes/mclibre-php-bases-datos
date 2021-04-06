@@ -22,6 +22,12 @@ define("MENU_PERSONAS", "menuPersonas");                       // Menú Personas
 define("MENU_OBRAS", "menuObras");                             // Menú Obras
 define("MENU_PRESTAMOS", "menuPrestamos");                     // Menú Préstamos
 
+// Algoritmos de hash
+
+define("SHA_256", "sha256");                                  // Nombres de los algoritmos de hash
+$hashSizes       = [SHA_256 => 64];                           // Tamaños de los valores hash
+$cfg["hashSize"] = $hashSizes[$cfg["hashAlgorithm"]];         // Algoritmo hash: Longitud
+
 // Niveles de usuarios
 
 define("NIVEL_1", "1");                    // Usuario web de nivel Usuario
@@ -199,5 +205,7 @@ function pie()
 
 function encripta($cadena)
 {
-    return hash(HASH_ALGORITHM, $cadena);
+    global $cfg;
+
+    return hash($cfg["hashAlgorithm"], $cadena);
 }
