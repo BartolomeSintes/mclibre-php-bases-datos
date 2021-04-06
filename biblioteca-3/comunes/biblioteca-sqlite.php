@@ -9,11 +9,11 @@
 
 // Configuración general
 
-define("SQLITE_DATABASE", "/home/barto/mclibre/tmp/mclibre/biblioteca.sqlite");  // Ubicación de la base de datos
-define("SQLITE_TABLE_USUARIOS", "usuarios");                                     // Nombre de la tabla Usuarios
-define("SQLITE_TABLE_PERSONAS", "personas");                                     // Nombre de la tabla Personas
-define("SQLITE_TABLE_OBRAS", "obras");                                           // Nombre de la tabla Obras
-define("SQLITE_TABLE_PRESTAMOS", "prestamos");                                   // Nombre de la tabla Préstamos
+define("SQLITE_DATABASE", "/home/barto/mclibre/tmp/mclibre/biblioteca-3.sqlite");  // Ubicación de la base de datos
+define("SQLITE_TABLE_USUARIOS", "usuarios");                                       // Nombre de la tabla Usuarios
+define("SQLITE_TABLE_PERSONAS", "personas");                                       // Nombre de la tabla Personas
+define("SQLITE_TABLE_OBRAS", "obras");                                             // Nombre de la tabla Obras
+define("SQLITE_TABLE_PRESTAMOS", "prestamos");                                     // Nombre de la tabla Préstamos
 
 // Nombres de las tablas
 

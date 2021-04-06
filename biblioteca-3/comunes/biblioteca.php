@@ -29,12 +29,14 @@ $hashSizes = [SHA_256 => 64];              // Tamaños de los valores hash
 
 // Niveles de usuarios
 
-define("NIVEL_1", "1");                    // Usuario web de nivel Usuario
-define("NIVEL_2", "2");                    // Usuario web de nivel Administrador
+define("NIVEL_1", "1");                    // Usuario web de nivel Usuario básico
+define("NIVEL_2", "2");                    // Usuario web de nivel Usuario avanzado
+define("NIVEL_3", "3");                    // Usuario web de nivel Administrador
 
 $usuariosNiveles = [
-    "Usuario"       => NIVEL_1,
-    "Administrador" => NIVEL_2,
+    "Usuario Básico"   => NIVEL_1,
+    "Usuario Avanzado" => NIVEL_2,
+    "Administrador"    => NIVEL_3,
 ];
 
 // Constantes y variables configurables
@@ -192,7 +194,7 @@ function pie()
     print "  <footer>\n";
     print "    <p class=\"ultmod\">\n";
     print "      Última modificación de esta página:\n";
-    print "      <time datetime=\"2020-06-13\">13 de junio de 2020</time>\n";
+    print "      <time datetime=\"2021-04-06\">6 de abril de 2021</time>\n";
     print "    </p>\n";
     print "\n";
     print "    <p class=\"licencia\">\n";
