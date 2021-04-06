@@ -13,51 +13,13 @@ define("MYSQL_HOST", "mysql:host=localhost");         // Nombre de host
 define("MYSQL_USER", "");                             // Nombre de usuario
 define("MYSQL_PASSWORD", "");                         // Contraseña de usuario
 define("MYSQL_DATABASE", "biblioteca");               // Nombre de la base de datos
-define("MYSQL_TABLE_USUARIOS", "usuarios");           // Nombre de la tabla Usuarios
-define("MYSQL_TABLE_PERSONAS", "personas");           // Nombre de la tabla Personas
-define("MYSQL_TABLE_OBRAS", "obras");                 // Nombre de la tabla Obras
-define("MYSQL_TABLE_PRESTAMOS", "prestamos");         // Nombre de la tabla Préstamos
 
 // Nombres de las tablas
 
-$tablaUsuarios  = MYSQL_DATABASE . "." . MYSQL_TABLE_USUARIOS;   // Nombre de la tabla Usuarios
-$tablaPersonas  = MYSQL_DATABASE . "." . MYSQL_TABLE_PERSONAS;   // Nombre de la tabla Personas
-$tablaObras     = MYSQL_DATABASE . "." . MYSQL_TABLE_OBRAS;      // Nombre de la tabla Obras
-$tablaPrestamos = MYSQL_DATABASE . "." . MYSQL_TABLE_PRESTAMOS;  // Nombre de la tabla Préstamos
-
-$tablas = [
-    $tablaUsuarios,
-    $tablaPersonas,
-    $tablaObras,
-    $tablaPrestamos,
-];
-
-// Valores de ordenación de las tablas
-
-$columnasUsuariosOrden = [
-    "usuario ASC", "usuario DESC",
-    "password ASC", "password DESC",
-    "nivel ASC", "nivel DESC",
-];
-
-$columnasPersonasOrden = [
-    "nombre ASC", "nombre DESC",
-    "apellidos ASC", "apellidos DESC",
-    "dni ASC", "dni DESC",
-];
-
-$columnasObrasOrden = [
-    "autor ASC", "autor DESC",
-    "titulo ASC", "titulo DESC",
-    "editorial ASC", "editorial DESC",
-];
-
-$columnasPrestamosOrden = [
-    "apellidos ASC", "apellidos DESC",
-    "autor ASC", "autor DESC",
-    "prestado ASC", "prestado DESC",
-    "devuelto ASC", "devuelto DESC",
-];
+$tablaUsuarios  = MYSQL_DATABASE . ".usuarios";       // Nombre de la tabla Usuarios
+$tablaPersonas  = MYSQL_DATABASE . ".personas";       // Nombre de la tabla Personas
+$tablaObras     = MYSQL_DATABASE . ".obras";          // Nombre de la tabla Obras
+$tablaPrestamos = MYSQL_DATABASE . ".prestamos";      // Nombre de la tabla Préstamos
 
 // Consultas de borrado y creación de base de datos y tablas, etc.
 

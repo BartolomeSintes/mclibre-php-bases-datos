@@ -10,51 +10,13 @@
 // Configuración general
 
 define("SQLITE_DATABASE", "/home/barto/mclibre/tmp/mclibre/biblioteca-3.sqlite");  // Ubicación de la base de datos
-define("SQLITE_TABLE_USUARIOS", "usuarios");                                       // Nombre de la tabla Usuarios
-define("SQLITE_TABLE_PERSONAS", "personas");                                       // Nombre de la tabla Personas
-define("SQLITE_TABLE_OBRAS", "obras");                                             // Nombre de la tabla Obras
-define("SQLITE_TABLE_PRESTAMOS", "prestamos");                                     // Nombre de la tabla Préstamos
 
 // Nombres de las tablas
 
-$tablaUsuarios  = SQLITE_TABLE_USUARIOS;   // Nombre de la tabla Usuarios
-$tablaPersonas  = SQLITE_TABLE_PERSONAS;   // Nombre de la tabla Personas
-$tablaObras     = SQLITE_TABLE_OBRAS;      // Nombre de la tabla Obras
-$tablaPrestamos = SQLITE_TABLE_PRESTAMOS;  // Nombre de la tabla Préstamos
-
-$tablas = [
-    $tablaUsuarios,
-    $tablaPersonas,
-    $tablaObras,
-    $tablaPrestamos,
-];
-
-// Valores de ordenación de las tablas
-
-$columnasUsuariosOrden = [
-    "usuario ASC", "usuario DESC",
-    "password ASC", "password DESC",
-    "nivel ASC", "nivel DESC",
-];
-
-$columnasPersonasOrden = [
-    "nombre ASC", "nombre DESC",
-    "apellidos ASC", "apellidos DESC",
-    "dni ASC", "dni DESC",
-];
-
-$columnasObrasOrden = [
-    "autor ASC", "autor DESC",
-    "titulo ASC", "titulo DESC",
-    "editorial ASC", "editorial DESC",
-];
-
-$columnasPrestamosOrden = [
-    "apellidos ASC", "apellidos DESC",
-    "autor ASC", "autor DESC",
-    "prestado ASC", "prestado DESC",
-    "devuelto ASC", "devuelto DESC",
-];
+$tablaUsuarios  = "usuarios";   // Nombre de la tabla Usuarios
+$tablaPersonas  = "personas";   // Nombre de la tabla Personas
+$tablaObras     = "obras";      // Nombre de la tabla Obras
+$tablaPrestamos = "prestamos";  // Nombre de la tabla Préstamos
 
 // Consultas de borrado y creación de base de datos y tablas, etc.
 

@@ -55,6 +55,42 @@ if ($cfg["dbMotor"] == MYSQL) {
     require_once "biblioteca-sqlite.php";
 }
 
+// Tablas
+
+$tablas = [
+    $tablaUsuarios,
+    $tablaPersonas,
+    $tablaObras,
+    $tablaPrestamos,
+];
+
+// Valores de ordenación de las tablas
+
+$columnasUsuariosOrden = [
+    "usuario ASC", "usuario DESC",
+    "password ASC", "password DESC",
+    "nivel ASC", "nivel DESC",
+];
+
+$columnasPersonasOrden = [
+    "nombre ASC", "nombre DESC",
+    "apellidos ASC", "apellidos DESC",
+    "dni ASC", "dni DESC",
+];
+
+$columnasObrasOrden = [
+    "autor ASC", "autor DESC",
+    "titulo ASC", "titulo DESC",
+    "editorial ASC", "editorial DESC",
+];
+
+$columnasPrestamosOrden = [
+    "apellidos ASC", "apellidos DESC",
+    "autor ASC", "autor DESC",
+    "prestado ASC", "prestado DESC",
+    "devuelto ASC", "devuelto DESC",
+];
+
 // Funciones comunes
 
 function recoge($var, $m = "")
