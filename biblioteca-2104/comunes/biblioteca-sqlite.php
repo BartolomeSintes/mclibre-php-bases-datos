@@ -9,7 +9,7 @@
 
 // Configuración general
 
-define("SQLITE_DATABASE", "/home/barto/mclibre/tmp/mclibre/biblioteca-3.sqlite");  // Ubicación de la base de datos
+define("SQLITE_DATABASE", "/home/barto/mclibre/tmp/mclibre/biblioteca-2104.sqlite");  // Ubicación de la base de datos
 
 // Nombres de las tablas
 
