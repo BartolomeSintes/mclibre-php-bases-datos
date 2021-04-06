@@ -86,7 +86,10 @@ function cabecera($texto, $menu, $profundidadDirectorio)
         print "  <link rel=\"stylesheet\" href=\"comunes/mclibre-php-proyectos.css.php\" title=\"Color\" />\n";
     } elseif ($profundidadDirectorio == 1) {
         print "  <link rel=\"stylesheet\" href=\"../comunes/mclibre-php-proyectos.css.php\" title=\"Color\" />\n";
+    } elseif ($profundidadDirectorio == 2) {
+        print "  <link rel=\"stylesheet\" href=\"../../comunes/mclibre-php-proyectos.css.php\" title=\"Color\" />\n";
     }
+
     print "</head>\n";
     print "\n";
     print "<body>\n";
@@ -107,12 +110,12 @@ function cabecera($texto, $menu, $profundidadDirectorio)
         if ($menu == MENU_PRINCIPAL) {
             print "        <li><a href=\"acceso/login-1.php\">Conectarse</a></li>\n";
         } elseif ($menu == MENU_PRINCIPAL_CONECTADO) {
-            print "        <li><a href=\"db-obras/index.php\">Obras</a></li>\n";
+            print "        <li><a href=\"tablas/db-obras/index.php\">Obras</a></li>\n";
             print "        <li><a href=\"acceso/logout.php\">Desconectarse</a></li>\n";
         } elseif ($menu == MENU_VOLVER) {
             print "        <li><a href=\"../index.php\">Volver</a></li>\n";
         } elseif ($menu == MENU_OBRAS) {
-            print "        <li><a href=\"../index.php\">Volver</a></li>\n";
+            print "        <li><a href=\"../../index.php\">Volver</a></li>\n";
             print "        <li><a href=\"listar.php\">Listar</a></li>\n";
         } else {
             print "        <li>Error en la selección de menú</li>\n";
@@ -121,30 +124,30 @@ function cabecera($texto, $menu, $profundidadDirectorio)
         if ($menu == MENU_PRINCIPAL) {
             print "        <li><a href=\"acceso/login-1.php\">Conectarse</a></li>\n";
         } elseif ($menu == MENU_PRINCIPAL_CONECTADO) {
-            print "        <li><a href=\"db-personas/index.php\">Personas</a></li>\n";
-            print "        <li><a href=\"db-obras/index.php\">Obras</a></li>\n";
-            print "        <li><a href=\"db-prestamos/index.php\">Préstamos</a></li>\n";
-            print "        <li><a href=\"db-usuarios/index.php\">Usuarios</a></li>\n";
+            print "        <li><a href=\"tablas/db-personas/index.php\">Personas</a></li>\n";
+            print "        <li><a href=\"tablas/db-obras/index.php\">Obras</a></li>\n";
+            print "        <li><a href=\"tablas/db-prestamos/index.php\">Préstamos</a></li>\n";
+            print "        <li><a href=\"tablas/db-usuarios/index.php\">Usuarios</a></li>\n";
             print "        <li><a href=\"administrador/index.php\">Administrador</a></li>\n";
             print "        <li><a href=\"acceso/logout.php\">Desconectarse</a></li>\n";
         } elseif ($menu == MENU_VOLVER) {
-            print "        <li><a href=\"../index.php\">Volver</a></li>\n";
+            print "        <li><a href=\"../../index.php\">Volver</a></li>\n";
         } elseif ($menu == MENU_PERSONAS) {
-            print "        <li><a href=\"../index.php\">Volver</a></li>\n";
+            print "        <li><a href=\"../../index.php\">Volver</a></li>\n";
             print "        <li><a href=\"insertar-1.php\">Añadir registro</a></li>\n";
             print "        <li><a href=\"listar.php\">Listar</a></li>\n";
             print "        <li><a href=\"borrar-1.php\">Borrar</a></li>\n";
             print "        <li><a href=\"buscar-1.php\">Buscar</a></li>\n";
             print "        <li><a href=\"modificar-1.php\">Modificar</a></li>\n";
         } elseif ($menu == MENU_OBRAS) {
-            print "        <li><a href=\"../index.php\">Volver</a></li>\n";
+            print "        <li><a href=\"../../index.php\">Volver</a></li>\n";
             print "        <li><a href=\"insertar-1.php\">Añadir registro</a></li>\n";
             print "        <li><a href=\"listar.php\">Listar</a></li>\n";
             print "        <li><a href=\"borrar-1.php\">Borrar</a></li>\n";
             print "        <li><a href=\"buscar-1.php\">Buscar</a></li>\n";
             print "        <li><a href=\"modificar-1.php\">Modificar</a></li>\n";
         } elseif ($menu == MENU_PRESTAMOS) {
-            print "        <li><a href=\"../index.php\">Volver</a></li>\n";
+            print "        <li><a href=\"../../index.php\">Volver</a></li>\n";
             print "        <li><a href=\"insertar-1.php\">Nuevo préstamo</a></li>\n";
             print "        <li><a href=\"devolver-1.php\">Nueva devolución</a></li>\n";
             print "        <li><a href=\"listar.php\">Listar</a></li>\n";
@@ -152,7 +155,7 @@ function cabecera($texto, $menu, $profundidadDirectorio)
             print "        <li><a href=\"buscar-1.php\">Buscar</a></li>\n";
             print "        <li><a href=\"modificar-1.php\">Modificar</a></li>\n";
         } elseif ($menu == MENU_USUARIOS) {
-            print "        <li><a href=\"../index.php\">Volver</a></li>\n";
+            print "        <li><a href=\"../../index.php\">Volver</a></li>\n";
             print "        <li><a href=\"insertar-1.php\">Añadir registro</a></li>\n";
             print "        <li><a href=\"listar.php\">Listar</a></li>\n";
             print "        <li><a href=\"borrar-1.php\">Borrar</a></li>\n";

@@ -55,7 +55,7 @@ define("FORM_METHOD", GET);               // Valores posibles: GET o POST
 
 // Hoja de estilo
 
-define("COLOR", 27);                      // Color básico de la aplicación (0 - 360)
+define("COLOR", 320);                      // Color básico de la aplicación (0 - 360)
 
 // Nombre de sesión
 
