@@ -50,7 +50,7 @@ $cfg["tamFecha"]             = 10;        // Longitud de una cadena de fecha (AA
 
 // Usuario inicial
 
-$cfg["rootName"]     = "root";                                                                  // Usuario inicial: Nombre
+$cfg["rootName"]     = "root";                                                              // Usuario inicial: Nombre
 $cfg["rootPassword"] = "4813494d137e1631bba301d5acab6e7bb7aa74ce1185d456565ef51d737677b2";  // Usuario inicial: Contraseña
 
 // Método de envío de formularios
@@ -59,7 +59,7 @@ $cfg["formMethod"] = GET;                 // Valores posibles: GET o POST
 
 // Hoja de estilo
 
-$cfg["color"] = 0;                       // Color básico de la aplicación (0 - 360)
+$cfg["color"] = 0;                        // Color básico de la aplicación (0 - 360)
 
 // Nombre de sesión
 

@@ -28,6 +28,7 @@ define("SHA_256", "sha256");                               // Nombres de los alg
 $hashSizes = [SHA_256 => 64];                              // Tamaños de los valores hash
 
 // Niveles de usuarios
+
 define("NIVEL_1", "1");                    // Usuario web de nivel Usuario básico
 define("NIVEL_2", "2");                    // Usuario web de nivel Usuario avanzado
 define("NIVEL_3", "3");                    // Usuario web de nivel Administrador
@@ -35,7 +36,7 @@ define("NIVEL_3", "3");                    // Usuario web de nivel Administrador
 $usuariosNiveles = [
     "Usuario Básico"   => NIVEL_1,
     "Usuario Avanzado" => NIVEL_2,
-    "Administrador"   => NIVEL_3,
+    "Administrador"    => NIVEL_3,
 ];
 
 $acciones = [
@@ -105,9 +106,9 @@ function cabecera($texto, $menu, $profundidadDirectorio)
     print "  </title>\n";
     print "  <meta name=\"viewport\" content=\"width=device-width, initial-scale=1.0\">\n";
     if ($profundidadDirectorio == 0) {
-        print "  <link rel=\"stylesheet\" href=\"comunes/mclibre-php-proyectos.css.php\" title=\"$cfg[color]\" />\n";
+        print "  <link rel=\"stylesheet\" href=\"comunes/mclibre-php-proyectos.css.php\" title=\"Color\" />\n";
     } elseif ($profundidadDirectorio == 1) {
-        print "  <link rel=\"stylesheet\" href=\"../comunes/mclibre-php-proyectos.css.php\" title=\"$cfg[color]\" />\n";
+        print "  <link rel=\"stylesheet\" href=\"../comunes/mclibre-php-proyectos.css.php\" title=\"Color\" />\n";
     }
     print "</head>\n";
     print "\n";

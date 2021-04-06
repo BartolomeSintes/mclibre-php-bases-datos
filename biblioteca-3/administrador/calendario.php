@@ -26,6 +26,8 @@ if (!isset($_SESSION["anyo"])) {
 
 function calendario($db, $anyo, $mes, $diaMostrado, $consultaPlantilla)
 {
+    global $cfg;
+
     date_default_timezone_set($cfg["zonaHoraria"]);
 
     $esBisiesto = ($anyo % 400 == 0 || ($anyo % 100 != 0 && $anyo % 4 == 0))

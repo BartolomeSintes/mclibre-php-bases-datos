@@ -22,7 +22,7 @@ cabecera("Login 1", MENU_VOLVER, 1);
 if (!existenTablas($db, $tablas)) {
     print "<p>La base de datos no está creada. Se creará la base de datos.</p>\n";
     print "\n";
-    borraTodo($db, $tablas, $consultasCreaTabla);
+    borraTodo($db);
 }
 
 $aviso = recoge("aviso");

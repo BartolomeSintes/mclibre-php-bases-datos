@@ -12,7 +12,7 @@
 define("MYSQL_HOST", "mysql:host=localhost");         // Nombre de host
 define("MYSQL_USER", "");                             // Nombre de usuario
 define("MYSQL_PASSWORD", "");                         // Contraseña de usuario
-define("MYSQL_DATABASE", "biblioteca");               // Nombre de la base de datos
+define("MYSQL_DATABASE", "biblioteca_3");             // Nombre de la base de datos
 
 // Nombres de las tablas
 
@@ -23,44 +23,32 @@ $tablaPrestamos = MYSQL_DATABASE . ".prestamos";      // Nombre de la tabla Pré
 
 // Consultas de borrado y creación de base de datos y tablas, etc.
 
-define("CONSULTA_BORRA_DB", "DROP DATABASE " . MYSQL_DATABASE);
-
-define(
-    "CONSULTA_CREA_DB",
+$consultasBorraTodo = [
+    // Borra base de datos
+    "DROP DATABASE " . MYSQL_DATABASE,
+    // Crea base de datos
     "CREATE DATABASE " . MYSQL_DATABASE . "
         CHARACTER SET utf8mb4
-        COLLATE utf8mb4_unicode_ci"
-);
-
-define(
-    "CONSULTA_INSERTA_USUARIO_ROOT",
-    "INSERT INTO $tablaUsuarios
-        VALUES (NULL, '$cfg[rootName]', '$cfg[rootPassword]', $usuariosNiveles[Administrador])"
-);
-
-$consultasCreaTabla = [
-    // Tabla Usuarios
+        COLLATE utf8mb4_unicode_ci",
+    // Crea tablas
     "CREATE TABLE $tablaUsuarios (
         id INTEGER NOT NULL AUTO_INCREMENT PRIMARY KEY,
         usuario VARCHAR($cfg[tamUsuariosUsuario]),
         password VARCHAR($cfg[tamUsuariosPasswordCifrado]),
         nivel INTEGER
     )",
-    // Tabla Personas
     "CREATE TABLE $tablaPersonas (
         id INTEGER NOT NULL AUTO_INCREMENT PRIMARY KEY,
         nombre VARCHAR($cfg[tamPersonasNombre]),
         apellidos VARCHAR($cfg[tamPersonasApellidos]),
         dni VARCHAR($cfg[tamPersonasDni])
     )",
-    // Tabla Obras
     "CREATE TABLE $tablaObras (
         id INTEGER NOT NULL AUTO_INCREMENT PRIMARY KEY,
         autor VARCHAR($cfg[tamObrasAutor]),
         titulo VARCHAR($cfg[tamObrasTitulo]),
         editorial VARCHAR($cfg[tamObrasEditorial])
     )",
-    // Tabla Préstamos
     "CREATE TABLE $tablaPrestamos (
         id INTEGER NOT NULL AUTO_INCREMENT PRIMARY KEY,
         id_persona INTEGER NOT NULL,
@@ -70,7 +58,33 @@ $consultasCreaTabla = [
         FOREIGN KEY(id_persona) REFERENCES $tablaPersonas(id) ON DELETE CASCADE ON UPDATE CASCADE,
         FOREIGN KEY(id_obra) REFERENCES $tablaObras(id) ON DELETE CASCADE ON UPDATE CASCADE
     )",
+    // Inserta usuario root
+    "INSERT INTO $tablaUsuarios
+        VALUES (NULL, '$cfg[rootName]', '$cfg[rootPassword]', $usuariosNiveles[Administrador])",
 ];
+
+$consultasValoresDemo = [
+    "INSERT INTO $tablaUsuarios
+        VALUES (2,'pepe','7c9e7c1494b2684ab7c19d6aff737e460fa9e98d5a234da1310c97ddf5691834',1)",
+    "INSERT INTO $tablaPersonas
+        VALUES (1,'Pepito','Conejo','123A')",
+    "INSERT INTO $tablaPersonas
+        VALUES (2,'Juan','Nadie','9876X')",
+    "INSERT INTO $tablaObras
+        VALUES (1,'Miguel de Cervantes','Don Quijote','Cátedra')",
+    "INSERT INTO $tablaObras
+        VALUES (2,'Jorge Luis Borges','Ficciones','Ed Sudamericana')",
+    "INSERT INTO $tablaPrestamos
+        VALUES (1, 1, 1,'" . date("Y-m-d", time() - 4 * 60 * 60 * 24) . "','" . date("Y-m-d", time() - 3 * 60 * 60 * 24) . "')",
+    "INSERT INTO $tablaPrestamos
+        VALUES (2, 2, 2,'" . date("Y-m-d", time() - 4 * 60 * 60 * 24) . "','" . date("Y-m-d", time() - 2 * 60 * 60 * 24) . "')",
+    "INSERT INTO $tablaPrestamos
+        VALUES (3, 2, 1,'" . date("Y-m-d", time() - 1 * 60 * 60 * 24) . "','0000-00-00')",
+];
+
+if ($cfg["insertaRegistrosDemo"]) {
+    $consultasBorraTodo = array_merge($consultasBorraTodo, $consultasValoresDemo);
+}
 
 // Funciones específicas de bases de datos (MYSQL)
 
@@ -91,42 +105,15 @@ function conectaDb()
     }
 }
 
-function borraTodo($db, $nombresTablas, $consultasCreacionTablas)
+function borraTodo($db)
 {
-    $consulta = CONSULTA_BORRA_DB;
-    if ($db->query($consulta)) {
-        print "    <p>Base de datos borrada correctamente.</p>\n";
-        print "\n";
-    } else {
-        print "    <p class=\"aviso\">Error al borrar la base de datos.</p>\n";
-        print "\n";
-    }
+    global $consultasBorraTodo;
 
-    $consulta = CONSULTA_CREA_DB;
-    if ($db->query($consulta)) {
-        print "    <p>Base de datos creada correctamente.</p>\n";
-        print "\n";
-        foreach ($consultasCreacionTablas as $consulta) {
-            if ($db->query($consulta)) {
-                print "    <p>Tabla creada correctamente.</p>\n";
-                print "\n";
-            } else {
-                print "    <p class=\"aviso\">Error al crear la tabla</p>\n";
-                print "\n";
-            }
+    foreach ($consultasBorraTodo as $consulta) {
+        if (!$db->query($consulta)) {
+            print "    <p class=\"aviso\">Error en la consulta: $consulta</p>\n";
+            print "\n";
         }
-    } else {
-        print "    <p class=\"aviso\">Error al crear la base de datos.</p>\n";
-        print "\n";
-    }
-
-    $consulta = CONSULTA_INSERTA_USUARIO_ROOT;
-    if ($db->query($consulta)) {
-        print "    <p>Registro de Usuario $cfg[rootName] creado correctamente.</p>\n";
-        print "\n";
-    } else {
-        print "    <p class=\"aviso\">Error al crear el registro de Usuario $cfg[rootName].<p>\n";
-        print "\n";
     }
 }
 

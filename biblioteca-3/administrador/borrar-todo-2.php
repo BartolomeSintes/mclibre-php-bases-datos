@@ -23,7 +23,13 @@ $db = conectaDb();
 
 cabecera("Administrador - Borrar todo 2", MENU_ADMINISTRADOR, 1);
 
-borraTodo($db, $tablas, $consultasCreaTabla);
+if ($cfg["insertaRegistrosDemo"]) {
+    print "  <p>Base de datos creada, insertando registros de prueba.</p>\n";
+} else {
+    print "  <p>Base de datos creada.</p>\n";
+}
+
+borraTodo($db);
 
 $db = null;
 pie();

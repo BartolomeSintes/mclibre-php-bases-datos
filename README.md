@@ -3,7 +3,7 @@ Ejercicios de Bases de Datos en PHP (experimentos)
 
 ## biblioteca-3
 
-
+Esta versión la he hecho en abril de 2021 para usarla de base en el futuro.
 
 ## biblioteca-2104
 

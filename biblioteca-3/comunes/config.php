@@ -44,6 +44,10 @@ $cfg["maxRegTablePrestamos"] = 999;       // Número máximo de registros en la 
 $cfg["rootName"]     = "root";                                                              // Usuario inicial: Nombre
 $cfg["rootPassword"] = "4813494d137e1631bba301d5acab6e7bb7aa74ce1185d456565ef51d737677b2";  // Usuario inicial: Contraseña
 
+// Inserta registros iniciales de prueba
+
+$cfg["insertaRegistrosDemo"] = true;
+
 // Método de envío de formularios
 
 $cfg["formMethod"] = GET;                 // Valores posibles: GET o POST
