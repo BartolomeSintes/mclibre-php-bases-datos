@@ -7,7 +7,7 @@
 
 require_once "../comunes/biblioteca.php";
 
-session_name(SESSION_NAME);
+session_name($cfg["sessionName"]);
 session_start();
 if (!isset($_SESSION["conectado"]) || $_SESSION["conectado"] != NIVEL_2) {
     header("Location:../index.php");
@@ -26,7 +26,7 @@ if (!isset($_SESSION["anyo"])) {
 
 function calendario($db, $anyo, $mes, $diaMostrado, $consultaPlantilla)
 {
-    date_default_timezone_set(ZONA_HORARIA);
+    date_default_timezone_set($cfg["zonaHoraria"]);
 
     $esBisiesto = ($anyo % 400 == 0 || ($anyo % 100 != 0 && $anyo % 4 == 0))
                     ? "1" : "0";
@@ -158,7 +158,7 @@ if (!$result) {
     } else {
         print "    <p>Listado completo de registros:</p>\n";
         print "\n";
-        print "    <form action=\"$_SERVER[PHP_SELF]\" method=\"" . FORM_METHOD . "\">\n";
+        print "    <form action=\"$_SERVER[PHP_SELF]\" method=\"$cfg[formMethod]\">\n";
         print "      <table class=\"conborde franjas\">\n";
         print "        <thead>\n";
         print "          <tr>\n";

@@ -7,7 +7,7 @@
 
 require_once "../../comunes/biblioteca.php";
 
-session_name(SESSION_NAME);
+session_name($cfg["sessionName"]);
 session_start();
 if (!isset($_SESSION["conectado"]) || $_SESSION["conectado"] != NIVEL_2) {
     header("Location:../index.php");
@@ -31,7 +31,7 @@ if (count($id) == 0) {
             print "    <p class=\"aviso\">Error en la consulta.</p>\n";
         } else {
             $valor = $result->fetch();
-            if ($valor["usuario"] == ROOT_NAME) {
+            if ($valor["usuario"] == $cfg["rootName"]) {
                 print "    <p>Este usuario no se puede borrar.</p>\n";
             } else {
                 $consulta = "SELECT COUNT(*) FROM $tablaUsuarios

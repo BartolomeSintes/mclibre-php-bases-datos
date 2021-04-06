@@ -7,7 +7,7 @@
 
 require_once "../../comunes/biblioteca.php";
 
-session_name(SESSION_NAME);
+session_name($cfg["sessionName"]);
 session_start();
 if (!isset($_SESSION["conectado"]) || $_SESSION["conectado"] != NIVEL_2) {
     header("Location:../index.php");
@@ -58,7 +58,7 @@ if ($id == "") {
             print "    <p class=\"aviso\">Error en la consulta.</p>\n";
         } else {
             $valor = $result->fetch();
-            print "    <form action=\"modificar-3.php\" method=\"" . FORM_METHOD . "\">\n";
+            print "    <form action=\"modificar-3.php\" method=\"$cfg[formMethod]\">\n";
             print "      <p>Modifique los campos que desee:</p>\n";
             print "\n";
             print "      <table>\n";

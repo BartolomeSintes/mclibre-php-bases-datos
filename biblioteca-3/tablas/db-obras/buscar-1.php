@@ -7,7 +7,7 @@
 
 require_once "../../comunes/biblioteca.php";
 
-session_name(SESSION_NAME);
+session_name($cfg["sessionName"]);
 session_start();
 if (!isset($_SESSION["conectado"]) || $_SESSION["conectado"] != NIVEL_2) {
     header("Location:../index.php");
@@ -24,22 +24,22 @@ if (!$result) {
 } elseif ($result->fetchColumn() == 0) {
     print "    <p>No se ha creado todavía ningún registro.</p>\n";
 } else {
-    print "    <form action=\"buscar-2.php\" method=\"" . FORM_METHOD . "\">\n";
+    print "    <form action=\"buscar-2.php\" method=\"$cfg[formMethod]\">\n";
     print "      <p>Escriba el criterio de búsqueda (caracteres o números):</p>\n";
     print "\n";
     print "      <table>\n";
     print "        <tbody>\n";
     print "          <tr>\n";
     print "            <td>Autor:</td>\n";
-    print "            <td><input type=\"text\" name=\"autor\" size=\"$tamObrasAutor\" maxlength=\"$tamObrasAutor\" autofocus></td>\n";
+    print "            <td><input type=\"text\" name=\"autor\" size=\"$cfg[tamObrasAutor]\" maxlength=\"$cfg[tamObrasAutor]\" autofocus></td>\n";
     print "          </tr>\n";
     print "          <tr>\n";
     print "            <td>Título:</td>\n";
-    print "            <td><input type=\"text\" name=\"titulo\" size=\"$tamObrasTitulo\" maxlength=\"$tamObrasTitulo\"></td>\n";
+    print "            <td><input type=\"text\" name=\"titulo\" size=\"$cfg[tamObrasTitulo]\" maxlength=\"$cfg[tamObrasTitulo]\"></td>\n";
     print "          </tr>\n";
     print "          <tr>\n";
     print "            <td>Editorial:</td>\n";
-    print "            <td><input type=\"text\" name=\"editorial\" size=\"$tamObrasEditorial\" maxlength=\"$tamObrasEditorial\"></td>\n";
+    print "            <td><input type=\"text\" name=\"editorial\" size=\"$cfg[tamObrasEditorial]\" maxlength=\"$cfg[tamObrasEditorial]\"></td>\n";
     print "          </tr>\n";
     print "        </tbody>\n";
     print "      </table>\n";

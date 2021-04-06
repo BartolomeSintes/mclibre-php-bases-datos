@@ -16,7 +16,7 @@ header("Content-type: text/css");
 html, body {
   margin: 0;
   padding: 0;
-  background-color: hsl(<?= COLOR ?>, 80%, 95%);
+  background-color: hsl(<?= $cfg["color"] ?>, 80%, 95%);
   color: black;
   font-family: sans-serif;
 }
@@ -24,14 +24,14 @@ html, body {
 h1 {
   margin: 0;
   padding: 5px 20px;
-  background-color: hsl(<?= COLOR ?>, 80%, 60%);
+  background-color: hsl(<?= $cfg["color"] ?>, 80%, 60%);
   color: white;
   text-transform: uppercase;
 }
 
 nav {
   margin: 0;
-  background-color: hsl(<?= COLOR ?>, 80%, 75%);
+  background-color: hsl(<?= $cfg["color"] ?>, 80%, 75%);
   color: white;
 }
 
@@ -47,7 +47,7 @@ nav li {
 }
 
 nav a {
-  background-color: hsl(<?= COLOR ?>, 80%, 75%);
+  background-color: hsl(<?= $cfg["color"] ?>, 80%, 75%);
   color: white;
   font-weight: bold;
 }
@@ -84,7 +84,7 @@ table.conborde, table.conborde td, table.conborde th {
 }
 
 thead tr, table.franjas tbody tr:nth-child(even) {
-  background-color: hsl(<?= COLOR ?>, 80%, 85%);
+  background-color: hsl(<?= $cfg["color"] ?>, 80%, 85%);
   color: black;
 }
 
@@ -115,7 +115,7 @@ table.calendario caption {
 }
 
 table.calendario th {
-  background-color: hsl(<?= COLOR ?>, 80%, 85%);
+  background-color: hsl(<?= $cfg["color"] ?>, 80%, 85%);
   color: black;
   font-weight: bold;
 }
@@ -126,7 +126,7 @@ table.calendario td {
 }
 
 table.calendario td.enlace {
-  background-color: hsl(<?= COLOR ?>, 80%, 85%);
+  background-color: hsl(<?= $cfg["color"] ?>, 80%, 85%);
   color: blue;
 }
 

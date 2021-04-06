@@ -7,59 +7,55 @@
 
 // Base de datos utilizada por la aplicación: MYSQL o SQLITE
 
-$dbMotor = SQLITE;                        // Valores posibles: MYSQL o SQLITE
+$cfg["dbMotor"] = SQLITE;                 // Valores posibles: MYSQL o SQLITE
 
 // Algoritmo hash para encriptar la contraseña de usuario
 
-$cfg["hashAlgorithm"] = SHA_256;          // Algoritmo hash: Nombre. Valores posibles: SHA_256
+$cfg["hashAlgorithm"] = SHA_256;                       // Algoritmo hash: Nombre. Valores posibles: SHA_256
+$cfg["hashSize"]      = $hashSizes[$cfg["hashAlgorithm"]];  // Algoritmo hash: Longitud. NO MODIFICAR
 
 // Configuración Tabla Usuarios
 
-define("MAX_REG_TABLE_USUARIOS", 20);     // Número máximo de registros en la tabla Usuarios
-$tamUsuariosUsuario         = 20;         // Tamaño de la columna Usuarios > Nombre de Usuario
-$tamUsuariosPasswordCifrado = $cfg["hashSize"];  // Tamaño de la columna Usuarios > Contraseña de Usuario cifrada
-$tamUsuariosPassword        = 20;         // Tamaño de la Contraseña de Usuario en el formulario
+$cfg["maxRegTableUsuarios"]        = 999;               // Número máximo de registros en la tabla Usuarios
+$cfg["tamUsuariosUsuario"]         = 20;                // Tamaño de la columna Usuarios > Nombre de Usuario
+$cfg["tamUsuariosPasswordCifrado"] = $cfg["hashSize"];  // Tamaño de la columna Usuarios > Contraseña de Usuario cifrada
+$cfg["tamUsuariosPassword"]        = 20;                // Tamaño de la Contraseña de Usuario en el formulario
 
 // Configuración Tabla Personas
 
-define("MAX_REG_TABLE_PERSONAS", 20);     // Número máximo de registros en la tabla Personas
-$tamPersonasNombre    = 40;               // Tamaño de la columna Personas > Nombre
-$tamPersonasApellidos = 60;               // Tamaño de la columna Personas > Apellidos
-$tamPersonasDni       = 9;                // Tamaño de la columna Personas > DNI
+$cfg["maxRegTablePersonas"]  = 999;       // Número máximo de registros en la tabla Personas
+$cfg["tamPersonasNombre"]    = 40;        // Tamaño de la columna Personas > Nombre
+$cfg["tamPersonasApellidos"] = 60;        // Tamaño de la columna Personas > Apellidos
+$cfg["tamPersonasDni"]       = 9;         // Tamaño de la columna Personas > DNI
 
 // Configuración Tabla Obras
 
-define("MAX_REG_TABLE_OBRAS", 20);        // Número máximo de registros en la tabla Obras
-$tamObrasAutor     = 60;                  // Tamaño de la columna Obras > Autor
-$tamObrasTitulo    = 60;                  // Tamaño de la columna Obras > Titulo
-$tamObrasEditorial = 20;                  // Tamaño de la columna Obras > Editorial
+$cfg["maxRegTableObras"]  = 999;          // Número máximo de registros en la tabla Obras
+$cfg["tamObrasAutor"]     = 60;           // Tamaño de la columna Obras > Autor
+$cfg["tamObrasTitulo"]    = 60;           // Tamaño de la columna Obras > Titulo
+$cfg["tamObrasEditorial"] = 20;           // Tamaño de la columna Obras > Editorial
 
 // Configuración Tabla Préstamos
 
-define("MAX_REG_TABLE_PRESTAMOS", 20);    // Número máximo de registros en la tabla Préstamos
-$tamPrestamosPersona  = 60;               // Tamaño de la columna Préstamos > Persona
-$tamPrestamosObra     = 60;               // Tamaño de la columna Préstamos > Obra
-$tamPrestamosPrestado = 20;               // Tamaño de la columna Préstamos > Fecha de Préstamo
-$tamPrestamosDevuelto = 20;               // Tamaño de la columna Préstamos > Fecha de Devolución
-$tamFecha             = 10;               // Longitud de una cadena de fecha (AAAA-MM-DD)
+$cfg["maxRegTablePrestamos"] = 999;       // Número máximo de registros en la tabla Préstamos
 
 // Usuario inicial
 
-define("ROOT_NAME", "root");                                                                  // Usuario inicial: Nombre
-define("ROOT_PASSWORD", "4813494d137e1631bba301d5acab6e7bb7aa74ce1185d456565ef51d737677b2");  // Usuario inicial: Contraseña
+$cfg["rootName"]     = "root";                                                              // Usuario inicial: Nombre
+$cfg["rootPassword"] = "4813494d137e1631bba301d5acab6e7bb7aa74ce1185d456565ef51d737677b2";  // Usuario inicial: Contraseña
 
 // Método de envío de formularios
 
-define("FORM_METHOD", GET);               // Valores posibles: GET o POST
+$cfg["formMethod"] = GET;                 // Valores posibles: GET o POST
 
 // Hoja de estilo
 
-define("COLOR", 320);                      // Color básico de la aplicación (0 - 360)
+$cfg["color"] = 320;                      // Color básico de la aplicación (0 - 360)
 
 // Nombre de sesión
 
-define("SESSION_NAME", "biblioteca");       // Nombre de sesión
+$cfg["sessionName"] = "biblioteca";       // Nombre de sesión
 
 // Zona horaria
 
-define("ZONA_HORARIA", "Europe/Madrid");  // Zona horaria del servidor
+$cfg["zonaHoraria"] = "Europe/Madrid";    // Zona horaria del servidor

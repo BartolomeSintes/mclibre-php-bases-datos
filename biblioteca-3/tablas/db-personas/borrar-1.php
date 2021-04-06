@@ -7,7 +7,7 @@
 
 require_once "../../comunes/biblioteca.php";
 
-session_name(SESSION_NAME);
+session_name($cfg["sessionName"]);
 session_start();
 if (!isset($_SESSION["conectado"]) || $_SESSION["conectado"] != NIVEL_2) {
     header("Location:../index.php");
@@ -33,7 +33,7 @@ if (!$result) {
     if (!$result) {
         print "    <p class=\"aviso\">Error en la consulta.</p>\n";
     } else {
-        print "    <form action=\"$_SERVER[PHP_SELF]\" method=\"" . FORM_METHOD . "\">\n";
+        print "    <form action=\"$_SERVER[PHP_SELF]\" method=\"$cfg[formMethod]\">\n";
         print "      <p>Marque los registros que quiera borrar:</p>\n";
         print "\n";
         print "      <table class=\"conborde franjas\">\n";

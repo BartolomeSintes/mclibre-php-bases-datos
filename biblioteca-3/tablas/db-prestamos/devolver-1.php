@@ -7,7 +7,7 @@
 
 require_once "../../comunes/biblioteca.php";
 
-session_name(SESSION_NAME);
+session_name($cfg["sessionName"]);
 session_start();
 if (!isset($_SESSION["conectado"]) || $_SESSION["conectado"] != NIVEL_2) {
     header("Location:../index.php");
@@ -43,7 +43,7 @@ if (!$result) {
     if (!$result) {
         print "    <p class=\"aviso\">Error en la consulta.</p>\n";
     } else {
-        print "    <form action=\"devolver-2.php\" method=\"" . FORM_METHOD . "\">\n";
+        print "    <form action=\"devolver-2.php\" method=\"$cfg[formMethod]\">\n";
         print "      <p>Seleccione el préstamo pendiente e indique la fecha de devolución:</p>\n";
         print "\n";
         print "      <table>\n";

@@ -24,9 +24,8 @@ define("MENU_PRESTAMOS", "menuPrestamos");                     // Menú Préstam
 
 // Algoritmos de hash
 
-define("SHA_256", "sha256");                                  // Nombres de los algoritmos de hash
-$hashSizes       = [SHA_256 => 64];                           // Tamaños de los valores hash
-$cfg["hashSize"] = $hashSizes[$cfg["hashAlgorithm"]];         // Algoritmo hash: Longitud
+define("SHA_256", "sha256");               // Nombres de los algoritmos de hash
+$hashSizes = [SHA_256 => 64];              // Tamaños de los valores hash
 
 // Niveles de usuarios
 
@@ -42,11 +41,15 @@ $usuariosNiveles = [
 
 require_once "config.php";
 
+// Fecha y hora
+
+$tamFecha = 10;                            // Longitud de una cadena de fecha (AAAA-MM-DD)
+
 // Biblioteca base de datos
 
-if ($dbMotor == MYSQL) {
+if ($cfg["dbMotor"] == MYSQL) {
     require_once "biblioteca-mysql.php";
-} elseif ($dbMotor == SQLITE) {
+} elseif ($cfg["dbMotor"] == SQLITE) {
     require_once "biblioteca-sqlite.php";
 }
 

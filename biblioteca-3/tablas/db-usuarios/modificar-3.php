@@ -7,7 +7,7 @@
 
 require_once "../../comunes/biblioteca.php";
 
-session_name(SESSION_NAME);
+session_name($cfg["sessionName"]);
 session_start();
 if (!isset($_SESSION["conectado"]) || $_SESSION["conectado"] != NIVEL_2) {
     header("Location:../index.php");
@@ -26,15 +26,15 @@ $usuarioOk  = false;
 $passwordOk = false;
 $nivelOk    = false;
 
-if (mb_strlen($usuario, "UTF-8") > $tamUsuariosUsuario) {
-    print "    <p class=\"aviso\">El nombre usuario no puede tener más de $tamUsuariosUsuario caracteres.</p>\n";
+if (mb_strlen($usuario, "UTF-8") > $cfg["tamUsuariosUsuario"]) {
+    print "    <p class=\"aviso\">El nombre usuario no puede tener más de $cfg[tamUsuariosUsuario] caracteres.</p>\n";
     print "\n";
 } else {
     $usuarioOk = true;
 }
 
-if (mb_strlen($password, "UTF-8") > $tamUsuariosPassword) {
-    print "    <p class=\"aviso\">La contraseña no puede tener más de $tamUsuariosPassword caracteres.</p>\n";
+if (mb_strlen($password, "UTF-8") > $cfg["tamUsuariosPassword"]) {
+    print "    <p class=\"aviso\">La contraseña no puede tener más de $cfg[tamUsuariosPassword] caracteres.</p>\n";
     print "\n";
 } else {
     $passwordOk = true;
@@ -61,7 +61,7 @@ if ($usuarioOk && $passwordOk && $nivelOk) {
             print "    <p class=\"aviso\">Error en la consulta.</p>\n";
         } else {
             $valor = $result->fetch();
-            if ($valor["usuario"] == ROOT_NAME) {
+            if ($valor["usuario"] == $cfg["rootName"]) {
                 print "    <p>Este usuario no se puede modificar.</p>\n";
             } else {
                 $consulta = "SELECT COUNT(*) FROM $tablaUsuarios

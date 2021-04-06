@@ -7,7 +7,7 @@
 
 require_once "../../comunes/biblioteca.php";
 
-session_name(SESSION_NAME);
+session_name($cfg["sessionName"]);
 session_start();
 if (!isset($_SESSION["conectado"]) || $_SESSION["conectado"] != NIVEL_2) {
     header("Location:../index.php");
@@ -39,22 +39,22 @@ if ($id == "") {
             print "    <p class=\"aviso\">Error en la consulta.</p>\n";
         } else {
             $valor = $result->fetch();
-            print "    <form action=\"modificar-3.php\" method=\"" . FORM_METHOD . "\">\n";
+            print "    <form action=\"modificar-3.php\" method=\"$cfg[formMethod]\">\n";
             print "      <p>Modifique los campos que desee:</p>\n";
             print "\n";
             print "      <table>\n";
             print "        <tbody>\n";
             print "          <tr>\n";
             print "            <td>Nombre:</td>\n";
-            print "            <td><input type=\"text\" name=\"nombre\" size=\"$tamPersonasNombre\" maxlength=\"$tamPersonasNombre\" value=\"$valor[nombre]\" autofocus></td>\n";
+            print "            <td><input type=\"text\" name=\"nombre\" size=\"$cfg[tamPersonasNombre]\" maxlength=\"$cfg[tamPersonasNombre]\" value=\"$valor[nombre]\" autofocus></td>\n";
             print "          </tr>\n";
             print "          <tr>\n";
             print "            <td>Apellidos:</td>\n";
-            print "            <td><input type=\"text\" name=\"apellidos\" size=\"$tamPersonasApellidos\" maxlength=\"$tamPersonasApellidos\" value=\"$valor[apellidos]\"></td>\n";
+            print "            <td><input type=\"text\" name=\"apellidos\" size=\"$cfg[tamPersonasApellidos]\" maxlength=\"$cfg[tamPersonasApellidos]\" value=\"$valor[apellidos]\"></td>\n";
             print "          </tr>\n";
             print "          <tr>\n";
             print "            <td>DNI:</td>\n";
-            print "            <td><input type=\"text\" name=\"dni\" size=\"$tamPersonasDni\" maxlength=\"$tamPersonasDni\" value=\"$valor[dni]\"></td>\n";
+            print "            <td><input type=\"text\" name=\"dni\" size=\"$cfg[tamPersonasDni]\" maxlength=\"$cfg[tamPersonasDni]\" value=\"$valor[dni]\"></td>\n";
             print "          </tr>\n";
             print "        </tbody>\n";
             print "      </table>\n";

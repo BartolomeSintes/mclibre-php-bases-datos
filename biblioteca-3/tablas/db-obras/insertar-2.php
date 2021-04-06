@@ -7,7 +7,7 @@
 
 require_once "../../comunes/biblioteca.php";
 
-session_name(SESSION_NAME);
+session_name($cfg["sessionName"]);
 session_start();
 if (!isset($_SESSION["conectado"]) || $_SESSION["conectado"] != NIVEL_2) {
     header("Location:../index.php");
@@ -25,22 +25,22 @@ $autorOk     = false;
 $tituloOk    = false;
 $editorialOk = false;
 
-if (mb_strlen($autor, "UTF-8") > $tamObrasAutor) {
-    print "    <p class=\"aviso\">El autor no puede tener más de $tamObrasAutor caracteres.</p>\n";
+if (mb_strlen($autor, "UTF-8") > $cfg["tamObrasAutor"]) {
+    print "    <p class=\"aviso\">El autor no puede tener más de $cfg[tamObrasAutor] caracteres.</p>\n";
     print "\n";
 } else {
     $autorOk = true;
 }
 
-if (mb_strlen($titulo, "UTF-8") > $tamObrasTitulo) {
-    print "    <p class=\"aviso\">Los títulos no pueden tener más de $tamObrasTitulo caracteres.</p>\n";
+if (mb_strlen($titulo, "UTF-8") > $cfg["tamObrasTitulo"]) {
+    print "    <p class=\"aviso\">Los títulos no pueden tener más de $cfg[tamObrasTitulo] caracteres.</p>\n";
     print "\n";
 } else {
     $tituloOk = true;
 }
 
-if (mb_strlen($editorial, "UTF-8") > $tamObrasEditorial) {
-    print "    <p class=\"aviso\">La editorial no puede tener más de $tamObrasEditorial caracteres.</p>\n";
+if (mb_strlen($editorial, "UTF-8") > $cfg["tamObrasEditorial"]) {
+    print "    <p class=\"aviso\">La editorial no puede tener más de $cfg[tamObrasEditorial] caracteres.</p>\n";
     print "\n";
 } else {
     $editorialOk = true;
@@ -54,7 +54,7 @@ if ($autorOk && $tituloOk && $editorialOk) {
         $result   = $db->query($consulta);
         if (!$result) {
             print "    <p class=\"aviso\">Error en la consulta.</p>\n";
-        } elseif ($result->fetchColumn() >= MAX_REG_TABLE_OBRAS) {
+        } elseif ($result->fetchColumn() >= $cfg["maxRegTableObras"] ) {
             print "    <p class=\"aviso\">Se ha alcanzado el número máximo de registros que se pueden guardar.</p>\n";
             print "\n";
             print "    <p class=\"aviso\">Por favor, borre algún registro antes.</p>\n";

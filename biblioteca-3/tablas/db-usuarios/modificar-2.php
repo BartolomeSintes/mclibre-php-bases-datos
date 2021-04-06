@@ -7,7 +7,7 @@
 
 require_once "../../comunes/biblioteca.php";
 
-session_name(SESSION_NAME);
+session_name($cfg["sessionName"]);
 session_start();
 if (!isset($_SESSION["conectado"]) || $_SESSION["conectado"] != NIVEL_2) {
     header("Location:../index.php");
@@ -39,21 +39,21 @@ if ($id == "") {
             print "    <p class=\"aviso\">Error en la consulta.</p>\n";
         } else {
             $valor = $result->fetch();
-            if ($valor["usuario"] == ROOT_NAME) {
+            if ($valor["usuario"] == $cfg["rootName"]) {
                 print "    <p>Este usuario no se puede modificar.</p>\n";
             } else {
-                print "    <form action=\"modificar-3.php\" method=\"" . FORM_METHOD . "\">\n";
+                print "    <form action=\"modificar-3.php\" method=\"$cfg[formMethod]\">\n";
                 print "      <p>Modifique los campos que desee (deje la contraseña en blanco para mantenerla):</p>\n";
                 print "\n";
                 print "      <table>\n";
                 print "        <tbody>\n";
                 print "          <tr>\n";
                 print "            <td>Usuario:</td>\n";
-                print "            <td><input type=\"text\" name=\"usuario\" size=\"$tamUsuariosUsuario\" maxlength=\"$tamUsuariosUsuario\" value=\"$valor[usuario]\" autofocus></td>\n";
+                print "            <td><input type=\"text\" name=\"usuario\" size=\"$cfg[tamUsuariosUsuario]\" maxlength=\"$cfg[tamUsuariosUsuario]\" value=\"$valor[usuario]\" autofocus></td>\n";
                 print "          </tr>\n";
                 print "          <tr>\n";
                 print "            <td>Contraseña:</td>\n";
-                print "            <td><input type=\"text\" name=\"password\" size=\"$tamUsuariosPassword\" maxlength=\"$tamUsuariosPassword\"></td>\n";
+                print "            <td><input type=\"text\" name=\"password\" size=\"$cfg[tamUsuariosPassword]\" maxlength=\"$cfg[tamUsuariosPassword]\"></td>\n";
                 print "          </tr>\n";
                 print "          <tr>\n";
                 print "            <td>Nivel:</td>\n";

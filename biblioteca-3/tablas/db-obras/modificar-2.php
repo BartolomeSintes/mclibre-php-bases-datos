@@ -7,7 +7,7 @@
 
 require_once "../../comunes/biblioteca.php";
 
-session_name(SESSION_NAME);
+session_name($cfg["sessionName"]);
 session_start();
 if (!isset($_SESSION["conectado"]) || $_SESSION["conectado"] != NIVEL_2) {
     header("Location:../index.php");
@@ -39,22 +39,22 @@ if ($id == "") {
             print "    <p class=\"aviso\">Error en la consulta.</p>\n";
         } else {
             $valor = $result->fetch();
-            print "    <form action=\"modificar-3.php\" method=\"" . FORM_METHOD . "\">\n";
+            print "    <form action=\"modificar-3.php\" method=\"$cfg[formMethod]\">\n";
             print "      <p>Modifique los campos que desee:</p>\n";
             print "\n";
             print "      <table>\n";
             print "        <tbody>\n";
             print "          <tr>\n";
             print "            <td>Autor:</td>\n";
-            print "            <td><input type=\"text\" name=\"autor\" size=\"$tamObrasAutor\" maxlength=\"$tamObrasAutor\" value=\"$valor[autor]\" autofocus></td>\n";
+            print "            <td><input type=\"text\" name=\"autor\" size=\"$cfg[tamObrasAutor]\" maxlength=\"$cfg[tamObrasAutor]\" value=\"$valor[autor]\" autofocus></td>\n";
             print "          </tr>\n";
             print "          <tr>\n";
             print "            <td>Título:</td>\n";
-            print "            <td><input type=\"text\" name=\"titulo\" size=\"$tamObrasTitulo\" maxlength=\"$tamObrasTitulo\" value=\"$valor[titulo]\"></td>\n";
+            print "            <td><input type=\"text\" name=\"titulo\" size=\"$cfg[tamObrasTitulo]\" maxlength=\"$cfg[tamObrasTitulo]\" value=\"$valor[titulo]\"></td>\n";
             print "          </tr>\n";
             print "          <tr>\n";
             print "            <td>Editorial:</td>\n";
-            print "            <td><input type=\"text\" name=\"editorial\" size=\"$tamObrasEditorial\" maxlength=\"$tamObrasEditorial\" value=\"$valor[editorial]\"></td>\n";
+            print "            <td><input type=\"text\" name=\"editorial\" size=\"$cfg[tamObrasEditorial]\" maxlength=\"$cfg[tamObrasEditorial]\" value=\"$valor[editorial]\"></td>\n";
             print "          </tr>\n";
             print "        </tbody>\n";
             print "      </table>\n";

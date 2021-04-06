@@ -7,7 +7,7 @@
 
 require_once "../../comunes/biblioteca.php";
 
-session_name(SESSION_NAME);
+session_name($cfg["sessionName"]);
 session_start();
 if (!isset($_SESSION["conectado"]) || $_SESSION["conectado"] != NIVEL_2) {
     header("Location:../index.php");
@@ -26,22 +26,22 @@ $nombreOk    = false;
 $apellidosOk = false;
 $dniOk       = false;
 
-if (mb_strlen($nombre, "UTF-8") > $tamPersonasNombre) {
-    print "    <p class=\"aviso\">El nombre no puede tener más de $tamPersonasNombre caracteres.</p>\n";
+if (mb_strlen($nombre, "UTF-8") > $cfg["tamPersonasNombre"]) {
+    print "    <p class=\"aviso\">El nombre no puede tener más de $cfg[tamPersonasNombre] caracteres.</p>\n";
     print "\n";
 } else {
     $nombreOk = true;
 }
 
-if (mb_strlen($apellidos, "UTF-8") > $tamPersonasApellidos) {
-    print "    <p class=\"aviso\">Los apellidos no pueden tener más de $tamPersonasApellidos caracteres.</p>\n";
+if (mb_strlen($apellidos, "UTF-8") > $cfg["tamPersonasApellidos"]) {
+    print "    <p class=\"aviso\">Los apellidos no pueden tener más de $cfg[tamPersonasApellidos] caracteres.</p>\n";
     print "\n";
 } else {
     $apellidosOk = true;
 }
 
-if (mb_strlen($dni, "UTF-8") > $tamPersonasDni) {
-    print "    <p class=\"aviso\">El teléfono no puede tener más de $tamPersonasDni caracteres.</p>\n";
+if (mb_strlen($dni, "UTF-8") > $cfg["tamPersonasDni"]) {
+    print "    <p class=\"aviso\">El teléfono no puede tener más de $cfg[tamPersonasDni] caracteres.</p>\n";
     print "\n";
 } else {
     $dniOk = true;

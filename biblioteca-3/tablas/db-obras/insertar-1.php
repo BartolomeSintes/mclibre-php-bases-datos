@@ -7,7 +7,7 @@
 
 require_once "../../comunes/biblioteca.php";
 
-session_name(SESSION_NAME);
+session_name($cfg["sessionName"]);
 session_start();
 if (!isset($_SESSION["conectado"]) || $_SESSION["conectado"] != NIVEL_2) {
     header("Location:../index.php");
@@ -21,27 +21,27 @@ $consulta = "SELECT COUNT(*) FROM $tablaObras";
 $result   = $db->query($consulta);
 if (!$result) {
     print "    <p class=\"aviso\">Error en la consulta.</p>\n";
-} elseif ($result->fetchColumn() >= MAX_REG_TABLE_OBRAS) {
+} elseif ($result->fetchColumn() >= $cfg["maxRegTableObras"] ) {
     print "    <p class=\"aviso\">Se ha alcanzado el número máximo de registros que se pueden guardar.</p>\n";
     print "\n";
     print "    <p class=\"aviso\">Por favor, borre algún registro antes.</p>\n";
 } else {
-    print "    <form action=\"insertar-2.php\" method=\"" . FORM_METHOD . "\">\n";
+    print "    <form action=\"insertar-2.php\" method=\"$cfg[formMethod]\">\n";
     print "      <p>Escriba los datos del nuevo registro:</p>\n";
     print "\n";
     print "      <table>\n";
     print "        <tbody>\n";
     print "          <tr>\n";
     print "            <td>Autor:</td>\n";
-    print "            <td><input type=\"text\" name=\"autor\" size=\"$tamObrasAutor\" maxlength=\"$tamObrasAutor\" autofocus></td>\n";
+    print "            <td><input type=\"text\" name=\"autor\" size=\"$cfg[tamObrasAutor]\" maxlength=\"$cfg[tamObrasAutor]\" autofocus></td>\n";
     print "          </tr>\n";
     print "          <tr>\n";
     print "            <td>Título:</td>\n";
-    print "            <td><input type=\"text\" name=\"titulo\" size=\"$tamObrasTitulo\" maxlength=\"$tamObrasTitulo\"></td>\n";
+    print "            <td><input type=\"text\" name=\"titulo\" size=\"$cfg[tamObrasTitulo]\" maxlength=\"$cfg[tamObrasTitulo]\"></td>\n";
     print "          </tr>\n";
     print "          <tr>\n";
     print "            <td>Editorial:</td>\n";
-    print "            <td><input type=\"text\" name=\"editorial\" size=\"$tamObrasEditorial\" maxlength=\"$tamObrasEditorial\"></td>\n";
+    print "            <td><input type=\"text\" name=\"editorial\" size=\"$cfg[tamObrasEditorial]\" maxlength=\"$cfg[tamObrasEditorial]\"></td>\n";
     print "          </tr>\n";
     print "        </tbody>\n";
     print "      </table>\n";

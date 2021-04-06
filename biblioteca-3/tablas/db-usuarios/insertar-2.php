@@ -7,7 +7,7 @@
 
 require_once "../../comunes/biblioteca.php";
 
-session_name(SESSION_NAME);
+session_name($cfg["sessionName"]);
 session_start();
 if (!isset($_SESSION["conectado"]) || $_SESSION["conectado"] != NIVEL_2) {
     header("Location:../index.php");
@@ -25,15 +25,15 @@ $usuarioOk  = false;
 $passwordOk = false;
 $nivelOk    = false;
 
-if (mb_strlen($usuario, "UTF-8") > $tamUsuariosUsuario) {
-    print "    <p class=\"aviso\">El nombre usuario no puede tener más de $tamUsuariosUsuario caracteres.</p>\n";
+if (mb_strlen($usuario, "UTF-8") > $cfg["tamUsuariosUsuario"]) {
+    print "    <p class=\"aviso\">El nombre usuario no puede tener más de $cfg[tamUsuariosUsuario] caracteres.</p>\n";
     print "\n";
 } else {
     $usuarioOk = true;
 }
 
-if (mb_strlen($password, "UTF-8") > $tamUsuariosPassword) {
-    print "    <p class=\"aviso\">La contraseña no puede tener más de $tamUsuariosPassword caracteres.</p>\n";
+if (mb_strlen($password, "UTF-8") > $cfg["tamUsuariosPassword"]) {
+    print "    <p class=\"aviso\">La contraseña no puede tener más de $cfg[tamUsuariosPassword] caracteres.</p>\n";
     print "\n";
 } else {
     $passwordOk = true;
@@ -54,7 +54,7 @@ if ($usuarioOk && $passwordOk && $nivelOk) {
         $result   = $db->query($consulta);
         if (!$result) {
             print "    <p class=\"aviso\">Error en la consulta.</p>\n";
-        } elseif ($result->fetchColumn() >= MAX_REG_TABLE_USUARIOS) {
+        } elseif ($result->fetchColumn() >= $cfg["maxRegTableUsuarios"] ) {
             print "    <p class=\"aviso\">Se ha alcanzado el número máximo de registros que se pueden guardar.</p>\n";
             print "\n";
             print "    <p class=\"aviso\">Por favor, borre algún registro antes.</p>\n";

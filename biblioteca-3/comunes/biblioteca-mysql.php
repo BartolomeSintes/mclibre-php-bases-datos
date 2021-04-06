@@ -73,30 +73,30 @@ define(
 define(
     "CONSULTA_INSERTA_USUARIO_ROOT",
     "INSERT INTO $tablaUsuarios
-        VALUES (NULL, '" . ROOT_NAME . "', '" . ROOT_PASSWORD . "', $usuariosNiveles[Administrador])"
+        VALUES (NULL, '$cfg[rootName]', '$cfg[rootPassword]', $usuariosNiveles[Administrador])"
 );
 
 $consultasCreaTabla = [
     // Tabla Usuarios
     "CREATE TABLE $tablaUsuarios (
         id INTEGER NOT NULL AUTO_INCREMENT PRIMARY KEY,
-        usuario VARCHAR($tamUsuariosUsuario),
-        password VARCHAR($tamUsuariosPasswordCifrado),
+        usuario VARCHAR($cfg[tamUsuariosUsuario]),
+        password VARCHAR($cfg[tamUsuariosPasswordCifrado]),
         nivel INTEGER
     )",
     // Tabla Personas
     "CREATE TABLE $tablaPersonas (
         id INTEGER NOT NULL AUTO_INCREMENT PRIMARY KEY,
-        nombre VARCHAR($tamPersonasNombre),
-        apellidos VARCHAR($tamPersonasApellidos),
-        dni VARCHAR($tamPersonasDni)
+        nombre VARCHAR($cfg[tamPersonasNombre]),
+        apellidos VARCHAR($cfg[tamPersonasApellidos]),
+        dni VARCHAR($cfg[tamPersonasDni])
     )",
     // Tabla Obras
     "CREATE TABLE $tablaObras (
         id INTEGER NOT NULL AUTO_INCREMENT PRIMARY KEY,
-        autor VARCHAR($tamObrasAutor),
-        titulo VARCHAR($tamObrasTitulo),
-        editorial VARCHAR($tamObrasEditorial)
+        autor VARCHAR($cfg[tamObrasAutor]),
+        titulo VARCHAR($cfg[tamObrasTitulo]),
+        editorial VARCHAR($cfg[tamObrasEditorial])
     )",
     // Tabla Préstamos
     "CREATE TABLE $tablaPrestamos (
@@ -160,10 +160,10 @@ function borraTodo($db, $nombresTablas, $consultasCreacionTablas)
 
     $consulta = CONSULTA_INSERTA_USUARIO_ROOT;
     if ($db->query($consulta)) {
-        print "    <p>Registro de Usuario " . ROOT_NAME . " creado correctamente.</p>\n";
+        print "    <p>Registro de Usuario $cfg[rootName] creado correctamente.</p>\n";
         print "\n";
     } else {
-        print "    <p class=\"aviso\">Error al crear el registro de Usuario " . ROOT_NAME . ".<p>\n";
+        print "    <p class=\"aviso\">Error al crear el registro de Usuario $cfg[rootName].<p>\n";
         print "\n";
     }
 }
