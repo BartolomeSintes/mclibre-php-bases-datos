@@ -14,7 +14,7 @@ if (!isset($_SESSION["conectado"]) || $_SESSION["conectado"] != NIVEL_3) {
     exit;
 }
 
-$db = conectaDb();
+$pdo = conectaDb();
 cabecera("Usuarios - Añadir 2", MENU_USUARIOS, 2);
 
 $usuario  = recoge("usuario");
@@ -51,7 +51,7 @@ if ($usuarioOk && $passwordOk && $nivelOk) {
         print "    <p class=\"aviso\">Hay que rellenar todos los campos. No se ha guardado el registro.</p>\n";
     } else {
         $consulta = "SELECT COUNT(*) FROM $tablaUsuarios";
-        $result   = $db->query($consulta);
+        $result   = $pdo->query($consulta);
         if (!$result) {
             print "    <p class=\"aviso\">Error en la consulta.</p>\n";
         } elseif ($result->fetchColumn() >= $cfg["maxRegTableUsuarios"] ) {
@@ -61,7 +61,7 @@ if ($usuarioOk && $passwordOk && $nivelOk) {
         } else {
             $consulta = "SELECT COUNT(*) FROM $tablaUsuarios
                 WHERE usuario=:usuario";
-            $result = $db->prepare($consulta);
+            $result = $pdo->prepare($consulta);
             $result->execute([":usuario" => $usuario]);
             if (!$result) {
                 print "    <p class=\"aviso\">Error en la consulta.</p>\n";
@@ -71,7 +71,7 @@ if ($usuarioOk && $passwordOk && $nivelOk) {
                 $consulta = "INSERT INTO $tablaUsuarios
                     (usuario, password, nivel)
                     VALUES (:usuario, :password, $nivel)";
-                $result = $db->prepare($consulta);
+                $result = $pdo->prepare($consulta);
                 if ($result->execute([":usuario" => $usuario, ":password" => encripta($password)])) {
                     print "    <p>Registro <strong>$usuario " . encripta($password) . "</strong> creado correctamente.</p>\n";
                 } else {
@@ -82,5 +82,5 @@ if ($usuarioOk && $passwordOk && $nivelOk) {
     }
 }
 
-$db = null;
+$pdo = null;
 pie();

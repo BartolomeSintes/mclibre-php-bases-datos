@@ -14,13 +14,13 @@ if (!isset($_SESSION["conectado"]) || $_SESSION["conectado"] != NIVEL_3) {
     exit;
 }
 
-$db = conectaDb();
+$pdo = conectaDb();
 cabecera("Personas - Listar", MENU_PERSONAS, 2);
 
 $ordena = recogeValores("ordena", $columnasPersonasOrden, "apellidos ASC");
 
 $consulta = "SELECT COUNT(*) FROM $tablaPersonas";
-$result   = $db->query($consulta);
+$result   = $pdo->query($consulta);
 if (!$result) {
     print "    <p class=\"aviso\">Error en la consulta.</p>\n";
 } elseif ($result->fetchColumn() == 0) {
@@ -28,7 +28,7 @@ if (!$result) {
 } else {
     $consulta = "SELECT * FROM $tablaPersonas
         ORDER BY $ordena";
-    $result = $db->query($consulta);
+    $result = $pdo->query($consulta);
     if (!$result) {
         print "    <p class=\"aviso\">Error en la consulta.</p>\n";
     } else {
@@ -81,5 +81,5 @@ if (!$result) {
     }
 }
 
-$db = null;
+$pdo = null;
 pie();

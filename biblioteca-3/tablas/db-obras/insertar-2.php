@@ -14,7 +14,7 @@ if (!isset($_SESSION["conectado"]) || $_SESSION["conectado"] != NIVEL_3) {
     exit;
 }
 
-$db = conectaDb();
+$pdo = conectaDb();
 cabecera("Obras - Añadir 2", MENU_OBRAS, 2);
 
 $autor     = recoge("autor");
@@ -51,7 +51,7 @@ if ($autorOk && $tituloOk && $editorialOk) {
         print "    <p class=\"aviso\">Hay que rellenar al menos uno de los campos. No se ha guardado el registro.</p>\n";
     } else {
         $consulta = "SELECT COUNT(*) FROM $tablaObras";
-        $result   = $db->query($consulta);
+        $result   = $pdo->query($consulta);
         if (!$result) {
             print "    <p class=\"aviso\">Error en la consulta.</p>\n";
         } elseif ($result->fetchColumn() >= $cfg["maxRegTableObras"] ) {
@@ -63,7 +63,7 @@ if ($autorOk && $tituloOk && $editorialOk) {
                 WHERE autor=:autor
                 AND titulo=:titulo
                 AND editorial=:editorial";
-            $result = $db->prepare($consulta);
+            $result = $pdo->prepare($consulta);
             $result->execute([":autor" => $autor, ":titulo" => $titulo,
                 ":editorial"           => $editorial, ]);
             if (!$result) {
@@ -74,7 +74,7 @@ if ($autorOk && $tituloOk && $editorialOk) {
                 $consulta = "INSERT INTO $tablaObras
                     (autor, titulo, editorial)
                     VALUES (:autor, :titulo, :editorial)";
-                $result = $db->prepare($consulta);
+                $result = $pdo->prepare($consulta);
                 if ($result->execute([":autor" => $autor, ":titulo" => $titulo,
                     ":editorial" => $editorial, ])) {
                     print "    <p>Registro <strong>$autor $titulo $editorial</strong> creado correctamente.</p>\n";
@@ -86,5 +86,5 @@ if ($autorOk && $tituloOk && $editorialOk) {
     }
 }
 
-$db = null;
+$pdo = null;
 pie();

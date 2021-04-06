@@ -19,7 +19,7 @@ if (!isset($_REQUEST["si"])) {
     exit();
 }
 
-$db = conectaDb();
+$pdo = conectaDb();
 
 cabecera("Administrador - Borrar todo 2", MENU_ADMINISTRADOR, 1);
 
@@ -29,7 +29,7 @@ if ($cfg["insertaRegistrosDemo"]) {
     print "  <p>Base de datos creada.</p>\n";
 }
 
-borraTodo($db);
+borraTodo($pdo);
 
-$db = null;
+$pdo = null;
 pie();

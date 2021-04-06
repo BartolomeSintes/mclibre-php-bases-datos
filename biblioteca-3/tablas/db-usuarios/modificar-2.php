@@ -14,7 +14,7 @@ if (!isset($_SESSION["conectado"]) || $_SESSION["conectado"] != NIVEL_3) {
     exit;
 }
 
-$db = conectaDb();
+$pdo = conectaDb();
 cabecera("Usuarios - Modificar 2", MENU_USUARIOS, 2);
 
 $id = recoge("id");
@@ -24,7 +24,7 @@ if ($id == "") {
 } else {
     $consulta = "SELECT COUNT(*) FROM $tablaUsuarios
        WHERE id=:id";
-    $result = $db->prepare($consulta);
+    $result = $pdo->prepare($consulta);
     $result->execute([":id" => $id]);
     if (!$result) {
         print "    <p class=\"aviso\">Error en la consulta.</p>\n";
@@ -33,7 +33,7 @@ if ($id == "") {
     } else {
         $consulta = "SELECT * FROM $tablaUsuarios
             WHERE id=:id";
-        $result = $db->prepare($consulta);
+        $result = $pdo->prepare($consulta);
         $result->execute([":id" => $id]);
         if (!$result) {
             print "    <p class=\"aviso\">Error en la consulta.</p>\n";
@@ -83,5 +83,5 @@ if ($id == "") {
     }
 }
 
-$db = null;
+$pdo = null;
 pie();

@@ -14,7 +14,7 @@ if (!isset($_SESSION["conectado"]) || $_SESSION["conectado"] != NIVEL_3) {
     exit;
 }
 
-$db = conectaDb();
+$pdo = conectaDb();
 cabecera("Personas - Añadir 2", MENU_PERSONAS, 2);
 
 $nombre    = recoge("nombre");
@@ -51,7 +51,7 @@ if ($nombreOk && $apellidosOk && $dniOk) {
         print "    <p class=\"aviso\">Hay que rellenar al menos uno de los campos. No se ha guardado el registro.</p>\n";
     } else {
         $consulta = "SELECT COUNT(*) FROM $tablaPersonas";
-        $result   = $db->query($consulta);
+        $result   = $pdo->query($consulta);
         if (!$result) {
             print "    <p class=\"aviso\">Error en la consulta.</p>\n";
         } elseif ($result->fetchColumn() >= $cfg["maxRegTablePersonas"] ) {
@@ -63,7 +63,7 @@ if ($nombreOk && $apellidosOk && $dniOk) {
                 WHERE nombre=:nombre
                 AND apellidos=:apellidos
                 AND dni=:dni";
-            $result = $db->prepare($consulta);
+            $result = $pdo->prepare($consulta);
             $result->execute([":nombre" => $nombre, ":apellidos" => $apellidos,
                 ":dni"                  => $dni, ]);
             if (!$result) {
@@ -74,7 +74,7 @@ if ($nombreOk && $apellidosOk && $dniOk) {
                 $consulta = "INSERT INTO $tablaPersonas
                     (nombre, apellidos, dni)
                     VALUES (:nombre, :apellidos, :dni)";
-                $result = $db->prepare($consulta);
+                $result = $pdo->prepare($consulta);
                 if ($result->execute([":nombre" => $nombre, ":apellidos" => $apellidos,
                     ":dni" => $dni, ])) {
                     print "    <p>Registro <strong>$nombre $apellidos $dni</strong> creado correctamente.</p>\n";
@@ -86,5 +86,5 @@ if ($nombreOk && $apellidosOk && $dniOk) {
     }
 }
 
-$db = null;
+$pdo = null;
 pie();

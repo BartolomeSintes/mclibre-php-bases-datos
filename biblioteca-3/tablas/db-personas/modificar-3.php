@@ -14,7 +14,7 @@ if (!isset($_SESSION["conectado"]) || $_SESSION["conectado"] != NIVEL_3) {
     exit;
 }
 
-$db = conectaDb();
+$pdo = conectaDb();
 cabecera("Personas - Modificar 3", MENU_PERSONAS, 2);
 
 $nombre    = recoge("nombre");
@@ -55,7 +55,7 @@ if ($nombreOk && $apellidosOk && $dniOk) {
     } else {
         $consulta = "SELECT COUNT(*) FROM $tablaPersonas
             WHERE id=:id";
-        $result = $db->prepare($consulta);
+        $result = $pdo->prepare($consulta);
         $result->execute([":id" => $id]);
         if (!$result) {
             print "    <p class=\"aviso\">Error en la consulta.</p>\n";
@@ -70,7 +70,7 @@ if ($nombreOk && $apellidosOk && $dniOk) {
                 AND apellidos=:apellidos
                 AND dni=:dni
                 AND id<>:id";
-            $result = $db->prepare($consulta);
+            $result = $pdo->prepare($consulta);
             $result->execute([":nombre" => $nombre, ":apellidos" => $apellidos,
                 ":dni"                  => $dni, ":id" => $id, ]);
             if (!$result) {
@@ -83,7 +83,7 @@ if ($nombreOk && $apellidosOk && $dniOk) {
                     SET nombre=:nombre, apellidos=:apellidos,
                         dni=:dni
                     WHERE id=:id";
-                $result = $db->prepare($consulta);
+                $result = $pdo->prepare($consulta);
                 if ($result->execute([":nombre" => $nombre, ":apellidos" => $apellidos,
                     ":dni" => $dni, ":id" => $id, ])) {
                     print "    <p>Registro modificado correctamente.</p>\n";
@@ -95,5 +95,5 @@ if ($nombreOk && $apellidosOk && $dniOk) {
     }
 }
 
-$db = null;
+$pdo = null;
 pie();

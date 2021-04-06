@@ -14,7 +14,7 @@ if (!isset($_SESSION["conectado"]) || $_SESSION["conectado"] != NIVEL_3) {
     exit;
 }
 
-$db = conectaDb();
+$pdo = conectaDb();
 cabecera("Usuarios - Modificar 3", MENU_USUARIOS, 2);
 
 $usuario  = recoge("usuario");
@@ -55,7 +55,7 @@ if ($usuarioOk && $passwordOk && $nivelOk) {
     } else {
         $consulta = "SELECT * FROM $tablaUsuarios
             WHERE id=:id";
-        $result = $db->prepare($consulta);
+        $result = $pdo->prepare($consulta);
         $result->execute([":id" => $id]);
         if (!$result) {
             print "    <p class=\"aviso\">Error en la consulta.</p>\n";
@@ -66,7 +66,7 @@ if ($usuarioOk && $passwordOk && $nivelOk) {
             } else {
                 $consulta = "SELECT COUNT(*) FROM $tablaUsuarios
                     WHERE id=:id";
-                $result = $db->prepare($consulta);
+                $result = $pdo->prepare($consulta);
                 $result->execute([":id" => $id]);
                 if (!$result) {
                     print "    <p class=\"aviso\">Error en la consulta.</p>\n";
@@ -79,7 +79,7 @@ if ($usuarioOk && $passwordOk && $nivelOk) {
                     $consulta = "SELECT COUNT(*) FROM $tablaUsuarios
                         WHERE usuario=:usuario
                         AND id<>:id";
-                    $result = $db->prepare($consulta);
+                    $result = $pdo->prepare($consulta);
                     $result->execute([":usuario" => $usuario, ":id" => $id]);
                     if (!$result) {
                         print "    <p class=\"aviso\">Error en la consulta.</p>\n";
@@ -91,7 +91,7 @@ if ($usuarioOk && $passwordOk && $nivelOk) {
                             $consulta = "UPDATE $tablaUsuarios
                                 SET usuario=:usuario, password=:password, nivel=:nivel
                                 WHERE id=:id";
-                            $result = $db->prepare($consulta);
+                            $result = $pdo->prepare($consulta);
                             if ($result->execute([":usuario" => $usuario, ":password" => encripta($password),
                                 ":nivel" => $nivel, ":id" => $id, ])) {
                                 print "    <p>Registro modificado correctamente.</p>\n";
@@ -102,7 +102,7 @@ if ($usuarioOk && $passwordOk && $nivelOk) {
                             $consulta = "UPDATE $tablaUsuarios
                                 SET usuario=:usuario, nivel=:nivel
                                 WHERE id=:id";
-                            $result = $db->prepare($consulta);
+                            $result = $pdo->prepare($consulta);
                             if ($result->execute([":usuario" => $usuario,
                                 ":nivel" => $nivel, ":id" => $id, ])) {
                                 print "    <p>Registro modificado correctamente.</p>\n";
@@ -117,5 +117,5 @@ if ($usuarioOk && $passwordOk && $nivelOk) {
     }
 }
 
-$db = null;
+$pdo = null;
 pie();

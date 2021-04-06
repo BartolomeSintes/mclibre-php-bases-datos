@@ -14,11 +14,11 @@ if (!isset($_SESSION["conectado"]) || $_SESSION["conectado"] != NIVEL_3) {
     exit;
 }
 
-$db = conectaDb();
+$pdo = conectaDb();
 cabecera("Usuarios - Añadir 1", MENU_USUARIOS, 2);
 
 $consulta = "SELECT COUNT(*) FROM $tablaUsuarios";
-$result   = $db->query($consulta);
+$result   = $pdo->query($consulta);
 if (!$result) {
     print "    <p class=\"aviso\">Error en la consulta.</p>\n";
 } elseif ($result->fetchColumn() >= $cfg["maxRegTableUsuarios"] ) {
@@ -59,5 +59,5 @@ if (!$result) {
     print "    </form>\n";
 }
 
-$db = null;
+$pdo = null;
 pie();

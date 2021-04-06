@@ -14,7 +14,7 @@ if (!isset($_SESSION["conectado"]) || $_SESSION["conectado"] != NIVEL_3) {
     exit;
 }
 
-$db = conectaDb();
+$pdo = conectaDb();
 cabecera("Préstamos - Añadir 2", MENU_PRESTAMOS, 2);
 
 $id_persona = recoge("id_persona");
@@ -27,7 +27,7 @@ $prestadoOk   = false;
 
 $consulta = "SELECT COUNT(*) FROM $tablaPersonas
     WHERE id=:id_persona";
-$result = $db->prepare($consulta);
+$result = $pdo->prepare($consulta);
 $result->execute([":id_persona" => $id_persona]);
 if (!$result) {
     print "    <p class=\"aviso\">Error en la consulta.</p>\n";
@@ -39,7 +39,7 @@ if (!$result) {
 
 $consulta = "SELECT COUNT(*) FROM $tablaObras
     WHERE id=:id_obra";
-$result = $db->prepare($consulta);
+$result = $pdo->prepare($consulta);
 $result->execute([":id_obra" => $id_obra]);
 if (!$result) {
     print "    <p class=\"aviso\">Error en la consulta.</p>\n";
@@ -61,7 +61,7 @@ if ($prestado == "" || mb_strlen($prestado, "UTF-8") < $tamFecha) {
 
 if ($id_personaOk && $id_obraOk && $prestadoOk) {
     $consulta = "SELECT COUNT(*) FROM $tablaPrestamos";
-    $result   = $db->query($consulta);
+    $result   = $pdo->query($consulta);
     if (!$result) {
         print "    <p class=\"aviso\">Error en la consulta.</p>\n";
     } elseif ($result->fetchColumn() >= $cfg["maxRegTablePrestamos"] ) {
@@ -73,7 +73,7 @@ if ($id_personaOk && $id_obraOk && $prestadoOk) {
             WHERE id_persona=:id_persona
             AND id_obra=:id_obra
             AND prestado=:prestado";
-        $result = $db->prepare($consulta);
+        $result = $pdo->prepare($consulta);
         $result->execute([":id_persona" => $id_persona, ":id_obra" => $id_obra,
             ":prestado"                 => $prestado, ]);
         if (!$result) {
@@ -84,7 +84,7 @@ if ($id_personaOk && $id_obraOk && $prestadoOk) {
             $consulta = "INSERT INTO $tablaPrestamos
                 (id_persona, id_obra, prestado, devuelto)
                 VALUES (:id_persona, :id_obra, :prestado, '0000-00-00')";
-            $result = $db->prepare($consulta);
+            $result = $pdo->prepare($consulta);
             if ($result->execute([":id_persona" => $id_persona, ":id_obra" => $id_obra,
                 ":prestado" => $prestado, ])) {
                 print "    <p>Registro creado correctamente.</p>\n";
@@ -95,5 +95,5 @@ if ($id_personaOk && $id_obraOk && $prestadoOk) {
     }
 }
 
-$db = null;
+$pdo = null;
 pie();

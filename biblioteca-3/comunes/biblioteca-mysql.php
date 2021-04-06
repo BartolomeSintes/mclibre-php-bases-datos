@@ -105,23 +105,23 @@ function conectaDb()
     }
 }
 
-function borraTodo($db)
+function borraTodo($pdo)
 {
     global $consultasBorraTodo;
 
     foreach ($consultasBorraTodo as $consulta) {
-        if (!$db->query($consulta)) {
+        if (!$pdo->query($consulta)) {
             print "    <p class=\"aviso\">Error en la consulta: $consulta</p>\n";
             print "\n";
         }
     }
 }
 
-function existenTablas($db, $nombresTablas)
+function existenTablas($pdo, $nombresTablas)
 {
     $existe   = true;
     $consulta = "SELECT count(*) FROM INFORMATION_SCHEMA.SCHEMATA WHERE SCHEMA_NAME = '" . MYSQL_DATABASE . "'";
-    $result   = $db->query($consulta);
+    $result   = $pdo->query($consulta);
     if (!$result) {
         $existe = false;
         print "    <p class=\"aviso\">Error en la consulta.</p>\n";
@@ -137,7 +137,7 @@ function existenTablas($db, $nombresTablas)
                 $consulta = "SELECT count(*) FROM information_schema.tables
                 WHERE table_schema = '" . MYSQL_DATABASE . "'
                     AND table_name = '$tabla'";
-                $result = $db->query($consulta);
+                $result = $pdo->query($consulta);
                 if (!$result) {
                     $existe = false;
                     print "    <p class=\"aviso\">Error en la consulta.</p>\n";

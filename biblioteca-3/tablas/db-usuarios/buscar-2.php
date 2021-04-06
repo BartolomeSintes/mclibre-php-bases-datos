@@ -14,7 +14,7 @@ if (!isset($_SESSION["conectado"]) || $_SESSION["conectado"] != NIVEL_3) {
     exit;
 }
 
-$db = conectaDb();
+$pdo = conectaDb();
 cabecera("Usuarios - Buscar 2", MENU_USUARIOS, 2);
 
 $usuario  = recoge("usuario");
@@ -26,7 +26,7 @@ $consulta = "SELECT COUNT(*) FROM $tablaUsuarios
     WHERE usuario LIKE :usuario
     AND password LIKE :password
     AND nivel LIKE :nivel";
-$result = $db->prepare($consulta);
+$result = $pdo->prepare($consulta);
 $result->execute([":usuario" => "%$usuario%", ":password" => "%$password%",
     ":nivel"                 => "%$nivel%", ]);
 if (!$result) {
@@ -39,7 +39,7 @@ if (!$result) {
         AND password LIKE :password
         AND nivel LIKE :nivel
         ORDER BY $ordena";
-    $result = $db->prepare($consulta);
+    $result = $pdo->prepare($consulta);
     $result->execute([":usuario" => "%$usuario%", ":password" => "%$password%",
         ":nivel"                 => "%$nivel%", ]);
     if (!$result) {
@@ -99,5 +99,5 @@ if (!$result) {
     }
 }
 
-$db = null;
+$pdo = null;
 pie();

@@ -14,7 +14,7 @@ if (!isset($_SESSION["conectado"]) || $_SESSION["conectado"] != NIVEL_3) {
     exit;
 }
 
-$db = conectaDb();
+$pdo = conectaDb();
 cabecera("Obras - Modificar 3", MENU_OBRAS, 2);
 
 $autor     = recoge("autor");
@@ -55,7 +55,7 @@ if ($autorOk && $tituloOk && $editorialOk) {
     } else {
         $consulta = "SELECT COUNT(*) FROM $tablaObras
             WHERE id=:id";
-        $result = $db->prepare($consulta);
+        $result = $pdo->prepare($consulta);
         $result->execute([":id" => $id]);
         if (!$result) {
             print "    <p class=\"aviso\">Error en la consulta.</p>\n";
@@ -70,7 +70,7 @@ if ($autorOk && $tituloOk && $editorialOk) {
                 AND titulo=:titulo
                 AND editorial=:editorial
                 AND id<>:id";
-            $result = $db->prepare($consulta);
+            $result = $pdo->prepare($consulta);
             $result->execute([":autor" => $autor, ":titulo" => $titulo,
                 ":editorial"           => $editorial, ":id" => $id, ]);
             if (!$result) {
@@ -83,7 +83,7 @@ if ($autorOk && $tituloOk && $editorialOk) {
                     SET autor=:autor, titulo=:titulo,
                         editorial=:editorial
                     WHERE id=:id";
-                $result = $db->prepare($consulta);
+                $result = $pdo->prepare($consulta);
                 if ($result->execute([":autor" => $autor, ":titulo" => $titulo,
                     ":editorial" => $editorial, ":id" => $id, ])) {
                     print "    <p>Registro modificado correctamente.</p>\n";
@@ -95,5 +95,5 @@ if ($autorOk && $tituloOk && $editorialOk) {
     }
 }
 
-$db = null;
+$pdo = null;
 pie();

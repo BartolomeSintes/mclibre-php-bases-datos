@@ -14,7 +14,7 @@ if (!isset($_SESSION["conectado"]) || $_SESSION["conectado"] != NIVEL_3) {
     exit;
 }
 
-$db = conectaDb();
+$pdo = conectaDb();
 cabecera("Usuarios - Borrar 2", MENU_USUARIOS, 2);
 
 $id = recoge("id", []);
@@ -25,7 +25,7 @@ if (count($id) == 0) {
     foreach ($id as $indice => $valor) {
         $consulta = "SELECT * FROM $tablaUsuarios
             WHERE id=:id";
-        $result = $db->prepare($consulta);
+        $result = $pdo->prepare($consulta);
         $result->execute([":id" => $indice]);
         if (!$result) {
             print "    <p class=\"aviso\">Error en la consulta.</p>\n";
@@ -36,7 +36,7 @@ if (count($id) == 0) {
             } else {
                 $consulta = "SELECT COUNT(*) FROM $tablaUsuarios
                     WHERE id=:indice";
-                $result = $db->prepare($consulta);
+                $result = $pdo->prepare($consulta);
                 $result->execute([":indice" => $indice]);
                 if (!$result) {
                     print "    <p class=\"aviso\">Error en la consulta.</p>\n";
@@ -45,7 +45,7 @@ if (count($id) == 0) {
                 } else {
                     $consulta = "DELETE FROM $tablaUsuarios
                         WHERE id=:indice";
-                    $result = $db->prepare($consulta);
+                    $result = $pdo->prepare($consulta);
                     if ($result->execute([":indice" => $indice])) {
                         print "    <p>Registro borrado correctamente.</p>\n";
                     } else {
@@ -57,5 +57,5 @@ if (count($id) == 0) {
     }
 }
 
-$db = null;
+$pdo = null;
 pie();

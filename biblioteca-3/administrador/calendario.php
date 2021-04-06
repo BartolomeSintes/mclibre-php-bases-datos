@@ -24,7 +24,7 @@ if (!isset($_SESSION["anyo"])) {
     $_SESSION["dia"]  = $dia;
 }
 
-function calendario($db, $anyo, $mes, $diaMostrado, $consultaPlantilla)
+function calendario($pdo, $anyo, $mes, $diaMostrado, $consultaPlantilla)
 {
     global $cfg;
 
@@ -82,7 +82,7 @@ function calendario($db, $anyo, $mes, $diaMostrado, $consultaPlantilla)
                 $num = $num_inicio + $i;
                 if ($num > 0 && $num <= $duraMeses[(int)($mes)]) {
                     $consulta = $consultaPlantilla . ":fecha";
-                    $result   = $db->prepare($consulta);
+                    $result   = $pdo->prepare($consulta);
                     $result->execute([":fecha" => "$anyo-$mes-" . sprintf("%02d", $num)]);
                     if (!$result) {
                         print "          <td>$num</td>\n";
@@ -105,7 +105,7 @@ function calendario($db, $anyo, $mes, $diaMostrado, $consultaPlantilla)
     print "\n";
 }
 
-$db = conectaDb();
+$pdo = conectaDb();
 cabecera("Calendario", MENU_ADMINISTRADOR, 1);
 
 $fecha  = recoge("fecha");
@@ -130,11 +130,11 @@ $_SESSION["mes"]  = $mes;
 $_SESSION["anyo"] = $anyo;
 $_SESSION["dia"]  = $dia;
 
-calendario($db, $_SESSION["anyo"], $_SESSION["mes"], $_SESSION["dia"], "SELECT COUNT(*) FROM $tablaPrestamos WHERE prestado=");
+calendario($pdo, $_SESSION["anyo"], $_SESSION["mes"], $_SESSION["dia"], "SELECT COUNT(*) FROM $tablaPrestamos WHERE prestado=");
 
 $consulta = "SELECT COUNT(*) FROM $tablaPrestamos
     WHERE prestado=:prestado";
-$result = $db->prepare($consulta);
+$result = $pdo->prepare($consulta);
 $result->execute([":prestado" => $fecha]);
 if (!$result) {
     print "    <p class=\"aviso\">Error en la consulta.</p>\n";
@@ -153,7 +153,7 @@ if (!$result) {
         AND $tablaPrestamos.id_obra=$tablaObras.id
         AND prestado=:prestado
         ORDER BY $ordena";
-    $result = $db->prepare($consulta);
+    $result = $pdo->prepare($consulta);
     $result->execute([":prestado" => $fecha]);
     if (!$result) {
         print "    <p class=\"aviso\">Error en la consulta.</p>\n";
@@ -225,5 +225,5 @@ if (!$result) {
     }
 }
 
-$db = null;
+$pdo = null;
 pie();

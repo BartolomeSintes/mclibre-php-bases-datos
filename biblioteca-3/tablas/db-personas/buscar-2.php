@@ -14,7 +14,7 @@ if (!isset($_SESSION["conectado"]) || $_SESSION["conectado"] != NIVEL_3) {
     exit;
 }
 
-$db = conectaDb();
+$pdo = conectaDb();
 cabecera("Personas - Buscar 2", MENU_PERSONAS, 2);
 
 $nombre    = recoge("nombre");
@@ -26,7 +26,7 @@ $consulta = "SELECT COUNT(*) FROM $tablaPersonas
     WHERE nombre LIKE :nombre
     AND apellidos LIKE :apellidos
     AND dni LIKE :dni";
-$result = $db->prepare($consulta);
+$result = $pdo->prepare($consulta);
 $result->execute([":nombre" => "%$nombre%", ":apellidos" => "%$apellidos%",
     ":dni"                  => "%$dni%", ]);
 if (!$result) {
@@ -39,7 +39,7 @@ if (!$result) {
         AND apellidos LIKE :apellidos
         AND dni LIKE :dni
         ORDER BY $ordena";
-    $result = $db->prepare($consulta);
+    $result = $pdo->prepare($consulta);
     $result->execute([":nombre" => "%$nombre%", ":apellidos" => "%$apellidos%",
         ":dni"                  => "%$dni%", ]);
     if (!$result) {
@@ -100,5 +100,5 @@ if (!$result) {
     }
 }
 
-$db = null;
+$pdo = null;
 pie();

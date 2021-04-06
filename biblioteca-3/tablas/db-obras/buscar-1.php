@@ -14,11 +14,11 @@ if (!isset($_SESSION["conectado"]) || $_SESSION["conectado"] != NIVEL_3) {
     exit;
 }
 
-$db = conectaDb();
+$pdo = conectaDb();
 cabecera("Obras - Buscar 1", MENU_OBRAS, 2);
 
 $consulta = "SELECT COUNT(*) FROM $tablaObras";
-$result   = $db->query($consulta);
+$result   = $pdo->query($consulta);
 if (!$result) {
     print "    <p class=\"aviso\">Error en la consulta.</p>\n";
 } elseif ($result->fetchColumn() == 0) {

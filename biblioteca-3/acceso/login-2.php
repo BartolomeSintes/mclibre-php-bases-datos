@@ -17,7 +17,7 @@ if (isset($_SESSION["conectado"])) {
 $usuario  = recoge("usuario");
 $password = recoge("password");
 
-$db = conectaDb();
+$pdo = conectaDb();
 
 if (!$usuario) {
     header("Location:login-1.php?aviso=Error: Nombre de usuario no permitido");
@@ -26,7 +26,7 @@ if (!$usuario) {
 
 $consulta = "SELECT * FROM $tablaUsuarios
     WHERE usuario=:usuario";
-$result = $db->prepare($consulta);
+$result = $pdo->prepare($consulta);
 $result->execute([":usuario" => $usuario]);
 if (!$result) {
     header("Location:login-1.php?aviso=Error: Error en la consulta");
@@ -40,6 +40,6 @@ if ($valor["password"] != encripta($password)) {
 }
 
 $_SESSION["conectado"] = $valor["nivel"];
-$db                    = null;
+$pdo                    = null;
 header("Location:../index.php");
 exit();

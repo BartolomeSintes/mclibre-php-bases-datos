@@ -14,7 +14,7 @@ if (!isset($_SESSION["conectado"]) || $_SESSION["conectado"] != NIVEL_3) {
     exit;
 }
 
-$db = conectaDb();
+$pdo = conectaDb();
 cabecera("Préstamos - Modificar 3", MENU_PRESTAMOS, 2);
 
 $id_persona = recoge("id_persona");
@@ -31,7 +31,7 @@ $idOk         = false;
 
 $consulta = "SELECT COUNT(*) FROM $tablaPersonas
     WHERE id=:id_persona";
-$result = $db->prepare($consulta);
+$result = $pdo->prepare($consulta);
 $result->execute([":id_persona" => $id_persona]);
 if (!$result) {
     print "    <p class=\"aviso\">Error en la consulta.</p>\n";
@@ -43,7 +43,7 @@ if (!$result) {
 
 $consulta = "SELECT COUNT(*) FROM $tablaObras
     WHERE id=:id_obra";
-$result = $db->prepare($consulta);
+$result = $pdo->prepare($consulta);
 $result->execute([":id_obra" => $id_obra]);
 if (!$result) {
     print "    <p class=\"aviso\">Error en la consulta.</p>\n";
@@ -84,7 +84,7 @@ if ($id_personaOk && $id_obraOk && $prestadoOk && $devueltoOk) {
     } else {
         $consulta = "SELECT COUNT(*) FROM $tablaPrestamos
             WHERE id=:id";
-        $result = $db->prepare($consulta);
+        $result = $pdo->prepare($consulta);
         $result->execute([":id" => $id]);
         if (!$result) {
             print "    <p class=\"aviso\">Error en la consulta.</p>\n";
@@ -98,7 +98,7 @@ if ($id_personaOk && $id_obraOk && $prestadoOk && $devueltoOk) {
                 WHERE id_persona=:id_persona
                 AND id_obra=:id_obra
                 AND id<>:id";
-            $result = $db->prepare($consulta);
+            $result = $pdo->prepare($consulta);
             $result->execute([":id_persona" => $id_persona, ":id_obra" => $id_obra,
                 ":id"                       => $id, ]);
             if (!$result) {
@@ -111,7 +111,7 @@ if ($id_personaOk && $id_obraOk && $prestadoOk && $devueltoOk) {
                     SET id_persona=:id_persona, id_obra=:id_obra,
                         prestado=:prestado, devuelto=:devuelto
                     WHERE id=:id";
-                $result = $db->prepare($consulta);
+                $result = $pdo->prepare($consulta);
                 if ($result->execute([":id_persona" => $id_persona, ":id_obra" => $id_obra,
                     ":prestado" => $prestado, ":devuelto" => $devuelto, ":id" => $id, ])) {
                     print "    <p>Registro modificado correctamente.</p>\n";
@@ -123,5 +123,5 @@ if ($id_personaOk && $id_obraOk && $prestadoOk && $devueltoOk) {
     }
 }
 
-$db = null;
+$pdo = null;
 pie();

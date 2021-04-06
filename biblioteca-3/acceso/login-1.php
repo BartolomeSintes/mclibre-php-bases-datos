@@ -15,14 +15,14 @@ if (isset($_SESSION["conectado"])) {
     exit();
 }
 
-$db = conectaDb();
+$pdo = conectaDb();
 
 cabecera("Login 1", MENU_VOLVER, 1);
 
-if (!existenTablas($db, $tablas)) {
+if (!existenTablas($pdo, $tablas)) {
     print "<p>La base de datos no está creada. Se creará la base de datos.</p>\n";
     print "\n";
-    borraTodo($db);
+    borraTodo($pdo);
 }
 
 $aviso = recoge("aviso");
@@ -56,4 +56,4 @@ print "    </form>\n";
 
 pie();
 
-$db = null;
+$pdo = null;

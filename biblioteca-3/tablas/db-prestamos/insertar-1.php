@@ -14,11 +14,11 @@ if (!isset($_SESSION["conectado"]) || $_SESSION["conectado"] != NIVEL_3) {
     exit;
 }
 
-$db = conectaDb();
+$pdo = conectaDb();
 cabecera("Préstamos - Añadir 1", MENU_PRESTAMOS, 2);
 
 $consulta = "SELECT COUNT(*) FROM $tablaPrestamos";
-$result   = $db->query($consulta);
+$result   = $pdo->query($consulta);
 if (!$result) {
     print "    <p class=\"aviso\">Error en la consulta.</p>\n";
 } elseif ($result->fetchColumn() >= $cfg["maxRegTablePrestamos"] ) {
@@ -27,9 +27,9 @@ if (!$result) {
     print "    <p class=\"aviso\">Por favor, borre algún registro antes.</p>\n";
 } else {
     $consulta2 = "SELECT * FROM $tablaPersonas ORDER BY apellidos";
-    $result2   = $db->query($consulta2);
+    $result2   = $pdo->query($consulta2);
     $consulta3 = "SELECT * FROM $tablaObras ORDER BY autor";
-    $result3   = $db->query($consulta3);
+    $result3   = $pdo->query($consulta3);
     if (!$result2) {
         print "    <p class=\"aviso\">Error en la consulta.</p>\n";
     } elseif (!$result3) {
@@ -77,5 +77,5 @@ if (!$result) {
     }
 }
 
-$db = null;
+$pdo = null;
 pie();

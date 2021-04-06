@@ -14,7 +14,7 @@ if (!isset($_SESSION["conectado"]) || $_SESSION["conectado"] != NIVEL_3) {
     exit;
 }
 
-$db = conectaDb();
+$pdo = conectaDb();
 cabecera("Préstamos - Modificar 2", MENU_PRESTAMOS, 2);
 
 $id = recoge("id");
@@ -24,7 +24,7 @@ if ($id == "") {
 } else {
     $consulta = "SELECT COUNT(*) FROM $tablaPrestamos
        WHERE id=:id";
-    $result = $db->prepare($consulta);
+    $result = $pdo->prepare($consulta);
     $result->execute([":id" => $id]);
     if (!$result) {
         print "    <p class=\"aviso\">Error en la consulta.</p>\n";
@@ -44,12 +44,12 @@ if ($id == "") {
         WHERE $tablaPrestamos.id_persona=$tablaPersonas.id
         AND $tablaPrestamos.id_obra=$tablaObras.id
         AND $tablaPrestamos.id=:id";
-        $result = $db->prepare($consulta);
+        $result = $pdo->prepare($consulta);
         $result->execute([":id" => $id]);
         $consulta2 = "SELECT * FROM $tablaPersonas ORDER BY apellidos";
-        $result2   = $db->query($consulta2);
+        $result2   = $pdo->query($consulta2);
         $consulta3 = "SELECT * FROM $tablaObras ORDER BY autor";
-        $result3   = $db->query($consulta3);
+        $result3   = $pdo->query($consulta3);
         if (!$result) {
             print "    <p class=\"aviso\">Error en la consulta.</p>\n";
         } elseif (!$result2) {
@@ -114,5 +114,5 @@ if ($id == "") {
     }
 }
 
-$db = null;
+$pdo = null;
 pie();

@@ -14,7 +14,7 @@ if (!isset($_SESSION["conectado"]) || $_SESSION["conectado"] != NIVEL_3) {
     exit;
 }
 
-$db = conectaDb();
+$pdo = conectaDb();
 cabecera("Préstamos - Buscar 2", MENU_PRESTAMOS, 2);
 
 $nombre     = recoge("nombre");
@@ -68,7 +68,7 @@ $consulta = "SELECT COUNT(*)
     . $consultaPrestado
     . $consultaDevuelto;
 
-$result = $db->prepare($consulta);
+$result = $pdo->prepare($consulta);
 $result->execute($parametros);
 if (!$result) {
     print "    <p class=\"aviso\">Error en la consulta.</p>\n";
@@ -92,7 +92,7 @@ if (!$result) {
         . $consultaPrestado
         . $consultaDevuelto
         . " ORDER BY $ordena";
-    $result = $db->prepare($consulta);
+    $result = $pdo->prepare($consulta);
     $result->execute($parametros);
     if (!$result) {
         print "    <p class=\"aviso\">Error en la consulta.</p>\n";
@@ -175,5 +175,5 @@ if (!$result) {
     }
 }
 
-$db = null;
+$pdo = null;
 pie();

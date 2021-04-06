@@ -14,7 +14,7 @@ if (!isset($_SESSION["conectado"]) || $_SESSION["conectado"] != NIVEL_3) {
     exit;
 }
 
-$db = conectaDb();
+$pdo = conectaDb();
 cabecera("Préstamos - Devolver 2", MENU_PRESTAMOS, 2);
 
 $id       = recoge("id");
@@ -25,7 +25,7 @@ $devueltoOk = false;
 
 $consulta = "SELECT COUNT(*) FROM $tablaPrestamos
     WHERE id=:id";
-$result = $db->prepare($consulta);
+$result = $pdo->prepare($consulta);
 $result->execute([":id" => $id]);
 if (!$result) {
     print "    <p class=\"aviso\">Error en la consulta.</p>\n";
@@ -47,7 +47,7 @@ if ($devuelto == "") {
 } else {
     $consulta = "SELECT prestado FROM $tablaPrestamos
         WHERE id=:id";
-    $result = $db->prepare($consulta);
+    $result = $pdo->prepare($consulta);
     $result->execute([":id" => $id]);
     if (!$result) {
         print "    <p class=\"aviso\">Error en la consulta.</p>\n";
@@ -65,7 +65,7 @@ if ($idOk && $devueltoOk) {
     $consulta = "UPDATE $tablaPrestamos
         SET devuelto='$devuelto'
         WHERE id=:id";
-    $result = $db->prepare($consulta);
+    $result = $pdo->prepare($consulta);
     if ($result->execute([":id" => $id])) {
         print "    <p>Registro modificado correctamente.</p>\n";
     } else {
@@ -73,5 +73,5 @@ if ($idOk && $devueltoOk) {
     }
 }
 
-$db = null;
+$pdo = null;
 pie();

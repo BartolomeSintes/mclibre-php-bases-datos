@@ -99,24 +99,24 @@ function conectaDb()
     }
 }
 
-function borraTodo($db)
+function borraTodo($pdo)
 {
     global $consultasBorraTodo;
 
     foreach ($consultasBorraTodo as $consulta) {
-        if (!$db->query($consulta)) {
+        if (!$pdo->query($consulta)) {
             print "    <p class=\"aviso\">Error en la consulta: $consulta</p>\n";
             print "\n";
         }
     }
 }
 
-function existenTablas($db, $nombresTablas)
+function existenTablas($pdo, $nombresTablas)
 {
     $existe = true;
     foreach ($nombresTablas as $tabla) {
         $consulta = "SELECT count(*) FROM sqlite_master WHERE type='table' AND name='$tabla'";
-        $result   = $db->query($consulta);
+        $result   = $pdo->query($consulta);
         if (!$result) {
             $existe = false;
             print "    <p class=\"aviso\">Error en la consulta.</p>\n";
