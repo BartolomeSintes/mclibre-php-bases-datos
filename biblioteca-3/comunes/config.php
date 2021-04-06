@@ -47,7 +47,7 @@ $cfg["formMethod"] = GET;                                   // Valores posibles:
 
 // Hoja de estilo
 
-$cfg["color"] = 320;                                        // Color básico de la aplicación (0 - 360)
+$cfg["color"] = 27;                                         // Color básico de la aplicación (0 - 360)
 
 // Nombre de sesión
 

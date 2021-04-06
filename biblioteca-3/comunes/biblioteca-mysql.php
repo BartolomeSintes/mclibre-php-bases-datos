@@ -83,6 +83,8 @@ if ($cfg["insertaRegistrosDemo"]) {
 
 function conectaDb()
 {
+    global $cfg;
+
     try {
         $tmp = new PDO($cfg["mysqlHost"], $cfg["mysqlUser"], $cfg["mysqlPassword"]);
         $tmp->setAttribute(PDO::MYSQL_ATTR_USE_BUFFERED_QUERY, true);
