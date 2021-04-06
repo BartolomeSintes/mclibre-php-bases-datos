@@ -17,7 +17,7 @@ if (!isset($_SESSION["conectado"]) || $_SESSION["conectado"] != NIVEL_3) {
 $pdo = conectaDb();
 cabecera("Personas - Buscar 1", MENU_PERSONAS, 2);
 
-$consulta = "SELECT COUNT(*) FROM $tablaPersonas";
+$consulta = "SELECT COUNT(*) FROM $db[tablaPersonas]";
 $result   = $pdo->query($consulta);
 if (!$result) {
     print "    <p class=\"aviso\">Error en la consulta.</p>\n";
@@ -31,15 +31,15 @@ if (!$result) {
     print "        <tbody>\n";
     print "          <tr>\n";
     print "            <td>Nombre:</td>\n";
-    print "            <td><input type=\"text\" name=\"nombre\" size=\"$cfg[tamPersonasNombre]\" maxlength=\"$cfg[tamPersonasNombre]\" autofocus></td>\n";
+    print "            <td><input type=\"text\" name=\"nombre\" size=\"$db[tamPersonasNombre]\" maxlength=\"$db[tamPersonasNombre]\" autofocus></td>\n";
     print "          </tr>\n";
     print "          <tr>\n";
     print "            <td>Apellidos:</td>\n";
-    print "            <td><input type=\"text\" name=\"apellidos\" size=\"$cfg[tamPersonasApellidos]\" maxlength=\"$cfg[tamPersonasApellidos]\"></td>\n";
+    print "            <td><input type=\"text\" name=\"apellidos\" size=\"$db[tamPersonasApellidos]\" maxlength=\"$db[tamPersonasApellidos]\"></td>\n";
     print "          </tr>\n";
     print "          <tr>\n";
     print "            <td>DNI:</td>\n";
-    print "            <td><input type=\"text\" name=\"dni\" size=\"$cfg[tamPersonasDni]\" maxlength=\"$cfg[tamPersonasDni]\"></td>\n";
+    print "            <td><input type=\"text\" name=\"dni\" size=\"$db[tamPersonasDni]\" maxlength=\"$db[tamPersonasDni]\"></td>\n";
     print "          </tr>\n";
     print "        </tbody>\n";
     print "      </table>\n";

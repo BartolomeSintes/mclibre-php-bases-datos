@@ -17,7 +17,7 @@ if (!isset($_SESSION["conectado"]) || $_SESSION["conectado"] != NIVEL_3) {
 $pdo = conectaDb();
 cabecera("Préstamos - Añadir 1", MENU_PRESTAMOS, 2);
 
-$consulta = "SELECT COUNT(*) FROM $tablaPrestamos";
+$consulta = "SELECT COUNT(*) FROM $db[tablaPrestamos]";
 $result   = $pdo->query($consulta);
 if (!$result) {
     print "    <p class=\"aviso\">Error en la consulta.</p>\n";
@@ -26,9 +26,9 @@ if (!$result) {
     print "\n";
     print "    <p class=\"aviso\">Por favor, borre algún registro antes.</p>\n";
 } else {
-    $consulta2 = "SELECT * FROM $tablaPersonas ORDER BY apellidos";
+    $consulta2 = "SELECT * FROM $db[tablaPersonas] ORDER BY apellidos";
     $result2   = $pdo->query($consulta2);
-    $consulta3 = "SELECT * FROM $tablaObras ORDER BY autor";
+    $consulta3 = "SELECT * FROM $db[tablaObras] ORDER BY autor";
     $result3   = $pdo->query($consulta3);
     if (!$result2) {
         print "    <p class=\"aviso\">Error en la consulta.</p>\n";

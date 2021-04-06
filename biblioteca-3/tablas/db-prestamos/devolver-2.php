@@ -23,7 +23,7 @@ $devuelto = recoge("devuelto");
 $idOk       = false;
 $devueltoOk = false;
 
-$consulta = "SELECT COUNT(*) FROM $tablaPrestamos
+$consulta = "SELECT COUNT(*) FROM $db[tablaPrestamos]
     WHERE id=:id";
 $result = $pdo->prepare($consulta);
 $result->execute([":id" => $id]);
@@ -45,7 +45,7 @@ if ($devuelto == "") {
 } elseif (!checkdate(substr($devuelto, 5, 2), substr($devuelto, 8, 2), substr($devuelto, 0, 4))) {
     print "    <p class=\"aviso\">La fecha <strong>$devuelto</strong> de devolución no es una fecha válida.</p>\n";
 } else {
-    $consulta = "SELECT prestado FROM $tablaPrestamos
+    $consulta = "SELECT prestado FROM $db[tablaPrestamos]
         WHERE id=:id";
     $result = $pdo->prepare($consulta);
     $result->execute([":id" => $id]);
@@ -62,7 +62,7 @@ if ($devuelto == "") {
 }
 
 if ($idOk && $devueltoOk) {
-    $consulta = "UPDATE $tablaPrestamos
+    $consulta = "UPDATE $db[tablaPrestamos]
         SET devuelto='$devuelto'
         WHERE id=:id";
     $result = $pdo->prepare($consulta);

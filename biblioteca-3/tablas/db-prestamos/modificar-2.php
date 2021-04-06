@@ -22,7 +22,7 @@ $id = recoge("id");
 if ($id == "") {
     print "    <p class=\"aviso\">No se ha seleccionado ningún registro.</p>\n";
 } else {
-    $consulta = "SELECT COUNT(*) FROM $tablaPrestamos
+    $consulta = "SELECT COUNT(*) FROM $db[tablaPrestamos]
        WHERE id=:id";
     $result = $pdo->prepare($consulta);
     $result->execute([":id" => $id]);
@@ -31,24 +31,24 @@ if ($id == "") {
     } elseif ($result->fetchColumn() == 0) {
         print "    <p class=\"aviso\">Registro no encontrado.</p>\n";
     } else {
-        $consulta = "SELECT $tablaPrestamos.id as id,
-            $tablaPersonas.id as id_persona,
-            $tablaPersonas.nombre as nombre,
-            $tablaPersonas.apellidos as apellidos,
-            $tablaObras.id as id_obra,
-            $tablaObras.titulo as titulo,
-            $tablaObras.autor as autor,
-            $tablaPrestamos.prestado as prestado,
-            $tablaPrestamos.devuelto as devuelto
-        FROM $tablaPersonas, $tablaObras, $tablaPrestamos
-        WHERE $tablaPrestamos.id_persona=$tablaPersonas.id
-        AND $tablaPrestamos.id_obra=$tablaObras.id
-        AND $tablaPrestamos.id=:id";
+        $consulta = "SELECT $db[tablaPrestamos].id as id,
+            $db[tablaPersonas].id as id_persona,
+            $db[tablaPersonas].nombre as nombre,
+            $db[tablaPersonas].apellidos as apellidos,
+            $db[tablaObras].id as id_obra,
+            $db[tablaObras].titulo as titulo,
+            $db[tablaObras].autor as autor,
+            $db[tablaPrestamos].prestado as prestado,
+            $db[tablaPrestamos].devuelto as devuelto
+        FROM $db[tablaPersonas], $db[tablaObras], $db[tablaPrestamos]
+        WHERE $db[tablaPrestamos].id_persona=$db[tablaPersonas].id
+        AND $db[tablaPrestamos].id_obra=$db[tablaObras].id
+        AND $db[tablaPrestamos].id=:id";
         $result = $pdo->prepare($consulta);
         $result->execute([":id" => $id]);
-        $consulta2 = "SELECT * FROM $tablaPersonas ORDER BY apellidos";
+        $consulta2 = "SELECT * FROM $db[tablaPersonas] ORDER BY apellidos";
         $result2   = $pdo->query($consulta2);
-        $consulta3 = "SELECT * FROM $tablaObras ORDER BY autor";
+        $consulta3 = "SELECT * FROM $db[tablaObras] ORDER BY autor";
         $result3   = $pdo->query($consulta3);
         if (!$result) {
             print "    <p class=\"aviso\">Error en la consulta.</p>\n";

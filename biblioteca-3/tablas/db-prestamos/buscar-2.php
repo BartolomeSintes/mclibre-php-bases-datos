@@ -25,7 +25,7 @@ $prestado_1 = recoge("prestado_1");
 $prestado_2 = recoge("prestado_2");
 $devuelto_1 = recoge("devuelto_1");
 $devuelto_2 = recoge("devuelto_2");
-$ordena     = recogeValores("ordena", $columnasPrestamosOrden, "apellidos ASC");
+$ordena     = recogeValores("ordena", $db["columnasPrestamosOrden"], "apellidos ASC");
 
 // El número de parámetros en execute debe coincidir con el número de parámetros en la consulta.
 $consultaPrestado = "";
@@ -34,37 +34,37 @@ $parametros = [":nombre" => "%$nombre%", ":apellidos" => "%$apellidos%",
     ":autor"             => "%$autor%", ":titulo" => "%$titulo%", ];
 
 if ($prestado_1 != "" && $prestado_2 != "") {
-    $consultaPrestado          = "AND $tablaPrestamos.prestado BETWEEN :prestado_1 AND :prestado_2 ";
+    $consultaPrestado          = "AND $db[tablaPrestamos].prestado BETWEEN :prestado_1 AND :prestado_2 ";
     $parametros[":prestado_1"] = $prestado_1;
     $parametros[":prestado_2"] = $prestado_2;
 } elseif ($prestado_1 != "") {
-    $consultaPrestado          = "AND $tablaPrestamos.prestado >= :prestado_1 ";
+    $consultaPrestado          = "AND $db[tablaPrestamos].prestado >= :prestado_1 ";
     $parametros[":prestado_1"] = $prestado_1;
 } elseif ($prestado_2 != "") {
-    $consultaPrestado          = "AND $tablaPrestamos.prestado <= :prestado_2 ";
+    $consultaPrestado          = "AND $db[tablaPrestamos].prestado <= :prestado_2 ";
     $parametros[":prestado_2"] = $prestado_2;
 }
 
 if ($devuelto_1 != "" && $devuelto_2 != "") {
-    $consultaDevuelto          = "AND $tablaPrestamos.devuelto BETWEEN :devuelto_1 AND :devuelto_2 ";
+    $consultaDevuelto          = "AND $db[tablaPrestamos].devuelto BETWEEN :devuelto_1 AND :devuelto_2 ";
     $parametros[":devuelto_1"] = $devuelto_1;
     $parametros[":devuelto_2"] = $devuelto_2;
 } elseif ($devuelto_1 != "") {
-    $consultaDevuelto          = "AND $tablaPrestamos.devuelto >= :devuelto_1 ";
+    $consultaDevuelto          = "AND $db[tablaPrestamos].devuelto >= :devuelto_1 ";
     $parametros[":devuelto_1"] = $devuelto_1;
 } elseif ($devuelto_2 != "") {
-    $consultaDevuelto          = "AND $tablaPrestamos.devuelto <= :devuelto_2 ";
+    $consultaDevuelto          = "AND $db[tablaPrestamos].devuelto <= :devuelto_2 ";
     $parametros[":devuelto_2"] = $devuelto_2;
 }
 
 $consulta = "SELECT COUNT(*)
-    FROM $tablaPersonas, $tablaObras, $tablaPrestamos
-    WHERE $tablaPrestamos.id_persona=$tablaPersonas.id
-    AND $tablaPrestamos.id_obra=$tablaObras.id
-    AND $tablaPersonas.nombre LIKE :nombre
-    AND $tablaPersonas.apellidos LIKE :apellidos
-    AND $tablaObras.autor LIKE :autor
-    AND $tablaObras.titulo LIKE :titulo "
+    FROM $db[tablaPersonas], $db[tablaObras], $db[tablaPrestamos]
+    WHERE $db[tablaPrestamos].id_persona=$db[tablaPersonas].id
+    AND $db[tablaPrestamos].id_obra=$db[tablaObras].id
+    AND $db[tablaPersonas].nombre LIKE :nombre
+    AND $db[tablaPersonas].apellidos LIKE :apellidos
+    AND $db[tablaObras].autor LIKE :autor
+    AND $db[tablaObras].titulo LIKE :titulo "
     . $consultaPrestado
     . $consultaDevuelto;
 
@@ -75,20 +75,20 @@ if (!$result) {
 } elseif ($result->fetchColumn() == 0) {
     print "    <p>No se han encontrado registros.</p>\n";
 } else {
-    $consulta = "SELECT $tablaPrestamos.id as id,
-        $tablaPersonas.nombre as nombre,
-        $tablaPersonas.apellidos as apellidos,
-        $tablaObras.titulo as titulo,
-        $tablaObras.autor as autor,
-        $tablaPrestamos.prestado as prestado,
-        $tablaPrestamos.devuelto as devuelto
-        FROM $tablaPersonas, $tablaObras, $tablaPrestamos
-        WHERE $tablaPrestamos.id_persona=$tablaPersonas.id
-        AND $tablaPrestamos.id_obra=$tablaObras.id
-        AND $tablaPersonas.nombre LIKE :nombre
-        AND $tablaPersonas.apellidos LIKE :apellidos
-        AND $tablaObras.autor LIKE :autor
-        AND $tablaObras.titulo LIKE :titulo "
+    $consulta = "SELECT $db[tablaPrestamos].id as id,
+        $db[tablaPersonas].nombre as nombre,
+        $db[tablaPersonas].apellidos as apellidos,
+        $db[tablaObras].titulo as titulo,
+        $db[tablaObras].autor as autor,
+        $db[tablaPrestamos].prestado as prestado,
+        $db[tablaPrestamos].devuelto as devuelto
+        FROM $db[tablaPersonas], $db[tablaObras], $db[tablaPrestamos]
+        WHERE $db[tablaPrestamos].id_persona=$db[tablaPersonas].id
+        AND $db[tablaPrestamos].id_obra=$db[tablaObras].id
+        AND $db[tablaPersonas].nombre LIKE :nombre
+        AND $db[tablaPersonas].apellidos LIKE :apellidos
+        AND $db[tablaObras].autor LIKE :autor
+        AND $db[tablaObras].titulo LIKE :titulo "
         . $consultaPrestado
         . $consultaDevuelto
         . " ORDER BY $ordena";

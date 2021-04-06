@@ -24,7 +24,7 @@ if (!$usuario) {
     exit();
 }
 
-$consulta = "SELECT * FROM $tablaUsuarios
+$consulta = "SELECT * FROM $db[tablaUsuarios]
     WHERE usuario=:usuario";
 $result = $pdo->prepare($consulta);
 $result->execute([":usuario" => $usuario]);

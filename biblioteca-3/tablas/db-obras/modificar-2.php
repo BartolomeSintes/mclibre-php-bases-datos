@@ -22,7 +22,7 @@ $id = recoge("id");
 if ($id == "") {
     print "    <p class=\"aviso\">No se ha seleccionado ningún registro.</p>\n";
 } else {
-    $consulta = "SELECT COUNT(*) FROM $tablaObras
+    $consulta = "SELECT COUNT(*) FROM $db[tablaObras]
        WHERE id=:id";
     $result = $pdo->prepare($consulta);
     $result->execute([":id" => $id]);
@@ -31,7 +31,7 @@ if ($id == "") {
     } elseif ($result->fetchColumn() == 0) {
         print "    <p class=\"aviso\">Registro no encontrado.</p>\n";
     } else {
-        $consulta = "SELECT * FROM $tablaObras
+        $consulta = "SELECT * FROM $db[tablaObras]
             WHERE id=:id";
         $result = $pdo->prepare($consulta);
         $result->execute([":id" => $id]);
@@ -46,15 +46,15 @@ if ($id == "") {
             print "        <tbody>\n";
             print "          <tr>\n";
             print "            <td>Autor:</td>\n";
-            print "            <td><input type=\"text\" name=\"autor\" size=\"$cfg[tamObrasAutor]\" maxlength=\"$cfg[tamObrasAutor]\" value=\"$valor[autor]\" autofocus></td>\n";
+            print "            <td><input type=\"text\" name=\"autor\" size=\"$db[tamObrasAutor]\" maxlength=\"$db[tamObrasAutor]\" value=\"$valor[autor]\" autofocus></td>\n";
             print "          </tr>\n";
             print "          <tr>\n";
             print "            <td>Título:</td>\n";
-            print "            <td><input type=\"text\" name=\"titulo\" size=\"$cfg[tamObrasTitulo]\" maxlength=\"$cfg[tamObrasTitulo]\" value=\"$valor[titulo]\"></td>\n";
+            print "            <td><input type=\"text\" name=\"titulo\" size=\"$db[tamObrasTitulo]\" maxlength=\"$db[tamObrasTitulo]\" value=\"$valor[titulo]\"></td>\n";
             print "          </tr>\n";
             print "          <tr>\n";
             print "            <td>Editorial:</td>\n";
-            print "            <td><input type=\"text\" name=\"editorial\" size=\"$cfg[tamObrasEditorial]\" maxlength=\"$cfg[tamObrasEditorial]\" value=\"$valor[editorial]\"></td>\n";
+            print "            <td><input type=\"text\" name=\"editorial\" size=\"$db[tamObrasEditorial]\" maxlength=\"$db[tamObrasEditorial]\" value=\"$valor[editorial]\"></td>\n";
             print "          </tr>\n";
             print "        </tbody>\n";
             print "      </table>\n";

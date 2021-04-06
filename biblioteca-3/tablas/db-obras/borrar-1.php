@@ -17,17 +17,17 @@ if (!isset($_SESSION["conectado"]) || $_SESSION["conectado"] != NIVEL_3) {
 $pdo = conectaDb();
 cabecera("Obras - Borrar 1", MENU_OBRAS, 2);
 
-$ordena = recogeValores("ordena", $columnasObrasOrden, "titulo ASC");
+$ordena = recogeValores("ordena", $db["columnasObrasOrden"], "titulo ASC");
 $id     = recoge("id", []);
 
-$consulta = "SELECT COUNT(*) FROM $tablaObras";
+$consulta = "SELECT COUNT(*) FROM $db[tablaObras]";
 $result   = $pdo->query($consulta);
 if (!$result) {
     print "    <p class=\"aviso\">Error en la consulta.</p>\n";
 } elseif ($result->fetchColumn() == 0) {
     print "    <p>No se ha creado todavía ningún registro.</p>\n";
 } else {
-    $consulta = "SELECT * FROM $tablaObras
+    $consulta = "SELECT * FROM $db[tablaObras]
         ORDER BY $ordena";
     $result = $pdo->query($consulta);
     if (!$result) {

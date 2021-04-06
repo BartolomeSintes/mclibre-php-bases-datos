@@ -23,7 +23,7 @@ if (count($id) == 0) {
     print "    <p class=\"aviso\">No se ha seleccionado ningún registro.</p>\n";
 } else {
     foreach ($id as $indice => $valor) {
-        $consulta = "SELECT COUNT(*) FROM $tablaObras
+        $consulta = "SELECT COUNT(*) FROM $db[tablaObras]
             WHERE id=:indice";
         $result = $pdo->prepare($consulta);
         $result->execute([":indice" => $indice]);
@@ -32,7 +32,7 @@ if (count($id) == 0) {
         } elseif ($result->fetchColumn() == 0) {
             print "    <p class=\"aviso\">Registro no encontrado.</p>\n";
         } else {
-            $consulta = "DELETE FROM $tablaObras
+            $consulta = "DELETE FROM $db[tablaObras]
                 WHERE id=:indice";
             $result = $pdo->prepare($consulta);
             if ($result->execute([":indice" => $indice])) {

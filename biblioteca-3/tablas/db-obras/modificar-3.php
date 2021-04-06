@@ -26,22 +26,22 @@ $autorOk     = false;
 $tituloOk    = false;
 $editorialOk = false;
 
-if (mb_strlen($autor, "UTF-8") > $cfg["tamObrasAutor"]) {
-    print "    <p class=\"aviso\">El autor no puede tener más de $cfg[tamObrasAutor] caracteres.</p>\n";
+if (mb_strlen($autor, "UTF-8") > $db["tamObrasAutor"]) {
+    print "    <p class=\"aviso\">El autor no puede tener más de $db[tamObrasAutor] caracteres.</p>\n";
     print "\n";
 } else {
     $autorOk = true;
 }
 
-if (mb_strlen($titulo, "UTF-8") > $cfg["tamObrasTitulo"]) {
-    print "    <p class=\"aviso\">Los titulos no pueden tener más de $cfg[tamObrasTitulo] caracteres.</p>\n";
+if (mb_strlen($titulo, "UTF-8") > $db["tamObrasTitulo"]) {
+    print "    <p class=\"aviso\">Los titulos no pueden tener más de $db[tamObrasTitulo] caracteres.</p>\n";
     print "\n";
 } else {
     $tituloOk = true;
 }
 
-if (mb_strlen($editorial, "UTF-8") > $cfg["tamObrasEditorial"]) {
-    print "    <p class=\"aviso\">La editorial no puede tener más de $cfg[tamObrasEditorial] caracteres.</p>\n";
+if (mb_strlen($editorial, "UTF-8") > $db["tamObrasEditorial"]) {
+    print "    <p class=\"aviso\">La editorial no puede tener más de $db[tamObrasEditorial] caracteres.</p>\n";
     print "\n";
 } else {
     $editorialOk = true;
@@ -53,7 +53,7 @@ if ($autorOk && $tituloOk && $editorialOk) {
     } elseif ($autor == "" && $titulo == "" && $editorial == "") {
         print "    <p class=\"aviso\">Hay que rellenar al menos uno de los campos. No se ha guardado la modificación.</p>\n";
     } else {
-        $consulta = "SELECT COUNT(*) FROM $tablaObras
+        $consulta = "SELECT COUNT(*) FROM $db[tablaObras]
             WHERE id=:id";
         $result = $pdo->prepare($consulta);
         $result->execute([":id" => $id]);
@@ -65,7 +65,7 @@ if ($autorOk && $tituloOk && $editorialOk) {
             // La consulta cuenta los registros con un id diferente porque MySQL no distingue
             // mayúsculas de minúsculas y si en un registro sólo se cambian mayúsculas por
             // minúsculas MySQL diría que ya hay un registro como el que se quiere guardar.
-            $consulta = "SELECT COUNT(*) FROM $tablaObras
+            $consulta = "SELECT COUNT(*) FROM $db[tablaObras]
                 WHERE autor=:autor
                 AND titulo=:titulo
                 AND editorial=:editorial
@@ -79,7 +79,7 @@ if ($autorOk && $tituloOk && $editorialOk) {
                 print "    <p class=\"aviso\">Ya existe un registro con esos mismos valores. "
                     . "No se ha guardado la modificación.</p>\n";
             } else {
-                $consulta = "UPDATE $tablaObras
+                $consulta = "UPDATE $db[tablaObras]
                     SET autor=:autor, titulo=:titulo,
                         editorial=:editorial
                     WHERE id=:id";

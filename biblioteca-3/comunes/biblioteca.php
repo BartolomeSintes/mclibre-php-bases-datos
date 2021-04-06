@@ -7,11 +7,11 @@
 
 // Constantes comunes
 
-define("GET", "get");                      // Formularios se envían con GET
-define("POST", "post");                    // Formularios se envían con POST
+define("GET", "get");                   // Formularios se envían con GET
+define("POST", "post");                 // Formularios se envían con POST
 
-define("MYSQL", "MySQL");                  // Base de datos MySQL
-define("SQLITE", "SQLite");                // Base de datos SQLITE
+define("MYSQL", "MySQL");               // Base de datos MySQL
+define("SQLITE", "SQLite");             // Base de datos SQLITE
 
 define("MENU_PRINCIPAL", "menuPrincipal");                     // Menú principal sin conectar
 define("MENU_PRINCIPAL_CONECTADO", "menuPrincipalConectado");  // Menú principal conectado
@@ -24,14 +24,14 @@ define("MENU_PRESTAMOS", "menuPrestamos");                     // Menú Préstam
 
 // Algoritmos de hash
 
-define("SHA_256", "sha256");               // Nombres de los algoritmos de hash
-$hashSizes = [SHA_256 => 64];              // Tamaños de los valores hash
+define("SHA_256", "sha256");            // Nombres de los algoritmos de hash
+$hashSizes = [SHA_256 => 64];           // Tamaños de los valores hash
 
 // Niveles de usuarios
 
-define("NIVEL_1", "1");                    // Usuario web de nivel Usuario básico
-define("NIVEL_2", "2");                    // Usuario web de nivel Usuario avanzado
-define("NIVEL_3", "3");                    // Usuario web de nivel Administrador
+define("NIVEL_1", "1");                 // Usuario web de nivel Usuario básico
+define("NIVEL_2", "2");                 // Usuario web de nivel Usuario avanzado
+define("NIVEL_3", "3");                 // Usuario web de nivel Administrador
 
 $usuariosNiveles = [
     "Usuario Básico"   => NIVEL_1,
@@ -45,7 +45,21 @@ require_once "config.php";
 
 // Fecha y hora
 
-$tamFecha = 10;                            // Longitud de una cadena de fecha (AAAA-MM-DD)
+$tamFecha = 10;                         // Longitud de una cadena de fecha (AAAA-MM-DD)
+
+// Tamaño de campos
+
+$db["tamUsuariosUsuario"]         = 20;                // Tamaño de la columna Usuarios > Nombre de Usuario
+$db["tamUsuariosPasswordCifrado"] = $cfg["hashSize"];  // Tamaño de la columna Usuarios > Contraseña de Usuario cifrada
+$db["tamUsuariosPassword"]        = 20;                // Tamaño de la Contraseña de Usuario en el formulario
+
+$db["tamPersonasNombre"]    = 40;        // Tamaño de la columna Personas > Nombre
+$db["tamPersonasApellidos"] = 60;        // Tamaño de la columna Personas > Apellidos
+$db["tamPersonasDni"]       = 9;         // Tamaño de la columna Personas > DNI
+
+$db["tamObrasAutor"]     = 60;           // Tamaño de la columna Obras > Autor
+$db["tamObrasTitulo"]    = 60;           // Tamaño de la columna Obras > Titulo
+$db["tamObrasEditorial"] = 20;           // Tamaño de la columna Obras > Editorial
 
 // Biblioteca base de datos
 
@@ -57,34 +71,34 @@ if ($cfg["dbMotor"] == MYSQL) {
 
 // Tablas
 
-$tablas = [
-    $tablaUsuarios,
-    $tablaPersonas,
-    $tablaObras,
-    $tablaPrestamos,
+$db["tablas"] = [
+    $db["tablaUsuarios"],
+    $db["tablaPersonas"],
+    $db["tablaObras"],
+    $db["tablaPrestamos"],
 ];
 
 // Valores de ordenación de las tablas
 
-$columnasUsuariosOrden = [
+$db["columnasUsuariosOrden"] = [
     "usuario ASC", "usuario DESC",
     "password ASC", "password DESC",
     "nivel ASC", "nivel DESC",
 ];
 
-$columnasPersonasOrden = [
+$db["columnasPersonasOrden"] = [
     "nombre ASC", "nombre DESC",
     "apellidos ASC", "apellidos DESC",
     "dni ASC", "dni DESC",
 ];
 
-$columnasObrasOrden = [
+$db["columnasObrasOrden"] = [
     "autor ASC", "autor DESC",
     "titulo ASC", "titulo DESC",
     "editorial ASC", "editorial DESC",
 ];
 
-$columnasPrestamosOrden = [
+$db["columnasPrestamosOrden"] = [
     "apellidos ASC", "apellidos DESC",
     "autor ASC", "autor DESC",
     "prestado ASC", "prestado DESC",

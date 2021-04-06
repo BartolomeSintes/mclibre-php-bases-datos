@@ -26,15 +26,15 @@ $usuarioOk  = false;
 $passwordOk = false;
 $nivelOk    = false;
 
-if (mb_strlen($usuario, "UTF-8") > $cfg["tamUsuariosUsuario"]) {
-    print "    <p class=\"aviso\">El nombre usuario no puede tener más de $cfg[tamUsuariosUsuario] caracteres.</p>\n";
+if (mb_strlen($usuario, "UTF-8") > $db["tamUsuariosUsuario"]) {
+    print "    <p class=\"aviso\">El nombre usuario no puede tener más de $db[tamUsuariosUsuario] caracteres.</p>\n";
     print "\n";
 } else {
     $usuarioOk = true;
 }
 
-if (mb_strlen($password, "UTF-8") > $cfg["tamUsuariosPassword"]) {
-    print "    <p class=\"aviso\">La contraseña no puede tener más de $cfg[tamUsuariosPassword] caracteres.</p>\n";
+if (mb_strlen($password, "UTF-8") > $db["tamUsuariosPassword"]) {
+    print "    <p class=\"aviso\">La contraseña no puede tener más de $db[tamUsuariosPassword] caracteres.</p>\n";
     print "\n";
 } else {
     $passwordOk = true;
@@ -53,7 +53,7 @@ if ($usuarioOk && $passwordOk && $nivelOk) {
     } elseif ($usuario == "" || $nivel == "") {
         print "    <p class=\"aviso\">Hay que rellenar el nombre y nivel de usuario. No se ha guardado el registro.</p>\n";
     } else {
-        $consulta = "SELECT * FROM $tablaUsuarios
+        $consulta = "SELECT * FROM $db[tablaUsuarios]
             WHERE id=:id";
         $result = $pdo->prepare($consulta);
         $result->execute([":id" => $id]);
@@ -64,7 +64,7 @@ if ($usuarioOk && $passwordOk && $nivelOk) {
             if ($valor["usuario"] == $cfg["rootName"]) {
                 print "    <p>Este usuario no se puede modificar.</p>\n";
             } else {
-                $consulta = "SELECT COUNT(*) FROM $tablaUsuarios
+                $consulta = "SELECT COUNT(*) FROM $db[tablaUsuarios]
                     WHERE id=:id";
                 $result = $pdo->prepare($consulta);
                 $result->execute([":id" => $id]);
@@ -76,7 +76,7 @@ if ($usuarioOk && $passwordOk && $nivelOk) {
                     // La consulta cuenta los registros con un id diferente porque MySQL no distingue
                     // mayúsculas de minúsculas y si en un registro sólo se cambian mayúsculas por
                     // minúsculas MySQL diría que ya hay un registro como el que se quiere guardar.
-                    $consulta = "SELECT COUNT(*) FROM $tablaUsuarios
+                    $consulta = "SELECT COUNT(*) FROM $db[tablaUsuarios]
                         WHERE usuario=:usuario
                         AND id<>:id";
                     $result = $pdo->prepare($consulta);
@@ -88,7 +88,7 @@ if ($usuarioOk && $passwordOk && $nivelOk) {
                             . "No se ha guardado la modificación.</p>\n";
                     } else {
                         if ($password != "") {
-                            $consulta = "UPDATE $tablaUsuarios
+                            $consulta = "UPDATE $db[tablaUsuarios]
                                 SET usuario=:usuario, password=:password, nivel=:nivel
                                 WHERE id=:id";
                             $result = $pdo->prepare($consulta);
@@ -99,7 +99,7 @@ if ($usuarioOk && $passwordOk && $nivelOk) {
                                 print "    <p class=\"aviso\">Error al modificar el registro.</p>\n";
                             }
                         } else {
-                            $consulta = "UPDATE $tablaUsuarios
+                            $consulta = "UPDATE $db[tablaUsuarios]
                                 SET usuario=:usuario, nivel=:nivel
                                 WHERE id=:id";
                             $result = $pdo->prepare($consulta);

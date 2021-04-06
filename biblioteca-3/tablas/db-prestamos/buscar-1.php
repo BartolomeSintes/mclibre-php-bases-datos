@@ -17,7 +17,7 @@ if (!isset($_SESSION["conectado"]) || $_SESSION["conectado"] != NIVEL_3) {
 $pdo = conectaDb();
 cabecera("Préstamos - Buscar 1", MENU_PRESTAMOS, 2);
 
-$consulta = "SELECT COUNT(*) FROM $tablaPrestamos";
+$consulta = "SELECT COUNT(*) FROM $db[tablaPrestamos]";
 $result   = $pdo->query($consulta);
 if (!$result) {
     print "    <p class=\"aviso\">Error en la consulta.</p>\n";
@@ -31,19 +31,19 @@ if (!$result) {
     print "        <tbody>\n";
     print "          <tr>\n";
     print "            <td>Persona - Nombre:</td>\n";
-    print "            <td><input type=\"text\" name=\"nombre\" size=\"$cfg[tamPersonasNombre]\" maxlength=\"$cfg[tamPersonasNombre]\" autofocus></td>\n";
+    print "            <td><input type=\"text\" name=\"nombre\" size=\"$db[tamPersonasNombre]\" maxlength=\"$db[tamPersonasNombre]\" autofocus></td>\n";
     print "          </tr>\n";
     print "          <tr>\n";
     print "            <td>Persona - Apellidos:</td>\n";
-    print "            <td><input type=\"text\" name=\"apellidos\" size=\"$cfg[tamPersonasApellidos]\" maxlength=\"$cfg[tamPersonasApellidos]\"></td>\n";
+    print "            <td><input type=\"text\" name=\"apellidos\" size=\"$db[tamPersonasApellidos]\" maxlength=\"$db[tamPersonasApellidos]\"></td>\n";
     print "          </tr>\n";
     print "          <tr>\n";
     print "            <td>Obra - Autor:</td>\n";
-    print "            <td><input type=\"text\" name=\"autor\" size=\"$cfg[tamObrasAutor]\" maxlength=\"$cfg[tamObrasAutor]\" autofocus></td>\n";
+    print "            <td><input type=\"text\" name=\"autor\" size=\"$db[tamObrasAutor]\" maxlength=\"$db[tamObrasAutor]\" autofocus></td>\n";
     print "          </tr>\n";
     print "          <tr>\n";
     print "            <td>Obra - Título:</td>\n";
-    print "            <td><input type=\"text\" name=\"titulo\" size=\"$cfg[tamObrasTitulo]\" maxlength=\"$cfg[tamObrasTitulo]\"></td>\n";
+    print "            <td><input type=\"text\" name=\"titulo\" size=\"$db[tamObrasTitulo]\" maxlength=\"$db[tamObrasTitulo]\"></td>\n";
     print "          </tr>\n";
     print "          <tr>\n";
     print "            <td>Fecha de préstamo:</td>\n";

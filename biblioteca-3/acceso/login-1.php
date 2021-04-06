@@ -19,7 +19,7 @@ $pdo = conectaDb();
 
 cabecera("Login 1", MENU_VOLVER, 1);
 
-if (!existenTablas($pdo, $tablas)) {
+if (!existenTablas($pdo, $db["tablas"])) {
     print "<p>La base de datos no está creada. Se creará la base de datos.</p>\n";
     print "\n";
     borraTodo($pdo);
@@ -37,13 +37,13 @@ print "      <table>\n";
 print "        <tbody>\n";
 print "          <tr>\n";
 print "            <td>Nombre:</td>\n";
-print "            <td><input type=\"text\" name=\"usuario\" size=\"$cfg[tamUsuariosUsuario]\" "
-    . "maxlength=\"$cfg[tamUsuariosUsuario]\" autofocus/></td>\n";
+print "            <td><input type=\"text\" name=\"usuario\" size=\"$db[tamUsuariosUsuario]\" "
+    . "maxlength=\"$db[tamUsuariosUsuario]\" autofocus/></td>\n";
 print "          </tr>\n";
 print "          <tr>\n";
 print "            <td>Contraseña:</td>\n";
-print "            <td><input type=\"password\" name=\"password\" size=\"$cfg[tamUsuariosPassword]\" "
-    . "maxlength=\"$cfg[tamUsuariosPassword]\" /></td>\n";
+print "            <td><input type=\"password\" name=\"password\" size=\"$db[tamUsuariosPassword]\" "
+    . "maxlength=\"$db[tamUsuariosPassword]\" /></td>\n";
 print "          </tr>\n";
 print "        </tbody>\n";
 print "      </table>\n";

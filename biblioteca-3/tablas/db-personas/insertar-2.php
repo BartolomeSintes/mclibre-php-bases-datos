@@ -25,22 +25,22 @@ $nombreOk    = false;
 $apellidosOk = false;
 $dniOk       = false;
 
-if (mb_strlen($nombre, "UTF-8") > $cfg[tamPersonasNombre]) {
-    print "    <p class=\"aviso\">El nombre no puede tener más de $cfg[tamPersonasNombre] caracteres.</p>\n";
+if (mb_strlen($nombre, "UTF-8") > $db[tamPersonasNombre]) {
+    print "    <p class=\"aviso\">El nombre no puede tener más de $db[tamPersonasNombre] caracteres.</p>\n";
     print "\n";
 } else {
     $nombreOk = true;
 }
 
-if (mb_strlen($apellidos, "UTF-8") > $cfg["tamPersonasApellidos"]) {
-    print "    <p class=\"aviso\">Los apellidos no pueden tener más de $cfg[tamPersonasApellidos] caracteres.</p>\n";
+if (mb_strlen($apellidos, "UTF-8") > $db["tamPersonasApellidos"]) {
+    print "    <p class=\"aviso\">Los apellidos no pueden tener más de $db[tamPersonasApellidos] caracteres.</p>\n";
     print "\n";
 } else {
     $apellidosOk = true;
 }
 
-if (mb_strlen($dni, "UTF-8") > $cfg["tamPersonasDni"]) {
-    print "    <p class=\"aviso\">El teléfono no puede tener más de $cfg[tamPersonasDni] caracteres.</p>\n";
+if (mb_strlen($dni, "UTF-8") > $db["tamPersonasDni"]) {
+    print "    <p class=\"aviso\">El teléfono no puede tener más de $db[tamPersonasDni] caracteres.</p>\n";
     print "\n";
 } else {
     $dniOk = true;
@@ -50,7 +50,7 @@ if ($nombreOk && $apellidosOk && $dniOk) {
     if ($nombre == "" && $apellidos == "" && $dni == "") {
         print "    <p class=\"aviso\">Hay que rellenar al menos uno de los campos. No se ha guardado el registro.</p>\n";
     } else {
-        $consulta = "SELECT COUNT(*) FROM $tablaPersonas";
+        $consulta = "SELECT COUNT(*) FROM $db[tablaPersonas]";
         $result   = $pdo->query($consulta);
         if (!$result) {
             print "    <p class=\"aviso\">Error en la consulta.</p>\n";
@@ -59,7 +59,7 @@ if ($nombreOk && $apellidosOk && $dniOk) {
             print "\n";
             print "    <p class=\"aviso\">Por favor, borre algún registro antes.</p>\n";
         } else {
-            $consulta = "SELECT COUNT(*) FROM $tablaPersonas
+            $consulta = "SELECT COUNT(*) FROM $db[tablaPersonas]
                 WHERE nombre=:nombre
                 AND apellidos=:apellidos
                 AND dni=:dni";
@@ -71,7 +71,7 @@ if ($nombreOk && $apellidosOk && $dniOk) {
             } elseif ($result->fetchColumn() > 0) {
                 print "    <p class=\"aviso\">El registro ya existe.</p>\n";
             } else {
-                $consulta = "INSERT INTO $tablaPersonas
+                $consulta = "INSERT INTO $db[tablaPersonas]
                     (nombre, apellidos, dni)
                     VALUES (:nombre, :apellidos, :dni)";
                 $result = $pdo->prepare($consulta);

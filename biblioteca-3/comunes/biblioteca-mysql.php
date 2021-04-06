@@ -7,83 +7,76 @@
 
 // Configuración específica para MYSQL
 
-// Configuración general
-
-define("MYSQL_HOST", "mysql:host=localhost");         // Nombre de host
-define("MYSQL_USER", "");                             // Nombre de usuario
-define("MYSQL_PASSWORD", "");                         // Contraseña de usuario
-define("MYSQL_DATABASE", "biblioteca_3");             // Nombre de la base de datos
-
 // Nombres de las tablas
 
-$tablaUsuarios  = MYSQL_DATABASE . ".usuarios";       // Nombre de la tabla Usuarios
-$tablaPersonas  = MYSQL_DATABASE . ".personas";       // Nombre de la tabla Personas
-$tablaObras     = MYSQL_DATABASE . ".obras";          // Nombre de la tabla Obras
-$tablaPrestamos = MYSQL_DATABASE . ".prestamos";      // Nombre de la tabla Préstamos
+$db["tablaUsuarios"]  = $cfg["mysqlDatabase"] . ".usuarios";       // Nombre de la tabla Usuarios
+$db["tablaPersonas"]  = $cfg["mysqlDatabase"] . ".personas";       // Nombre de la tabla Personas
+$db["tablaObras"]     = $cfg["mysqlDatabase"] . ".obras";          // Nombre de la tabla Obras
+$db["tablaPrestamos"] = $cfg["mysqlDatabase"] . ".prestamos";      // Nombre de la tabla Préstamos
 
 // Consultas de borrado y creación de base de datos y tablas, etc.
 
-$consultasBorraTodo = [
+$db["consultasBorraTodo"] = [
     // Borra base de datos
-    "DROP DATABASE " . MYSQL_DATABASE,
+    "DROP DATABASE " . $cfg["mysqlDatabase"],
     // Crea base de datos
-    "CREATE DATABASE " . MYSQL_DATABASE . "
+    "CREATE DATABASE " . $cfg["mysqlDatabase"] . "
         CHARACTER SET utf8mb4
         COLLATE utf8mb4_unicode_ci",
     // Crea tablas
-    "CREATE TABLE $tablaUsuarios (
+    "CREATE TABLE $db[tablaUsuarios] (
         id INTEGER NOT NULL AUTO_INCREMENT PRIMARY KEY,
-        usuario VARCHAR($cfg[tamUsuariosUsuario]),
-        password VARCHAR($cfg[tamUsuariosPasswordCifrado]),
+        usuario VARCHAR($db[tamUsuariosUsuario]),
+        password VARCHAR($db[tamUsuariosPasswordCifrado]),
         nivel INTEGER
     )",
-    "CREATE TABLE $tablaPersonas (
+    "CREATE TABLE $db[tablaPersonas] (
         id INTEGER NOT NULL AUTO_INCREMENT PRIMARY KEY,
-        nombre VARCHAR($cfg[tamPersonasNombre]),
-        apellidos VARCHAR($cfg[tamPersonasApellidos]),
-        dni VARCHAR($cfg[tamPersonasDni])
+        nombre VARCHAR($db[tamPersonasNombre]),
+        apellidos VARCHAR($db[tamPersonasApellidos]),
+        dni VARCHAR($db[tamPersonasDni])
     )",
-    "CREATE TABLE $tablaObras (
+    "CREATE TABLE $db[tablaObras] (
         id INTEGER NOT NULL AUTO_INCREMENT PRIMARY KEY,
-        autor VARCHAR($cfg[tamObrasAutor]),
-        titulo VARCHAR($cfg[tamObrasTitulo]),
-        editorial VARCHAR($cfg[tamObrasEditorial])
+        autor VARCHAR($db[tamObrasAutor]),
+        titulo VARCHAR($db[tamObrasTitulo]),
+        editorial VARCHAR($db[tamObrasEditorial])
     )",
-    "CREATE TABLE $tablaPrestamos (
+    "CREATE TABLE $db[tablaPrestamos] (
         id INTEGER NOT NULL AUTO_INCREMENT PRIMARY KEY,
         id_persona INTEGER NOT NULL,
         id_obra INTEGER NOT NULL,
         prestado DATE,
         devuelto DATE,
-        FOREIGN KEY(id_persona) REFERENCES $tablaPersonas(id) ON DELETE CASCADE ON UPDATE CASCADE,
-        FOREIGN KEY(id_obra) REFERENCES $tablaObras(id) ON DELETE CASCADE ON UPDATE CASCADE
+        FOREIGN KEY(id_persona) REFERENCES $db[tablaPersonas](id) ON DELETE CASCADE ON UPDATE CASCADE,
+        FOREIGN KEY(id_obra) REFERENCES $db[tablaObras](id) ON DELETE CASCADE ON UPDATE CASCADE
     )",
     // Inserta usuario root
-    "INSERT INTO $tablaUsuarios
+    "INSERT INTO $db[tablaUsuarios]
         VALUES (NULL, '$cfg[rootName]', '$cfg[rootPassword]', $usuariosNiveles[Administrador])",
 ];
 
-$consultasValoresDemo = [
-    "INSERT INTO $tablaUsuarios
+$db["consultasValoresDemo"] = [
+    "INSERT INTO $db[tablaUsuarios]
         VALUES (2,'pepe','7c9e7c1494b2684ab7c19d6aff737e460fa9e98d5a234da1310c97ddf5691834',1)",
-    "INSERT INTO $tablaPersonas
+    "INSERT INTO $db[tablaPersonas]
         VALUES (1,'Pepito','Conejo','123A')",
-    "INSERT INTO $tablaPersonas
+    "INSERT INTO $db[tablaPersonas]
         VALUES (2,'Juan','Nadie','9876X')",
-    "INSERT INTO $tablaObras
+    "INSERT INTO $db[tablaObras]
         VALUES (1,'Miguel de Cervantes','Don Quijote','Cátedra')",
-    "INSERT INTO $tablaObras
+    "INSERT INTO $db[tablaObras]
         VALUES (2,'Jorge Luis Borges','Ficciones','Ed Sudamericana')",
-    "INSERT INTO $tablaPrestamos
+    "INSERT INTO $db[tablaPrestamos]
         VALUES (1, 1, 1,'" . date("Y-m-d", time() - 4 * 60 * 60 * 24) . "','" . date("Y-m-d", time() - 3 * 60 * 60 * 24) . "')",
-    "INSERT INTO $tablaPrestamos
+    "INSERT INTO $db[tablaPrestamos]
         VALUES (2, 2, 2,'" . date("Y-m-d", time() - 4 * 60 * 60 * 24) . "','" . date("Y-m-d", time() - 2 * 60 * 60 * 24) . "')",
-    "INSERT INTO $tablaPrestamos
+    "INSERT INTO $db[tablaPrestamos]
         VALUES (3, 2, 1,'" . date("Y-m-d", time() - 1 * 60 * 60 * 24) . "','0000-00-00')",
 ];
 
 if ($cfg["insertaRegistrosDemo"]) {
-    $consultasBorraTodo = array_merge($consultasBorraTodo, $consultasValoresDemo);
+    $db["consultasBorraTodo"] = array_merge($db["consultasBorraTodo"], $db["consultasValoresDemo"]);
 }
 
 // Funciones específicas de bases de datos (MYSQL)
@@ -91,7 +84,7 @@ if ($cfg["insertaRegistrosDemo"]) {
 function conectaDb()
 {
     try {
-        $tmp = new PDO(MYSQL_HOST, MYSQL_USER, MYSQL_PASSWORD);
+        $tmp = new PDO($cfg["mysqlHost"], $cfg["mysqlUser"], $cfg["mysqlPassword"]);
         $tmp->setAttribute(PDO::MYSQL_ATTR_USE_BUFFERED_QUERY, true);
         $tmp->exec("set names utf8mb4");
         return $tmp;
@@ -107,9 +100,9 @@ function conectaDb()
 
 function borraTodo($pdo)
 {
-    global $consultasBorraTodo;
+    global $db;
 
-    foreach ($consultasBorraTodo as $consulta) {
+    foreach ($db["consultasBorraTodo"] as $consulta) {
         if (!$pdo->query($consulta)) {
             print "    <p class=\"aviso\">Error en la consulta: $consulta</p>\n";
             print "\n";
@@ -120,7 +113,7 @@ function borraTodo($pdo)
 function existenTablas($pdo, $nombresTablas)
 {
     $existe   = true;
-    $consulta = "SELECT count(*) FROM INFORMATION_SCHEMA.SCHEMATA WHERE SCHEMA_NAME = '" . MYSQL_DATABASE . "'";
+    $consulta = "SELECT count(*) FROM INFORMATION_SCHEMA.SCHEMATA WHERE SCHEMA_NAME = '" . $cfg["mysqlDatabase"] . "'";
     $result   = $pdo->query($consulta);
     if (!$result) {
         $existe = false;
@@ -133,9 +126,9 @@ function existenTablas($pdo, $nombresTablas)
             foreach ($nombresTablas as $tabla) {
                 // En information_schema.tables los nombres de las tablas no llevan el nombre
                 // de la base de datos, así que lo elimino
-                $tabla    = str_replace(MYSQL_DATABASE . ".", "", $tabla);
+                $tabla    = str_replace($cfg["mysqlDatabase"] . ".", "", $tabla);
                 $consulta = "SELECT count(*) FROM information_schema.tables
-                WHERE table_schema = '" . MYSQL_DATABASE . "'
+                WHERE table_schema = '" . $cfg["mysqlDatabase"] . "'
                     AND table_name = '$tabla'";
                 $result = $pdo->query($consulta);
                 if (!$result) {

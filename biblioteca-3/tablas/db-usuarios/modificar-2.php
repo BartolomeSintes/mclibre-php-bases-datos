@@ -22,7 +22,7 @@ $id = recoge("id");
 if ($id == "") {
     print "    <p class=\"aviso\">No se ha seleccionado ningún registro.</p>\n";
 } else {
-    $consulta = "SELECT COUNT(*) FROM $tablaUsuarios
+    $consulta = "SELECT COUNT(*) FROM $db[tablaUsuarios]
        WHERE id=:id";
     $result = $pdo->prepare($consulta);
     $result->execute([":id" => $id]);
@@ -31,7 +31,7 @@ if ($id == "") {
     } elseif ($result->fetchColumn() == 0) {
         print "    <p class=\"aviso\">Registro no encontrado.</p>\n";
     } else {
-        $consulta = "SELECT * FROM $tablaUsuarios
+        $consulta = "SELECT * FROM $db[tablaUsuarios]
             WHERE id=:id";
         $result = $pdo->prepare($consulta);
         $result->execute([":id" => $id]);
@@ -49,11 +49,11 @@ if ($id == "") {
                 print "        <tbody>\n";
                 print "          <tr>\n";
                 print "            <td>Usuario:</td>\n";
-                print "            <td><input type=\"text\" name=\"usuario\" size=\"$cfg[tamUsuariosUsuario]\" maxlength=\"$cfg[tamUsuariosUsuario]\" value=\"$valor[usuario]\" autofocus></td>\n";
+                print "            <td><input type=\"text\" name=\"usuario\" size=\"$db[tamUsuariosUsuario]\" maxlength=\"$db[tamUsuariosUsuario]\" value=\"$valor[usuario]\" autofocus></td>\n";
                 print "          </tr>\n";
                 print "          <tr>\n";
                 print "            <td>Contraseña:</td>\n";
-                print "            <td><input type=\"text\" name=\"password\" size=\"$cfg[tamUsuariosPassword]\" maxlength=\"$cfg[tamUsuariosPassword]\"></td>\n";
+                print "            <td><input type=\"text\" name=\"password\" size=\"$db[tamUsuariosPassword]\" maxlength=\"$db[tamUsuariosPassword]\"></td>\n";
                 print "          </tr>\n";
                 print "          <tr>\n";
                 print "            <td>Nivel:</td>\n";

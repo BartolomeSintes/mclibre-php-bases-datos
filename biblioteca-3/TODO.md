@@ -8,7 +8,6 @@ Estas son algunas de las cosas que me quedan por hacer y que podrían hacerse un
 
 * [2021-04-06] Si se cambian valores de configuración que afectan a la base de datos, habría que rehacer la base de datos. ¿Cómo gestionar esa situación?
 
-* [2021-04-06] En $cfg deberían estar los valores que es razonable dejar al usuario torpe elegir, pero todo lo que tiene que ver con la base de datos debería estar en otra matriz $db
 
 ## POR CLASIFICAR
 - La fecha de préstamo es obligatoria. No se puede dejar a cero.

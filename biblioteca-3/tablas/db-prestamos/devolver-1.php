@@ -17,9 +17,9 @@ if (!isset($_SESSION["conectado"]) || $_SESSION["conectado"] != NIVEL_3) {
 $pdo = conectaDb();
 cabecera("Préstamos - Devolver 1", MENU_PRESTAMOS, 2);
 
-$ordena = recogeValores("ordena", $columnasPrestamosOrden, "autor ASC");
+$ordena = recogeValores("ordena", $db["columnasPrestamosOrden"], "autor ASC");
 
-$consulta = "SELECT COUNT(*) FROM $tablaPrestamos
+$consulta = "SELECT COUNT(*) FROM $db[tablaPrestamos]
     WHERE devuelto='0000-00-00'";
 $result = $pdo->query($consulta);
 if (!$result) {
@@ -27,17 +27,17 @@ if (!$result) {
 } elseif ($result->fetchColumn() == 0) {
     print "    <p>No hay obras pendientes de devolución.</p>\n";
 } else {
-    $consulta = "SELECT $tablaPrestamos.id as id,
-            $tablaPersonas.nombre as nombre,
-            $tablaPersonas.apellidos as apellidos,
-            $tablaObras.titulo as titulo,
-            $tablaObras.autor as autor,
-            $tablaPrestamos.prestado as prestado,
-            $tablaPrestamos.devuelto as devuelto
-        FROM $tablaPersonas, $tablaObras, $tablaPrestamos
-        WHERE $tablaPrestamos.id_persona=$tablaPersonas.id
-        AND $tablaPrestamos.id_obra=$tablaObras.id
-        AND $tablaPrestamos.devuelto='0000-00-00'
+    $consulta = "SELECT $db[tablaPrestamos].id as id,
+            $db[tablaPersonas].nombre as nombre,
+            $db[tablaPersonas].apellidos as apellidos,
+            $db[tablaObras].titulo as titulo,
+            $db[tablaObras].autor as autor,
+            $db[tablaPrestamos].prestado as prestado,
+            $db[tablaPrestamos].devuelto as devuelto
+        FROM $db[tablaPersonas], $db[tablaObras], $db[tablaPrestamos]
+        WHERE $db[tablaPrestamos].id_persona=$db[tablaPersonas].id
+        AND $db[tablaPrestamos].id_obra=$db[tablaObras].id
+        AND $db[tablaPrestamos].devuelto='0000-00-00'
         ORDER BY $ordena";
     $result = $pdo->query($consulta);
     if (!$result) {

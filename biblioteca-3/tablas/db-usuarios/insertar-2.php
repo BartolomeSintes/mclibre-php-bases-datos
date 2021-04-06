@@ -25,15 +25,15 @@ $usuarioOk  = false;
 $passwordOk = false;
 $nivelOk    = false;
 
-if (mb_strlen($usuario, "UTF-8") > $cfg["tamUsuariosUsuario"]) {
-    print "    <p class=\"aviso\">El nombre usuario no puede tener más de $cfg[tamUsuariosUsuario] caracteres.</p>\n";
+if (mb_strlen($usuario, "UTF-8") > $db["tamUsuariosUsuario"]) {
+    print "    <p class=\"aviso\">El nombre usuario no puede tener más de $db[tamUsuariosUsuario] caracteres.</p>\n";
     print "\n";
 } else {
     $usuarioOk = true;
 }
 
-if (mb_strlen($password, "UTF-8") > $cfg["tamUsuariosPassword"]) {
-    print "    <p class=\"aviso\">La contraseña no puede tener más de $cfg[tamUsuariosPassword] caracteres.</p>\n";
+if (mb_strlen($password, "UTF-8") > $db["tamUsuariosPassword"]) {
+    print "    <p class=\"aviso\">La contraseña no puede tener más de $db[tamUsuariosPassword] caracteres.</p>\n";
     print "\n";
 } else {
     $passwordOk = true;
@@ -50,7 +50,7 @@ if ($usuarioOk && $passwordOk && $nivelOk) {
     if ($usuario == "" || $password == "" || $nivel == "") {
         print "    <p class=\"aviso\">Hay que rellenar todos los campos. No se ha guardado el registro.</p>\n";
     } else {
-        $consulta = "SELECT COUNT(*) FROM $tablaUsuarios";
+        $consulta = "SELECT COUNT(*) FROM $db[tablaUsuarios]";
         $result   = $pdo->query($consulta);
         if (!$result) {
             print "    <p class=\"aviso\">Error en la consulta.</p>\n";
@@ -59,7 +59,7 @@ if ($usuarioOk && $passwordOk && $nivelOk) {
             print "\n";
             print "    <p class=\"aviso\">Por favor, borre algún registro antes.</p>\n";
         } else {
-            $consulta = "SELECT COUNT(*) FROM $tablaUsuarios
+            $consulta = "SELECT COUNT(*) FROM $db[tablaUsuarios]
                 WHERE usuario=:usuario";
             $result = $pdo->prepare($consulta);
             $result->execute([":usuario" => $usuario]);
@@ -68,7 +68,7 @@ if ($usuarioOk && $passwordOk && $nivelOk) {
             } elseif ($result->fetchColumn() > 0) {
                 print "    <p class=\"aviso\">El registro ya existe.</p>\n";
             } else {
-                $consulta = "INSERT INTO $tablaUsuarios
+                $consulta = "INSERT INTO $db[tablaUsuarios]
                     (usuario, password, nivel)
                     VALUES (:usuario, :password, $nivel)";
                 $result = $pdo->prepare($consulta);

@@ -20,9 +20,9 @@ cabecera("Usuarios - Buscar 2", MENU_USUARIOS, 2);
 $usuario  = recoge("usuario");
 $password = recoge("password");
 $nivel    = recoge("nivel");
-$ordena   = recogeValores("ordena", $columnasUsuariosOrden, "password ASC");
+$ordena   = recogeValores("ordena", $db["columnasUsuariosOrden"], "password ASC");
 
-$consulta = "SELECT COUNT(*) FROM $tablaUsuarios
+$consulta = "SELECT COUNT(*) FROM $db[tablaUsuarios]
     WHERE usuario LIKE :usuario
     AND password LIKE :password
     AND nivel LIKE :nivel";
@@ -34,7 +34,7 @@ if (!$result) {
 } elseif ($result->fetchColumn() == 0) {
     print "    <p>No se han encontrado registros.</p>\n";
 } else {
-    $consulta = "SELECT * FROM $tablaUsuarios
+    $consulta = "SELECT * FROM $db[tablaUsuarios]
         WHERE usuario LIKE :usuario
         AND password LIKE :password
         AND nivel LIKE :nivel

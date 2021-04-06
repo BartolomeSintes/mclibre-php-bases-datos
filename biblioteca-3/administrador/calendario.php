@@ -109,7 +109,7 @@ $pdo = conectaDb();
 cabecera("Calendario", MENU_ADMINISTRADOR, 1);
 
 $fecha  = recoge("fecha");
-$ordena = recogeValores("ordena", $columnasPrestamosOrden, "apellidos ASC");
+$ordena = recogeValores("ordena", $db["columnasPrestamosOrden"], "apellidos ASC");
 
 if ($fecha == "") {
     $fecha = $_SESSION["anyo"] . "-" . $_SESSION["mes"] . "-" . $_SESSION["dia"];
@@ -130,9 +130,9 @@ $_SESSION["mes"]  = $mes;
 $_SESSION["anyo"] = $anyo;
 $_SESSION["dia"]  = $dia;
 
-calendario($pdo, $_SESSION["anyo"], $_SESSION["mes"], $_SESSION["dia"], "SELECT COUNT(*) FROM $tablaPrestamos WHERE prestado=");
+calendario($pdo, $_SESSION["anyo"], $_SESSION["mes"], $_SESSION["dia"], "SELECT COUNT(*) FROM $db[tablaPrestamos] WHERE prestado=");
 
-$consulta = "SELECT COUNT(*) FROM $tablaPrestamos
+$consulta = "SELECT COUNT(*) FROM $db[tablaPrestamos]
     WHERE prestado=:prestado";
 $result = $pdo->prepare($consulta);
 $result->execute([":prestado" => $fecha]);
@@ -141,16 +141,16 @@ if (!$result) {
 } elseif ($result->fetchColumn() == 0) {
     print "    <p>Haga clic en los días del mes con enlaces para ver los préstamos realizados en ese día.</p>\n";
 } else {
-    $consulta = "SELECT $tablaPrestamos.id as id,
-            $tablaPersonas.nombre as nombre,
-            $tablaPersonas.apellidos as apellidos,
-            $tablaObras.titulo as titulo,
-            $tablaObras.autor as autor,
-            $tablaPrestamos.prestado as prestado,
-            $tablaPrestamos.devuelto as devuelto
-        FROM $tablaPersonas, $tablaObras, $tablaPrestamos
-        WHERE $tablaPrestamos.id_persona=$tablaPersonas.id
-        AND $tablaPrestamos.id_obra=$tablaObras.id
+    $consulta = "SELECT $db[tablaPrestamos].id as id,
+            $db[tablaPersonas].nombre as nombre,
+            $db[tablaPersonas].apellidos as apellidos,
+            $db[tablaObras].titulo as titulo,
+            $db[tablaObras].autor as autor,
+            $db[tablaPrestamos].prestado as prestado,
+            $db[tablaPrestamos].devuelto as devuelto
+        FROM $db[tablaPersonas], $db[tablaObras], $db[tablaPrestamos]
+        WHERE $db[tablaPrestamos].id_persona=$db[tablaPersonas].id
+        AND $db[tablaPrestamos].id_obra=$db[tablaObras].id
         AND prestado=:prestado
         ORDER BY $ordena";
     $result = $pdo->prepare($consulta);

@@ -22,7 +22,7 @@ $id = recoge("id");
 if ($id == "") {
     print "    <p class=\"aviso\">No se ha seleccionado ningún registro.</p>\n";
 } else {
-    $consulta = "SELECT COUNT(*) FROM $tablaPersonas
+    $consulta = "SELECT COUNT(*) FROM $db[tablaPersonas]
        WHERE id=:id";
     $result = $pdo->prepare($consulta);
     $result->execute([":id" => $id]);
@@ -31,7 +31,7 @@ if ($id == "") {
     } elseif ($result->fetchColumn() == 0) {
         print "    <p class=\"aviso\">Registro no encontrado.</p>\n";
     } else {
-        $consulta = "SELECT * FROM $tablaPersonas
+        $consulta = "SELECT * FROM $db[tablaPersonas]
             WHERE id=:id";
         $result = $pdo->prepare($consulta);
         $result->execute([":id" => $id]);
@@ -46,15 +46,15 @@ if ($id == "") {
             print "        <tbody>\n";
             print "          <tr>\n";
             print "            <td>Nombre:</td>\n";
-            print "            <td><input type=\"text\" name=\"nombre\" size=\"$cfg[tamPersonasNombre]\" maxlength=\"$cfg[tamPersonasNombre]\" value=\"$valor[nombre]\" autofocus></td>\n";
+            print "            <td><input type=\"text\" name=\"nombre\" size=\"$db[tamPersonasNombre]\" maxlength=\"$db[tamPersonasNombre]\" value=\"$valor[nombre]\" autofocus></td>\n";
             print "          </tr>\n";
             print "          <tr>\n";
             print "            <td>Apellidos:</td>\n";
-            print "            <td><input type=\"text\" name=\"apellidos\" size=\"$cfg[tamPersonasApellidos]\" maxlength=\"$cfg[tamPersonasApellidos]\" value=\"$valor[apellidos]\"></td>\n";
+            print "            <td><input type=\"text\" name=\"apellidos\" size=\"$db[tamPersonasApellidos]\" maxlength=\"$db[tamPersonasApellidos]\" value=\"$valor[apellidos]\"></td>\n";
             print "          </tr>\n";
             print "          <tr>\n";
             print "            <td>DNI:</td>\n";
-            print "            <td><input type=\"text\" name=\"dni\" size=\"$cfg[tamPersonasDni]\" maxlength=\"$cfg[tamPersonasDni]\" value=\"$valor[dni]\"></td>\n";
+            print "            <td><input type=\"text\" name=\"dni\" size=\"$db[tamPersonasDni]\" maxlength=\"$db[tamPersonasDni]\" value=\"$valor[dni]\"></td>\n";
             print "          </tr>\n";
             print "        </tbody>\n";
             print "      </table>\n";

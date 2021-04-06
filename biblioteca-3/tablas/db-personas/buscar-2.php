@@ -20,9 +20,9 @@ cabecera("Personas - Buscar 2", MENU_PERSONAS, 2);
 $nombre    = recoge("nombre");
 $apellidos = recoge("apellidos");
 $dni       = recoge("dni");
-$ordena    = recogeValores("ordena", $columnasPersonasOrden, "apellidos ASC");
+$ordena    = recogeValores("ordena", $db["columnasPersonasOrden"], "apellidos ASC");
 
-$consulta = "SELECT COUNT(*) FROM $tablaPersonas
+$consulta = "SELECT COUNT(*) FROM $db[tablaPersonas]
     WHERE nombre LIKE :nombre
     AND apellidos LIKE :apellidos
     AND dni LIKE :dni";
@@ -34,7 +34,7 @@ if (!$result) {
 } elseif ($result->fetchColumn() == 0) {
     print "    <p>No se han encontrado registros.</p>\n";
 } else {
-    $consulta = "SELECT * FROM $tablaPersonas
+    $consulta = "SELECT * FROM $db[tablaPersonas]
         WHERE nombre LIKE :nombre
         AND apellidos LIKE :apellidos
         AND dni LIKE :dni

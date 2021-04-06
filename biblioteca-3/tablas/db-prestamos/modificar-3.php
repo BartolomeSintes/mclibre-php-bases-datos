@@ -29,7 +29,7 @@ $prestadoOk   = false;
 $devueltoOk   = false;
 $idOk         = false;
 
-$consulta = "SELECT COUNT(*) FROM $tablaPersonas
+$consulta = "SELECT COUNT(*) FROM $db[tablaPersonas]
     WHERE id=:id_persona";
 $result = $pdo->prepare($consulta);
 $result->execute([":id_persona" => $id_persona]);
@@ -41,7 +41,7 @@ if (!$result) {
     $id_personaOk = true;
 }
 
-$consulta = "SELECT COUNT(*) FROM $tablaObras
+$consulta = "SELECT COUNT(*) FROM $db[tablaObras]
     WHERE id=:id_obra";
 $result = $pdo->prepare($consulta);
 $result->execute([":id_obra" => $id_obra]);
@@ -82,7 +82,7 @@ if ($id_personaOk && $id_obraOk && $prestadoOk && $devueltoOk) {
     if ($id == "") {
         print "    <p class=\"aviso\">No se ha seleccionado ningún registro.</p>\n";
     } else {
-        $consulta = "SELECT COUNT(*) FROM $tablaPrestamos
+        $consulta = "SELECT COUNT(*) FROM $db[tablaPrestamos]
             WHERE id=:id";
         $result = $pdo->prepare($consulta);
         $result->execute([":id" => $id]);
@@ -94,7 +94,7 @@ if ($id_personaOk && $id_obraOk && $prestadoOk && $devueltoOk) {
             // La consulta cuenta los registros con un id diferente porque MySQL no distingue
             // mayúsculas de minúsculas y si en un registro sólo se cambian mayúsculas por
             // minúsculas MySQL diría que ya hay un registro como el que se quiere guardar.
-            $consulta = "SELECT COUNT(*) FROM $tablaPrestamos
+            $consulta = "SELECT COUNT(*) FROM $db[tablaPrestamos]
                 WHERE id_persona=:id_persona
                 AND id_obra=:id_obra
                 AND id<>:id";
@@ -107,7 +107,7 @@ if ($id_personaOk && $id_obraOk && $prestadoOk && $devueltoOk) {
                 print "    <p class=\"aviso\">Ya existe un registro con esos mismos valores. "
                     . "No se ha guardado la modificación.</p>\n";
             } else {
-                $consulta = "UPDATE $tablaPrestamos
+                $consulta = "UPDATE $db[tablaPrestamos]
                     SET id_persona=:id_persona, id_obra=:id_obra,
                         prestado=:prestado, devuelto=:devuelto
                     WHERE id=:id";

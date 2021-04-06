@@ -25,7 +25,7 @@ $id_personaOk = false;
 $id_obraOk    = false;
 $prestadoOk   = false;
 
-$consulta = "SELECT COUNT(*) FROM $tablaPersonas
+$consulta = "SELECT COUNT(*) FROM $db[tablaPersonas]
     WHERE id=:id_persona";
 $result = $pdo->prepare($consulta);
 $result->execute([":id_persona" => $id_persona]);
@@ -37,7 +37,7 @@ if (!$result) {
     $id_personaOk = true;
 }
 
-$consulta = "SELECT COUNT(*) FROM $tablaObras
+$consulta = "SELECT COUNT(*) FROM $db[tablaObras]
     WHERE id=:id_obra";
 $result = $pdo->prepare($consulta);
 $result->execute([":id_obra" => $id_obra]);
@@ -60,7 +60,7 @@ if ($prestado == "" || mb_strlen($prestado, "UTF-8") < $tamFecha) {
 }
 
 if ($id_personaOk && $id_obraOk && $prestadoOk) {
-    $consulta = "SELECT COUNT(*) FROM $tablaPrestamos";
+    $consulta = "SELECT COUNT(*) FROM $db[tablaPrestamos]";
     $result   = $pdo->query($consulta);
     if (!$result) {
         print "    <p class=\"aviso\">Error en la consulta.</p>\n";
@@ -69,7 +69,7 @@ if ($id_personaOk && $id_obraOk && $prestadoOk) {
         print "\n";
         print "    <p class=\"aviso\">Por favor, borre algún registro antes.</p>\n";
     } else {
-        $consulta = "SELECT COUNT(*) FROM $tablaPrestamos
+        $consulta = "SELECT COUNT(*) FROM $db[tablaPrestamos]
             WHERE id_persona=:id_persona
             AND id_obra=:id_obra
             AND prestado=:prestado";
@@ -81,7 +81,7 @@ if ($id_personaOk && $id_obraOk && $prestadoOk) {
         } elseif ($result->fetchColumn() > 0) {
             print "    <p class=\"aviso\">El registro ya existe.</p>\n";
         } else {
-            $consulta = "INSERT INTO $tablaPrestamos
+            $consulta = "INSERT INTO $db[tablaPrestamos]
                 (id_persona, id_obra, prestado, devuelto)
                 VALUES (:id_persona, :id_obra, :prestado, '0000-00-00')";
             $result = $pdo->prepare($consulta);

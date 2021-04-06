@@ -20,9 +20,9 @@ cabecera("Obras - Buscar 2", MENU_OBRAS, 2);
 $autor     = recoge("autor");
 $titulo    = recoge("titulo");
 $editorial = recoge("editorial");
-$ordena    = recogeValores("ordena", $columnasObrasOrden, "autor ASC");
+$ordena    = recogeValores("ordena", $db["columnasObrasOrden"], "autor ASC");
 
-$consulta = "SELECT COUNT(*) FROM $tablaObras
+$consulta = "SELECT COUNT(*) FROM $db[tablaObras]
     WHERE autor LIKE :autor
     AND titulo LIKE :titulo
     AND editorial LIKE :editorial";
@@ -34,7 +34,7 @@ if (!$result) {
 } elseif ($result->fetchColumn() == 0) {
     print "    <p>No se han encontrado registros.</p>\n";
 } else {
-    $consulta = "SELECT * FROM $tablaObras
+    $consulta = "SELECT * FROM $db[tablaObras]
         WHERE autor LIKE :autor
         AND titulo LIKE :titulo
         AND editorial LIKE :editorial
