@@ -1,6 +1,6 @@
 # BIBLIOTECA 3 - COSAS POR HACER
 
-Estas son algunas de las cosas que me quedan por hacer y que podrían hacerse un biblioteca-4
+Estas son algunas de las cosas que me quedan por hacer y que podrían hacerse en biblioteca-4
 
 * [2021-04-06] Cuando tenga PHP 7 en el servidor de mclibre y pueda declarar constantes arrays, podría definir $cfg con como contante y así poder quitar los global de las funciones.
 

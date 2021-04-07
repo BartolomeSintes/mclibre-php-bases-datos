@@ -34,7 +34,7 @@ $cfg["rootPassword"] = "4813494d137e1631bba301d5acab6e7bb7aa74ce1185d456565ef51d
 
 // Inserta registros iniciales de prueba
 
-$cfg["insertaRegistrosDemo"] = true;
+$cfg["insertaRegistrosDemo"] = true;                        // Incluye o no los registros de prueba al crear la base de datos
 
 // Algoritmo hash para encriptar la contraseña de usuario
 

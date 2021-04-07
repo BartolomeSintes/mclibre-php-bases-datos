@@ -20,7 +20,11 @@ $pdo = conectaDb();
 cabecera("Login 1", MENU_VOLVER, 1);
 
 if (!existenTablas($pdo, $db["tablas"])) {
-    print "<p>La base de datos no está creada. Se creará la base de datos.</p>\n";
+    if ($cfg["insertaRegistrosDemo"]) {
+        print "  <p>La base de datos no estaba creada. Se ha creado la base de datos, insertando registros de prueba.</p>\n";
+    } else {
+        print "<p>La base de datos no estaba creada. Se ha creado la base de datos.</p>\n";
+    }
     print "\n";
     borraTodo($pdo);
 }

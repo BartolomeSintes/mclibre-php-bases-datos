@@ -25,7 +25,7 @@ $nombreOk    = false;
 $apellidosOk = false;
 $dniOk       = false;
 
-if (mb_strlen($nombre, "UTF-8") > $db[tamPersonasNombre]) {
+if (mb_strlen($nombre, "UTF-8") > $db["tamPersonasNombre"]) {
     print "    <p class=\"aviso\">El nombre no puede tener más de $db[tamPersonasNombre] caracteres.</p>\n";
     print "\n";
 } else {

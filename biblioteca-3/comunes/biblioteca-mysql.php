@@ -18,7 +18,7 @@ $db["tablaPrestamos"] = $cfg["mysqlDatabase"] . ".prestamos";      // Nombre de 
 
 $db["consultasBorraTodo"] = [
     // Borra base de datos
-    "DROP DATABASE " . $cfg["mysqlDatabase"],
+    "DROP DATABASE IF EXISTS " . $cfg["mysqlDatabase"],
     // Crea base de datos
     "CREATE DATABASE " . $cfg["mysqlDatabase"] . "
         CHARACTER SET utf8mb4
@@ -114,6 +114,8 @@ function borraTodo($pdo)
 
 function existenTablas($pdo, $nombresTablas)
 {
+    global $cfg;
+
     $existe   = true;
     $consulta = "SELECT count(*) FROM INFORMATION_SCHEMA.SCHEMATA WHERE SCHEMA_NAME = '" . $cfg["mysqlDatabase"] . "'";
     $result   = $pdo->query($consulta);

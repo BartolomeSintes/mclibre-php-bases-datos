@@ -139,7 +139,7 @@ function cabecera($texto, $menu, $profundidadDirectorio)
     print "<head>\n";
     print "  <meta charset=\"utf-8\">\n";
     print "  <title>\n";
-    print "    $texto. Biblioteca.\n";
+    print "    $texto. Biblioteca-3.\n";
     print "    Ejercicios. PHP. Bartolomé Sintes Marco. www.mclibre.org\n";
     print "  </title>\n";
     print "  <meta name=\"viewport\" content=\"width=device-width, initial-scale=1.0\">\n";
@@ -155,7 +155,7 @@ function cabecera($texto, $menu, $profundidadDirectorio)
     print "\n";
     print "<body>\n";
     print "  <header>\n";
-    print "    <h1>Biblioteca - $texto</h1>\n";
+    print "    <h1>Biblioteca-3 - $texto</h1>\n";
     print "\n";
     print "    <nav>\n";
     print "      <ul>\n";
