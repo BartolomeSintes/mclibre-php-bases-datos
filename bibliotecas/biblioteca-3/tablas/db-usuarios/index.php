@@ -14,6 +14,6 @@ if (!isset($_SESSION["conectado"]) || $_SESSION["conectado"] < NIVEL_3) {
     exit;
 }
 
-cabecera("Usuarios - Inicio", MENU_USUARIOS, 2);
+cabecera("Usuarios - Inicio", MENU_USUARIOS, PROFUNDIDAD_2);
 
 pie();

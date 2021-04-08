@@ -14,6 +14,6 @@ if (!isset($_SESSION["conectado"]) || $_SESSION["conectado"] < NIVEL_2) {
     exit;
 }
 
-cabecera("Personas - Inicio", MENU_PERSONAS, 2);
+cabecera("Personas - Inicio", MENU_PERSONAS, PROFUNDIDAD_2);
 
 pie();

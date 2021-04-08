@@ -15,7 +15,7 @@ if (!isset($_SESSION["conectado"]) || $_SESSION["conectado"] < NIVEL_3) {
 }
 
 $pdo = conectaDb();
-cabecera("Usuarios - Añadir 2", MENU_USUARIOS, 2);
+cabecera("Usuarios - Añadir 2", MENU_USUARIOS, PROFUNDIDAD_2);
 
 $usuario  = recoge("usuario");
 $password = recoge("password");

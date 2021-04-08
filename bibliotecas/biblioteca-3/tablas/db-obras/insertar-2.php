@@ -15,7 +15,7 @@ if (!isset($_SESSION["conectado"]) || $_SESSION["conectado"] < NIVEL_3) {
 }
 
 $pdo = conectaDb();
-cabecera("Obras - Añadir 2", MENU_OBRAS, 2);
+cabecera("Obras - Añadir 2", MENU_OBRAS, PROFUNDIDAD_2);
 
 $autor     = recoge("autor");
 $titulo    = recoge("titulo");

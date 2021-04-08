@@ -106,7 +106,7 @@ function calendario($pdo, $anyo, $mes, $diaMostrado, $consultaPlantilla)
 }
 
 $pdo = conectaDb();
-cabecera("Calendario", MENU_ADMINISTRADOR, 1);
+cabecera("Calendario", MENU_ADMINISTRADOR, PROFUNDIDAD_1);
 
 $fecha  = recoge("fecha");
 $ordena = recogeValores("ordena", $db["columnasPrestamosOrden"], "apellidos ASC");

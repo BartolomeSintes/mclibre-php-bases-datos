@@ -39,6 +39,13 @@ $usuariosNiveles = [
     "Administrador"    => NIVEL_3,
 ];
 
+// Profundidad
+
+define("PROFUNDIDAD_0", 0);             // Profundidad de nivel de la página: directorio raíz
+define("PROFUNDIDAD_1", 1);             // Profundidad de nivel de la página: subdirectorio
+define("PROFUNDIDAD_2", 2);             // Profundidad de nivel de la página: sub-subdirectorio
+define("PROFUNDIDAD_3", 3);             // Profundidad de nivel de la página: sub-sub-subdirectorio
+
 // Constantes y variables configurables
 
 require_once "config.php";

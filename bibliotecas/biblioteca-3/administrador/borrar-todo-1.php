@@ -14,7 +14,7 @@ if (!isset($_SESSION["conectado"]) || $_SESSION["conectado"] < NIVEL_3) {
     exit;
 }
 
-cabecera("Administrador - Borrar todo 1", MENU_ADMINISTRADOR, 1);
+cabecera("Administrador - Borrar todo 1", MENU_ADMINISTRADOR, PROFUNDIDAD_1);
 
 print "    <form action=\"borrar-todo-2.php\" method=\"$cfg[formMethod]\">\n";
 print "      <p>¿Está seguro?</p>\n";

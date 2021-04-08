@@ -15,7 +15,7 @@ if (!isset($_SESSION["conectado"]) || $_SESSION["conectado"] < NIVEL_3) {
 }
 
 $pdo = conectaDb();
-cabecera("Obras - Añadir 1", MENU_OBRAS, 2);
+cabecera("Obras - Añadir 1", MENU_OBRAS, PROFUNDIDAD_2);
 
 $consulta = "SELECT COUNT(*) FROM $db[tablaObras]";
 $result   = $pdo->query($consulta);

@@ -15,7 +15,7 @@ if (!isset($_SESSION["conectado"]) || $_SESSION["conectado"] < NIVEL_3) {
 }
 
 $pdo = conectaDb();
-cabecera("Préstamos - Devolver 2", MENU_PRESTAMOS, 2);
+cabecera("Préstamos - Devolver 2", MENU_PRESTAMOS, PROFUNDIDAD_2);
 
 $id       = recoge("id");
 $devuelto = recoge("devuelto");

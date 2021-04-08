@@ -15,7 +15,7 @@ if (!isset($_SESSION["conectado"]) || $_SESSION["conectado"] < NIVEL_3) {
 }
 
 $pdo = conectaDb();
-cabecera("Usuarios - Modificar 1", MENU_USUARIOS, 2);
+cabecera("Usuarios - Modificar 1", MENU_USUARIOS, PROFUNDIDAD_2);
 
 $ordena = recogeValores("ordena", $db["columnasUsuariosOrden"], "password ASC");
 $id     = recoge("id");

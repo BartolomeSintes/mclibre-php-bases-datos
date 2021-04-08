@@ -14,6 +14,6 @@ if (!isset($_SESSION["conectado"]) || $_SESSION["conectado"] < NIVEL_3) {
     exit;
 }
 
-cabecera("Administrador - Inicio", MENU_ADMINISTRADOR, 1);
+cabecera("Administrador - Inicio", MENU_ADMINISTRADOR, PROFUNDIDAD_1);
 
 pie();
