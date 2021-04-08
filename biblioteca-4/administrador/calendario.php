@@ -9,7 +9,7 @@ require_once "../comunes/biblioteca.php";
 
 session_name($cfg["sessionName"]);
 session_start();
-if (!isset($_SESSION["conectado"]) || $_SESSION["conectado"] != NIVEL_3) {
+if (!isset($_SESSION["conectado"]) || $_SESSION["conectado"] < NIVEL_3) {
     header("Location:../index.php");
     exit;
 }
@@ -106,7 +106,7 @@ function calendario($pdo, $anyo, $mes, $diaMostrado, $consultaPlantilla)
 }
 
 $pdo = conectaDb();
-cabecera("Calendario", MENU_ADMINISTRADOR, 1);
+cabecera("Calendario", MENU_ADMINISTRADOR, PROFUNDIDAD_1);
 
 $fecha  = recoge("fecha");
 $ordena = recogeValores("ordena", $db["columnasPrestamosOrden"], "apellidos ASC");

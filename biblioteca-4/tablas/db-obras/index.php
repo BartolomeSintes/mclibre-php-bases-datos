@@ -9,11 +9,11 @@ require_once "../../comunes/biblioteca.php";
 
 session_name($cfg["sessionName"]);
 session_start();
-if (!isset($_SESSION["conectado"])) {
+if (!isset($_SESSION["conectado"]) || $_SESSION["conectado"] < NIVEL_1) {
     header("Location:../index.php");
     exit;
 }
 
-cabecera("Obras - Inicio", MENU_OBRAS, 2);
+cabecera("Obras - Inicio", MENU_OBRAS, PROFUNDIDAD_2);
 
 pie();

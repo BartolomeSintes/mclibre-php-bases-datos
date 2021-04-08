@@ -10,6 +10,8 @@ Estas son algunas de las cosas que me quedan por hacer y que podrían hacerse en
 
 * [2021-04-07] Añadir una variable de configuración para que tenga en cuenta los límites en el número de registros o no.
 
+* [2021-04-08] La profundidad de nivel de las páginas posiblemente se pueda calcular a partir de la url. Así no podría equivocarme al poner el valor (u olvidarme de cambiarlo si muevo una página de nivel).
+
 ## Función de comprobación de datos
 
 * [2021-04-07] Hacer que login utilice también comprobación de datos
@@ -19,6 +21,7 @@ Estas son algunas de las cosas que me quedan por hacer y que podrían hacerse en
 * [2021-04-07] La comprobación de datos que estoy haciendo es individual. Si quiero hacer una comprobación de grupo (por ejemplo, que estén todos los campos rellenados), no podría hacerlo. Esas comprobaciones parece que se tendrían que gestionar al margen de las comprobaciones individuales.
 
 * [2021-04-07] En las páginas, después de las comprobaciones campoOk hago a veces otras comprobaciones adicionales. Por ejemplo en borrar-2.php se comprueba que no se ha elegido el campo root. Esas comprobaciones también parece que se tendrían que gestionar al margen de las comprobaciones individuales.
+
 
 ## POR CLASIFICAR
 - La fecha de préstamo es obligatoria. No se puede dejar a cero.

@@ -29,9 +29,9 @@ $hashSizes = [SHA_256 => 64];           // Tamaños de los valores hash
 
 // Niveles de usuarios
 
-define("NIVEL_1", "1");                 // Usuario web de nivel Usuario básico
-define("NIVEL_2", "2");                 // Usuario web de nivel Usuario avanzado
-define("NIVEL_3", "3");                 // Usuario web de nivel Administrador
+define("NIVEL_1", 1);                   // Usuario web de nivel Usuario básico
+define("NIVEL_2", 2);                   // Usuario web de nivel Usuario avanzado
+define("NIVEL_3", 3);                   // Usuario web de nivel Administrador
 
 $usuariosNiveles = [
     "Usuario Básico"   => NIVEL_1,
@@ -39,13 +39,20 @@ $usuariosNiveles = [
     "Administrador"    => NIVEL_3,
 ];
 
+// Profundidad
+
+define("PROFUNDIDAD_0", 0);             // Profundidad de nivel de la página: directorio raíz
+define("PROFUNDIDAD_1", 1);             // Profundidad de nivel de la página: subdirectorio
+define("PROFUNDIDAD_2", 2);             // Profundidad de nivel de la página: sub-subdirectorio
+define("PROFUNDIDAD_3", 3);             // Profundidad de nivel de la página: sub-sub-subdirectorio
+
 // Constantes y variables configurables
 
 require_once "config.php";
 
 // Fecha y hora
 
-$tamFecha = 10;                         // Longitud de una cadena de fecha (AAAA-MM-DD)
+define("TAM_FECHA", 10);                 // Longitud de una cadena de fecha (AAAA-MM-DD)
 
 // Tamaño de campos
 
@@ -181,7 +188,32 @@ function cabecera($texto, $menu, $profundidadDirectorio)
         } else {
             print "        <li>Error en la selección de menú</li>\n";
         }
-    } else {
+    } elseif ($_SESSION["conectado"] == NIVEL_2) {
+        if ($menu == MENU_PRINCIPAL) {
+            print "        <li><a href=\"acceso/login-1.php\">Conectarse</a></li>\n";
+        } elseif ($menu == MENU_PRINCIPAL_CONECTADO) {
+            print "        <li><a href=\"tablas/db-personas/index.php\">Personas</a></li>\n";
+            print "        <li><a href=\"tablas/db-obras/index.php\">Obras</a></li>\n";
+            print "        <li><a href=\"tablas/db-prestamos/index.php\">Préstamos</a></li>\n";
+            print "        <li><a href=\"acceso/logout.php\">Desconectarse</a></li>\n";
+        } elseif ($menu == MENU_VOLVER) {
+            print "        <li><a href=\"../../index.php\">Volver</a></li>\n";
+        } elseif ($menu == MENU_PERSONAS) {
+            print "        <li><a href=\"../../index.php\">Volver</a></li>\n";
+            print "        <li><a href=\"listar.php\">Listar</a></li>\n";
+            print "        <li><a href=\"buscar-1.php\">Buscar</a></li>\n";
+        } elseif ($menu == MENU_OBRAS) {
+            print "        <li><a href=\"../../index.php\">Volver</a></li>\n";
+            print "        <li><a href=\"listar.php\">Listar</a></li>\n";
+            print "        <li><a href=\"buscar-1.php\">Buscar</a></li>\n";
+        } elseif ($menu == MENU_PRESTAMOS) {
+            print "        <li><a href=\"../../index.php\">Volver</a></li>\n";
+            print "        <li><a href=\"listar.php\">Listar</a></li>\n";
+            print "        <li><a href=\"buscar-1.php\">Buscar</a></li>\n";
+        } else {
+            print "        <li>Error en la selección de menú</li>\n";
+        }
+    } elseif ($_SESSION["conectado"] == NIVEL_3) {
         if ($menu == MENU_PRINCIPAL) {
             print "        <li><a href=\"acceso/login-1.php\">Conectarse</a></li>\n";
         } elseif ($menu == MENU_PRINCIPAL_CONECTADO) {
@@ -229,6 +261,8 @@ function cabecera($texto, $menu, $profundidadDirectorio)
         } else {
             print "        <li>Error en la selección de menú</li>\n";
         }
+    } else {
+        print "        <li>Error en la selección de menú</li>\n";
     }
     print "      </ul>\n";
     print "    </nav>\n";
@@ -244,7 +278,7 @@ function pie()
     print "  <footer>\n";
     print "    <p class=\"ultmod\">\n";
     print "      Última modificación de esta página:\n";
-    print "      <time datetime=\"2021-04-07\">7 de abril de 2021</time>\n";
+    print "      <time datetime=\"2021-04-08\">8 de abril de 2021</time>\n";
     print "    </p>\n";
     print "\n";
     print "    <p class=\"licencia\">\n";

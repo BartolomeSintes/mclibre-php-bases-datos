@@ -9,7 +9,7 @@ require_once "../comunes/biblioteca.php";
 
 session_name($cfg["sessionName"]);
 session_start();
-if (!isset($_SESSION["conectado"]) || $_SESSION["conectado"] != NIVEL_3) {
+if (!isset($_SESSION["conectado"]) || $_SESSION["conectado"] < NIVEL_3) {
     header("Location:../index.php");
     exit;
 }
@@ -21,7 +21,7 @@ if (!isset($_REQUEST["si"])) {
 
 $pdo = conectaDb();
 
-cabecera("Administrador - Borrar todo 2", MENU_ADMINISTRADOR, 1);
+cabecera("Administrador - Borrar todo 2", MENU_ADMINISTRADOR, PROFUNDIDAD_1);
 
 if ($cfg["insertaRegistrosDemo"]) {
     print "  <p>Base de datos creada, insertando registros de prueba.</p>\n";

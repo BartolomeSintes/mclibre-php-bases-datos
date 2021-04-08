@@ -17,7 +17,7 @@ if (isset($_SESSION["conectado"])) {
 
 $pdo = conectaDb();
 
-cabecera("Login 1", MENU_VOLVER, 1);
+cabecera("Login 1", MENU_VOLVER, PROFUNDIDAD_1);
 
 if (!existenTablas($pdo, $db["tablas"])) {
     if ($cfg["insertaRegistrosDemo"]) {

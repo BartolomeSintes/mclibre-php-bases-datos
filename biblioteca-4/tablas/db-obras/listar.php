@@ -9,13 +9,13 @@ require_once "../../comunes/biblioteca.php";
 
 session_name($cfg["sessionName"]);
 session_start();
-if (!isset($_SESSION["conectado"])) {
+if (!isset($_SESSION["conectado"]) || $_SESSION["conectado"] < NIVEL_1) {
     header("Location:../index.php");
     exit;
 }
 
 $pdo = conectaDb();
-cabecera("Obras - Listar", MENU_OBRAS, 2);
+cabecera("Obras - Listar", MENU_OBRAS, PROFUNDIDAD_2);
 
 $ordena = recogeValores("ordena", $db["columnasObrasOrden"], "titulo ASC");
 

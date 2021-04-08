@@ -11,7 +11,7 @@ $cfg["dbMotor"] = SQLITE;                                   // Valores posibles:
 
 // Configuración para SQLite
 
-$cfg["sqliteDatabase"] = "/home/barto/mclibre/tmp/mclibre/biblioteca-4.sqlite";             // Ubicación de la base de datos
+$cfg["sqliteDatabase"] = "/home/barto/mclibre/tmp/mclibre/biblioteca-3.sqlite";             // Ubicación de la base de datos
 
 // Configuración para MySQL
 
@@ -47,7 +47,7 @@ $cfg["formMethod"] = GET;                                   // Valores posibles:
 
 // Hoja de estilo
 
-$cfg["color"] = 220;                                        // Color básico de la aplicación (0 - 360)
+$cfg["color"] = 27;                                         // Color básico de la aplicación (0 - 360)
 
 // Nombre de sesión
 
