@@ -3,11 +3,14 @@
 Todos los cambios importantes de este proyecto se documentarán en este fichero.
 
 El formato se basa en [Keep a Changelog](https://keepachangelog.com/en/1.0.0/).
+
 ## 2021-04-08
 ### Changed (Modificado)
-- Mejoro la comprobación del nivel de cada página haciendo una comparación de desigualdad. Incluyo la comparación en todas las páginas (antes no había comparación en las páginas de NIVEL_1, el nivel mínimo).
-- Hago que el usuario de NIVEL_2 pueda ver las páginas de listar y buscar de Personas, Obras y Préstamos.
 - Paso $tamFecha a constante TAM_FECHA.
+- Hago que el usuario de NIVEL_2 pueda ver las páginas de listar y buscar de Personas, Obras y Préstamos.
+- Mejoro la comprobación del nivel de cada página haciendo una comparación de desigualdad (en vez de distinto). Incluyo la comparación en todas las páginas (antes no había comparación en las páginas de NIVEL_1, el nivel mínimo).
+- Defino la profundidad de nivel de las páginas como constantes (PROFUNDIDAD_0, etc.) para que al llamar a la función cabecera el argumento se entienda mejor.
+- Las constantes de nivel de usuario (NIVEL_) estaban definidas como cadenas ("1", etc). Las cambio a enterros (1, etc.).
 
 ## 2021-04-06
 ### Changed (Modificado)
