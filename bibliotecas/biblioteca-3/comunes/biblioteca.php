@@ -45,7 +45,7 @@ require_once "config.php";
 
 // Fecha y hora
 
-$tamFecha = 10;                         // Longitud de una cadena de fecha (AAAA-MM-DD)
+define("TAM_FECHA", 10);                 // Longitud de una cadena de fecha (AAAA-MM-DD)
 
 // Tamaño de campos
 

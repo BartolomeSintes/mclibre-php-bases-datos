@@ -53,7 +53,7 @@ if (!$result) {
     $id_obraOk = true;
 }
 
-if ($prestado == "" || mb_strlen($prestado, "UTF-8") < $tamFecha) {
+if ($prestado == "" || mb_strlen($prestado, "UTF-8") < TAM_FECHA) {
     print "    <p class=\"aviso\">La fecha <strong>$prestado</strong> de préstamo no es una fecha válida.</p>\n";
 } elseif (!ctype_digit(substr($prestado, 5, 2)) || !ctype_digit(substr($prestado, 8, 2)) || !ctype_digit(substr($prestado, 0, 4))) {
     print "    <p class=\"aviso\">La fecha <strong>$prestado</strong> de préstamo no es una fecha válida.</p>\n";
@@ -66,7 +66,7 @@ if ($prestado == "" || mb_strlen($prestado, "UTF-8") < $tamFecha) {
 if ($devuelto == "") {
     $devuelto   = "0000-00-00";
     $devueltoOk = true;
-} elseif (mb_strlen($devuelto, "UTF-8") < $tamFecha) {
+} elseif (mb_strlen($devuelto, "UTF-8") < TAM_FECHA) {
     print "    <p class=\"aviso\">La fecha <strong>$devuelto</strong> de devolución no es una fecha válida.</p>\n";
 } elseif (!ctype_digit(substr($devuelto, 5, 2)) || !ctype_digit(substr($devuelto, 8, 2)) || !ctype_digit(substr($devuelto, 0, 4))) {
     print "    <p class=\"aviso\">La fecha <strong>$devuelto</strong> de devolución no es una fecha válida.</p>\n";

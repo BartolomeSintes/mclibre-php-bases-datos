@@ -49,7 +49,7 @@ if (!$result) {
     $id_obraOk = true;
 }
 
-if ($prestado == "" || mb_strlen($prestado, "UTF-8") < $tamFecha) {
+if ($prestado == "" || mb_strlen($prestado, "UTF-8") < TAM_FECHA) {
     print "    <p class=\"aviso\">La fecha <strong>$prestado</strong> de préstamo no es una fecha válida.</p>\n";
 } elseif (!ctype_digit(substr($prestado, 5, 2)) || !ctype_digit(substr($prestado, 8, 2)) || !ctype_digit(substr($prestado, 0, 4))) {
     print "    <p class=\"aviso\">La fecha <strong>$prestado</strong> de préstamo no es una fecha válida.</p>\n";
