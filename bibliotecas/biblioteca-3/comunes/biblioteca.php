@@ -29,9 +29,9 @@ $hashSizes = [SHA_256 => 64];           // Tamaños de los valores hash
 
 // Niveles de usuarios
 
-define("NIVEL_1", "1");                 // Usuario web de nivel Usuario básico
-define("NIVEL_2", "2");                 // Usuario web de nivel Usuario avanzado
-define("NIVEL_3", "3");                 // Usuario web de nivel Administrador
+define("NIVEL_1", 1);                   // Usuario web de nivel Usuario básico
+define("NIVEL_2", 2);                   // Usuario web de nivel Usuario avanzado
+define("NIVEL_3", 3);                   // Usuario web de nivel Administrador
 
 $usuariosNiveles = [
     "Usuario Básico"   => NIVEL_1,
