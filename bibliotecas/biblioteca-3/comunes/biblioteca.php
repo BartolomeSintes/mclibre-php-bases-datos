@@ -181,7 +181,32 @@ function cabecera($texto, $menu, $profundidadDirectorio)
         } else {
             print "        <li>Error en la selección de menú</li>\n";
         }
-    } else {
+    } elseif ($_SESSION["conectado"] == NIVEL_2) {
+        if ($menu == MENU_PRINCIPAL) {
+            print "        <li><a href=\"acceso/login-1.php\">Conectarse</a></li>\n";
+        } elseif ($menu == MENU_PRINCIPAL_CONECTADO) {
+            print "        <li><a href=\"tablas/db-personas/index.php\">Personas</a></li>\n";
+            print "        <li><a href=\"tablas/db-obras/index.php\">Obras</a></li>\n";
+            print "        <li><a href=\"tablas/db-prestamos/index.php\">Préstamos</a></li>\n";
+            print "        <li><a href=\"acceso/logout.php\">Desconectarse</a></li>\n";
+        } elseif ($menu == MENU_VOLVER) {
+            print "        <li><a href=\"../../index.php\">Volver</a></li>\n";
+        } elseif ($menu == MENU_PERSONAS) {
+            print "        <li><a href=\"../../index.php\">Volver</a></li>\n";
+            print "        <li><a href=\"listar.php\">Listar</a></li>\n";
+            print "        <li><a href=\"buscar-1.php\">Buscar</a></li>\n";
+        } elseif ($menu == MENU_OBRAS) {
+            print "        <li><a href=\"../../index.php\">Volver</a></li>\n";
+            print "        <li><a href=\"listar.php\">Listar</a></li>\n";
+            print "        <li><a href=\"buscar-1.php\">Buscar</a></li>\n";
+        } elseif ($menu == MENU_PRESTAMOS) {
+            print "        <li><a href=\"../../index.php\">Volver</a></li>\n";
+            print "        <li><a href=\"listar.php\">Listar</a></li>\n";
+            print "        <li><a href=\"buscar-1.php\">Buscar</a></li>\n";
+        } else {
+            print "        <li>Error en la selección de menú</li>\n";
+        }
+    } elseif ($_SESSION["conectado"] == NIVEL_3) {
         if ($menu == MENU_PRINCIPAL) {
             print "        <li><a href=\"acceso/login-1.php\">Conectarse</a></li>\n";
         } elseif ($menu == MENU_PRINCIPAL_CONECTADO) {
@@ -229,6 +254,8 @@ function cabecera($texto, $menu, $profundidadDirectorio)
         } else {
             print "        <li>Error en la selección de menú</li>\n";
         }
+    } else {
+        print "        <li>Error en la selección de menú</li>\n";
     }
     print "      </ul>\n";
     print "    </nav>\n";
