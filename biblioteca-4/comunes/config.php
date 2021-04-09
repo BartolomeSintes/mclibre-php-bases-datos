@@ -11,7 +11,7 @@ $cfg["dbMotor"] = SQLITE;                                   // Valores posibles:
 
 // Configuración para SQLite
 
-$cfg["sqliteDatabase"] = "/home/barto/mclibre/tmp/mclibre/biblioteca-3.sqlite";             // Ubicación de la base de datos
+$cfg["sqliteDatabase"] = "/home/barto/mclibre/tmp/mclibre/biblioteca-4.sqlite";             // Ubicación de la base de datos
 
 // Configuración para MySQL
 
@@ -26,6 +26,14 @@ $cfg["maxRegTableUsuarios"]  = 999;                         // Número máximo d
 $cfg["maxRegTablePersonas"]  = 999;                         // Número máximo de registros en la tabla Personas
 $cfg["maxRegTableObras"]     = 999;                         // Número máximo de registros en la tabla Obras
 $cfg["maxRegTablePrestamos"] = 999;                         // Número máximo de registros en la tabla Préstamos
+
+$cfg["maxRegTablaActivado"] = true;                         // Limita o no el número de registros máximo por tabla
+$cfg["maxRegTabla"]         = [
+    "usuarios"  => 999,                                     // Número máximo de registros en la tabla Usuarios
+    "personas"  => 999,                                     // Número máximo de registros en la tabla Usuarios
+    "obras"     => 999,                                     // Número máximo de registros en la tabla Usuarios
+    "prestamos" => 999,                                     // Número máximo de registros en la tabla Usuarios
+];
 
 // Usuario inicial
 
@@ -47,7 +55,7 @@ $cfg["formMethod"] = GET;                                   // Valores posibles:
 
 // Hoja de estilo
 
-$cfg["color"] = 27;                                         // Color básico de la aplicación (0 - 360)
+$cfg["color"] = 220;                                        // Color básico de la aplicación (0 - 360)
 
 // Nombre de sesión
 

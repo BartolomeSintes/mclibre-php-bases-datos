@@ -298,3 +298,5 @@ function encripta($cadena)
 
     return hash($cfg["hashAlgorithm"], $cadena);
 }
+
+require_once "tablas-comprobaciones.php";

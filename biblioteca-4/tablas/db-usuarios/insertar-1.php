@@ -15,29 +15,36 @@ if (!isset($_SESSION["conectado"]) || $_SESSION["conectado"] < NIVEL_3) {
 }
 
 $pdo = conectaDb();
-cabecera("Usuarios - Añadir 1", MENU_USUARIOS, PROFUNDIDAD_2);
+cabecera("Usuarios - Añadir 1", MENU_USUARIOS, 2);
 
-$consulta = "SELECT COUNT(*) FROM $db[tablaUsuarios]";
-$result   = $pdo->query($consulta);
-if (!$result) {
-    print "    <p class=\"aviso\">Error en la consulta.</p>\n";
-} elseif ($result->fetchColumn() >= $cfg["maxRegTableUsuarios"] ) {
-    print "    <p class=\"aviso\">Se ha alcanzado el número máximo de registros que se pueden guardar.</p>\n";
-    print "\n";
-    print "    <p class=\"aviso\">Por favor, borre algún registro antes.</p>\n";
+if (compruebaLimiteRegistros("usuarios")) {
+    print "    <p class=\"aviso\">{$_SESSION["error"]["maxRegTabla"]["mensaje"]}</p>\n";
 } else {
     print "    <form action=\"insertar-2.php\" method=\"$cfg[formMethod]\">\n";
+    if (isset($_SESSION["error"]["avisoGeneral"])) {
+        print "    <p class=\"aviso\">{$_SESSION["error"]["avisoGeneral"]["mensaje"]}</p>\n";
+    }
     print "      <p>Escriba los datos del nuevo registro:</p>\n";
     print "\n";
     print "      <table>\n";
     print "        <tbody>\n";
     print "          <tr>\n";
     print "            <td>Usuario:</td>\n";
-    print "            <td><input type=\"text\" name=\"usuario\" size=\"$db[tamUsuariosUsuario]\" maxlength=\"$db[tamUsuariosUsuario]\" autofocus></td>\n";
+    if (isset($_SESSION["error"]["usuario"])) {
+        print "            <td><input type=\"text\" name=\"usuario\" size=\"$db[tamUsuariosUsuario]\" maxlength=\"$db[tamUsuariosUsuario]\" value=\"{$_SESSION["error"]["usuario"]["valor"]}\" autofocus>\n";
+        print "              <span class=\"aviso\">{$_SESSION["error"]["usuario"]["mensaje"]}</span></td>\n";
+    } else {
+        print "            <td><input type=\"text\" name=\"usuario\" size=\"$db[tamUsuariosUsuario]\" maxlength=\"$db[tamUsuariosUsuario]\" autofocus></td>\n";
+    }
     print "          </tr>\n";
     print "          <tr>\n";
     print "            <td>Contraseña:</td>\n";
-    print "            <td><input type=\"text\" name=\"password\" size=\"$db[tamUsuariosPassword]\" maxlength=\"$db[tamUsuariosPassword]\"></td>\n";
+    if (isset($_SESSION["error"]["password"])) {
+        print "            <td><input type=\"text\" name=\"password\" size=\"$db[tamUsuariosPassword]\" maxlength=\"$db[tamUsuariosPassword]\" value=\"{$_SESSION["error"]["password"]["valor"]}\" autofocus>\n";
+        print "              <span class=\"aviso\">{$_SESSION["error"]["password"]["mensaje"]}</span></td>\n";
+    } else {
+        print "            <td><input type=\"text\" name=\"password\" size=\"$db[tamUsuariosPassword]\" maxlength=\"$db[tamUsuariosPassword]\" autofocus></td>\n";
+    }
     print "          </tr>\n";
     print "          <tr>\n";
     print "            <td>Nivel:</td>\n";
@@ -58,6 +65,6 @@ if (!$result) {
     print "      </p>\n";
     print "    </form>\n";
 }
-
+unset($_SESSION["error"]);
 $pdo = null;
 pie();

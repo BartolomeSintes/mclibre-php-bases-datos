@@ -17,7 +17,11 @@ if (!isset($_SESSION["conectado"]) || $_SESSION["conectado"] < NIVEL_3) {
 $pdo = conectaDb();
 cabecera("Usuarios - Modificar 2", MENU_USUARIOS, PROFUNDIDAD_2);
 
-$id = recoge("id");
+if (isset($_SESSION["error"])){
+    $id = $_SESSION["error"]["id"]["valor"];
+} else {
+    $id = recoge("id");
+}
 
 if ($id == "") {
     print "    <p class=\"aviso\">No se ha seleccionado ningún registro.</p>\n";
@@ -49,7 +53,12 @@ if ($id == "") {
                 print "        <tbody>\n";
                 print "          <tr>\n";
                 print "            <td>Usuario:</td>\n";
+                if (isset($_SESSION["error"]["usuario"])) {
+                    print "            <td><input type=\"text\" name=\"usuario\" size=\"$db[tamUsuariosUsuario]\" maxlength=\"$db[tamUsuariosUsuario]\" value=\"{$_SESSION["error"]["usuario"]["valor"]}\" autofocus>\n";
+                    print "              <span class=\"aviso\">{$_SESSION["error"]["usuario"]["mensaje"]}</span></td>\n";
+                } else {
                 print "            <td><input type=\"text\" name=\"usuario\" size=\"$db[tamUsuariosUsuario]\" maxlength=\"$db[tamUsuariosUsuario]\" value=\"$valor[usuario]\" autofocus></td>\n";
+                }
                 print "          </tr>\n";
                 print "          <tr>\n";
                 print "            <td>Contraseña:</td>\n";
