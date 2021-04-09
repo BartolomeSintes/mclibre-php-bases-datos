@@ -18,10 +18,10 @@ $db["tablaPrestamos"] = "prestamos";  // Nombre de la tabla Préstamos
 
 $db["consultasBorraTodo"] = [
     // Borra tablas
-    "DROP TABLE $db[tablaUsuarios]",
-    "DROP TABLE $db[tablaPersonas]",
-    "DROP TABLE $db[tablaObras]",
-    "DROP TABLE $db[tablaPrestamos]",
+    "DROP TABLE IF EXISTS $db[tablaUsuarios]",
+    "DROP TABLE IF EXISTS $db[tablaPersonas]",
+    "DROP TABLE IF EXISTS $db[tablaObras]",
+    "DROP TABLE IF EXISTS $db[tablaPrestamos]",
     // Crea tablas
     "CREATE TABLE $db[tablaUsuarios] (
         id INTEGER PRIMARY KEY,
