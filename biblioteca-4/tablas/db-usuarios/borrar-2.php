@@ -24,7 +24,7 @@ if (count($id) == 0) {
 } else {
     foreach ($id as $indice => $valor) {
         $consulta = "SELECT * FROM $db[tablaUsuarios]
-            WHERE id=:id";
+                     WHERE id=:id";
         $result = $pdo->prepare($consulta);
         $result->execute([":id" => $indice]);
         if (!$result) {
@@ -35,7 +35,7 @@ if (count($id) == 0) {
                 print "    <p>Este usuario no se puede borrar.</p>\n";
             } else {
                 $consulta = "SELECT COUNT(*) FROM $db[tablaUsuarios]
-                    WHERE id=:indice";
+                             WHERE id=:indice";
                 $result = $pdo->prepare($consulta);
                 $result->execute([":indice" => $indice]);
                 if (!$result) {
@@ -44,7 +44,7 @@ if (count($id) == 0) {
                     print "    <p class=\"aviso\">Registro no encontrado.</p>\n";
                 } else {
                     $consulta = "DELETE FROM $db[tablaUsuarios]
-                        WHERE id=:indice";
+                                 WHERE id=:indice";
                     $result = $pdo->prepare($consulta);
                     if ($result->execute([":indice" => $indice])) {
                         print "    <p>Registro borrado correctamente.</p>\n";

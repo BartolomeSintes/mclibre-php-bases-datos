@@ -14,22 +14,22 @@ if (!isset($_SESSION["conectado"]) || $_SESSION["conectado"] < NIVEL_3) {
     exit;
 }
 
-$pdo = conectaDb();
-
-unset($_SESSION["error"]);
-[$usuario, $password, $nivel] = compruebaIndividuales("usuario", "password", "nivel");
-compruebaConjunto("algunoVacio", "usuario", "password", "nivel");
-compruebaLimiteRegistros("usuarios");
+borraAvisos();
+[$usuario, $password, $nivel] = compruebaAvisosIndividuales("insertar-2", "usuario", "password", "nivel");
+compruebaAvisosGenerales("insertar-2", "algunoVacio", "usuario", "password", "nivel");
+compruebaAvisosGenerales("insertar-2", "limiteNumeroRegistros", "usuarios");
 
 if (isset($_SESSION["error"])) {
     header("Location:insertar-1.php");
     exit();
 }
 
-cabecera("Usuarios - Añadir 2", MENU_USUARIOS, 2);
+cabecera("Usuarios - Añadir 2", MENU_USUARIOS, PROFUNDIDAD_2);
+
+$pdo = conectaDb();
 
 $consulta = "SELECT COUNT(*) FROM $db[tablaUsuarios]
-                WHERE usuario=:usuario";
+             WHERE usuario=:usuario";
 $result = $pdo->prepare($consulta);
 $result->execute([":usuario" => $usuario]);
 if (!$result) {
@@ -38,8 +38,8 @@ if (!$result) {
     print "    <p class=\"aviso\">El registro ya existe.</p>\n";
 } else {
     $consulta = "INSERT INTO $db[tablaUsuarios]
-        (usuario, password, nivel)
-        VALUES (:usuario, :password, $nivel)";
+                 (usuario, password, nivel)
+                 VALUES (:usuario, :password, $nivel)";
     $result = $pdo->prepare($consulta);
     if ($result->execute([":usuario" => $usuario, ":password" => encripta($password)])) {
         print "    <p>Registro <strong>$usuario</strong> creado correctamente.</p>\n";

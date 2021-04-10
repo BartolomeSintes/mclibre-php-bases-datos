@@ -14,63 +14,27 @@ if (!isset($_SESSION["conectado"]) || $_SESSION["conectado"] < NIVEL_3) {
     exit;
 }
 
-$pdo = conectaDb();
+borraAvisos();
+[$id_prestamo, $devuelto] = compruebaAvisosIndividuales("devolver-2", "id_prestamo", "devuelto");
+compruebaAvisosGenerales("devolver-2", "fechasCrecientes2", "id_prestamo", "devuelto");
+
+if (isset($_SESSION["error"])) {
+    header("Location:devolver-1.php");
+    exit();
+}
+
 cabecera("Préstamos - Devolver 2", MENU_PRESTAMOS, PROFUNDIDAD_2);
 
-$id       = recoge("id");
-$devuelto = recoge("devuelto");
+$pdo = conectaDb();
 
-$idOk       = false;
-$devueltoOk = false;
-
-$consulta = "SELECT COUNT(*) FROM $db[tablaPrestamos]
-    WHERE id=:id";
+$consulta = "UPDATE $db[tablaPrestamos]
+             SET devuelto='$devuelto'
+             WHERE id=:id";
 $result = $pdo->prepare($consulta);
-$result->execute([":id" => $id]);
-if (!$result) {
-    print "    <p class=\"aviso\">Error en la consulta.</p>\n";
-} elseif ($result->fetchColumn() == 0) {
-    print "    <p class=\"aviso\">El préstamo seleccionado no existe.</p>\n";
+if ($result->execute([":id" => $id_prestamo])) {
+    print "    <p>Registro modificado correctamente.</p>\n";
 } else {
-    $idOk = true;
-}
-
-if ($devuelto == "") {
-    $devuelto   = "0000-00-00";
-    $devueltoOk = true;
-} elseif (mb_strlen($devuelto, "UTF-8") < TAM_FECHA) {
-    print "    <p class=\"aviso\">La fecha <strong>$devuelto</strong> de devolución no es una fecha válida.</p>\n";
-} elseif (!ctype_digit(substr($devuelto, 5, 2)) || !ctype_digit(substr($devuelto, 8, 2)) || !ctype_digit(substr($devuelto, 0, 4))) {
-    print "    <p class=\"aviso\">La fecha <strong>$devuelto</strong> de devolución no es una fecha válida.</p>\n";
-} elseif (!checkdate(substr($devuelto, 5, 2), substr($devuelto, 8, 2), substr($devuelto, 0, 4))) {
-    print "    <p class=\"aviso\">La fecha <strong>$devuelto</strong> de devolución no es una fecha válida.</p>\n";
-} else {
-    $consulta = "SELECT prestado FROM $db[tablaPrestamos]
-        WHERE id=:id";
-    $result = $pdo->prepare($consulta);
-    $result->execute([":id" => $id]);
-    if (!$result) {
-        print "    <p class=\"aviso\">Error en la consulta.</p>\n";
-    } else {
-        $prestado = $result->fetchColumn();
-        if ($prestado > $devuelto) {
-            print "    <p class=\"aviso\">La fecha de devolución <strong>$devuelto</strong> es anterior a la de préstamo <strong>$prestado</strong>.</p>\n";
-        } else {
-            $devueltoOk = true;
-        }
-    }
-}
-
-if ($idOk && $devueltoOk) {
-    $consulta = "UPDATE $db[tablaPrestamos]
-        SET devuelto='$devuelto'
-        WHERE id=:id";
-    $result = $pdo->prepare($consulta);
-    if ($result->execute([":id" => $id])) {
-        print "    <p>Registro modificado correctamente.</p>\n";
-    } else {
-        print "    <p class=\"aviso\">Error al modificar el registro.</p>\n";
-    }
+    print "    <p class=\"aviso\">Error al modificar el registro.</p>\n";
 }
 
 $pdo = null;

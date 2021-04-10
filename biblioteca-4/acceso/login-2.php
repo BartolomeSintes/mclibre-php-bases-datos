@@ -25,7 +25,7 @@ if (!$usuario) {
 }
 
 $consulta = "SELECT * FROM $db[tablaUsuarios]
-    WHERE usuario=:usuario";
+             WHERE usuario=:usuario";
 $result = $pdo->prepare($consulta);
 $result->execute([":usuario" => $usuario]);
 if (!$result) {

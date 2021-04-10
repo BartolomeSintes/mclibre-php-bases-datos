@@ -8,20 +8,33 @@ Estas son algunas de las cosas que me quedan por hacer y que podrían hacerse en
 
 * [2021-04-06] Si se cambian valores de configuración que afectan a la base de datos, habría que rehacer la base de datos. ¿Cómo gestionar esa situación?
 
-* [2021-04-07] Añadir una variable de configuración para que tenga en cuenta los límites en el número de registros o no.
-
 * [2021-04-08] La profundidad de nivel de las páginas posiblemente se pueda calcular a partir de la url. Así no podría equivocarme al poner el valor (u olvidarme de cambiarlo si muevo una página de nivel).
 
-## Función de comprobación de datos
+* [2021-04-10] El bloque inicial de comprobación de nivel, ¿podría ser una función?
+
+* [2010-04-10] El comentario que tengo en modificar-3 sobre mayúsculas y minúsculas en MySQL lo tendría que revisar a ver si sigue siendo cierto o tiene solución.
+
+## Funciones de comprobación de datos (tablas-comprobaciones.php)
 
 * [2021-04-07] Hacer que login utilice también comprobación de datos
 
 * [2021-04-07] La comprobación de datos que estoy haciendo no contempla que un campo se llame de la misma forma en dos tablas distintas. Por ejemplo, no se podría comprobar si existe un registro con el id recogido. La solución parece que tendrá que ser enviar la tabla y el campo.
 
-* [2021-04-07] La comprobación de datos que estoy haciendo es individual. Si quiero hacer una comprobación de grupo (por ejemplo, que estén todos los campos rellenados), no podría hacerlo. Esas comprobaciones parece que se tendrían que gestionar al margen de las comprobaciones individuales.
+* [2021-04-09] En las páginas, después de las comprobaciones campoOk hago a veces otras comprobaciones adicionales. Por ejemplo en borrar-2.php se comprueba que no se ha elegido el registro root. Esas comprobaciones también parece que se tendrían que gestionar al margen de las comprobaciones individuales.
 
-* [2021-04-07] En las páginas, después de las comprobaciones campoOk hago a veces otras comprobaciones adicionales. Por ejemplo en borrar-2.php se comprueba que no se ha elegido el campo root. Esas comprobaciones también parece que se tendrían que gestionar al margen de las comprobaciones individuales.
+* [2021-04-09] Los avisos generales deberían ser una matriz, porque puede haber varios.
 
+* [2021-04-09] Aclarar qué hacer con las comprobaciones de id (si existe un registro, por ejemplo). Tendría que enviar el nombre de la tabla.
+
+* [2021-04-09] Tanto compruebaAvisosIndividuales como compruebaAvisosGenerales recogen los datos.
+
+* [2021-04-09] Igual en las comprobaciones habría que distinguir entre errores (error en la consulta, por ejemplo) y avisos (falta un campo, etc.) y hacer un log de los errores
+
+* [2021-04-09] Estaría bien que al volver a un formulario por detectar errores, el cursor se colocara en el primer campo incorrecto, no en el primer campo del formulario.
+
+* [2021-04-10] La gestión de los avisos no tiene en cuenta la tabla que los ha generado. A la hora de descartar los avisos, igual sería conveniente que se tuviera en cuenta no sólo la página, si no también la tabla.
+
+* [2021-04-10] Las comprobaciones individuales no son siempre las mismas. Por ejemplo, en Usuarios para insertar los campos no pueden estar vacíos, pero para buscar sí. Lo que he hecho es dejar buscar-2, como estaba, sin usar comprobacionesIndividuales(), ya que simplemente se usaba recoge(). Pero para otras situaciones debería distinguir cada caso.
 
 ## POR CLASIFICAR
 - La fecha de préstamo es obligatoria. No se puede dejar a cero.

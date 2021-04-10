@@ -14,21 +14,19 @@ if (!isset($_SESSION["conectado"]) || $_SESSION["conectado"] < NIVEL_3) {
     exit;
 }
 
-$pdo = conectaDb();
 cabecera("Personas - Modificar 1", MENU_PERSONAS, PROFUNDIDAD_2);
 
-$ordena = recogeValores("ordena", $db["columnasPersonasOrden"], "apellidos ASC");
-$id     = recoge("id");
+borraAvisos();
+compruebaAvisosGenerales("modificar-1", "sinRegistros", "personas");
 
-$consulta = "SELECT COUNT(*) FROM $db[tablaPersonas]";
-$result   = $pdo->query($consulta);
-if (!$result) {
-    print "    <p class=\"aviso\">Error en la consulta.</p>\n";
-} elseif ($result->fetchColumn() == 0) {
-    print "    <p>No se ha creado todavía ningún registro.</p>\n";
-} else {
+if (!imprimeAvisosGenerales()) {
+    $ordena = recogeValores("ordena", $db["columnasPersonasOrden"], "apellidos ASC");
+    $id     = recoge("id");
+
+    $pdo = conectaDb();
+
     $consulta = "SELECT * FROM $db[tablaPersonas]
-        ORDER BY $ordena";
+                 ORDER BY $ordena";
     $result = $pdo->query($consulta);
     if (!$result) {
         print "    <p class=\"aviso\">Error en la consulta.</p>\n";
@@ -91,7 +89,7 @@ if (!$result) {
         print "      </p>\n";
         print "    </form>\n";
     }
+    $pdo = null;
 }
 
-$pdo = null;
 pie();

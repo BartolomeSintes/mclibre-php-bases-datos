@@ -14,114 +14,61 @@ if (!isset($_SESSION["conectado"]) || $_SESSION["conectado"] < NIVEL_3) {
     exit;
 }
 
-$pdo = conectaDb();
+borraAvisos();
+[$id_persona, $id_obra, $prestado, $devuelto, $id] = compruebaAvisosIndividuales("modificar-3", "id_persona", "id_obra", "prestado", "devuelto", "id");
+compruebaAvisosGenerales("modificar-3", "fechasCrecientes", "prestado", "devuelto");
+
+if (isset($_SESSION["error"])) {
+    header("Location:modificar-2.php");
+    exit();
+}
+
 cabecera("Préstamos - Modificar 3", MENU_PRESTAMOS, PROFUNDIDAD_2);
 
-$id_persona = recoge("id_persona");
-$id_obra    = recoge("id_obra");
-$prestado   = recoge("prestado");
-$devuelto   = recoge("devuelto");
-$id         = recoge("id");
-
-$id_personaOk = false;
-$id_obraOk    = false;
-$prestadoOk   = false;
-$devueltoOk   = false;
-$idOk         = false;
-
-$consulta = "SELECT COUNT(*) FROM $db[tablaPersonas]
-    WHERE id=:id_persona";
-$result = $pdo->prepare($consulta);
-$result->execute([":id_persona" => $id_persona]);
-if (!$result) {
-    print "    <p class=\"aviso\">Error en la consulta.</p>\n";
-} elseif ($result->fetchColumn() == 0) {
-    print "    <p class=\"aviso\">La persona seleccionada no existe.</p>\n";
+if ($id == "") {
+    print "    <p class=\"aviso\">No se ha seleccionado ningún registro.</p>\n";
 } else {
-    $id_personaOk = true;
-}
+    $pdo = conectaDb();
 
-$consulta = "SELECT COUNT(*) FROM $db[tablaObras]
-    WHERE id=:id_obra";
-$result = $pdo->prepare($consulta);
-$result->execute([":id_obra" => $id_obra]);
-if (!$result) {
-    print "    <p class=\"aviso\">Error en la consulta.</p>\n";
-} elseif ($result->fetchColumn() == 0) {
-    print "    <p class=\"aviso\">La obra seleccionada no existe.</p>\n";
-} else {
-    $id_obraOk = true;
-}
-
-if ($prestado == "" || mb_strlen($prestado, "UTF-8") < TAM_FECHA) {
-    print "    <p class=\"aviso\">La fecha <strong>$prestado</strong> de préstamo no es una fecha válida.</p>\n";
-} elseif (!ctype_digit(substr($prestado, 5, 2)) || !ctype_digit(substr($prestado, 8, 2)) || !ctype_digit(substr($prestado, 0, 4))) {
-    print "    <p class=\"aviso\">La fecha <strong>$prestado</strong> de préstamo no es una fecha válida.</p>\n";
-} elseif (!checkdate(substr($prestado, 5, 2), substr($prestado, 8, 2), substr($prestado, 0, 4))) {
-    print "    <p class=\"aviso\">La fecha <strong>$prestado</strong> de préstamo no es una fecha válida.</p>\n";
-} else {
-    $prestadoOk = true;
-}
-
-if ($devuelto == "") {
-    $devuelto   = "0000-00-00";
-    $devueltoOk = true;
-} elseif (mb_strlen($devuelto, "UTF-8") < TAM_FECHA) {
-    print "    <p class=\"aviso\">La fecha <strong>$devuelto</strong> de devolución no es una fecha válida.</p>\n";
-} elseif (!ctype_digit(substr($devuelto, 5, 2)) || !ctype_digit(substr($devuelto, 8, 2)) || !ctype_digit(substr($devuelto, 0, 4))) {
-    print "    <p class=\"aviso\">La fecha <strong>$devuelto</strong> de devolución no es una fecha válida.</p>\n";
-} elseif (!checkdate(substr($devuelto, 5, 2), substr($devuelto, 8, 2), substr($devuelto, 0, 4))) {
-    print "    <p class=\"aviso\">La fecha <strong>$devuelto</strong> de devolución no es una fecha válida.</p>\n";
-} elseif ($prestado > $devuelto) {
-    print "    <p class=\"aviso\">La fecha de devolución <strong>$devuelto</strong> es anterior a la de préstamo <strong>$prestado</strong>.</p>\n";
-} else {
-    $devueltoOk = true;
-}
-
-if ($id_personaOk && $id_obraOk && $prestadoOk && $devueltoOk) {
-    if ($id == "") {
-        print "    <p class=\"aviso\">No se ha seleccionado ningún registro.</p>\n";
+    $consulta = "SELECT COUNT(*) FROM $db[tablaPrestamos]
+                 WHERE id=:id";
+    $result = $pdo->prepare($consulta);
+    $result->execute([":id" => $id]);
+    if (!$result) {
+        print "    <p class=\"aviso\">Error en la consulta.</p>\n";
+    } elseif ($result->fetchColumn() == 0) {
+        print "    <p class=\"aviso\">Registro no encontrado.</p>\n";
     } else {
+        // La consulta cuenta los registros con un id diferente porque MySQL no distingue
+        // mayúsculas de minúsculas y si en un registro sólo se cambian mayúsculas por
+        // minúsculas MySQL diría que ya hay un registro como el que se quiere guardar.
         $consulta = "SELECT COUNT(*) FROM $db[tablaPrestamos]
-            WHERE id=:id";
+                     WHERE id_persona=:id_persona
+                     AND id_obra=:id_obra
+                     AND id<>:id";
         $result = $pdo->prepare($consulta);
-        $result->execute([":id" => $id]);
+        $result->execute([":id_persona" => $id_persona, ":id_obra" => $id_obra,
+            ":id"                       => $id, ]);
         if (!$result) {
             print "    <p class=\"aviso\">Error en la consulta.</p>\n";
-        } elseif ($result->fetchColumn() == 0) {
-            print "    <p class=\"aviso\">Registro no encontrado.</p>\n";
+        } elseif ($result->fetchColumn() > 0) {
+            print "    <p class=\"aviso\">Ya existe un registro con esos mismos valores. "
+                . "No se ha guardado la modificación.</p>\n";
         } else {
-            // La consulta cuenta los registros con un id diferente porque MySQL no distingue
-            // mayúsculas de minúsculas y si en un registro sólo se cambian mayúsculas por
-            // minúsculas MySQL diría que ya hay un registro como el que se quiere guardar.
-            $consulta = "SELECT COUNT(*) FROM $db[tablaPrestamos]
-                WHERE id_persona=:id_persona
-                AND id_obra=:id_obra
-                AND id<>:id";
+            $consulta = "UPDATE $db[tablaPrestamos]
+                         SET id_persona=:id_persona, id_obra=:id_obra,
+                             prestado=:prestado, devuelto=:devuelto
+                         WHERE id=:id";
             $result = $pdo->prepare($consulta);
-            $result->execute([":id_persona" => $id_persona, ":id_obra" => $id_obra,
-                ":id"                       => $id, ]);
-            if (!$result) {
-                print "    <p class=\"aviso\">Error en la consulta.</p>\n";
-            } elseif ($result->fetchColumn() > 0) {
-                print "    <p class=\"aviso\">Ya existe un registro con esos mismos valores. "
-                    . "No se ha guardado la modificación.</p>\n";
+            if ($result->execute([":id_persona" => $id_persona, ":id_obra" => $id_obra,
+                ":prestado" => $prestado, ":devuelto" => $devuelto, ":id" => $id, ])) {
+                print "    <p>Registro modificado correctamente.</p>\n";
             } else {
-                $consulta = "UPDATE $db[tablaPrestamos]
-                    SET id_persona=:id_persona, id_obra=:id_obra,
-                        prestado=:prestado, devuelto=:devuelto
-                    WHERE id=:id";
-                $result = $pdo->prepare($consulta);
-                if ($result->execute([":id_persona" => $id_persona, ":id_obra" => $id_obra,
-                    ":prestado" => $prestado, ":devuelto" => $devuelto, ":id" => $id, ])) {
-                    print "    <p>Registro modificado correctamente.</p>\n";
-                } else {
-                    print "    <p class=\"aviso\">Error al modificar el registro.</p>\n";
-                }
+                print "    <p class=\"aviso\">Error al modificar el registro.</p>\n";
             }
         }
     }
+    $pdo = null;
 }
 
-$pdo = null;
 pie();

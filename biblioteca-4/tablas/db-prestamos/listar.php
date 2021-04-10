@@ -14,29 +14,27 @@ if (!isset($_SESSION["conectado"]) || $_SESSION["conectado"] < NIVEL_2) {
     exit;
 }
 
-$pdo = conectaDb();
 cabecera("Préstamos - Listar", MENU_PRESTAMOS, PROFUNDIDAD_2);
 
-$ordena = recogeValores("ordena", $db["columnasPrestamosOrden"], "apellidos ASC");
+borraAvisos();
+compruebaAvisosGenerales("listar", "sinRegistros", "prestamos");
 
-$consulta = "SELECT COUNT(*) FROM $db[tablaPrestamos]";
-$result   = $pdo->query($consulta);
-if (!$result) {
-    print "    <p class=\"aviso\">Error en la consulta.</p>\n";
-} elseif ($result->fetchColumn() == 0) {
-    print "    <p>No se ha creado todavía ningún registro.</p>\n";
-} else {
+if (!imprimeAvisosGenerales()) {
+    $ordena = recogeValores("ordena", $db["columnasPrestamosOrden"], "apellidos ASC");
+
+    $pdo = conectaDb();
+
     $consulta = "SELECT $db[tablaPrestamos].id as id,
-            $db[tablaPersonas].nombre as nombre,
-            $db[tablaPersonas].apellidos as apellidos,
-            $db[tablaObras].titulo as titulo,
-            $db[tablaObras].autor as autor,
-            $db[tablaPrestamos].prestado as prestado,
-            $db[tablaPrestamos].devuelto as devuelto
-        FROM $db[tablaPersonas], $db[tablaObras], $db[tablaPrestamos]
-        WHERE $db[tablaPrestamos].id_persona=$db[tablaPersonas].id
-        AND $db[tablaPrestamos].id_obra=$db[tablaObras].id
-        ORDER BY $ordena";
+                     $db[tablaPersonas].nombre as nombre,
+                     $db[tablaPersonas].apellidos as apellidos,
+                     $db[tablaObras].titulo as titulo,
+                     $db[tablaObras].autor as autor,
+                     $db[tablaPrestamos].prestado as prestado,
+                     $db[tablaPrestamos].devuelto as devuelto
+                 FROM $db[tablaPersonas], $db[tablaObras], $db[tablaPrestamos]
+                 WHERE $db[tablaPrestamos].id_persona=$db[tablaPersonas].id
+                 AND $db[tablaPrestamos].id_obra=$db[tablaObras].id
+                 ORDER BY $ordena";
     $result = $pdo->query($consulta);
     if (!$result) {
         print "    <p class=\"aviso\">Error en la consulta.</p>\n";
@@ -106,7 +104,7 @@ if (!$result) {
         print "      </table>\n";
         print "    </form>\n";
     }
+    $pdo = null;
 }
 
-$pdo = null;
 pie();

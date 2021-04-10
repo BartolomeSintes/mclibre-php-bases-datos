@@ -14,16 +14,28 @@ if (!isset($_SESSION["conectado"]) || $_SESSION["conectado"] < NIVEL_3) {
     exit;
 }
 
-$pdo = conectaDb();
 cabecera("Personas - Modificar 2", MENU_PERSONAS, PROFUNDIDAD_2);
 
-$id = recoge("id");
+borraAvisos("modificar-3");
+
+imprimeAvisosGenerales();
+
+// Si en modificar-3 se detecta un error, al volver a modificar-2 se necesita recuperar el id
+if (isset($_SESSION["error"]["id"])) {
+    $id = $_SESSION["error"]["id"]["valor"];
+} elseif (isset($_SESSION["ok"]["id"])) {
+    $id = $_SESSION["ok"]["id"]["valor"];
+} else {
+    $id = recoge("id");
+}
 
 if ($id == "") {
     print "    <p class=\"aviso\">No se ha seleccionado ningún registro.</p>\n";
 } else {
+    $pdo = conectaDb();
+
     $consulta = "SELECT COUNT(*) FROM $db[tablaPersonas]
-       WHERE id=:id";
+                 WHERE id=:id";
     $result = $pdo->prepare($consulta);
     $result->execute([":id" => $id]);
     if (!$result) {
@@ -32,7 +44,7 @@ if ($id == "") {
         print "    <p class=\"aviso\">Registro no encontrado.</p>\n";
     } else {
         $consulta = "SELECT * FROM $db[tablaPersonas]
-            WHERE id=:id";
+                     WHERE id=:id";
         $result = $pdo->prepare($consulta);
         $result->execute([":id" => $id]);
         if (!$result) {
@@ -46,15 +58,30 @@ if ($id == "") {
             print "        <tbody>\n";
             print "          <tr>\n";
             print "            <td>Nombre:</td>\n";
-            print "            <td><input type=\"text\" name=\"nombre\" size=\"$db[tamPersonasNombre]\" maxlength=\"$db[tamPersonasNombre]\" value=\"$valor[nombre]\" autofocus></td>\n";
+            if (isset($_SESSION["error"]["nombre"])) {
+                print "            <td><input type=\"text\" name=\"nombre\" size=\"$db[tamPersonasNombre]\" maxlength=\"$db[tamPersonasNombre]\""
+                . imprimeAvisosIndividuales("nombre", "valor") . " autofocus>" . imprimeAvisosIndividuales("nombre", "mensaje") . "</td>\n";
+            } else {
+                print "            <td><input type=\"text\" name=\"nombre\" size=\"$db[tamPersonasNombre]\" maxlength=\"$db[tamPersonasNombre]\" value=\"$valor[nombre]\"></td>\n";
+            }
             print "          </tr>\n";
             print "          <tr>\n";
             print "            <td>Apellidos:</td>\n";
-            print "            <td><input type=\"text\" name=\"apellidos\" size=\"$db[tamPersonasApellidos]\" maxlength=\"$db[tamPersonasApellidos]\" value=\"$valor[apellidos]\"></td>\n";
+            if (isset($_SESSION["error"]["apellidos"])) {
+                print "            <td><input type=\"text\" name=\"apellidos\" size=\"$db[tamPersonasApellidos]\" maxlength=\"$db[tamPersonasApellidos]\""
+                . imprimeAvisosIndividuales("apellidos", "valor") . ">" . imprimeAvisosIndividuales("apellidos", "mensaje") . "</td>\n";
+            } else {
+                print "            <td><input type=\"text\" name=\"apellidos\" size=\"$db[tamPersonasApellidos]\" maxlength=\"$db[tamPersonasApellidos]\" value=\"$valor[apellidos]\"></td>\n";
+            }
             print "          </tr>\n";
             print "          <tr>\n";
             print "            <td>DNI:</td>\n";
-            print "            <td><input type=\"text\" name=\"dni\" size=\"$db[tamPersonasDni]\" maxlength=\"$db[tamPersonasDni]\" value=\"$valor[dni]\"></td>\n";
+            if (isset($_SESSION["error"]["dni"])) {
+                print "            <td><input type=\"text\" name=\"dni\" size=\"$db[tamPersonasDni]\" maxlength=\"$db[tamPersonasDni]\""
+                . imprimeAvisosIndividuales("dni", "valor") . ">" . imprimeAvisosIndividuales("dni", "mensaje") . "</td>\n";
+            } else {
+                print "            <td><input type=\"text\" name=\"dni\" size=\"$db[tamPersonasDni]\" maxlength=\"$db[tamPersonasDni]\" value=\"$valor[dni]\"></td>\n";
+            }
             print "          </tr>\n";
             print "        </tbody>\n";
             print "      </table>\n";
@@ -67,7 +94,7 @@ if ($id == "") {
             print "    </form>\n";
         }
     }
+    $pdo = null;
 }
 
-$pdo = null;
 pie();

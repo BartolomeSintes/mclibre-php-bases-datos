@@ -10,24 +10,22 @@ require_once "../../comunes/biblioteca.php";
 session_name($cfg["sessionName"]);
 session_start();
 if (!isset($_SESSION["conectado"]) || $_SESSION["conectado"] < NIVEL_1) {
-    header("Location:../index.php");
+    header("Location:../../index.php");
     exit;
 }
 
-$pdo = conectaDb();
 cabecera("Obras - Listar", MENU_OBRAS, PROFUNDIDAD_2);
 
-$ordena = recogeValores("ordena", $db["columnasObrasOrden"], "titulo ASC");
+borraAvisos();
+compruebaAvisosGenerales("listar", "sinRegistros", "obras");
 
-$consulta = "SELECT COUNT(*) FROM $db[tablaObras]";
-$result   = $pdo->query($consulta);
-if (!$result) {
-    print "    <p class=\"aviso\">Error en la consulta.</p>\n";
-} elseif ($result->fetchColumn() == 0) {
-    print "    <p>No se ha creado todavía ningún registro.</p>\n";
-} else {
+if (!imprimeAvisosGenerales()) {
+    $ordena = recogeValores("ordena", $db["columnasObrasOrden"], "titulo ASC");
+
+    $pdo = conectaDb();
+
     $consulta = "SELECT * FROM $db[tablaObras]
-        ORDER BY $ordena";
+                 ORDER BY $ordena";
     $result = $pdo->query($consulta);
     if (!$result) {
         print "    <p class=\"aviso\">Error en la consulta.</p>\n";
@@ -79,7 +77,7 @@ if (!$result) {
         print "      </table>\n";
         print "    </form>\n";
     }
+    $pdo = null;
 }
 
-$pdo = null;
 pie();

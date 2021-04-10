@@ -133,7 +133,7 @@ $_SESSION["dia"]  = $dia;
 calendario($pdo, $_SESSION["anyo"], $_SESSION["mes"], $_SESSION["dia"], "SELECT COUNT(*) FROM $db[tablaPrestamos] WHERE prestado=");
 
 $consulta = "SELECT COUNT(*) FROM $db[tablaPrestamos]
-    WHERE prestado=:prestado";
+             WHERE prestado=:prestado";
 $result = $pdo->prepare($consulta);
 $result->execute([":prestado" => $fecha]);
 if (!$result) {
@@ -142,17 +142,17 @@ if (!$result) {
     print "    <p>Haga clic en los días del mes con enlaces para ver los préstamos realizados en ese día.</p>\n";
 } else {
     $consulta = "SELECT $db[tablaPrestamos].id as id,
-            $db[tablaPersonas].nombre as nombre,
-            $db[tablaPersonas].apellidos as apellidos,
-            $db[tablaObras].titulo as titulo,
-            $db[tablaObras].autor as autor,
-            $db[tablaPrestamos].prestado as prestado,
-            $db[tablaPrestamos].devuelto as devuelto
-        FROM $db[tablaPersonas], $db[tablaObras], $db[tablaPrestamos]
-        WHERE $db[tablaPrestamos].id_persona=$db[tablaPersonas].id
-        AND $db[tablaPrestamos].id_obra=$db[tablaObras].id
-        AND prestado=:prestado
-        ORDER BY $ordena";
+                     $db[tablaPersonas].nombre as nombre,
+                     $db[tablaPersonas].apellidos as apellidos,
+                     $db[tablaObras].titulo as titulo,
+                     $db[tablaObras].autor as autor,
+                     $db[tablaPrestamos].prestado as prestado,
+                     $db[tablaPrestamos].devuelto as devuelto
+                 FROM $db[tablaPersonas], $db[tablaObras], $db[tablaPrestamos]
+                 WHERE $db[tablaPrestamos].id_persona=$db[tablaPersonas].id
+                 AND $db[tablaPrestamos].id_obra=$db[tablaObras].id
+                 AND prestado=:prestado
+                 ORDER BY $ordena";
     $result = $pdo->prepare($consulta);
     $result->execute([":prestado" => $fecha]);
     if (!$result) {

@@ -14,13 +14,18 @@ if (!isset($_SESSION["conectado"]) || $_SESSION["conectado"] < NIVEL_3) {
     exit;
 }
 
-$pdo = conectaDb();
 cabecera("Préstamos - Devolver 1", MENU_PRESTAMOS, PROFUNDIDAD_2);
+
+borraAvisos("devolver-2");
+
+imprimeAvisosGenerales();
 
 $ordena = recogeValores("ordena", $db["columnasPrestamosOrden"], "autor ASC");
 
+$pdo = conectaDb();
+
 $consulta = "SELECT COUNT(*) FROM $db[tablaPrestamos]
-    WHERE devuelto='0000-00-00'";
+             WHERE devuelto='0000-00-00'";
 $result = $pdo->query($consulta);
 if (!$result) {
     print "    <p class=\"aviso\">Error en la consulta.</p>\n";
@@ -28,17 +33,17 @@ if (!$result) {
     print "    <p>No hay obras pendientes de devolución.</p>\n";
 } else {
     $consulta = "SELECT $db[tablaPrestamos].id as id,
-            $db[tablaPersonas].nombre as nombre,
-            $db[tablaPersonas].apellidos as apellidos,
-            $db[tablaObras].titulo as titulo,
-            $db[tablaObras].autor as autor,
-            $db[tablaPrestamos].prestado as prestado,
-            $db[tablaPrestamos].devuelto as devuelto
-        FROM $db[tablaPersonas], $db[tablaObras], $db[tablaPrestamos]
-        WHERE $db[tablaPrestamos].id_persona=$db[tablaPersonas].id
-        AND $db[tablaPrestamos].id_obra=$db[tablaObras].id
-        AND $db[tablaPrestamos].devuelto='0000-00-00'
-        ORDER BY $ordena";
+                     $db[tablaPersonas].nombre as nombre,
+                     $db[tablaPersonas].apellidos as apellidos,
+                     $db[tablaObras].titulo as titulo,
+                     $db[tablaObras].autor as autor,
+                     $db[tablaPrestamos].prestado as prestado,
+                     $db[tablaPrestamos].devuelto as devuelto
+                 FROM $db[tablaPersonas], $db[tablaObras], $db[tablaPrestamos]
+                 WHERE $db[tablaPrestamos].id_persona=$db[tablaPersonas].id
+                 AND $db[tablaPrestamos].id_obra=$db[tablaObras].id
+                 AND $db[tablaPrestamos].devuelto='0000-00-00'
+                 ORDER BY $ordena";
     $result = $pdo->query($consulta);
     if (!$result) {
         print "    <p class=\"aviso\">Error en la consulta.</p>\n";
@@ -51,7 +56,7 @@ if (!$result) {
         print "          <tr>\n";
         print "            <td>Préstamo:</td>\n";
         print "            <td>\n";
-        print "            <select name=\"id\">\n";
+        print "            <select name=\"id_prestamo\">\n";
         print "                <option value=\"\"></option>\n";
         foreach ($result as $valor) {
             print "                <option value=\"$valor[id]\">$valor[nombre] $valor[apellidos] - $valor[autor] - $valor[titulo] - $valor[prestado]</option>\n";

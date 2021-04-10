@@ -14,7 +14,6 @@ if (!isset($_SESSION["conectado"]) || $_SESSION["conectado"] < NIVEL_2) {
     exit;
 }
 
-$pdo = conectaDb();
 cabecera("Préstamos - Buscar 2", MENU_PRESTAMOS, PROFUNDIDAD_2);
 
 $nombre     = recoge("nombre");
@@ -27,11 +26,13 @@ $devuelto_1 = recoge("devuelto_1");
 $devuelto_2 = recoge("devuelto_2");
 $ordena     = recogeValores("ordena", $db["columnasPrestamosOrden"], "apellidos ASC");
 
+$pdo = conectaDb();
+
 // El número de parámetros en execute debe coincidir con el número de parámetros en la consulta.
 $consultaPrestado = "";
 $consultaDevuelto = "";
-$parametros = [":nombre" => "%$nombre%", ":apellidos" => "%$apellidos%",
-    ":autor"             => "%$autor%", ":titulo" => "%$titulo%", ];
+$parametros       = [":nombre" => "%$nombre%", ":apellidos" => "%$apellidos%",
+    ":autor"                   => "%$autor%", ":titulo" => "%$titulo%", ];
 
 if ($prestado_1 != "" && $prestado_2 != "") {
     $consultaPrestado          = "AND $db[tablaPrestamos].prestado BETWEEN :prestado_1 AND :prestado_2 ";
@@ -58,15 +59,15 @@ if ($devuelto_1 != "" && $devuelto_2 != "") {
 }
 
 $consulta = "SELECT COUNT(*)
-    FROM $db[tablaPersonas], $db[tablaObras], $db[tablaPrestamos]
-    WHERE $db[tablaPrestamos].id_persona=$db[tablaPersonas].id
-    AND $db[tablaPrestamos].id_obra=$db[tablaObras].id
-    AND $db[tablaPersonas].nombre LIKE :nombre
-    AND $db[tablaPersonas].apellidos LIKE :apellidos
-    AND $db[tablaObras].autor LIKE :autor
-    AND $db[tablaObras].titulo LIKE :titulo "
-    . $consultaPrestado
-    . $consultaDevuelto;
+             FROM $db[tablaPersonas], $db[tablaObras], $db[tablaPrestamos]
+             WHERE $db[tablaPrestamos].id_persona=$db[tablaPersonas].id
+             AND $db[tablaPrestamos].id_obra=$db[tablaObras].id
+             AND $db[tablaPersonas].nombre LIKE :nombre
+             AND $db[tablaPersonas].apellidos LIKE :apellidos
+             AND $db[tablaObras].autor LIKE :autor
+             AND $db[tablaObras].titulo LIKE :titulo "
+             . $consultaPrestado
+             . $consultaDevuelto;
 
 $result = $pdo->prepare($consulta);
 $result->execute($parametros);
@@ -76,22 +77,22 @@ if (!$result) {
     print "    <p>No se han encontrado registros.</p>\n";
 } else {
     $consulta = "SELECT $db[tablaPrestamos].id as id,
-        $db[tablaPersonas].nombre as nombre,
-        $db[tablaPersonas].apellidos as apellidos,
-        $db[tablaObras].titulo as titulo,
-        $db[tablaObras].autor as autor,
-        $db[tablaPrestamos].prestado as prestado,
-        $db[tablaPrestamos].devuelto as devuelto
-        FROM $db[tablaPersonas], $db[tablaObras], $db[tablaPrestamos]
-        WHERE $db[tablaPrestamos].id_persona=$db[tablaPersonas].id
-        AND $db[tablaPrestamos].id_obra=$db[tablaObras].id
-        AND $db[tablaPersonas].nombre LIKE :nombre
-        AND $db[tablaPersonas].apellidos LIKE :apellidos
-        AND $db[tablaObras].autor LIKE :autor
-        AND $db[tablaObras].titulo LIKE :titulo "
-        . $consultaPrestado
-        . $consultaDevuelto
-        . " ORDER BY $ordena";
+                 $db[tablaPersonas].nombre as nombre,
+                 $db[tablaPersonas].apellidos as apellidos,
+                 $db[tablaObras].titulo as titulo,
+                 $db[tablaObras].autor as autor,
+                 $db[tablaPrestamos].prestado as prestado,
+                 $db[tablaPrestamos].devuelto as devuelto
+                 FROM $db[tablaPersonas], $db[tablaObras], $db[tablaPrestamos]
+                 WHERE $db[tablaPrestamos].id_persona=$db[tablaPersonas].id
+                 AND $db[tablaPrestamos].id_obra=$db[tablaObras].id
+                 AND $db[tablaPersonas].nombre LIKE :nombre
+                 AND $db[tablaPersonas].apellidos LIKE :apellidos
+                 AND $db[tablaObras].autor LIKE :autor
+                 AND $db[tablaObras].titulo LIKE :titulo "
+                 . $consultaPrestado
+                 . $consultaDevuelto
+                 . " ORDER BY $ordena";
     $result = $pdo->prepare($consulta);
     $result->execute($parametros);
     if (!$result) {

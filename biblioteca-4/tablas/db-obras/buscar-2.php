@@ -14,7 +14,6 @@ if (!isset($_SESSION["conectado"]) || $_SESSION["conectado"] < NIVEL_2) {
     exit;
 }
 
-$pdo = conectaDb();
 cabecera("Obras - Buscar 2", MENU_OBRAS, PROFUNDIDAD_2);
 
 $autor     = recoge("autor");
@@ -22,10 +21,12 @@ $titulo    = recoge("titulo");
 $editorial = recoge("editorial");
 $ordena    = recogeValores("ordena", $db["columnasObrasOrden"], "autor ASC");
 
+$pdo = conectaDb();
+
 $consulta = "SELECT COUNT(*) FROM $db[tablaObras]
-    WHERE autor LIKE :autor
-    AND titulo LIKE :titulo
-    AND editorial LIKE :editorial";
+             WHERE autor LIKE :autor
+             AND titulo LIKE :titulo
+             AND editorial LIKE :editorial";
 $result = $pdo->prepare($consulta);
 $result->execute([":autor" => "%$autor%", ":titulo" => "%$titulo%",
     ":editorial"           => "%$editorial%", ]);
@@ -35,10 +36,10 @@ if (!$result) {
     print "    <p>No se han encontrado registros.</p>\n";
 } else {
     $consulta = "SELECT * FROM $db[tablaObras]
-        WHERE autor LIKE :autor
-        AND titulo LIKE :titulo
-        AND editorial LIKE :editorial
-        ORDER BY $ordena";
+                 WHERE autor LIKE :autor
+                 AND titulo LIKE :titulo
+                 AND editorial LIKE :editorial
+                 ORDER BY $ordena";
     $result = $pdo->prepare($consulta);
     $result->execute([":autor" => "%$autor%", ":titulo" => "%$titulo%",
         ":editorial"           => "%$editorial%", ]);

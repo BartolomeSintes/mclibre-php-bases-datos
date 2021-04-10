@@ -7,8 +7,12 @@ El formato se basa en [Keep a Changelog](https://keepachangelog.com/en/1.0.0/).
 Este changelog incluye los cambios hechos en Biblioteca-3, Biblioteca-4, etc.
 
 
-## 2021-04-10
-
+## 2021-04-11
+### Changed (Modificado)
+- Gran parte de las comprobaciones iniciales se hacen ahora a través de funciones (en comunes/tablas-comprobaciones.php)
+    - compruebaAvisosIndividuales(): recoge y comprueba cada control (menos las matrices de ids)
+    - compruebaAvisosGenerales(): hace comprobaciones generales (que no haya todavía registros, que se haya superado el límite de registros, que sean todos vacíos, etc.)
+- Si se generan avisos al recibir un formulario, se redirecciona al formulario y se muestran en él. Falta incluir los avisos relacionados con los ids (no se han seleccionado registros, no se encuentran, etc.)
 ### Fixed (Corregido)
 - [sqlite] Añado PRAGMA foreign_keys para que haga caso de las restricciones ON ... CASCADE
 

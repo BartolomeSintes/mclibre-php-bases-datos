@@ -14,16 +14,12 @@ if (!isset($_SESSION["conectado"]) || $_SESSION["conectado"] < NIVEL_2) {
     exit;
 }
 
-$pdo = conectaDb();
 cabecera("Obras - Buscar 1", MENU_OBRAS, PROFUNDIDAD_2);
 
-$consulta = "SELECT COUNT(*) FROM $db[tablaObras]";
-$result   = $pdo->query($consulta);
-if (!$result) {
-    print "    <p class=\"aviso\">Error en la consulta.</p>\n";
-} elseif ($result->fetchColumn() == 0) {
-    print "    <p>No se ha creado todavía ningún registro.</p>\n";
-} else {
+borraAvisos("buscar-2");
+compruebaAvisosGenerales("buscar-1", "sinRegistros", "obras");
+
+if (!imprimeAvisosGenerales()) {
     print "    <form action=\"buscar-2.php\" method=\"$cfg[formMethod]\">\n";
     print "      <p>Escriba el criterio de búsqueda (caracteres o números):</p>\n";
     print "\n";

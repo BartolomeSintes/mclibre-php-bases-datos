@@ -132,8 +132,8 @@ function existenTablas($pdo, $nombresTablas)
                 // de la base de datos, así que lo elimino
                 $tabla    = str_replace($cfg["mysqlDatabase"] . ".", "", $tabla);
                 $consulta = "SELECT count(*) FROM information_schema.tables
-                WHERE table_schema = '" . $cfg["mysqlDatabase"] . "'
-                    AND table_name = '$tabla'";
+                             WHERE table_schema = '" . $cfg["mysqlDatabase"] . "'
+                             AND table_name = '$tabla'";
                 $result = $pdo->query($consulta);
                 if (!$result) {
                     $existe = false;

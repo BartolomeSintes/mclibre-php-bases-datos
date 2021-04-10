@@ -14,7 +14,6 @@ if (!isset($_SESSION["conectado"]) || $_SESSION["conectado"] < NIVEL_2) {
     exit;
 }
 
-$pdo = conectaDb();
 cabecera("Personas - Buscar 2", MENU_PERSONAS, PROFUNDIDAD_2);
 
 $nombre    = recoge("nombre");
@@ -22,10 +21,12 @@ $apellidos = recoge("apellidos");
 $dni       = recoge("dni");
 $ordena    = recogeValores("ordena", $db["columnasPersonasOrden"], "apellidos ASC");
 
+$pdo = conectaDb();
+
 $consulta = "SELECT COUNT(*) FROM $db[tablaPersonas]
-    WHERE nombre LIKE :nombre
-    AND apellidos LIKE :apellidos
-    AND dni LIKE :dni";
+             WHERE nombre LIKE :nombre
+             AND apellidos LIKE :apellidos
+             AND dni LIKE :dni";
 $result = $pdo->prepare($consulta);
 $result->execute([":nombre" => "%$nombre%", ":apellidos" => "%$apellidos%",
     ":dni"                  => "%$dni%", ]);
@@ -35,10 +36,10 @@ if (!$result) {
     print "    <p>No se han encontrado registros.</p>\n";
 } else {
     $consulta = "SELECT * FROM $db[tablaPersonas]
-        WHERE nombre LIKE :nombre
-        AND apellidos LIKE :apellidos
-        AND dni LIKE :dni
-        ORDER BY $ordena";
+                 WHERE nombre LIKE :nombre
+                 AND apellidos LIKE :apellidos
+                 AND dni LIKE :dni
+                 ORDER BY $ordena";
     $result = $pdo->prepare($consulta);
     $result->execute([":nombre" => "%$nombre%", ":apellidos" => "%$apellidos%",
         ":dni"                  => "%$dni%", ]);

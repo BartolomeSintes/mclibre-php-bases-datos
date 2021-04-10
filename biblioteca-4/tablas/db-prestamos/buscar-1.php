@@ -14,16 +14,12 @@ if (!isset($_SESSION["conectado"]) || $_SESSION["conectado"] < NIVEL_2) {
     exit;
 }
 
-$pdo = conectaDb();
 cabecera("Préstamos - Buscar 1", MENU_PRESTAMOS, PROFUNDIDAD_2);
 
-$consulta = "SELECT COUNT(*) FROM $db[tablaPrestamos]";
-$result   = $pdo->query($consulta);
-if (!$result) {
-    print "    <p class=\"aviso\">Error en la consulta.</p>\n";
-} elseif ($result->fetchColumn() == 0) {
-    print "    <p>No se ha creado todavía ningún registro.</p>\n";
-} else {
+borraAvisos("buscar-2");
+compruebaAvisosGenerales("buscar-1", "sinRegistros", "prestamos");
+
+if (!imprimeAvisosGenerales()) {
     print "    <form action=\"buscar-2.php\" method=\"$cfg[formMethod]\">\n";
     print "      <p>Escriba el criterio de búsqueda (caracteres o números):</p>\n";
     print "\n";
@@ -39,7 +35,7 @@ if (!$result) {
     print "          </tr>\n";
     print "          <tr>\n";
     print "            <td>Obra - Autor:</td>\n";
-    print "            <td><input type=\"text\" name=\"autor\" size=\"$db[tamObrasAutor]\" maxlength=\"$db[tamObrasAutor]\" autofocus></td>\n";
+    print "            <td><input type=\"text\" name=\"autor\" size=\"$db[tamObrasAutor]\" maxlength=\"$db[tamObrasAutor]\"></td>\n";
     print "          </tr>\n";
     print "          <tr>\n";
     print "            <td>Obra - Título:</td>\n";

@@ -14,11 +14,17 @@ if (!isset($_SESSION["conectado"]) || $_SESSION["conectado"] < NIVEL_3) {
     exit;
 }
 
-$pdo = conectaDb();
 cabecera("Usuarios - Modificar 2", MENU_USUARIOS, PROFUNDIDAD_2);
 
-if (isset($_SESSION["error"])){
+borraAvisos("modificar-3");
+
+imprimeAvisosGenerales();
+
+// Si en modificar-3 se detecta un error, al volver a modificar-2 se necesita recuperar el id
+if (isset($_SESSION["error"]["id"])) {
     $id = $_SESSION["error"]["id"]["valor"];
+} elseif (isset($_SESSION["ok"]["id"])) {
+    $id = $_SESSION["ok"]["id"]["valor"];
 } else {
     $id = recoge("id");
 }
@@ -26,8 +32,10 @@ if (isset($_SESSION["error"])){
 if ($id == "") {
     print "    <p class=\"aviso\">No se ha seleccionado ningún registro.</p>\n";
 } else {
+    $pdo = conectaDb();
+
     $consulta = "SELECT COUNT(*) FROM $db[tablaUsuarios]
-       WHERE id=:id";
+                 WHERE id=:id";
     $result = $pdo->prepare($consulta);
     $result->execute([":id" => $id]);
     if (!$result) {
@@ -36,7 +44,7 @@ if ($id == "") {
         print "    <p class=\"aviso\">Registro no encontrado.</p>\n";
     } else {
         $consulta = "SELECT * FROM $db[tablaUsuarios]
-            WHERE id=:id";
+                     WHERE id=:id";
         $result = $pdo->prepare($consulta);
         $result->execute([":id" => $id]);
         if (!$result) {
@@ -54,15 +62,15 @@ if ($id == "") {
                 print "          <tr>\n";
                 print "            <td>Usuario:</td>\n";
                 if (isset($_SESSION["error"]["usuario"])) {
-                    print "            <td><input type=\"text\" name=\"usuario\" size=\"$db[tamUsuariosUsuario]\" maxlength=\"$db[tamUsuariosUsuario]\" value=\"{$_SESSION["error"]["usuario"]["valor"]}\" autofocus>\n";
-                    print "              <span class=\"aviso\">{$_SESSION["error"]["usuario"]["mensaje"]}</span></td>\n";
+                    print "            <td><input type=\"text\" name=\"usuario\" size=\"$db[tamUsuariosUsuario]\" maxlength=\"$db[tamUsuariosUsuario]\""
+                    . imprimeAvisosIndividuales("usuario", "valor") . " autofocus>" . imprimeAvisosIndividuales("usuario", "mensaje") . "</td>\n";
                 } else {
-                print "            <td><input type=\"text\" name=\"usuario\" size=\"$db[tamUsuariosUsuario]\" maxlength=\"$db[tamUsuariosUsuario]\" value=\"$valor[usuario]\" autofocus></td>\n";
+                    print "            <td><input type=\"text\" name=\"usuario\" size=\"$db[tamUsuariosUsuario]\" maxlength=\"$db[tamUsuariosUsuario]\" value=\"$valor[usuario]\"></td>\n";
                 }
                 print "          </tr>\n";
                 print "          <tr>\n";
                 print "            <td>Contraseña:</td>\n";
-                print "            <td><input type=\"text\" name=\"password\" size=\"$db[tamUsuariosPassword]\" maxlength=\"$db[tamUsuariosPassword]\"></td>\n";
+                print "            <td><input type=\"text\" name=\"password\" size=\"$db[tamUsuariosPassword]\" maxlength=\"$db[tamUsuariosPassword]\">" . imprimeAvisosIndividuales("password", "mensaje") . "</td>\n";
                 print "          </tr>\n";
                 print "          <tr>\n";
                 print "            <td>Nivel:</td>\n";
@@ -75,7 +83,7 @@ if ($id == "") {
                     }
                     print ">$indice2</option>\n";
                 }
-                print "              </select>\n";
+                print "              </select>" . imprimeAvisosIndividuales("nivel", "mensaje") . "\n";
                 print "            </td>\n";
                 print "          </tr>\n";
                 print "        </tbody>\n";
@@ -90,7 +98,7 @@ if ($id == "") {
             }
         }
     }
+    $pdo = null;
 }
 
-$pdo = null;
 pie();
