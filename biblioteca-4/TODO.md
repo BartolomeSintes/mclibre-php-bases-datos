@@ -14,6 +14,8 @@ Estas son algunas de las cosas que me quedan por hacer y que podrían hacerse en
 
 * [2010-04-10] El comentario que tengo en modificar-3 sobre mayúsculas y minúsculas en MySQL lo tendría que revisar a ver si sigue siendo cierto o tiene solución.
 
+* [2010-04-11] En Borrar todo podría preguntar si se quieren insertar registros de prueba.
+
 ## Funciones de comprobación de datos (tablas-comprobaciones.php)
 
 * [2021-04-07] Hacer que login utilice también comprobación de datos

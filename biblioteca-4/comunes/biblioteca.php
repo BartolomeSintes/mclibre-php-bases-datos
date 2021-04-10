@@ -139,6 +139,40 @@ function recogeValores($var, $valoresValidos, $valorPredeterminado)
     return $valorPredeterminado;
 }
 
+function compruebaSesion($nivel, $profundidad)
+{
+    global $cfg;
+
+    session_name($cfg["sessionName"]);
+    session_start();
+    if (!isset($_SESSION["conectado"]) || $_SESSION["conectado"] < $nivel) {
+        $destino = "Location:";
+        for ($i = 0; $i < $profundidad; $i++) {
+            $destino .= "../";
+        }
+        $destino .= "index.php";
+        header($destino);
+        exit;
+    }
+}
+
+function compruebaNoSesion($profundidad)
+{
+    global $cfg;
+
+    session_name($cfg["sessionName"]);
+    session_start();
+    if (isset($_SESSION["conectado"])) {
+        $destino = "Location:";
+        for ($i = 0; $i < $profundidad; $i++) {
+            $destino .= "../";
+        }
+        $destino .= "index.php";
+        header($destino);
+        exit;
+    }
+}
+
 function cabecera($texto, $menu, $profundidadDirectorio)
 {
     print "<!DOCTYPE html>\n";
@@ -278,7 +312,7 @@ function pie()
     print "  <footer>\n";
     print "    <p class=\"ultmod\">\n";
     print "      Última modificación de esta página:\n";
-    print "      <time datetime=\"2021-04-10\">10 de abril de 2021</time>\n";
+    print "      <time datetime=\"2021-04-11\">11 de abril de 2021</time>\n";
     print "    </p>\n";
     print "\n";
     print "    <p class=\"licencia\">\n";

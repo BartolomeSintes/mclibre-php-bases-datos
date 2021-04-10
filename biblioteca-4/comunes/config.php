@@ -29,8 +29,8 @@ $cfg["maxRegTablePrestamos"] = 999;                         // Número máximo d
 
 $cfg["maxRegTablaActivado"] = true;                         // Limita o no el número de registros máximo por tabla
 $cfg["maxRegTabla"]         = [
-    "usuarios"  => 3,                                     // Número máximo de registros en la tabla Usuarios
-    "personas"  => 3,                                     // Número máximo de registros en la tabla Usuarios
+    "usuarios"  => 999,                                     // Número máximo de registros en la tabla Usuarios
+    "personas"  => 999,                                     // Número máximo de registros en la tabla Usuarios
     "obras"     => 999,                                     // Número máximo de registros en la tabla Usuarios
     "prestamos" => 999,                                     // Número máximo de registros en la tabla Usuarios
 ];

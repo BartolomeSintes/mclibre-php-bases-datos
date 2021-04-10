@@ -7,12 +7,7 @@
 
 require_once "../../comunes/biblioteca.php";
 
-session_name($cfg["sessionName"]);
-session_start();
-if (!isset($_SESSION["conectado"]) || $_SESSION["conectado"] < NIVEL_3) {
-    header("Location:../../index.php");
-    exit;
-}
+compruebaSesion(NIVEL_3, PROFUNDIDAD_2);
 
 $pdo = conectaDb();
 cabecera("Personas - Borrar 2", MENU_PERSONAS, PROFUNDIDAD_2);

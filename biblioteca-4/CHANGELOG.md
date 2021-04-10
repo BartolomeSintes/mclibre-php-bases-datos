@@ -8,15 +8,20 @@ Este changelog incluye los cambios hechos en Biblioteca-3, Biblioteca-4, etc.
 
 
 ## 2021-04-11
+
 ### Changed (Modificado)
 - Gran parte de las comprobaciones iniciales se hacen ahora a través de funciones (en comunes/tablas-comprobaciones.php)
     - compruebaAvisosIndividuales(): recoge y comprueba cada control (menos las matrices de ids)
     - compruebaAvisosGenerales(): hace comprobaciones generales (que no haya todavía registros, que se haya superado el límite de registros, que sean todos vacíos, etc.)
 - Si se generan avisos al recibir un formulario, se redirecciona al formulario y se muestran en él. Falta incluir los avisos relacionados con los ids (no se han seleccionado registros, no se encuentran, etc.)
+- Creo funciones compruebaSesion() y compruebaNoSesion() para comprobar el nivel de usuario y redireccionar si no tiene el nivel suficiente.
+
 ### Fixed (Corregido)
 - [sqlite] Añado PRAGMA foreign_keys para que haga caso de las restricciones ON ... CASCADE
 
+
 ## 2021-04-08
+
 ### Changed (Modificado)
 - Incorporo los cambios hechos en biblioteca-3
     - Paso $tamFecha a constante TAM_FECHA.
@@ -25,11 +30,15 @@ Este changelog incluye los cambios hechos en Biblioteca-3, Biblioteca-4, etc.
     - Defino la profundidad de nivel de las páginas como constantes (PROFUNDIDAD_0, etc.) para que al llamar a la función cabecera el argumento se entienda mejor.
     - Las constantes de nivel de usuario (NIVEL_) estaban definidas como cadenas ("1", etc). Las cambio a enterros (1, etc.).
 
+
 ## 2021-04-06
+
 ### Changed (Modificado)
 - Biblioteca-4 está hecho a partir de Biblioteca-3 de los apuntes de PHP
 
+
 ## 2021-04-06
+
 ### Changed (Modificado)
 - Biblioteca-3 está hecho a partir de Biblioteca-2 de los apuntes de PHP
 - Las páginas que gestionan las tablas las he movido a un directorio tablas

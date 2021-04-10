@@ -7,12 +7,7 @@
 
 require_once "../comunes/biblioteca.php";
 
-session_name($cfg["sessionName"]);
-session_start();
-if (isset($_SESSION["conectado"])) {
-    header("Location:../index.php");
-    exit();
-}
+compruebaNoSesion(PROFUNDIDAD_1);
 
 $usuario  = recoge("usuario");
 $password = recoge("password");

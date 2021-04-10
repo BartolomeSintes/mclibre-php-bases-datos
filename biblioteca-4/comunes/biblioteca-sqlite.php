@@ -62,7 +62,11 @@ $db["consultasBorraTodo"] = [
 
 $db["consultasValoresDemo"] = [
     "INSERT INTO $db[tablaUsuarios]
-        VALUES (2,'pepe','7c9e7c1494b2684ab7c19d6aff737e460fa9e98d5a234da1310c97ddf5691834',1)",
+        VALUES (2,'pepe','7c9e7c1494b2684ab7c19d6aff737e460fa9e98d5a234da1310c97ddf5691834', 1)",
+    "INSERT INTO $db[tablaUsuarios]
+        VALUES (3,'basico','b1bbef3b6a1cb6f98a451620e6b59f6329e17fa692b48aa148816c71ef08798f', 1)",
+    "INSERT INTO $db[tablaUsuarios]
+        VALUES (4,'avanzado','ab7aa4a533c4160bdf3fbe6b29469c00caf0886692d884c78fc4c0beb03b33c1', 2)",
     "INSERT INTO $db[tablaPersonas]
         VALUES (1,'Pepito','Conejo','123A')",
     "INSERT INTO $db[tablaPersonas]
