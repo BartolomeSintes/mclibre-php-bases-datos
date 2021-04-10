@@ -18,10 +18,15 @@ $db["tablaPrestamos"] = "prestamos";  // Nombre de la tabla Préstamos
 
 $db["consultasBorraTodo"] = [
     // Borra tablas
+    // En SQLite la condición IF EXISTS falla si está habilitada la restricción FOREIGN_KEYS.
+    // Como en cada conexión tengo que habilitarla para que funcionen los ON CASCADE,
+    // aquí tengo que deshabilitarla y habilitarla
+    "PRAGMA foreign_keys = OFF",
     "DROP TABLE IF EXISTS $db[tablaUsuarios]",
     "DROP TABLE IF EXISTS $db[tablaPersonas]",
     "DROP TABLE IF EXISTS $db[tablaObras]",
     "DROP TABLE IF EXISTS $db[tablaPrestamos]",
+    "PRAGMA foreign_keys = ON",
     // Crea tablas
     "CREATE TABLE $db[tablaUsuarios] (
         id INTEGER PRIMARY KEY,
@@ -47,7 +52,7 @@ $db["consultasBorraTodo"] = [
         id_obra INTEGER UNSIGNED,
         prestado DATE,
         devuelto DATE,
-        FOREIGN KEY(id_persona) REFERENCES $db[tablaPersonas](id) ON DELETE CASCADE ON UPDATE CASCADE
+        FOREIGN KEY(id_persona) REFERENCES $db[tablaPersonas](id) ON DELETE CASCADE ON UPDATE CASCADE,
         FOREIGN KEY(id_obra) REFERENCES $db[tablaObras](id) ON DELETE CASCADE ON UPDATE CASCADE
     )",
     // Inserta usuario root
@@ -86,6 +91,9 @@ function conectaDb()
 
     try {
         $tmp = new PDO("sqlite:" . $cfg["sqliteDatabase"]);
+        // En SQLite la restricción FOREIGN KEY no está habilitada por defecto, así que tengo que habilitarla en cada conexión
+        $consulta = "PRAGMA foreign_keys = ON";
+        $result   = $tmp->query($consulta);
         return $tmp;
     } catch (PDOException $e) {
         cabecera("Error grave", MENU_VOLVER, PROFUNDIDAD_1);

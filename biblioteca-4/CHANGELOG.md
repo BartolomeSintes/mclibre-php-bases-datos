@@ -6,6 +6,12 @@ El formato se basa en [Keep a Changelog](https://keepachangelog.com/en/1.0.0/).
 
 Este changelog incluye los cambios hechos en Biblioteca-3, Biblioteca-4, etc.
 
+
+## 2021-04-10
+
+### Fixed (Corregido)
+- [sqlite] Añado PRAGMA foreign_keys para que haga caso de las restricciones ON ... CASCADE
+
 ## 2021-04-08
 ### Changed (Modificado)
 - Incorporo los cambios hechos en biblioteca-3
