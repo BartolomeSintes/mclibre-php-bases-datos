@@ -306,7 +306,7 @@ function compruebaAvisosGenerales()
 
     if ($tipoComprobacion == "fechasCrecientes2") {
         // Devuelve true si fecha es anterior a la fecha del registro del préstamo
-        $pdo   = conectaDb();
+        $pdo         = conectaDb();
         $id_prestamo = recoge($argumentos[0]);
         $devuelto    = recoge($argumentos[1]);
         $consulta    = "SELECT prestado FROM $db[tablaPrestamos]

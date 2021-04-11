@@ -23,11 +23,9 @@ if (!existenTablas($pdo, $db["tablas"])) {
     borraTodo($pdo);
 }
 
-$aviso = recoge("aviso");
-if ($aviso) {
-    print "    <p class=\"aviso\">$aviso</p>\n";
-    print "\n";
-}
+borraAvisos("login-2");
+imprimeAvisosGenerales();
+
 print "    <form action=\"login-2.php\" method=\"$cfg[formMethod]\">\n";
 print "      <p>Escriba su nombre de usuario y contraseña:</p>\n";
 print "\n";

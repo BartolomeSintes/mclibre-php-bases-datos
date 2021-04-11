@@ -14,27 +14,32 @@ $password = recoge("password");
 
 $pdo = conectaDb();
 
+borraAvisos();
 if (!$usuario) {
-    header("Location:login-1.php?aviso=Error: Nombre de usuario no permitido");
-    exit();
+    $_SESSION["error"]["avisoGeneral"]["mensaje"] = "Escriba el nombre del usuario";
+} else {
+    $consulta = "SELECT * FROM $db[tablaUsuarios]
+                 WHERE usuario=:usuario";
+    $result = $pdo->prepare($consulta);
+    $result->execute([":usuario" => $usuario]);
+    if (!$result) {
+        $_SESSION["error"]["avisoGeneral"]["mensaje"] = "Error en la consulta";
+    } else {
+        $valor = $result->fetch();
+        if ($valor["password"] != encripta($password)) {
+            $_SESSION["error"]["avisoGeneral"]["mensaje"] = "Nombre de usuario y/o contraseña incorrectos";
+        }
+    }
 }
 
-$consulta = "SELECT * FROM $db[tablaUsuarios]
-             WHERE usuario=:usuario";
-$result = $pdo->prepare($consulta);
-$result->execute([":usuario" => $usuario]);
-if (!$result) {
-    header("Location:login-1.php?aviso=Error: Error en la consulta");
-    exit();
-}
+$pdo = null;
 
-$valor = $result->fetch();
-if ($valor["password"] != encripta($password)) {
-    header("Location:login-1.php?aviso=Error: Nombre de usuario y/o contraseña incorrectos");
+if (isset($_SESSION["error"])) {
+    $_SESSION["error"]["origen"] = "login-2";
+    header("Location:login-1.php");
     exit();
 }
 
 $_SESSION["conectado"] = $valor["nivel"];
-$pdo                    = null;
 header("Location:../index.php");
 exit();
