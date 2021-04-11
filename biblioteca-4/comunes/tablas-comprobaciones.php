@@ -333,7 +333,8 @@ function compruebaAvisosGenerales()
 function imprimeAvisosGenerales()
 {
     if (isset($_SESSION["error"]["avisoGeneral"]) && $_SESSION["error"]["avisoGeneral"]["mensaje"] != "") {
-        print "    <p><span class=\"aviso\">{$_SESSION["error"]["avisoGeneral"]["mensaje"]}</span>";
+        print "    <p class=\"aviso\">{$_SESSION["error"]["avisoGeneral"]["mensaje"]}</p>\n";
+        print "\n";
         return true;
     }
     return false;

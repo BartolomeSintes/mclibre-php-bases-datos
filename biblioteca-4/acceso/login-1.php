@@ -9,18 +9,16 @@ require_once "../comunes/biblioteca.php";
 
 compruebaNoSesion(PROFUNDIDAD_1);
 
-$pdo = conectaDb();
-
 cabecera("Login 1", MENU_VOLVER, PROFUNDIDAD_1);
 
-if (!existenTablas($pdo, $db["tablas"])) {
+if (!existenTablas()) {
     if ($cfg["insertaRegistrosDemo"]) {
         print "  <p>La base de datos no estaba creada. Se ha creado la base de datos, insertando registros de prueba.</p>\n";
     } else {
         print "<p>La base de datos no estaba creada. Se ha creado la base de datos.</p>\n";
     }
     print "\n";
-    borraTodo($pdo);
+    borraTodo($cfg["insertaRegistrosDemo"]);
 }
 
 borraAvisos("login-2");
@@ -51,5 +49,3 @@ print "      </p>\n";
 print "    </form>\n";
 
 pie();
-
-$pdo = null;

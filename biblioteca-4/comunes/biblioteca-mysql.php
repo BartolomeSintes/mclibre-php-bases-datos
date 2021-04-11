@@ -56,29 +56,6 @@ $db["consultasBorraTodo"] = [
         VALUES (NULL, '$cfg[rootName]', '$cfg[rootPassword]', $usuariosNiveles[Administrador])",
 ];
 
-$db["consultasValoresDemo"] = [
-    "INSERT INTO $db[tablaUsuarios]
-        VALUES (2,'pepe','7c9e7c1494b2684ab7c19d6aff737e460fa9e98d5a234da1310c97ddf5691834',1)",
-    "INSERT INTO $db[tablaPersonas]
-        VALUES (1,'Pepito','Conejo','123A')",
-    "INSERT INTO $db[tablaPersonas]
-        VALUES (2,'Juan','Nadie','9876X')",
-    "INSERT INTO $db[tablaObras]
-        VALUES (1,'Miguel de Cervantes','Don Quijote','Cátedra')",
-    "INSERT INTO $db[tablaObras]
-        VALUES (2,'Jorge Luis Borges','Ficciones','Ed Sudamericana')",
-    "INSERT INTO $db[tablaPrestamos]
-        VALUES (1, 1, 1,'" . date("Y-m-d", time() - 4 * 60 * 60 * 24) . "','" . date("Y-m-d", time() - 3 * 60 * 60 * 24) . "')",
-    "INSERT INTO $db[tablaPrestamos]
-        VALUES (2, 2, 2,'" . date("Y-m-d", time() - 4 * 60 * 60 * 24) . "','" . date("Y-m-d", time() - 2 * 60 * 60 * 24) . "')",
-    "INSERT INTO $db[tablaPrestamos]
-        VALUES (3, 2, 1,'" . date("Y-m-d", time() - 1 * 60 * 60 * 24) . "','0000-00-00')",
-];
-
-if ($cfg["insertaRegistrosDemo"]) {
-    $db["consultasBorraTodo"] = array_merge($db["consultasBorraTodo"], $db["consultasValoresDemo"]);
-}
-
 // Funciones específicas de bases de datos (MYSQL)
 
 function conectaDb()
@@ -100,21 +77,11 @@ function conectaDb()
     }
 }
 
-function borraTodo($pdo)
+function existenTablas()
 {
-    global $db;
+    global $cfg, $db;
 
-    foreach ($db["consultasBorraTodo"] as $consulta) {
-        if (!$pdo->query($consulta)) {
-            print "    <p class=\"aviso\">Error en la consulta: $consulta</p>\n";
-            print "\n";
-        }
-    }
-}
-
-function existenTablas($pdo, $nombresTablas)
-{
-    global $cfg;
+    $pdo = conectaDb();
 
     $existe   = true;
     $consulta = "SELECT count(*) FROM INFORMATION_SCHEMA.SCHEMATA WHERE SCHEMA_NAME = '" . $cfg["mysqlDatabase"] . "'";
@@ -127,7 +94,7 @@ function existenTablas($pdo, $nombresTablas)
         if ($result->fetchColumn() == 0) {
             $existe = false;
         } else {
-            foreach ($nombresTablas as $tabla) {
+            foreach ($db["tablas"] as $tabla) {
                 // En information_schema.tables los nombres de las tablas no llevan el nombre
                 // de la base de datos, así que lo elimino
                 $tabla    = str_replace($cfg["mysqlDatabase"] . ".", "", $tabla);
@@ -147,5 +114,7 @@ function existenTablas($pdo, $nombresTablas)
             }
         }
     }
+
+    $pdo = null;
     return $existe;
 }

@@ -9,22 +9,22 @@ require_once "../comunes/biblioteca.php";
 
 compruebaSesion(NIVEL_3, PROFUNDIDAD_1);
 
-if (!isset($_REQUEST["si"])) {
+$borrar = recoge("borrar");
+$demo = recoge("demo");
+
+if ($borrar != "Sí") {
     header("Location:index.php");
     exit();
 }
 
-$pdo = conectaDb();
-
 cabecera("Administrador - Borrar todo 2", MENU_ADMINISTRADOR, PROFUNDIDAD_1);
 
-if ($cfg["insertaRegistrosDemo"]) {
+if ($demo == "on") {
     print "  <p>Base de datos creada, insertando registros de prueba.</p>\n";
 } else {
     print "  <p>Base de datos creada.</p>\n";
 }
 
-borraTodo($pdo);
+borraTodo($demo == "on");
 
-$pdo = null;
 pie();

@@ -14,13 +14,13 @@ $db["tablaPersonas"]  = "personas";   // Nombre de la tabla Personas
 $db["tablaObras"]     = "obras";      // Nombre de la tabla Obras
 $db["tablaPrestamos"] = "prestamos";  // Nombre de la tabla Préstamos
 
-// Consultas de borrado y creación de base de datos y tablas, etc.
+// Consultas de borrado y creación de base de datos y tablas
 
 $db["consultasBorraTodo"] = [
     // Borra tablas
     // En SQLite la condición IF EXISTS falla si está habilitada la restricción FOREIGN_KEYS.
     // Como en cada conexión tengo que habilitarla para que funcionen los ON CASCADE,
-    // aquí tengo que deshabilitarla y habilitarla
+    // aquí tengo que deshabilitarla, borrar las tablas y habilitarla de nuevo
     "PRAGMA foreign_keys = OFF",
     "DROP TABLE IF EXISTS $db[tablaUsuarios]",
     "DROP TABLE IF EXISTS $db[tablaPersonas]",
@@ -60,33 +60,6 @@ $db["consultasBorraTodo"] = [
         VALUES (NULL, '$cfg[rootName]', '$cfg[rootPassword]', $usuariosNiveles[Administrador])",
 ];
 
-$db["consultasValoresDemo"] = [
-    "INSERT INTO $db[tablaUsuarios]
-        VALUES (2,'pepe','7c9e7c1494b2684ab7c19d6aff737e460fa9e98d5a234da1310c97ddf5691834', 1)",
-    "INSERT INTO $db[tablaUsuarios]
-        VALUES (3,'basico','b1bbef3b6a1cb6f98a451620e6b59f6329e17fa692b48aa148816c71ef08798f', 1)",
-    "INSERT INTO $db[tablaUsuarios]
-        VALUES (4,'avanzado','ab7aa4a533c4160bdf3fbe6b29469c00caf0886692d884c78fc4c0beb03b33c1', 2)",
-    "INSERT INTO $db[tablaPersonas]
-        VALUES (1,'Pepito','Conejo','123A')",
-    "INSERT INTO $db[tablaPersonas]
-        VALUES (2,'Juan','Nadie','9876X')",
-    "INSERT INTO $db[tablaObras]
-        VALUES (1,'Miguel de Cervantes','Don Quijote','Cátedra')",
-    "INSERT INTO $db[tablaObras]
-        VALUES (2,'Jorge Luis Borges','Ficciones','Ed Sudamericana')",
-    "INSERT INTO $db[tablaPrestamos]
-        VALUES (1, 1, 1,'" . date("Y-m-d", time() - 4 * 60 * 60 * 24) . "','" . date("Y-m-d", time() - 3 * 60 * 60 * 24) . "')",
-    "INSERT INTO $db[tablaPrestamos]
-        VALUES (2, 2, 2,'" . date("Y-m-d", time() - 4 * 60 * 60 * 24) . "','" . date("Y-m-d", time() - 2 * 60 * 60 * 24) . "')",
-    "INSERT INTO $db[tablaPrestamos]
-        VALUES (3, 2, 1,'" . date("Y-m-d", time() - 1 * 60 * 60 * 24) . "','0000-00-00')",
-];
-
-if ($cfg["insertaRegistrosDemo"]) {
-    $db["consultasBorraTodo"] = array_merge($db["consultasBorraTodo"], $db["consultasValoresDemo"]);
-}
-
 // Funciones específicas de bases de datos (SQLITE)
 
 function conectaDb()
@@ -109,22 +82,13 @@ function conectaDb()
     }
 }
 
-function borraTodo($pdo)
+function existenTablas()
 {
     global $db;
 
-    foreach ($db["consultasBorraTodo"] as $consulta) {
-        if (!$pdo->query($consulta)) {
-            print "    <p class=\"aviso\">Error en la consulta: $consulta</p>\n";
-            print "\n";
-        }
-    }
-}
-
-function existenTablas($pdo, $nombresTablas)
-{
+    $pdo = conectaDb();
     $existe = true;
-    foreach ($nombresTablas as $tabla) {
+    foreach ($db["tablas"] as $tabla) {
         $consulta = "SELECT count(*) FROM sqlite_master WHERE type='table' AND name='$tabla'";
         $result   = $pdo->query($consulta);
         if (!$result) {
@@ -137,5 +101,6 @@ function existenTablas($pdo, $nombresTablas)
             }
         }
     }
+    $pdo = null;
     return $existe;
 }

@@ -7,11 +7,34 @@
 
 // Constantes comunes
 
+// Valores de atributo form de formularios
+
 define("GET", "get");                   // Formularios se envían con GET
 define("POST", "post");                 // Formularios se envían con POST
 
+// Opciones de la función borraTodo()
+
+define("DEMO_SI", true);                // Sí incluye valores de prueba en la base de datos al crearla
+define("DEMO_NO", false);               // No incluye valores de prueba en la base de datos al crearla
+
+// Profundidad de nivel de la página
+
+define("PROFUNDIDAD_0", 0);             // Profundidad de nivel de la página: directorio raíz
+define("PROFUNDIDAD_1", 1);             // Profundidad de nivel de la página: subdirectorio
+define("PROFUNDIDAD_2", 2);             // Profundidad de nivel de la página: sub-subdirectorio
+define("PROFUNDIDAD_3", 3);             // Profundidad de nivel de la página: sub-sub-subdirectorio
+
+// Nombres de las bases de datos
+
 define("MYSQL", "MySQL");               // Base de datos MySQL
 define("SQLITE", "SQLite");             // Base de datos SQLITE
+
+// Algoritmos de hash
+
+define("SHA_256", "sha256");            // Nombres de los algoritmos de hash
+$hashSizes = [SHA_256 => 64];           // Tamaños de los valores hash
+
+// Nombres de los menús
 
 define("MENU_PRINCIPAL", "menuPrincipal");                     // Menú principal sin conectar
 define("MENU_PRINCIPAL_CONECTADO", "menuPrincipalConectado");  // Menú principal conectado
@@ -21,11 +44,6 @@ define("MENU_ADMINISTRADOR", "menuAdministrador");             // Menú Administ
 define("MENU_PERSONAS", "menuPersonas");                       // Menú Personas
 define("MENU_OBRAS", "menuObras");                             // Menú Obras
 define("MENU_PRESTAMOS", "menuPrestamos");                     // Menú Préstamos
-
-// Algoritmos de hash
-
-define("SHA_256", "sha256");            // Nombres de los algoritmos de hash
-$hashSizes = [SHA_256 => 64];           // Tamaños de los valores hash
 
 // Niveles de usuarios
 
@@ -39,13 +57,6 @@ $usuariosNiveles = [
     "Administrador"    => NIVEL_3,
 ];
 
-// Profundidad
-
-define("PROFUNDIDAD_0", 0);             // Profundidad de nivel de la página: directorio raíz
-define("PROFUNDIDAD_1", 1);             // Profundidad de nivel de la página: subdirectorio
-define("PROFUNDIDAD_2", 2);             // Profundidad de nivel de la página: sub-subdirectorio
-define("PROFUNDIDAD_3", 3);             // Profundidad de nivel de la página: sub-sub-subdirectorio
-
 // Constantes y variables configurables
 
 require_once "config.php";
@@ -54,19 +65,17 @@ require_once "config.php";
 
 define("TAM_FECHA", 10);                 // Longitud de una cadena de fecha (AAAA-MM-DD)
 
-// Tamaño de campos
+// Tamaño de los campos en la base de datos
 
 $db["tamUsuariosUsuario"]         = 20;                // Tamaño de la columna Usuarios > Nombre de Usuario
 $db["tamUsuariosPasswordCifrado"] = $cfg["hashSize"];  // Tamaño de la columna Usuarios > Contraseña de Usuario cifrada
 $db["tamUsuariosPassword"]        = 20;                // Tamaño de la Contraseña de Usuario en el formulario
-
-$db["tamPersonasNombre"]    = 40;        // Tamaño de la columna Personas > Nombre
-$db["tamPersonasApellidos"] = 60;        // Tamaño de la columna Personas > Apellidos
-$db["tamPersonasDni"]       = 9;         // Tamaño de la columna Personas > DNI
-
-$db["tamObrasAutor"]     = 60;           // Tamaño de la columna Obras > Autor
-$db["tamObrasTitulo"]    = 60;           // Tamaño de la columna Obras > Titulo
-$db["tamObrasEditorial"] = 20;           // Tamaño de la columna Obras > Editorial
+$db["tamPersonasNombre"]          = 40;                // Tamaño de la columna Personas > Nombre
+$db["tamPersonasApellidos"]       = 60;                // Tamaño de la columna Personas > Apellidos
+$db["tamPersonasDni"]             = 9;                 // Tamaño de la columna Personas > DNI
+$db["tamObrasAutor"]              = 60;                // Tamaño de la columna Obras > Autor
+$db["tamObrasTitulo"]             = 60;                // Tamaño de la columna Obras > Titulo
+$db["tamObrasEditorial"]          = 20;                // Tamaño de la columna Obras > Editorial
 
 // Biblioteca base de datos
 
@@ -110,6 +119,29 @@ $db["columnasPrestamosOrden"] = [
     "autor ASC", "autor DESC",
     "prestado ASC", "prestado DESC",
     "devuelto ASC", "devuelto DESC",
+];
+
+// Consultas de creación de registros de prueba
+
+$db["consultasValoresDemo"] = [
+    "INSERT INTO $db[tablaUsuarios]
+        VALUES (2,'basico','b1bbef3b6a1cb6f98a451620e6b59f6329e17fa692b48aa148816c71ef08798f', 1)",
+    "INSERT INTO $db[tablaUsuarios]
+        VALUES (3,'avanzado','ab7aa4a533c4160bdf3fbe6b29469c00caf0886692d884c78fc4c0beb03b33c1', 2)",
+    "INSERT INTO $db[tablaPersonas]
+        VALUES (1,'Pepito','Conejo','123A')",
+    "INSERT INTO $db[tablaPersonas]
+        VALUES (2,'Juan','Nadie','9876X')",
+    "INSERT INTO $db[tablaObras]
+        VALUES (1,'Miguel de Cervantes','Don Quijote','Cátedra')",
+    "INSERT INTO $db[tablaObras]
+        VALUES (2,'Jorge Luis Borges','Ficciones','Ed Sudamericana')",
+    "INSERT INTO $db[tablaPrestamos]
+        VALUES (1, 1, 1,'" . date("Y-m-d", time() - 4 * 60 * 60 * 24) . "','" . date("Y-m-d", time() - 3 * 60 * 60 * 24) . "')",
+    "INSERT INTO $db[tablaPrestamos]
+        VALUES (2, 2, 2,'" . date("Y-m-d", time() - 4 * 60 * 60 * 24) . "','" . date("Y-m-d", time() - 2 * 60 * 60 * 24) . "')",
+    "INSERT INTO $db[tablaPrestamos]
+        VALUES (3, 2, 1,'" . date("Y-m-d", time() - 1 * 60 * 60 * 24) . "','0000-00-00')",
 ];
 
 // Funciones comunes
@@ -171,6 +203,28 @@ function compruebaNoSesion($profundidad)
         header($destino);
         exit;
     }
+}
+
+function borraTodo($incluyeDemo)
+{
+    global $db;
+
+    $pdo = conectaDb();
+    foreach ($db["consultasBorraTodo"] as $consulta) {
+        if (!$pdo->query($consulta)) {
+            print "    <p class=\"aviso\">Error en la consulta: $consulta</p>\n";
+            print "\n";
+        }
+    }
+    if ($incluyeDemo) {
+        foreach ($db["consultasValoresDemo"] as $consulta) {
+            if (!$pdo->query($consulta)) {
+                print "    <p class=\"aviso\">Error en la consulta: $consulta</p>\n";
+                print "\n";
+            }
+        }
+    }
+    $pdo = null;
 }
 
 function cabecera($texto, $menu, $profundidadDirectorio)

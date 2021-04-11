@@ -40,9 +40,9 @@ $cfg["maxRegTabla"]         = [
 $cfg["rootName"]     = "root";                                                              // Usuario inicial: Nombre
 $cfg["rootPassword"] = "4813494d137e1631bba301d5acab6e7bb7aa74ce1185d456565ef51d737677b2";  // Usuario inicial: Contraseña
 
-// Inserta registros iniciales de prueba
+// Inserta registros iniciales de prueba al crear la base de datos
 
-$cfg["insertaRegistrosDemo"] = true;                        // Incluye o no los registros de prueba al crear la base de datos
+$cfg["insertaRegistrosDemo"] = DEMO_SI;                     // Incluye registros de prueba. Valores posibles: DEMO_SI, DEMO_NO
 
 // Algoritmo hash para encriptar la contraseña de usuario
 

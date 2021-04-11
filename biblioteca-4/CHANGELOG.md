@@ -15,6 +15,8 @@ Este changelog incluye los cambios hechos en Biblioteca-3, Biblioteca-4, etc.
     - compruebaAvisosGenerales(): hace comprobaciones generales (que no haya todavía registros, que se haya superado el límite de registros, que sean todos vacíos, etc.)
 - Si se generan avisos al recibir un formulario, se redirecciona al formulario y se muestran en él. Falta incluir los avisos relacionados con los ids (no se han seleccionado registros, no se encuentran, etc.)
 - Creo funciones compruebaSesion() y compruebaNoSesion() para comprobar el nivel de usuario y redireccionar si no tiene el nivel suficiente.
+- Login utiliza sesiones para mostrar errores.
+- En el menú Administrador > Borrar todo, añado la opción de incluir o no los registros de prueba.
 
 ### Fixed (Corregido)
 - [sqlite] Añado PRAGMA foreign_keys para que haga caso de las restricciones ON ... CASCADE
