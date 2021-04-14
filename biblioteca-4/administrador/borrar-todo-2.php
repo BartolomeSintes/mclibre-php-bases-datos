@@ -20,9 +20,9 @@ if ($borrar != "Sí") {
 cabecera("Administrador - Borrar todo 2", MENU_ADMINISTRADOR, PROFUNDIDAD_1);
 
 if ($demo == "on") {
-    print "  <p>Base de datos creada, insertando registros de prueba.</p>\n";
+    print "    <p>Base de datos creada, insertando registros de prueba.</p>\n";
 } else {
-    print "  <p>Base de datos creada.</p>\n";
+    print "    <p>Base de datos creada.</p>\n";
 }
 
 borraTodo($demo == "on");

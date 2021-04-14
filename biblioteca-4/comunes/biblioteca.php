@@ -267,7 +267,7 @@ function cabecera($texto, $menu, $profundidadDirectorio)
             print "        <li><a href=\"acceso/login-1.php\">Conectarse</a></li>\n";
         } elseif ($menu == MENU_PRINCIPAL_CONECTADO) {
             print "        <li><a href=\"tablas/db-obras/index.php\">Obras</a></li>\n";
-            print "        <li><a href=\"acceso/logout.php\">Desconectarse</a></li>\n";
+            print "        <li><a href=\"acceso/logout.php\" data-test-id=\"desconectarse\">Desconectarse</a></li>\n";
         } elseif ($menu == MENU_VOLVER) {
             print "        <li><a href=\"../index.php\">Volver</a></li>\n";
         } elseif ($menu == MENU_OBRAS) {
@@ -283,7 +283,7 @@ function cabecera($texto, $menu, $profundidadDirectorio)
             print "        <li><a href=\"tablas/db-personas/index.php\">Personas</a></li>\n";
             print "        <li><a href=\"tablas/db-obras/index.php\">Obras</a></li>\n";
             print "        <li><a href=\"tablas/db-prestamos/index.php\">Préstamos</a></li>\n";
-            print "        <li><a href=\"acceso/logout.php\">Desconectarse</a></li>\n";
+            print "        <li><a href=\"acceso/logout.php\" data-test-id=\"desconectarse\">Desconectarse</a></li>\n";
         } elseif ($menu == MENU_VOLVER) {
             print "        <li><a href=\"../../index.php\">Volver</a></li>\n";
         } elseif ($menu == MENU_PERSONAS) {
@@ -310,7 +310,7 @@ function cabecera($texto, $menu, $profundidadDirectorio)
             print "        <li><a href=\"tablas/db-prestamos/index.php\">Préstamos</a></li>\n";
             print "        <li><a href=\"tablas/db-usuarios/index.php\">Usuarios</a></li>\n";
             print "        <li><a href=\"administrador/index.php\">Administrador</a></li>\n";
-            print "        <li><a href=\"acceso/logout.php\">Desconectarse</a></li>\n";
+            print "        <li><a href=\"acceso/logout.php\" data-test-id=\"desconectarse\">Desconectarse</a></li>\n";
         } elseif ($menu == MENU_VOLVER) {
             print "        <li><a href=\"../../index.php\">Volver</a></li>\n";
         } elseif ($menu == MENU_PERSONAS) {
@@ -366,7 +366,7 @@ function pie()
     print "  <footer>\n";
     print "    <p class=\"ultmod\">\n";
     print "      Última modificación de esta página:\n";
-    print "      <time datetime=\"2021-04-11\">11 de abril de 2021</time>\n";
+    print "      <time datetime=\"2021-04-14\">11 de abril de 2021</time>\n";
     print "    </p>\n";
     print "\n";
     print "    <p class=\"licencia\">\n";

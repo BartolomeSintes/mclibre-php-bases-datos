@@ -10,17 +10,15 @@ Estas son algunas de las cosas que me quedan por hacer y que podrían hacerse en
 
 * [2021-04-08] La profundidad de nivel de las páginas posiblemente se pueda calcular a partir de la url. Así no podría equivocarme al poner el valor (u olvidarme de cambiarlo si muevo una página de nivel).
 
-* [2021-04-10] El bloque inicial de comprobación de nivel, ¿podría ser una función?
-
 * [2021-04-10] El comentario que tengo en modificar-3 sobre mayúsculas y minúsculas en MySQL lo tendría que revisar a ver si sigue siendo cierto o tiene solución.
-
-* [2021-04-11] En Borrar todo podría preguntar si se quieren insertar registros de prueba.
 
 * [2021-04-11] La funión existenTablas() supone que existen y cambia a no. Igual sería mejor suponer que no existen y asegurarse que existen todas. Aunque realmente es lo mismo.
 
-## Funciones de comprobación de datos (tablas-comprobaciones.php)
+* [2021-04-11] Al hacer login, si no se puede conectar con MySQL, la cabecera sale dos veces. Arreglarlo.
 
-* [2021-04-07] Hacer que login utilice también comprobación de datos
+* [2021-04-11] Al modificar fechas, creo que no se pueden dejar en blanco de nuevo. Comprobarlo y arreglarlo.
+
+## Funciones de comprobación de datos (tablas-comprobaciones.php)
 
 * [2021-04-07] La comprobación de datos que estoy haciendo no contempla que un campo se llame de la misma forma en dos tablas distintas. Por ejemplo, no se podría comprobar si existe un registro con el id recogido. La solución parece que tendrá que ser enviar la tabla y el campo.
 

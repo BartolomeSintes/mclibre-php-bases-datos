@@ -1,0 +1,664 @@
+{
+    "id": "mclibre-biblioteca-4-tests",
+    "version": "2.0",
+    "name": "biblioteca-4",
+    "url": "http://localhost",
+    "tests": [
+        {
+            "id": "mclibre-b4-test-1",
+            "name": "Desconexión inicial",
+            "comment": "Se desconecta haciendo clic en Desconectar (si existe).",
+            "commands": [
+                {
+                    "id": "mclibre-b4-t1-1",
+                    "command": "open",
+                    "target": "/mclibre/consultar/php-bases-datos/biblioteca-4/index.php",
+                    "value": ""
+                },
+                {
+                    "id": "mclibre-b4-t1-1b",
+                    "command": "pause",
+                    "target": "",
+                    "value": "5000"
+                },
+                {
+                    "id": "mclibre-b4-t1-2",
+                    "command": "store",
+                    "target": "Desconectarse",
+                    "value": "text1"
+                },
+                {
+                    "id": "mclibre-b4-t1-7",
+                    "command": "executeScript",
+                    "target": "return (document.querySelectorAll('[data-test-id=\"desconectarse\"]').length != 0)",
+					"value": "test"
+                },
+                {
+                    "id": "mclibre-b4-t1-8",
+                    "command": "if",
+                    "target": "${test}",
+                    "value": ""
+                },
+                {
+                    "id": "mclibre-b4-t1-9",
+                    "command": "click",
+                    "target": "linkText=${text1}",
+                    "value": ""
+                },
+                {
+                    "id": "mclibre-b4-t1-10",
+                    "command": "end",
+                    "target": "",
+                    "value": ""
+                }
+            ]
+        },
+        {
+            "id": "mclibre-b4-test-2",
+            "name": "Conexión y desconexión como root",
+            "comment": "Se conecta como root / root. Se desconecta.",
+            "commands": [
+                {
+                    "id": "mclibre-b4-t2-1",
+                    "command": "open",
+                    "target": "/mclibre/consultar/php-bases-datos/biblioteca-4/index.php",
+                    "value": ""
+                },
+                {
+                    "id": "mclibre-b4-t2-2",
+                    "command": "click",
+                    "target": "linkText=Conectarse",
+                    "value": ""
+                },
+                {
+                    "id": "mclibre-b4-t2-3",
+                    "command": "type",
+                    "target": "name=usuario",
+                    "value": "root"
+                },
+                {
+                    "id": "mclibre-b4-t2-4",
+                    "command": "type",
+                    "target": "name=password",
+                    "value": "root"
+                },
+                {
+                    "id": "mclibre-b4-t2-5",
+                    "command": "click",
+                    "target": "xpath=//input[@value='Identificar']",
+                    "value": ""
+                },
+                {
+                    "id": "mclibre-b4-t2-6",
+                    "command": "click",
+                    "target": "linkText=Desconectarse",
+                    "value": ""
+                }
+            ]
+        },
+        {
+            "id": "mclibre-b4-test-3",
+            "name": "Borrar Todo (con registros de prueba)",
+            "comment": "Se conecta como root / root. Abre Administrador > Borrar todo.",
+            "commands": [
+                {
+                    "id": "mclibre-b4-t3-1",
+                    "command": "open",
+                    "target": "/mclibre/consultar/php-bases-datos/biblioteca-4/index.php",
+                    "value": ""
+                },
+                {
+                    "id": "mclibre-b4-t3-2",
+                    "command": "click",
+                    "target": "linkText=Conectarse",
+                    "value": ""
+                },
+                {
+                    "id": "mclibre-b4-t3-3",
+                    "command": "type",
+                    "target": "name=usuario",
+                    "value": "root"
+                },
+                {
+                    "id": "mclibre-b4-t3-4",
+                    "command": "type",
+                    "target": "name=password",
+                    "value": "root"
+                },
+                {
+                    "id": "mclibre-b4-t3-5",
+                    "command": "click",
+                    "target": "xpath=//input[@value='Identificar']",
+                    "value": ""
+                },
+                {
+                    "id": "mclibre-b4-t3-6",
+                    "command": "click",
+                    "target": "linkText=Administrador",
+                    "value": ""
+                },
+                {
+                    "id": "mclibre-b4-t3-7",
+                    "command": "click",
+                    "target": "linkText=Borrar todo",
+                    "value": ""
+                },
+                {
+                    "id": "mclibre-b4-t3-8",
+                    "command": "verify checked",
+                    "target": "name=demo",
+                    "value": ""
+                },
+                {
+                    "id": "mclibre-b4-t3-9",
+                    "command": "click",
+                    "target": "xpath=//input[@value='Sí']",
+                    "value": ""
+                },
+                {
+                    "id": "mclibre-b4-t3-10",
+                    "command": "pause",
+                    "target": "",
+                    "value": "5000"
+                },
+                {
+                    "id": "mclibre-b4-t3-11",
+                    "command": "assertText",
+                    "target": "xpath=//p",
+                    "value": "Base de datos creada, insertando registros de prueba."
+                },
+                {
+                    "id": "mclibre-b4-t3-12",
+                    "command": "click",
+                    "target": "linkText=Volver",
+                    "value": ""
+                }
+            ]
+        },
+        {
+            "id": "mclibre-b4-test-4",
+            "name": "Tabla Personas > Listar",
+            "comment": "Testea opciones tabla Personas > Listar",
+            "commands": [
+                {
+                    "id": "mclibre-b4-t4-1",
+                    "command": "open",
+                    "target": "/mclibre/consultar/php-bases-datos/biblioteca-4/index.php",
+                    "value": ""
+                },
+                {
+                    "id": "mclibre-b4-t3-2",
+                    "command": "click",
+                    "target": "linkText=Personas",
+                    "value": ""
+                },
+                {
+                    "id": "mclibre-b4-t4-3",
+                    "command": "click",
+                    "target": "linkText=Listar",
+                    "value": ""
+                },
+                {
+                    "id": "mclibre-b4-t4-4",
+                    "command": "assertText",
+                    "target": "xpath=//tr[1]/td[1]",
+                    "value": "Pepito"
+                },
+                {
+                    "id": "mclibre-b4-t4-5",
+                    "command": "assertText",
+                    "target": "xpath=//tr[2]/td[1]",
+                    "value": "Juan"
+                },
+                {
+                    "id": "mclibre-b4-t2-6",
+                    "command": "click",
+                    "target": "xpath=//button[@value='nombre ASC']",
+                    "value": ""
+                },
+                {
+                    "id": "mclibre-b4-t4-7",
+                    "command": "assertText",
+                    "target": "xpath=//tr[1]/td[1]",
+                    "value": "Juan"
+                },
+                {
+                    "id": "mclibre-b4-t4-8",
+                    "command": "assertText",
+                    "target": "xpath=//tr[2]/td[1]",
+                    "value": "Pepito"
+                },
+                {
+                    "id": "mclibre-b4-t2-9",
+                    "command": "click",
+                    "target": "xpath=//button[@value='nombre DESC']",
+                    "value": ""
+                },
+                {
+                    "id": "mclibre-b4-t4-10",
+                    "command": "assertText",
+                    "target": "xpath=//tr[1]/td[1]",
+                    "value": "Pepito"
+                },
+                {
+                    "id": "mclibre-b4-t4-11",
+                    "command": "assertText",
+                    "target": "xpath=//tr[2]/td[1]",
+                    "value": "Juan"
+                },
+                {
+                    "id": "mclibre-b4-t2-12",
+                    "command": "click",
+                    "target": "xpath=//button[@value='apellidos DESC']",
+                    "value": ""
+                },
+                {
+                    "id": "mclibre-b4-t4-13",
+                    "command": "assertText",
+                    "target": "xpath=//tr[1]/td[1]",
+                    "value": "Juan"
+                },
+                {
+                    "id": "mclibre-b4-t4-14",
+                    "command": "assertText",
+                    "target": "xpath=//tr[2]/td[1]",
+                    "value": "Pepito"
+                },
+                {
+                    "id": "mclibre-b4-t2-15",
+                    "command": "click",
+                    "target": "xpath=//button[@value='apellidos ASC']",
+                    "value": ""
+                },
+                {
+                    "id": "mclibre-b4-t4-16",
+                    "command": "assertText",
+                    "target": "xpath=//tr[1]/td[1]",
+                    "value": "Pepito"
+                },
+                {
+                    "id": "mclibre-b4-t4-17",
+                    "command": "assertText",
+                    "target": "xpath=//tr[2]/td[1]",
+                    "value": "Juan"
+                },
+                {
+                    "id": "mclibre-b4-t2-18",
+                    "command": "click",
+                    "target": "xpath=//button[@value='dni DESC']",
+                    "value": ""
+                },
+                {
+                    "id": "mclibre-b4-t4-19",
+                    "command": "assertText",
+                    "target": "xpath=//tr[1]/td[1]",
+                    "value": "Juan"
+                },
+                {
+                    "id": "mclibre-b4-t4-20",
+                    "command": "assertText",
+                    "target": "xpath=//tr[2]/td[1]",
+                    "value": "Pepito"
+                },
+                {
+                    "id": "mclibre-b4-t2-21",
+                    "command": "click",
+                    "target": "xpath=//button[@value='dni ASC']",
+                    "value": ""
+                },
+                {
+                    "id": "mclibre-b4-t4-22",
+                    "command": "assertText",
+                    "target": "xpath=//tr[1]/td[1]",
+                    "value": "Pepito"
+                },
+                {
+                    "id": "mclibre-b4-t4-23",
+                    "command": "assertText",
+                    "target": "xpath=//tr[2]/td[1]",
+                    "value": "Juan"
+                }
+            ]
+        },
+        {
+            "id": "mclibre-b4-test-5",
+            "name": "Tabla Personas > Añadir",
+            "comment": "Testea opciones tabla Personas > Añadir",
+            "commands": [
+                {
+                    "id": "mclibre-b4-t5-1",
+                    "command": "open",
+                    "target": "/mclibre/consultar/php-bases-datos/biblioteca-4/index.php",
+                    "value": ""
+                },
+                {
+                    "id": "mclibre-b4-t5-2",
+                    "command": "click",
+                    "target": "linkText=Personas",
+                    "value": ""
+                },
+                {
+                    "id": "mclibre-b4-t5-3",
+                    "command": "click",
+                    "target": "linkText=Añadir registro",
+                    "value": ""
+                },
+                {
+                    "id": "mclibre-b4-t5-4",
+                    "command": "type",
+                    "target": "name=nombre",
+                    "value": "Numa"
+                },
+                {
+                    "id": "mclibre-b4-t5-5",
+                    "command": "type",
+                    "target": "name=apellidos",
+                    "value": "Nigerio"
+                },
+                {
+                    "id": "mclibre-b4-t5-5",
+                    "command": "type",
+                    "target": "name=dni",
+                    "value": "456H"
+                },
+                {
+                    "id": "mclibre-b4-t5-6",
+                    "command": "click",
+                    "target": "xpath=//input[@value='Añadir']",
+                    "value": ""
+                },
+                {
+                    "id": "mclibre-b4-t5-7",
+                    "command": "assertText",
+                    "target": "xpath=//p",
+                    "value": "Registro Numa Nigerio - 456H creado correctamente."
+                },
+                {
+                    "id": "mclibre-b4-t5-8",
+                    "command": "click",
+                    "target": "linkText=Listar",
+                    "value": ""
+                },
+                {
+                    "id": "mclibre-b4-t5-9",
+                    "command": "assertText",
+                    "target": "xpath=//tr[3]/td[1]",
+                    "value": "Numa"
+                }
+            ]
+        },
+        {
+            "id": "mclibre-b4-test-6",
+            "name": "Tabla Personas > Buscar",
+            "comment": "Testea opciones tabla Personas > Buscar",
+            "commands": [
+                {
+                    "id": "mclibre-b4-t6-1",
+                    "command": "open",
+                    "target": "/mclibre/consultar/php-bases-datos/biblioteca-4/index.php",
+                    "value": ""
+                },
+                {
+                    "id": "mclibre-b4-t6-2",
+                    "command": "click",
+                    "target": "linkText=Personas",
+                    "value": ""
+                },
+                {
+                    "id": "mclibre-b4-t6-3",
+                    "command": "click",
+                    "target": "linkText=Buscar",
+                    "value": ""
+                },
+                {
+                    "id": "mclibre-b4-t6-4",
+                    "command": "type",
+                    "target": "name=nombre",
+                    "value": "a"
+                },
+                {
+                    "id": "mclibre-b4-t6-5",
+                    "command": "click",
+                    "target": "xpath=//input[@value='Buscar']",
+                    "value": ""
+                },
+                {
+                    "id": "mclibre-b4-t6-6",
+                    "command": "click",
+                    "target": "xpath=//button[@value='dni ASC']",
+                    "value": ""
+                },
+                {
+                    "id": "mclibre-b4-t6-7",
+                    "command": "assertText",
+                    "target": "xpath=//tr[1]/td[1]",
+                    "value": "Numa"
+                },
+                {
+                    "id": "mclibre-b4-t6-8",
+                    "command": "assertText",
+                    "target": "xpath=//tr[2]/td[1]",
+                    "value": "Juan"
+                },
+                {
+                    "id": "mclibre-b4-t6-9",
+                    "command": "click",
+                    "target": "linkText=Buscar",
+                    "value": ""
+                },
+                {
+                    "id": "mclibre-b4-t6-10",
+                    "command": "type",
+                    "target": "name=nombre",
+                    "value": "y"
+                },
+                {
+                    "id": "mclibre-b4-t6-11",
+                    "command": "click",
+                    "target": "xpath=//input[@value='Buscar']",
+                    "value": ""
+                },
+                {
+                    "id": "mclibre-b4-t6-12",
+                    "command": "assertText",
+                    "target": "xpath=//p",
+                    "value": "No se han encontrado registros."
+                }
+            ]
+        },
+        {
+            "id": "mclibre-b4-test-7",
+            "name": "Tabla Personas > Modificar",
+            "comment": "Testea opciones tabla Personas > Modificar",
+            "commands": [
+                {
+                    "id": "mclibre-b4-t7-1",
+                    "command": "open",
+                    "target": "/mclibre/consultar/php-bases-datos/biblioteca-4/index.php",
+                    "value": ""
+                },
+                {
+                    "id": "mclibre-b4-t7-2",
+                    "command": "click",
+                    "target": "linkText=Personas",
+                    "value": ""
+                },
+                {
+                    "id": "mclibre-b4-t7-3",
+                    "command": "click",
+                    "target": "linkText=Modificar",
+                    "value": ""
+                },
+                {
+                    "id": "mclibre-b4-t7-4",
+                    "command": "click",
+                    "target": "xpath=//input[@value='3']",
+                    "value": ""
+                },
+                {
+                    "id": "mclibre-b4-t7-5",
+                    "command": "click",
+                    "target": "xpath=//input[@value='Modificar registro']",
+                    "value": ""
+                },
+                {
+                    "id": "mclibre-b4-t7-6",
+                    "command": "type",
+                    "target": "name=nombre",
+                    "value": "Cayo"
+                },
+                {
+                    "id": "mclibre-b4-t7-7",
+                    "command": "click",
+                    "target": "xpath=//input[@value='Actualizar']",
+                    "value": ""
+                },
+                {
+                    "id": "mclibre-b4-t7-8",
+                    "command": "assertText",
+                    "target": "xpath=//p",
+                    "value": "Registro modificado correctamente."
+                },
+                {
+                    "id": "mclibre-b4-t7-9",
+                    "command": "click",
+                    "target": "linkText=Listar",
+                    "value": ""
+                },
+                {
+                    "id": "mclibre-b4-t7-10",
+                    "command": "assertText",
+                    "target": "xpath=//tr[3]/td[1]",
+                    "value": "Cayo"
+                }
+            ]
+        },
+        {
+            "id": "mclibre-b4-test-8",
+            "name": "Tabla Personas > Borrar",
+            "comment": "Testea opciones tabla Personas > Borrar",
+            "commands": [
+                {
+                    "id": "mclibre-b4-t8-1",
+                    "command": "open",
+                    "target": "/mclibre/consultar/php-bases-datos/biblioteca-4/index.php",
+                    "value": ""
+                },
+                {
+                    "id": "mclibre-b4-t8-2",
+                    "command": "click",
+                    "target": "linkText=Personas",
+                    "value": ""
+                },
+                {
+                    "id": "mclibre-b4-t8-3",
+                    "command": "click",
+                    "target": "linkText=Borrar",
+                    "value": ""
+                },
+                {
+                    "id": "mclibre-b4-t8-4",
+                    "command": "click",
+                    "target": "xpath=//button[@value='apellidos DESC']",
+                    "value": ""
+                },
+                {
+                    "id": "mclibre-b4-t8-5",
+                    "command": "assertText",
+                    "target": "xpath=//tr[1]/td[2]",
+                    "value": "Cayo"
+                },
+                {
+                    "id": "mclibre-b4-t8-6",
+                    "command": "click",
+                    "target": "name=id[3]",
+                    "value": ""
+                },
+                {
+                    "id": "mclibre-b4-t8-7",
+                    "command": "click",
+                    "target": "xpath=//input[@value='Borrar registro']",
+                    "value": ""
+                },
+                {
+                    "id": "mclibre-b4-t8-8",
+                    "command": "assertText",
+                    "target": "xpath=//p",
+                    "value": "Registro borrado correctamente."
+                },
+                {
+                    "id": "mclibre-b4-t8-9",
+                    "command": "click",
+                    "target": "linkText=Listar",
+                    "value": ""
+                },
+                {
+                    "id": "mclibre-b4-t8-10",
+                    "command": "click",
+                    "target": "xpath=//button[@value='apellidos DESC']",
+                    "value": ""
+                },
+                {
+                    "id": "mclibre-b4-t8-11",
+                    "command": "assertNotText",
+                    "target": "xpath=//tr[1]/td[1]",
+                    "value": "Numa"
+                }
+            ]
+        },
+        {
+            "id": "mclibre-b4-test-9",
+            "name": "Por completar",
+            "comment": "Testea ",
+            "commands": [
+                {
+                    "id": "mclibre-b4-t9-1",
+                    "command": "open",
+                    "target": "/mclibre/consultar/php-bases-datos/biblioteca-4/index.php",
+                    "value": ""
+                },
+                {
+                    "id": "mclibre-b4-t9-2",
+                    "command": "open",
+                    "target": "/mclibre/consultar/php-bases-datos/biblioteca-4/tablas/db-personas/insertar-2.php?nombre=bbb",
+                    "value": ""
+                },
+                {
+                    "id": "mclibre-b4-t9-3",
+                    "command": "click",
+                    "target": "linkText=Personas",
+                    "value": ""
+                },
+                {
+                    "id": "mclibre-b4-t9-4",
+                    "command": "click",
+                    "target": "linkText=Listar",
+                    "value": ""
+                }
+            ]
+        }
+    ],
+    "suites": [
+        {
+            "id": "suite-1",
+            "name": "Default Suite",
+            "persistSession": false,
+            "parallel": false,
+            "timeout": 300,
+            "tests": [
+                "mclibre-b4-test-1",
+                "mclibre-b4-test-2",
+                "mclibre-b4-test-3",
+                "mclibre-b4-test-4",
+                "mclibre-b4-test-5",
+                "mclibre-b4-test-6",
+                "mclibre-b4-test-7",
+                "mclibre-b4-test-8"
+            ]
+        }
+    ],
+    "urls": [
+        "http://localhost/"
+    ],
+    "plugins": []
+}

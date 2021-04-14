@@ -6,10 +6,15 @@ El formato se basa en [Keep a Changelog](https://keepachangelog.com/en/1.0.0/).
 
 Este changelog incluye los cambios hechos en Biblioteca-3, Biblioteca-4, etc.
 
+## 2021-04-14
+
+### Added (Añadido)
+- Añado tests de Selenium para testear la aplicación (por el momento, prueba las opciones básicas de la tabla Personas). Añado atributo data-test-id=\"desconectarse\" a enlace Desconectar para que lo use Selenium (para detectar si está conectado al iniciar el test y en ese caso desconectar).
 
 ## 2021-04-11
 
 ### Changed (Modificado)
+- El límite del número de registros por tabla se puede activar o desactivar con $cfg["maxRegTablaActivado"].
 - Gran parte de las comprobaciones iniciales se hacen ahora a través de funciones (en comunes/tablas-comprobaciones.php)
     - compruebaAvisosIndividuales(): recoge y comprueba cada control (menos las matrices de ids)
     - compruebaAvisosGenerales(): hace comprobaciones generales (que no haya todavía registros, que se haya superado el límite de registros, que sean todos vacíos, etc.)
