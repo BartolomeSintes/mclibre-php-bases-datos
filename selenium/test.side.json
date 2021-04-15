@@ -1,0 +1,569 @@
+{
+    "id": "2ac0f663-e6d9-4f29-b9c2-66a6ec73c872",
+    "version": "2.0",
+    "name": "biblioteca-3",
+    "url": "http://localhost",
+    "tests": [{
+      "id": "0f4c2455-2b77-424d-9d5a-34a7ec7ac1d4",
+      "name": "prueba-1",
+      "commands": [{
+        "id": "cb64f5d6-b292-46b1-9906-d39d5264abd7",
+        "comment": "",
+        "command": "click",
+        "target": "linkText=Conectarse",
+        "targets": [
+          ["linkText=Conectarse", "linkText"],
+          ["css=li > a", "css:finder"],
+          ["xpath=//a[contains(text(),'Conectarse')]", "xpath:link"],
+          ["xpath=//a[contains(@href, 'acceso/login-1.php')]", "xpath:href"],
+          ["xpath=//a", "xpath:position"],
+          ["xpath=//a[contains(.,'Conectarse')]", "xpath:innerText"]
+        ],
+        "value": ""
+      }, {
+        "id": "2ba46990-6cd8-41f2-9976-5dfe30dcf5a5",
+        "comment": "",
+        "command": "type",
+        "target": "name=password",
+        "targets": [
+          ["name=password", "name"],
+          ["css=tr:nth-child(2) input", "css:finder"],
+          ["xpath=//input[@name='password']", "xpath:attributes"],
+          ["xpath=//tr[2]/td[2]/input", "xpath:position"]
+        ],
+        "value": "root"
+      }, {
+        "id": "73844075-cbff-4c60-bbaa-262d006485f2",
+        "comment": "",
+        "command": "type",
+        "target": "name=usuario",
+        "targets": [
+          ["name=usuario", "name"],
+          ["css=tr:nth-child(1) input", "css:finder"],
+          ["xpath=//input[@name='usuario']", "xpath:attributes"],
+          ["xpath=//input", "xpath:position"]
+        ],
+        "value": "root"
+      }, {
+        "id": "abc72e75-f282-4264-acd1-ad3c572990cb",
+        "comment": "",
+        "command": "click",
+        "target": "css=p > input:nth-child(1)",
+        "targets": [
+          ["css=p > input:nth-child(1)", "css:finder"],
+          ["xpath=//input[@value='Identificar']", "xpath:attributes"],
+          ["xpath=//p[2]/input", "xpath:position"]
+        ],
+        "value": ""
+      }, {
+        "id": "de25eb75-68a4-4ca3-87a4-13a735de8265",
+        "comment": "",
+        "command": "open",
+        "target": "/mclibre/consultar/php-bases-datos/bibliotecas/biblioteca-3/index.php",
+        "targets": [],
+        "value": ""
+      }, {
+        "id": "8045b72a-829d-4c93-aff7-ccc9c86f5b9c",
+        "comment": "",
+        "command": "setWindowSize",
+        "target": "1352x733",
+        "targets": [],
+        "value": ""
+      }, {
+        "id": "e60a0d10-a129-44d4-9b50-83d80e231321",
+        "comment": "",
+        "command": "click",
+        "target": "css=ul",
+        "targets": [
+          ["css=ul", "css:finder"],
+          ["xpath=//ul", "xpath:position"],
+          ["xpath=//ul[contains(.,'Conectarse')]", "xpath:innerText"]
+        ],
+        "value": ""
+      }, {
+        "id": "ed4eb86b-74a7-4a03-8db9-3f7121c68548",
+        "comment": "",
+        "command": "click",
+        "target": "linkText=Conectarse",
+        "targets": [
+          ["linkText=Conectarse", "linkText"],
+          ["css=li > a", "css:finder"],
+          ["xpath=//a[contains(text(),'Conectarse')]", "xpath:link"],
+          ["xpath=//a[contains(@href, 'acceso/login-1.php')]", "xpath:href"],
+          ["xpath=//a", "xpath:position"],
+          ["xpath=//a[contains(.,'Conectarse')]", "xpath:innerText"]
+        ],
+        "value": ""
+      }, {
+        "id": "5bd7ac17-aa42-4b8b-a1a6-aebefe370469",
+        "comment": "",
+        "command": "type",
+        "target": "name=password",
+        "targets": [
+          ["name=password", "name"],
+          ["css=tr:nth-child(2) input", "css:finder"],
+          ["xpath=//input[@name='password']", "xpath:attributes"],
+          ["xpath=//tr[2]/td[2]/input", "xpath:position"]
+        ],
+        "value": "root"
+      }, {
+        "id": "086f5950-4714-44d7-9968-d42c999c005b",
+        "comment": "",
+        "command": "type",
+        "target": "name=usuario",
+        "targets": [
+          ["name=usuario", "name"],
+          ["css=tr:nth-child(1) input", "css:finder"],
+          ["xpath=//input[@name='usuario']", "xpath:attributes"],
+          ["xpath=//input", "xpath:position"]
+        ],
+        "value": "root"
+      }, {
+        "id": "cc1b993f-4032-4ff4-90f9-d3ccea5d4a48",
+        "comment": "",
+        "command": "click",
+        "target": "css=p > input:nth-child(1)",
+        "targets": [
+          ["css=p > input:nth-child(1)", "css:finder"],
+          ["xpath=//input[@value='Identificar']", "xpath:attributes"],
+          ["xpath=//p[2]/input", "xpath:position"]
+        ],
+        "value": ""
+      }, {
+        "id": "274ac049-d9e4-4bcf-904d-4929507bfb90",
+        "comment": "",
+        "command": "click",
+        "target": "linkText=Personas",
+        "targets": [
+          ["linkText=Personas", "linkText"],
+          ["css=li:nth-child(1) > a", "css:finder"],
+          ["xpath=//a[contains(text(),'Personas')]", "xpath:link"],
+          ["xpath=//a[contains(@href, 'tablas/db-personas/index.php')]", "xpath:href"],
+          ["xpath=//a", "xpath:position"],
+          ["xpath=//a[contains(.,'Personas')]", "xpath:innerText"]
+        ],
+        "value": ""
+      }, {
+        "id": "553a4827-5d2c-4d19-9f83-bd75f031938e",
+        "comment": "",
+        "command": "click",
+        "target": "linkText=Añadir registro",
+        "targets": [
+          ["linkText=Añadir registro", "linkText"],
+          ["css=li:nth-child(2) > a", "css:finder"],
+          ["xpath=//a[contains(text(),'Añadir registro')]", "xpath:link"],
+          ["xpath=//a[contains(@href, 'insertar-1.php')]", "xpath:href"],
+          ["xpath=//li[2]/a", "xpath:position"],
+          ["xpath=//a[contains(.,'Añadir registro')]", "xpath:innerText"]
+        ],
+        "value": ""
+      }, {
+        "id": "b4092b72-fd5b-4beb-91df-94fb6129fa1b",
+        "comment": "",
+        "command": "click",
+        "target": "name=nombre",
+        "targets": [
+          ["name=nombre", "name"],
+          ["css=tr:nth-child(1) input", "css:finder"],
+          ["xpath=//input[@name='nombre']", "xpath:attributes"],
+          ["xpath=//input", "xpath:position"]
+        ],
+        "value": ""
+      }, {
+        "id": "e1a4396e-0028-4510-b852-7eaf483085b8",
+        "comment": "",
+        "command": "type",
+        "target": "name=nombre",
+        "targets": [
+          ["name=nombre", "name"],
+          ["css=tr:nth-child(1) input", "css:finder"],
+          ["xpath=//input[@name='nombre']", "xpath:attributes"],
+          ["xpath=//input", "xpath:position"]
+        ],
+        "value": "aaa"
+      }, {
+        "id": "da90ae45-d983-4368-88b1-e764bef1efd0",
+        "comment": "",
+        "command": "type",
+        "target": "name=apellidos",
+        "targets": [
+          ["name=apellidos", "name"],
+          ["css=tr:nth-child(2) input", "css:finder"],
+          ["xpath=//input[@name='apellidos']", "xpath:attributes"],
+          ["xpath=//tr[2]/td[2]/input", "xpath:position"]
+        ],
+        "value": "bbb"
+      }, {
+        "id": "5ad596ec-9adc-499c-bc1e-20782e0bcba2",
+        "comment": "",
+        "command": "type",
+        "target": "name=dni",
+        "targets": [
+          ["name=dni", "name"],
+          ["css=tr:nth-child(3) input", "css:finder"],
+          ["xpath=//input[@name='dni']", "xpath:attributes"],
+          ["xpath=//tr[3]/td[2]/input", "xpath:position"]
+        ],
+        "value": "123"
+      }, {
+        "id": "0d0798ef-1138-45dd-8957-32a0ec9f9339",
+        "comment": "",
+        "command": "click",
+        "target": "css=p > input:nth-child(1)",
+        "targets": [
+          ["css=p > input:nth-child(1)", "css:finder"],
+          ["xpath=//input[@value='Añadir']", "xpath:attributes"],
+          ["xpath=//p[2]/input", "xpath:position"]
+        ],
+        "value": ""
+      }, {
+        "id": "56b67000-c2ad-407d-b073-d576f20a2b5c",
+        "comment": "",
+        "command": "click",
+        "target": "linkText=Listar",
+        "targets": [
+          ["linkText=Listar", "linkText"],
+          ["css=li:nth-child(3) > a", "css:finder"],
+          ["xpath=//a[contains(text(),'Listar')]", "xpath:link"],
+          ["xpath=//a[contains(@href, 'listar.php')]", "xpath:href"],
+          ["xpath=//li[3]/a", "xpath:position"],
+          ["xpath=//a[contains(.,'Listar')]", "xpath:innerText"]
+        ],
+        "value": ""
+      }, {
+        "id": "58d77973-d53e-43a9-9f99-07515709cf4a",
+        "comment": "",
+        "command": "click",
+        "target": "linkText=Borrar",
+        "targets": [
+          ["linkText=Borrar", "linkText"],
+          ["css=li:nth-child(4) > a", "css:finder"],
+          ["xpath=//a[contains(text(),'Borrar')]", "xpath:link"],
+          ["xpath=//a[contains(@href, 'borrar-1.php')]", "xpath:href"],
+          ["xpath=//li[4]/a", "xpath:position"],
+          ["xpath=//a[contains(.,'Borrar')]", "xpath:innerText"]
+        ],
+        "value": ""
+      }, {
+        "id": "797585f8-9494-4a33-8500-b5791e485da6",
+        "comment": "",
+        "command": "click",
+        "target": "name=id[3]",
+        "targets": [
+          ["name=id[3]", "name"],
+          ["css=tr:nth-child(3) input", "css:finder"],
+          ["xpath=//input[@name='id[3]']", "xpath:attributes"],
+          ["xpath=//tr[3]/td/input", "xpath:position"]
+        ],
+        "value": ""
+      }, {
+        "id": "5f99f071-3831-431b-9fff-6488e4a0ca9e",
+        "comment": "",
+        "command": "click",
+        "target": "css=p > input:nth-child(1)",
+        "targets": [
+          ["css=p > input:nth-child(1)", "css:finder"],
+          ["xpath=//input[@value='Borrar registro']", "xpath:attributes"],
+          ["xpath=//p[2]/input", "xpath:position"]
+        ],
+        "value": ""
+      }, {
+        "id": "2420e17d-618b-44d2-a9f6-24433fd4d660",
+        "comment": "",
+        "command": "click",
+        "target": "linkText=Listar",
+        "targets": [
+          ["linkText=Listar", "linkText"],
+          ["css=li:nth-child(3) > a", "css:finder"],
+          ["xpath=//a[contains(text(),'Listar')]", "xpath:link"],
+          ["xpath=//a[contains(@href, 'listar.php')]", "xpath:href"],
+          ["xpath=//li[3]/a", "xpath:position"],
+          ["xpath=//a[contains(.,'Listar')]", "xpath:innerText"]
+        ],
+        "value": ""
+      }, {
+        "id": "5ee3825f-a7e5-4c1e-b4f2-b4ce4194f721",
+        "comment": "",
+        "command": "click",
+        "target": "linkText=Añadir registro",
+        "targets": [
+          ["linkText=Añadir registro", "linkText"],
+          ["css=li:nth-child(2) > a", "css:finder"],
+          ["xpath=//a[contains(text(),'Añadir registro')]", "xpath:link"],
+          ["xpath=//a[contains(@href, 'insertar-1.php')]", "xpath:href"],
+          ["xpath=//li[2]/a", "xpath:position"],
+          ["xpath=//a[contains(.,'Añadir registro')]", "xpath:innerText"]
+        ],
+        "value": ""
+      }, {
+        "id": "1f182afd-1d85-4f3f-841c-7ceacfb60bf4",
+        "comment": "",
+        "command": "click",
+        "target": "name=nombre",
+        "targets": [
+          ["name=nombre", "name"],
+          ["css=tr:nth-child(1) input", "css:finder"],
+          ["xpath=//input[@name='nombre']", "xpath:attributes"],
+          ["xpath=//input", "xpath:position"]
+        ],
+        "value": ""
+      }, {
+        "id": "b5d0d98e-1136-44dd-8508-5bb4e9d794f1",
+        "comment": "",
+        "command": "type",
+        "target": "name=nombre",
+        "targets": [
+          ["name=nombre", "name"],
+          ["css=tr:nth-child(1) input", "css:finder"],
+          ["xpath=//input[@name='nombre']", "xpath:attributes"],
+          ["xpath=//input", "xpath:position"]
+        ],
+        "value": "aaa"
+      }, {
+        "id": "1e22423b-77fd-4987-ab63-6b3076dc3364",
+        "comment": "",
+        "command": "type",
+        "target": "name=apellidos",
+        "targets": [
+          ["name=apellidos", "name"],
+          ["css=tr:nth-child(2) input", "css:finder"],
+          ["xpath=//input[@name='apellidos']", "xpath:attributes"],
+          ["xpath=//tr[2]/td[2]/input", "xpath:position"]
+        ],
+        "value": "bbb"
+      }, {
+        "id": "463bfe10-7af2-4bce-85c6-7816d78fa640",
+        "comment": "",
+        "command": "type",
+        "target": "name=dni",
+        "targets": [
+          ["name=dni", "name"],
+          ["css=tr:nth-child(3) input", "css:finder"],
+          ["xpath=//input[@name='dni']", "xpath:attributes"],
+          ["xpath=//tr[3]/td[2]/input", "xpath:position"]
+        ],
+        "value": "123"
+      }, {
+        "id": "92a63ff2-acf5-4512-88fd-83576ba00493",
+        "comment": "",
+        "command": "click",
+        "target": "css=p > input:nth-child(1)",
+        "targets": [
+          ["css=p > input:nth-child(1)", "css:finder"],
+          ["xpath=//input[@value='Añadir']", "xpath:attributes"],
+          ["xpath=//p[2]/input", "xpath:position"]
+        ],
+        "value": ""
+      }, {
+        "id": "a1f58ddf-d18e-43f0-927e-d9b6ff73caaf",
+        "comment": "",
+        "command": "click",
+        "target": "linkText=Buscar",
+        "targets": [
+          ["linkText=Buscar", "linkText"],
+          ["css=li:nth-child(5) > a", "css:finder"],
+          ["xpath=//a[contains(text(),'Buscar')]", "xpath:link"],
+          ["xpath=//a[contains(@href, 'buscar-1.php')]", "xpath:href"],
+          ["xpath=//li[5]/a", "xpath:position"],
+          ["xpath=//a[contains(.,'Buscar')]", "xpath:innerText"]
+        ],
+        "value": ""
+      }, {
+        "id": "1c1b8165-7d7c-4b37-a1f2-f6bf261b8635",
+        "comment": "",
+        "command": "type",
+        "target": "name=nombre",
+        "targets": [
+          ["name=nombre", "name"],
+          ["css=tr:nth-child(1) input", "css:finder"],
+          ["xpath=//input[@name='nombre']", "xpath:attributes"],
+          ["xpath=//input", "xpath:position"]
+        ],
+        "value": "aa"
+      }, {
+        "id": "f573c874-0da5-4df3-b997-63016a65c5fd",
+        "comment": "",
+        "command": "click",
+        "target": "css=p > input:nth-child(1)",
+        "targets": [
+          ["css=p > input:nth-child(1)", "css:finder"],
+          ["xpath=//input[@value='Buscar']", "xpath:attributes"],
+          ["xpath=//p[2]/input", "xpath:position"]
+        ],
+        "value": ""
+      }, {
+        "id": "f18d14c2-560d-4a71-9853-904fde1b81c9",
+        "comment": "",
+        "command": "click",
+        "target": "linkText=Modificar",
+        "targets": [
+          ["linkText=Modificar", "linkText"],
+          ["css=li:nth-child(6) > a", "css:finder"],
+          ["xpath=//a[contains(text(),'Modificar')]", "xpath:link"],
+          ["xpath=//a[contains(@href, 'modificar-1.php')]", "xpath:href"],
+          ["xpath=//li[6]/a", "xpath:position"],
+          ["xpath=//a[contains(.,'Modificar')]", "xpath:innerText"]
+        ],
+        "value": ""
+      }, {
+        "id": "f69fdc92-2e4e-4f39-8ee4-91fb52f18d7a",
+        "comment": "",
+        "command": "click",
+        "target": "css=tr:nth-child(3) input",
+        "targets": [
+          ["css=tr:nth-child(3) input", "css:finder"],
+          ["xpath=(//input[@name='id'])[3]", "xpath:attributes"],
+          ["xpath=//tr[3]/td/input", "xpath:position"]
+        ],
+        "value": ""
+      }, {
+        "id": "55710927-ae04-4c0b-b8fe-266859e67965",
+        "comment": "",
+        "command": "click",
+        "target": "css=p > input:nth-child(1)",
+        "targets": [
+          ["css=p > input:nth-child(1)", "css:finder"],
+          ["xpath=//input[@value='Modificar registro']", "xpath:attributes"],
+          ["xpath=//p[2]/input", "xpath:position"]
+        ],
+        "value": ""
+      }, {
+        "id": "43bba83f-27d6-4e6f-819b-7e4f5d678e01",
+        "comment": "",
+        "command": "click",
+        "target": "name=nombre",
+        "targets": [
+          ["name=nombre", "name"],
+          ["css=tr:nth-child(1) input", "css:finder"],
+          ["xpath=//input[@name='nombre']", "xpath:attributes"],
+          ["xpath=//input", "xpath:position"]
+        ],
+        "value": ""
+      }, {
+        "id": "854e6671-0333-4b1d-b33b-5a0431c8f3cb",
+        "comment": "",
+        "command": "type",
+        "target": "name=nombre",
+        "targets": [
+          ["name=nombre", "name"],
+          ["css=tr:nth-child(1) input", "css:finder"],
+          ["xpath=//input[@name='nombre']", "xpath:attributes"],
+          ["xpath=//input", "xpath:position"]
+        ],
+        "value": "aaa aaa"
+      }, {
+        "id": "c6c78e63-9488-4619-8d00-4d3ebcc1ba71",
+        "comment": "",
+        "command": "click",
+        "target": "css=input:nth-child(2)",
+        "targets": [
+          ["css=input:nth-child(2)", "css:finder"],
+          ["xpath=//input[@value='Actualizar']", "xpath:attributes"],
+          ["xpath=//input[2]", "xpath:position"]
+        ],
+        "value": ""
+      }, {
+        "id": "6ce5564f-9059-4366-abc7-50875cd361e8",
+        "comment": "",
+        "command": "click",
+        "target": "linkText=Listar",
+        "targets": [
+          ["linkText=Listar", "linkText"],
+          ["css=li:nth-child(3) > a", "css:finder"],
+          ["xpath=//a[contains(text(),'Listar')]", "xpath:link"],
+          ["xpath=//a[contains(@href, 'listar.php')]", "xpath:href"],
+          ["xpath=//li[3]/a", "xpath:position"],
+          ["xpath=//a[contains(.,'Listar')]", "xpath:innerText"]
+        ],
+        "value": ""
+      }, {
+        "id": "4a3b2434-5b2e-40c5-82f5-8c8a9670ce69",
+        "comment": "",
+        "command": "click",
+        "target": "css=html",
+        "targets": [
+          ["css=html", "css:finder"],
+          ["xpath=//html", "xpath:position"]
+        ],
+        "value": ""
+      }, {
+        "id": "4f981608-6ff7-4ac7-ae51-cb0b5f5bb9ed",
+        "comment": "",
+        "command": "click",
+        "target": "css=html",
+        "targets": [
+          ["css=html", "css:finder"],
+          ["xpath=//html", "xpath:position"]
+        ],
+        "value": ""
+      }, {
+        "id": "f58158d3-8085-44a6-a15e-3ac7214b934e",
+        "comment": "",
+        "command": "click",
+        "target": "css=html",
+        "targets": [
+          ["css=html", "css:finder"],
+          ["xpath=//html", "xpath:position"]
+        ],
+        "value": ""
+      }]
+    }, {
+      "id": "cb135fd7-b706-4537-995c-cb5b10f09f22",
+      "name": "prueba 2",
+      "commands": [{
+        "id": "3eab774b-b9d0-47eb-904b-818a27061da6",
+        "comment": "",
+        "command": "open",
+        "target": "/mclibre/consultar/php-bases-datos/biblioteca-4/index.php",
+        "targets": [],
+        "value": ""
+      }, {
+        "id": "bb1b4621-e702-4a84-94e1-0c36da50b311",
+        "comment": "",
+        "command": "setWindowSize",
+        "target": "1379x903",
+        "targets": [],
+        "value": ""
+      }, {
+        "id": "4025d19e-67aa-4cd7-be4b-699c2870019d",
+        "comment": "",
+        "command": "click",
+        "target": "id=desconectarse",
+        "targets": [
+          ["id=desconectarse", "id"],
+          ["linkText=Desconectarse", "linkText"],
+          ["css=#desconectarse", "css:finder"],
+          ["xpath=//a[contains(text(),'Desconectarse')]", "xpath:link"],
+          ["xpath=//a[@id='desconectarse']", "xpath:attributes"],
+          ["xpath=//a[contains(@href, 'acceso/logout.php')]", "xpath:href"],
+          ["xpath=//li[6]/a", "xpath:position"],
+          ["xpath=//a[contains(.,'Desconectarse')]", "xpath:innerText"]
+        ],
+        "value": ""
+      }, {
+        "id": "2731ea12-80b2-43ae-949a-63cdc4e71c48",
+        "comment": "",
+        "command": "click",
+        "target": "linkText=Conectarse",
+        "targets": [
+          ["linkText=Conectarse", "linkText"],
+          ["css=li > a", "css:finder"],
+          ["xpath=//a[contains(text(),'Conectarse')]", "xpath:link"],
+          ["xpath=//a[contains(@href, 'acceso/login-1.php')]", "xpath:href"],
+          ["xpath=//a", "xpath:position"],
+          ["xpath=//a[contains(.,'Conectarse')]", "xpath:innerText"]
+        ],
+        "value": ""
+      }]
+    }],
+    "suites": [{
+      "id": "503df130-f833-43b4-8255-74a047e1dec6",
+      "name": "Default Suite",
+      "persistSession": false,
+      "parallel": false,
+      "timeout": 300,
+      "tests": ["0f4c2455-2b77-424d-9d5a-34a7ec7ac1d4", "cb135fd7-b706-4537-995c-cb5b10f09f22"]
+    }],
+    "urls": ["http://localhost/"],
+    "plugins": []
+  }
