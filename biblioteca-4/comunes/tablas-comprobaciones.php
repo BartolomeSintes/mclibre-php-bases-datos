@@ -5,6 +5,19 @@
  * @link      https://www.mclibre.org
  */
 
+function printVariables()
+{
+    $argumentos = func_get_args();
+
+    foreach ($argumentos as $valor) {
+        if (is_array($valor)) {
+            print "<pre>"; print_r($valor); print "</pre>\n";
+        } else {
+            print "<p>$valor</p>\n";
+        }
+    }
+}
+
 function comprobaciones($campo, $valor)
 {
     global $db, $usuariosNiveles;
@@ -147,6 +160,8 @@ function compruebaAvisosIndividuales()
     $argumentos = func_get_args();
     $origen     = $argumentos[0];
     array_shift($argumentos);
+    $tabla = $argumentos[0];
+    array_shift($argumentos);
     $resp       = [];
     $paraSesion = [];
     $error      = false;
@@ -160,11 +175,11 @@ function compruebaAvisosIndividuales()
         }
     }
     if ($error) {
-        // guarda en $_SESSION["error"] => [$campo1 => ["valor" => $valor1, "campoOk" => $campoOk1, "mensaje" => $mensaje1], $campo2 => ...
-        $_SESSION["error"]           = $paraSesion;
+        // guarda en $_SESSION["error"] => [$campo1 => ["valor" => $valor1, "campoOk" => $campoOk1, "mensaje" => $mensaje1], $campo2 => ...]
+        $_SESSION["error"][$tabla]   = $paraSesion;
         $_SESSION["error"]["origen"] = $origen;
     } else {
-        $_SESSION["ok"]           = $paraSesion;
+        $_SESSION["ok"][$tabla]   = $paraSesion;
         $_SESSION["ok"]["origen"] = $origen;
     }
     // devuelve [$valor1, $valor2, ...
@@ -340,20 +355,20 @@ function imprimeAvisosGenerales()
     return false;
 }
 
-function imprimeAvisosIndividuales($campo, $tipo)
+function imprimeAvisosIndividuales($tabla, $campo, $tipo)
 {
-    if (isset($_SESSION["error"][$campo])) {
+    if (isset($_SESSION["error"][$tabla][$campo])) {
         if ($tipo == "valor") {
-            return " value=\"{$_SESSION["error"][$campo]["valor"]}\"";
+            return " value=\"{$_SESSION["error"][$tabla][$campo]["valor"]}\"";
         }
         if ($tipo == "mensaje") {
-            return " <span class=\"aviso\">{$_SESSION["error"][$campo]["mensaje"]}</span>";
+            return " <span class=\"aviso\">{$_SESSION["error"][$tabla][$campo]["mensaje"]}</span>";
         }
     }
     return "";
 }
 
-function borraAvisos()
+function borraAvisosExcepto()
 {
     $argumentos = func_get_args();
     // Borra todos los avisos que no provienen de una página determinada

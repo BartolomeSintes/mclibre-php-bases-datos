@@ -11,7 +11,7 @@ compruebaSesion(NIVEL_3, PROFUNDIDAD_2);
 
 cabecera("Préstamos - Borrar 1", MENU_PRESTAMOS, PROFUNDIDAD_2);
 
-borraAvisos();
+borraAvisosExcepto();
 compruebaAvisosGenerales("borrar-1", "limiteNumeroRegistros", "usuarios");
 
 if (!imprimeAvisosGenerales()) {

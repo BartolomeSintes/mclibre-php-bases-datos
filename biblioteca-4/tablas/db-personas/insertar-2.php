@@ -9,8 +9,8 @@ require_once "../../comunes/biblioteca.php";
 
 compruebaSesion(NIVEL_3, PROFUNDIDAD_2);
 
-borraAvisos();
-[$nombre, $apellidos, $dni] = compruebaAvisosIndividuales("insertar-2", "nombre", "apellidos", "dni");
+borraAvisosExcepto();
+[$nombre, $apellidos, $dni] = compruebaAvisosIndividuales("insertar-2", "personas", "nombre", "apellidos", "dni");
 compruebaAvisosGenerales("insertar-2", "todosVacios", "nombre", "apellidos", "dni");
 compruebaAvisosGenerales("insertar-2", "limiteNumeroRegistros", "personas");
 

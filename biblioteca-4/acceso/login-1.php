@@ -21,7 +21,7 @@ if (!existenTablas()) {
     borraTodo($cfg["insertaRegistrosDemo"]);
 }
 
-borraAvisos("login-2");
+borraAvisosExcepto("login-2");
 imprimeAvisosGenerales();
 
 print "    <form action=\"login-2.php\" method=\"$cfg[formMethod]\">\n";

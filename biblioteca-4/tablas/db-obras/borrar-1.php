@@ -11,7 +11,7 @@ compruebaSesion(NIVEL_3, PROFUNDIDAD_2);
 
 cabecera("Obras - Borrar 1", MENU_OBRAS, PROFUNDIDAD_2);
 
-borraAvisos();
+borraAvisosExcepto();
 compruebaAvisosGenerales("borrar-1", "sinRegistros", "obras");
 
 if (!imprimeAvisosGenerales()) {

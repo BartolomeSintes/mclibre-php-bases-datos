@@ -11,7 +11,7 @@ compruebaSesion(NIVEL_3, PROFUNDIDAD_2);
 
 cabecera("Usuarios - Modificar 2", MENU_USUARIOS, PROFUNDIDAD_2);
 
-borraAvisos("modificar-3");
+borraAvisosExcepto("modificar-3");
 
 imprimeAvisosGenerales();
 
@@ -58,14 +58,14 @@ if ($id == "") {
                 print "            <td>Usuario:</td>\n";
                 if (isset($_SESSION["error"]["usuario"])) {
                     print "            <td><input type=\"text\" name=\"usuario\" size=\"$db[tamUsuariosUsuario]\" maxlength=\"$db[tamUsuariosUsuario]\""
-                    . imprimeAvisosIndividuales("usuario", "valor") . " autofocus>" . imprimeAvisosIndividuales("usuario", "mensaje") . "</td>\n";
+                    . imprimeAvisosIndividuales("usuarios", "usuario", "valor") . " autofocus>" . imprimeAvisosIndividuales("usuarios", "usuario", "mensaje") . "</td>\n";
                 } else {
                     print "            <td><input type=\"text\" name=\"usuario\" size=\"$db[tamUsuariosUsuario]\" maxlength=\"$db[tamUsuariosUsuario]\" value=\"$valor[usuario]\"></td>\n";
                 }
                 print "          </tr>\n";
                 print "          <tr>\n";
                 print "            <td>Contraseña:</td>\n";
-                print "            <td><input type=\"text\" name=\"password\" size=\"$db[tamUsuariosPassword]\" maxlength=\"$db[tamUsuariosPassword]\">" . imprimeAvisosIndividuales("password", "mensaje") . "</td>\n";
+                print "            <td><input type=\"text\" name=\"password\" size=\"$db[tamUsuariosPassword]\" maxlength=\"$db[tamUsuariosPassword]\">" . imprimeAvisosIndividuales("usuarios", "password", "mensaje") . "</td>\n";
                 print "          </tr>\n";
                 print "          <tr>\n";
                 print "            <td>Nivel:</td>\n";
@@ -78,7 +78,7 @@ if ($id == "") {
                     }
                     print ">$indice2</option>\n";
                 }
-                print "              </select>" . imprimeAvisosIndividuales("nivel", "mensaje") . "\n";
+                print "              </select>" . imprimeAvisosIndividuales("usuarios", "nivel", "mensaje") . "\n";
                 print "            </td>\n";
                 print "          </tr>\n";
                 print "        </tbody>\n";

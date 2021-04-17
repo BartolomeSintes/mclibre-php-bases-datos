@@ -11,7 +11,7 @@ compruebaSesion(NIVEL_1, PROFUNDIDAD_2);
 
 cabecera("Obras - Listar", MENU_OBRAS, PROFUNDIDAD_2);
 
-borraAvisos();
+borraAvisosExcepto();
 compruebaAvisosGenerales("listar", "sinRegistros", "obras");
 
 if (!imprimeAvisosGenerales()) {

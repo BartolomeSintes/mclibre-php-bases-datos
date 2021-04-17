@@ -11,7 +11,7 @@ compruebaSesion(NIVEL_3, PROFUNDIDAD_2);
 
 cabecera("Usuarios - Borrar 1", MENU_USUARIOS, PROFUNDIDAD_2);
 
-borraAvisos();
+borraAvisosExcepto();
 compruebaAvisosGenerales("borrar-1", "limiteNumeroRegistros", "usuarios");
 
 if (!imprimeAvisosGenerales()) {

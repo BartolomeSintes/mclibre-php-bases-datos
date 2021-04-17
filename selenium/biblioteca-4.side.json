@@ -211,7 +211,7 @@
         {
             "id": "test-2-3",
             "name": "Conexión y desconexión como usuario avanzado",
-            "comment": "Se conecta como avanzado / avnzado. Se desconecta.",
+            "comment": "Se conecta como avanzado / avanzado. Se desconecta.",
             "commands": [
                 {
                     "id": "t2-3-1",

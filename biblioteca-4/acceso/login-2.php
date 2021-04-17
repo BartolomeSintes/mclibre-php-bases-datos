@@ -14,7 +14,7 @@ $password = recoge("password");
 
 $pdo = conectaDb();
 
-borraAvisos();
+borraAvisosExcepto();
 if (!$usuario) {
     $_SESSION["error"]["avisoGeneral"]["mensaje"] = "Escriba el nombre del usuario";
 } else {

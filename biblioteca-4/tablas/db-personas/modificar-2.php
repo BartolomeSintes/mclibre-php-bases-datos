@@ -11,7 +11,7 @@ compruebaSesion(NIVEL_3, PROFUNDIDAD_2);
 
 cabecera("Personas - Modificar 2", MENU_PERSONAS, PROFUNDIDAD_2);
 
-borraAvisos("modificar-3");
+borraAvisosExcepto("modificar-3");
 
 imprimeAvisosGenerales();
 
@@ -55,7 +55,7 @@ if ($id == "") {
             print "            <td>Nombre:</td>\n";
             if (isset($_SESSION["error"]["nombre"])) {
                 print "            <td><input type=\"text\" name=\"nombre\" size=\"$db[tamPersonasNombre]\" maxlength=\"$db[tamPersonasNombre]\""
-                . imprimeAvisosIndividuales("nombre", "valor") . " autofocus>" . imprimeAvisosIndividuales("nombre", "mensaje") . "</td>\n";
+                . imprimeAvisosIndividuales("personas", "nombre", "valor") . " autofocus>" . imprimeAvisosIndividuales("personas", "nombre", "mensaje") . "</td>\n";
             } else {
                 print "            <td><input type=\"text\" name=\"nombre\" size=\"$db[tamPersonasNombre]\" maxlength=\"$db[tamPersonasNombre]\" value=\"$valor[nombre]\"></td>\n";
             }
@@ -64,7 +64,7 @@ if ($id == "") {
             print "            <td>Apellidos:</td>\n";
             if (isset($_SESSION["error"]["apellidos"])) {
                 print "            <td><input type=\"text\" name=\"apellidos\" size=\"$db[tamPersonasApellidos]\" maxlength=\"$db[tamPersonasApellidos]\""
-                . imprimeAvisosIndividuales("apellidos", "valor") . ">" . imprimeAvisosIndividuales("apellidos", "mensaje") . "</td>\n";
+                . imprimeAvisosIndividuales("personas", "apellidos", "valor") . ">" . imprimeAvisosIndividuales("personas", "apellidos", "mensaje") . "</td>\n";
             } else {
                 print "            <td><input type=\"text\" name=\"apellidos\" size=\"$db[tamPersonasApellidos]\" maxlength=\"$db[tamPersonasApellidos]\" value=\"$valor[apellidos]\"></td>\n";
             }
@@ -73,7 +73,7 @@ if ($id == "") {
             print "            <td>DNI:</td>\n";
             if (isset($_SESSION["error"]["dni"])) {
                 print "            <td><input type=\"text\" name=\"dni\" size=\"$db[tamPersonasDni]\" maxlength=\"$db[tamPersonasDni]\""
-                . imprimeAvisosIndividuales("dni", "valor") . ">" . imprimeAvisosIndividuales("dni", "mensaje") . "</td>\n";
+                . imprimeAvisosIndividuales("personas", "dni", "valor") . ">" . imprimeAvisosIndividuales("personas", "dni", "mensaje") . "</td>\n";
             } else {
                 print "            <td><input type=\"text\" name=\"dni\" size=\"$db[tamPersonasDni]\" maxlength=\"$db[tamPersonasDni]\" value=\"$valor[dni]\"></td>\n";
             }

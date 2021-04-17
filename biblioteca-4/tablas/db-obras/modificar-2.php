@@ -11,7 +11,7 @@ compruebaSesion(NIVEL_3, PROFUNDIDAD_2);
 
 cabecera("Obras - Modificar 2", MENU_OBRAS, PROFUNDIDAD_2);
 
-borraAvisos("modificar-3");
+borraAvisosExcepto("modificar-3");
 
 imprimeAvisosGenerales();
 
@@ -55,7 +55,7 @@ if ($id == "") {
             print "            <td>Autor:</td>\n";
             if (isset($_SESSION["error"]["autor"])) {
                 print "            <td><input type=\"text\" name=\"autor\" size=\"$db[tamObrasAutor]\" maxlength=\"$db[tamObrasAutor]\""
-                    . imprimeAvisosIndividuales("autor", "valor") . " autofocus>" . imprimeAvisosIndividuales("autor", "mensaje") . "</td>\n";
+                    . imprimeAvisosIndividuales("obras", "autor", "valor") . " autofocus>" . imprimeAvisosIndividuales("obras", "autor", "mensaje") . "</td>\n";
             } else {
                 print "            <td><input type=\"text\" name=\"autor\" size=\"$db[tamObrasAutor]\" maxlength=\"$db[tamObrasAutor]\" value=\"$valor[autor]\" autofocus></td>\n";
             }
@@ -64,7 +64,7 @@ if ($id == "") {
             print "            <td>Título:</td>\n";
             if (isset($_SESSION["error"]["titulo"])) {
                 print "            <td><input type=\"text\" name=\"titulo\" size=\"$db[tamObrasTitulo]\" maxlength=\"$db[tamObrasTitulo]\""
-                    . imprimeAvisosIndividuales("titulo", "valor") . ">" . imprimeAvisosIndividuales("titulo", "mensaje") . "</td>\n";
+                    . imprimeAvisosIndividuales("obras", "titulo", "valor") . ">" . imprimeAvisosIndividuales("obras", "titulo", "mensaje") . "</td>\n";
             } else {
                 print "            <td><input type=\"text\" name=\"titulo\" size=\"$db[tamObrasTitulo]\" maxlength=\"$db[tamObrasTitulo]\" value=\"$valor[titulo]\"></td>\n";
             }
@@ -73,7 +73,7 @@ if ($id == "") {
             print "            <td>Editorial:</td>\n";
             if (isset($_SESSION["error"]["editorial"])) {
                 print "            <td><input type=\"text\" name=\"editorial\" size=\"$db[tamObrasEditorial]\" maxlength=\"$db[tamObrasEditorial]\""
-                    . imprimeAvisosIndividuales("editorial", "valor") . ">" . imprimeAvisosIndividuales("editorial", "mensaje") . "</td>\n";
+                    . imprimeAvisosIndividuales("obras", "editorial", "valor") . ">" . imprimeAvisosIndividuales("obras", "editorial", "mensaje") . "</td>\n";
             } else {
                 print "            <td><input type=\"text\" name=\"editorial\" size=\"$db[tamObrasEditorial]\" maxlength=\"$db[tamObrasEditorial]\" value=\"$valor[editorial]\"></td>\n";
             }

@@ -11,7 +11,7 @@ compruebaSesion(NIVEL_3, PROFUNDIDAD_2);
 
 cabecera("Préstamos - Modificar 1", MENU_PRESTAMOS, PROFUNDIDAD_2);
 
-borraAvisos();
+borraAvisosExcepto();
 compruebaAvisosGenerales("modificar-1", "sinRegistros", "prestamos");
 
 if (!imprimeAvisosGenerales()) {

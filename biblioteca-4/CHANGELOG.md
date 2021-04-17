@@ -6,6 +6,13 @@ El formato se basa en [Keep a Changelog](https://keepachangelog.com/en/1.0.0/).
 
 Este changelog incluye los cambios hechos en Biblioteca-3, Biblioteca-4, etc.
 
+## 2021-04-17
+
+### Added (Añadido)
+- Añado argumento nombreDeTabla en segunda posición de compruebaAvisosIndividuales() (que se guarda en $_SESSION de manera que lo que antes era $_SESSION["error"][$campo] ahora es $_SESSION["error"][$tabla[$campo].
+- Añado función printVariables() para que me escriba el valor de una variable (para usarla mientras programo resolviendo errores).
+- Renombro borraAvisos() a borraAvisosExcepto() puesto que el argumento son las páginas de origen de los avisos que no quiero borrar.
+
 ## 2021-04-14
 
 ### Added (Añadido)

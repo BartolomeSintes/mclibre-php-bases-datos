@@ -9,8 +9,8 @@ require_once "../../comunes/biblioteca.php";
 
 compruebaSesion(NIVEL_3, PROFUNDIDAD_2);
 
-borraAvisos();
-[$usuario, $password, $nivel] = compruebaAvisosIndividuales("insertar-2", "usuario", "password", "nivel");
+borraAvisosExcepto();
+[$usuario, $password, $nivel] = compruebaAvisosIndividuales("insertar-2", "usuarios", "usuario", "password", "nivel");
 compruebaAvisosGenerales("insertar-2", "algunoVacio", "usuario", "password", "nivel");
 compruebaAvisosGenerales("insertar-2", "limiteNumeroRegistros", "usuarios");
 

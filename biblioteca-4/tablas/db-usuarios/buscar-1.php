@@ -11,7 +11,7 @@ compruebaSesion(NIVEL_3, PROFUNDIDAD_2);
 
 cabecera("Usuarios - Buscar 1", MENU_USUARIOS, PROFUNDIDAD_2);
 
-borraAvisos("buscar-2");
+borraAvisosExcepto("buscar-2");
 compruebaAvisosGenerales("buscar-1", "sinRegistros", "usuarios");
 
 if (!imprimeAvisosGenerales()) {

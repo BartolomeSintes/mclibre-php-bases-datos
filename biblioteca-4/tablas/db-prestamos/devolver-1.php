@@ -11,7 +11,7 @@ compruebaSesion(NIVEL_3, PROFUNDIDAD_2);
 
 cabecera("Préstamos - Devolver 1", MENU_PRESTAMOS, PROFUNDIDAD_2);
 
-borraAvisos("devolver-2");
+borraAvisosExcepto("devolver-2");
 
 imprimeAvisosGenerales();
 

@@ -11,7 +11,7 @@ compruebaSesion(NIVEL_3, PROFUNDIDAD_2);
 
 cabecera("Préstamos - Añadir 1", MENU_PRESTAMOS, PROFUNDIDAD_2);
 
-borraAvisos("insertar-2");
+borraAvisosExcepto("insertar-2");
 compruebaAvisosGenerales("insertar-1", "limiteNumeroRegistros", "prestamos");
 
 imprimeAvisosGenerales();
@@ -40,7 +40,7 @@ if (!$result2) {
     foreach ($result2 as $valor) {
         print "                <option value=\"$valor[id]\">$valor[nombre] $valor[apellidos]</option>\n";
     }
-    print "              </select>" . imprimeAvisosIndividuales("id_persona", "mensaje") . "\n";
+    print "              </select>" . imprimeAvisosIndividuales("prestamos", "id_persona", "mensaje") . "\n";
     print "            </td>\n";
     print "          </tr>\n";
     print "          <tr>\n";
@@ -51,12 +51,12 @@ if (!$result2) {
     foreach ($result3 as $valor) {
         print "                <option value=\"$valor[id]\">$valor[autor] - $valor[titulo]</option>\n";
     }
-    print "              </select>" . imprimeAvisosIndividuales("id_obra", "mensaje") . "\n";
+    print "              </select>" . imprimeAvisosIndividuales("prestamos", "id_obra", "mensaje") . "\n";
     print "            </td>\n";
     print "          </tr>\n";
     print "          <tr>\n";
     print "            <td>Fecha de préstamo:</td>\n";
-    print "            <td><input type=\"date\" name=\"prestado\" value=\"" . date("Y-m-j") . "\">" . imprimeAvisosIndividuales("prestado", "mensaje") . "</td>\n";
+    print "            <td><input type=\"date\" name=\"prestado\" value=\"" . date("Y-m-j") . "\">" . imprimeAvisosIndividuales("prestamos", "prestado", "mensaje") . "</td>\n";
     print "          </tr>\n";
     print "        </tbody>\n";
     print "      </table>\n";

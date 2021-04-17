@@ -6,6 +6,10 @@ En la página [Estructura del fichero](selenium-1.md) comento la estructura gene
 
 Los objetos **commands** tienen que contener al menos cuatro claves: **id**, **command**, **target** y **value**, aunque en algunos casos se dejen en blanco.
 
+## Detalles
+
+- Para encontrar las expresiones XPath de un elemento, se pueden utilizar las herramientas para desarrolladores web de Firefox o Chrome. Con el inspector se seleciona el elemento y haciendo clic derecho sobre la etiqueta en la vista de código fuente se puede elegir Copiar &gt; XPath.
+
 ## open: Abre página
 
 ```json
@@ -133,5 +137,7 @@ Lo he utilizado en la página BorrarTodo para esperar a que termine la creación
 }
 ```
 
+## Otros
 
+- [Selenium Tutorial: Testing Strategies](https://www.protechtraining.com/content/selenium_tutorial-testing_strategies)
 
