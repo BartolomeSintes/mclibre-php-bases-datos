@@ -12,7 +12,7 @@ compruebaSesion(NIVEL_3, PROFUNDIDAD_2);
 cabecera("Usuarios - Modificar 1", MENU_USUARIOS, PROFUNDIDAD_2);
 
 borraAvisosExcepto();
-compruebaAvisosGenerales("modificar-1", "sinRegistros", "usuarios");
+compruebaAvisosGenerales("modificar-1", "sinRegistros", $db["usuarios"]);
 
 if (!imprimeAvisosGenerales()) {
     $ordena = recogeValores("ordena", $db["columnasUsuariosOrden"], "password ASC");
@@ -20,7 +20,7 @@ if (!imprimeAvisosGenerales()) {
 
     $pdo = conectaDb();
 
-    $consulta = "SELECT * FROM $db[tablaUsuarios]
+    $consulta = "SELECT * FROM $db[usuarios]
                  ORDER BY $ordena";
     $result = $pdo->query($consulta);
     if (!$result) {

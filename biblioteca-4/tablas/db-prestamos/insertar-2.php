@@ -23,7 +23,7 @@ cabecera("Préstamos - Añadir 2", MENU_PRESTAMOS, PROFUNDIDAD_2);
 
 $pdo = conectaDb();
 
-$consulta = "SELECT COUNT(*) FROM $db[tablaPrestamos]
+$consulta = "SELECT COUNT(*) FROM $db[prestamos]
              WHERE id_persona=:id_persona
              AND id_obra=:id_obra
              AND prestado=:prestado";
@@ -34,7 +34,7 @@ if (!$result) {
 } elseif ($result->fetchColumn() > 0) {
     print "    <p class=\"aviso\">El registro ya existe.</p>\n";
 } else {
-    $consulta = "INSERT INTO $db[tablaPrestamos]
+    $consulta = "INSERT INTO $db[prestamos]
                  (id_persona, id_obra, prestado, devuelto)
                  VALUES (:id_persona, :id_obra, :prestado, '0000-00-00')";
     $result = $pdo->prepare($consulta);

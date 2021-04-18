@@ -18,7 +18,7 @@ $ordena    = recogeValores("ordena", $db["columnasPersonasOrden"], "apellidos AS
 
 $pdo = conectaDb();
 
-$consulta = "SELECT COUNT(*) FROM $db[tablaPersonas]
+$consulta = "SELECT COUNT(*) FROM $db[personas]
              WHERE nombre LIKE :nombre
              AND apellidos LIKE :apellidos
              AND dni LIKE :dni";
@@ -30,7 +30,7 @@ if (!$result) {
 } elseif ($result->fetchColumn() == 0) {
     print "    <p>No se han encontrado registros.</p>\n";
 } else {
-    $consulta = "SELECT * FROM $db[tablaPersonas]
+    $consulta = "SELECT * FROM $db[personas]
                  WHERE nombre LIKE :nombre
                  AND apellidos LIKE :apellidos
                  AND dni LIKE :dni

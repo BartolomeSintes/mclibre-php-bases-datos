@@ -12,7 +12,7 @@ compruebaSesion(NIVEL_3, PROFUNDIDAD_2);
 cabecera("Usuarios - Buscar 1", MENU_USUARIOS, PROFUNDIDAD_2);
 
 borraAvisosExcepto("buscar-2");
-compruebaAvisosGenerales("buscar-1", "sinRegistros", "usuarios");
+compruebaAvisosGenerales("buscar-1", "sinRegistros", $db["usuarios"]);
 
 if (!imprimeAvisosGenerales()) {
     print "    <form action=\"buscar-2.php\" method=\"$cfg[formMethod]\">\n";

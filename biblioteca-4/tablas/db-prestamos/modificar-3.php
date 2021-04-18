@@ -25,7 +25,7 @@ if ($id == "") {
 } else {
     $pdo = conectaDb();
 
-    $consulta = "SELECT COUNT(*) FROM $db[tablaPrestamos]
+    $consulta = "SELECT COUNT(*) FROM $db[prestamos]
                  WHERE id=:id";
     $result = $pdo->prepare($consulta);
     $result->execute([":id" => $id]);
@@ -37,7 +37,7 @@ if ($id == "") {
         // La consulta cuenta los registros con un id diferente porque MySQL no distingue
         // mayúsculas de minúsculas y si en un registro sólo se cambian mayúsculas por
         // minúsculas MySQL diría que ya hay un registro como el que se quiere guardar.
-        $consulta = "SELECT COUNT(*) FROM $db[tablaPrestamos]
+        $consulta = "SELECT COUNT(*) FROM $db[prestamos]
                      WHERE id_persona=:id_persona
                      AND id_obra=:id_obra
                      AND id<>:id";
@@ -50,7 +50,7 @@ if ($id == "") {
             print "    <p class=\"aviso\">Ya existe un registro con esos mismos valores. "
                 . "No se ha guardado la modificación.</p>\n";
         } else {
-            $consulta = "UPDATE $db[tablaPrestamos]
+            $consulta = "UPDATE $db[prestamos]
                          SET id_persona=:id_persona, id_obra=:id_obra,
                              prestado=:prestado, devuelto=:devuelto
                          WHERE id=:id";

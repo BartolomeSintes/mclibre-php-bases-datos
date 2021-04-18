@@ -12,7 +12,7 @@ compruebaSesion(NIVEL_3, PROFUNDIDAD_2);
 cabecera("Usuarios - Borrar 1", MENU_USUARIOS, PROFUNDIDAD_2);
 
 borraAvisosExcepto();
-compruebaAvisosGenerales("borrar-1", "limiteNumeroRegistros", "usuarios");
+compruebaAvisosGenerales("borrar-1", "limiteNumeroRegistros", $db["usuarios"]);
 
 if (!imprimeAvisosGenerales()) {
     $pdo = conectaDb();
@@ -20,7 +20,7 @@ if (!imprimeAvisosGenerales()) {
     $ordena = recogeValores("ordena", $db["columnasUsuariosOrden"], "usuario ASC");
     $id     = recoge("id", []);
 
-    $consulta = "SELECT * FROM $db[tablaUsuarios]
+    $consulta = "SELECT * FROM $db[usuarios]
                  ORDER BY $ordena";
     $result = $pdo->query($consulta);
     if (!$result) {

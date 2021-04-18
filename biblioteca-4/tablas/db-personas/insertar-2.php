@@ -23,7 +23,7 @@ cabecera("Personas - Añadir 2", MENU_PERSONAS, PROFUNDIDAD_2);
 
 $pdo = conectaDb();
 
-$consulta = "SELECT COUNT(*) FROM $db[tablaPersonas]
+$consulta = "SELECT COUNT(*) FROM $db[personas]
              WHERE nombre=:nombre
              AND apellidos=:apellidos
              AND dni=:dni";
@@ -34,7 +34,7 @@ if (!$result) {
 } elseif ($result->fetchColumn() > 0) {
     print "    <p class=\"aviso\">El registro ya existe.</p>\n";
 } else {
-    $consulta = "INSERT INTO $db[tablaPersonas]
+    $consulta = "INSERT INTO $db[personas]
                  (nombre, apellidos, dni)
                  VALUES (:nombre, :apellidos, :dni)";
     $result = $pdo->prepare($consulta);

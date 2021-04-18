@@ -29,7 +29,7 @@ if ($id == "") {
 } else {
     $pdo = conectaDb();
 
-    $consulta = "SELECT COUNT(*) FROM $db[tablaPrestamos]
+    $consulta = "SELECT COUNT(*) FROM $db[prestamos]
                  WHERE id=:id";
     $result = $pdo->prepare($consulta);
     $result->execute([":id" => $id]);
@@ -38,24 +38,24 @@ if ($id == "") {
     } elseif ($result->fetchColumn() == 0) {
         print "    <p class=\"aviso\">Registro no encontrado.</p>\n";
     } else {
-        $consulta = "SELECT $db[tablaPrestamos].id as id,
-                         $db[tablaPersonas].id as id_persona,
-                         $db[tablaPersonas].nombre as nombre,
-                         $db[tablaPersonas].apellidos as apellidos,
-                         $db[tablaObras].id as id_obra,
-                         $db[tablaObras].titulo as titulo,
-                         $db[tablaObras].autor as autor,
-                         $db[tablaPrestamos].prestado as prestado,
-                         $db[tablaPrestamos].devuelto as devuelto
-                     FROM $db[tablaPersonas], $db[tablaObras], $db[tablaPrestamos]
-                     WHERE $db[tablaPrestamos].id_persona=$db[tablaPersonas].id
-                     AND $db[tablaPrestamos].id_obra=$db[tablaObras].id
-                     AND $db[tablaPrestamos].id=:id";
+        $consulta = "SELECT $db[prestamos].id as id,
+                         $db[personas].id as id_persona,
+                         $db[personas].nombre as nombre,
+                         $db[personas].apellidos as apellidos,
+                         $db[obras].id as id_obra,
+                         $db[obras].titulo as titulo,
+                         $db[obras].autor as autor,
+                         $db[prestamos].prestado as prestado,
+                         $db[prestamos].devuelto as devuelto
+                     FROM $db[personas], $db[obras], $db[prestamos]
+                     WHERE $db[prestamos].id_persona=$db[personas].id
+                     AND $db[prestamos].id_obra=$db[obras].id
+                     AND $db[prestamos].id=:id";
         $result = $pdo->prepare($consulta);
         $result->execute([":id" => $id]);
-        $consulta2 = "SELECT * FROM $db[tablaPersonas] ORDER BY apellidos";
+        $consulta2 = "SELECT * FROM $db[personas] ORDER BY apellidos";
         $result2   = $pdo->query($consulta2);
-        $consulta3 = "SELECT * FROM $db[tablaObras] ORDER BY autor";
+        $consulta3 = "SELECT * FROM $db[obras] ORDER BY autor";
         $result3   = $pdo->query($consulta3);
         if (!$result) {
             print "    <p class=\"aviso\">Error en la consulta.</p>\n";
@@ -82,7 +82,7 @@ if ($id == "") {
                 }
                 print ">$valor2[nombre] $valor2[apellidos]</option>\n";
             }
-            print "              </select>" . imprimeAvisosIndividuales("prestamos", "id_persona", "mensaje") . "\n";
+            print "              </select>" . imprimeAvisosIndividuales($db["prestamos"], "id_persona", "mensaje") . "\n";
             print "            </td>\n";
             print "          </tr>\n";
             print "          <tr>\n";
@@ -97,16 +97,16 @@ if ($id == "") {
                 }
                 print ">$valor3[autor] - $valor3[titulo]</option>\n";
             }
-            print "              </select>" . imprimeAvisosIndividuales("prestamos", "id_obra", "mensaje") . "\n";
+            print "              </select>" . imprimeAvisosIndividuales($db["prestamos"], "id_obra", "mensaje") . "\n";
             print "            </td>\n";
             print "          </tr>\n";
             print "          <tr>\n";
             print "            <td>Fecha de préstamo:</td>\n";
-            print "            <td><input type=\"date\" name=\"prestado\" value=\"$valor[prestado]\">" . imprimeAvisosIndividuales("prestamos", "prestado", "mensaje") . "</td>\n";
+            print "            <td><input type=\"date\" name=\"prestado\" value=\"$valor[prestado]\">" . imprimeAvisosIndividuales($db["prestamos"], "prestado", "mensaje") . "</td>\n";
             print "          </tr>\n";
             print "          <tr>\n";
             print "            <td>Fecha de devolución:</td>\n";
-            print "            <td><input type=\"date\" name=\"devuelto\" value=\"$valor[devuelto]\">" . imprimeAvisosIndividuales("prestamos", "devuelto", "mensaje") . "</td>\n";
+            print "            <td><input type=\"date\" name=\"devuelto\" value=\"$valor[devuelto]\">" . imprimeAvisosIndividuales($db["prestamos"], "devuelto", "mensaje") . "</td>\n";
             print "          </tr>\n";
             print "        </tbody>\n";
             print "      </table>\n";

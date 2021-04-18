@@ -18,7 +18,7 @@ $ordena   = recogeValores("ordena", $db["columnasUsuariosOrden"], "password ASC"
 
 $pdo = conectaDb();
 
-$consulta = "SELECT COUNT(*) FROM $db[tablaUsuarios]
+$consulta = "SELECT COUNT(*) FROM $db[usuarios]
              WHERE usuario LIKE :usuario
              AND password LIKE :password
              AND nivel LIKE :nivel";
@@ -30,7 +30,7 @@ if (!$result) {
 } elseif ($result->fetchColumn() == 0) {
     print "    <p>No se han encontrado registros.</p>\n";
 } else {
-    $consulta = "SELECT * FROM $db[tablaUsuarios]
+    $consulta = "SELECT * FROM $db[usuarios]
                  WHERE usuario LIKE :usuario
                  AND password LIKE :password
                  AND nivel LIKE :nivel

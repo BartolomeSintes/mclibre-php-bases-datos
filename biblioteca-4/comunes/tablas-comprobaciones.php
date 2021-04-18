@@ -5,27 +5,44 @@
  * @link      https://www.mclibre.org
  */
 
-function printVariables()
+function printValores()
 {
     $argumentos = func_get_args();
 
     foreach ($argumentos as $valor) {
         if (is_array($valor)) {
-            print "<pre>"; print_r($valor); print "</pre>\n";
+            print "<pre>";
+            print_r($valor);
+            print "</pre>\n";
         } else {
             print "<p>$valor</p>\n";
         }
     }
 }
 
-function comprobaciones($campo, $valor)
+function comprobaciones($tabla, $campo, $valor)
 {
     global $db, $usuariosNiveles;
 
     $campoOk = false;
     $mensaje = "";
 
-    if ($campo == "id") {                               // Cualquier tabla
+    if ($campo == "id") {
+        $pdo      = conectaDb();
+        $consulta = "SELECT COUNT(*) FROM $db[$tabla]
+                     WHERE id=:id_recibido";
+        $result = $pdo->prepare($consulta);
+        $result->execute([":id_recibido" => $valor]);
+        if (!$result) {
+            $mensaje = "Error en la consulta.";
+        } elseif ($result->fetchColumn() == 0) {
+            $mensaje = "Registro no encontrado.";
+            $_SESSION["error"]["avisoGeneral"]["mensaje"] = "Registro no encontrado.";
+        } else {
+            $campoOk = true;
+        }
+        $pdo = null;
+    } elseif ($campo == "id") {                         // Cualquier tabla
         $campoOk = true;
     } elseif ($campo == "usuario") {                    // Tabla Usuarios
         if ($valor == "") {
@@ -87,7 +104,7 @@ function comprobaciones($campo, $valor)
         }
     } elseif ($campo == "id_persona") {                 // Tabla Préstamos
         $pdo      = conectaDb();
-        $consulta = "SELECT COUNT(*) FROM $db[tablaPersonas]
+        $consulta = "SELECT COUNT(*) FROM $db[personas]
                      WHERE id=:id_persona";
         $result = $pdo->prepare($consulta);
         $result->execute([":id_persona" => $valor]);
@@ -101,7 +118,7 @@ function comprobaciones($campo, $valor)
         $pdo = null;
     } elseif ($campo == "id_obra") {                    // Tabla Préstamos
         $pdo      = conectaDb();
-        $consulta = "SELECT COUNT(*) FROM $db[tablaObras]
+        $consulta = "SELECT COUNT(*) FROM $db[obras]
                      WHERE id=:id_obra";
         $result = $pdo->prepare($consulta);
         $result->execute([":id_obra" => $valor]);
@@ -113,9 +130,9 @@ function comprobaciones($campo, $valor)
             $campoOk = true;
         }
         $pdo = null;
-    } elseif ($campo == "id_prestamo") {                    // Tabla Préstamos (para devolución)
+    } elseif ($campo == "id_prestamo") {                // Tabla Préstamos (para devolución)
         $pdo      = conectaDb();
-        $consulta = "SELECT COUNT(*) FROM $db[tablaPrestamos]
+        $consulta = "SELECT COUNT(*) FROM $db[prestamos]
                      WHERE id=:id_prestamo";
         $result = $pdo->prepare($consulta);
         $result->execute([":id_prestamo" => $valor]);
@@ -127,7 +144,7 @@ function comprobaciones($campo, $valor)
             $campoOk = true;
         }
         $pdo = null;
-    } elseif ($campo == "prestado") {                    // Tabla Préstamos
+    } elseif ($campo == "prestado") {                   // Tabla Préstamos
         if ($valor == "" || mb_strlen($valor, "UTF-8") < TAM_FECHA) {
             $mensaje = "La fecha <strong>$valor</strong> no es una fecha válida.";
         } elseif (!ctype_digit(substr($valor, 5, 2)) || !ctype_digit(substr($valor, 8, 2)) || !ctype_digit(substr($valor, 0, 4))) {
@@ -137,7 +154,7 @@ function comprobaciones($campo, $valor)
         } else {
             $campoOk = true;
         }
-    } elseif ($campo == "devuelto") {                    // Tabla Préstamos
+    } elseif ($campo == "devuelto") {                   // Tabla Préstamos
         if ($valor == "") {
             $valor   = "0000-00-00";
             $campoOk = true;
@@ -157,6 +174,7 @@ function comprobaciones($campo, $valor)
 
 function compruebaAvisosIndividuales()
 {
+    // Argumentos: pagina_de_origen, tabla, campo_1, campo_2, ...
     $argumentos = func_get_args();
     $origen     = $argumentos[0];
     array_shift($argumentos);
@@ -166,11 +184,31 @@ function compruebaAvisosIndividuales()
     $paraSesion = [];
     $error      = false;
     foreach ($argumentos as $campo) {
-        $valor              = recoge($campo);
-        $comp               = comprobaciones($campo, $valor);
-        $paraSesion[$campo] = $comp;
-        $resp[]             = $comp["valor"];
-        if ($comp["campoOk"] == false) {
+        if (isset($_REQUEST[$campo]) && is_array($_REQUEST[$campo])) {
+            $valor              = recoge($campo, []);
+            $comp = [];
+            foreach ($valor as $indice => $valor2) {
+                $resp = comprobaciones($tabla, $campo, $indice);
+                $val[$indice] = $resp["valor"];
+                $campOk[$indice] = $resp["campoOk"];
+                $men[$indice] = $resp["mensaje"];
+            }
+            $comp = ["valor" => $val, "campoOk" => $campOk, "mensaje" => $men];
+            $paraSesion[$campo] = $comp;
+        } else {
+            $valor              = recoge($campo);
+            $comp               = comprobaciones($tabla, $campo, $valor);
+            $paraSesion[$campo] = $comp;
+        }
+        $resp[] = $comp["valor"];
+        if (is_array($comp["campoOk"])) {
+            foreach($comp["campoOk"] as $valor) {
+                if ($valor == false) {
+                    $error = true;
+                    $_SESSION["error"]["avisoGeneral"]["mensaje"] = "No se han encontrado algunos registros seleccionados.";
+                }
+            }
+        } elseif ($comp["campoOk"] == false) {
             $error = true;
         }
     }
@@ -195,6 +233,14 @@ function compruebaAvisosGenerales()
     array_shift($argumentos);
     $tipoComprobacion = $argumentos[0];
     array_shift($argumentos);
+
+    if ($tipoComprobacion == "registrosNoSeleccionados") {
+        if (count($argumentos[0]) == 0) {
+            $_SESSION["error"]["avisoGeneral"]["mensaje"] = "No ha seleccionado ningún registro.";
+            $_SESSION["error"]["origen"]                  = $origen;
+        }
+        return isset($_SESSION["error"]["avisoGeneral"]["mensaje"]);
+    }
 
     if ($tipoComprobacion == "todosVacios") {
         // Devuelve true si todos los valores son vacíos
@@ -225,22 +271,23 @@ function compruebaAvisosGenerales()
         // Esta comprobación es para modificar-3
         // Si detecta un error general (pero no individuales porque están vacíos) y tiene que volver a modificar-2, el campo id se perdería
         // (el campo id no puede ser vacío porque es modificación, así que la comprobación de todosVacíos no se fija en el id)
+        $tabla = $argumentos[0];
+        array_shift($argumentos);
         $id = $argumentos[0];
         array_shift($argumentos);
         // Devuelve true si todos los valores son vacíos
         $todosVacios = true;
         foreach ($argumentos as $campo) {
-            print $campo;
             $valor       = recoge($campo);
             $todosVacios = $todosVacios && ($valor == "");
         }
         if ($todosVacios) {
             // Si no ha detectado errores individuales
             // almacena los valores recibidos para que al volver al formulario, se muestren
-            foreach ($argumentos as $campo) {
-                $_SESSION["error"][$campo] = ["valor" => recoge($campo), "campoOk" => true, "mensaje" => ""];
-            }
-            $_SESSION["error"]["id"] = ["valor" => recoge("id"), "campoOk" => true, "mensaje" => ""];
+            // foreach ($argumentos as $campo) {
+            //     $_SESSION["error"][$campo] = ["valor" => recoge($campo), "campoOk" => true, "mensaje" => ""];
+            // }
+            // $_SESSION["error"]["id"] = ["valor" => recoge("id"), "campoOk" => true, "mensaje" => ""];
             // guarda en $_SESSION["error"] => [$campo1 => ["valor" => $valor1, "campoOk" => $campoOk1, "mensaje" => $mensaje1], $campo2 => ...
             $_SESSION["error"]["avisoGeneral"]["mensaje"] = "Hay que rellenar al menos uno de los campos. No se ha guardado el registro.";
             $_SESSION["error"]["origen"]                  = $origen;
@@ -270,7 +317,7 @@ function compruebaAvisosGenerales()
             $_SESSION["error"]["avisoGeneral"]["mensaje"] = "La tabla $tabla no existe";
             $_SESSION["error"]["origen"]                  = $origen;
         } else {
-            $consulta = "SELECT COUNT(*) FROM $tabla";
+            $consulta = "SELECT COUNT(*) FROM $db[$tabla]";
             $result   = $pdo->query($consulta);
             if (!$result) {
                 $_SESSION["error"]["avisoGeneral"]["mensaje"] = "Error en la consulta";
@@ -292,7 +339,7 @@ function compruebaAvisosGenerales()
             $_SESSION["error"]["avisoGeneral"]["mensaje"] = "La tabla $tabla no existe";
             $_SESSION["error"]["origen"]                  = $origen;
         } else {
-            $consulta = "SELECT COUNT(*) FROM $tabla";
+            $consulta = "SELECT COUNT(*) FROM $db[$tabla]";
             $result   = $pdo->query($consulta);
             if (!$result) {
                 $_SESSION["error"]["avisoGeneral"]["mensaje"] = "Error en la consulta";
@@ -324,7 +371,7 @@ function compruebaAvisosGenerales()
         $pdo         = conectaDb();
         $id_prestamo = recoge($argumentos[0]);
         $devuelto    = recoge($argumentos[1]);
-        $consulta    = "SELECT prestado FROM $db[tablaPrestamos]
+        $consulta    = "SELECT prestado FROM $db[prestamos]
                         WHERE id=:id";
         $result = $pdo->prepare($consulta);
         $result->execute([":id" => $id_prestamo]);

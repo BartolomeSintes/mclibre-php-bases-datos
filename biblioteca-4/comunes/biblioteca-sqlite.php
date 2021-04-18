@@ -9,10 +9,10 @@
 
 // Nombres de las tablas
 
-$db["tablaUsuarios"]  = "usuarios";   // Nombre de la tabla Usuarios
-$db["tablaPersonas"]  = "personas";   // Nombre de la tabla Personas
-$db["tablaObras"]     = "obras";      // Nombre de la tabla Obras
-$db["tablaPrestamos"] = "prestamos";  // Nombre de la tabla Préstamos
+$db["usuarios"]  = "usuarios";      // Nombre de la tabla Usuarios
+$db["personas"]  = "personas";      // Nombre de la tabla Personas
+$db["obras"]     = "obras";         // Nombre de la tabla Obras
+$db["prestamos"] = "prestamos";     // Nombre de la tabla Préstamos
 
 // Consultas de borrado y creación de base de datos y tablas
 
@@ -22,41 +22,41 @@ $db["consultasBorraTodo"] = [
     // Como en cada conexión tengo que habilitarla para que funcionen los ON CASCADE,
     // aquí tengo que deshabilitarla, borrar las tablas y habilitarla de nuevo
     "PRAGMA foreign_keys = OFF",
-    "DROP TABLE IF EXISTS $db[tablaUsuarios]",
-    "DROP TABLE IF EXISTS $db[tablaPersonas]",
-    "DROP TABLE IF EXISTS $db[tablaObras]",
-    "DROP TABLE IF EXISTS $db[tablaPrestamos]",
+    "DROP TABLE IF EXISTS $db[usuarios]",
+    "DROP TABLE IF EXISTS $db[personas]",
+    "DROP TABLE IF EXISTS $db[obras]",
+    "DROP TABLE IF EXISTS $db[prestamos]",
     "PRAGMA foreign_keys = ON",
     // Crea tablas
-    "CREATE TABLE $db[tablaUsuarios] (
+    "CREATE TABLE $db[usuarios] (
         id INTEGER PRIMARY KEY,
         usuario VARCHAR($db[tamUsuariosUsuario]),
         password VARCHAR($db[tamUsuariosPasswordCifrado]),
         nivel INTEGER
     )",
-    "CREATE TABLE $db[tablaPersonas] (
+    "CREATE TABLE $db[personas] (
         id INTEGER PRIMARY KEY,
         nombre VARCHAR($db[tamPersonasNombre]),
         apellidos VARCHAR($db[tamPersonasApellidos]),
         dni VARCHAR($db[tamPersonasDni])
     )",
-    "CREATE TABLE $db[tablaObras] (
+    "CREATE TABLE $db[obras] (
         id INTEGER PRIMARY KEY,
         autor VARCHAR($db[tamObrasAutor]),
         titulo VARCHAR($db[tamObrasTitulo]),
         editorial VARCHAR($db[tamObrasEditorial])
     )",
-    "CREATE TABLE $db[tablaPrestamos] (
+    "CREATE TABLE $db[prestamos] (
         id INTEGER PRIMARY KEY,
         id_persona INTEGER UNSIGNED,
         id_obra INTEGER UNSIGNED,
         prestado DATE,
         devuelto DATE,
-        FOREIGN KEY(id_persona) REFERENCES $db[tablaPersonas](id) ON DELETE CASCADE ON UPDATE CASCADE,
-        FOREIGN KEY(id_obra) REFERENCES $db[tablaObras](id) ON DELETE CASCADE ON UPDATE CASCADE
+        FOREIGN KEY(id_persona) REFERENCES $db[personas](id) ON DELETE CASCADE ON UPDATE CASCADE,
+        FOREIGN KEY(id_obra) REFERENCES $db[obras](id) ON DELETE CASCADE ON UPDATE CASCADE
     )",
     // Inserta usuario root
-    "INSERT INTO $db[tablaUsuarios]
+    "INSERT INTO $db[usuarios]
         VALUES (NULL, '$cfg[rootName]', '$cfg[rootPassword]', $usuariosNiveles[Administrador])",
 ];
 
@@ -86,7 +86,7 @@ function existenTablas()
 {
     global $db;
 
-    $pdo = conectaDb();
+    $pdo    = conectaDb();
     $existe = true;
     foreach ($db["tablas"] as $tabla) {
         $consulta = "SELECT count(*) FROM sqlite_master WHERE type='table' AND name='$tabla'";

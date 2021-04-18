@@ -25,7 +25,7 @@ if ($id == "") {
 } else {
     $pdo = conectaDb();
 
-    $consulta = "SELECT * FROM $db[tablaUsuarios]
+    $consulta = "SELECT * FROM $db[usuarios]
                  WHERE id=:id";
     $result = $pdo->prepare($consulta);
     $result->execute([":id" => $id]);
@@ -36,7 +36,7 @@ if ($id == "") {
         if ($valor["usuario"] == $cfg["rootName"]) {
             print "    <p>Este usuario no se puede modificar.</p>\n";
         } else {
-            $consulta = "SELECT COUNT(*) FROM $db[tablaUsuarios]
+            $consulta = "SELECT COUNT(*) FROM $db[usuarios]
                          WHERE id=:id";
             $result = $pdo->prepare($consulta);
             $result->execute([":id" => $id]);
@@ -48,7 +48,7 @@ if ($id == "") {
                 // La consulta cuenta los registros con un id diferente porque MySQL no distingue
                 // mayúsculas de minúsculas y si en un registro sólo se cambian mayúsculas por
                 // minúsculas MySQL diría que ya hay un registro como el que se quiere guardar.
-                $consulta = "SELECT COUNT(*) FROM $db[tablaUsuarios]
+                $consulta = "SELECT COUNT(*) FROM $db[usuarios]
                              WHERE usuario=:usuario
                              AND id<>:id";
                 $result = $pdo->prepare($consulta);
@@ -60,7 +60,7 @@ if ($id == "") {
                         . "No se ha guardado la modificación.</p>\n";
                 } else {
                     if ($password != "") {
-                        $consulta = "UPDATE $db[tablaUsuarios]
+                        $consulta = "UPDATE $db[usuarios]
                                      SET usuario=:usuario, password=:password, nivel=:nivel
                                      WHERE id=:id";
                         $result = $pdo->prepare($consulta);
@@ -71,7 +71,7 @@ if ($id == "") {
                             print "    <p class=\"aviso\">Error al modificar el registro.</p>\n";
                         }
                     } else {
-                        $consulta = "UPDATE $db[tablaUsuarios]
+                        $consulta = "UPDATE $db[usuarios]
                                      SET usuario=:usuario, nivel=:nivel
                                      WHERE id=:id";
                         $result = $pdo->prepare($consulta);

@@ -12,14 +12,14 @@ compruebaSesion(NIVEL_3, PROFUNDIDAD_2);
 cabecera("Usuarios - Listar", MENU_USUARIOS, PROFUNDIDAD_2);
 
 borraAvisosExcepto();
-compruebaAvisosGenerales("listar", "sinRegistros", "usuarios");
+compruebaAvisosGenerales("listar", "sinRegistros", $db["usuarios"]);
 
 if (!imprimeAvisosGenerales()) {
     $ordena = recogeValores("ordena", $db["columnasUsuariosOrden"], "usuario ASC");
 
     $pdo = conectaDb();
 
-    $consulta = "SELECT * FROM $db[tablaUsuarios]
+    $consulta = "SELECT * FROM $db[usuarios]
                  ORDER BY $ordena";
     $result = $pdo->query($consulta);
     if (!$result) {

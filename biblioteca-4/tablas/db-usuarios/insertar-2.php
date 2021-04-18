@@ -23,7 +23,7 @@ cabecera("Usuarios - Añadir 2", MENU_USUARIOS, PROFUNDIDAD_2);
 
 $pdo = conectaDb();
 
-$consulta = "SELECT COUNT(*) FROM $db[tablaUsuarios]
+$consulta = "SELECT COUNT(*) FROM $db[usuarios]
              WHERE usuario=:usuario";
 $result = $pdo->prepare($consulta);
 $result->execute([":usuario" => $usuario]);
@@ -32,7 +32,7 @@ if (!$result) {
 } elseif ($result->fetchColumn() > 0) {
     print "    <p class=\"aviso\">El registro ya existe.</p>\n";
 } else {
-    $consulta = "INSERT INTO $db[tablaUsuarios]
+    $consulta = "INSERT INTO $db[usuarios]
                  (usuario, password, nivel)
                  VALUES (:usuario, :password, $nivel)";
     $result = $pdo->prepare($consulta);

@@ -11,7 +11,12 @@ compruebaSesion(NIVEL_3, PROFUNDIDAD_2);
 
 borraAvisosExcepto();
 [$nombre, $apellidos, $dni, $id] = compruebaAvisosIndividuales("modificar-3", "personas", "nombre", "apellidos", "dni", "id");
-compruebaAvisosGenerales("modificar-3", "todosVaciosMenosPrimero", "id", "nombre", "apellidos", "dni");
+if (isset($_SESSION["error"])) {
+    header("Location:modificar-1.php");
+    exit();
+}
+
+compruebaAvisosGenerales("modificar-3", "todosVaciosMenosPrimero", "personas", "id", "nombre", "apellidos", "dni");
 
 if (isset($_SESSION["error"])) {
     header("Location:modificar-2.php");
@@ -25,7 +30,7 @@ if ($id == "") {
 } else {
     $pdo = conectaDb();
 
-    $consulta = "SELECT COUNT(*) FROM $db[tablaPersonas]
+    $consulta = "SELECT COUNT(*) FROM $db[personas]
                  WHERE id=:id";
     $result = $pdo->prepare($consulta);
     $result->execute([":id" => $id]);
@@ -37,7 +42,7 @@ if ($id == "") {
         // La consulta cuenta los registros con un id diferente porque MySQL no distingue
         // mayúsculas de minúsculas y si en un registro sólo se cambian mayúsculas por
         // minúsculas MySQL diría que ya hay un registro como el que se quiere guardar.
-        $consulta = "SELECT COUNT(*) FROM $db[tablaPersonas]
+        $consulta = "SELECT COUNT(*) FROM $db[personas]
                      WHERE nombre=:nombre
                      AND apellidos=:apellidos
                      AND dni=:dni
@@ -51,7 +56,7 @@ if ($id == "") {
             print "    <p class=\"aviso\">Ya existe un registro con esos mismos valores. "
                 . "No se ha guardado la modificación.</p>\n";
         } else {
-            $consulta = "UPDATE $db[tablaPersonas]
+            $consulta = "UPDATE $db[personas]
                          SET nombre=:nombre, apellidos=:apellidos, dni=:dni
                          WHERE id=:id";
             $result = $pdo->prepare($consulta);

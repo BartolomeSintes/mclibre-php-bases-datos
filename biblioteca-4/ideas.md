@@ -16,6 +16,15 @@ Si haces el diseño desde cero, puedes evitarlo añadiendo referencia a la tabla
 | Tabla 1 (personas) | id_persona | nombre_persona |                              |
 | Tabla 2 (empresas) | id_empresa | nombre_empresa | jefe_id_persona (id_persona) |
 
+[StackExchange (2012): Why is prefixing column names considered bad practice?](https://softwareengineering.stackexchange.com/questions/85764/why-is-prefixing-column-names-considered-bad-practice)
 
+[Stack Overflow (2012): Is prefixing each field name in a table with abbreviated table name a good practice?](https://stackoverflow.com/questions/465136/is-prefixing-each-field-name-in-a-table-with-abbreviated-table-name-a-good-practi)
 
+Parece que no hay un criterio universal.
+
+The ISO/IEC 11179 Metadata Registry (MDR) standard is an international ISO standard for representing metadata for an organization in a metadata registry. It documents the standardization and registration of metadata to make data understandable and shareable.
+
+[ISO/IEC 11179 wikipedia](https://en.wikipedia.org/wiki/ISO/IEC_11179)
+
+[Normas ISO públicas](https://standards.iso.org/ittf/PubliclyAvailableStandards/)
 

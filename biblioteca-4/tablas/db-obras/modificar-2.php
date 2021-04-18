@@ -29,7 +29,7 @@ if ($id == "") {
 } else {
     $pdo = conectaDb();
 
-    $consulta = "SELECT COUNT(*) FROM $db[tablaObras]
+    $consulta = "SELECT COUNT(*) FROM $db[obras]
                  WHERE id=:id";
     $result = $pdo->prepare($consulta);
     $result->execute([":id" => $id]);
@@ -38,7 +38,7 @@ if ($id == "") {
     } elseif ($result->fetchColumn() == 0) {
         print "    <p class=\"aviso\">Registro no encontrado.</p>\n";
     } else {
-        $consulta = "SELECT * FROM $db[tablaObras]
+        $consulta = "SELECT * FROM $db[obras]
                      WHERE id=:id";
         $result = $pdo->prepare($consulta);
         $result->execute([":id" => $id]);
@@ -55,7 +55,7 @@ if ($id == "") {
             print "            <td>Autor:</td>\n";
             if (isset($_SESSION["error"]["autor"])) {
                 print "            <td><input type=\"text\" name=\"autor\" size=\"$db[tamObrasAutor]\" maxlength=\"$db[tamObrasAutor]\""
-                    . imprimeAvisosIndividuales("obras", "autor", "valor") . " autofocus>" . imprimeAvisosIndividuales("obras", "autor", "mensaje") . "</td>\n";
+                    . imprimeAvisosIndividuales($db["obras"], "autor", "valor") . " autofocus>" . imprimeAvisosIndividuales($db["obras"], "autor", "mensaje") . "</td>\n";
             } else {
                 print "            <td><input type=\"text\" name=\"autor\" size=\"$db[tamObrasAutor]\" maxlength=\"$db[tamObrasAutor]\" value=\"$valor[autor]\" autofocus></td>\n";
             }
@@ -64,7 +64,7 @@ if ($id == "") {
             print "            <td>Título:</td>\n";
             if (isset($_SESSION["error"]["titulo"])) {
                 print "            <td><input type=\"text\" name=\"titulo\" size=\"$db[tamObrasTitulo]\" maxlength=\"$db[tamObrasTitulo]\""
-                    . imprimeAvisosIndividuales("obras", "titulo", "valor") . ">" . imprimeAvisosIndividuales("obras", "titulo", "mensaje") . "</td>\n";
+                    . imprimeAvisosIndividuales($db["obras"], "titulo", "valor") . ">" . imprimeAvisosIndividuales($db["obras"], "titulo", "mensaje") . "</td>\n";
             } else {
                 print "            <td><input type=\"text\" name=\"titulo\" size=\"$db[tamObrasTitulo]\" maxlength=\"$db[tamObrasTitulo]\" value=\"$valor[titulo]\"></td>\n";
             }
@@ -73,7 +73,7 @@ if ($id == "") {
             print "            <td>Editorial:</td>\n";
             if (isset($_SESSION["error"]["editorial"])) {
                 print "            <td><input type=\"text\" name=\"editorial\" size=\"$db[tamObrasEditorial]\" maxlength=\"$db[tamObrasEditorial]\""
-                    . imprimeAvisosIndividuales("obras", "editorial", "valor") . ">" . imprimeAvisosIndividuales("obras", "editorial", "mensaje") . "</td>\n";
+                    . imprimeAvisosIndividuales($db["obras"], "editorial", "valor") . ">" . imprimeAvisosIndividuales($db["obras"], "editorial", "mensaje") . "</td>\n";
             } else {
                 print "            <td><input type=\"text\" name=\"editorial\" size=\"$db[tamObrasEditorial]\" maxlength=\"$db[tamObrasEditorial]\" value=\"$valor[editorial]\"></td>\n";
             }

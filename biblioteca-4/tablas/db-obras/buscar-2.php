@@ -18,7 +18,7 @@ $ordena    = recogeValores("ordena", $db["columnasObrasOrden"], "autor ASC");
 
 $pdo = conectaDb();
 
-$consulta = "SELECT COUNT(*) FROM $db[tablaObras]
+$consulta = "SELECT COUNT(*) FROM $db[obras]
              WHERE autor LIKE :autor
              AND titulo LIKE :titulo
              AND editorial LIKE :editorial";
@@ -30,7 +30,7 @@ if (!$result) {
 } elseif ($result->fetchColumn() == 0) {
     print "    <p>No se han encontrado registros.</p>\n";
 } else {
-    $consulta = "SELECT * FROM $db[tablaObras]
+    $consulta = "SELECT * FROM $db[obras]
                  WHERE autor LIKE :autor
                  AND titulo LIKE :titulo
                  AND editorial LIKE :editorial

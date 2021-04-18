@@ -29,7 +29,7 @@ if ($id == "") {
 } else {
     $pdo = conectaDb();
 
-    $consulta = "SELECT COUNT(*) FROM $db[tablaPersonas]
+    $consulta = "SELECT COUNT(*) FROM $db[personas]
                  WHERE id=:id";
     $result = $pdo->prepare($consulta);
     $result->execute([":id" => $id]);
@@ -38,7 +38,7 @@ if ($id == "") {
     } elseif ($result->fetchColumn() == 0) {
         print "    <p class=\"aviso\">Registro no encontrado.</p>\n";
     } else {
-        $consulta = "SELECT * FROM $db[tablaPersonas]
+        $consulta = "SELECT * FROM $db[personas]
                      WHERE id=:id";
         $result = $pdo->prepare($consulta);
         $result->execute([":id" => $id]);
@@ -55,7 +55,7 @@ if ($id == "") {
             print "            <td>Nombre:</td>\n";
             if (isset($_SESSION["error"]["nombre"])) {
                 print "            <td><input type=\"text\" name=\"nombre\" size=\"$db[tamPersonasNombre]\" maxlength=\"$db[tamPersonasNombre]\""
-                . imprimeAvisosIndividuales("personas", "nombre", "valor") . " autofocus>" . imprimeAvisosIndividuales("personas", "nombre", "mensaje") . "</td>\n";
+                . imprimeAvisosIndividuales($db["personas"], "nombre", "valor") . " autofocus>" . imprimeAvisosIndividuales($db["personas"], "nombre", "mensaje") . "</td>\n";
             } else {
                 print "            <td><input type=\"text\" name=\"nombre\" size=\"$db[tamPersonasNombre]\" maxlength=\"$db[tamPersonasNombre]\" value=\"$valor[nombre]\"></td>\n";
             }
@@ -64,7 +64,7 @@ if ($id == "") {
             print "            <td>Apellidos:</td>\n";
             if (isset($_SESSION["error"]["apellidos"])) {
                 print "            <td><input type=\"text\" name=\"apellidos\" size=\"$db[tamPersonasApellidos]\" maxlength=\"$db[tamPersonasApellidos]\""
-                . imprimeAvisosIndividuales("personas", "apellidos", "valor") . ">" . imprimeAvisosIndividuales("personas", "apellidos", "mensaje") . "</td>\n";
+                . imprimeAvisosIndividuales($db["personas"], "apellidos", "valor") . ">" . imprimeAvisosIndividuales($db["personas"], "apellidos", "mensaje") . "</td>\n";
             } else {
                 print "            <td><input type=\"text\" name=\"apellidos\" size=\"$db[tamPersonasApellidos]\" maxlength=\"$db[tamPersonasApellidos]\" value=\"$valor[apellidos]\"></td>\n";
             }
@@ -73,7 +73,7 @@ if ($id == "") {
             print "            <td>DNI:</td>\n";
             if (isset($_SESSION["error"]["dni"])) {
                 print "            <td><input type=\"text\" name=\"dni\" size=\"$db[tamPersonasDni]\" maxlength=\"$db[tamPersonasDni]\""
-                . imprimeAvisosIndividuales("personas", "dni", "valor") . ">" . imprimeAvisosIndividuales("personas", "dni", "mensaje") . "</td>\n";
+                . imprimeAvisosIndividuales($db["personas"], "dni", "valor") . ">" . imprimeAvisosIndividuales($db["personas"], "dni", "mensaje") . "</td>\n";
             } else {
                 print "            <td><input type=\"text\" name=\"dni\" size=\"$db[tamPersonasDni]\" maxlength=\"$db[tamPersonasDni]\" value=\"$valor[dni]\"></td>\n";
             }

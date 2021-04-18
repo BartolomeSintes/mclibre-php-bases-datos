@@ -22,7 +22,7 @@ cabecera("Préstamos - Devolver 2", MENU_PRESTAMOS, PROFUNDIDAD_2);
 
 $pdo = conectaDb();
 
-$consulta = "UPDATE $db[tablaPrestamos]
+$consulta = "UPDATE $db[prestamos]
              SET devuelto='$devuelto'
              WHERE id=:id";
 $result = $pdo->prepare($consulta);

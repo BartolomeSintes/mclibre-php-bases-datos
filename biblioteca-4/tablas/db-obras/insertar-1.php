@@ -12,7 +12,7 @@ compruebaSesion(NIVEL_3, PROFUNDIDAD_2);
 cabecera("Obras - Añadir 1", MENU_OBRAS, PROFUNDIDAD_2);
 
 borraAvisosExcepto("insertar-2");
-compruebaAvisosGenerales("insertar-1", "limiteNumeroRegistros", "obras");
+compruebaAvisosGenerales("insertar-1", "limiteNumeroRegistros", $db["obras"]);
 
 imprimeAvisosGenerales();
 
@@ -24,17 +24,17 @@ print "        <tbody>\n";
 print "          <tr>\n";
 print "            <td>Autor:</td>\n";
 print "            <td><input type=\"text\" name=\"autor\" size=\"$db[tamObrasAutor]\" maxlength=\"$db[tamObrasAutor]\""
-    . imprimeAvisosIndividuales("obras", "autor", "valor") . " autofocus>" . imprimeAvisosIndividuales("obras", "autor", "mensaje") . "</td>\n";
+    . imprimeAvisosIndividuales($db["obras"], "autor", "valor") . " autofocus>" . imprimeAvisosIndividuales($db["obras"], "autor", "mensaje") . "</td>\n";
 print "          </tr>\n";
 print "          <tr>\n";
 print "            <td>Título:</td>\n";
 print "            <td><input type=\"text\" name=\"titulo\" size=\"$db[tamObrasTitulo]\" maxlength=\"$db[tamObrasTitulo]\""
-    . imprimeAvisosIndividuales("obras", "titulo", "valor") . ">" . imprimeAvisosIndividuales("obras", "titulo", "mensaje") . "</td>\n";
+    . imprimeAvisosIndividuales($db["obras"], "titulo", "valor") . ">" . imprimeAvisosIndividuales($db["obras"], "titulo", "mensaje") . "</td>\n";
 print "          </tr>\n";
 print "          <tr>\n";
 print "            <td>Editorial:</td>\n";
 print "            <td><input type=\"text\" name=\"editorial\" size=\"$db[tamObrasEditorial]\" maxlength=\"$db[tamObrasEditorial]\""
-    . imprimeAvisosIndividuales("obras", "editorial", "valor") . ">" . imprimeAvisosIndividuales("obras", "editorial", "mensaje") . "</td>\n";
+    . imprimeAvisosIndividuales($db["obras"], "editorial", "valor") . ">" . imprimeAvisosIndividuales($db["obras"], "editorial", "mensaje") . "</td>\n";
 print "          </tr>\n";
 print "        </tbody>\n";
 print "      </table>\n";

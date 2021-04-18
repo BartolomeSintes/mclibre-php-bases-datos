@@ -29,7 +29,7 @@ if ($id == "") {
 } else {
     $pdo = conectaDb();
 
-    $consulta = "SELECT COUNT(*) FROM $db[tablaUsuarios]
+    $consulta = "SELECT COUNT(*) FROM $db[usuarios]
                  WHERE id=:id";
     $result = $pdo->prepare($consulta);
     $result->execute([":id" => $id]);
@@ -38,7 +38,7 @@ if ($id == "") {
     } elseif ($result->fetchColumn() == 0) {
         print "    <p class=\"aviso\">Registro no encontrado.</p>\n";
     } else {
-        $consulta = "SELECT * FROM $db[tablaUsuarios]
+        $consulta = "SELECT * FROM $db[usuarios]
                      WHERE id=:id";
         $result = $pdo->prepare($consulta);
         $result->execute([":id" => $id]);
@@ -58,14 +58,14 @@ if ($id == "") {
                 print "            <td>Usuario:</td>\n";
                 if (isset($_SESSION["error"]["usuario"])) {
                     print "            <td><input type=\"text\" name=\"usuario\" size=\"$db[tamUsuariosUsuario]\" maxlength=\"$db[tamUsuariosUsuario]\""
-                    . imprimeAvisosIndividuales("usuarios", "usuario", "valor") . " autofocus>" . imprimeAvisosIndividuales("usuarios", "usuario", "mensaje") . "</td>\n";
+                    . imprimeAvisosIndividuales($db["usuarios"], "usuario", "valor") . " autofocus>" . imprimeAvisosIndividuales($db["usuarios"], "usuario", "mensaje") . "</td>\n";
                 } else {
                     print "            <td><input type=\"text\" name=\"usuario\" size=\"$db[tamUsuariosUsuario]\" maxlength=\"$db[tamUsuariosUsuario]\" value=\"$valor[usuario]\"></td>\n";
                 }
                 print "          </tr>\n";
                 print "          <tr>\n";
                 print "            <td>Contraseña:</td>\n";
-                print "            <td><input type=\"text\" name=\"password\" size=\"$db[tamUsuariosPassword]\" maxlength=\"$db[tamUsuariosPassword]\">" . imprimeAvisosIndividuales("usuarios", "password", "mensaje") . "</td>\n";
+                print "            <td><input type=\"text\" name=\"password\" size=\"$db[tamUsuariosPassword]\" maxlength=\"$db[tamUsuariosPassword]\">" . imprimeAvisosIndividuales($db["usuarios"], "password", "mensaje") . "</td>\n";
                 print "          </tr>\n";
                 print "          <tr>\n";
                 print "            <td>Nivel:</td>\n";
@@ -78,7 +78,7 @@ if ($id == "") {
                     }
                     print ">$indice2</option>\n";
                 }
-                print "              </select>" . imprimeAvisosIndividuales("usuarios", "nivel", "mensaje") . "\n";
+                print "              </select>" . imprimeAvisosIndividuales($db["usuarios"], "nivel", "mensaje") . "\n";
                 print "            </td>\n";
                 print "          </tr>\n";
                 print "        </tbody>\n";

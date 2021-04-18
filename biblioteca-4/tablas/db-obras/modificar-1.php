@@ -12,7 +12,7 @@ compruebaSesion(NIVEL_3, PROFUNDIDAD_2);
 cabecera("Obras - Modificar 1", MENU_OBRAS, PROFUNDIDAD_2);
 
 borraAvisosExcepto();
-compruebaAvisosGenerales("modificar-1", "sinRegistros", "obras");
+compruebaAvisosGenerales("modificar-1", "sinRegistros", $db["obras"]);
 
 if (!imprimeAvisosGenerales()) {
     $ordena = recogeValores("ordena", $db["columnasObrasOrden"], "titulo ASC");
@@ -20,7 +20,7 @@ if (!imprimeAvisosGenerales()) {
 
     $pdo = conectaDb();
 
-    $consulta = "SELECT * FROM $db[tablaObras]
+    $consulta = "SELECT * FROM $db[obras]
                  ORDER BY $ordena";
     $result = $pdo->query($consulta);
     if (!$result) {

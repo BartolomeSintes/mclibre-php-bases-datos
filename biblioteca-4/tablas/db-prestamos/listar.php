@@ -12,23 +12,23 @@ compruebaSesion(NIVEL_2, PROFUNDIDAD_2);
 cabecera("Préstamos - Listar", MENU_PRESTAMOS, PROFUNDIDAD_2);
 
 borraAvisosExcepto();
-compruebaAvisosGenerales("listar", "sinRegistros", "prestamos");
+compruebaAvisosGenerales("listar", "sinRegistros", $db["prestamos"]);
 
 if (!imprimeAvisosGenerales()) {
     $ordena = recogeValores("ordena", $db["columnasPrestamosOrden"], "apellidos ASC");
 
     $pdo = conectaDb();
 
-    $consulta = "SELECT $db[tablaPrestamos].id as id,
-                     $db[tablaPersonas].nombre as nombre,
-                     $db[tablaPersonas].apellidos as apellidos,
-                     $db[tablaObras].titulo as titulo,
-                     $db[tablaObras].autor as autor,
-                     $db[tablaPrestamos].prestado as prestado,
-                     $db[tablaPrestamos].devuelto as devuelto
-                 FROM $db[tablaPersonas], $db[tablaObras], $db[tablaPrestamos]
-                 WHERE $db[tablaPrestamos].id_persona=$db[tablaPersonas].id
-                 AND $db[tablaPrestamos].id_obra=$db[tablaObras].id
+    $consulta = "SELECT $db[prestamos].id as id,
+                     $db[personas].nombre as nombre,
+                     $db[personas].apellidos as apellidos,
+                     $db[obras].titulo as titulo,
+                     $db[obras].autor as autor,
+                     $db[prestamos].prestado as prestado,
+                     $db[prestamos].devuelto as devuelto
+                 FROM $db[personas], $db[obras], $db[prestamos]
+                 WHERE $db[prestamos].id_persona=$db[personas].id
+                 AND $db[prestamos].id_obra=$db[obras].id
                  ORDER BY $ordena";
     $result = $pdo->query($consulta);
     if (!$result) {

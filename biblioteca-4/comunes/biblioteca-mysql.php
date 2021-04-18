@@ -9,10 +9,10 @@
 
 // Nombres de las tablas
 
-$db["tablaUsuarios"]  = $cfg["mysqlDatabase"] . ".usuarios";       // Nombre de la tabla Usuarios
-$db["tablaPersonas"]  = $cfg["mysqlDatabase"] . ".personas";       // Nombre de la tabla Personas
-$db["tablaObras"]     = $cfg["mysqlDatabase"] . ".obras";          // Nombre de la tabla Obras
-$db["tablaPrestamos"] = $cfg["mysqlDatabase"] . ".prestamos";      // Nombre de la tabla Préstamos
+$db["usuarios"]  = $cfg["mysqlDatabase"] . ".usuarios";       // Nombre de la tabla Usuarios
+$db["personas"]  = $cfg["mysqlDatabase"] . ".personas";       // Nombre de la tabla Personas
+$db["obras"]     = $cfg["mysqlDatabase"] . ".obras";          // Nombre de la tabla Obras
+$db["prestamos"] = $cfg["mysqlDatabase"] . ".prestamos";      // Nombre de la tabla Préstamos
 
 // Consultas de borrado y creación de base de datos y tablas, etc.
 
@@ -24,35 +24,35 @@ $db["consultasBorraTodo"] = [
         CHARACTER SET utf8mb4
         COLLATE utf8mb4_unicode_ci",
     // Crea tablas
-    "CREATE TABLE $db[tablaUsuarios] (
+    "CREATE TABLE $db[usuarios] (
         id INTEGER NOT NULL AUTO_INCREMENT PRIMARY KEY,
         usuario VARCHAR($db[tamUsuariosUsuario]),
         password VARCHAR($db[tamUsuariosPasswordCifrado]),
         nivel INTEGER
     )",
-    "CREATE TABLE $db[tablaPersonas] (
+    "CREATE TABLE $db[personas] (
         id INTEGER NOT NULL AUTO_INCREMENT PRIMARY KEY,
         nombre VARCHAR($db[tamPersonasNombre]),
         apellidos VARCHAR($db[tamPersonasApellidos]),
         dni VARCHAR($db[tamPersonasDni])
     )",
-    "CREATE TABLE $db[tablaObras] (
+    "CREATE TABLE $db[obras] (
         id INTEGER NOT NULL AUTO_INCREMENT PRIMARY KEY,
         autor VARCHAR($db[tamObrasAutor]),
         titulo VARCHAR($db[tamObrasTitulo]),
         editorial VARCHAR($db[tamObrasEditorial])
     )",
-    "CREATE TABLE $db[tablaPrestamos] (
+    "CREATE TABLE $db[prestamos] (
         id INTEGER NOT NULL AUTO_INCREMENT PRIMARY KEY,
         id_persona INTEGER NOT NULL,
         id_obra INTEGER NOT NULL,
         prestado DATE,
         devuelto DATE,
-        FOREIGN KEY(id_persona) REFERENCES $db[tablaPersonas](id) ON DELETE CASCADE ON UPDATE CASCADE,
-        FOREIGN KEY(id_obra) REFERENCES $db[tablaObras](id) ON DELETE CASCADE ON UPDATE CASCADE
+        FOREIGN KEY(id_persona) REFERENCES $db[personas](id) ON DELETE CASCADE ON UPDATE CASCADE,
+        FOREIGN KEY(id_obra) REFERENCES $db[obras](id) ON DELETE CASCADE ON UPDATE CASCADE
     )",
     // Inserta usuario root
-    "INSERT INTO $db[tablaUsuarios]
+    "INSERT INTO $db[usuarios]
         VALUES (NULL, '$cfg[rootName]', '$cfg[rootPassword]', $usuariosNiveles[Administrador])",
 ];
 

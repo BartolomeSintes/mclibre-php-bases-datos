@@ -11,16 +11,19 @@ compruebaSesion(NIVEL_3, PROFUNDIDAD_2);
 
 cabecera("Personas - Modificar 1", MENU_PERSONAS, PROFUNDIDAD_2);
 
+imprimeAvisosGenerales();
+
 borraAvisosExcepto();
-compruebaAvisosGenerales("modificar-1", "sinRegistros", "personas");
+
+compruebaAvisosGenerales("modificar-1", "sinRegistros", $db["personas"]);
 
 if (!imprimeAvisosGenerales()) {
+    $pdo = conectaDb();
+
     $ordena = recogeValores("ordena", $db["columnasPersonasOrden"], "apellidos ASC");
     $id     = recoge("id");
 
-    $pdo = conectaDb();
-
-    $consulta = "SELECT * FROM $db[tablaPersonas]
+    $consulta = "SELECT * FROM $db[personas]
                  ORDER BY $ordena";
     $result = $pdo->query($consulta);
     if (!$result) {

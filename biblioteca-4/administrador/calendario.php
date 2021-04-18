@@ -125,9 +125,9 @@ $_SESSION["mes"]  = $mes;
 $_SESSION["anyo"] = $anyo;
 $_SESSION["dia"]  = $dia;
 
-calendario($pdo, $_SESSION["anyo"], $_SESSION["mes"], $_SESSION["dia"], "SELECT COUNT(*) FROM $db[tablaPrestamos] WHERE prestado=");
+calendario($pdo, $_SESSION["anyo"], $_SESSION["mes"], $_SESSION["dia"], "SELECT COUNT(*) FROM $db[prestamos] WHERE prestado=");
 
-$consulta = "SELECT COUNT(*) FROM $db[tablaPrestamos]
+$consulta = "SELECT COUNT(*) FROM $db[prestamos]
              WHERE prestado=:prestado";
 $result = $pdo->prepare($consulta);
 $result->execute([":prestado" => $fecha]);
@@ -136,16 +136,16 @@ if (!$result) {
 } elseif ($result->fetchColumn() == 0) {
     print "    <p>Haga clic en los días del mes con enlaces para ver los préstamos realizados en ese día.</p>\n";
 } else {
-    $consulta = "SELECT $db[tablaPrestamos].id as id,
-                     $db[tablaPersonas].nombre as nombre,
-                     $db[tablaPersonas].apellidos as apellidos,
-                     $db[tablaObras].titulo as titulo,
-                     $db[tablaObras].autor as autor,
-                     $db[tablaPrestamos].prestado as prestado,
-                     $db[tablaPrestamos].devuelto as devuelto
-                 FROM $db[tablaPersonas], $db[tablaObras], $db[tablaPrestamos]
-                 WHERE $db[tablaPrestamos].id_persona=$db[tablaPersonas].id
-                 AND $db[tablaPrestamos].id_obra=$db[tablaObras].id
+    $consulta = "SELECT $db[prestamos].id as id,
+                     $db[personas].nombre as nombre,
+                     $db[personas].apellidos as apellidos,
+                     $db[obras].titulo as titulo,
+                     $db[obras].autor as autor,
+                     $db[prestamos].prestado as prestado,
+                     $db[prestamos].devuelto as devuelto
+                 FROM $db[personas], $db[obras], $db[prestamos]
+                 WHERE $db[prestamos].id_persona=$db[personas].id
+                 AND $db[prestamos].id_obra=$db[obras].id
                  AND prestado=:prestado
                  ORDER BY $ordena";
     $result = $pdo->prepare($consulta);

@@ -10,32 +10,29 @@ require_once "../../comunes/biblioteca.php";
 compruebaSesion(NIVEL_3, PROFUNDIDAD_2);
 
 $pdo = conectaDb();
+
 cabecera("Personas - Borrar 2", MENU_PERSONAS, PROFUNDIDAD_2);
 
 $id = recoge("id", []);
 
-if (count($id) == 0) {
-    print "    <p class=\"aviso\">No se ha seleccionado ningún registro.</p>\n";
-} else {
-    foreach ($id as $indice => $valor) {
-        $consulta = "SELECT COUNT(*) FROM $db[tablaPersonas]
-                     WHERE id=:indice";
-        $result = $pdo->prepare($consulta);
-        $result->execute([":indice" => $indice]);
-        if (!$result) {
-            print "    <p class=\"aviso\">Error en la consulta.</p>\n";
-        } elseif ($result->fetchColumn() == 0) {
-            print "    <p class=\"aviso\">Registro no encontrado.</p>\n";
-        } else {
-            $consulta = "DELETE FROM $db[tablaPersonas]
-                         WHERE id=:indice";
-            $result = $pdo->prepare($consulta);
-            if ($result->execute([":indice" => $indice])) {
-                print "    <p>Registro borrado correctamente.</p>\n";
-            } else {
-                print "    <p class=\"aviso\">Error al borrar el registro.</p>\n";
-            }
-        }
+borraAvisosExcepto();
+
+compruebaAvisosGenerales("borrar-2", "registrosNoSeleccionados", $id);
+compruebaAvisosIndividuales("borrar-2", "personas", "id");
+
+if (isset($_SESSION["error"])) {
+    header("Location:borrar-1.php");
+    exit();
+}
+
+foreach ($id as $indice => $valor) {
+    $consulta = "DELETE FROM $db[personas]
+                    WHERE id=:indice";
+    $result = $pdo->prepare($consulta);
+    if ($result->execute([":indice" => $indice])) {
+        print "    <p>Registro borrado correctamente.</p>\n";
+    } else {
+        print "    <p class=\"aviso\">Error al borrar el registro.</p>\n";
     }
 }
 

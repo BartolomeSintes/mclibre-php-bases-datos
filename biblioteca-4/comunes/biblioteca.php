@@ -88,10 +88,10 @@ if ($cfg["dbMotor"] == MYSQL) {
 // Tablas
 
 $db["tablas"] = [
-    $db["tablaUsuarios"],
-    $db["tablaPersonas"],
-    $db["tablaObras"],
-    $db["tablaPrestamos"],
+    $db["usuarios"],
+    $db["personas"],
+    $db["obras"],
+    $db["prestamos"],
 ];
 
 // Valores de ordenación de las tablas
@@ -124,23 +124,23 @@ $db["columnasPrestamosOrden"] = [
 // Consultas de creación de registros de prueba
 
 $db["consultasValoresDemo"] = [
-    "INSERT INTO $db[tablaUsuarios]
+    "INSERT INTO $db[usuarios]
         VALUES (2,'basico','b1bbef3b6a1cb6f98a451620e6b59f6329e17fa692b48aa148816c71ef08798f', 1)",
-    "INSERT INTO $db[tablaUsuarios]
+    "INSERT INTO $db[usuarios]
         VALUES (3,'avanzado','ab7aa4a533c4160bdf3fbe6b29469c00caf0886692d884c78fc4c0beb03b33c1', 2)",
-    "INSERT INTO $db[tablaPersonas]
+    "INSERT INTO $db[personas]
         VALUES (1,'Pepito','Conejo','123A')",
-    "INSERT INTO $db[tablaPersonas]
+    "INSERT INTO $db[personas]
         VALUES (2,'Juan','Nadie','9876X')",
-    "INSERT INTO $db[tablaObras]
+    "INSERT INTO $db[obras]
         VALUES (1,'Miguel de Cervantes','Don Quijote','Cátedra')",
-    "INSERT INTO $db[tablaObras]
+    "INSERT INTO $db[obras]
         VALUES (2,'Jorge Luis Borges','Ficciones','Ed Sudamericana')",
-    "INSERT INTO $db[tablaPrestamos]
+    "INSERT INTO $db[prestamos]
         VALUES (1, 1, 1,'" . date("Y-m-d", time() - 4 * 60 * 60 * 24) . "','" . date("Y-m-d", time() - 3 * 60 * 60 * 24) . "')",
-    "INSERT INTO $db[tablaPrestamos]
+    "INSERT INTO $db[prestamos]
         VALUES (2, 2, 2,'" . date("Y-m-d", time() - 4 * 60 * 60 * 24) . "','" . date("Y-m-d", time() - 2 * 60 * 60 * 24) . "')",
-    "INSERT INTO $db[tablaPrestamos]
+    "INSERT INTO $db[prestamos]
         VALUES (3, 2, 1,'" . date("Y-m-d", time() - 1 * 60 * 60 * 24) . "','0000-00-00')",
 ];
 
@@ -366,7 +366,7 @@ function pie()
     print "  <footer>\n";
     print "    <p class=\"ultmod\">\n";
     print "      Última modificación de esta página:\n";
-    print "      <time datetime=\"2021-04-14\">11 de abril de 2021</time>\n";
+    print "      <time datetime=\"2021-04-17\">17 de abril de 2021</time>\n";
     print "    </p>\n";
     print "\n";
     print "    <p class=\"licencia\">\n";
