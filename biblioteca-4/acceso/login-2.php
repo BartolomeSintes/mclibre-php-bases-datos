@@ -16,26 +16,25 @@ $pdo = conectaDb();
 
 borraAvisosExcepto();
 if (!$usuario) {
-    $_SESSION["error"]["avisoGeneral"]["mensaje"] = "Escriba el nombre del usuario";
+    $_SESSION["avisoGeneral"][$origen][] = "Escriba el nombre del usuario";
 } else {
     $consulta = "SELECT * FROM $db[usuarios]
                  WHERE usuario=:usuario";
     $result = $pdo->prepare($consulta);
     $result->execute([":usuario" => $usuario]);
     if (!$result) {
-        $_SESSION["error"]["avisoGeneral"]["mensaje"] = "Error en la consulta";
+        $_SESSION["avisoGeneral"]["login-2"][] = "Error en la consulta";
     } else {
         $valor = $result->fetch();
         if ($valor["password"] != encripta($password)) {
-            $_SESSION["error"]["avisoGeneral"]["mensaje"] = "Nombre de usuario y/o contraseña incorrectos";
+            $_SESSION["avisoGeneral"]["login-2"][] = "Nombre de usuario y/o contraseña incorrectos";
         }
     }
 }
 
 $pdo = null;
 
-if (isset($_SESSION["error"])) {
-    $_SESSION["error"]["origen"] = "login-2";
+if (isset($_SESSION["avisoGeneral"]["login-2"])) {
     header("Location:login-1.php");
     exit();
 }

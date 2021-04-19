@@ -25,7 +25,7 @@ $cfg["mysqlDatabase"] = "biblioteca_4";                     // Nombre de la base
 $cfg["maxRegTablaActivado"] = true;                         // Limita o no el número de registros máximo por tabla
 $cfg["maxRegTabla"]         = [
     "usuarios"  => 999,                                     // Número máximo de registros en la tabla Usuarios
-    "personas"  => 2,                                     // Número máximo de registros en la tabla Personas
+    "personas"  => 3,                                     // Número máximo de registros en la tabla Personas
     "obras"     => 999,                                     // Número máximo de registros en la tabla Obras
     "prestamos" => 999,                                     // Número máximo de registros en la tabla Prestamos
 ];

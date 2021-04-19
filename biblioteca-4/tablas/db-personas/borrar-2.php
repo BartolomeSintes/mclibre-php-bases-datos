@@ -9,8 +9,6 @@ require_once "../../comunes/biblioteca.php";
 
 compruebaSesion(NIVEL_3, PROFUNDIDAD_2);
 
-$pdo = conectaDb();
-
 cabecera("Personas - Borrar 2", MENU_PERSONAS, PROFUNDIDAD_2);
 
 $id = recoge("id", []);
@@ -18,12 +16,15 @@ $id = recoge("id", []);
 borraAvisosExcepto();
 
 compruebaAvisosGenerales("borrar-2", "registrosNoSeleccionados", $id);
+
 compruebaAvisosIndividuales("borrar-2", "personas", "id");
 
-if (isset($_SESSION["error"])) {
+if (hayErrores("borrar-2")) {
     header("Location:borrar-1.php");
     exit();
 }
+
+$pdo = conectaDb();
 
 foreach ($id as $indice => $valor) {
     $consulta = "DELETE FROM $db[personas]

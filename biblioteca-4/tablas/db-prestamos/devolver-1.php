@@ -13,7 +13,7 @@ cabecera("Préstamos - Devolver 1", MENU_PRESTAMOS, PROFUNDIDAD_2);
 
 borraAvisosExcepto("devolver-2");
 
-imprimeAvisosGenerales();
+imprimeAvisosGenerales("devolver-2");
 
 $ordena = recogeValores("ordena", $db["columnasPrestamosOrden"], "autor ASC");
 

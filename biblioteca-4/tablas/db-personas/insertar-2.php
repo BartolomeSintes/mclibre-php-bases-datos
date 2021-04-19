@@ -14,7 +14,7 @@ borraAvisosExcepto();
 compruebaAvisosGenerales("insertar-2", "todosVacios", "nombre", "apellidos", "dni");
 compruebaAvisosGenerales("insertar-2", "limiteNumeroRegistros", "personas");
 
-if (isset($_SESSION["error"])) {
+if (hayErrores("insertar-2")) {
     header("Location:insertar-1.php");
     exit();
 }

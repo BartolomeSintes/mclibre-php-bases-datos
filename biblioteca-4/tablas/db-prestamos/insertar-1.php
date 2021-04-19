@@ -12,9 +12,10 @@ compruebaSesion(NIVEL_3, PROFUNDIDAD_2);
 cabecera("Préstamos - Añadir 1", MENU_PRESTAMOS, PROFUNDIDAD_2);
 
 borraAvisosExcepto("insertar-2");
+
 compruebaAvisosGenerales("insertar-1", "limiteNumeroRegistros", $db["prestamos"]);
 
-imprimeAvisosGenerales();
+imprimeAvisosGenerales("insertar-1", "insertar-2");
 
 $pdo = conectaDb();
 

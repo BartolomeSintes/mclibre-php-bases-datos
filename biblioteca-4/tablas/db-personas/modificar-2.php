@@ -13,7 +13,7 @@ cabecera("Personas - Modificar 2", MENU_PERSONAS, PROFUNDIDAD_2);
 
 borraAvisosExcepto("modificar-3");
 
-imprimeAvisosGenerales();
+imprimeAvisosGenerales("modificar-3");
 
 // Si en modificar-3 se detecta un error, al volver a modificar-2 se necesita recuperar el id
 if (isset($_SESSION["error"]["id"])) {

@@ -22,7 +22,7 @@ if (!existenTablas()) {
 }
 
 borraAvisosExcepto("login-2");
-imprimeAvisosGenerales();
+imprimeAvisosGenerales("login-2");
 
 print "    <form action=\"login-2.php\" method=\"$cfg[formMethod]\">\n";
 print "      <p>Escriba su nombre de usuario y contraseña:</p>\n";
