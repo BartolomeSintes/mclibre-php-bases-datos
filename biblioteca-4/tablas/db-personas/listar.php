@@ -12,6 +12,7 @@ compruebaSesion(NIVEL_2, PROFUNDIDAD_2);
 cabecera("Personas - Listar", MENU_PERSONAS, PROFUNDIDAD_2);
 
 borraAvisosExcepto();
+
 compruebaAvisosGenerales("listar", "sinRegistros", $db["personas"]);
 
 if (!imprimeAvisosGenerales()) {

@@ -11,7 +11,7 @@ compruebaSesion(NIVEL_3, PROFUNDIDAD_2);
 
 cabecera("Personas - Modificar 1", MENU_PERSONAS, PROFUNDIDAD_2);
 
-imprimeAvisosGenerales("modificar-2");
+imprimeAvisosGenerales("modificar-2", "modificar-3");
 
 borraAvisosExcepto();
 

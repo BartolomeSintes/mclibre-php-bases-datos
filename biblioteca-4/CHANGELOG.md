@@ -6,6 +6,12 @@ El formato se basa en [Keep a Changelog](https://keepachangelog.com/en/1.0.0/).
 
 Este changelog incluye los cambios hechos en Biblioteca-3, Biblioteca-4, etc.
 
+## 2021-04-XX
+
+### Changed (Modificado)
+- Cambio la estructura de $_SESSION para recoger los errores individuales y generales. Ahora es S_SESSSION[avisosIndividuales][pagina][tabla][control] y S_SESSSION[avisosGenerales][pagina].
+- Al insertar un registro (insertar-2 y modificar-3), compara con lower() para que no se puedan guardar
+
 ## 2021-04-17
 
 ### Added (Añadido)
@@ -13,10 +19,12 @@ Este changelog incluye los cambios hechos en Biblioteca-3, Biblioteca-4, etc.
 - Añado función printVariables() para que me escriba el valor de una variable (para usarla mientras programo resolviendo errores).
 - Renombro borraAvisos() a borraAvisosExcepto() puesto que el argumento son las páginas de origen de los avisos que no quiero borrar.
 
+
 ## 2021-04-14
 
 ### Added (Añadido)
 - Añado tests de Selenium para testear la aplicación (por el momento, prueba las opciones básicas de la tabla Personas). Añado atributo data-test-id=\"desconectarse\" a enlace Desconectar para que lo use Selenium (para detectar si está conectado al iniciar el test y en ese caso desconectar).
+
 
 ## 2021-04-11
 

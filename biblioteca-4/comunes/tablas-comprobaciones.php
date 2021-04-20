@@ -28,20 +28,25 @@ function comprobaciones($origen, $tabla, $campo, $valor)
     $mensaje = "";
 
     if ($campo == "id") {
-        $pdo      = conectaDb();
-        $consulta = "SELECT COUNT(*) FROM $db[$tabla]
-                     WHERE id=:id_recibido";
-        $result = $pdo->prepare($consulta);
-        $result->execute([":id_recibido" => $valor]);
-        if (!$result) {
-            $mensaje = "Error en la consulta.";
-        } elseif ($result->fetchColumn() == 0) {
-            $mensaje                             = "Registro no encontrado.";
-            $_SESSION["avisoGeneral"][$origen][] = "Registro no encontrado.";
+        if ($valor == "") {
+            $mensaje                             = "No se ha seleccionado ningún registro.";
+            $_SESSION["avisoGeneral"][$origen][] = "No se ha seleccionado ningún registro.";
         } else {
-            $campoOk = true;
+            $pdo      = conectaDb();
+            $consulta = "SELECT COUNT(*) FROM $db[$tabla]
+                     WHERE id=:id_recibido";
+            $result = $pdo->prepare($consulta);
+            $result->execute([":id_recibido" => $valor]);
+            if (!$result) {
+                $mensaje = "Error en la consulta.";
+            } elseif ($result->fetchColumn() == 0) {
+                $mensaje                             = "Registro no encontrado.";
+                $_SESSION["avisoGeneral"][$origen][] = "Registro no encontrado.";
+            } else {
+                $campoOk = true;
+            }
+            $pdo = null;
         }
-        $pdo = null;
     } elseif ($campo == "id") {                         // Cualquier tabla
         $campoOk = true;
     } elseif ($campo == "usuario") {                    // Tabla Usuarios
@@ -98,7 +103,7 @@ function comprobaciones($origen, $tabla, $campo, $valor)
         }
     } elseif ($campo == "dni") {                        // Tabla Personas
         if (mb_strlen($valor, "UTF-8") > $db["tamPersonasDni"]) {
-            $mensaje = "El teléfono no puede tener más de $db[tamPersonasDni] caracteres.";
+            $mensaje = "El dni no puede tener más de $db[tamPersonasDni] caracteres.";
         } else {
             $campoOk = true;
         }
@@ -227,10 +232,94 @@ function compruebaAvisosGenerales()
     array_shift($argumentos);
 
     if ($tipoComprobacion == "registrosNoSeleccionados") {
-        if (count($argumentos[0]) == 0) {
-            $_SESSION["avisoGeneral"][$origen][] = "No ha seleccionado ningún registro.";
+        if (is_array($argumentos[0])) {
+            if (count($argumentos[0]) == 0) {
+                $_SESSION["avisoGeneral"][$origen][] = "No ha seleccionado ningún registro.";
+                return true;
+            }
+        } else {
+            if ($argumentos[0] == "") {
+                $_SESSION["avisoGeneral"][$origen][] = "No ha seleccionado ningún registro.";
+                return true;
+            }
+        }
+    }
+
+    if ($tipoComprobacion == "yaExisteRegistro") {
+        $pdo      = conectaDb();
+        $consulta = "SELECT COUNT(*) FROM $argumentos[0] "
+                  . "WHERE ";
+        for ($i = 1; $i < count($argumentos) - 1; $i++) {
+            $consulta .= "lower($argumentos[$i])=lower(:$argumentos[$i]) AND ";
+        }
+        $consulta .= "lower($argumentos[$i])=lower(:$argumentos[$i])";
+        $parametros = [];
+        for ($i = 1; $i < count($argumentos); $i++) {
+            $parametros += [":" . $argumentos[$i] => recoge($argumentos[$i])];
+        }
+        $result = $pdo->prepare($consulta);
+        $result->execute($parametros);
+        if (!$result) {
+            $_SESSION["avisoGeneral"][$origen][] = "Error en la consulta.";
             return true;
         }
+        if ($result->fetchColumn() > 0) {
+            $_SESSION["avisoGeneral"][$origen][] = "El registro ya existe.";
+            return true;
+        }
+        $pdo = null;
+    }
+
+    // La consulta cuenta los registros con un id diferente para que que al cambiar
+    // alguna mayúscula por minúscula o viceversa no diga que el registro ya existe.
+    if ($tipoComprobacion == "yaExisteRegistroConOtroId") {
+        $pdo      = conectaDb();
+        $consulta = "SELECT COUNT(*) FROM $argumentos[0] "
+                  . "WHERE ";
+        for ($i = 1; $i < count($argumentos) - 1; $i++) {
+            $consulta .= "lower($argumentos[$i])=lower(:$argumentos[$i]) AND ";
+        }
+        $consulta .= "lower($argumentos[$i])<>lower(:$argumentos[$i])";
+        $parametros = [];
+        for ($i = 1; $i < count($argumentos); $i++) {
+            $parametros += [":" . $argumentos[$i] => recoge($argumentos[$i])];
+        }
+        $result = $pdo->prepare($consulta);
+        $result->execute($parametros);
+        if (!$result) {
+            $_SESSION["avisoGeneral"][$origen][] = "Error en la consulta.";
+            return true;
+        }
+        if ($result->fetchColumn() > 0) {
+            $_SESSION["avisoGeneral"][$origen][] = "Ya existe un registro con esos mismos valores. No se ha guardado la modificación.";
+            return true;
+        }
+        $pdo = null;
+    }
+
+    if ($tipoComprobacion == "registrosNoEncontrados") {            // Para Buscar
+        $pdo      = conectaDb();
+        $consulta = "SELECT COUNT(*) FROM $argumentos[0] "
+                  . "WHERE ";
+        for ($i = 1; $i < count($argumentos) - 1; $i++) {
+            $consulta .= "$argumentos[$i] like :$argumentos[$i] AND ";
+        }
+        $consulta .= "$argumentos[$i] like :$argumentos[$i]";
+        $parametros = [];
+        for ($i = 1; $i < count($argumentos); $i++) {
+            $parametros += [":" . $argumentos[$i] => "%" . recoge($argumentos[$i]) . "%"];
+        }
+        $result = $pdo->prepare($consulta);
+        $result->execute($parametros);
+        if (!$result) {
+            $_SESSION["avisoGeneral"][$origen][] = "Error en la consulta.";
+            return true;
+        }
+        if ($result->fetchColumn() == 0) {
+            $_SESSION["avisoGeneral"][$origen][] = "No se han encontrado registros.";
+            return true;
+        }
+        $pdo = null;
     }
 
     if ($tipoComprobacion == "todosVacios") {
@@ -429,16 +518,18 @@ function hayErrores()
             return true;
         }
         if (isset($_SESSION["avisoIndividual"])) {
-            foreach ($_SESSION["avisoIndividual"][$origen] as $tabla => $valores) {
-                foreach ($_SESSION["avisoIndividual"][$origen][$tabla] as $campo => $valos) {
-                    if (!is_array($_SESSION["avisoIndividual"][$origen][$tabla][$campo])) {
-                        if ($valor["campoOk"] == false) {
-                            return true;
+            foreach ($_SESSION["avisoIndividual"] as $origen => $tmp1) {
+                foreach ($_SESSION["avisoIndividual"][$origen] as $tabla => $tmp2) {
+                    foreach ($_SESSION["avisoIndividual"][$origen][$tabla] as $campo => $valor) {
+                        if (!is_array($_SESSION["avisoIndividual"][$origen][$tabla][$campo])) {
+                            if ($valor["campoOk"] == false) {
+                                return true;
+                            }
                         }
-                    }
-                    foreach ($_SESSION["avisoIndividual"][$origen][$tabla][$campo] as $indice => $valor) {
-                        if ($valor["campoOk"] == false) {
-                            return true;
+                        foreach ($_SESSION["avisoIndividual"][$origen][$tabla][$campo] as $indice => $valor) {
+                            if ($valor["campoOk"] == false) {
+                                return true;
+                            }
                         }
                     }
                 }
@@ -446,18 +537,19 @@ function hayErrores()
         }
     } else {
         if (isset($_SESSION["avisoIndividual"])) {
-            foreach ($_SESSION["avisoIndividual"] as $origen => $valor) {
+            foreach ($_SESSION["avisoIndividual"] as $origen => $tmp1) {
                 if (in_array($origen, $argumentos)) {
-                    foreach ($_SESSION["avisoIndividual"][$origen] as $tabla => $valores) {
+                    foreach ($_SESSION["avisoIndividual"][$origen] as $tabla => $tmp2) {
                         foreach ($_SESSION["avisoIndividual"][$origen][$tabla] as $campo => $valor) {
-                            if (!is_array($_SESSION["avisoIndividual"][$origen][$tabla][$campo])) {
+                            if (count($valor) == count($valor, COUNT_RECURSIVE)) { // Si no es un campo id
                                 if ($valor["campoOk"] == false) {
                                     return true;
                                 }
-                            }
-                            foreach ($_SESSION["avisoIndividual"][$origen][$tabla][$campo] as $indice => $valor) {
-                                if ($valor["campoOk"] == false) {
-                                    return true;
+                            } else {
+                                foreach ($valor as $subvalor) {
+                                    if ($subvalor["campoOk"] == false) {
+                                        return true;
+                                    }
                                 }
                             }
                         }
@@ -474,4 +566,11 @@ function hayErrores()
         }
     }
     return false;
+}
+
+function hayError($origen, $tabla, $campo)
+{
+    if (isset($_SESSION["avisoIndividual"][$origen][$tabla][$campo]["campoOk"])) {
+        return !$_SESSION["avisoIndividual"][$origen][$tabla][$campo]["campoOk"];
+    }
 }

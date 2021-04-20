@@ -12,6 +12,9 @@ compruebaSesion(NIVEL_3, PROFUNDIDAD_2);
 cabecera("Personas - Añadir 1", MENU_PERSONAS, PROFUNDIDAD_2);
 
 borraAvisosExcepto("insertar-2");
+
+imprimeAvisosGenerales("insertar-2");
+
 compruebaAvisosGenerales("insertar-1", "limiteNumeroRegistros", $db["personas"]);
 
 imprimeAvisosGenerales("insertar-1");
