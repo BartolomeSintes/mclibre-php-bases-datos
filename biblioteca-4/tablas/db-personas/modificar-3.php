@@ -34,11 +34,10 @@ cabecera("Personas - Modificar 3", MENU_PERSONAS, PROFUNDIDAD_2);
 $pdo = conectaDb();
 
 $consulta = "UPDATE $db[personas]
-                SET nombre=:nombre, apellidos=:apellidos, dni=:dni
-                WHERE id=:id";
+             SET nombre=:nombre, apellidos=:apellidos, dni=:dni
+             WHERE id=:id";
 $result = $pdo->prepare($consulta);
-if ($result->execute([":nombre" => $nombre, ":apellidos" => $apellidos,
-    ":dni" => $dni, ":id" => $id, ])) {
+if ($result->execute([":nombre" => $nombre, ":apellidos" => $apellidos, ":dni" => $dni, ":id" => $id])) {
     print "    <p>Registro modificado correctamente.</p>\n";
 } else {
     print "    <p class=\"aviso\">Error al modificar el registro.</p>\n";

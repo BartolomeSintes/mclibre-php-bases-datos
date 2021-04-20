@@ -13,7 +13,7 @@ cabecera("Personas - Listar", MENU_PERSONAS, PROFUNDIDAD_2);
 
 borraAvisosExcepto();
 
-compruebaAvisosGenerales("listar", "sinRegistros", $db["personas"]);
+compruebaAvisosGenerales("listar", "sinRegistros", "personas");
 
 if (!imprimeAvisosGenerales()) {
     $ordena = recogeValores("ordena", $db["columnasPersonasOrden"], "apellidos ASC");

@@ -10,9 +10,13 @@ require_once "../../comunes/biblioteca.php";
 compruebaSesion(NIVEL_3, PROFUNDIDAD_2);
 
 borraAvisosExcepto();
+
 [$nombre, $apellidos, $dni] = compruebaAvisosIndividuales("insertar-2", "personas", "nombre", "apellidos", "dni");
+
 compruebaAvisosGenerales("insertar-2", "todosVacios", "nombre", "apellidos", "dni");
+
 compruebaAvisosGenerales("insertar-2", "limiteNumeroRegistros", "personas");
+
 compruebaAvisosGenerales("insertar-2", "yaExisteRegistro", "personas", "nombre", "apellidos", "dni");
 
 if (hayErrores("insertar-2")) {
@@ -37,4 +41,5 @@ if ($result->execute([":nombre" => $nombre, ":apellidos" => $apellidos, ":dni" =
 }
 
 $pdo = null;
+
 pie();

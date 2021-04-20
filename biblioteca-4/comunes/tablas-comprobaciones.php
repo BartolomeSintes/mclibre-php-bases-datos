@@ -281,6 +281,29 @@ function compruebaAvisosGenerales()
         $pdo = null;
     }
 
+    if ($tipoComprobacion == "incluyeUsuarioRoot") {
+        $pdo = conectaDb();
+        if (!is_array($argumentos[0])) {
+            $argumentos[0] = [$argumentos[0] => "on"];
+        }
+        foreach ($argumentos[0] as $indice => $valor) {
+            $consulta = "SELECT * FROM $db[usuarios]
+                         WHERE id=:id";
+            $result = $pdo->prepare($consulta);
+            $result->execute([":id" => $indice]);
+            if (!$result) {
+                $_SESSION["avisosGenerales"][$origen][] = "Error en la consulta.";
+                return true;
+            }
+            $valor = $result->fetch();
+            if ($valor["usuario"] == $cfg["rootName"]) {
+                $_SESSION["avisosGenerales"][$origen][] = "El usuario root no se puede borrar o modificar.";
+                return true;
+            }
+        }
+        $pdo = null;
+    }
+
     // La consulta cuenta los registros con un id diferente para que que al cambiar
     // alguna mayúscula por minúscula o viceversa no diga que el registro ya existe.
     if ($tipoComprobacion == "yaExisteRegistroConOtroId") {

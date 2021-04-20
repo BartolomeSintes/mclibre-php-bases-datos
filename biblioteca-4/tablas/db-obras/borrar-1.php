@@ -11,10 +11,13 @@ compruebaSesion(NIVEL_3, PROFUNDIDAD_2);
 
 cabecera("Obras - Borrar 1", MENU_OBRAS, PROFUNDIDAD_2);
 
-borraAvisosExcepto();
-compruebaAvisosGenerales("borrar-1", "sinRegistros", $db["obras"]);
+borraAvisosExcepto("borrar-2");
 
-if (!imprimeAvisosGenerales()) {
+imprimeAvisosGenerales("borrar-2");
+
+compruebaAvisosGenerales("borrar-1", "sinRegistros", "obras");
+
+if (!imprimeAvisosGenerales("borrar-1")) {
     $pdo = conectaDb();
 
     $ordena = recogeValores("ordena", $db["columnasObrasOrden"], "titulo ASC");

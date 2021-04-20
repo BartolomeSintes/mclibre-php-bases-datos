@@ -11,14 +11,17 @@ compruebaSesion(NIVEL_3, PROFUNDIDAD_2);
 
 cabecera("Obras - Modificar 1", MENU_OBRAS, PROFUNDIDAD_2);
 
-borraAvisosExcepto();
-compruebaAvisosGenerales("modificar-1", "sinRegistros", $db["obras"]);
+imprimeAvisosGenerales("modificar-2", "modificar-3");
 
-if (!imprimeAvisosGenerales()) {
+borraAvisosExcepto();
+
+compruebaAvisosGenerales("modificar-1", "sinRegistros", "obras");
+
+if (!imprimeAvisosGenerales("modificar-1")) {
+    $pdo = conectaDb();
+
     $ordena = recogeValores("ordena", $db["columnasObrasOrden"], "titulo ASC");
     $id     = recoge("id");
-
-    $pdo = conectaDb();
 
     $consulta = "SELECT * FROM $db[obras]
                  ORDER BY $ordena";

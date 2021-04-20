@@ -12,7 +12,8 @@ compruebaSesion(NIVEL_3, PROFUNDIDAD_2);
 cabecera("Usuarios - Listar", MENU_USUARIOS, PROFUNDIDAD_2);
 
 borraAvisosExcepto();
-compruebaAvisosGenerales("listar", "sinRegistros", $db["usuarios"]);
+
+compruebaAvisosGenerales("listar", "sinRegistros", "usuarios");
 
 if (!imprimeAvisosGenerales()) {
     $ordena = recogeValores("ordena", $db["columnasUsuariosOrden"], "usuario ASC");

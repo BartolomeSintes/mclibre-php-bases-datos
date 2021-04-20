@@ -46,7 +46,7 @@ if (!$result) {
     print "            <td>Nombre:</td>\n";
     if (hayErrores("modificar-3") && !hayErroresGenerales("modificar-3")) {
         print "            <td><input type=\"text\" name=\"nombre\" size=\"$db[tamPersonasNombre]\" maxlength=\"$db[tamPersonasNombre]\""
-        . imprimeAvisosIndividuales("modificar-3", $db["personas"], "nombre", "valor") . " autofocus>" . imprimeAvisosIndividuales("modificar-3", $db["personas"], "nombre", "mensaje") . "</td>\n";
+            . imprimeAvisosIndividuales("modificar-3", "personas", "nombre", "valor") . " autofocus>" . imprimeAvisosIndividuales("modificar-3", "personas", "nombre", "mensaje") . "</td>\n";
     } else {
         print "            <td><input type=\"text\" name=\"nombre\" size=\"$db[tamPersonasNombre]\" maxlength=\"$db[tamPersonasNombre]\" value=\"$valor[nombre]\"></td>\n";
     }
@@ -55,7 +55,7 @@ if (!$result) {
     print "            <td>Apellidos:</td>\n";
     if (hayErrores("modificar-3") && !hayErroresGenerales("modificar-3")) {
         print "            <td><input type=\"text\" name=\"apellidos\" size=\"$db[tamPersonasApellidos]\" maxlength=\"$db[tamPersonasApellidos]\""
-        . imprimeAvisosIndividuales("modificar-3", $db["personas"], "apellidos", "valor") . ">" . imprimeAvisosIndividuales("modificar-3", $db["personas"], "apellidos", "mensaje") . "</td>\n";
+            . imprimeAvisosIndividuales("modificar-3", "personas", "apellidos", "valor") . ">" . imprimeAvisosIndividuales("modificar-3", "personas", "apellidos", "mensaje") . "</td>\n";
     } else {
         print "            <td><input type=\"text\" name=\"apellidos\" size=\"$db[tamPersonasApellidos]\" maxlength=\"$db[tamPersonasApellidos]\" value=\"$valor[apellidos]\"></td>\n";
     }
@@ -64,9 +64,9 @@ if (!$result) {
     print "            <td>DNI:</td>\n";
     if (hayErrores("modificar-3") && !hayErroresGenerales("modificar-3")) {
         print "            <td><input type=\"text\" name=\"dni\" size=\"$db[tamPersonasDni]\" maxlength=\"$db[tamPersonasDni]\""
-        . imprimeAvisosIndividuales("modificar-3", $db["personas"], "dni", "valor") . ">" . imprimeAvisosIndividuales("modificar-3", $db["personas"], "dni", "mensaje") . "</td>\n";
+            . imprimeAvisosIndividuales("modificar-3", "personas", "dni", "valor") . ">" . imprimeAvisosIndividuales("modificar-3", "personas", "dni", "mensaje") . "</td>\n";
     } else {
-        print "            <td><input type=\"text\" name=\"dni\" size=\"$db[tamPersonasDni]\" maxlength=\"$db[tamPersonasDni]\" value=\"$valor[dni]\">" . imprimeAvisosIndividuales("modificar-3", $db["personas"], "dni", "mensaje") . "</td>\n";
+        print "            <td><input type=\"text\" name=\"dni\" size=\"$db[tamPersonasDni]\" maxlength=\"$db[tamPersonasDni]\" value=\"$valor[dni]\"></td>\n";
     }
     print "          </tr>\n";
     print "        </tbody>\n";
@@ -80,6 +80,6 @@ if (!$result) {
     print "    </form>\n";
 }
 
-    $pdo = null;
+$pdo = null;
 
 pie();

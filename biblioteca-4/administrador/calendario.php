@@ -221,4 +221,5 @@ if (!$result) {
 }
 
 $pdo = null;
+
 pie();

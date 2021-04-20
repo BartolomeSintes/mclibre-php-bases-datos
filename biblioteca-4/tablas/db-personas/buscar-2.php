@@ -23,15 +23,16 @@ if (hayErrores("buscar-2")) {
 }
 
 $pdo = conectaDb();
-$ordena    = recogeValores("ordena", $db["columnasPersonasOrden"], "apellidos ASC");
+
+$ordena = recogeValores("ordena", $db["columnasPersonasOrden"], "apellidos ASC");
+
 $consulta = "SELECT * FROM $db[personas]
-            WHERE nombre LIKE :nombre
-            AND apellidos LIKE :apellidos
-            AND dni LIKE :dni
-            ORDER BY $ordena";
+             WHERE nombre LIKE :nombre
+             AND apellidos LIKE :apellidos
+             AND dni LIKE :dni
+             ORDER BY $ordena";
 $result = $pdo->prepare($consulta);
-$result->execute([":nombre" => "%$nombre%", ":apellidos" => "%$apellidos%",
-    ":dni"                  => "%$dni%", ]);
+$result->execute([":nombre" => "%$nombre%", ":apellidos" => "%$apellidos%", ":dni" => "%$dni%"]);
 if (!$result) {
     print "    <p class=\"aviso\">Error en la consulta.</p>\n";
 } else {
@@ -90,4 +91,5 @@ if (!$result) {
 }
 
 $pdo = null;
+
 pie();

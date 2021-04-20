@@ -1,5 +1,9 @@
 # BIBLIOTECA - IDEAS
 
+## Para mirar
+
+* [Stairway to SQL Server Security](https://www.sqlservercentral.com/stairways/stairway-to-sql-server-security)
+
 ## Nombres de los campos en las tablas de la base de datos
 
 Es inevitable que dos campos de dos tablas distintas acaben llamándose igual.
@@ -21,6 +25,10 @@ Si haces el diseño desde cero, puedes evitarlo añadiendo referencia a la tabla
 [Stack Overflow (2012): Is prefixing each field name in a table with abbreviated table name a good practice?](https://stackoverflow.com/questions/465136/is-prefixing-each-field-name-in-a-table-with-abbreviated-table-name-a-good-practi)
 
 Parece que no hay un criterio universal.
+
+[Database Naming Convention](https://web.archive.org/web/20110714090713/http://www.interaktonline.com/Support/Articles/Details/Design+Your+Database-Database+Naming+Convention.html?id_art=24&id_asc=221) de la empresa InterAKT que Adobe compró hace años.
+
+## Metadatos
 
 The ISO/IEC 11179 Metadata Registry (MDR) standard is an international ISO standard for representing metadata for an organization in a metadata registry. It documents the standardization and registration of metadata to make data understandable and shareable.
 

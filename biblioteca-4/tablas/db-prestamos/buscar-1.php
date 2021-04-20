@@ -12,7 +12,7 @@ compruebaSesion(NIVEL_2, PROFUNDIDAD_2);
 cabecera("Préstamos - Buscar 1", MENU_PRESTAMOS, PROFUNDIDAD_2);
 
 borraAvisosExcepto("buscar-2");
-compruebaAvisosGenerales("buscar-1", "sinRegistros", $db["prestamos"]);
+compruebaAvisosGenerales("buscar-1", "sinRegistros", "prestamos");
 
 if (!imprimeAvisosGenerales()) {
     print "    <form action=\"buscar-2.php\" method=\"$cfg[formMethod]\">\n";

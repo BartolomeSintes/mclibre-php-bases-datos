@@ -82,7 +82,7 @@ if ($id == "") {
                 }
                 print ">$valor2[nombre] $valor2[apellidos]</option>\n";
             }
-            print "              </select>" . imprimeAvisosIndividuales($db["prestamos"], "id_persona", "mensaje") . "\n";
+            print "              </select>" . imprimeAvisosIndividuales("prestamos", "id_persona", "mensaje") . "\n";
             print "            </td>\n";
             print "          </tr>\n";
             print "          <tr>\n";
@@ -97,16 +97,16 @@ if ($id == "") {
                 }
                 print ">$valor3[autor] - $valor3[titulo]</option>\n";
             }
-            print "              </select>" . imprimeAvisosIndividuales($db["prestamos"], "id_obra", "mensaje") . "\n";
+            print "              </select>" . imprimeAvisosIndividuales("prestamos", "id_obra", "mensaje") . "\n";
             print "            </td>\n";
             print "          </tr>\n";
             print "          <tr>\n";
             print "            <td>Fecha de préstamo:</td>\n";
-            print "            <td><input type=\"date\" name=\"prestado\" value=\"$valor[prestado]\">" . imprimeAvisosIndividuales($db["prestamos"], "prestado", "mensaje") . "</td>\n";
+            print "            <td><input type=\"date\" name=\"prestado\" value=\"$valor[prestado]\">" . imprimeAvisosIndividuales("prestamos", "prestado", "mensaje") . "</td>\n";
             print "          </tr>\n";
             print "          <tr>\n";
             print "            <td>Fecha de devolución:</td>\n";
-            print "            <td><input type=\"date\" name=\"devuelto\" value=\"$valor[devuelto]\">" . imprimeAvisosIndividuales($db["prestamos"], "devuelto", "mensaje") . "</td>\n";
+            print "            <td><input type=\"date\" name=\"devuelto\" value=\"$valor[devuelto]\">" . imprimeAvisosIndividuales("prestamos", "devuelto", "mensaje") . "</td>\n";
             print "          </tr>\n";
             print "        </tbody>\n";
             print "      </table>\n";

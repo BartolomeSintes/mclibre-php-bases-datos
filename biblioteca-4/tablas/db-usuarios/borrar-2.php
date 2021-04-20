@@ -9,48 +9,36 @@ require_once "../../comunes/biblioteca.php";
 
 compruebaSesion(NIVEL_3, PROFUNDIDAD_2);
 
-$pdo = conectaDb();
 cabecera("Usuarios - Borrar 2", MENU_USUARIOS, PROFUNDIDAD_2);
 
 $id = recoge("id", []);
 
-if (count($id) == 0) {
-    print "    <p class=\"aviso\">No se ha seleccionado ningún registro.</p>\n";
-} else {
-    foreach ($id as $indice => $valor) {
-        $consulta = "SELECT * FROM $db[usuarios]
-                     WHERE id=:id";
-        $result = $pdo->prepare($consulta);
-        $result->execute([":id" => $indice]);
-        if (!$result) {
-            print "    <p class=\"aviso\">Error en la consulta.</p>\n";
-        } else {
-            $valor = $result->fetch();
-            if ($valor["usuario"] == $cfg["rootName"]) {
-                print "    <p>Este usuario no se puede borrar.</p>\n";
-            } else {
-                $consulta = "SELECT COUNT(*) FROM $db[usuarios]
-                             WHERE id=:indice";
-                $result = $pdo->prepare($consulta);
-                $result->execute([":indice" => $indice]);
-                if (!$result) {
-                    print "    <p class=\"aviso\">Error en la consulta.</p>\n";
-                } elseif ($result->fetchColumn() == 0) {
-                    print "    <p class=\"aviso\">Registro no encontrado.</p>\n";
-                } else {
-                    $consulta = "DELETE FROM $db[usuarios]
-                                 WHERE id=:indice";
-                    $result = $pdo->prepare($consulta);
-                    if ($result->execute([":indice" => $indice])) {
-                        print "    <p>Registro borrado correctamente.</p>\n";
-                    } else {
-                        print "    <p class=\"aviso\">Error al borrar el registro.</p>\n";
-                    }
-                }
-            }
-        }
+borraAvisosExcepto();
+
+compruebaAvisosGenerales("borrar-2", "registrosNoSeleccionados", $id);
+
+compruebaAvisosGenerales("borrar-2", "incluyeUsuarioRoot", $id);
+
+compruebaAvisosIndividuales("borrar-2", "usuarios", "id");
+
+if (hayErrores("borrar-2")) {
+    header("Location:borrar-1.php");
+    exit();
+}
+
+$pdo = conectaDb();
+
+foreach ($id as $indice => $valor) {
+    $consulta = "DELETE FROM $db[usuarios]
+                 WHERE id=:indice";
+    $result = $pdo->prepare($consulta);
+    if ($result->execute([":indice" => $indice])) {
+        print "    <p>Registro borrado correctamente.</p>\n";
+    } else {
+        print "    <p class=\"aviso\">Error al borrar el registro.</p>\n";
     }
 }
 
 $pdo = null;
+
 pie();

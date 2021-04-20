@@ -12,7 +12,7 @@ compruebaSesion(NIVEL_3, PROFUNDIDAD_2);
 cabecera("Préstamos - Borrar 1", MENU_PRESTAMOS, PROFUNDIDAD_2);
 
 borraAvisosExcepto();
-compruebaAvisosGenerales("borrar-1", "limiteNumeroRegistros", $db["usuarios"]);
+compruebaAvisosGenerales("borrar-1", "limiteNumeroRegistros", "usuarios");
 
 if (!imprimeAvisosGenerales()) {
     $pdo = conectaDb();
@@ -110,4 +110,5 @@ if (!imprimeAvisosGenerales()) {
 }
 
 $pdo = null;
+
 pie();

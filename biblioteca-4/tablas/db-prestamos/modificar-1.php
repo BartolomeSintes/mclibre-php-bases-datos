@@ -12,7 +12,7 @@ compruebaSesion(NIVEL_3, PROFUNDIDAD_2);
 cabecera("Préstamos - Modificar 1", MENU_PRESTAMOS, PROFUNDIDAD_2);
 
 borraAvisosExcepto();
-compruebaAvisosGenerales("modificar-1", "sinRegistros", $db["prestamos"]);
+compruebaAvisosGenerales("modificar-1", "sinRegistros", "prestamos");
 
 if (!imprimeAvisosGenerales()) {
     $ordena = recogeValores("ordena", $db["columnasPrestamosOrden"], "apellidos ASC");

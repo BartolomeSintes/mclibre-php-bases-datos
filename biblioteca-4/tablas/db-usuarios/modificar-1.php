@@ -11,14 +11,17 @@ compruebaSesion(NIVEL_3, PROFUNDIDAD_2);
 
 cabecera("Usuarios - Modificar 1", MENU_USUARIOS, PROFUNDIDAD_2);
 
-borraAvisosExcepto();
-compruebaAvisosGenerales("modificar-1", "sinRegistros", $db["usuarios"]);
+imprimeAvisosGenerales("modificar-2", "modificar-3");
 
-if (!imprimeAvisosGenerales()) {
+borraAvisosExcepto();
+
+compruebaAvisosGenerales("modificar-1", "sinRegistros", "usuarios");
+
+if (!imprimeAvisosGenerales("modificar-1")) {
+    $pdo = conectaDb();
+
     $ordena = recogeValores("ordena", $db["columnasUsuariosOrden"], "password ASC");
     $id     = recoge("id");
-
-    $pdo = conectaDb();
 
     $consulta = "SELECT * FROM $db[usuarios]
                  ORDER BY $ordena";

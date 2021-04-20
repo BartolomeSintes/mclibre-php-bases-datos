@@ -33,4 +33,5 @@ if ($result->execute([":id" => $id_prestamo])) {
 }
 
 $pdo = null;
+
 pie();

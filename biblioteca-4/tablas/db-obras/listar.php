@@ -12,7 +12,8 @@ compruebaSesion(NIVEL_1, PROFUNDIDAD_2);
 cabecera("Obras - Listar", MENU_OBRAS, PROFUNDIDAD_2);
 
 borraAvisosExcepto();
-compruebaAvisosGenerales("listar", "sinRegistros", $db["obras"]);
+
+compruebaAvisosGenerales("listar", "sinRegistros", "obras");
 
 if (!imprimeAvisosGenerales()) {
     $ordena = recogeValores("ordena", $db["columnasObrasOrden"], "titulo ASC");

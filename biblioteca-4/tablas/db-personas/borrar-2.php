@@ -28,7 +28,7 @@ $pdo = conectaDb();
 
 foreach ($id as $indice => $valor) {
     $consulta = "DELETE FROM $db[personas]
-                    WHERE id=:indice";
+                 WHERE id=:indice";
     $result = $pdo->prepare($consulta);
     if ($result->execute([":indice" => $indice])) {
         print "    <p>Registro borrado correctamente.</p>\n";
@@ -38,4 +38,5 @@ foreach ($id as $indice => $valor) {
 }
 
 $pdo = null;
+
 pie();

@@ -15,7 +15,7 @@ imprimeAvisosGenerales("modificar-2", "modificar-3");
 
 borraAvisosExcepto();
 
-compruebaAvisosGenerales("modificar-1", "sinRegistros", $db["personas"]);
+compruebaAvisosGenerales("modificar-1", "sinRegistros", "personas");
 
 if (!imprimeAvisosGenerales("modificar-1")) {
     $pdo = conectaDb();

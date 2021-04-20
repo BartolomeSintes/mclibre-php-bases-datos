@@ -15,7 +15,7 @@ borraAvisosExcepto("buscar-2");
 
 imprimeAvisosGenerales("buscar-2");
 
-compruebaAvisosGenerales("buscar-1", "sinRegistros", $db["personas"]);
+compruebaAvisosGenerales("buscar-1", "sinRegistros", "personas");
 
 if (!imprimeAvisosGenerales()) {
     print "    <form action=\"buscar-2.php\" method=\"$cfg[formMethod]\">\n";
