@@ -20,6 +20,17 @@ function printValores()
     }
 }
 
+function printSesion()
+{
+    print "  <details>\n";
+    print "    <summary>Sesión</summary>\n";
+    print "    <pre>";
+    print_r($_SESSION);
+    print "    </pre>\n";
+    print "  </details>\n";
+    print "\n";
+}
+
 function comprobaciones($origen, $tabla, $campo, $valor)
 {
     global $db, $usuariosNiveles;
@@ -29,8 +40,8 @@ function comprobaciones($origen, $tabla, $campo, $valor)
 
     if ($campo == "id") {
         if ($valor == "") {
-            $mensaje                             = "No se ha seleccionado ningún registro.";
-            $_SESSION["avisoGeneral"][$origen][] = "No se ha seleccionado ningún registro.";
+            $mensaje                                = "No se ha seleccionado ningún registro.";
+            $_SESSION["avisosGenerales"][$origen][] = "No se ha seleccionado ningún registro.";
         } else {
             $pdo      = conectaDb();
             $consulta = "SELECT COUNT(*) FROM $db[$tabla]
@@ -40,8 +51,8 @@ function comprobaciones($origen, $tabla, $campo, $valor)
             if (!$result) {
                 $mensaje = "Error en la consulta.";
             } elseif ($result->fetchColumn() == 0) {
-                $mensaje                             = "Registro no encontrado.";
-                $_SESSION["avisoGeneral"][$origen][] = "Registro no encontrado.";
+                $mensaje                                = "Registro no encontrado.";
+                $_SESSION["avisosGenerales"][$origen][] = "Registro no encontrado.";
             } else {
                 $campoOk = true;
             }
@@ -206,7 +217,7 @@ function compruebaAvisosIndividuales()
         //     foreach ($comp["campoOk"] as $valor) {
         //         if ($valor == false) {
         //             $error                                        = true;
-        //             $_SESSION["avisoGeneral"][$origen][] = "No se han encontrado algunos registros seleccionados.";
+        //             $_SESSION["avisosGenerales"][$origen][] = "No se han encontrado algunos registros seleccionados.";
         //         }
         //     }
         // } elseif ($comp["campoOk"] == false) {
@@ -216,7 +227,7 @@ function compruebaAvisosIndividuales()
     // guarda [$campo1 => ["valor" => $valor1, "campoOk" => $campoOk1, "mensaje" => $mensaje1], $campo2 => ...]
     // printValores($paraSesion);
     // exit();
-    $_SESSION["avisoIndividual"][$origen][$tabla] = $paraSesion;
+    $_SESSION["avisosIndividuales"][$origen][$tabla] = $paraSesion;
     // devuelve [$valor1, $valor2, ...
     return $resp;
 }
@@ -234,12 +245,12 @@ function compruebaAvisosGenerales()
     if ($tipoComprobacion == "registrosNoSeleccionados") {
         if (is_array($argumentos[0])) {
             if (count($argumentos[0]) == 0) {
-                $_SESSION["avisoGeneral"][$origen][] = "No ha seleccionado ningún registro.";
+                $_SESSION["avisosGenerales"][$origen][] = "No ha seleccionado ningún registro.";
                 return true;
             }
         } else {
             if ($argumentos[0] == "") {
-                $_SESSION["avisoGeneral"][$origen][] = "No ha seleccionado ningún registro.";
+                $_SESSION["avisosGenerales"][$origen][] = "No ha seleccionado ningún registro.";
                 return true;
             }
         }
@@ -260,11 +271,11 @@ function compruebaAvisosGenerales()
         $result = $pdo->prepare($consulta);
         $result->execute($parametros);
         if (!$result) {
-            $_SESSION["avisoGeneral"][$origen][] = "Error en la consulta.";
+            $_SESSION["avisosGenerales"][$origen][] = "Error en la consulta.";
             return true;
         }
         if ($result->fetchColumn() > 0) {
-            $_SESSION["avisoGeneral"][$origen][] = "El registro ya existe.";
+            $_SESSION["avisosGenerales"][$origen][] = "El registro ya existe.";
             return true;
         }
         $pdo = null;
@@ -287,11 +298,11 @@ function compruebaAvisosGenerales()
         $result = $pdo->prepare($consulta);
         $result->execute($parametros);
         if (!$result) {
-            $_SESSION["avisoGeneral"][$origen][] = "Error en la consulta.";
+            $_SESSION["avisosGenerales"][$origen][] = "Error en la consulta.";
             return true;
         }
         if ($result->fetchColumn() > 0) {
-            $_SESSION["avisoGeneral"][$origen][] = "Ya existe un registro con esos mismos valores. No se ha guardado la modificación.";
+            $_SESSION["avisosGenerales"][$origen][] = "Ya existe un registro con esos mismos valores. Se muestran los datos originales (sin modificar).";
             return true;
         }
         $pdo = null;
@@ -312,11 +323,11 @@ function compruebaAvisosGenerales()
         $result = $pdo->prepare($consulta);
         $result->execute($parametros);
         if (!$result) {
-            $_SESSION["avisoGeneral"][$origen][] = "Error en la consulta.";
+            $_SESSION["avisosGenerales"][$origen][] = "Error en la consulta.";
             return true;
         }
         if ($result->fetchColumn() == 0) {
-            $_SESSION["avisoGeneral"][$origen][] = "No se han encontrado registros.";
+            $_SESSION["avisosGenerales"][$origen][] = "No se han encontrado registros.";
             return true;
         }
         $pdo = null;
@@ -330,7 +341,7 @@ function compruebaAvisosGenerales()
             $todosVacios = $todosVacios && ($valor == "");
         }
         if ($todosVacios) {
-            $_SESSION["avisoGeneral"][$origen][] = "Hay que rellenar al menos uno de los campos. No se ha guardado el registro.";
+            $_SESSION["avisosGenerales"][$origen][] = "Hay que rellenar al menos uno de los campos. No se ha guardado el registro.";
             return true;
         }
     }
@@ -351,7 +362,7 @@ function compruebaAvisosGenerales()
             $todosVacios = $todosVacios && ($valor == "");
         }
         if ($todosVacios) {
-            $_SESSION["avisoGeneral"][$origen][] = "Hay que rellenar al menos uno de los campos. No se ha guardado el registro.";
+            $_SESSION["avisosGenerales"][$origen][] = "Hay que rellenar al menos uno de los campos. Se muestran los datos originales (sin modificar).";
             return true;
         }
     }
@@ -364,7 +375,7 @@ function compruebaAvisosGenerales()
             $algunoVacio = $algunoVacio || ($valor == "");
         }
         if ($algunoVacio) {
-            $_SESSION["avisoGeneral"][$origen][] = "Hay que rellenar todos los campos. No se ha guardado el registro.";
+            $_SESSION["avisosGenerales"][$origen][] = "Hay que rellenar todos los campos. No se ha guardado el registro.";
             return true;
         }
     }
@@ -374,17 +385,17 @@ function compruebaAvisosGenerales()
         $pdo   = conectaDb();
         $tabla = $argumentos[0];
         if (!in_array($tabla, $db["tablas"])) {
-            $_SESSION["avisoGeneral"][$origen][] = "La tabla $tabla no existe";
+            $_SESSION["avisosGenerales"][$origen][] = "La tabla $tabla no existe";
             return true;
         }
         $consulta = "SELECT COUNT(*) FROM $db[$tabla]";
         $result   = $pdo->query($consulta);
         if (!$result) {
-            $_SESSION["avisoGeneral"][$origen][] = "Error en la consulta";
+            $_SESSION["avisosGenerales"][$origen][] = "Error en la consulta";
             return true;
         }
         if ($result->fetchColumn() == 0) {
-            $_SESSION["avisoGeneral"][$origen][] = "No se ha creado todavía ningún registro.";
+            $_SESSION["avisosGenerales"][$origen][] = "No se ha creado todavía ningún registro.";
             return true;
         }
 
@@ -396,17 +407,17 @@ function compruebaAvisosGenerales()
         $pdo   = conectaDb();
         $tabla = $argumentos[0];
         if (!in_array($tabla, $db["tablas"])) {
-            $_SESSION["avisoGeneral"][$origen][] = "La tabla $tabla no existe";
+            $_SESSION["avisosGenerales"][$origen][] = "La tabla $tabla no existe";
             return true;
         }
         $consulta = "SELECT COUNT(*) FROM $db[$tabla]";
         $result   = $pdo->query($consulta);
         if (!$result) {
-            $_SESSION["avisoGeneral"][$origen][] = "Error en la consulta";
+            $_SESSION["avisosGenerales"][$origen][] = "Error en la consulta";
             return true;
         }
         if ($result->fetchColumn() >= $cfg["maxRegTabla"][$tabla]) {
-            $_SESSION["avisoGeneral"][$origen][] = "Se ha alcanzado el número máximo de registros que se pueden guardar. Por favor, borre algún registro antes.";
+            $_SESSION["avisosGenerales"][$origen][] = "Se ha alcanzado el número máximo de registros que se pueden guardar. Por favor, borre algún registro antes.";
             return true;
         }
 
@@ -420,7 +431,7 @@ function compruebaAvisosGenerales()
         if (!checkdate(substr($antes, 5, 2), substr($antes, 8, 2), substr($antes, 0, 4))
             || !checkdate(substr($despues, 5, 2), substr($despues, 8, 2), substr($despues, 0, 4))
             || $antes > $despues) {
-            $_SESSION["avisoGeneral"][$origen][] = "La fecha de devolución <strong>$despues</strong> es anterior a la de préstamo <strong>$antes</strong>.";
+            $_SESSION["avisosGenerales"][$origen][] = "La fecha de devolución <strong>$despues</strong> es anterior a la de préstamo <strong>$antes</strong>.";
             return true;
         }
     }
@@ -435,12 +446,12 @@ function compruebaAvisosGenerales()
         $result = $pdo->prepare($consulta);
         $result->execute([":id" => $id_prestamo]);
         if (!$result) {
-            $_SESSION["avisoGeneral"][$origen][] = "Error en la consulta";
+            $_SESSION["avisosGenerales"][$origen][] = "Error en la consulta";
             return true;
         }
         $prestado = $result->fetchColumn();
         if ($prestado > $devuelto) {
-            $_SESSION["avisoGeneral"][$origen][] = "La fecha de devolución <strong>$devuelto</strong> es anterior a la de préstamo <strong>$prestado</strong>.";
+            $_SESSION["avisosGenerales"][$origen][] = "La fecha de devolución <strong>$devuelto</strong> es anterior a la de préstamo <strong>$prestado</strong>.";
             return true;
         }
 
@@ -456,8 +467,8 @@ function imprimeAvisosGenerales()
 
     $avisosImpresos = false;
     foreach ($argumentos as $origen) {
-        if (isset($_SESSION["avisoGeneral"][$origen]) && count($_SESSION["avisoGeneral"][$origen]) > 0) {
-            foreach ($_SESSION["avisoGeneral"][$origen] as $mensaje) {
+        if (isset($_SESSION["avisosGenerales"][$origen]) && count($_SESSION["avisosGenerales"][$origen]) > 0) {
+            foreach ($_SESSION["avisosGenerales"][$origen] as $mensaje) {
                 print "    <p class=\"aviso\">$mensaje</p>\n";
             }
             $avisosImpresos = true;
@@ -468,12 +479,12 @@ function imprimeAvisosGenerales()
 
 function imprimeAvisosIndividuales($origen, $tabla, $campo, $tipo)
 {
-    if (isset($_SESSION["avisoIndividual"][$origen][$tabla][$campo])) {
+    if (isset($_SESSION["avisosIndividuales"][$origen][$tabla][$campo])) {
         if ($tipo == "valor") {
-            return " value=\"{$_SESSION["avisoIndividual"][$origen][$tabla][$campo]["valor"]}\"";
+            return " value=\"{$_SESSION["avisosIndividuales"][$origen][$tabla][$campo]["valor"]}\"";
         }
         if ($tipo == "mensaje") {
-            return " <span class=\"aviso\">{$_SESSION["avisoIndividual"][$origen][$tabla][$campo]["mensaje"]}</span>";
+            return " <span class=\"aviso\">{$_SESSION["avisosIndividuales"][$origen][$tabla][$campo]["mensaje"]}</span>";
         }
     }
     return "";
@@ -485,26 +496,26 @@ function borraAvisosExcepto()
     $argumentos = func_get_args();
 
     if (!count($argumentos)) {
-        unset($_SESSION["avisoGeneral"], $_SESSION["avisoIndividual"]);
+        unset($_SESSION["avisosGenerales"], $_SESSION["avisosIndividuales"]);
     } else {
-        if (isset($_SESSION["avisoIndividual"])) {
-            foreach ($_SESSION["avisoIndividual"] as $indice => $valor) {
+        if (isset($_SESSION["avisosIndividuales"])) {
+            foreach ($_SESSION["avisosIndividuales"] as $indice => $valor) {
                 if ($indice != $argumentos[0]) {
-                    unset($_SESSION["avisoIndividual"][$indice]);
+                    unset($_SESSION["avisosIndividuales"][$indice]);
                 }
             }
-            if (!count($_SESSION["avisoIndividual"])) {
-                unset($_SESSION["avisoIndividual"]);
+            if (!count($_SESSION["avisosIndividuales"])) {
+                unset($_SESSION["avisosIndividuales"]);
             }
         }
-        if (isset($_SESSION["avisoGeneral"])) {
-            foreach ($_SESSION["avisoGeneral"] as $indice => $valor) {
+        if (isset($_SESSION["avisosGenerales"])) {
+            foreach ($_SESSION["avisosGenerales"] as $indice => $valor) {
                 if ($indice != $argumentos[0]) {
-                    unset($_SESSION["avisoGeneral"][$indice]);
+                    unset($_SESSION["avisosGenerales"][$indice]);
                 }
             }
-            if (!count($_SESSION["avisoGeneral"])) {
-                unset($_SESSION["avisoGeneral"]);
+            if (!count($_SESSION["avisosGenerales"])) {
+                unset($_SESSION["avisosGenerales"]);
             }
         }
     }
@@ -514,19 +525,19 @@ function hayErrores()
 {
     $argumentos = func_get_args();
     if (!count($argumentos)) {
-        if (isset($_SESSION["avisoGeneral"])) {
+        if (isset($_SESSION["avisosGenerales"])) {
             return true;
         }
-        if (isset($_SESSION["avisoIndividual"])) {
-            foreach ($_SESSION["avisoIndividual"] as $origen => $tmp1) {
-                foreach ($_SESSION["avisoIndividual"][$origen] as $tabla => $tmp2) {
-                    foreach ($_SESSION["avisoIndividual"][$origen][$tabla] as $campo => $valor) {
-                        if (!is_array($_SESSION["avisoIndividual"][$origen][$tabla][$campo])) {
+        if (isset($_SESSION["avisosIndividuales"])) {
+            foreach ($_SESSION["avisosIndividuales"] as $origen => $tmp1) {
+                foreach ($_SESSION["avisosIndividuales"][$origen] as $tabla => $tmp2) {
+                    foreach ($_SESSION["avisosIndividuales"][$origen][$tabla] as $campo => $valor) {
+                        if (!is_array($_SESSION["avisosIndividuales"][$origen][$tabla][$campo])) {
                             if ($valor["campoOk"] == false) {
                                 return true;
                             }
                         }
-                        foreach ($_SESSION["avisoIndividual"][$origen][$tabla][$campo] as $indice => $valor) {
+                        foreach ($_SESSION["avisosIndividuales"][$origen][$tabla][$campo] as $indice => $valor) {
                             if ($valor["campoOk"] == false) {
                                 return true;
                             }
@@ -536,11 +547,18 @@ function hayErrores()
             }
         }
     } else {
-        if (isset($_SESSION["avisoIndividual"])) {
-            foreach ($_SESSION["avisoIndividual"] as $origen => $tmp1) {
+        if (isset($_SESSION["avisosGenerales"])) {
+            foreach ($_SESSION["avisosGenerales"] as $indice => $valor) {
+                if ($indice == $argumentos[0]) {
+                    return true;
+                }
+            }
+        }
+        if (isset($_SESSION["avisosIndividuales"])) {
+            foreach ($_SESSION["avisosIndividuales"] as $origen => $tmp1) {
                 if (in_array($origen, $argumentos)) {
-                    foreach ($_SESSION["avisoIndividual"][$origen] as $tabla => $tmp2) {
-                        foreach ($_SESSION["avisoIndividual"][$origen][$tabla] as $campo => $valor) {
+                    foreach ($_SESSION["avisosIndividuales"][$origen] as $tabla => $tmp2) {
+                        foreach ($_SESSION["avisosIndividuales"][$origen][$tabla] as $campo => $valor) {
                             if (count($valor) == count($valor, COUNT_RECURSIVE)) { // Si no es un campo id
                                 if ($valor["campoOk"] == false) {
                                     return true;
@@ -557,20 +575,11 @@ function hayErrores()
                 }
             }
         }
-        if (isset($_SESSION["avisoGeneral"])) {
-            foreach ($_SESSION["avisoGeneral"] as $indice => $valor) {
-                if ($indice == $argumentos[0]) {
-                    return true;
-                }
-            }
-        }
     }
     return false;
 }
 
-function hayError($origen, $tabla, $campo)
+function hayErroresGenerales($origen)
 {
-    if (isset($_SESSION["avisoIndividual"][$origen][$tabla][$campo]["campoOk"])) {
-        return !$_SESSION["avisoIndividual"][$origen][$tabla][$campo]["campoOk"];
-    }
+    return isset($_SESSION["avisosGenerales"][$origen]);
 }

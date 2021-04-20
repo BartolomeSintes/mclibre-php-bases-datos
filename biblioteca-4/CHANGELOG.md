@@ -12,6 +12,10 @@ Este changelog incluye los cambios hechos en Biblioteca-3, Biblioteca-4, etc.
 - Cambio la estructura de $_SESSION para recoger los errores individuales y generales. Ahora es S_SESSSION[avisosIndividuales][pagina][tabla][control] y S_SESSSION[avisosGenerales][pagina].
 - Al insertar un registro (insertar-2 y modificar-3), compara con lower() para que no se puedan guardar
 
+### Added (Añadido)
+- Añado función printSesion() para que me escriba $_SESSION en un &lt;details&gt; (para usarla mientras programo resolviendo errores).
+
+
 ## 2021-04-17
 
 ### Added (Añadido)

@@ -12,8 +12,8 @@ compruebaSesion(NIVEL_3, PROFUNDIDAD_2);
 borraAvisosExcepto("modificar-3");
 
 // Si en modificar-3 se detecta un error, al volver a modificar-2 se necesita recuperar el id
-if (isset($_SESSION["avisoIndividual"]["modificar-3"]["personas"]["id"]["valor"])) {
-    $id = $_SESSION["avisoIndividual"]["modificar-3"]["personas"]["id"]["valor"];
+if (isset($_SESSION["avisosIndividuales"]["modificar-3"]["personas"]["id"]["valor"])) {
+    $id = $_SESSION["avisosIndividuales"]["modificar-3"]["personas"]["id"]["valor"];
 } else {
     [$id] = compruebaAvisosIndividuales("modificar-2", "personas", "id");
 }
@@ -44,7 +44,7 @@ if (!$result) {
     print "        <tbody>\n";
     print "          <tr>\n";
     print "            <td>Nombre:</td>\n";
-    if (!hayError("modificar-3", $db["personas"], "nombre")) {
+    if (hayErrores("modificar-3") && !hayErroresGenerales("modificar-3")) {
         print "            <td><input type=\"text\" name=\"nombre\" size=\"$db[tamPersonasNombre]\" maxlength=\"$db[tamPersonasNombre]\""
         . imprimeAvisosIndividuales("modificar-3", $db["personas"], "nombre", "valor") . " autofocus>" . imprimeAvisosIndividuales("modificar-3", $db["personas"], "nombre", "mensaje") . "</td>\n";
     } else {
@@ -53,7 +53,7 @@ if (!$result) {
     print "          </tr>\n";
     print "          <tr>\n";
     print "            <td>Apellidos:</td>\n";
-    if (!hayError("modificar-3", $db["personas"], "apellidos")) {
+    if (hayErrores("modificar-3") && !hayErroresGenerales("modificar-3")) {
         print "            <td><input type=\"text\" name=\"apellidos\" size=\"$db[tamPersonasApellidos]\" maxlength=\"$db[tamPersonasApellidos]\""
         . imprimeAvisosIndividuales("modificar-3", $db["personas"], "apellidos", "valor") . ">" . imprimeAvisosIndividuales("modificar-3", $db["personas"], "apellidos", "mensaje") . "</td>\n";
     } else {
@@ -62,7 +62,7 @@ if (!$result) {
     print "          </tr>\n";
     print "          <tr>\n";
     print "            <td>DNI:</td>\n";
-    if (!hayError("modificar-3", $db["personas"], "dni")) {
+    if (hayErrores("modificar-3") && !hayErroresGenerales("modificar-3")) {
         print "            <td><input type=\"text\" name=\"dni\" size=\"$db[tamPersonasDni]\" maxlength=\"$db[tamPersonasDni]\""
         . imprimeAvisosIndividuales("modificar-3", $db["personas"], "dni", "valor") . ">" . imprimeAvisosIndividuales("modificar-3", $db["personas"], "dni", "mensaje") . "</td>\n";
     } else {

@@ -28,8 +28,6 @@ Estas son algunas de las cosas que me quedan por hacer y que podrían hacerse en
 
 * [2021-04-09] En las páginas, después de las comprobaciones campoOk hago a veces otras comprobaciones adicionales. Por ejemplo en borrar-2.php se comprueba que no se ha elegido el registro root. Esas comprobaciones también parece que se tendrían que gestionar al margen de las comprobaciones individuales.
 
-* [2021-04-09] Los avisos generales deberían ser una matriz, porque puede haber varios.
-
 * [2021-04-09] Aclarar qué hacer con las comprobaciones de id (si existe un registro, por ejemplo). Tendría que enviar el nombre de la tabla.
 
 * [2021-04-09] Tanto compruebaAvisosIndividuales como compruebaAvisosGenerales recogen los datos.
@@ -42,7 +40,9 @@ Estas son algunas de las cosas que me quedan por hacer y que podrían hacerse en
 
 * [2021-04-10] Las comprobaciones individuales no son siempre las mismas. Por ejemplo, en Usuarios para insertar los campos no pueden estar vacíos, pero para buscar sí. Lo que he hecho es dejar buscar-2, como estaba, sin usar comprobacionesIndividuales(), ya que simplemente se usaba recoge(). Pero para otras situaciones debería distinguir cada caso.
 
-* [2021-04-19] Si al modificar un registro se escriben datos que coinciden con otro registro, vuevle a modificar-2 y muestra los valores originales. Los que se habían escrito se pierden. Pero si se comente un error en alguna entrada (demasiado largo, etc), ¿qué debería hacer? ¿escribir el original en los que esté mal y
+* [2021-04-19] No es fácil decidir qué tiene que hacer modificar-2 cuando le llegan avisos desde modificar-3. Lo que he hecho es que si hay avisos generales (que son que esté todo vacío o que ya exista el registro modificado), muestra los valores originales. Pero si hay avisos individuales muestra los modificados junto con los avisos individuales.
+
+* [2021-04-20] Podría hacer una función hayErroresIndividuales() y que la función hayErrores() hiciera hayErroresIndividuales() || hayErroresGenerales().
 
 ## Problemas
 
