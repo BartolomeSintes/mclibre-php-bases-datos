@@ -27,17 +27,20 @@ if (!$result) {
 } elseif ($result->fetchColumn() == 0) {
     print "    <p>No hay obras pendientes de devolución.</p>\n";
 } else {
-    $consulta = "SELECT $db[prestamos].id as id,
-                     $db[personas].nombre as nombre,
-                     $db[personas].apellidos as apellidos,
-                     $db[obras].titulo as titulo,
-                     $db[obras].autor as autor,
-                     $db[prestamos].prestado as prestado,
-                     $db[prestamos].devuelto as devuelto
-                 FROM $db[personas], $db[obras], $db[prestamos]
-                 WHERE $db[prestamos].id_persona=$db[personas].id
-                 AND $db[prestamos].id_obra=$db[obras].id
-                 AND $db[prestamos].devuelto='0000-00-00'
+    $consulta = "SELECT
+                   prestamos.id,
+                   personas.nombre,
+                   personas.apellidos,
+                   obras.titulo,
+                   obras.autor,
+                   prestamos.prestado,
+                   prestamos.devuelto
+                 FROM $db[prestamos] as prestamos
+                 JOIN $db[obras] as obras
+                 ON prestamos.id_obra=obras.id
+                 JOIN $db[personas] as personas
+                 ON prestamos.id_persona=personas.id
+                 WHERE prestamos.devuelto='0000-00-00'
                  ORDER BY $ordena";
     $result = $pdo->query($consulta);
     if (!$result) {

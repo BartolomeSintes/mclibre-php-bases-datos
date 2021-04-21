@@ -11,25 +11,31 @@ compruebaSesion(NIVEL_3, PROFUNDIDAD_2);
 
 cabecera("Préstamos - Modificar 1", MENU_PRESTAMOS, PROFUNDIDAD_2);
 
+imprimeAvisosGenerales("modificar-2", "modificar-3");
+
 borraAvisosExcepto();
+
 compruebaAvisosGenerales("modificar-1", "sinRegistros", "prestamos");
 
-if (!imprimeAvisosGenerales()) {
+if (!imprimeAvisosGenerales("modificar-1")) {
+    $pdo = conectaDb();
+
     $ordena = recogeValores("ordena", $db["columnasPrestamosOrden"], "apellidos ASC");
     $id     = recoge("id");
 
-    $pdo = conectaDb();
-
-    $consulta = "SELECT $db[prestamos].id as id,
-                     $db[personas].nombre as nombre,
-                     $db[personas].apellidos as apellidos,
-                     $db[obras].titulo as titulo,
-                     $db[obras].autor as autor,
-                     $db[prestamos].prestado as prestado,
-                     $db[prestamos].devuelto as devuelto
-                     FROM $db[personas], $db[obras], $db[prestamos]
-                 WHERE $db[prestamos].id_persona=$db[personas].id
-                 AND $db[prestamos].id_obra=$db[obras].id
+    $consulta = "SELECT
+                   prestamos.id,
+                   personas.nombre,
+                   personas.apellidos,
+                   obras.titulo,
+                   obras.autor,
+                   prestamos.prestado,
+                   prestamos.devuelto
+                 FROM $db[prestamos] as prestamos
+                 JOIN $db[obras] as obras
+                 ON prestamos.id_obra=obras.id
+                 JOIN $db[personas] as personas
+                 ON prestamos.id_persona=personas.id
                  ORDER BY $ordena";
     $result = $pdo->query($consulta);
     if (!$result) {

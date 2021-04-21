@@ -15,6 +15,11 @@ Estas son algunas de las cosas que me quedan por hacer y que podrían hacerse en
 
 ## Para pensar
 
+* [2021-04-21] Al modificar un préstamo comprueba que no coincida todo, pero en biblioteca-3 solo comprobaba que no coincidiera obra y persona.
+
+* [2021-04-21] Al hacer un préstamo habría que comprobar más cosas: que el libro no estuviera prestado
+
+* [2021-04-21] No tengo en cuena que puede haber dos ejemplares del mismo libro.
 
 ## Sin ordenar
 

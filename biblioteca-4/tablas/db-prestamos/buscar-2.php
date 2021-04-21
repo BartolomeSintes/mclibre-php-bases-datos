@@ -26,8 +26,7 @@ $pdo = conectaDb();
 // El número de parámetros en execute debe coincidir con el número de parámetros en la consulta.
 $consultaPrestado = "";
 $consultaDevuelto = "";
-$parametros       = [":nombre" => "%$nombre%", ":apellidos" => "%$apellidos%",
-    ":autor"                   => "%$autor%", ":titulo" => "%$titulo%", ];
+$parametros       = [":nombre" => "%$nombre%", ":apellidos" => "%$apellidos%", ":autor" => "%$autor%", ":titulo" => "%$titulo%"];
 
 if ($prestado_1 != "" && $prestado_2 != "") {
     $consultaPrestado          = "AND $db[prestamos].prestado BETWEEN :prestado_1 AND :prestado_2 ";
@@ -54,13 +53,16 @@ if ($devuelto_1 != "" && $devuelto_2 != "") {
 }
 
 $consulta = "SELECT COUNT(*)
-             FROM $db[personas], $db[obras], $db[prestamos]
-             WHERE $db[prestamos].id_persona=$db[personas].id
-             AND $db[prestamos].id_obra=$db[obras].id
-             AND $db[personas].nombre LIKE :nombre
-             AND $db[personas].apellidos LIKE :apellidos
-             AND $db[obras].autor LIKE :autor
-             AND $db[obras].titulo LIKE :titulo "
+             FROM $db[prestamos] as prestamos
+             JOIN $db[obras] as obras
+             ON prestamos.id_obra=obras.id
+             JOIN $db[personas] as personas
+             ON prestamos.id_persona=personas.id
+             WHERE
+               nombre LIKE :nombre
+               AND apellidos LIKE :apellidos
+               AND autor LIKE :autor
+               AND titulo LIKE :titulo "
              . $consultaPrestado
              . $consultaDevuelto;
 
@@ -71,23 +73,28 @@ if (!$result) {
 } elseif ($result->fetchColumn() == 0) {
     print "    <p>No se han encontrado registros.</p>\n";
 } else {
-    $consulta = "SELECT $db[prestamos].id as id,
-                 $db[personas].nombre as nombre,
-                 $db[personas].apellidos as apellidos,
-                 $db[obras].titulo as titulo,
-                 $db[obras].autor as autor,
-                 $db[prestamos].prestado as prestado,
-                 $db[prestamos].devuelto as devuelto
-                 FROM $db[personas], $db[obras], $db[prestamos]
-                 WHERE $db[prestamos].id_persona=$db[personas].id
-                 AND $db[prestamos].id_obra=$db[obras].id
-                 AND $db[personas].nombre LIKE :nombre
-                 AND $db[personas].apellidos LIKE :apellidos
-                 AND $db[obras].autor LIKE :autor
-                 AND $db[obras].titulo LIKE :titulo "
-                 . $consultaPrestado
-                 . $consultaDevuelto
-                 . " ORDER BY $ordena";
+    $consulta = "SELECT
+                   prestamos.id,
+                   personas.nombre,
+                   personas.apellidos,
+                   obras.titulo,
+                   obras.autor,
+                   prestamos.prestado,
+                   prestamos.devuelto
+                FROM $db[prestamos] as prestamos
+                JOIN $db[obras] as obras
+                ON prestamos.id_obra=obras.id
+                JOIN $db[personas] as personas
+                ON prestamos.id_persona=personas.id
+                WHERE
+                  nombre LIKE :nombre
+                  AND apellidos LIKE :apellidos
+                  AND autor LIKE :autor
+                  AND titulo LIKE :titulo "
+                . $consultaPrestado
+                . $consultaDevuelto
+                . " ORDER BY $ordena";
+printValores($consulta);
     $result = $pdo->prepare($consulta);
     $result->execute($parametros);
     if (!$result) {

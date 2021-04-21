@@ -36,3 +36,12 @@ The ISO/IEC 11179 Metadata Registry (MDR) standard is an international ISO stand
 
 [Normas ISO públicas](https://standards.iso.org/ittf/PubliclyAvailableStandards/)
 
+## Estilo de las consultas
+
+* [Mozilla](https://docs.telemetry.mozilla.org/concepts/sql_style.html)
+
+* [Simon Holywell](https://www.sqlstyle.guide/)
+
+* {GitLab](https://about.gitlab.com/handbook/business-technology/data-team/platform/sql-style-guide/)}
+
+
