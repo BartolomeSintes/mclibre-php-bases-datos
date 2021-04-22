@@ -127,7 +127,8 @@ $_SESSION["dia"]  = $dia;
 
 calendario($pdo, $_SESSION["anyo"], $_SESSION["mes"], $_SESSION["dia"], "SELECT COUNT(*) FROM $db[prestamos] WHERE prestado=");
 
-$consulta = "SELECT COUNT(*) FROM $db[prestamos]
+$consulta = "SELECT COUNT(*)
+             FROM $db[prestamos]
              WHERE prestado=:prestado";
 $result = $pdo->prepare($consulta);
 $result->execute([":prestado" => $fecha]);

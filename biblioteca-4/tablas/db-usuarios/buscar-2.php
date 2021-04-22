@@ -26,10 +26,12 @@ $pdo = conectaDb();
 
 $ordena = recogeValores("ordena", $db["columnasUsuariosOrden"], "password ASC");
 
-$consulta = "SELECT * FROM $db[usuarios]
-             WHERE usuario LIKE :usuario
-             AND password LIKE :password
-             AND nivel LIKE :nivel
+$consulta = "SELECT *
+             FROM $db[usuarios]
+             WHERE
+               usuario LIKE :usuario
+               AND password LIKE :password
+               AND nivel LIKE :nivel
              ORDER BY $ordena";
 $result = $pdo->prepare($consulta);
 $result->execute([":usuario" => "%$usuario%", ":password" => "%$password%", ":nivel" => "%$nivel%"]);

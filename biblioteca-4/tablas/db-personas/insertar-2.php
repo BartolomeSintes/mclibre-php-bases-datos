@@ -30,8 +30,7 @@ cabecera("Personas - Añadir 2", MENU_PERSONAS, PROFUNDIDAD_2);
 
 $pdo = conectaDb();
 
-$consulta = "INSERT INTO $db[personas]
-             (nombre, apellidos, dni)
+$consulta = "INSERT INTO $db[personas] (nombre, apellidos, dni)
              VALUES (:nombre, :apellidos, :dni)";
 $result = $pdo->prepare($consulta);
 if ($result->execute([":nombre" => $nombre, ":apellidos" => $apellidos, ":dni" => $dni])) {

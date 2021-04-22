@@ -44,4 +44,6 @@ The ISO/IEC 11179 Metadata Registry (MDR) standard is an international ISO stand
 
 * {GitLab](https://about.gitlab.com/handbook/business-technology/data-team/platform/sql-style-guide/)}
 
+## Sobre fechas
 
+* [Bad Habits to Kick : Mis-handling date / range queries](https://sqlblog.org/2009/10/16/bad-habits-to-kick-mis-handling-date-range-queries)

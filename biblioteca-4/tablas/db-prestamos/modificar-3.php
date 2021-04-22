@@ -36,9 +36,12 @@ cabecera("Préstamos - Modificar 3", MENU_PRESTAMOS, PROFUNDIDAD_2);
 $pdo = conectaDb();
 
 $consulta = "UPDATE $db[prestamos]
-                SET id_persona=:id_persona, id_obra=:id_obra,
-                    prestado=:prestado, devuelto=:devuelto
-                WHERE id=:id";
+             SET
+               id_persona=:id_persona,
+               id_obra=:id_obra,
+               prestado=:prestado,
+               devuelto=:devuelto
+             WHERE id=:id";
 $result = $pdo->prepare($consulta);
 if ($result->execute([":id_persona" => $id_persona, ":id_obra" => $id_obra,
     ":prestado" => $prestado, ":devuelto" => $devuelto, ":id" => $id, ])) {

@@ -20,7 +20,8 @@ if (!imprimeAvisosGenerales()) {
 
     $pdo = conectaDb();
 
-    $consulta = "SELECT * FROM $db[personas]
+    $consulta = "SELECT *
+                 FROM $db[personas]
                  ORDER BY $ordena";
     $result = $pdo->query($consulta);
     if (!$result) {

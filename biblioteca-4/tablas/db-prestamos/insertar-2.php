@@ -30,9 +30,8 @@ cabecera("Préstamos - Añadir 2", MENU_PRESTAMOS, PROFUNDIDAD_2);
 
 $pdo = conectaDb();
 
-$consulta = "INSERT INTO $db[prestamos]
-                (id_persona, id_obra, prestado, devuelto)
-                VALUES (:id_persona, :id_obra, :prestado, '0000-00-00')";
+$consulta = "INSERT INTO $db[prestamos] (id_persona, id_obra, prestado, devuelto)
+             VALUES (:id_persona, :id_obra, :prestado, '0000-00-00')";
 $result = $pdo->prepare($consulta);
 if ($result->execute([":id_persona" => $id_persona, ":id_obra" => $id_obra, ":prestado" => $prestado])) {
     print "    <p>Registro creado correctamente.</p>\n";

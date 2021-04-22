@@ -44,7 +44,8 @@ function comprobaciones($origen, $tabla, $campo, $valor)
             $_SESSION["avisosGenerales"][$origen][] = "No se ha seleccionado ningún registro.";
         } else {
             $pdo      = conectaDb();
-            $consulta = "SELECT COUNT(*) FROM $db[$tabla]
+            $consulta = "SELECT COUNT(*)
+                         FROM $db[$tabla]
                      WHERE id=:id_recibido";
             $result = $pdo->prepare($consulta);
             $result->execute([":id_recibido" => $valor]);
@@ -120,7 +121,8 @@ function comprobaciones($origen, $tabla, $campo, $valor)
         }
     } elseif ($campo == "id_persona") {                 // Tabla Préstamos
         $pdo      = conectaDb();
-        $consulta = "SELECT COUNT(*) FROM $db[personas]
+        $consulta = "SELECT COUNT(*)
+                     FROM $db[personas]
                      WHERE id=:id_persona";
         $result = $pdo->prepare($consulta);
         $result->execute([":id_persona" => $valor]);
@@ -134,7 +136,8 @@ function comprobaciones($origen, $tabla, $campo, $valor)
         $pdo = null;
     } elseif ($campo == "id_obra") {                    // Tabla Préstamos
         $pdo      = conectaDb();
-        $consulta = "SELECT COUNT(*) FROM $db[obras]
+        $consulta = "SELECT COUNT(*)
+                     FROM $db[obras]
                      WHERE id=:id_obra";
         $result = $pdo->prepare($consulta);
         $result->execute([":id_obra" => $valor]);
@@ -148,7 +151,8 @@ function comprobaciones($origen, $tabla, $campo, $valor)
         $pdo = null;
     } elseif ($campo == "id_prestamo") {                // Tabla Préstamos (para devolución)
         $pdo      = conectaDb();
-        $consulta = "SELECT COUNT(*) FROM $db[prestamos]
+        $consulta = "SELECT COUNT(*)
+                     FROM $db[prestamos]
                      WHERE id=:id_prestamo";
         $result = $pdo->prepare($consulta);
         $result->execute([":id_prestamo" => $valor]);
@@ -258,7 +262,8 @@ function compruebaAvisosGenerales()
 
     if ($tipoComprobacion == "yaExisteRegistro") {
         $pdo      = conectaDb();
-        $consulta = "SELECT COUNT(*) FROM $argumentos[0] "
+        $consulta = "SELECT COUNT(*) F
+                     ROM $argumentos[0] "
                   . "WHERE ";
         for ($i = 1; $i < count($argumentos) - 1; $i++) {
             $consulta .= "lower($argumentos[$i])=lower(:$argumentos[$i]) AND ";
@@ -287,7 +292,8 @@ function compruebaAvisosGenerales()
             $argumentos[0] = [$argumentos[0] => "on"];
         }
         foreach ($argumentos[0] as $indice => $valor) {
-            $consulta = "SELECT * FROM $db[usuarios]
+            $consulta = "SELECT *
+                         FROM $db[usuarios]
                          WHERE id=:id";
             $result = $pdo->prepare($consulta);
             $result->execute([":id" => $indice]);
@@ -308,7 +314,8 @@ function compruebaAvisosGenerales()
     // alguna mayúscula por minúscula o viceversa no diga que el registro ya existe.
     if ($tipoComprobacion == "yaExisteRegistroConOtroId") {
         $pdo      = conectaDb();
-        $consulta = "SELECT COUNT(*) FROM $argumentos[0] "
+        $consulta = "SELECT COUNT(*)
+                     FROM $argumentos[0] "
                   . "WHERE ";
         for ($i = 1; $i < count($argumentos) - 1; $i++) {
             $consulta .= "lower($argumentos[$i])=lower(:$argumentos[$i]) AND ";
@@ -333,7 +340,8 @@ function compruebaAvisosGenerales()
 
     if ($tipoComprobacion == "registrosNoEncontrados") {            // Para Buscar
         $pdo      = conectaDb();
-        $consulta = "SELECT COUNT(*) FROM $argumentos[0] "
+        $consulta = "SELECT COUNT(*)
+                     FROM $argumentos[0] "
                   . "WHERE ";
         for ($i = 1; $i < count($argumentos) - 1; $i++) {
             $consulta .= "$argumentos[$i] like :$argumentos[$i] AND ";
@@ -411,7 +419,8 @@ function compruebaAvisosGenerales()
             $_SESSION["avisosGenerales"][$origen][] = "La tabla $tabla no existe";
             return true;
         }
-        $consulta = "SELECT COUNT(*) FROM $db[$tabla]";
+        $consulta = "SELECT COUNT(*)
+                     FROM $db[$tabla]";
         $result   = $pdo->query($consulta);
         if (!$result) {
             $_SESSION["avisosGenerales"][$origen][] = "Error en la consulta";
@@ -455,7 +464,8 @@ function compruebaAvisosGenerales()
             $_SESSION["avisosGenerales"][$origen][] = "La tabla $tabla no existe";
             return true;
         }
-        $consulta = "SELECT COUNT(*) FROM $db[$tabla]";
+        $consulta = "SELECT COUNT(*)
+                     FROM $db[$tabla]";
         $result   = $pdo->query($consulta);
         if (!$result) {
             $_SESSION["avisosGenerales"][$origen][] = "Error en la consulta";

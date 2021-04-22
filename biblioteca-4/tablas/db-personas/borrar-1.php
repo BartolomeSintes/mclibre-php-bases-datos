@@ -23,7 +23,8 @@ if (!imprimeAvisosGenerales("borrar-1")) {
     $ordena = recogeValores("ordena", $db["columnasPersonasOrden"], "apellidos ASC");
     $id     = recoge("id", []);
 
-    $consulta = "SELECT * FROM $db[personas]
+    $consulta = "SELECT *
+                 FROM $db[personas]
                  ORDER BY $ordena";
     $result = $pdo->query($consulta);
     if (!$result) {

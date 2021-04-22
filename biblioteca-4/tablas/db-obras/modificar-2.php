@@ -29,7 +29,8 @@ imprimeAvisosGenerales("modificar-3");
 
 $pdo = conectaDb();
 
-$consulta = "SELECT * FROM $db[obras]
+$consulta = "SELECT *
+             FROM $db[obras]
              WHERE id=:id";
 $result = $pdo->prepare($consulta);
 $result->execute([":id" => $id]);

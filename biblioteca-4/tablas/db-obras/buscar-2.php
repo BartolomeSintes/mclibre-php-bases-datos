@@ -26,10 +26,12 @@ $pdo      = conectaDb();
 
 $ordena   = recogeValores("ordena", $db["columnasObrasOrden"], "autor ASC");
 
-$consulta = "SELECT * FROM $db[obras]
-             WHERE autor LIKE :autor
-             AND titulo LIKE :titulo
-             AND editorial LIKE :editorial
+$consulta = "SELECT *
+             FROM $db[obras]
+             WHERE
+               autor LIKE :autor
+               AND titulo LIKE :titulo
+               AND editorial LIKE :editorial
              ORDER BY $ordena";
 $result = $pdo->prepare($consulta);
 $result->execute([":autor" => "%$autor%", ":titulo" => "%$titulo%", ":editorial" => "%$editorial%"]);

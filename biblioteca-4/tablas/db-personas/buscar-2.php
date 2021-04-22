@@ -26,10 +26,12 @@ $pdo = conectaDb();
 
 $ordena = recogeValores("ordena", $db["columnasPersonasOrden"], "apellidos ASC");
 
-$consulta = "SELECT * FROM $db[personas]
-             WHERE nombre LIKE :nombre
-             AND apellidos LIKE :apellidos
-             AND dni LIKE :dni
+$consulta = "SELECT *
+             FROM $db[personas]
+             WHERE
+               nombre LIKE :nombre
+               AND apellidos LIKE :apellidos
+               AND dni LIKE :dni
              ORDER BY $ordena";
 $result = $pdo->prepare($consulta);
 $result->execute([":nombre" => "%$nombre%", ":apellidos" => "%$apellidos%", ":dni" => "%$dni%"]);

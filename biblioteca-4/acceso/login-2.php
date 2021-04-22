@@ -18,7 +18,8 @@ borraAvisosExcepto();
 if (!$usuario) {
     $_SESSION["avisosGenerales"][$origen][] = "Escriba el nombre del usuario";
 } else {
-    $consulta = "SELECT * FROM $db[usuarios]
+    $consulta = "SELECT *
+                 FROM $db[usuarios]
                  WHERE usuario=:usuario";
     $result = $pdo->prepare($consulta);
     $result->execute([":usuario" => $usuario]);

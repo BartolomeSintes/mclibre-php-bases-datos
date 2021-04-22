@@ -30,8 +30,7 @@ cabecera("Usuarios - Añadir 2", MENU_USUARIOS, PROFUNDIDAD_2);
 
 $pdo = conectaDb();
 
-$consulta = "INSERT INTO $db[usuarios]
-             (usuario, password, nivel)
+$consulta = "INSERT INTO $db[usuarios] (usuario, password, nivel)
              VALUES (:usuario, :password, $nivel)";
 $result = $pdo->prepare($consulta);
 if ($result->execute([":usuario" => $usuario, ":password" => encripta($password)])) {

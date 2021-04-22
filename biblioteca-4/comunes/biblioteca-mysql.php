@@ -84,7 +84,9 @@ function existenTablas()
     $pdo = conectaDb();
 
     $existe   = true;
-    $consulta = "SELECT count(*) FROM INFORMATION_SCHEMA.SCHEMATA WHERE SCHEMA_NAME = '" . $cfg["mysqlDatabase"] . "'";
+    $consulta = "SELECT count(*)
+                 FROM INFORMATION_SCHEMA.SCHEMATA
+                 WHERE SCHEMA_NAME = '" . $cfg["mysqlDatabase"] . "'";
     $result   = $pdo->query($consulta);
     if (!$result) {
         $existe = false;
@@ -98,9 +100,11 @@ function existenTablas()
                 // En information_schema.tables los nombres de las tablas no llevan el nombre
                 // de la base de datos, así que lo elimino
                 $tabla    = str_replace($cfg["mysqlDatabase"] . ".", "", $tabla);
-                $consulta = "SELECT count(*) FROM information_schema.tables
-                             WHERE table_schema = '" . $cfg["mysqlDatabase"] . "'
-                             AND table_name = '$tabla'";
+                $consulta = "SELECT count(*)
+                             FROM information_schema.tables
+                             WHERE
+                               table_schema = '" . $cfg["mysqlDatabase"] . "'
+                               AND table_name = '$tabla'";
                 $result = $pdo->query($consulta);
                 if (!$result) {
                     $existe = false;

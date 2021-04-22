@@ -34,7 +34,10 @@ cabecera("Obras - Modificar 3", MENU_OBRAS, PROFUNDIDAD_2);
 $pdo = conectaDb();
 
 $consulta = "UPDATE $db[obras]
-             SET autor=:autor, titulo=:titulo, editorial=:editorial
+             SET
+               autor=:autor,
+               titulo=:titulo,
+               editorial=:editorial
              WHERE id=:id";
 $result = $pdo->prepare($consulta);
 if ($result->execute([":autor" => $autor, ":titulo" => $titulo, ":editorial" => $editorial, ":id" => $id])) {

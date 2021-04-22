@@ -37,7 +37,10 @@ $pdo = conectaDb();
 
 if ($password != "") {
     $consulta = "UPDATE $db[usuarios]
-                 SET usuario=:usuario, password=:password, nivel=:nivel
+                 SET
+                   usuario=:usuario,
+                   password=:password,
+                   nivel=:nivel
                  WHERE id=:id";
     $result = $pdo->prepare($consulta);
     if ($result->execute([":usuario" => $usuario, ":password" => encripta($password), ":nivel" => $nivel, ":id" => $id])) {
@@ -47,7 +50,9 @@ if ($password != "") {
     }
 } else {
     $consulta = "UPDATE $db[usuarios]
-                 SET usuario=:usuario, nivel=:nivel
+                 SET
+                   usuario=:usuario,
+                   nivel=:nivel
                  WHERE id=:id";
     $result = $pdo->prepare($consulta);
     if ($result->execute([":usuario" => $usuario, ":nivel" => $nivel, ":id" => $id])) {

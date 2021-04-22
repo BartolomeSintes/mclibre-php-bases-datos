@@ -23,7 +23,8 @@ if (!imprimeAvisosGenerales("modificar-1")) {
     $ordena = recogeValores("ordena", $db["columnasUsuariosOrden"], "password ASC");
     $id     = recoge("id");
 
-    $consulta = "SELECT * FROM $db[usuarios]
+    $consulta = "SELECT *
+                 FROM $db[usuarios]
                  ORDER BY $ordena";
     $result = $pdo->query($consulta);
     if (!$result) {

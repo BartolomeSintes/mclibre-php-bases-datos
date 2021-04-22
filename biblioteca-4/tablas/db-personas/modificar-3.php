@@ -34,7 +34,10 @@ cabecera("Personas - Modificar 3", MENU_PERSONAS, PROFUNDIDAD_2);
 $pdo = conectaDb();
 
 $consulta = "UPDATE $db[personas]
-             SET nombre=:nombre, apellidos=:apellidos, dni=:dni
+             SET
+               nombre=:nombre,
+               apellidos=:apellidos,
+               dni=:dni
              WHERE id=:id";
 $result = $pdo->prepare($consulta);
 if ($result->execute([":nombre" => $nombre, ":apellidos" => $apellidos, ":dni" => $dni, ":id" => $id])) {

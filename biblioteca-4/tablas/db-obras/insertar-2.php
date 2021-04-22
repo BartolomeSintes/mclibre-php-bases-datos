@@ -30,8 +30,7 @@ cabecera("Obras - Añadir 2", MENU_OBRAS, PROFUNDIDAD_2);
 
 $pdo = conectaDb();
 
-$consulta = "INSERT INTO $db[obras]
-             (autor, titulo, editorial)
+$consulta = "INSERT INTO $db[obras] (autor, titulo, editorial)
              VALUES (:autor, :titulo, :editorial)";
 $result = $pdo->prepare($consulta);
 if ($result->execute([":autor" => $autor, ":titulo" => $titulo, ":editorial" => $editorial])) {

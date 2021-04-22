@@ -29,8 +29,9 @@ imprimeAvisosGenerales("modificar-3");
 
 $pdo = conectaDb();
 
-$consulta = "SELECT COUNT(*) FROM $db[prestamos]
-                WHERE id=:id";
+$consulta = "SELECT COUNT(*)
+             FROM $db[prestamos]
+             WHERE id=:id";
 $result = $pdo->prepare($consulta);
 $result->execute([":id" => $id]);
 if (!$result) {

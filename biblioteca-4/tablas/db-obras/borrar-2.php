@@ -27,7 +27,8 @@ if (hayErrores("borrar-2")) {
 $pdo = conectaDb();
 
 foreach ($id as $indice => $valor) {
-    $consulta = "DELETE FROM $db[obras]
+    $consulta = "DELETE
+                 FROM $db[obras]
                  WHERE id=:indice";
     $result = $pdo->prepare($consulta);
     if ($result->execute([":indice" => $indice])) {

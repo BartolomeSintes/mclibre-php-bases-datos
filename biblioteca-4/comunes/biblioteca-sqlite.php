@@ -89,7 +89,11 @@ function existenTablas()
     $pdo    = conectaDb();
     $existe = true;
     foreach ($db["tablas"] as $tabla) {
-        $consulta = "SELECT count(*) FROM sqlite_master WHERE type='table' AND name='$tabla'";
+        $consulta = "SELECT count(*)
+                     FROM sqlite_master
+                     WHERE
+                       type='table'
+                       AND name='$tabla'";
         $result   = $pdo->query($consulta);
         if (!$result) {
             $existe = false;
