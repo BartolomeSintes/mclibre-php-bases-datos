@@ -15,18 +15,13 @@ borraAvisosExcepto("devolver-2");
 
 imprimeAvisosGenerales("devolver-2");
 
-$ordena = recogeValores("ordena", $db["columnasPrestamosOrden"], "autor ASC");
+compruebaAvisosGenerales("modificar-1", "sinPrestamosPendientes", "prestamos");
 
-$pdo = conectaDb();
+if (!imprimeAvisosGenerales("modificar-1")) {
+    $pdo = conectaDb();
 
-$consulta = "SELECT COUNT(*) FROM $db[prestamos]
-             WHERE devuelto='0000-00-00'";
-$result = $pdo->query($consulta);
-if (!$result) {
-    print "    <p class=\"aviso\">Error en la consulta.</p>\n";
-} elseif ($result->fetchColumn() == 0) {
-    print "    <p>No hay obras pendientes de devolución.</p>\n";
-} else {
+    $ordena = recogeValores("ordena", $db["columnasPrestamosOrden"], "autor ASC");
+
     $consulta = "SELECT
                    prestamos.id,
                    personas.nombre,

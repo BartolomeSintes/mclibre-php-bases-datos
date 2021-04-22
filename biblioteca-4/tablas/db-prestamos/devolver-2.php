@@ -10,13 +10,19 @@ require_once "../../comunes/biblioteca.php";
 compruebaSesion(NIVEL_3, PROFUNDIDAD_2);
 
 borraAvisosExcepto();
+
 [$id_prestamo, $devuelto] = compruebaAvisosIndividuales("devolver-2", "prestamos", "id_prestamo", "devuelto");
+
+compruebaAvisosGenerales("devolver-2", "registrosNoSeleccionados", $id_prestamo);
+
 compruebaAvisosGenerales("devolver-2", "fechasCrecientes2", "id_prestamo", "devuelto");
 
-if (isset($_SESSION["error"])) {
+if (hayErrores("devolver-2")) {
     header("Location:devolver-1.php");
     exit();
 }
+
+borraAvisosExcepto();
 
 cabecera("Préstamos - Devolver 2", MENU_PRESTAMOS, PROFUNDIDAD_2);
 

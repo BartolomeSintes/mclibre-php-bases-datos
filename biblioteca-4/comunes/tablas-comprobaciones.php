@@ -421,7 +421,29 @@ function compruebaAvisosGenerales()
             $_SESSION["avisosGenerales"][$origen][] = "No se ha creado todavía ningún registro.";
             return true;
         }
+        $pdo = null;
+    }
 
+    if ($tipoComprobacion == "sinPrestamosPendientes") {
+        // Devuelve true si la tabla no tiene registros
+        $pdo   = conectaDb();
+        $tabla = $argumentos[0];
+        if (!in_array($tabla, $db["tablas"])) {
+            $_SESSION["avisosGenerales"][$origen][] = "La tabla $tabla no existe";
+            return true;
+        }
+        $consulta = "SELECT COUNT(*)
+                     FROM $db[prestamos]
+                     WHERE devuelto='0000-00-00'";
+        $result = $pdo->query($consulta);
+        if (!$result) {
+            $_SESSION["avisosGenerales"][$origen][] = "Error en la consulta";
+            return true;
+        }
+        if ($result->fetchColumn() == 0) {
+            $_SESSION["avisosGenerales"][$origen][] = "No hay obras pendientes de devolución.";
+            return true;
+        }
         $pdo = null;
     }
 
@@ -443,7 +465,6 @@ function compruebaAvisosGenerales()
             $_SESSION["avisosGenerales"][$origen][] = "Se ha alcanzado el número máximo de registros que se pueden guardar. Por favor, borre algún registro antes.";
             return true;
         }
-
         $pdo = null;
     }
 
@@ -477,7 +498,6 @@ function compruebaAvisosGenerales()
             $_SESSION["avisosGenerales"][$origen][] = "La fecha de devolución <strong>$devuelto</strong> es anterior a la de préstamo <strong>$prestado</strong>.";
             return true;
         }
-
         $pdo = null;
     }
 
