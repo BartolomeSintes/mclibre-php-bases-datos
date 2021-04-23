@@ -27,12 +27,12 @@ print "        <tbody>\n";
 print "          <tr>\n";
 print "            <td>Usuario:</td>\n";
 print "            <td><input type=\"text\" name=\"usuario\" size=\"$db[tamUsuariosUsuario]\" maxlength=\"$db[tamUsuariosUsuario]\""
-    . imprimeAvisosIndividuales("usuarios", "usuario", "valor") . " autofocus>" . imprimeAvisosIndividuales("usuarios", "usuario", "mensaje") . "</td>\n";
+    . imprimeAvisosIndividuales("insertar.2", "usuarios", "usuario", "valor") . " autofocus>" . imprimeAvisosIndividuales("insertar.2", "usuarios", "usuario", "mensaje") . "</td>\n";
 print "          </tr>\n";
 print "          <tr>\n";
 print "            <td>Contraseña:</td>\n";
 print "            <td><input type=\"text\" name=\"password\" size=\"$db[tamUsuariosPassword]\" maxlength=\"$db[tamUsuariosPassword]\""
-    . imprimeAvisosIndividuales("usuarios", "password", "valor") . ">" . imprimeAvisosIndividuales("usuarios", "password", "mensaje") . "</td>\n";
+    . imprimeAvisosIndividuales("insertar.2", "usuarios", "password", "valor") . ">" . imprimeAvisosIndividuales("insertar.2", "usuarios", "password", "mensaje") . "</td>\n";
 print "          </tr>\n";
 print "          <tr>\n";
 print "            <td>Nivel:</td>\n";
@@ -41,7 +41,7 @@ print "              <select name=\"nivel\">\n";
 foreach ($usuariosNiveles as $indice => $valor) {
     print "                <option value=\"$valor\">$indice</option>\n";
 }
-print "              </select>" . imprimeAvisosIndividuales("usuarios", "nivel", "mensaje") . "\n";
+print "              </select>" . imprimeAvisosIndividuales("insertar.2", "usuarios", "nivel", "mensaje") . "\n";
 print "            </td>\n";
 print "          </tr>\n";
 print "        </tbody>\n";

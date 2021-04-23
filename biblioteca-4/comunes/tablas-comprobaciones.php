@@ -262,8 +262,8 @@ function compruebaAvisosGenerales()
 
     if ($tipoComprobacion == "yaExisteRegistro") {
         $pdo      = conectaDb();
-        $consulta = "SELECT COUNT(*) F
-                     ROM $argumentos[0] "
+        $consulta = "SELECT COUNT(*)
+                     FROM $argumentos[0] "
                   . "WHERE ";
         for ($i = 1; $i < count($argumentos) - 1; $i++) {
             $consulta .= "lower($argumentos[$i])=lower(:$argumentos[$i]) AND ";
@@ -532,12 +532,20 @@ function imprimeAvisosGenerales()
 
 function imprimeAvisosIndividuales($origen, $tabla, $campo, $tipo)
 {
-    if (isset($_SESSION["avisosIndividuales"][$origen][$tabla][$campo])) {
-        if ($tipo == "valor") {
-            return " value=\"{$_SESSION["avisosIndividuales"][$origen][$tabla][$campo]["valor"]}\"";
+    if (hayErrores($origen) && !hayErroresGenerales($origen)) {
+        if (isset($_SESSION["avisosIndividuales"][$origen][$tabla][$campo])) {
+            if ($tipo == "valor") {
+                return " value=\"{$_SESSION["avisosIndividuales"][$origen][$tabla][$campo]["valor"]}\"";
+            }
+            if ($tipo == "mensaje") {
+                return " <span class=\"aviso\">{$_SESSION["avisosIndividuales"][$origen][$tabla][$campo]["mensaje"]}</span>";
+            }
         }
-        if ($tipo == "mensaje") {
-            return " <span class=\"aviso\">{$_SESSION["avisosIndividuales"][$origen][$tabla][$campo]["mensaje"]}</span>";
+    } else {
+        if (isset($_SESSION["avisosIndividuales"][$origen][$tabla][$campo])) {
+            if ($tipo == "valor") {
+                return " value=\"{$_SESSION["avisosIndividuales"][$origen][$tabla][$campo]["valor"]}\"";
+            }
         }
     }
     return "";

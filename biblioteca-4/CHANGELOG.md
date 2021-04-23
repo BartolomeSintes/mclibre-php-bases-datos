@@ -9,7 +9,15 @@ Este changelog incluye los cambios hechos en Biblioteca-3, Biblioteca-4, etc.
 ## 2021-04-XX
 
 ### Changed (Modificado)
+
+### Added (Añadido)
+
+
+## 2021-04-22
+
+### Changed (Modificado)
 - Cambio la estructura de $_SESSION para recoger los errores individuales y generales. Ahora es S_SESSSION[avisosIndividuales][pagina][tabla][control] y S_SESSSION[avisosGenerales][pagina].
+- Utilizo esa nueva estructura en todas las páginas.
 - Al insertar un registro (insertar-2 y modificar-3), compara con lower() para que no se puedan guardar
 
 ### Added (Añadido)
