@@ -39,7 +39,7 @@ $result->execute([":id" => $id]);
 if (!$result) {
     print "    <p class=\"aviso\">Error en la consulta.</p>\n";
 } else {
-    $valor = $result->fetch();
+    $valor = $valor = $result->fetch(PDO::FETCH_ASSOC);
     print "    <form action=\"modificar-3.php\" method=\"$cfg[formMethod]\">\n";
     print "      <p>Modifique los campos que desee (deje la contraseña en blanco para mantenerla):</p>\n";
     print "\n";
@@ -47,16 +47,14 @@ if (!$result) {
     print "        <tbody>\n";
     print "          <tr>\n";
     print "            <td>Usuario:</td>\n";
-    if (hayErrores("modificar-3") && !hayErroresGenerales("modificar-3")) {
-        print "            <td><input type=\"text\" name=\"usuario\" size=\"$db[tamUsuariosUsuario]\" maxlength=\"$db[tamUsuariosUsuario]\""
-        . imprimeAvisosIndividuales("modificar-3", "usuarios", "usuario", "valor") . " autofocus>" . imprimeAvisosIndividuales("modificar-3", "usuarios", "usuario", "mensaje") . "</td>\n";
-    } else {
-        print "            <td><input type=\"text\" name=\"usuario\" size=\"$db[tamUsuariosUsuario]\" maxlength=\"$db[tamUsuariosUsuario]\" value=\"$valor[usuario]\"></td>\n";
-    }
+    print "            <td><input type=\"text\" name=\"usuario\" size=\"$db[tamUsuariosUsuario]\" maxlength=\"$db[tamUsuariosUsuario]\""
+        . imprimeAvisosIndividuales("modificar-3", "usuarios", "usuario", "valor", $valor["usuario"]) . " autofocus>"
+        . imprimeAvisosIndividuales("modificar-3", "usuarios", "usuario", "mensaje") . "</td>\n";
     print "          </tr>\n";
     print "          <tr>\n";
     print "            <td>Contraseña:</td>\n";
-    print "            <td><input type=\"text\" name=\"password\" size=\"$db[tamUsuariosPassword]\" maxlength=\"$db[tamUsuariosPassword]\">" . imprimeAvisosIndividuales("modificar-3", "usuarios", "password", "mensaje") . "</td>\n";
+    print "            <td><input type=\"text\" name=\"password\" size=\"$db[tamUsuariosPassword]\" maxlength=\"$db[tamUsuariosPassword]\">"
+        . imprimeAvisosIndividuales("modificar-3", "usuarios", "password", "mensaje") . "</td>\n";
     print "          </tr>\n";
     print "          <tr>\n";
     print "            <td>Nivel:</td>\n";

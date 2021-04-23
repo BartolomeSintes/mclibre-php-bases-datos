@@ -27,17 +27,20 @@ print "        <tbody>\n";
 print "          <tr>\n";
 print "            <td>Nombre:</td>\n";
 print "            <td><input type=\"text\" name=\"nombre\" size=\"$db[tamPersonasNombre]\" maxlength=\"$db[tamPersonasNombre]\""
-    . imprimeAvisosIndividuales("insertar-2", "personas", "nombre", "valor") . " autofocus>" . imprimeAvisosIndividuales("insertar-2", "personas", "nombre", "mensaje") . "</td>\n";
+    . imprimeAvisosIndividuales("insertar-2", "personas", "nombre", "valor") . " autofocus>"
+    . imprimeAvisosIndividuales("insertar-2", "personas", "nombre", "mensaje") . "</td>\n";
 print "          </tr>\n";
 print "          <tr>\n";
 print "            <td>Apellidos:</td>\n";
 print "            <td><input type=\"text\" name=\"apellidos\" size=\"$db[tamPersonasApellidos]\" maxlength=\"$db[tamPersonasApellidos]\""
-    . imprimeAvisosIndividuales("insertar-2", "personas", "apellidos", "valor") . ">" . imprimeAvisosIndividuales("insertar-2", "personas", "apellidos", "mensaje") . "</td>\n";
+    . imprimeAvisosIndividuales("insertar-2", "personas", "apellidos", "valor") . ">"
+    . imprimeAvisosIndividuales("insertar-2", "personas", "apellidos", "mensaje") . "</td>\n";
 print "          </tr>\n";
 print "          <tr>\n";
 print "            <td>DNI:</td>\n";
 print "            <td><input type=\"text\" name=\"dni\" size=\"$db[tamPersonasDni]\" maxlength=\"$db[tamPersonasDni]\""
-    . imprimeAvisosIndividuales("insertar-2", "personas", "dni", "valor") . ">" . imprimeAvisosIndividuales("insertar-2", "personas", "dni", "mensaje") . "</td>\n";
+    . imprimeAvisosIndividuales("insertar-2", "personas", "dni", "valor") . ">"
+    . imprimeAvisosIndividuales("insertar-2", "personas", "dni", "mensaje") . "</td>\n";
 print "          </tr>\n";
 print "        </tbody>\n";
 print "      </table>\n";

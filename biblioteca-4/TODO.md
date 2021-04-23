@@ -2,6 +2,14 @@
 
 Estas son algunas de las cosas que me quedan por hacer y que podrían hacerse en biblioteca-4
 
+## Ideas para Biblioteca-5
+
+* [2021-04-10] Hacer una página para que el usuario pueda cambiar la configuración. Para ello, la configuración debería estar en un fichero json (clave, valor, comentario) para poder guardarlo.
+
+## Próximos pasos
+
+* [2021-04-10] Los select no muestran el valor elegido por el usuario cuando se detectan errores y se vuelve al formulario.
+
 ## Para corregir (más importante)
 
 * [2021-04-20] La aplicación no deja modificar el usuario root. Igual tendría que dejar cambiar la contraseña, pero no el nombre ni el nivel.
@@ -12,6 +20,9 @@ Estas son algunas de las cosas que me quedan por hacer y que podrían hacerse en
 
 * [2021-04-20] En Usuarios &gt; Buscar el nivel no ofrece la posibilidad de dejarlo en blanco (que querría decir que te da lo mismo el nivel).
 
+## Mejoras
+
+* [2021-04-22] La función calendario envía la fecha en la dirección. Podría cambiar a botones como en las flechas de ordenación d elos listados.
 
 ## Para pensar
 
@@ -20,6 +31,10 @@ Estas son algunas de las cosas que me quedan por hacer y que podrían hacerse en
 * [2021-04-21] Al hacer un préstamo habría que comprobar más cosas: que el libro no estuviera prestado
 
 * [2021-04-21] No tengo en cuena que puede haber dos ejemplares del mismo libro.
+
+* [2021-04-23] PDO fetch devuelve cada fila con los campos duplicados (con índice numérico y asociativo) por defecto. Se puede hacer que sólo devuelva la matriz asociativa haciendo fetch(PDO::FETCH_ASSOC), pero no sé si mejorará algo el rendimiento. Lo he añadido donde uso fetch, pero no he mirado si accediendo con foreach se puede obtener solo la asociativa.
+
+* [2021-04-23] Si al modificar un registro no se cambia nada dice "Registro modificado". Igual debería avisar que no se ha cambiado nada.
 
 ## Sin ordenar
 
@@ -48,8 +63,6 @@ Estas son algunas de las cosas que me quedan por hacer y que podrían hacerse en
 
 * [2021-04-07] La comprobación de datos que estoy haciendo no contempla que un campo se llame de la misma forma en dos tablas distintas. Por ejemplo, no se podría comprobar si existe un registro con el id recogido. La solución parece que tendrá que ser enviar la tabla y el campo.
 
-* [2021-04-09] En las páginas, después de las comprobaciones campoOk hago a veces otras comprobaciones adicionales. Por ejemplo en borrar-2.php se comprueba que no se ha elegido el registro root. Esas comprobaciones también parece que se tendrían que gestionar al margen de las comprobaciones individuales.
-
 * [2021-04-09] Aclarar qué hacer con las comprobaciones de id (si existe un registro, por ejemplo). Tendría que enviar el nombre de la tabla.
 
 * [2021-04-09] Tanto compruebaAvisosIndividuales como compruebaAvisosGenerales recogen los datos.
@@ -57,8 +70,6 @@ Estas son algunas de las cosas que me quedan por hacer y que podrían hacerse en
 * [2021-04-09] Igual en las comprobaciones habría que distinguir entre errores (error en la consulta, por ejemplo) y avisos (falta un campo, etc.) y hacer un log de los errores
 
 * [2021-04-09] Estaría bien que al volver a un formulario por detectar errores, el cursor se colocara en el primer campo incorrecto, no en el primer campo del formulario.
-
-* [2021-04-10] La gestión de los avisos no tiene en cuenta la tabla que los ha generado. A la hora de descartar los avisos, igual sería conveniente que se tuviera en cuenta no sólo la página, si no también la tabla.
 
 * [2021-04-10] Las comprobaciones individuales no son siempre las mismas. Por ejemplo, en Usuarios para insertar los campos no pueden estar vacíos, pero para buscar sí. Lo que he hecho es dejar buscar-2, como estaba, sin usar comprobacionesIndividuales(), ya que simplemente se usaba recoge(). Pero para otras situaciones debería distinguir cada caso.
 

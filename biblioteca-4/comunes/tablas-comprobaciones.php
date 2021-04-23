@@ -301,7 +301,7 @@ function compruebaAvisosGenerales()
                 $_SESSION["avisosGenerales"][$origen][] = "Error en la consulta.";
                 return true;
             }
-            $valor = $result->fetch();
+            $valor = $valor = $result->fetch(PDO::FETCH_ASSOC);
             if ($valor["usuario"] == $cfg["rootName"]) {
                 $_SESSION["avisosGenerales"][$origen][] = "El usuario root no se puede borrar o modificar.";
                 return true;
@@ -421,7 +421,7 @@ function compruebaAvisosGenerales()
         }
         $consulta = "SELECT COUNT(*)
                      FROM $db[$tabla]";
-        $result   = $pdo->query($consulta);
+        $result = $pdo->query($consulta);
         if (!$result) {
             $_SESSION["avisosGenerales"][$origen][] = "Error en la consulta";
             return true;
@@ -466,7 +466,7 @@ function compruebaAvisosGenerales()
         }
         $consulta = "SELECT COUNT(*)
                      FROM $db[$tabla]";
-        $result   = $pdo->query($consulta);
+        $result = $pdo->query($consulta);
         if (!$result) {
             $_SESSION["avisosGenerales"][$origen][] = "Error en la consulta";
             return true;
@@ -530,7 +530,7 @@ function imprimeAvisosGenerales()
     return $avisosImpresos;
 }
 
-function imprimeAvisosIndividuales($origen, $tabla, $campo, $tipo)
+function imprimeAvisosIndividuales($origen, $tabla, $campo, $tipo, $valor = "SINVALORNINGUNO")
 {
     if (hayErrores($origen) && !hayErroresGenerales($origen)) {
         if (isset($_SESSION["avisosIndividuales"][$origen][$tabla][$campo])) {
@@ -542,10 +542,8 @@ function imprimeAvisosIndividuales($origen, $tabla, $campo, $tipo)
             }
         }
     } else {
-        if (isset($_SESSION["avisosIndividuales"][$origen][$tabla][$campo])) {
-            if ($tipo == "valor") {
-                return " value=\"{$_SESSION["avisosIndividuales"][$origen][$tabla][$campo]["valor"]}\"";
-            }
+        if ($tipo == "valor" && $valor != "SINVALORNINGUNO") {
+            return " value=\"$valor\"";
         }
     }
     return "";

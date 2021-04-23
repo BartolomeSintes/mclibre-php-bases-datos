@@ -37,7 +37,7 @@ $result->execute([":id" => $id]);
 if (!$result) {
     print "    <p class=\"aviso\">Error en la consulta.</p>\n";
 } else {
-    $valor = $result->fetch();
+    $valor = $valor = $result->fetch(PDO::FETCH_ASSOC);
     print "    <form action=\"modificar-3.php\" method=\"$cfg[formMethod]\">\n";
     print "      <p>Modifique los campos que desee:</p>\n";
     print "\n";
@@ -45,30 +45,21 @@ if (!$result) {
     print "        <tbody>\n";
     print "          <tr>\n";
     print "            <td>Nombre:</td>\n";
-    if (hayErrores("modificar-3") && !hayErroresGenerales("modificar-3")) {
-        print "            <td><input type=\"text\" name=\"nombre\" size=\"$db[tamPersonasNombre]\" maxlength=\"$db[tamPersonasNombre]\""
-            . imprimeAvisosIndividuales("modificar-3", "personas", "nombre", "valor") . " autofocus>" . imprimeAvisosIndividuales("modificar-3", "personas", "nombre", "mensaje") . "</td>\n";
-    } else {
-        print "            <td><input type=\"text\" name=\"nombre\" size=\"$db[tamPersonasNombre]\" maxlength=\"$db[tamPersonasNombre]\" value=\"$valor[nombre]\"></td>\n";
-    }
+    print "            <td><input type=\"text\" name=\"nombre\" size=\"$db[tamPersonasNombre]\" maxlength=\"$db[tamPersonasNombre]\""
+        . imprimeAvisosIndividuales("modificar-3", "personas", "nombre", "valor", $valor["nombre"]) . " autofocus>"
+        . imprimeAvisosIndividuales("modificar-3", "personas", "nombre", "mensaje") . "</td>\n";
     print "          </tr>\n";
     print "          <tr>\n";
     print "            <td>Apellidos:</td>\n";
-    if (hayErrores("modificar-3") && !hayErroresGenerales("modificar-3")) {
-        print "            <td><input type=\"text\" name=\"apellidos\" size=\"$db[tamPersonasApellidos]\" maxlength=\"$db[tamPersonasApellidos]\""
-            . imprimeAvisosIndividuales("modificar-3", "personas", "apellidos", "valor") . ">" . imprimeAvisosIndividuales("modificar-3", "personas", "apellidos", "mensaje") . "</td>\n";
-    } else {
-        print "            <td><input type=\"text\" name=\"apellidos\" size=\"$db[tamPersonasApellidos]\" maxlength=\"$db[tamPersonasApellidos]\" value=\"$valor[apellidos]\"></td>\n";
-    }
+    print "            <td><input type=\"text\" name=\"apellidos\" size=\"$db[tamPersonasApellidos]\" maxlength=\"$db[tamPersonasApellidos]\""
+        . imprimeAvisosIndividuales("modificar-3", "personas", "apellidos", "valor", $valor["apellidos"]) . ">"
+        . imprimeAvisosIndividuales("modificar-3", "personas", "apellidos", "mensaje") . "</td>\n";
     print "          </tr>\n";
     print "          <tr>\n";
     print "            <td>DNI:</td>\n";
-    if (hayErrores("modificar-3") && !hayErroresGenerales("modificar-3")) {
-        print "            <td><input type=\"text\" name=\"dni\" size=\"$db[tamPersonasDni]\" maxlength=\"$db[tamPersonasDni]\""
-            . imprimeAvisosIndividuales("modificar-3", "personas", "dni", "valor") . ">" . imprimeAvisosIndividuales("modificar-3", "personas", "dni", "mensaje") . "</td>\n";
-    } else {
-        print "            <td><input type=\"text\" name=\"dni\" size=\"$db[tamPersonasDni]\" maxlength=\"$db[tamPersonasDni]\" value=\"$valor[dni]\"></td>\n";
-    }
+    print "            <td><input type=\"text\" name=\"dni\" size=\"$db[tamPersonasDni]\" maxlength=\"$db[tamPersonasDni]\""
+        . imprimeAvisosIndividuales("modificar-3", "personas", "dni", "valor", $valor["dni"]) . ">"
+        . imprimeAvisosIndividuales("modificar-3", "personas", "dni", "mensaje") . "</td>\n";
     print "          </tr>\n";
     print "        </tbody>\n";
     print "      </table>\n";

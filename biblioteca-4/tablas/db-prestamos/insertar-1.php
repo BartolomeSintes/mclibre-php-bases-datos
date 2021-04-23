@@ -57,7 +57,8 @@ if (!$result2) {
     print "          </tr>\n";
     print "          <tr>\n";
     print "            <td>Fecha de préstamo:</td>\n";
-    print "            <td><input type=\"date\" name=\"prestado\" value=\"" . date("Y-m-j") . "\">" . imprimeAvisosIndividuales("insertar-2", "prestamos", "prestado", "mensaje"). "</td>\n";
+    print "            <td><input type=\"date\" name=\"prestado\" value=\"" . date("Y-m-j") . "\">"
+        . imprimeAvisosIndividuales("insertar-2", "prestamos", "prestado", "mensaje"). "</td>\n";
     print "          </tr>\n";
     print "        </tbody>\n";
     print "      </table>\n";

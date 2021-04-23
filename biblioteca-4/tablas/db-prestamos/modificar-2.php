@@ -68,7 +68,7 @@ if (!$result) {
     } elseif (!$result3) {
         print "    <p class=\"aviso\">Error en la consulta.</p>\n";
     } else {
-        $valor = $result->fetch();
+        $valor = $valor = $result->fetch(PDO::FETCH_ASSOC);
         print "    <form action=\"modificar-3.php\" method=\"$cfg[formMethod]\">\n";
         print "      <p>Modifique los campos que desee:</p>\n";
         print "\n";
@@ -86,11 +86,7 @@ if (!$result) {
             }
             print ">$valor2[nombre] $valor2[apellidos]</option>\n";
         }
-        print "              </select> ";
-        if (hayErrores("modificar-3") && !hayErroresGenerales("modificar-3")) {
-            print imprimeAvisosIndividuales("prestamos", "id_persona", "mensaje");
-        }
-        print "\n";
+        print "              </select> " . imprimeAvisosIndividuales("modificar-3", "prestamos", "id_persona", "mensaje") . "\n";
         print "            </td>\n";
         print "          </tr>\n";
         print "          <tr>\n";
@@ -105,28 +101,20 @@ if (!$result) {
             }
             print ">$valor3[autor] - $valor3[titulo]</option>\n";
         }
-        print "              </select>";
-        if (hayErrores("modificar-3") && !hayErroresGenerales("modificar-3")) {
-            print imprimeAvisosIndividuales("prestamos", "id_obra", "mensaje");
-        }
-        print "\n";
+        print "              </select>" . imprimeAvisosIndividuales("modificar-3", "prestamos", "id_obra", "mensaje") . "\n";
         print "            </td>\n";
         print "          </tr>\n";
         print "          <tr>\n";
         print "            <td>Fecha de préstamo:</td>\n";
-        print "            <td><input type=\"date\" name=\"prestado\" value=\"$valor[prestado]\">";
-        if (hayErrores("modificar-3") && !hayErroresGenerales("modificar-3")) {
-            print imprimeAvisosIndividuales("prestamos", "prestado", "mensaje");
-        }
-        print "</td>\n";
+        print "            <td><input type=\"date\" name=\"prestado\" value=\"$valor[prestado]\">"
+            . imprimeAvisosIndividuales("modificar-3", "prestamos", "prestado", "mensaje") . "</td>\n";
         print "          </tr>\n";
         print "          <tr>\n";
         print "            <td>Fecha de devolución:</td>\n";
         print "            <td><input type=\"date\" name=\"devuelto\" value=\"$valor[devuelto]\">";
-        if (hayErrores("modificar-3") && !hayErroresGenerales("modificar-3")) {
-            print imprimeAvisosIndividuales("prestamos", "devuelto", "mensaje");
-        }
-        print "</td>\n";
+        print "            <td><input type=\"date\" name=\"devuelto\" "
+            . imprimeAvisosIndividuales("modificar-3", "prestamos", "devuelto", "mensaje") . ">"
+            . imprimeAvisosIndividuales("prestamos", "devuelto", "mensaje") . "</td>\n";
         print "          </tr>\n";
         print "        </tbody>\n";
         print "      </table>\n";
