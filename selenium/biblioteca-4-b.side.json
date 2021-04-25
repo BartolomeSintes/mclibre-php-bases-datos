@@ -24,73 +24,6 @@
             ]
         },
         {
-            "id": "funcion-borrar-todo",
-            "name": "Función Borrar Todo",
-            "comment": "Borra todo.",
-            "commands": [
-                {
-                    "id": "preparacion-1-1",
-                    "command": "run",
-                    "target": "Definición de variables",
-                    "value": ""
-                },
-                {
-                    "id": "preparacion-1-2",
-                    "command": "open",
-                    "target": "${urlInicio}",
-                    "value": ""
-                },
-                {
-                    "id": "preparacion-1-3",
-                    "command": "waitForElementPresent",
-                    "target": "xpath=//main",
-                    "value": "20000"
-                },
-                {
-                    "id": "preparacion-1-4",
-                    "command": "executeScript",
-                    "target": "return (document.body.innerHTML.includes('index.php\">Volver</a>'))",
-                    "value": "detectadoVolver"
-                },
-                {
-                    "id": "preparacion-1-5",
-                    "command": "if",
-                    "target": "${detectadoVolver}",
-                    "value": ""
-                },
-                {
-                    "id": "preparacion-1-6",
-                    "command": "click",
-                    "target": "linkText=Volver",
-                    "value": ""
-                },
-                {
-                    "id": "preparacion-1-7",
-                    "command": "end",
-                    "target": "",
-                    "value": ""
-                },
-                {
-                    "id": "preparacion-2-81",
-                    "command": "click",
-                    "target": "linkText=Administrador",
-                    "value": ""
-                },
-                {
-                    "id": "preparacion-2-8",
-                    "command": "click",
-                    "target": "linkText=Borrar todo",
-                    "value": ""
-                },
-                {
-                    "id": "preparacion-2-9",
-                    "command": "verify checked",
-                    "target": "name=demo",
-                    "value": ""
-                }
-            ]
-        },
-        {
             "id": "preparacion-1",
             "name": "Desconexión inicial",
             "comment": "Se desconecta haciendo clic en Desconectar (si existe).",
@@ -1132,7 +1065,6 @@
             "timeout": 300,
             "tests": [
                 "definicion",
-                "funcion-borrar-todo",
                 "preparacion-1",
                 "preparacion-2",
                 "conexion-1",
@@ -1155,20 +1087,6 @@
             "tests": [
                 "prueba-1",
                 "prueba-2"
-            ]
-        },
-        {
-            "id": "suite-3",
-            "name": "Probando funciones",
-            "persistSession": false,
-            "parallel": false,
-            "timeout": 300,
-            "tests": [
-                "definicion",
-                "preparacion-1",
-                "definicion",
-                "conexion-4",
-                "funcion-borrar-todo"
             ]
         }
     ]
