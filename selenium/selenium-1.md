@@ -35,6 +35,8 @@ La matriz **tests** está formada por objetos con la siguiente estructura:
 - comment: comentario
 - commands: pasos del test
 
+**Nota**: No tengo claro que se puedan incluir claves *comment*  al test, porque cuando guardo un proyecto Selenium IDE borra esos comentarios.
+
 ```json
 "tests": [
     {
@@ -98,6 +100,18 @@ La matriz **suites** está formada por objetos con la siguiente estructura:
 
 ## Otros
 
+- Como los valores de texto en json se delimitan con comillas dobles, si hay que escribir comillas dobles en un valor de texto se pueden utilizar comillas simples, aunque Selenium IDE escapa las comillas dobles (\\") al guardar un proyecto.
+
+## Referencias
+
+- Repositorios GitHub de Selenium
+    - [GitHub Selenium](https://github.com/SeleniumHQ/selenium). Están haciendo la versión 4, de la que han sacado alguna beta. En principio, mantiene la compatibilidad con la versión 3. No hay roadmap.
+    - [GitHub Selenium IDE 3](https://github.com/SeleniumHQ/selenium-ide/tree/v3): La versión actual que se utiliza como extensión de Firefox o Chrome. No hay roadmap.
+    - [GitHub Selenium IDE 4](https://github.com/SeleniumHQ/selenium-ide): La versión futura, que será una aplicación Electron. No hay roadmap.
+
 - La documentación oficial de Selenium es bastante pobre, sin casi ejemplos: [Selenium commands](https://www.selenium.dev/selenium-ide/docs/en/api/commands)
 - En [Selenium IDE tests examples](https://github.com/SeleniumHQ/selenium-ide/tree/trunk/tests/examples) hay unos ejemplos.
+
 - [How to use Wait commands in Selenium WebDriver](https://www.browserstack.com/guide/wait-commands-in-selenium-webdriver)
+
+- Al tener instalado Selenium en la consola de las herramientas del navegador sale un aviso "El objeto Components está desaprobado. Pronto será eliminado.". Los de Selenium dicen en [la issue 598 (mayo 2019)](https://github.com/SeleniumHQ/selenium-ide/issues/598) que ya se arreglará cuando hagan la versión en Electron, que de todas formas si quitan el objeto del navegador, Selenium IDE seguirá funcionando. A saber...
