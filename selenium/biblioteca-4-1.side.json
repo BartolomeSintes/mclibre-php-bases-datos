@@ -5,18 +5,73 @@
     "url": "http://localhost",
     "tests": [
         {
-            "id": "definicion",
-            "name": "Definición de variables",
+            "id": "test-completo",
+            "name": "Test",
+            "comment": "Llama a todo el test.",
+            "commands": [
+                {
+                    "id": "test-completo-1",
+                    "command": "run",
+                    "target": "Variables General",
+                    "value": ""
+                },
+                {
+                    "id": "test-completo-2",
+                    "command": "run",
+                    "target": "Desconexión inicial",
+                    "value": ""
+                },
+                {
+                    "id": "test-completo-3",
+                    "command": "run",
+                    "target": "Conexión como root",
+                    "value": ""
+                },
+                {
+                    "id": "test-completo-4",
+                    "command": "run",
+                    "target": "Función Borrar Todo",
+                    "value": ""
+                },
+                {
+                    "id": "test-completo-5",
+                    "command": "run",
+                    "target": "Variables Personas",
+                    "value": ""
+                },
+                {
+                    "id": "test-completo-6",
+                    "command": "run",
+                    "target": "Función Listar",
+                    "value": ""
+                },
+                {
+                    "id": "test-completo-7",
+                    "command": "run",
+                    "target": "Variables Obras",
+                    "value": ""
+                },
+                {
+                    "id": "test-completo-8",
+                    "command": "run",
+                    "target": "Función Listar",
+                    "value": ""
+                }
+            ]
+        },
+        {
+            "id": "definiciones-generales",
+            "name": "Variables General",
             "comment": "Se desconecta haciendo clic en Desconectar (si existe).",
             "commands": [
                 {
-                    "id": "definicion-1",
+                    "id": "definiciones-generales-1",
                     "command": "store",
                     "target": "/mclibre/consultar/php-bases-datos/biblioteca-4",
                     "value": "urlBase"
                 },
                 {
-                    "id": "definicion-2",
+                    "id": "definiciones-generales-2",
                     "command": "store",
                     "target": "${urlBase}/index.php",
                     "value": "urlInicio"
@@ -24,151 +79,238 @@
             ]
         },
         {
-            "id": "preparacion-1",
-            "name": "Desconexión inicial",
-            "comment": "Se desconecta haciendo clic en Desconectar (si existe).",
+            "id": "definiciones-obras",
+            "name": "Variables Obras",
+            "comment": "Variables para testear menú Obras",
             "commands": [
                 {
-                    "id": "preparacion-1-1",
+                    "id": "definiciones-obras-1",
+                    "command": "store",
+                    "target": "linkText=Obras",
+                    "value": "menu"
+                },
+                {
+                    "id": "definiciones-obras-2",
+                    "command": "store",
+                    "target": "xpath=//button[@value='autor ASC']",
+                    "value": "criterioOrdenacion"
+                },
+                {
+                    "id": "definiciones-obras-3",
+                    "command": "store",
+                    "target": "xpath=//tr[1]/td[1]",
+                    "value": "elemento1Posicion"
+                },
+                {
+                    "id": "definiciones-obras-4",
+                    "command": "store",
+                    "target": "Jorge Luis Borges",
+                    "value": "elemento1Valor"
+                }
+            ]
+        },
+        {
+            "id": "definiciones-personas",
+            "name": "Variables Personas",
+            "comment": "Variables para testear menú Personas",
+            "commands": [
+                {
+                    "id": "definiciones-personas-1",
+                    "command": "store",
+                    "target": "linkText=Personas",
+                    "value": "menu"
+                },
+                {
+                    "id": "definiciones-personas-2",
+                    "command": "store",
+                    "target": "xpath=//button[@value='nombre ASC']",
+                    "value": "criterioOrdenacion"
+                },
+                {
+                    "id": "definiciones-personas-3",
+                    "command": "store",
+                    "target": "xpath=//tr[1]/td[1]",
+                    "value": "elemento1Posicion"
+                },
+                {
+                    "id": "definiciones-personas-4",
+                    "command": "store",
+                    "target": "Juan",
+                    "value": "elemento1Valor"
+                }
+            ]
+        },
+        {
+            "id": "funcion-borrar-todo",
+            "name": "Función Borrar Todo",
+            "comment": "Borra todo.",
+            "commands": [
+                {
+                    "id": "funcion-borrar-todo-1",
                     "command": "run",
-                    "target": "Definición de variables",
+                    "target": "Variables General",
                     "value": ""
                 },
                 {
-                    "id": "preparacion-1-2",
+                    "id": "funcion-borrar-todo-2",
                     "command": "open",
                     "target": "${urlInicio}",
                     "value": ""
                 },
                 {
-                    "id": "preparacion-1-3",
+                    "id": "funcion-borrar-todo-3",
                     "command": "waitForElementPresent",
                     "target": "xpath=//main",
                     "value": "20000"
                 },
                 {
-                    "id": "preparacion-1-4",
+                    "id": "funcion-borrar-todo-4",
                     "command": "executeScript",
-                    "target": "return (document.querySelectorAll('[data-test-id=\"desconectarse\"]').length != 0)",
-                    "value": "test"
+                    "target": "return (document.body.innerHTML.includes('index.php\">Volver</a>'))",
+                    "value": "detectadoVolver"
                 },
                 {
-                    "id": "preparacion-1-5",
+                    "id": "funcion-borrar-todo-5",
                     "command": "if",
-                    "target": "${test}",
+                    "target": "${detectadoVolver}",
                     "value": ""
                 },
                 {
-                    "id": "preparacion-1-6",
+                    "id": "funcion-borrar-todo-6",
                     "command": "click",
-                    "target": "linkText=Desconectarse",
+                    "target": "linkText=Volver",
                     "value": ""
                 },
                 {
-                    "id": "preparacion-1-7",
+                    "id": "funcion-borrar-todo-7",
                     "command": "end",
                     "target": "",
                     "value": ""
                 },
                 {
-                    "id": "preparacion-1-8",
-                    "command": "assertText",
-                    "target": "xpath=//li[1]/a[1]",
-                    "value": "Conectarse"
-                }
-            ]
-        },
-        {
-            "id": "preparacion-2",
-            "name": "Borrar Todo (con registros de prueba)",
-            "comment": "Se conecta como root / root. Abre Administrador > Borrar todo.",
-            "commands": [
-                {
-                    "id": "preparacion-2-1",
-                    "command": "run",
-                    "target": "Definición de variables",
-                    "value": ""
-                },
-                {
-                    "id": "preparacion-2-2",
-                    "command": "open",
-                    "target": "${urlInicio}",
-                    "value": ""
-                },
-                {
-                    "id": "preparacion-2-3",
-                    "command": "click",
-                    "target": "linkText=Conectarse",
-                    "value": ""
-                },
-                {
-                    "id": "preparacion-2-4",
-                    "command": "type",
-                    "target": "name=usuario",
-                    "value": "root"
-                },
-                {
-                    "id": "preparacion-2-5",
-                    "command": "type",
-                    "target": "name=password",
-                    "value": "root"
-                },
-                {
-                    "id": "preparacion-2-6",
-                    "command": "click",
-                    "target": "xpath=//input[@value='Identificar']",
-                    "value": ""
-                },
-                {
-                    "id": "preparacion-2-7",
+                    "id": "funcion-borrar-todo-8",
                     "command": "click",
                     "target": "linkText=Administrador",
                     "value": ""
                 },
                 {
-                    "id": "preparacion-2-8",
+                    "id": "funcion-borrar-todo-9",
                     "command": "click",
                     "target": "linkText=Borrar todo",
                     "value": ""
                 },
                 {
-                    "id": "preparacion-2-9",
+                    "id": "funcion-borrar-todo-10",
                     "command": "verify checked",
                     "target": "name=demo",
                     "value": ""
                 },
                 {
-                    "id": "preparacion-2-10",
-                    "command": "click",
-                    "target": "xpath=//input[@value='Sí']",
-                    "value": ""
-                },
-                {
-                    "id": "preparacion-2-11",
-                    "command": "waitForElementPresent",
-                    "target": "xpath=//p[.=\"Base de datos creada, insertando registros de prueba.\"]",
-                    "value": "20000"
-                },
-                {
-                    "id": "preparacion-2-12",
-                    "command": "assertText",
-                    "target": "xpath=//p",
-                    "value": "Base de datos creada, insertando registros de prueba."
-                },
-                {
-                    "id": "preparacion-2-13",
+                    "id": "funcion-borrar-todo-11",
                     "command": "click",
                     "target": "linkText=Volver",
                     "value": ""
+                }
+            ]
+        },
+        {
+            "id": "funcion-listar",
+            "name": "Función Listar",
+            "comment": "Testea opciones tabla Listar",
+            "commands": [
+                {
+                    "id": "funcion-listar-1",
+                    "command": "open",
+                    "target": "${urlInicio}",
+                    "value": ""
                 },
                 {
-                    "id": "preparacion-2-14",
+                    "id": "funcion-listar-2",
+                    "command": "waitForElementPresent",
+                    "target": "xpath=//main",
+                    "value": "20000"
+                },
+                {
+                    "id": "funcion-listar-3",
+                    "command": "click",
+                    "target": "${menu}",
+                    "value": ""
+                },
+                {
+                    "id": "funcion-listar-4",
+                    "command": "click",
+                    "target": "linkText=Listar",
+                    "value": ""
+                },
+                {
+                    "id": "funcion-listar-5",
+                    "command": "click",
+                    "target": "${criterioOrdenacion}",
+                    "value": ""
+                },
+                {
+                    "id": "funcion-listar-6",
+                    "command": "assertText",
+                    "target": "${elemento1Posicion}",
+                    "value": "${elemento1Valor}"
+                },
+                {
+                    "id": "funcion-listar-7",
+                    "command": "click",
+                    "target": "linkText=Volver",
+                    "value": ""
+                }
+            ]
+        },
+        {
+            "id": "preparacion-desconexion-inicial",
+            "name": "Desconexión inicial",
+            "comment": "Se desconecta haciendo clic en Desconectar (si existe).",
+            "commands": [
+                {
+                    "id": "preparacion-desconexion-inicial-1",
+                    "command": "run",
+                    "target": "Variables General",
+                    "value": ""
+                },
+                {
+                    "id": "preparacion-desconexion-inicial-2",
+                    "command": "open",
+                    "target": "${urlInicio}",
+                    "value": ""
+                },
+                {
+                    "id": "preparacion-desconexion-inicial-3",
+                    "command": "waitForElementPresent",
+                    "target": "xpath=//main",
+                    "value": "20000"
+                },
+                {
+                    "id": "preparacion-desconexion-inicial-4",
+                    "command": "executeScript",
+                    "target": "return (document.querySelectorAll('[data-test-id=\"desconectarse\"]').length != 0)",
+                    "value": "test"
+                },
+                {
+                    "id": "preparacion-desconexion-inicial-5",
+                    "command": "if",
+                    "target": "${test}",
+                    "value": ""
+                },
+                {
+                    "id": "preparacion-desconexion-inicial-6",
                     "command": "click",
                     "target": "linkText=Desconectarse",
                     "value": ""
                 },
                 {
-                    "id": "preparacion-2-15",
+                    "id": "preparacion-desconexion-inicial-7",
+                    "command": "end",
+                    "target": "",
+                    "value": ""
+                },
+                {
+                    "id": "preparacion-desconexion-inicial-8",
                     "command": "assertText",
                     "target": "xpath=//li[1]/a[1]",
                     "value": "Conectarse"
@@ -176,78 +318,96 @@
             ]
         },
         {
-            "id": "conexion-1",
-            "name": "Conexión y desconexión como root",
-            "comment": "Se conecta como root / root. Se desconecta.",
+            "id": "preparacion-borrar-todo-con",
+            "name": "Borrar Todo (con registros de prueba)",
+            "comment": "Se conecta como root / root. Abre Administrador > Borrar todo.",
             "commands": [
                 {
-                    "id": "conexion-1-1",
+                    "id": "preparacion-borrar-todo-con-1",
                     "command": "run",
-                    "target": "Definición de variables",
+                    "target": "Variables General",
                     "value": ""
                 },
                 {
-                    "id": "conexion-1-2",
+                    "id": "preparacion-borrar-todo-con-2",
                     "command": "open",
                     "target": "${urlInicio}",
                     "value": ""
                 },
                 {
-                    "id": "conexion-1-3",
-                    "command": "waitForElementPresent",
-                    "target": "xpath=//main",
-                    "value": "20000"
-                },
-                {
-                    "id": "conexion-1-4",
+                    "id": "preparacion-borrar-todo-con-3",
                     "command": "click",
                     "target": "linkText=Conectarse",
                     "value": ""
                 },
                 {
-                    "id": "conexion-1-5",
+                    "id": "preparacion-borrar-todo-con-4",
                     "command": "type",
                     "target": "name=usuario",
                     "value": "root"
                 },
                 {
-                    "id": "conexion-1-6",
+                    "id": "preparacion-borrar-todo-con-5",
                     "command": "type",
                     "target": "name=password",
                     "value": "root"
                 },
                 {
-                    "id": "conexion-1-7",
+                    "id": "preparacion-borrar-todo-con-6",
                     "command": "click",
                     "target": "xpath=//input[@value='Identificar']",
                     "value": ""
                 },
                 {
-                    "id": "conexion-1-8",
+                    "id": "preparacion-borrar-todo-con-7",
                     "command": "click",
                     "target": "linkText=Administrador",
                     "value": ""
                 },
                 {
-                    "id": "conexion-1-9",
-                    "command": "assertText",
-                    "target": "xpath=//h1",
-                    "value": "BIBLIOTECA-4 - ADMINISTRADOR - INICIO"
+                    "id": "preparacion-borrar-todo-con-8",
+                    "command": "click",
+                    "target": "linkText=Borrar todo",
+                    "value": ""
                 },
                 {
-                    "id": "conexion-1-10",
+                    "id": "preparacion-borrar-todo-con-9",
+                    "command": "verify checked",
+                    "target": "name=demo",
+                    "value": ""
+                },
+                {
+                    "id": "preparacion-borrar-todo-con-10",
+                    "command": "click",
+                    "target": "xpath=//input[@value='Sí']",
+                    "value": ""
+                },
+                {
+                    "id": "preparacion-borrar-todo-con-11",
+                    "command": "waitForElementPresent",
+                    "target": "xpath=//p[.=\"Base de datos creada, insertando registros de prueba.\"]",
+                    "value": "20000"
+                },
+                {
+                    "id": "preparacion-borrar-todo-con-12",
+                    "command": "assertText",
+                    "target": "xpath=//p",
+                    "value": "Base de datos creada, insertando registros de prueba."
+                },
+                {
+                    "id": "preparacion-borrar-todo-con-13",
                     "command": "click",
                     "target": "linkText=Volver",
                     "value": ""
                 },
                 {
-                    "id": "conexion-1-11",
+                    "id": "preparacion-borrar-todo-con-14",
                     "command": "click",
                     "target": "linkText=Desconectarse",
                     "value": ""
                 },
                 {
-                    "id": "conexion-1-12",
+                    "id": "preparacion-borrar-todo-con-15",
                     "command": "assertText",
                     "target": "xpath=//li[1]/a[1]",
                     "value": "Conectarse"
@@ -255,99 +415,178 @@
             ]
         },
         {
-            "id": "conexion-2",
-            "name": "Conexión y desconexión como usuario básico",
-            "comment": "Se conecta como basico / basico. Se desconecta.",
+            "id": "conexion-desconexion-root",
+            "name": "Conexión y desconexión como root",
+            "comment": "Se conecta como root / root. Se desconecta.",
             "commands": [
                 {
-                    "id": "conexion-2-1",
+                    "id": "conexion-desconexion-root-1",
                     "command": "run",
-                    "target": "Definición de variables",
+                    "target": "Variables General",
                     "value": ""
                 },
                 {
-                    "id": "conexion-2-2",
+                    "id": "conexion-desconexion-root-2",
                     "command": "open",
                     "target": "${urlInicio}",
                     "value": ""
                 },
                 {
-                    "id": "conexion-2-3",
+                    "id": "conexion-desconexion-root-3",
                     "command": "waitForElementPresent",
                     "target": "xpath=//main",
                     "value": "20000"
                 },
                 {
-                    "id": "conexion-2-4",
+                    "id": "conexion-desconexion-root-4",
                     "command": "click",
                     "target": "linkText=Conectarse",
                     "value": ""
                 },
                 {
-                    "id": "conexion-2-5",
+                    "id": "conexion-desconexion-root-5",
                     "command": "type",
                     "target": "name=usuario",
-                    "value": "basico"
+                    "value": "root"
                 },
                 {
-                    "id": "conexion-2-6",
+                    "id": "conexion-desconexion-root-6",
                     "command": "type",
                     "target": "name=password",
-                    "value": "basico"
+                    "value": "root"
                 },
                 {
-                    "id": "conexion-2-7",
+                    "id": "conexion-desconexion-root-7",
                     "command": "click",
                     "target": "xpath=//input[@value='Identificar']",
                     "value": ""
                 },
                 {
-                    "id": "conexion-2-8",
+                    "id": "conexion-desconexion-root-8",
+                    "command": "click",
+                    "target": "linkText=Administrador",
+                    "value": ""
+                },
+                {
+                    "id": "conexion-desconexion-root-9",
+                    "command": "assertText",
+                    "target": "xpath=//h1",
+                    "value": "BIBLIOTECA-4 - ADMINISTRADOR - INICIO"
+                },
+                {
+                    "id": "conexion-desconexion-root-10",
+                    "command": "click",
+                    "target": "linkText=Volver",
+                    "value": ""
+                },
+                {
+                    "id": "conexion-desconexion-root-11",
+                    "command": "click",
+                    "target": "linkText=Desconectarse",
+                    "value": ""
+                },
+                {
+                    "id": "conexion-desconexion-root-12",
+                    "command": "assertText",
+                    "target": "xpath=//li[1]/a[1]",
+                    "value": "Conectarse"
+                }
+            ]
+        },
+        {
+            "id": "conexion-desconexion-basico",
+            "name": "Conexión y desconexión como usuario básico",
+            "comment": "Se conecta como basico / basico. Se desconecta.",
+            "commands": [
+                {
+                    "id": "conexion-desconexion-basico-1",
+                    "command": "run",
+                    "target": "Variables General",
+                    "value": ""
+                },
+                {
+                    "id": "conexion-desconexion-basico-2",
+                    "command": "open",
+                    "target": "${urlInicio}",
+                    "value": ""
+                },
+                {
+                    "id": "conexion-desconexion-basico-3",
+                    "command": "waitForElementPresent",
+                    "target": "xpath=//main",
+                    "value": "20000"
+                },
+                {
+                    "id": "conexion-desconexion-basico-4",
+                    "command": "click",
+                    "target": "linkText=Conectarse",
+                    "value": ""
+                },
+                {
+                    "id": "conexion-desconexion-basico-5",
+                    "command": "type",
+                    "target": "name=usuario",
+                    "value": "basico"
+                },
+                {
+                    "id": "conexion-desconexion-basico-6",
+                    "command": "type",
+                    "target": "name=password",
+                    "value": "basico"
+                },
+                {
+                    "id": "conexion-desconexion-basico-7",
+                    "command": "click",
+                    "target": "xpath=//input[@value='Identificar']",
+                    "value": ""
+                },
+                {
+                    "id": "conexion-desconexion-basico-8",
                     "command": "click",
                     "target": "linkText=Obras",
                     "value": ""
                 },
                 {
-                    "id": "conexion-2-9",
+                    "id": "conexion-desconexion-basico-9",
                     "command": "assertText",
                     "target": "xpath=//li[a='Listar']",
                     "value": "Listar"
                 },
                 {
-                    "id": "conexion-2-10",
+                    "id": "conexion-desconexion-basico-10",
                     "comment": "Aquí selecciono el elemento y compruebo su contenido. Si el elemento no existiera, daría error",
                     "command": "assertText",
                     "target": "xpath=//li[a='Listar']",
                     "value": "Listar"
                 },
                 {
-                    "id": "conexion-2-11",
+                    "id": "conexion-desconexion-basico-11",
                     "comment": "Aquí compruebo que existe el elemento y compruebo su contenido.",
                     "command": "assertElementPresent",
                     "target": "xpath=//li[a='Listar']",
                     "value": ""
                 },
                 {
-                    "id": "conexion-2-12",
+                    "id": "conexion-desconexion-basico-12",
                     "comment": "Aquí compruebo que el elemento no existe.",
                     "command": "assertElementNotPresent",
                     "target": "xpath=//li[a='Borrar']",
                     "value": ""
                 },
                 {
-                    "id": "conexion-2-13",
+                    "id": "conexion-desconexion-basico-13",
                     "command": "click",
                     "target": "linkText=Volver",
                     "value": ""
                 },
                 {
-                    "id": "conexion-2-14",
+                    "id": "conexion-desconexion-basico-14",
                     "command": "click",
                     "target": "linkText=Desconectarse",
                     "value": ""
                 },
                 {
-                    "id": "conexion-2-15",
+                    "id": "conexion-desconexion-basico-15",
                     "command": "assertText",
                     "target": "xpath=//li[1]/a[1]",
                     "value": "Conectarse"
@@ -355,98 +594,98 @@
             ]
         },
         {
-            "id": "conexion-3",
+            "id": "conexion-desconexion-avanzado",
             "name": "Conexión y desconexión como usuario avanzado",
             "comment": "Se conecta como avanzado / avanzado. Se desconecta.",
             "commands": [
                 {
-                    "id": "conexion-3-1",
+                    "id": "conexion-desconexion-avanzado-1",
                     "command": "run",
-                    "target": "Definición de variables",
+                    "target": "Variables General",
                     "value": ""
                 },
                 {
-                    "id": "conexion-3-2",
+                    "id": "conexion-desconexion-avanzado-2",
                     "command": "open",
                     "target": "${urlInicio}",
                     "value": ""
                 },
                 {
-                    "id": "conexion-3-3",
+                    "id": "conexion-desconexion-avanzado-3",
                     "command": "waitForElementPresent",
                     "target": "xpath=//main",
                     "value": "20000"
                 },
                 {
-                    "id": "conexion-3-4",
+                    "id": "conexion-desconexion-avanzado-4",
                     "command": "click",
                     "target": "linkText=Conectarse",
                     "value": ""
                 },
                 {
-                    "id": "conexion-3-5",
+                    "id": "conexion-desconexion-avanzado-5",
                     "command": "type",
                     "target": "name=usuario",
                     "value": "avanzado"
                 },
                 {
-                    "id": "conexion-3-6",
+                    "id": "conexion-desconexion-avanzado-6",
                     "command": "type",
                     "target": "name=password",
                     "value": "avanzado"
                 },
                 {
-                    "id": "conexion-3-7",
+                    "id": "conexion-desconexion-avanzado-7",
                     "command": "click",
                     "target": "xpath=//input[@value='Identificar']",
                     "value": ""
                 },
                 {
-                    "id": "conexion-3-8",
+                    "id": "conexion-desconexion-avanzado-8",
                     "command": "click",
                     "target": "linkText=Obras",
                     "value": ""
                 },
                 {
-                    "id": "conexion-3-9",
+                    "id": "conexion-desconexion-avanzado-9",
                     "command": "assertText",
                     "target": "xpath=//li[a='Buscar']",
                     "value": "Buscar"
                 },
                 {
-                    "id": "conexion-3-10",
+                    "id": "conexion-desconexion-avanzado-10",
                     "command": "click",
                     "target": "linkText=Buscar",
                     "value": ""
                 },
                 {
-                    "id": "conexion-3-11",
+                    "id": "conexion-desconexion-avanzado-11",
                     "comment": "Aquí compruebo que existe el elemento y compruebo su contenido.",
                     "command": "assertText",
                     "target": "xpath=//p[1]",
                     "value": "Escriba el criterio de búsqueda (caracteres o números):"
                 },
                 {
-                    "id": "conexion-3-12",
+                    "id": "conexion-desconexion-avanzado-12",
                     "comment": "Aquí compruebo que el elemento no existe.",
                     "command": "assertElementNotPresent",
                     "target": "xpath=//li[a='Borrar']",
                     "value": ""
                 },
                 {
-                    "id": "conexion-3-13",
+                    "id": "conexion-desconexion-avanzado-13",
                     "command": "click",
                     "target": "linkText=Volver",
                     "value": ""
                 },
                 {
-                    "id": "conexion-3-14",
+                    "id": "conexion-desconexion-avanzado-14",
                     "command": "click",
                     "target": "linkText=Desconectarse",
                     "value": ""
                 },
                 {
-                    "id": "conexion-3-15",
+                    "id": "conexion-desconexion-avanzado-15",
                     "command": "assertText",
                     "target": "xpath=//li[1]/a[1]",
                     "value": "Conectarse"
@@ -454,54 +693,54 @@
             ]
         },
         {
-            "id": "conexion-4",
+            "id": "conexion-root",
             "name": "Conexión como root",
             "comment": "Se conecta como root / root.",
             "commands": [
                 {
-                    "id": "conexion-4-1",
+                    "id": "conexion-root-1",
                     "command": "run",
-                    "target": "Definición de variables",
+                    "target": "Variables General",
                     "value": ""
                 },
                 {
-                    "id": "conexion-4-2",
+                    "id": "conexion-root-2",
                     "command": "open",
                     "target": "${urlInicio}",
                     "value": ""
                 },
                 {
-                    "id": "conexion-4-3",
+                    "id": "conexion-root-3",
                     "command": "waitForElementPresent",
                     "target": "xpath=//main",
                     "value": "20000"
                 },
                 {
-                    "id": "conexion-4-4",
+                    "id": "conexion-root-4",
                     "command": "click",
                     "target": "linkText=Conectarse",
                     "value": ""
                 },
                 {
-                    "id": "conexion-4-5",
+                    "id": "conexion-root-5",
                     "command": "type",
                     "target": "name=usuario",
                     "value": "root"
                 },
                 {
-                    "id": "conexion-4-6",
+                    "id": "conexion-root-6",
                     "command": "type",
                     "target": "name=password",
                     "value": "root"
                 },
                 {
-                    "id": "conexion-4-7",
+                    "id": "conexion-root-7",
                     "command": "click",
                     "target": "xpath=//input[@value='Identificar']",
                     "value": ""
                 },
                 {
-                    "id": "conexion-4-8",
+                    "id": "conexion-root-8",
                     "command": "assertText",
                     "target": "xpath=//li[6]/a[1]",
                     "value": "Desconectarse"
@@ -509,156 +748,156 @@
             ]
         },
         {
-            "id": "personas-listar-1",
+            "id": "personas-listar",
             "name": "Tabla Personas > Listar",
             "comment": "Testea opciones tabla Personas > Listar",
             "commands": [
                 {
-                    "id": "personas-listar-1-1",
+                    "id": "personas-listar-1",
                     "command": "run",
-                    "target": "Definición de variables",
+                    "target": "Variables General",
                     "value": ""
                 },
                 {
-                    "id": "personas-listar-1-2",
+                    "id": "personas-listar-2",
                     "command": "open",
                     "target": "${urlInicio}",
                     "value": ""
                 },
                 {
-                    "id": "personas-listar-1-3",
+                    "id": "personas-listar-3",
                     "command": "waitForElementPresent",
                     "target": "xpath=//main",
                     "value": "20000"
                 },
                 {
-                    "id": "personas-listar-1-4",
+                    "id": "personas-listar-4",
                     "command": "click",
                     "target": "linkText=Personas",
                     "value": ""
                 },
                 {
-                    "id": "personas-listar-1-5",
+                    "id": "personas-listar-5",
                     "command": "click",
                     "target": "linkText=Listar",
                     "value": ""
                 },
                 {
-                    "id": "personas-listar-1-6",
+                    "id": "personas-listar-6",
                     "command": "assertText",
                     "target": "xpath=//tr[1]/td[1]",
                     "value": "Pepito"
                 },
                 {
-                    "id": "personas-listar-1-7",
+                    "id": "personas-listar-7",
                     "command": "assertText",
                     "target": "xpath=//tr[2]/td[1]",
                     "value": "Juan"
                 },
                 {
-                    "id": "personas-listar-1-8",
+                    "id": "personas-listar-8",
                     "command": "click",
                     "target": "xpath=//button[@value='nombre ASC']",
                     "value": ""
                 },
                 {
-                    "id": "personas-listar-1-9",
+                    "id": "personas-listar-9",
                     "command": "assertText",
                     "target": "xpath=//tr[1]/td[1]",
                     "value": "Juan"
                 },
                 {
-                    "id": "personas-listar-1-10",
+                    "id": "personas-listar-10",
                     "command": "assertText",
                     "target": "xpath=//tr[2]/td[1]",
                     "value": "Pepito"
                 },
                 {
-                    "id": "personas-listar-1-11",
+                    "id": "personas-listar-11",
                     "command": "click",
                     "target": "xpath=//button[@value='nombre DESC']",
                     "value": ""
                 },
                 {
-                    "id": "personas-listar-1-12",
+                    "id": "personas-listar-12",
                     "command": "assertText",
                     "target": "xpath=//tr[1]/td[1]",
                     "value": "Pepito"
                 },
                 {
-                    "id": "personas-listar-1-13",
+                    "id": "personas-listar-13",
                     "command": "assertText",
                     "target": "xpath=//tr[2]/td[1]",
                     "value": "Juan"
                 },
                 {
-                    "id": "personas-listar-1-14",
+                    "id": "personas-listar-14",
                     "command": "click",
                     "target": "xpath=//button[@value='apellidos DESC']",
                     "value": ""
                 },
                 {
-                    "id": "personas-listar-1-15",
+                    "id": "personas-listar-15",
                     "command": "assertText",
                     "target": "xpath=//tr[1]/td[1]",
                     "value": "Juan"
                 },
                 {
-                    "id": "personas-listar-1-16",
+                    "id": "personas-listar-16",
                     "command": "assertText",
                     "target": "xpath=//tr[2]/td[1]",
                     "value": "Pepito"
                 },
                 {
-                    "id": "personas-listar-1-17",
+                    "id": "personas-listar-17",
                     "command": "click",
                     "target": "xpath=//button[@value='apellidos ASC']",
                     "value": ""
                 },
                 {
-                    "id": "personas-listar-1-18",
+                    "id": "personas-listar-18",
                     "command": "assertText",
                     "target": "xpath=//tr[1]/td[1]",
                     "value": "Pepito"
                 },
                 {
-                    "id": "personas-listar-1-19",
+                    "id": "personas-listar-19",
                     "command": "assertText",
                     "target": "xpath=//tr[2]/td[1]",
                     "value": "Juan"
                 },
                 {
-                    "id": "personas-listar-1-20",
+                    "id": "personas-listar-20",
                     "command": "click",
                     "target": "xpath=//button[@value='dni DESC']",
                     "value": ""
                 },
                 {
-                    "id": "personas-listar-1-21",
+                    "id": "personas-listar-21",
                     "command": "assertText",
                     "target": "xpath=//tr[1]/td[1]",
                     "value": "Juan"
                 },
                 {
-                    "id": "personas-listar-1-22",
+                    "id": "personas-listar-22",
                     "command": "assertText",
                     "target": "xpath=//tr[2]/td[1]",
                     "value": "Pepito"
                 },
                 {
-                    "id": "personas-listar-1-23",
+                    "id": "personas-listar-23",
                     "command": "click",
                     "target": "xpath=//button[@value='dni ASC']",
                     "value": ""
                 },
                 {
-                    "id": "personas-listar-1-24",
+                    "id": "personas-listar-24",
                     "command": "assertText",
                     "target": "xpath=//tr[1]/td[1]",
                     "value": "Pepito"
                 },
                 {
-                    "id": "personas-listar-1-25",
+                    "id": "personas-listar-25",
                     "command": "assertText",
                     "target": "xpath=//tr[2]/td[1]",
                     "value": "Juan"
@@ -673,7 +912,7 @@
                 {
                     "id": "personas-insertar-1",
                     "command": "run",
-                    "target": "Definición de variables",
+                    "target": "Variables General",
                     "value": ""
                 },
                 {
@@ -752,7 +991,7 @@
                 {
                     "id": "personas-buscar-1",
                     "command": "run",
-                    "target": "Definición de variables",
+                    "target": "Variables General",
                     "value": ""
                 },
                 {
@@ -843,7 +1082,7 @@
                 {
                     "id": "personas-modificar-1",
                     "command": "run",
-                    "target": "Definición de variables",
+                    "target": "Variables General",
                     "value": ""
                 },
                 {
@@ -922,7 +1161,7 @@
                 {
                     "id": "personas-borrar-1",
                     "command": "run",
-                    "target": "Definición de variables",
+                    "target": "Variables General",
                     "value": ""
                 },
                 {
@@ -1064,14 +1303,15 @@
             "parallel": false,
             "timeout": 300,
             "tests": [
-                "definicion",
-                "preparacion-1",
-                "preparacion-2",
-                "conexion-1",
-                "conexion-2",
-                "conexion-3",
-                "conexion-4",
-                "personas-listar-1",
+                "definiciones-generales",
+                "funcion-borrar-todo",
+                "preparacion-desconexion-inicial",
+                "preparacion-borrar-todo-con",
+                "conexion-desconexion-root",
+                "conexion-desconexion-basico",
+                "conexion-desconexion-avanzado",
+                "conexion-root",
+                "personas-listar",
                 "personas-insertar",
                 "personas-buscar",
                 "personas-modificar",
@@ -1087,6 +1327,23 @@
             "tests": [
                 "prueba-1",
                 "prueba-2"
+            ]
+        },
+        {
+            "id": "suite-3",
+            "name": "Probando todo",
+            "persistSession": false,
+            "parallel": false,
+            "timeout": 300,
+            "tests": [
+                "test-completo",
+                "definiciones-generales",
+                "definiciones-personas",
+                "definiciones-obras",
+                "preparacion-desconexion-inicial",
+                "conexion-root",
+                "funcion-borrar-todo",
+                "funcion-listar"
             ]
         }
     ]

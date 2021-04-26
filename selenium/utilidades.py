@@ -41,7 +41,7 @@ def main():
         if resp == 1:
             print("  1. Renombrando tests ...")
             selenium_side = renombra_tests(SELENIUM_FILE)
-            guarda_json(selenium_side, SELENIUM_FILE_B)
+            guarda_json(selenium_side, SELENIUM_FILE)
         print()
 
 
