@@ -269,6 +269,24 @@ Como no se trata de confirmar o descartar creo que no se puede utilizar assert, 
 }
 ```
 
+### Condiciones
+
+Las expresiones lógicas que se utilizan en las condiciones son expresiones de JavaScript.
+
+```json
+{
+    "id": "condiciones-1",
+    "command": "executeScript",
+    "target": "return (document.querySelectorAll('[data-test-id=\"desconectarse\"]').length != 0)",
+    "value": "test"
+},
+{
+    "id": "condiciones-2",
+    "command": "executeScript",
+    "target": "return (document.body.innerHTML.includes('index.php\">Volver</a>'))",
+    "value": "detectadoVolver"
+}
+```
 
 ## Otros
 

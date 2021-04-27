@@ -1,0 +1,285 @@
+{
+    "id": "mclibre-biblioteca-4-tests-pruebas",
+    "comment": "He hecho este fichero para ver la diferencia entre llamar a los tests con run o con una suite. Las conclusiones que he sacado las he añadido en las explicaciones sobre Selenium.",
+    "version": "2.0",
+    "name": "biblioteca-4",
+    "url": "http://localhost",
+    "tests": [
+        {
+            "id": "definiciones-generales",
+            "name": "Variables General",
+            "comment": "Se desconecta haciendo clic en Desconectar (si existe).",
+            "commands": [
+                {
+                    "id": "definiciones-generales-1",
+                    "command": "store",
+                    "target": "/mclibre/consultar/php-bases-datos/biblioteca-4",
+                    "value": "urlBase"
+                },
+                {
+                    "id": "definiciones-generales-2",
+                    "command": "store",
+                    "target": "${urlBase}/index.php",
+                    "value": "urlInicio"
+                }
+            ]
+        },
+        {
+            "id": "preparacion-desconexion-inicial",
+            "name": "Desconexión inicial",
+            "comment": "Se desconecta haciendo clic en Desconectar (si existe).",
+            "commands": [
+                {
+                    "id": "preparacion-desconexion-inicial-1",
+                    "command": "open",
+                    "target": "${urlInicio}",
+                    "value": ""
+                },
+                {
+                    "id": "preparacion-desconexion-inicial-2",
+                    "command": "waitForElementPresent",
+                    "target": "xpath=//main",
+                    "value": "20000"
+                },
+                {
+                    "id": "preparacion-desconexion-inicial-3",
+                    "command": "executeScript",
+                    "target": "return (document.querySelectorAll('[data-test-id=\"desconectarse\"]').length != 0)",
+                    "value": "contieneDesconectase"
+                },
+                {
+                    "id": "preparacion-desconexion-inicial-4",
+                    "command": "if",
+                    "target": "${contieneDesconectase}",
+                    "value": ""
+                },
+                {
+                    "id": "preparacion-desconexion-inicial-5",
+                    "command": "click",
+                    "target": "linkText=Desconectarse",
+                    "value": ""
+                },
+                {
+                    "id": "preparacion-desconexion-inicial-6",
+                    "command": "end",
+                    "target": "",
+                    "value": ""
+                },
+                {
+                    "id": "preparacion-desconexion-inicial-7",
+                    "command": "assertText",
+                    "target": "xpath=//li[1]/a[1]",
+                    "value": "Conectarse"
+                }
+            ]
+        },
+        {
+            "id": "conexion-root",
+            "name": "Conexión como root",
+            "comment": "Se conecta como root / root.",
+            "commands": [
+                {
+                    "id": "preparacion-desconexion-inicial-1",
+                    "command": "open",
+                    "target": "${urlInicio}",
+                    "value": ""
+                },
+                {
+                    "id": "preparacion-desconexion-inicial-2",
+                    "command": "waitForElementPresent",
+                    "target": "xpath=//main",
+                    "value": "20000"
+                },
+                {
+                    "id": "conexion-root-1",
+                    "command": "click",
+                    "target": "linkText=Conectarse",
+                    "value": ""
+                },
+                {
+                    "id": "conexion-root-2",
+                    "command": "type",
+                    "target": "name=usuario",
+                    "value": "root"
+                },
+                {
+                    "id": "conexion-root-3",
+                    "command": "type",
+                    "target": "name=password",
+                    "value": "root"
+                },
+                {
+                    "id": "conexion-root-4",
+                    "command": "click",
+                    "target": "xpath=//input[@value='Identificar']",
+                    "value": ""
+                },
+                {
+                    "id": "conexion-root-5",
+                    "command": "assertText",
+                    "target": "xpath=//li[6]/a[1]",
+                    "value": "Desconectarse"
+                },
+                {
+                    "id": "conexion-root-6",
+                    "command": "run",
+                    "target": "Entra en Administrador",
+                    "value": ""
+                },
+                {
+                    "id": "conexion-root-7",
+                    "command": "run",
+                    "target": "Sale de Administrador",
+                    "value": ""
+                },
+                {
+                    "id": "conexion-root-8",
+                    "command": "run",
+                    "target": "Entra en Administrador",
+                    "value": ""
+                },
+                {
+                    "id": "conexion-root-9",
+                    "command": "run",
+                    "target": "Sale de Administrador",
+                    "value": ""
+                },
+                {
+                    "id": "conexion-root-10",
+                    "command": "run",
+                    "target": "Entra en Administrador",
+                    "value": ""
+                },
+                {
+                    "id": "conexion-root-11",
+                    "command": "run",
+                    "target": "Sale de Administrador",
+                    "value": ""
+                }
+            ]
+        },
+        {
+            "id": "funcion-1",
+            "name": "Entra en Administrador",
+            "commands": [
+                {
+                    "id": "preparacion-desconexion-inicial-1",
+                    "command": "open",
+                    "target": "${urlInicio}",
+                    "value": ""
+                },
+                {
+                    "id": "preparacion-desconexion-inicial-2",
+                    "command": "waitForElementPresent",
+                    "target": "xpath=//main",
+                    "value": "20000"
+                },
+                {
+                    "id": "funcion-1-1",
+                    "command": "executeScript",
+                    "target": "return (document.body.innerHTML.includes('index.php\">Volver</a>'))",
+                    "value": "detectadoVolver"
+                },
+                {
+                    "id": "funcion-1-2",
+                    "command": "if",
+                    "target": "${detectadoVolver}",
+                    "value": ""
+                },
+                {
+                    "id": "funcion-1-3",
+                    "command": "click",
+                    "target": "linkText=Volver",
+                    "value": ""
+                },
+                {
+                    "id": "funcion-1-4",
+                    "command": "end",
+                    "target": "",
+                    "value": ""
+                },
+                {
+                    "id": "funcion-1-5",
+                    "command": "click",
+                    "target": "linkText=Administrador",
+                    "value": ""
+                },
+                {
+                    "id": "funcion-1-6",
+                    "command": "click",
+                    "target": "linkText=Calendario",
+                    "value": ""
+                },
+                {
+                    "id": "funcion-1-7",
+                    "command": "pause",
+                    "target": "5000",
+                    "value": ""
+                }
+            ]
+        },
+        {
+            "id": "funcion-2",
+            "name": "Sale de Administrador",
+            "commands": [
+                {
+                    "id": "preparacion-desconexion-inicial-1",
+                    "command": "open",
+                    "target": "${urlInicio}",
+                    "value": ""
+                },
+                {
+                    "id": "preparacion-desconexion-inicial-2",
+                    "command": "waitForElementPresent",
+                    "target": "xpath=//main",
+                    "value": "20000"
+                },
+                {
+                    "id": "funcion-2-1",
+                    "command": "click",
+                    "target": "linkText=Volver",
+                    "value": ""
+                }
+            ]
+        },
+        {
+            "id": "test-completo",
+            "name": "test completo",
+            "comment": "Ejecuta todo",
+            "commands": [
+                {
+                    "id": "test-completo-1",
+                    "command": "run",
+                    "target": "Variables General",
+                    "value": ""
+                },
+                {
+                    "id": "test-completo-2",
+                    "command": "run",
+                    "target": "Desconexión inicial",
+                    "value": ""
+                },
+                {
+                    "id": "test-completo-3",
+                    "command": "run",
+                    "target": "Conexión como root",
+                    "value": ""
+                }
+            ]
+        }
+    ],
+    "suites": [
+        {
+            "id": "suite-1",
+            "name": "Suite v1",
+            "persistSession": false,
+            "parallel": false,
+            "timeout": 300,
+            "tests": [
+                "definiciones-generales",
+                "preparacion-desconexion-inicial",
+                "conexion-root"
+            ]
+        }
+    ]
+}

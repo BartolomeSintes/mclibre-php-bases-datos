@@ -1,7 +1,7 @@
 import json
 
-SELENIUM_FILE = "biblioteca-4.side.json"
-SELENIUM_FILE_B = "biblioteca-4-b.side.json"
+SELENIUM_FILE = "biblioteca-4-2.side.json"
+SELENIUM_FILE = "biblioteca-4-pruebas.side.json"
 
 
 def lee_json(fichero):
@@ -19,6 +19,7 @@ def guarda_json(diccionario, fichero):
             diccionario, json_file, indent=4, ensure_ascii=False
         )  # ensure_ascii es para que no guarde los caracteres en la forma \u00f...
 
+
 def renombra_tests(fichero):
     selenium_json = lee_json(fichero)
     # print(selenium_json["tests"])
@@ -27,6 +28,7 @@ def renombra_tests(fichero):
         for j in range(len(selenium_json["tests"][i]["commands"])):
             selenium_json["tests"][i]["commands"][j]["id"] = f"{nombre}-{j+1}"
     return selenium_json
+
 
 def main():
     resp = -1
