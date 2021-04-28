@@ -1,7 +1,7 @@
 import json
 
-SELENIUM_FILE = "biblioteca-4-2.side.json"
 SELENIUM_FILE = "biblioteca-4-pruebas.side.json"
+SELENIUM_FILE = "biblioteca-4-2.side.json"
 
 
 def lee_json(fichero):
