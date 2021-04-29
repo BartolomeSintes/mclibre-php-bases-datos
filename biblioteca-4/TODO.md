@@ -6,6 +6,12 @@ Estas son algunas de las cosas que me quedan por hacer y que podrían hacerse en
 
 * [2021-04-10] Hacer una página para que el usuario pueda cambiar la configuración. Para ello, la configuración debería estar en un fichero json (clave, valor, comentario) para poder guardarlo.
 
+* [2021-04-27] Si algún campo es obligatorio en un formulario, indicarlo con asterisco (\*). Los campos obligatorios se podrían indicar al crear la base de datos y crear una matriz con ellos. Supongo que habrá una manera de consultar para saber si hay campos obligatorios y se puede crear esa matriz automáticamente.
+
+* [2021-04-27] Añadir función de comprobación de DNI (tener en cuenta el carnet de extranjeros). Pregutnarle a Fina qué documentos de identificación presenta la gente al matricularase en el instituto.
+
+* [2021-04-29] La matriz $dbTablas igual habría alguna manera de que se generara automáticamente.
+
 ## Próximos pasos
 
 * [2021-04-10] Los select no muestran el valor elegido por el usuario cuando se detectan errores y se vuelve al formulario.
@@ -20,7 +26,14 @@ Estas son algunas de las cosas que me quedan por hacer y que podrían hacerse en
 
 * [2021-04-20] En Usuarios &gt; Buscar el nivel no ofrece la posibilidad de dejarlo en blanco (que querría decir que te da lo mismo el nivel).
 
+* [2021-04-27] Al detectar un aviso en insertar-2, puede ser más lógico que no se muestre el formualrio. Por ejemplo si se ha superado el número de registros al insertar o si no hay registros al buscar. En selenium habría que detectar que no se han mostrado esos elementos.
+
+* [2021-04-28] Al borrar registros si se envían id que no corresponden a registros, no borra ninguno y se muestran tantos avisos como registros no encontrados. Debería sacar un único mensaje de error que dijera "Alguno de los registros que ha solicitado borrar no existe. No se ha borrado ningún registro." Aunque en realidad eso solo ocurre cuando se manipula la barra de dirección.
+
+* [2021-04-28] Al borrar varios registros a la vez escribe "Registro borrado correctamente" tantas veces como registros borrados. Debería escribir simplemente "Registro borrado correctamente" o "Registros borrados correctamente" si son varios.
+
 ## Mejoras
+
 
 * [2021-04-22] La función calendario envía la fecha en la dirección. Podría cambiar a botones como en las flechas de ordenación d elos listados.
 

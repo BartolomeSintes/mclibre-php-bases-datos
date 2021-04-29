@@ -36,7 +36,7 @@ $consulta = "SELECT *
 $result = $pdo->prepare($consulta);
 $result->execute([":usuario" => "%$usuario%", ":password" => "%$password%", ":nivel" => "%$nivel%"]);
 if (!$result) {
-    print "    <p class=\"aviso\">Error en la consulta.</p>\n";
+    print "    <p class=\"aviso-error\">Error en la consulta.</p>\n";
 } else {
     print "    <form action=\"$_SERVER[PHP_SELF]\" method=\"$cfg[formMethod]\">\n";
     print "      <p>\n";

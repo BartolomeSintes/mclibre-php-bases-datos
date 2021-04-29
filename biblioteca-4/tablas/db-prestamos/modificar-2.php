@@ -35,9 +35,9 @@ $consulta = "SELECT COUNT(*)
 $result = $pdo->prepare($consulta);
 $result->execute([":id" => $id]);
 if (!$result) {
-    print "    <p class=\"aviso\">Error en la consulta.</p>\n";
+    print "    <p class=\"aviso-error\">Error en la consulta.</p>\n";
 } elseif ($result->fetchColumn() == 0) {
-    print "    <p class=\"aviso\">Registro no encontrado.</p>\n";
+    print "    <p class=\"aviso-error\">Registro no encontrado.</p>\n";
 } else {
     $consulta = "SELECT
                   prestamos.id,
@@ -62,11 +62,11 @@ if (!$result) {
     $consulta3 = "SELECT * FROM $db[obras] ORDER BY autor";
     $result3   = $pdo->query($consulta3);
     if (!$result) {
-        print "    <p class=\"aviso\">Error en la consulta.</p>\n";
+        print "    <p class=\"aviso-error\">Error en la consulta.</p>\n";
     } elseif (!$result2) {
-        print "    <p class=\"aviso\">Error en la consulta.</p>\n";
+        print "    <p class=\"aviso-error\">Error en la consulta.</p>\n";
     } elseif (!$result3) {
-        print "    <p class=\"aviso\">Error en la consulta.</p>\n";
+        print "    <p class=\"aviso-error\">Error en la consulta.</p>\n";
     } else {
         $valor = $valor = $result->fetch(PDO::FETCH_ASSOC);
         print "    <form action=\"modificar-3.php\" method=\"$cfg[formMethod]\">\n";

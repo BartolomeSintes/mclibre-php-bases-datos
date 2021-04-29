@@ -44,9 +44,9 @@ if ($password != "") {
                  WHERE id=:id";
     $result = $pdo->prepare($consulta);
     if ($result->execute([":usuario" => $usuario, ":password" => encripta($password), ":nivel" => $nivel, ":id" => $id])) {
-        print "    <p>Registro modificado correctamente.</p>\n";
+        print "    <p class=\"aviso-info\">Registro modificado correctamente.</p>\n";
     } else {
-        print "    <p class=\"aviso\">Error al modificar el registro.</p>\n";
+        print "    <p class=\"aviso-error\">Error al modificar el registro.</p>\n";
     }
 } else {
     $consulta = "UPDATE $db[usuarios]
@@ -56,9 +56,9 @@ if ($password != "") {
                  WHERE id=:id";
     $result = $pdo->prepare($consulta);
     if ($result->execute([":usuario" => $usuario, ":nivel" => $nivel, ":id" => $id])) {
-        print "    <p>Registro modificado correctamente.</p>\n";
+        print "    <p class=\"aviso-info\">Registro modificado correctamente.</p>\n";
     } else {
-        print "    <p class=\"aviso\">Error al modificar el registro.</p>\n";
+        print "    <p class=\"aviso-error\">Error al modificar el registro.</p>\n";
     }
 }
 

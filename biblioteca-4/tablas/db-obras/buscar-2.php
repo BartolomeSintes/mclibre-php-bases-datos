@@ -22,9 +22,9 @@ if (hayErrores("buscar-2")) {
     exit();
 }
 
-$pdo      = conectaDb();
+$pdo = conectaDb();
 
-$ordena   = recogeValores("ordena", $db["columnasObrasOrden"], "autor ASC");
+$ordena = recogeValores("ordena", $db["columnasObrasOrden"], "autor ASC");
 
 $consulta = "SELECT *
              FROM $db[obras]
@@ -36,7 +36,7 @@ $consulta = "SELECT *
 $result = $pdo->prepare($consulta);
 $result->execute([":autor" => "%$autor%", ":titulo" => "%$titulo%", ":editorial" => "%$editorial%"]);
 if (!$result) {
-    print "    <p class=\"aviso\">Error en la consulta.</p>\n";
+    print "    <p class=\"aviso-error\">Error en la consulta.</p>\n";
 } else {
     print "    <form action=\"$_SERVER[PHP_SELF]\" method=\"$cfg[formMethod]\">\n";
     print "      <p>\n";

@@ -24,9 +24,9 @@ $result2   = $pdo->query($consulta2);
 $consulta3 = "SELECT * FROM $db[obras] ORDER BY autor";
 $result3   = $pdo->query($consulta3);
 if (!$result2) {
-    print "    <p class=\"aviso\">Error en la consulta.</p>\n";
+    print "    <p class=\"aviso-error\">Error en la consulta.</p>\n";
 } elseif (!$result3) {
-    print "    <p class=\"aviso\">Error en la consulta.</p>\n";
+    print "    <p class=\"aviso-error\">Error en la consulta.</p>\n";
 } else {
     print "    <form action=\"insertar-2.php\" method=\"$cfg[formMethod]\">\n";
     print "      <p>Escriba los datos del nuevo préstamo:</p>\n";

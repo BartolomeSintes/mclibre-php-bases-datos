@@ -69,9 +69,9 @@ function conectaDb()
         return $tmp;
     } catch (PDOException $e) {
         cabecera("Error grave", MENU_VOLVER, PROFUNDIDAD_1);
-        print "    <p class=\"aviso\">Error: No puede conectarse con la base de datos.</p>\n";
+        print "    <p class=\"aviso-error\">Error: No puede conectarse con la base de datos.</p>\n";
         print "\n";
-        print "    <p class=\"aviso\">Error: " . $e->getMessage() . "</p>\n";
+        print "    <p class=\"aviso-error\">Error: " . $e->getMessage() . "</p>\n";
         pie();
         exit();
     }
@@ -90,7 +90,7 @@ function existenTablas()
     $result   = $pdo->query($consulta);
     if (!$result) {
         $existe = false;
-        print "    <p class=\"aviso\">Error en la consulta.</p>\n";
+        print "    <p class=\"aviso-error\">Error en la consulta.</p>\n";
         print "\n";
     } else {
         if ($result->fetchColumn() == 0) {
@@ -108,7 +108,7 @@ function existenTablas()
                 $result = $pdo->query($consulta);
                 if (!$result) {
                     $existe = false;
-                    print "    <p class=\"aviso\">Error en la consulta.</p>\n";
+                    print "    <p class=\"aviso-error\">Error en la consulta.</p>\n";
                     print "\n";
                 } else {
                     if ($result->fetchColumn() == 0) {

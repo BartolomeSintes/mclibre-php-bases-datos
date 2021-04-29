@@ -32,9 +32,9 @@ foreach ($id as $indice => $valor) {
                  WHERE id=:indice";
     $result = $pdo->prepare($consulta);
     if ($result->execute([":indice" => $indice])) {
-        print "    <p>Registro borrado correctamente.</p>\n";
+        print "    <p class=\"aviso-info\">Registro borrado correctamente.</p>\n";
     } else {
-        print "    <p class=\"aviso\">Error al borrar el registro.</p>\n";
+        print "    <p class=\"aviso-error\">Error al borrar el registro.</p>\n";
     }
 }
 

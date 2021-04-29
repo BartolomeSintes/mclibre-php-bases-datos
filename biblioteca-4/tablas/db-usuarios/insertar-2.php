@@ -34,9 +34,9 @@ $consulta = "INSERT INTO $db[usuarios] (usuario, password, nivel)
              VALUES (:usuario, :password, $nivel)";
 $result = $pdo->prepare($consulta);
 if ($result->execute([":usuario" => $usuario, ":password" => encripta($password)])) {
-    print "    <p>Registro <strong>$usuario</strong> creado correctamente.</p>\n";
+    print "    <p class=\"aviso-info\">Registro <strong>$usuario</strong> creado correctamente.</p>\n";
 } else {
-    print "    <p class=\"aviso\">Error al crear el registro <strong>$usuario</strong>.</p>\n";
+    print "    <p class=\"aviso-error\">Error al crear el registro <strong>$usuario</strong>.</p>\n";
 }
 
 $pdo = null;

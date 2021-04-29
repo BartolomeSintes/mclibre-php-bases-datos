@@ -39,7 +39,7 @@ if (!imprimeAvisosGenerales("modificar-1")) {
                  ORDER BY $ordena";
     $result = $pdo->query($consulta);
     if (!$result) {
-        print "    <p class=\"aviso\">Error en la consulta.</p>\n";
+        print "    <p class=\"aviso-error\">Error en la consulta.</p>\n";
     } else {
         print "    <form action=\"devolver-2.php\" method=\"$cfg[formMethod]\">\n";
         print "      <p>Seleccione el préstamo pendiente e indique la fecha de devolución:</p>\n";

@@ -8,7 +8,7 @@ header("Content-type: text/css");
 /*                                          */
 /* CSS ejercicios proyectos                 */
 /*                                          */
-/* 7 de diciembre de 2017                   */
+/* 29 de abril de 2021                      */
 /*                                          */
 
 /* Esta parte es comun a todos los ejercicios proyectos */
@@ -67,8 +67,12 @@ input {
   background-color: transparent;
 }
 
-.aviso {
+.aviso-error {
   color: red;
+}
+
+.aviso-info {
+  color: blue;
 }
 
 .centrado {

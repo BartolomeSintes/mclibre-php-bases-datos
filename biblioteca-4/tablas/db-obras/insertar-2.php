@@ -34,9 +34,9 @@ $consulta = "INSERT INTO $db[obras] (autor, titulo, editorial)
              VALUES (:autor, :titulo, :editorial)";
 $result = $pdo->prepare($consulta);
 if ($result->execute([":autor" => $autor, ":titulo" => $titulo, ":editorial" => $editorial])) {
-    print "    <p>Registro <strong>$autor - $titulo - $editorial</strong> creado correctamente.</p>\n";
+    print "    <p class=\"aviso-info\">Registro <strong>$autor - $titulo - $editorial</strong> creado correctamente.</p>\n";
 } else {
-    print "    <p class=\"aviso\">Error al crear el registro <strong>$autor - $titulo - $editorial</strong>.</p>\n";
+    print "    <p class=\"aviso-error\">Error al crear el registro <strong>$autor - $titulo - $editorial</strong>.</p>\n";
 }
 
 $pdo = null;

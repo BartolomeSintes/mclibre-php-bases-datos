@@ -212,14 +212,14 @@ function borraTodo($incluyeDemo)
     $pdo = conectaDb();
     foreach ($db["consultasBorraTodo"] as $consulta) {
         if (!$pdo->query($consulta)) {
-            print "    <p class=\"aviso\">Error en la consulta: $consulta</p>\n";
+            print "    <p class=\"aviso-error\">Error en la consulta: $consulta</p>\n";
             print "\n";
         }
     }
     if ($incluyeDemo) {
         foreach ($db["consultasValoresDemo"] as $consulta) {
             if (!$pdo->query($consulta)) {
-                print "    <p class=\"aviso\">Error en la consulta: $consulta</p>\n";
+                print "    <p class=\"aviso-error\">Error en la consulta: $consulta</p>\n";
                 print "\n";
             }
         }

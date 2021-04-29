@@ -13,9 +13,9 @@ cabecera("Login 1", MENU_VOLVER, PROFUNDIDAD_1);
 
 if (!existenTablas()) {
     if ($cfg["insertaRegistrosDemo"]) {
-        print "  <p>La base de datos no estaba creada. Se ha creado la base de datos, insertando registros de prueba.</p>\n";
+        print "  <p class=\"aviso-info\">La base de datos no estaba creada. Se ha creado la base de datos, insertando registros de prueba.</p>\n";
     } else {
-        print "<p>La base de datos no estaba creada. Se ha creado la base de datos.</p>\n";
+        print "  <p class=\"aviso-info\">La base de datos no estaba creada. Se ha creado la base de datos, sin insertar registros de prueba.</p>\n";
     }
     print "\n";
     borraTodo($cfg["insertaRegistrosDemo"]);

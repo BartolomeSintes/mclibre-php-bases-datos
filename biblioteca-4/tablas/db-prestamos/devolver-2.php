@@ -33,9 +33,9 @@ $consulta = "UPDATE $db[prestamos]
              WHERE id=:id";
 $result = $pdo->prepare($consulta);
 if ($result->execute([":id" => $id_prestamo])) {
-    print "    <p>Registro modificado correctamente.</p>\n";
+    print "    <p class=\"aviso-info\">Registro modificado correctamente.</p>\n";
 } else {
-    print "    <p class=\"aviso\">Error al modificar el registro.</p>\n";
+    print "    <p class=\"aviso-error\">Error al modificar el registro.</p>\n";
 }
 
 $pdo = null;

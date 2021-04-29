@@ -39,7 +39,7 @@ if (!imprimeAvisosGenerales("borrar-1")) {
                  ORDER BY $ordena";
     $result = $pdo->query($consulta);
     if (!$result) {
-        print "    <p class=\"aviso\">Error en la consulta.</p>\n";
+        print "    <p class=\"aviso-error\">Error en la consulta.</p>\n";
     } else {
         print "    <form action=\"$_SERVER[PHP_SELF]\" method=\"$cfg[formMethod]\">\n";
         print "      <p>Marque los registros que quiera borrar:</p>\n";

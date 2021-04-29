@@ -34,9 +34,9 @@ $consulta = "INSERT INTO $db[personas] (nombre, apellidos, dni)
              VALUES (:nombre, :apellidos, :dni)";
 $result = $pdo->prepare($consulta);
 if ($result->execute([":nombre" => $nombre, ":apellidos" => $apellidos, ":dni" => $dni])) {
-    print "    <p>Registro <strong>$nombre $apellidos - $dni</strong> creado correctamente.</p>\n";
+    print "    <p class=\"aviso-info\">Registro <strong>$nombre $apellidos - $dni</strong> creado correctamente.</p>\n";
 } else {
-    print "    <p class=\"aviso\">Error al crear el registro <strong>$nombre $apellidos - $dni</strong>.</p>\n";
+    print "    <p class=\"aviso-error\">Error al crear el registro <strong>$nombre $apellidos - $dni</strong>.</p>\n";
 }
 
 $pdo = null;

@@ -34,9 +34,9 @@ $consulta = "INSERT INTO $db[prestamos] (id_persona, id_obra, prestado, devuelto
              VALUES (:id_persona, :id_obra, :prestado, '0000-00-00')";
 $result = $pdo->prepare($consulta);
 if ($result->execute([":id_persona" => $id_persona, ":id_obra" => $id_obra, ":prestado" => $prestado])) {
-    print "    <p>Registro creado correctamente.</p>\n";
+    print "    <p class=\"aviso-info\">Registro creado correctamente.</p>\n";
 } else {
-    print "    <p class=\"aviso\">Error al crear el registro.</p>\n";
+    print "    <p class=\"aviso-error\">Error al crear el registro.</p>\n";
 }
 
 $pdo = null;

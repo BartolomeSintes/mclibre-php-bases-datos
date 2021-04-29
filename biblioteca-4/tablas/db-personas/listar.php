@@ -24,7 +24,7 @@ if (!imprimeAvisosGenerales("listar")) {
                  ORDER BY $ordena";
     $result = $pdo->query($consulta);
     if (!$result) {
-        print "    <p class=\"aviso\">Error en la consulta.</p>\n";
+        print "    <p class=\"aviso-error\">Error en la consulta.</p>\n";
     } else {
         print "    <p>Listado completo de registros:</p>\n";
         print "\n";

@@ -11,7 +11,8 @@ Este changelog incluye los cambios hechos en Biblioteca-3, Biblioteca-4, etc.
 ### Changed (Modificado)
 
 ### Added (Añadido)
-
+- Cambio el nombre de la clase "aviso" a "aviso-error"
+- Añado clase "aviso-info" para los mensajes de operaciones completadas correctamente
 
 ## 2021-04-22
 

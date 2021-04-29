@@ -69,9 +69,9 @@ $consulta = "SELECT COUNT(*)
 $result = $pdo->prepare($consulta);
 $result->execute($parametros);
 if (!$result) {
-    print "    <p class=\"aviso\">Error en la consulta.</p>\n";
+    print "    <p class=\"aviso-error\">Error en la consulta.</p>\n";
 } elseif ($result->fetchColumn() == 0) {
-    print "    <p>No se han encontrado registros.</p>\n";
+    print "    <p class=\"aviso-info\">No se han encontrado registros.</p>\n";
 } else {
     $consulta = "SELECT
                    prestamos.id,
@@ -98,7 +98,7 @@ printValores($consulta);
     $result = $pdo->prepare($consulta);
     $result->execute($parametros);
     if (!$result) {
-        print "    <p class=\"aviso\">Error en la consulta.</p>\n";
+        print "    <p class=\"aviso-error\">Error en la consulta.</p>\n";
     } else {
         print "    <form action=\"$_SERVER[PHP_SELF]\" method=\"$cfg[formMethod]\">\n";
         print "      <p>\n";
