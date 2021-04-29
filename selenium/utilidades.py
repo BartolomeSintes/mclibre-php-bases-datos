@@ -14,7 +14,7 @@ def lee_json(fichero):
 def guarda_json(diccionario, fichero):
     # print("  Guarda JSON")
     # print(f"    Grabando JSON {fichero} ...")
-    with open(fichero, "w", encoding="utf-8") as json_file:
+    with open(fichero, "w", encoding="utf-8", newline='\n') as json_file:
         json.dump(
             diccionario, json_file, indent=4, ensure_ascii=False
         )  # ensure_ascii es para que no guarde los caracteres en la forma \u00f...
@@ -24,9 +24,22 @@ def renombra_tests(fichero):
     selenium_json = lee_json(fichero)
     # print(selenium_json["tests"])
     for i in range(len(selenium_json["tests"])):
-        nombre = selenium_json["tests"][i]["id"]
+        subpartes = 1
         for j in range(len(selenium_json["tests"][i]["commands"])):
-            selenium_json["tests"][i]["commands"][j]["id"] = f"{nombre}-{j+1}"
+            if "comment" in selenium_json["tests"][i]["commands"][j].keys() and selenium_json["tests"][i]["commands"][j]["comment"][:6] == "(TEST)":
+                subpartes += 1
+        nombre = selenium_json["tests"][i]["id"]
+        contador_1 = 1
+        contador_2 = 1
+        for j in range(len(selenium_json["tests"][i]["commands"])):
+            if "comment" in selenium_json["tests"][i]["commands"][j].keys() and selenium_json["tests"][i]["commands"][j]["comment"][:6] == "(TEST)":
+                contador_1 += 1
+                contador_2 = 1
+            if subpartes > 1:
+                selenium_json["tests"][i]["commands"][j]["id"] = f"{nombre}-{contador_1}-{contador_2}"
+            else:
+                selenium_json["tests"][i]["commands"][j]["id"] = f"{nombre}-{contador_2}"
+            contador_2 += 1
     return selenium_json
 
 
