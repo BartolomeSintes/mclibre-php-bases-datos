@@ -538,7 +538,7 @@ function imprimeAvisosIndividuales($origen, $tabla, $campo, $tipo, $valor = "SIN
             if ($tipo == "valor") {
                 return " value=\"{$_SESSION["avisosIndividuales"][$origen][$tabla][$campo]["valor"]}\"";
             }
-            if ($tipo == "mensaje") {
+            if ($tipo == "mensaje" && $_SESSION["avisosIndividuales"][$origen][$tabla][$campo]["mensaje"]) {
                 return " <span class=\"aviso-error\">{$_SESSION["avisosIndividuales"][$origen][$tabla][$campo]["mensaje"]}</span>";
             }
         }

@@ -12,6 +12,12 @@ Estas son algunas de las cosas que me quedan por hacer y que podrían hacerse en
 
 * [2021-04-29] La matriz $dbTablas igual habría alguna manera de que se generara automáticamente.
 
+* [2021-04-29] Los avisos generales son tanto info (No se ha creado todavía ningún registro) con error. Debería distinguirlos (añadiendo un campo clase a la matriz sería suficiente).
+
+* [2021-04-29] Al buscar, si no encuentra registros no reescribe los términos de búsqueda. Tendría que pensar si hacerlo o no.
+
+* [2021-04-29] Al buscar, no comprueba si lo que ha escrito el usuario se podría haber insertado (es decir, por ahora si el texto es demasiado largo)
+
 ## Próximos pasos
 
 * [2021-04-10] Los select no muestran el valor elegido por el usuario cuando se detectan errores y se vuelve al formulario.

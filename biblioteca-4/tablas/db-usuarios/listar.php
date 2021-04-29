@@ -15,7 +15,7 @@ borraAvisosExcepto();
 
 compruebaAvisosGenerales("listar", "sinRegistros", "usuarios");
 
-if (!imprimeAvisosGenerales()) {
+if (!imprimeAvisosGenerales("listar")) {
     $ordena = recogeValores("ordena", $db["columnasUsuariosOrden"], "usuario ASC");
 
     $pdo = conectaDb();
