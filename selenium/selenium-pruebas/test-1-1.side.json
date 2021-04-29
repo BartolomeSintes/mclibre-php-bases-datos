@@ -1,0 +1,136 @@
+{
+    "id": "selenium-pruebas-1",
+    "comment": "Este test es para ver cómo se cuentan los elementos",
+    "version": "2.0",
+    "name": "biblioteca-4",
+    "url": "http://localhost",
+    "tests": [
+        {
+            "id": "test-1",
+            "name": "Test 1",
+            "comment": "Comprueba que la página tiene los elementos solicitados",
+            "commands": [
+                {
+                    "id": "test-1-1",
+                    "command": "store",
+                    "target": "/mclibre/consultar/php-bases-datos/selenium/selenium-pruebas/",
+                    "value": "urlBase"
+                },
+                {
+                    "id": "test-1-2",
+                    "command": "store",
+                    "target": "${urlBase}/test-1.php",
+                    "value": "urlInicio"
+                },
+                {
+                    "id": "test-1-3",
+                    "command": "store",
+                    "target": "3",
+                    "value": "pAvisoError"
+                },
+                {
+                    "id": "test-1-4",
+                    "command": "store",
+                    "target": "4",
+                    "value": "spanAvisoError"
+                },
+                {
+                    "id": "test-1-5",
+                    "command": "store",
+                    "target": "2",
+                    "value": "pAvisoInfo"
+                },
+                {
+                    "id": "test-1-5",
+                    "command": "store",
+                    "target": "5",
+                    "value": "pAviso"
+                },
+                {
+                    "id": "test-1-6",
+                    "command": "store",
+                    "target": "5",
+                    "value": "pSinAviso"
+                },
+                {
+                    "id": "test-1-11",
+                    "command": "open",
+                    "target": "${urlInicio}?p=${pAvisoError}&s=${spanAvisoError}&f=${pAvisoInfo}&r=${pSinAviso}",
+                    "value": ""
+                },
+                {
+                    "id": "test-1-21",
+                    "command": "executeScript",
+                    "target": "return (document.querySelectorAll('p.aviso-error').length)",
+                    "value": "cuenta"
+                },
+                {
+                    "id": "test-1-22",
+                    "command": "assert",
+                    "target": "cuenta",
+                    "value": "${pAvisoError}"
+                },
+                {
+                    "id": "test-1-31",
+                    "command": "executeScript",
+                    "target": "return (document.querySelectorAll('p.aviso-info').length)",
+                    "value": "cuenta"
+                },
+                {
+                    "id": "test-1-32",
+                    "command": "assert",
+                    "target": "cuenta",
+                    "value": "${pAvisoInfo}"
+                },
+                {
+                    "id": "test-1-41",
+                    "command": "executeScript",
+                    "target": "return (document.querySelectorAll('p[class|=\"aviso\"]').length)",
+                    "value": "cuenta"
+                },
+                {
+                    "id": "test-1-42",
+                    "command": "assert",
+                    "target": "cuenta",
+                    "value": "${pAviso}"
+                },
+                {
+                    "id": "test-1-51",
+                    "command": "storeXpathCount",
+                    "target": "xpath=//p[contains(@class, 'aviso-')]",
+                    "value": "cuenta"
+                },
+                {
+                    "id": "test-1-52",
+                    "command": "assert",
+                    "target": "cuenta",
+                    "value": "${pAviso}"
+                },
+                {
+                    "id": "test-1-61",
+                    "command": "executeScript",
+                    "target": "return (document.querySelectorAll('span.aviso-error').length)",
+                    "value": "cuenta"
+                },
+                {
+                    "id": "test-1-62",
+                    "command": "assert",
+                    "target": "cuenta",
+                    "value": "${spanAvisoError}"
+                }
+            ]
+        }
+    ],
+    "suites": [
+        {
+            "id": "suite-1",
+            "name": "Default suite",
+            "persistSession": false,
+            "parallel": false,
+            "timeout": 300,
+            "tests": [
+                "test-1"
+            ]
+        }
+    ]
+}
