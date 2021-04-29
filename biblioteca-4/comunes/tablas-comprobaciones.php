@@ -40,7 +40,8 @@ function comprobaciones($origen, $tabla, $campo, $valor)
 
     if ($campo == "id") {
         if ($valor == "") {
-            $mensaje                                = "No se ha seleccionado ningún registro.";
+            // 2021-04-28 Comento la línea para que no salga el mensaje duplicado si no se selecciona ningún registro al borrar o mdificar, aunque no sé si sirve para algo
+            // $mensaje                                = "No se ha seleccionado ningún registro.";
             $_SESSION["avisosGenerales"][$origen][] = "No se ha seleccionado ningún registro.";
         } else {
             $pdo      = conectaDb();
@@ -52,7 +53,7 @@ function comprobaciones($origen, $tabla, $campo, $valor)
             if (!$result) {
                 $mensaje = "Error en la consulta.";
             } elseif ($result->fetchColumn() == 0) {
-                $mensaje                                = "Registro no encontrado.";
+                // $mensaje                                = "Registro no encontrado.";
                 $_SESSION["avisosGenerales"][$origen][] = "Registro no encontrado.";
             } else {
                 $campoOk = true;
@@ -115,7 +116,7 @@ function comprobaciones($origen, $tabla, $campo, $valor)
         }
     } elseif ($campo == "dni") {                        // Tabla Personas
         if (mb_strlen($valor, "UTF-8") > $db["tamPersonasDni"]) {
-            $mensaje = "El dni no puede tener más de $db[tamPersonasDni] caracteres.";
+            $mensaje = "El DNI no puede tener más de $db[tamPersonasDni] caracteres.";
         } else {
             $campoOk = true;
         }
@@ -522,7 +523,7 @@ function imprimeAvisosGenerales()
     foreach ($argumentos as $origen) {
         if (isset($_SESSION["avisosGenerales"][$origen]) && count($_SESSION["avisosGenerales"][$origen]) > 0) {
             foreach ($_SESSION["avisosGenerales"][$origen] as $mensaje) {
-                print "    <p class=\"aviso\">$mensaje</p>\n";
+                print "    <p class=\"aviso-error\">$mensaje</p>\n";
             }
             $avisosImpresos = true;
         }
@@ -538,7 +539,7 @@ function imprimeAvisosIndividuales($origen, $tabla, $campo, $tipo, $valor = "SIN
                 return " value=\"{$_SESSION["avisosIndividuales"][$origen][$tabla][$campo]["valor"]}\"";
             }
             if ($tipo == "mensaje") {
-                return " <span class=\"aviso\">{$_SESSION["avisosIndividuales"][$origen][$tabla][$campo]["mensaje"]}</span>";
+                return " <span class=\"aviso-error\">{$_SESSION["avisosIndividuales"][$origen][$tabla][$campo]["mensaje"]}</span>";
             }
         }
     } else {
