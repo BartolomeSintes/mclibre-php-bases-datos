@@ -10,6 +10,12 @@ Los objetos **commands** tienen que contener al menos cuatro claves: **id**, **c
 
 - Para encontrar las expresiones XPath de un elemento, se pueden utilizar las herramientas para desarrolladores web de Firefox o Chrome. Con el inspector se seleciona el elemento y haciendo clic derecho sobre la etiqueta en la vista de código fuente se puede elegir Copiar &gt; XPath.
 
+- Para contar cuántos resultados encuentra una expresión xpath, en las herramientas de desarrollador de Fiefox se puede utilizar la siguiente expresión javaScript:
+
+```javascript
+new XPathEvaluator().evaluate("//*[@class='aviso-error']", document, null, XPathResult.ORDERED_NODE_SNAPSHOT_TYPE).snapshotLength;
+````
+
 - En una expresión XPath si se busca el n-ésimo elemento consecutivo hay que añadir [n] después del elemento.
 
 - No he visto la manera de buscar un texto en toda la página, de manera que pueda estar seguro de que no está, porque parece que Selenium trabaja con elementos. Igual se puede hacer con JvaScript...

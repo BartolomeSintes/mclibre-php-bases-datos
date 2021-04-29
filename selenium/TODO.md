@@ -8,9 +8,13 @@ Estas son algunas de las cosas que podría hacer para Selenium
 
 * [2021-04-26] Debería ver si se pueden crear variables de array y hacer bubles que iteren sobre ellas. Lo necesitaría para crear una función Insertar general, porque cada tabla tiene un número de campos distintos.
 
+* [2021-04-29] He intentado sumar dos variables creadas con **store** para guardarlas en otra variable y no lo he conseguido. En Internet hacen todo el rato referencia a storeEval que no funciona en Selenium IDE 3 y con Javascript dicen de usar la matriz storedVars (storedvars['nombreVariable']), pero el IDE dice que storedVars no existe.
+
 ## utilidades.py
 
 * [2021-04-26] Que compruebe si los nombres de los tests utilizados en las suites existen.
+
+* [2021-04-29] Al renumerar los test, podría tener en cuenta tests con comentarios para saltar de 100 en 100. O al menos los comentarios que empezarán por alguna palabra que significara que empieza un bloque de tests. Antes de eso tendría que comprobar que saltar de 100 en 100 es suficiente.
 
 ## Pruebas a realizar en cada página
 - Niveles de usuario
@@ -37,13 +41,13 @@ Estas son algunas de las cosas que podría hacer para Selenium
   - <s>Borra 1 registro correctamente.</s>
   - <s>Borra varios registros correctamente.</s>
   - <s>Aviso general: registrosNoSeleccionados. No se ha seleccionado ningún registro.</s>
-  - <s>Aviso individual: No existe el registro.</s>
+  - <s>Aviso individual: No existe el registro (no existe uno, no existe uno de dos elegidos o no existen dos de dos elegidos).</s>
 - Buscar-1
-  - Aviso general: sinRegistros. No hay registros para mostrar.
+  - <s>Aviso general: sinRegistros. No hay registros para mostrar.</s>
 - Buscar-2
-  - Encuentra registros correctamente.
-  - Aviso general: No encuentra registros.
-  - Aviso individual: Texto demasiado largo.
+  - <s>Encuentra registros correctamente.</s>
+  - <s>Aviso general: No encuentra registros.</s>
+  - <s>Aviso individual: Texto demasiado largo. [No se comprueba, así que no tiene demasiado sentido probarlo, pero lo he puesto. Sale el mensaje"No se han encontrado registros."]</s>
 - Modificar-1
   - Aviso general: sinRegistros. No hay registros para mostrar.
   - Al reordenar registros no se pierde la casilla marcada.
