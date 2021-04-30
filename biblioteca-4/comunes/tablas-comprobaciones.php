@@ -383,8 +383,6 @@ function compruebaAvisosGenerales()
         // Si detecta un error general (pero no individuales porque están vacíos) y tiene que volver a modificar-2, el campo id se perdería
         // (el campo id no puede ser vacío porque es modificación, así que la comprobación de todosVacíos no se fija en el id)
         // TODO COMPROBAR SI FUNCIONA, QUE CREO QUE NO LO HACE
-        $tabla = $argumentos[0];
-        array_shift($argumentos);
         $id = $argumentos[0];
         array_shift($argumentos);
         // Devuelve true si todos los valores son vacíos

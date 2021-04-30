@@ -22,7 +22,7 @@ if (hayErrores("modificar-3")) {
 
 compruebaAvisosGenerales("modificar-3", "fechasCrecientes", "prestado", "devuelto");
 
-compruebaAvisosGenerales("modificar-3", "todosVaciosMenosPrimero", "prestamos", "id", "id_persona", "id_obra", "prestado", "devuelto");
+compruebaAvisosGenerales("modificar-3", "todosVaciosMenosPrimero", "id", "id_persona", "id_obra", "prestado", "devuelto");
 
 compruebaAvisosGenerales("modificar-3", "yaExisteRegistroConOtroId", "prestamos", "id_persona", "id_obra", "prestado", "devuelto", "id");
 
