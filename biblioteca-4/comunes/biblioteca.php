@@ -366,7 +366,7 @@ function pie()
     print "  <footer>\n";
     print "    <p class=\"ultmod\">\n";
     print "      Última modificación de esta página:\n";
-    print "      <time datetime=\"2021-04-22\">22 de abril de 2021</time>\n";
+    print "      <time datetime=\"2021-05-01\">1 de mayo de 2021</time>\n";
     print "    </p>\n";
     print "\n";
     print "    <p class=\"licencia\">\n";
@@ -387,4 +387,4 @@ function encripta($cadena)
     return hash($cfg["hashAlgorithm"], $cadena);
 }
 
-require_once "tablas-comprobaciones.php";
+require_once "comprobaciones-general.php";

@@ -6,20 +6,22 @@ El formato se basa en [Keep a Changelog](https://keepachangelog.com/en/1.0.0/).
 
 Este changelog incluye los cambios hechos en Biblioteca-3, Biblioteca-4, etc.
 
-## 2021-04-XX
+## 2021-05-11
 
 ### Changed (Modificado)
+- Renombre tablas-comprobaciones.php y lo divido en funciones generales (comprobaciones-general.php) y particulares (comprobaciones-particular.php).
 
 ### Added (Añadido)
-- Cambio el nombre de la clase "aviso" a "aviso-error"
-- Añado clase "aviso-info" para los mensajes de operaciones completadas correctamente
+- Cambio el nombre de la clase "aviso" a "aviso-error".
+- Añado clase "aviso-info" para los mensajes de operaciones completadas correctamente.
+
 
 ## 2021-04-22
 
 ### Changed (Modificado)
 - Cambio la estructura de $_SESSION para recoger los errores individuales y generales. Ahora es S_SESSSION[avisosIndividuales][pagina][tabla][control] y S_SESSSION[avisosGenerales][pagina].
 - Utilizo esa nueva estructura en todas las páginas.
-- Al insertar un registro (insertar-2 y modificar-3), compara con lower() para que no se puedan guardar
+- Al insertar un registro (insertar-2 y modificar-3), compara con lower() para que no se puedan guardar.
 
 ### Added (Añadido)
 - Añado función printSesion() para que me escriba $_SESSION en un &lt;details&gt; (para usarla mientras programo resolviendo errores).
@@ -43,7 +45,7 @@ Este changelog incluye los cambios hechos en Biblioteca-3, Biblioteca-4, etc.
 
 ### Changed (Modificado)
 - El límite del número de registros por tabla se puede activar o desactivar con $cfg["maxRegTablaActivado"].
-- Gran parte de las comprobaciones iniciales se hacen ahora a través de funciones (en comunes/tablas-comprobaciones.php)
+- Gran parte de las comprobaciones iniciales se hacen ahora a través de funciones (en comunes/comprobaciones-general.php)
     - compruebaAvisosIndividuales(): recoge y comprueba cada control (menos las matrices de ids)
     - compruebaAvisosGenerales(): hace comprobaciones generales (que no haya todavía registros, que se haya superado el límite de registros, que sean todos vacíos, etc.)
 - Si se generan avisos al recibir un formulario, se redirecciona al formulario y se muestran en él. Falta incluir los avisos relacionados con los ids (no se han seleccionado registros, no se encuentran, etc.)

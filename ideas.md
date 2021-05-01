@@ -4,6 +4,7 @@
 
 * [Stairway to SQL Server Security](https://www.sqlservercentral.com/stairways/stairway-to-sql-server-security)
 
+
 ## Nombres de los campos en las tablas de la base de datos
 
 Es inevitable que dos campos de dos tablas distintas acaben llamándose igual.
@@ -28,6 +29,7 @@ Parece que no hay un criterio universal.
 
 [Database Naming Convention](https://web.archive.org/web/20110714090713/http://www.interaktonline.com/Support/Articles/Details/Design+Your+Database-Database+Naming+Convention.html?id_art=24&id_asc=221) de la empresa InterAKT que Adobe compró hace años.
 
+
 ## Metadatos
 
 The ISO/IEC 11179 Metadata Registry (MDR) standard is an international ISO standard for representing metadata for an organization in a metadata registry. It documents the standardization and registration of metadata to make data understandable and shareable.
@@ -36,6 +38,7 @@ The ISO/IEC 11179 Metadata Registry (MDR) standard is an international ISO stand
 
 [Normas ISO públicas](https://standards.iso.org/ittf/PubliclyAvailableStandards/)
 
+
 ## Estilo de las consultas
 
 * [Mozilla](https://docs.telemetry.mozilla.org/concepts/sql_style.html)
@@ -43,6 +46,7 @@ The ISO/IEC 11179 Metadata Registry (MDR) standard is an international ISO stand
 * [Simon Holywell](https://www.sqlstyle.guide/)
 
 * {GitLab](https://about.gitlab.com/handbook/business-technology/data-team/platform/sql-style-guide/)}
+
 
 ## Sobre fechas
 

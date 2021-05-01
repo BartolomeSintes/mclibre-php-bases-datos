@@ -40,7 +40,6 @@ Estas son algunas de las cosas que me quedan por hacer y que podrían hacerse en
 
 ## Mejoras
 
-
 * [2021-04-22] La función calendario envía la fecha en la dirección. Podría cambiar a botones como en las flechas de ordenación d elos listados.
 
 ## Para pensar
@@ -78,7 +77,7 @@ Estas son algunas de las cosas que me quedan por hacer y que podrían hacerse en
 * [2021-04-17] En PHP 8 añadieron los [argumentos de funciones](https://www.php.net/manual/es/functions.arguments.php). Cuando pueda utilizar PHP 8 en glup debería utilizarlos para simplificar las funciones. Pero pasará tiempo, porque actualmente [no está incluido en ninguna distribución](https://www.mclibre.org/consultar/php/otros/historia-cuadros.html#distribuciones).
 
 
-## Funciones de comprobación de datos (tablas-comprobaciones.php)
+## Funciones de comprobación de datos (comprobaciones-general.php)
 
 * [2021-04-07] La comprobación de datos que estoy haciendo no contempla que un campo se llame de la misma forma en dos tablas distintas. Por ejemplo, no se podría comprobar si existe un registro con el id recogido. La solución parece que tendrá que ser enviar la tabla y el campo.
 

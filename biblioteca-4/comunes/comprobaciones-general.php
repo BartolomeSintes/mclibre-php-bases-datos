@@ -1,0 +1,194 @@
+<?php
+/**
+ * @author    Bartolomé Sintes Marco - bartolome.sintes+mclibre@gmail.com
+ * @license   http://www.gnu.org/licenses/agpl.txt AGPL 3 or later
+ * @link      https://www.mclibre.org
+ */
+
+require_once "comprobaciones-particular.php";
+
+function printValores()
+{
+    $argumentos = func_get_args();
+
+    foreach ($argumentos as $valor) {
+        if (is_array($valor)) {
+            print "<pre>";
+            print_r($valor);
+            print "</pre>\n";
+        } else {
+            print "<p>$valor</p>\n";
+        }
+    }
+}
+
+function printSesion()
+{
+    print "  <details>\n";
+    print "    <summary>Sesión</summary>\n";
+    print "    <pre>";
+    print_r($_SESSION);
+    print "    </pre>\n";
+    print "  </details>\n";
+    print "\n";
+}
+
+function compruebaAvisosIndividuales()
+{
+    // Argumentos: pagina_de_origen, tabla, campo_1, campo_2, ...
+    $argumentos = func_get_args();
+    $origen     = $argumentos[0];
+    array_shift($argumentos);
+    $tabla = $argumentos[0];
+    array_shift($argumentos);
+    $resp       = [];
+    $paraSesion = [];
+    $error      = false;
+    foreach ($argumentos as $campo) {
+        if (isset($_REQUEST[$campo]) && is_array($_REQUEST[$campo])) {
+            $valor = recoge($campo, []);
+            $comp  = [];
+            foreach ($valor as $indice => $valor2) {
+                $resp          = comprobaciones($origen, $tabla, $campo, $indice);
+                $comp[$indice] = ["valor" => $resp["valor"], "campoOk" => $resp["campoOk"], "mensaje" => $resp["mensaje"]];
+            }
+        } else {
+            $valor = recoge($campo);
+            $comp  = comprobaciones($origen, $tabla, $campo, $valor);
+        }
+        $paraSesion[$campo] = $comp;
+        $resp[]             = $valor;
+    }
+    $_SESSION["avisosIndividuales"][$origen][$tabla] = $paraSesion;
+    // devuelve [$valor1, $valor2, ...
+    return $resp;
+}
+
+function imprimeAvisosGenerales()
+{
+    $argumentos = func_get_args();
+
+    $avisosImpresos = false;
+    foreach ($argumentos as $origen) {
+        if (isset($_SESSION["avisosGenerales"][$origen]) && count($_SESSION["avisosGenerales"][$origen]) > 0) {
+            foreach ($_SESSION["avisosGenerales"][$origen] as $mensaje) {
+                print "    <p class=\"aviso-error\">$mensaje</p>\n";
+            }
+            $avisosImpresos = true;
+        }
+    }
+    return $avisosImpresos;
+}
+
+function imprimeAvisosIndividuales($origen, $tabla, $campo, $tipo, $valor = "SINVALORNINGUNO")
+{
+    if (hayErrores($origen) && !hayErroresGenerales($origen)) {
+        if (isset($_SESSION["avisosIndividuales"][$origen][$tabla][$campo])) {
+            if ($tipo == "valor") {
+                return " value=\"{$_SESSION["avisosIndividuales"][$origen][$tabla][$campo]["valor"]}\"";
+            }
+            if ($tipo == "mensaje" && $_SESSION["avisosIndividuales"][$origen][$tabla][$campo]["mensaje"]) {
+                return " <span class=\"aviso-error\">{$_SESSION["avisosIndividuales"][$origen][$tabla][$campo]["mensaje"]}</span>";
+            }
+        }
+    } else {
+        if ($tipo == "valor" && $valor != "SINVALORNINGUNO") {
+            return " value=\"$valor\"";
+        }
+    }
+    return "";
+}
+
+function borraAvisosExcepto()
+{
+    // Borra todos los avisos que no provienen de una página determinada
+    $argumentos = func_get_args();
+
+    if (!count($argumentos)) {
+        unset($_SESSION["avisosGenerales"], $_SESSION["avisosIndividuales"]);
+    } else {
+        if (isset($_SESSION["avisosIndividuales"])) {
+            foreach ($_SESSION["avisosIndividuales"] as $indice => $valor) {
+                if ($indice != $argumentos[0]) {
+                    unset($_SESSION["avisosIndividuales"][$indice]);
+                }
+            }
+            if (!count($_SESSION["avisosIndividuales"])) {
+                unset($_SESSION["avisosIndividuales"]);
+            }
+        }
+        if (isset($_SESSION["avisosGenerales"])) {
+            foreach ($_SESSION["avisosGenerales"] as $indice => $valor) {
+                if ($indice != $argumentos[0]) {
+                    unset($_SESSION["avisosGenerales"][$indice]);
+                }
+            }
+            if (!count($_SESSION["avisosGenerales"])) {
+                unset($_SESSION["avisosGenerales"]);
+            }
+        }
+    }
+}
+
+function hayErrores()
+{
+    $argumentos = func_get_args();
+    if (!count($argumentos)) {
+        if (isset($_SESSION["avisosGenerales"])) {
+            return true;
+        }
+        if (isset($_SESSION["avisosIndividuales"])) {
+            foreach ($_SESSION["avisosIndividuales"] as $origen => $tmp1) {
+                foreach ($_SESSION["avisosIndividuales"][$origen] as $tabla => $tmp2) {
+                    foreach ($_SESSION["avisosIndividuales"][$origen][$tabla] as $campo => $valor) {
+                        if (!is_array($_SESSION["avisosIndividuales"][$origen][$tabla][$campo])) {
+                            if ($valor["campoOk"] == false) {
+                                return true;
+                            }
+                        }
+                        foreach ($_SESSION["avisosIndividuales"][$origen][$tabla][$campo] as $indice => $valor) {
+                            if ($valor["campoOk"] == false) {
+                                return true;
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    } else {
+        if (isset($_SESSION["avisosGenerales"])) {
+            foreach ($_SESSION["avisosGenerales"] as $indice => $valor) {
+                if ($indice == $argumentos[0]) {
+                    return true;
+                }
+            }
+        }
+        if (isset($_SESSION["avisosIndividuales"])) {
+            foreach ($_SESSION["avisosIndividuales"] as $origen => $tmp1) {
+                if (in_array($origen, $argumentos)) {
+                    foreach ($_SESSION["avisosIndividuales"][$origen] as $tabla => $tmp2) {
+                        foreach ($_SESSION["avisosIndividuales"][$origen][$tabla] as $campo => $valor) {
+                            if (count($valor) == count($valor, COUNT_RECURSIVE)) { // Si no es un campo id
+                                if ($valor["campoOk"] == false) {
+                                    return true;
+                                }
+                            } else {
+                                foreach ($valor as $subvalor) {
+                                    if ($subvalor["campoOk"] == false) {
+                                        return true;
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
+    return false;
+}
+
+function hayErroresGenerales($origen)
+{
+    return isset($_SESSION["avisosGenerales"][$origen]);
+}
