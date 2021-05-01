@@ -13,70 +13,94 @@
                     "id": "definiciones-generales-1",
                     "command": "store",
                     "target": "1000",
-                    "value": "pausaTrasAvisos"
+                    "value": "maxEspera"
                 },
                 {
                     "id": "definiciones-generales-2",
-                    "command": "store",
-                    "target": "1000",
-                    "value": "pausaTrasListados"
-                },
-                {
-                    "id": "definiciones-generales-3",
                     "command": "store",
                     "target": "/mclibre/consultar/php-bases-datos/biblioteca-4",
                     "value": "urlBase"
                 },
                 {
-                    "id": "definiciones-generales-4",
+                    "id": "definiciones-generales-3",
                     "command": "store",
                     "target": "${urlBase}/index.php",
                     "value": "urlInicio"
                 },
                 {
-                    "id": "definiciones-generales-5",
+                    "id": "definiciones-generales-4",
                     "command": "store",
                     "target": "${urlBase}/tablas/db-personas",
                     "value": "urlPersonas"
                 },
                 {
+                    "id": "definiciones-generales-5",
+                    "command": "store",
+                    "target": "Biblioteca-4 -",
+                    "value": "h1Inicio"
+                },
+                {
                     "id": "definiciones-generales-6",
                     "command": "store",
-                    "target": "Biblioteca-4 - Personas - ",
-                    "value": "titlePersonas"
+                    "target": "${h1Inicio} Personas -",
+                    "value": "h1Personas"
                 },
                 {
                     "id": "definiciones-generales-7",
+                    "command": "store",
+                    "target": "${h1Inicio} Obras -",
+                    "value": "h1Obras"
+                },
+                {
+                    "id": "definiciones-generales-8",
+                    "command": "store",
+                    "target": "${h1Inicio} Préstamos -",
+                    "value": "h1Prestamos"
+                },
+                {
+                    "id": "definiciones-generales-9",
+                    "command": "store",
+                    "target": "${h1Inicio} usuarios -",
+                    "value": "h1Usuarios"
+                },
+                {
+                    "id": "definiciones-generales-10",
+                    "command": "store",
+                    "target": "${h1Inicio} Administrador -",
+                    "value": "h1Administrador"
+                },
+                {
+                    "id": "definiciones-generales-11",
                     "command": "store",
                     "target": "abcdefghi1abcdefghi2abcdefghi3abcdefghi4",
                     "value": "personasNombreCorto"
                 },
                 {
-                    "id": "definiciones-generales-8",
+                    "id": "definiciones-generales-12",
                     "command": "store",
                     "target": "abcdefghi1abcdefghi2abcdefghi3abcdefghi4a",
                     "value": "personasNombreLargo"
                 },
                 {
-                    "id": "definiciones-generales-9",
+                    "id": "definiciones-generales-13",
                     "command": "store",
                     "target": "abcdefghi1abcdefghi2abcdefghi3abcdefghi4abcdefghi5abcdefghi6",
                     "value": "personasApellidosCorto"
                 },
                 {
-                    "id": "definiciones-generales-10",
+                    "id": "definiciones-generales-14",
                     "command": "store",
                     "target": "abcdefghi1abcdefghi2abcdefghi3abcdefghi4abcdefghi5abcdefghi6a",
                     "value": "personasApellidosLargo"
                 },
                 {
-                    "id": "definiciones-generales-11",
+                    "id": "definiciones-generales-15",
                     "command": "store",
                     "target": "123456789",
                     "value": "personasDniCorto"
                 },
                 {
-                    "id": "definiciones-generales-12",
+                    "id": "definiciones-generales-16",
                     "command": "store",
                     "target": "1234567891",
                     "value": "personasDniLargo"
@@ -120,39 +144,57 @@
                 },
                 {
                     "id": "funcion-borrar-todo-6",
+                    "command": "waitForElementPresent",
+                    "target": "xpath=//h1[.=\"${h1Administrador} Inicio\"]",
+                    "value": "${maxEspera}"
+                },
+                {
+                    "id": "funcion-borrar-todo-7",
                     "command": "click",
                     "target": "linkText=Borrar todo",
                     "value": ""
                 },
                 {
-                    "id": "funcion-borrar-todo-7",
+                    "id": "funcion-borrar-todo-8",
+                    "command": "waitForElementPresent",
+                    "target": "xpath=//h1[.=\"${h1Administrador} Borrar todo 1\"]",
+                    "value": "${maxEspera}"
+                },
+                {
+                    "id": "funcion-borrar-todo-9",
                     "command": "verifyChecked",
                     "target": "name=demo",
                     "value": ""
                 },
                 {
-                    "id": "funcion-borrar-todo-8",
+                    "id": "funcion-borrar-todo-10",
                     "command": "click",
                     "target": "xpath=//input[@value='Sí']",
                     "value": ""
                 },
                 {
-                    "id": "funcion-borrar-todo-9",
+                    "id": "funcion-borrar-todo-11",
                     "command": "waitForElementPresent",
-                    "target": "xpath=//p[.=\"Base de datos creada, insertando registros de prueba.\"]",
-                    "value": "20000"
+                    "target": "xpath=//h1[.=\"${h1Administrador} Borrar todo 2\"]",
+                    "value": "${maxEspera}"
                 },
                 {
-                    "id": "funcion-borrar-todo-10",
+                    "id": "funcion-borrar-todo-12",
                     "command": "assertText",
                     "target": "xpath=//p",
                     "value": "Base de datos creada, insertando registros de prueba."
                 },
                 {
-                    "id": "funcion-borrar-todo-11",
+                    "id": "funcion-borrar-todo-13",
                     "command": "click",
                     "target": "linkText=Volver",
                     "value": ""
+                },
+                {
+                    "id": "funcion-borrar-todo-14",
+                    "command": "waitForElementPresent",
+                    "target": "xpath=//h1[.=\"${h1Inicio} Inicio\"]",
+                    "value": "${maxEspera}"
                 }
             ]
         },
@@ -169,6 +211,7 @@
                 },
                 {
                     "id": "preparacion-desconexion-inicial-2",
+                    "comment": "Espero a main porque puede estar conectado o no.",
                     "command": "waitForElementPresent",
                     "target": "xpath=//main",
                     "value": "20000"
@@ -219,8 +262,8 @@
                 {
                     "id": "preparacion-borrar-todo-con-2",
                     "command": "waitForElementPresent",
-                    "target": "xpath=//main",
-                    "value": "20000"
+                    "target": "xpath=//h1[.=\"${h1Inicio} Inicio\"]",
+                    "value": "${maxEspera}"
                 },
                 {
                     "id": "preparacion-borrar-todo-con-3",
@@ -230,72 +273,108 @@
                 },
                 {
                     "id": "preparacion-borrar-todo-con-4",
+                    "command": "waitForElementPresent",
+                    "target": "xpath=//h1[.=\"${h1Inicio} Login 1\"]",
+                    "value": "${maxEspera}"
+                },
+                {
+                    "id": "preparacion-borrar-todo-con-5",
                     "command": "type",
                     "target": "name=usuario",
                     "value": "root"
                 },
                 {
-                    "id": "preparacion-borrar-todo-con-5",
+                    "id": "preparacion-borrar-todo-con-6",
                     "command": "type",
                     "target": "name=password",
                     "value": "root"
                 },
                 {
-                    "id": "preparacion-borrar-todo-con-6",
+                    "id": "preparacion-borrar-todo-con-7",
                     "command": "click",
                     "target": "xpath=//input[@value='Identificar']",
                     "value": ""
                 },
                 {
-                    "id": "preparacion-borrar-todo-con-7",
+                    "id": "preparacion-borrar-todo-con-8",
+                    "command": "waitForElementPresent",
+                    "target": "xpath=//h1[.=\"${h1Inicio} Inicio\"]",
+                    "value": "${maxEspera}"
+                },
+                {
+                    "id": "preparacion-borrar-todo-con-9",
                     "command": "click",
                     "target": "linkText=Administrador",
                     "value": ""
                 },
                 {
-                    "id": "preparacion-borrar-todo-con-8",
+                    "id": "preparacion-borrar-todo-con-10",
+                    "command": "waitForElementPresent",
+                    "target": "xpath=//h1[.=\"${h1Administrador} Inicio\"]",
+                    "value": "${maxEspera}"
+                },
+                {
+                    "id": "preparacion-borrar-todo-con-11",
                     "command": "click",
                     "target": "linkText=Borrar todo",
                     "value": ""
                 },
                 {
-                    "id": "preparacion-borrar-todo-con-9",
+                    "id": "preparacion-borrar-todo-con-12",
+                    "command": "waitForElementPresent",
+                    "target": "xpath=//h1[.=\"${h1Administrador} Borrar todo 1\"]",
+                    "value": "${maxEspera}"
+                },
+                {
+                    "id": "preparacion-borrar-todo-con-13",
                     "command": "verifyChecked",
                     "target": "name=demo",
                     "value": ""
                 },
                 {
-                    "id": "preparacion-borrar-todo-con-10",
+                    "id": "preparacion-borrar-todo-con-14",
                     "command": "click",
                     "target": "xpath=//input[@value='Sí']",
                     "value": ""
                 },
                 {
-                    "id": "preparacion-borrar-todo-con-11",
+                    "id": "preparacion-borrar-todo-con-15",
                     "command": "waitForElementPresent",
-                    "target": "xpath=//p[.=\"Base de datos creada, insertando registros de prueba.\"]",
-                    "value": "20000"
+                    "target": "xpath=//h1[.=\"${h1Administrador} Borrar todo 2\"]",
+                    "value": "${maxEspera}"
                 },
                 {
-                    "id": "preparacion-borrar-todo-con-12",
+                    "id": "preparacion-borrar-todo-con-16",
                     "command": "assertText",
                     "target": "xpath=//p",
                     "value": "Base de datos creada, insertando registros de prueba."
                 },
                 {
-                    "id": "preparacion-borrar-todo-con-13",
+                    "id": "preparacion-borrar-todo-con-17",
                     "command": "click",
                     "target": "linkText=Volver",
                     "value": ""
                 },
                 {
-                    "id": "preparacion-borrar-todo-con-14",
+                    "id": "preparacion-borrar-todo-con-18",
+                    "command": "waitForElementPresent",
+                    "target": "xpath=//h1[.=\"${h1Inicio} Inicio\"]",
+                    "value": "${maxEspera}"
+                },
+                {
+                    "id": "preparacion-borrar-todo-con-19",
                     "command": "click",
                     "target": "linkText=Desconectarse",
                     "value": ""
                 },
                 {
-                    "id": "preparacion-borrar-todo-con-15",
+                    "id": "preparacion-borrar-todo-con-20",
+                    "command": "waitForElementPresent",
+                    "target": "xpath=//h1[.=\"${h1Inicio} Inicio\"]",
+                    "value": "${maxEspera}"
+                },
+                {
+                    "id": "preparacion-borrar-todo-con-21",
                     "command": "assertText",
                     "target": "xpath=//li[1]/a[1]",
                     "value": "Conectarse"
@@ -322,8 +401,8 @@
                 {
                     "id": "conexion-desconexion-niveles-3",
                     "command": "waitForElementPresent",
-                    "target": "xpath=//main",
-                    "value": "20000"
+                    "target": "xpath=//h1[.=\"${h1Inicio} Inicio\"]",
+                    "value": "${maxEspera}"
                 },
                 {
                     "id": "conexion-desconexion-niveles-4",
@@ -334,199 +413,276 @@
                 },
                 {
                     "id": "conexion-desconexion-niveles-5",
+                    "command": "waitForElementPresent",
+                    "target": "xpath=//h1[.=\"${h1Inicio} Login 1\"]",
+                    "value": "${maxEspera}"
+                },
+                {
+                    "id": "conexion-desconexion-niveles-6",
                     "command": "type",
                     "target": "name=usuario",
                     "value": "root"
                 },
                 {
-                    "id": "conexion-desconexion-niveles-6",
+                    "id": "conexion-desconexion-niveles-7",
                     "command": "type",
                     "target": "name=password",
                     "value": "root"
                 },
                 {
-                    "id": "conexion-desconexion-niveles-7",
+                    "id": "conexion-desconexion-niveles-8",
                     "command": "click",
                     "target": "xpath=//input[@value='Identificar']",
                     "value": ""
                 },
                 {
-                    "id": "conexion-desconexion-niveles-8",
+                    "id": "conexion-desconexion-niveles-9",
+                    "command": "waitForElementPresent",
+                    "target": "xpath=//h1[.=\"${h1Inicio} Inicio\"]",
+                    "value": "${maxEspera}"
+                },
+                {
+                    "id": "conexion-desconexion-niveles-10",
                     "command": "click",
                     "target": "linkText=Administrador",
                     "value": ""
                 },
                 {
-                    "id": "conexion-desconexion-niveles-9",
-                    "command": "assertText",
-                    "target": "xpath=//h1",
-                    "value": "BIBLIOTECA-4 - ADMINISTRADOR - INICIO"
+                    "id": "conexion-desconexion-niveles-11",
+                    "command": "waitForElementPresent",
+                    "target": "xpath=//h1[.=\"${h1Administrador} Inicio\"]",
+                    "value": "${maxEspera}"
                 },
                 {
-                    "id": "conexion-desconexion-niveles-10",
+                    "id": "conexion-desconexion-niveles-12",
                     "command": "click",
                     "target": "linkText=Volver",
                     "value": ""
                 },
                 {
-                    "id": "conexion-desconexion-niveles-11",
+                    "id": "conexion-desconexion-niveles-13",
+                    "command": "waitForElementPresent",
+                    "target": "xpath=//h1[.=\"${h1Inicio} Inicio\"]",
+                    "value": "${maxEspera}"
+                },
+                {
+                    "id": "conexion-desconexion-niveles-14",
                     "command": "click",
                     "target": "linkText=Desconectarse",
                     "value": ""
                 },
                 {
-                    "id": "conexion-desconexion-niveles-12",
+                    "id": "conexion-desconexion-niveles-15",
+                    "command": "waitForElementPresent",
+                    "target": "xpath=//h1[.=\"${h1Inicio} Inicio\"]",
+                    "value": "${maxEspera}"
+                },
+                {
+                    "id": "conexion-desconexion-niveles-16",
                     "command": "assertText",
                     "target": "xpath=//li[1]/a[1]",
                     "value": "Conectarse"
                 },
                 {
-                    "id": "conexion-desconexion-niveles-13",
+                    "id": "conexion-desconexion-niveles-17",
                     "comment": "Se conecta como usuario avanzado",
                     "command": "click",
                     "target": "linkText=Conectarse",
                     "value": ""
                 },
                 {
-                    "id": "conexion-desconexion-niveles-14",
+                    "id": "conexion-desconexion-niveles-18",
+                    "command": "waitForElementPresent",
+                    "target": "xpath=//h1[.=\"${h1Inicio} Login 1\"]",
+                    "value": "${maxEspera}"
+                },
+                {
+                    "id": "conexion-desconexion-niveles-19",
                     "command": "type",
                     "target": "name=usuario",
                     "value": "avanzado"
                 },
                 {
-                    "id": "conexion-desconexion-niveles-15",
+                    "id": "conexion-desconexion-niveles-20",
                     "command": "type",
                     "target": "name=password",
                     "value": "avanzado"
                 },
                 {
-                    "id": "conexion-desconexion-niveles-16",
+                    "id": "conexion-desconexion-niveles-21",
                     "command": "click",
                     "target": "xpath=//input[@value='Identificar']",
                     "value": ""
                 },
                 {
-                    "id": "conexion-desconexion-niveles-17",
+                    "id": "conexion-desconexion-niveles-22",
+                    "command": "waitForElementPresent",
+                    "target": "xpath=//h1[.=\"${h1Inicio} Inicio\"]",
+                    "value": "${maxEspera}"
+                },
+                {
+                    "id": "conexion-desconexion-niveles-23",
                     "command": "click",
                     "target": "linkText=Obras",
                     "value": ""
                 },
                 {
-                    "id": "conexion-desconexion-niveles-18",
+                    "id": "conexion-desconexion-niveles-24",
+                    "command": "waitForElementPresent",
+                    "target": "xpath=//h1[.=\"${h1Obras} Inicio\"]",
+                    "value": "${maxEspera}"
+                },
+                {
+                    "id": "conexion-desconexion-niveles-25",
                     "command": "assertText",
                     "target": "xpath=//li[a='Buscar']",
                     "value": "Buscar"
                 },
                 {
-                    "id": "conexion-desconexion-niveles-19",
+                    "id": "conexion-desconexion-niveles-26",
                     "command": "click",
                     "target": "linkText=Buscar",
                     "value": ""
                 },
                 {
-                    "id": "conexion-desconexion-niveles-20",
+                    "id": "conexion-desconexion-niveles-27",
+                    "command": "waitForElementPresent",
+                    "target": "xpath=//h1[.=\"${h1Obras} Buscar 1\"]",
+                    "value": "${maxEspera}"
+                },
+                {
+                    "id": "conexion-desconexion-niveles-28",
                     "comment": "Aquí compruebo que existe el elemento y compruebo su contenido.",
                     "command": "assertText",
                     "target": "xpath=//p[1]",
                     "value": "Escriba el criterio de búsqueda (caracteres o números):"
                 },
                 {
-                    "id": "conexion-desconexion-niveles-21",
+                    "id": "conexion-desconexion-niveles-29",
                     "comment": "Aquí compruebo que el elemento no existe.",
                     "command": "assertElementNotPresent",
                     "target": "xpath=//li[a='Borrar']",
                     "value": ""
                 },
                 {
-                    "id": "conexion-desconexion-niveles-22",
+                    "id": "conexion-desconexion-niveles-30",
                     "command": "click",
                     "target": "linkText=Volver",
                     "value": ""
                 },
                 {
-                    "id": "conexion-desconexion-niveles-23",
+                    "id": "conexion-desconexion-niveles-31",
+                    "command": "waitForElementPresent",
+                    "target": "xpath=//h1[.=\"${h1Inicio} Inicio\"]",
+                    "value": "${maxEspera}"
+                },
+                {
+                    "id": "conexion-desconexion-niveles-32",
                     "command": "click",
                     "target": "linkText=Desconectarse",
                     "value": ""
                 },
                 {
-                    "id": "conexion-desconexion-niveles-24",
+                    "id": "conexion-desconexion-niveles-33",
+                    "command": "waitForElementPresent",
+                    "target": "xpath=//h1[.=\"${h1Inicio} Inicio\"]",
+                    "value": "${maxEspera}"
+                },
+                {
+                    "id": "conexion-desconexion-niveles-34",
                     "command": "assertText",
                     "target": "xpath=//li[1]/a[1]",
                     "value": "Conectarse"
                 },
                 {
-                    "id": "conexion-desconexion-niveles-25",
+                    "id": "conexion-desconexion-niveles-35",
                     "comment": "Se conecta como usuario basico",
                     "command": "click",
                     "target": "linkText=Conectarse",
                     "value": ""
                 },
                 {
-                    "id": "conexion-desconexion-niveles-26",
+                    "id": "conexion-desconexion-niveles-36",
+                    "command": "waitForElementPresent",
+                    "target": "xpath=//h1[.=\"${h1Inicio} Login 1\"]",
+                    "value": "${maxEspera}"
+                },
+                {
+                    "id": "conexion-desconexion-niveles-37",
                     "command": "type",
                     "target": "name=usuario",
                     "value": "basico"
                 },
                 {
-                    "id": "conexion-desconexion-niveles-27",
+                    "id": "conexion-desconexion-niveles-38",
                     "command": "type",
                     "target": "name=password",
                     "value": "basico"
                 },
                 {
-                    "id": "conexion-desconexion-niveles-28",
+                    "id": "conexion-desconexion-niveles-39",
                     "command": "click",
                     "target": "xpath=//input[@value='Identificar']",
                     "value": ""
                 },
                 {
-                    "id": "conexion-desconexion-niveles-29",
+                    "id": "conexion-desconexion-niveles-40",
+                    "command": "waitForElementPresent",
+                    "target": "xpath=//h1[.=\"${h1Inicio} Inicio\"]",
+                    "value": "${maxEspera}"
+                },
+                {
+                    "id": "conexion-desconexion-niveles-41",
                     "command": "click",
                     "target": "linkText=Obras",
                     "value": ""
                 },
                 {
-                    "id": "conexion-desconexion-niveles-30",
-                    "command": "assertText",
-                    "target": "xpath=//li[a='Listar']",
-                    "value": "Listar"
+                    "id": "conexion-desconexion-niveles-42",
+                    "command": "waitForElementPresent",
+                    "target": "xpath=//h1[.=\"${h1Obras} Inicio\"]",
+                    "value": "${maxEspera}"
                 },
                 {
-                    "id": "conexion-desconexion-niveles-31",
-                    "comment": "Aquí selecciono el elemento y compruebo su contenido. Si el elemento no existiera, daría error",
-                    "command": "assertText",
-                    "target": "xpath=//li[a='Listar']",
-                    "value": "Listar"
-                },
-                {
-                    "id": "conexion-desconexion-niveles-32",
+                    "id": "conexion-desconexion-niveles-43",
                     "comment": "Aquí compruebo que existe el elemento y compruebo su contenido.",
                     "command": "assertElementPresent",
                     "target": "xpath=//li[a='Listar']",
                     "value": ""
                 },
                 {
-                    "id": "conexion-desconexion-niveles-33",
+                    "id": "conexion-desconexion-niveles-44",
                     "comment": "Aquí compruebo que el elemento no existe.",
                     "command": "assertElementNotPresent",
                     "target": "xpath=//li[a='Borrar']",
                     "value": ""
                 },
                 {
-                    "id": "conexion-desconexion-niveles-34",
+                    "id": "conexion-desconexion-niveles-45",
                     "command": "click",
                     "target": "linkText=Volver",
                     "value": ""
                 },
                 {
-                    "id": "conexion-desconexion-niveles-35",
+                    "id": "conexion-desconexion-niveles-46",
+                    "command": "waitForElementPresent",
+                    "target": "xpath=//h1[.=\"${h1Inicio} Inicio\"]",
+                    "value": "${maxEspera}"
+                },
+                {
+                    "id": "conexion-desconexion-niveles-47",
                     "command": "click",
                     "target": "linkText=Desconectarse",
                     "value": ""
                 },
                 {
-                    "id": "conexion-desconexion-niveles-36",
+                    "id": "conexion-desconexion-niveles-48",
+                    "command": "waitForElementPresent",
+                    "target": "xpath=//h1[.=\"${h1Inicio} Inicio\"]",
+                    "value": "${maxEspera}"
+                },
+                {
+                    "id": "conexion-desconexion-niveles-49",
                     "command": "assertText",
                     "target": "xpath=//li[1]/a[1]",
                     "value": "Conectarse"
@@ -553,8 +709,8 @@
                 {
                     "id": "conexion-root-3",
                     "command": "waitForElementPresent",
-                    "target": "xpath=//main",
-                    "value": "20000"
+                    "target": "xpath=//h1[.=\"${h1Inicio} Inicio\"]",
+                    "value": "${maxEspera}"
                 },
                 {
                     "id": "conexion-root-4",
@@ -564,27 +720,45 @@
                 },
                 {
                     "id": "conexion-root-5",
+                    "command": "waitForElementPresent",
+                    "target": "xpath=//h1[.=\"${h1Inicio} Login 1\"]",
+                    "value": "${maxEspera}"
+                },
+                {
+                    "id": "conexion-root-6",
                     "command": "type",
                     "target": "name=usuario",
                     "value": "root"
                 },
                 {
-                    "id": "conexion-root-6",
+                    "id": "conexion-root-7",
                     "command": "type",
                     "target": "name=password",
                     "value": "root"
                 },
                 {
-                    "id": "conexion-root-7",
+                    "id": "conexion-root-8",
                     "command": "click",
                     "target": "xpath=//input[@value='Identificar']",
                     "value": ""
                 },
                 {
-                    "id": "conexion-root-8",
+                    "id": "conexion-root-9",
+                    "command": "waitForElementPresent",
+                    "target": "xpath=//h1[.=\"${h1Inicio} Inicio\"]",
+                    "value": "${maxEspera}"
+                },
+                {
+                    "id": "conexion-root-10",
                     "command": "assertText",
                     "target": "xpath=//li[6]/a[1]",
                     "value": "Desconectarse"
+                },
+                {
+                    "id": "conexion-root-11",
+                    "command": "waitForElementPresent",
+                    "target": "xpath=//h1[.=\"${h1Inicio} Inicio\"]",
+                    "value": "${maxEspera}"
                 }
             ]
         },
@@ -612,6 +786,12 @@
                     "value": ""
                 },
                 {
+                    "id": "testea-personas-1-1-4",
+                    "command": "waitForElementPresent",
+                    "target": "xpath=//h1[.=\"${h1Personas} Inicio\"]",
+                    "value": "${maxEspera}"
+                },
+                {
                     "id": "testea-personas-1-2-1",
                     "comment": "(TEST) Personas > Listar/Borrar/Modificar > Aviso general sinRegistros + Borra 2 registros correctamente",
                     "command": "click",
@@ -620,60 +800,66 @@
                 },
                 {
                     "id": "testea-personas-1-2-2",
+                    "command": "waitForElementPresent",
+                    "target": "xpath=//h1[.=\"${h1Personas} Borrar 1\"]",
+                    "value": "${maxEspera}"
+                },
+                {
+                    "id": "testea-personas-1-2-3",
                     "command": "click",
                     "target": "name=id[1]",
                     "value": ""
                 },
                 {
-                    "id": "testea-personas-1-2-3",
+                    "id": "testea-personas-1-2-4",
                     "command": "click",
                     "target": "name=id[2]",
                     "value": ""
                 },
                 {
-                    "id": "testea-personas-1-2-4",
+                    "id": "testea-personas-1-2-5",
                     "command": "click",
                     "target": "xpath=//input[@value='Borrar registro']",
                     "value": ""
                 },
                 {
-                    "id": "testea-personas-1-2-5",
-                    "command": "pause",
-                    "target": "${pausaTrasAvisos}",
-                    "value": ""
+                    "id": "testea-personas-1-2-6",
+                    "command": "waitForElementPresent",
+                    "target": "xpath=//h1[.=\"${h1Personas} Borrar 2\"]",
+                    "value": "${maxEspera}"
                 },
                 {
-                    "id": "testea-personas-1-2-6",
+                    "id": "testea-personas-1-2-7",
                     "command": "assertText",
                     "target": "xpath=//p[1]",
                     "value": "Registro borrado correctamente."
                 },
                 {
-                    "id": "testea-personas-1-2-7",
+                    "id": "testea-personas-1-2-8",
                     "command": "assertText",
                     "target": "xpath=//p[2]",
                     "value": "Registro borrado correctamente."
                 },
                 {
-                    "id": "testea-personas-1-2-8",
+                    "id": "testea-personas-1-2-9",
                     "command": "storeXpathCount",
                     "target": "xpath=//*[contains(@class, 'aviso-info')]",
                     "value": "cuentaAvisosInfo"
                 },
                 {
-                    "id": "testea-personas-1-2-9",
+                    "id": "testea-personas-1-2-10",
                     "command": "assert",
                     "target": "cuentaAvisosInfo",
                     "value": "2"
                 },
                 {
-                    "id": "testea-personas-1-2-10",
+                    "id": "testea-personas-1-2-11",
                     "command": "storeXpathCount",
                     "target": "xpath=//*[contains(@class, 'aviso-')]",
                     "value": "cuentaAvisos"
                 },
                 {
-                    "id": "testea-personas-1-2-11",
+                    "id": "testea-personas-1-2-12",
                     "command": "assert",
                     "target": "cuentaAvisos",
                     "value": "2"
@@ -687,9 +873,9 @@
                 },
                 {
                     "id": "testea-personas-1-3-2",
-                    "command": "pause",
-                    "target": "${pausaTrasAvisos}",
-                    "value": ""
+                    "command": "waitForElementPresent",
+                    "target": "xpath=//h1[.=\"${h1Personas} Listar\"]",
+                    "value": "${maxEspera}"
                 },
                 {
                     "id": "testea-personas-1-3-3",
@@ -730,9 +916,9 @@
                 },
                 {
                     "id": "testea-personas-1-4-2",
-                    "command": "pause",
-                    "target": "${pausaTrasAvisos}",
-                    "value": ""
+                    "command": "waitForElementPresent",
+                    "target": "xpath=//h1[.=\"${h1Personas} Borrar 1\"]",
+                    "value": "${maxEspera}"
                 },
                 {
                     "id": "testea-personas-1-4-3",
@@ -773,9 +959,9 @@
                 },
                 {
                     "id": "testea-personas-1-5-2",
-                    "command": "pause",
-                    "target": "${pausaTrasAvisos}",
-                    "value": ""
+                    "command": "waitForElementPresent",
+                    "target": "xpath=//h1[.=\"${h1Personas} Modificar 1\"]",
+                    "value": "${maxEspera}"
                 },
                 {
                     "id": "testea-personas-1-5-3",
@@ -820,6 +1006,12 @@
                     "value": ""
                 },
                 {
+                    "id": "testea-personas-1-5-10",
+                    "command": "waitForElementPresent",
+                    "target": "xpath=//h1[.=\"${h1Personas} Inicio\"]",
+                    "value": "${maxEspera}"
+                },
+                {
                     "id": "testea-personas-1-6-1",
                     "comment": "(TEST) Personas > Listar > Prueba que ordena el listado correctamente",
                     "command": "click",
@@ -828,9 +1020,9 @@
                 },
                 {
                     "id": "testea-personas-1-6-2",
-                    "command": "pause",
-                    "target": "${pausaTrasListados}",
-                    "value": ""
+                    "command": "waitForElementPresent",
+                    "target": "xpath=//h1[.=\"${h1Personas} Listar\"]",
+                    "value": "${maxEspera}"
                 },
                 {
                     "id": "testea-personas-1-6-3",
@@ -877,9 +1069,9 @@
                 },
                 {
                     "id": "testea-personas-1-7-2",
-                    "command": "pause",
-                    "target": "${pausaTrasListados}",
-                    "value": ""
+                    "command": "waitForElementPresent",
+                    "target": "xpath=//h1[.=\"${h1Personas} Listar\"]",
+                    "value": "${maxEspera}"
                 },
                 {
                     "id": "testea-personas-1-7-3",
@@ -926,9 +1118,9 @@
                 },
                 {
                     "id": "testea-personas-1-8-2",
-                    "command": "pause",
-                    "target": "${pausaTrasListados}",
-                    "value": ""
+                    "command": "waitForElementPresent",
+                    "target": "xpath=//h1[.=\"${h1Personas} Listar\"]",
+                    "value": "${maxEspera}"
                 },
                 {
                     "id": "testea-personas-1-8-3",
@@ -975,9 +1167,9 @@
                 },
                 {
                     "id": "testea-personas-1-9-2",
-                    "command": "pause",
-                    "target": "${pausaTrasListados}",
-                    "value": ""
+                    "command": "waitForElementPresent",
+                    "target": "xpath=//h1[.=\"${h1Personas} Listar\"]",
+                    "value": "${maxEspera}"
                 },
                 {
                     "id": "testea-personas-1-9-3",
@@ -1024,9 +1216,9 @@
                 },
                 {
                     "id": "testea-personas-1-10-2",
-                    "command": "pause",
-                    "target": "${pausaTrasListados}",
-                    "value": ""
+                    "command": "waitForElementPresent",
+                    "target": "xpath=//h1[.=\"${h1Personas} Listar\"]",
+                    "value": "${maxEspera}"
                 },
                 {
                     "id": "testea-personas-1-10-3",
@@ -1073,9 +1265,9 @@
                 },
                 {
                     "id": "testea-personas-1-11-2",
-                    "command": "pause",
-                    "target": "${pausaTrasListados}",
-                    "value": ""
+                    "command": "waitForElementPresent",
+                    "target": "xpath=//h1[.=\"${h1Personas} Listar\"]",
+                    "value": "${maxEspera}"
                 },
                 {
                     "id": "testea-personas-1-11-3",
@@ -1122,9 +1314,9 @@
                 },
                 {
                     "id": "testea-personas-1-12-2",
-                    "command": "pause",
-                    "target": "${pausaTrasListados}",
-                    "value": ""
+                    "command": "waitForElementPresent",
+                    "target": "xpath=//h1[.=\"${h1Personas} Listar\"]",
+                    "value": "${maxEspera}"
                 },
                 {
                     "id": "testea-personas-1-12-3",
@@ -1171,114 +1363,120 @@
                 },
                 {
                     "id": "testea-personas-1-13-2",
+                    "command": "waitForElementPresent",
+                    "target": "xpath=//h1[.=\"${h1Personas} Añadir 1\"]",
+                    "value": "${maxEspera}"
+                },
+                {
+                    "id": "testea-personas-1-13-3",
                     "command": "type",
                     "target": "name=nombre",
                     "value": "Numa"
                 },
                 {
-                    "id": "testea-personas-1-13-3",
+                    "id": "testea-personas-1-13-4",
                     "command": "type",
                     "target": "name=apellidos",
                     "value": "Nigerio"
                 },
                 {
-                    "id": "testea-personas-1-13-4",
+                    "id": "testea-personas-1-13-5",
                     "command": "type",
                     "target": "name=dni",
                     "value": "456H"
                 },
                 {
-                    "id": "testea-personas-1-13-5",
+                    "id": "testea-personas-1-13-6",
                     "command": "click",
                     "target": "xpath=//input[@value='Añadir']",
                     "value": ""
                 },
                 {
-                    "id": "testea-personas-1-13-6",
-                    "command": "pause",
-                    "target": "${pausaTrasAvisos}",
-                    "value": ""
+                    "id": "testea-personas-1-13-7",
+                    "command": "waitForElementPresent",
+                    "target": "xpath=//h1[.=\"${h1Personas} Añadir 2\"]",
+                    "value": "${maxEspera}"
                 },
                 {
-                    "id": "testea-personas-1-13-7",
+                    "id": "testea-personas-1-13-8",
                     "command": "assertText",
                     "target": "xpath=//p",
                     "value": "Registro Numa Nigerio - 456H creado correctamente."
                 },
                 {
-                    "id": "testea-personas-1-13-8",
+                    "id": "testea-personas-1-13-9",
                     "command": "storeXpathCount",
                     "target": "xpath=//*[contains(@class, 'aviso-info')]",
                     "value": "cuentaAvisosInfo"
                 },
                 {
-                    "id": "testea-personas-1-13-9",
+                    "id": "testea-personas-1-13-10",
                     "command": "assert",
                     "target": "cuentaAvisosInfo",
                     "value": "1"
                 },
                 {
-                    "id": "testea-personas-1-13-10",
+                    "id": "testea-personas-1-13-11",
                     "command": "storeXpathCount",
                     "target": "xpath=//*[contains(@class, 'aviso-')]",
                     "value": "cuentaAvisos"
                 },
                 {
-                    "id": "testea-personas-1-13-11",
+                    "id": "testea-personas-1-13-12",
                     "command": "assert",
                     "target": "cuentaAvisos",
                     "value": "1"
                 },
                 {
-                    "id": "testea-personas-1-13-12",
+                    "id": "testea-personas-1-13-13",
                     "command": "click",
                     "target": "linkText=Listar",
                     "value": ""
                 },
                 {
-                    "id": "testea-personas-1-13-13",
-                    "command": "pause",
-                    "target": "${pausaTrasListados}",
-                    "value": ""
+                    "id": "testea-personas-1-13-14",
+                    "command": "waitForElementPresent",
+                    "target": "xpath=//h1[.=\"${h1Personas} Listar\"]",
+                    "value": "${maxEspera}"
                 },
                 {
-                    "id": "testea-personas-1-13-14",
+                    "id": "testea-personas-1-13-15",
                     "command": "assertText",
                     "target": "xpath=//tr[3]/td[1]",
                     "value": "Numa"
                 },
                 {
-                    "id": "testea-personas-1-13-15",
+                    "id": "testea-personas-1-13-16",
                     "command": "assertText",
                     "target": "xpath=//tr[3]/td[2]",
                     "value": "Nigerio"
                 },
                 {
-                    "id": "testea-personas-1-13-16",
+                    "id": "testea-personas-1-13-17",
                     "command": "assertText",
                     "target": "xpath=//tr[3]/td[3]",
                     "value": "456H"
                 },
                 {
-                    "id": "testea-personas-1-13-17",
+                    "id": "testea-personas-1-13-18",
                     "command": "storeXpathCount",
                     "target": "xpath=//tr",
                     "value": "cuentaFilas"
                 },
                 {
-                    "id": "testea-personas-1-13-18",
+                    "id": "testea-personas-1-13-19",
                     "command": "assert",
                     "target": "cuentaFilas",
                     "value": "4"
                 },
                 {
-                    "id": "testea-personas-1-13-19",
+                    "id": "testea-personas-1-13-20",
                     "command": "storeXpathCount",
                     "target": "xpath=//*[contains(@class, 'aviso-')]",
                     "value": "cuentaAvisos"
                 },
                 {
-                    "id": "testea-personas-1-13-20",
+                    "id": "testea-personas-1-13-21",
                     "command": "assert",
                     "target": "cuentaAvisos",
                     "value": "0"
@@ -1292,21 +1490,21 @@
                 },
                 {
                     "id": "testea-personas-1-14-2",
+                    "command": "waitForElementPresent",
+                    "target": "xpath=//h1[.=\"${h1Personas} Añadir 1\"]",
+                    "value": "${maxEspera}"
+                },
+                {
+                    "id": "testea-personas-1-14-3",
                     "command": "click",
                     "target": "xpath=//input[@value='Añadir']",
                     "value": ""
                 },
                 {
-                    "id": "testea-personas-1-14-3",
-                    "command": "pause",
-                    "target": "${pausaTrasAvisos}",
-                    "value": ""
-                },
-                {
                     "id": "testea-personas-1-14-4",
-                    "command": "assertTitle",
-                    "target": "${titlePersonas} Añadir 1",
-                    "value": ""
+                    "command": "waitForElementPresent",
+                    "target": "xpath=//h1[.=\"${h1Personas} Añadir 1\"]",
+                    "value": "${maxEspera}"
                 },
                 {
                     "id": "testea-personas-1-14-5",
@@ -1347,60 +1545,66 @@
                 },
                 {
                     "id": "testea-personas-1-15-2",
+                    "command": "waitForElementPresent",
+                    "target": "xpath=//h1[.=\"${h1Personas} Añadir 1\"]",
+                    "value": "${maxEspera}"
+                },
+                {
+                    "id": "testea-personas-1-15-3",
                     "command": "type",
                     "target": "name=nombre",
                     "value": "Numa"
                 },
                 {
-                    "id": "testea-personas-1-15-3",
+                    "id": "testea-personas-1-15-4",
                     "command": "type",
                     "target": "name=apellidos",
                     "value": "Nigerio"
                 },
                 {
-                    "id": "testea-personas-1-15-4",
+                    "id": "testea-personas-1-15-5",
                     "command": "type",
                     "target": "name=dni",
                     "value": "456H"
                 },
                 {
-                    "id": "testea-personas-1-15-5",
+                    "id": "testea-personas-1-15-6",
                     "command": "click",
                     "target": "xpath=//input[@value='Añadir']",
                     "value": ""
                 },
                 {
-                    "id": "testea-personas-1-15-6",
-                    "command": "pause",
-                    "target": "${pausaTrasAvisos}",
-                    "value": ""
+                    "id": "testea-personas-1-15-7",
+                    "command": "waitForElementPresent",
+                    "target": "xpath=//h1[.=\"${h1Personas} Añadir 1\"]",
+                    "value": "${maxEspera}"
                 },
                 {
-                    "id": "testea-personas-1-15-7",
+                    "id": "testea-personas-1-15-8",
                     "command": "assertText",
                     "target": "xpath=//p",
                     "value": "El registro ya existe."
                 },
                 {
-                    "id": "testea-personas-1-15-8",
+                    "id": "testea-personas-1-15-9",
                     "command": "storeXpathCount",
                     "target": "xpath=//*[contains(@class, 'aviso-error')]",
                     "value": "cuentaAvisosError"
                 },
                 {
-                    "id": "testea-personas-1-15-9",
+                    "id": "testea-personas-1-15-10",
                     "command": "assert",
                     "target": "cuentaAvisosError",
                     "value": "1"
                 },
                 {
-                    "id": "testea-personas-1-15-10",
+                    "id": "testea-personas-1-15-11",
                     "command": "storeXpathCount",
                     "target": "xpath=//*[contains(@class, 'aviso-')]",
                     "value": "cuentaAvisos"
                 },
                 {
-                    "id": "testea-personas-1-15-11",
+                    "id": "testea-personas-1-15-12",
                     "command": "assert",
                     "target": "cuentaAvisos",
                     "value": "1"
@@ -1414,9 +1618,9 @@
                 },
                 {
                     "id": "testea-personas-1-16-2",
-                    "command": "pause",
-                    "target": "${pausaTrasAvisos}",
-                    "value": ""
+                    "command": "waitForElementPresent",
+                    "target": "xpath=//h1[.=\"${h1Personas} Añadir 1\"]",
+                    "value": "${maxEspera}"
                 },
                 {
                     "id": "testea-personas-1-16-3",
@@ -1457,9 +1661,9 @@
                 },
                 {
                     "id": "testea-personas-1-17-2",
-                    "command": "pause",
-                    "target": "${pausaTrasAvisos}",
-                    "value": ""
+                    "command": "waitForElementPresent",
+                    "target": "xpath=//h1[.=\"${h1Personas} Añadir 2\"]",
+                    "value": "${maxEspera}"
                 },
                 {
                     "id": "testea-personas-1-17-3",
@@ -1500,9 +1704,9 @@
                 },
                 {
                     "id": "testea-personas-1-18-2",
-                    "command": "pause",
-                    "target": "${pausaTrasAvisos}",
-                    "value": ""
+                    "command": "waitForElementPresent",
+                    "target": "xpath=//h1[.=\"${h1Personas} Añadir 1\"]",
+                    "value": "${maxEspera}"
                 },
                 {
                     "id": "testea-personas-1-18-3",
@@ -1543,9 +1747,9 @@
                 },
                 {
                     "id": "testea-personas-1-19-2",
-                    "command": "pause",
-                    "target": "${pausaTrasAvisos}",
-                    "value": ""
+                    "command": "waitForElementPresent",
+                    "target": "xpath=//h1[.=\"${h1Personas} Añadir 2\"]",
+                    "value": "${maxEspera}"
                 },
                 {
                     "id": "testea-personas-1-19-3",
@@ -1586,9 +1790,9 @@
                 },
                 {
                     "id": "testea-personas-1-20-2",
-                    "command": "pause",
-                    "target": "${pausaTrasAvisos}",
-                    "value": ""
+                    "command": "waitForElementPresent",
+                    "target": "xpath=//h1[.=\"${h1Personas} Añadir 1\"]",
+                    "value": "${maxEspera}"
                 },
                 {
                     "id": "testea-personas-1-20-3",
@@ -1629,9 +1833,9 @@
                 },
                 {
                     "id": "testea-personas-1-21-2",
-                    "command": "pause",
-                    "target": "${pausaTrasAvisos}",
-                    "value": ""
+                    "command": "waitForElementPresent",
+                    "target": "xpath=//h1[.=\"${h1Personas} Añadir 2\"]",
+                    "value": "${maxEspera}"
                 },
                 {
                     "id": "testea-personas-1-21-3",
@@ -1672,9 +1876,9 @@
                 },
                 {
                     "id": "testea-personas-1-22-2",
-                    "command": "pause",
-                    "target": "${pausaTrasAvisos}",
-                    "value": ""
+                    "command": "waitForElementPresent",
+                    "target": "xpath=//h1[.=\"${h1Personas} Añadir 1\"]",
+                    "value": "${maxEspera}"
                 },
                 {
                     "id": "testea-personas-1-22-3",
@@ -1727,9 +1931,9 @@
                 },
                 {
                     "id": "testea-personas-1-23-2",
-                    "command": "pause",
-                    "target": "${pausaTrasAvisos}",
-                    "value": ""
+                    "command": "waitForElementPresent",
+                    "target": "xpath=//h1[.=\"${h1Personas} Añadir 2\"]",
+                    "value": "${maxEspera}"
                 },
                 {
                     "id": "testea-personas-1-23-3",
@@ -1774,6 +1978,12 @@
                     "value": ""
                 },
                 {
+                    "id": "testea-personas-1-23-10",
+                    "command": "waitForElementPresent",
+                    "target": "xpath=//h1[.=\"${h1Personas} Inicio\"]",
+                    "value": "${maxEspera}"
+                },
+                {
                     "id": "testea-personas-1-24-1",
                     "comment": "(TEST) Personas > Borrar > Reordena registros sin perder casillas marcadas. Marca casilla",
                     "command": "click",
@@ -1782,24 +1992,30 @@
                 },
                 {
                     "id": "testea-personas-1-24-2",
+                    "command": "waitForElementPresent",
+                    "target": "xpath=//h1[.=\"${h1Personas} Borrar 1\"]",
+                    "value": "${maxEspera}"
+                },
+                {
+                    "id": "testea-personas-1-24-3",
                     "command": "storeXpathCount",
                     "target": "xpath=//tr",
                     "value": "cuentaFilas"
                 },
                 {
-                    "id": "testea-personas-1-24-3",
+                    "id": "testea-personas-1-24-4",
                     "command": "assert",
                     "target": "cuentaFilas",
                     "value": "3"
                 },
                 {
-                    "id": "testea-personas-1-24-4",
+                    "id": "testea-personas-1-24-5",
                     "command": "assertText",
                     "target": "xpath=//tr[1]/td[2]",
                     "value": "Pepito"
                 },
                 {
-                    "id": "testea-personas-1-24-5",
+                    "id": "testea-personas-1-24-6",
                     "command": "click",
                     "target": "name=id[1]",
                     "value": ""
@@ -1813,9 +2029,9 @@
                 },
                 {
                     "id": "testea-personas-1-25-2",
-                    "command": "pause",
-                    "target": "${pausaTrasListados}",
-                    "value": ""
+                    "command": "waitForElementPresent",
+                    "target": "xpath=//h1[.=\"${h1Personas} Borrar 1\"]",
+                    "value": "${maxEspera}"
                 },
                 {
                     "id": "testea-personas-1-25-3",
@@ -1862,9 +2078,9 @@
                 },
                 {
                     "id": "testea-personas-1-26-2",
-                    "command": "pause",
-                    "target": "${pausaTrasListados}",
-                    "value": ""
+                    "command": "waitForElementPresent",
+                    "target": "xpath=//h1[.=\"${h1Personas} Borrar 1\"]",
+                    "value": "${maxEspera}"
                 },
                 {
                     "id": "testea-personas-1-26-3",
@@ -1911,9 +2127,9 @@
                 },
                 {
                     "id": "testea-personas-1-27-2",
-                    "command": "pause",
-                    "target": "${pausaTrasListados}",
-                    "value": ""
+                    "command": "waitForElementPresent",
+                    "target": "xpath=//h1[.=\"${h1Personas} Borrar 1\"]",
+                    "value": "${maxEspera}"
                 },
                 {
                     "id": "testea-personas-1-27-3",
@@ -1960,9 +2176,9 @@
                 },
                 {
                     "id": "testea-personas-1-28-2",
-                    "command": "pause",
-                    "target": "${pausaTrasListados}",
-                    "value": ""
+                    "command": "waitForElementPresent",
+                    "target": "xpath=//h1[.=\"${h1Personas} Borrar 1\"]",
+                    "value": "${maxEspera}"
                 },
                 {
                     "id": "testea-personas-1-28-3",
@@ -2009,9 +2225,9 @@
                 },
                 {
                     "id": "testea-personas-1-29-2",
-                    "command": "pause",
-                    "target": "${pausaTrasListados}",
-                    "value": ""
+                    "command": "waitForElementPresent",
+                    "target": "xpath=//h1[.=\"${h1Personas} Borrar 1\"]",
+                    "value": "${maxEspera}"
                 },
                 {
                     "id": "testea-personas-1-29-3",
@@ -2058,9 +2274,9 @@
                 },
                 {
                     "id": "testea-personas-1-30-2",
-                    "command": "pause",
-                    "target": "${pausaTrasListados}",
-                    "value": ""
+                    "command": "waitForElementPresent",
+                    "target": "xpath=//h1[.=\"${h1Personas} Borrar 1\"]",
+                    "value": "${maxEspera}"
                 },
                 {
                     "id": "testea-personas-1-30-3",
@@ -2107,105 +2323,117 @@
                 },
                 {
                     "id": "testea-personas-1-31-2",
+                    "command": "waitForElementPresent",
+                    "target": "xpath=//h1[.=\"${h1Personas} Borrar 1\"]",
+                    "value": "${maxEspera}"
+                },
+                {
+                    "id": "testea-personas-1-31-3",
                     "command": "click",
                     "target": "name=id[1]",
                     "value": ""
                 },
                 {
-                    "id": "testea-personas-1-31-3",
+                    "id": "testea-personas-1-31-4",
                     "command": "click",
                     "target": "xpath=//input[@value='Borrar registro']",
                     "value": ""
                 },
                 {
-                    "id": "testea-personas-1-31-4",
-                    "command": "pause",
-                    "target": "${pausaTrasAvisos}",
-                    "value": ""
+                    "id": "testea-personas-1-31-5",
+                    "command": "waitForElementPresent",
+                    "target": "xpath=//h1[.=\"${h1Personas} Borrar 2\"]",
+                    "value": "${maxEspera}"
                 },
                 {
-                    "id": "testea-personas-1-31-5",
+                    "id": "testea-personas-1-31-6",
                     "command": "assertText",
                     "target": "xpath=//p",
                     "value": "Registro borrado correctamente."
                 },
                 {
-                    "id": "testea-personas-1-31-6",
+                    "id": "testea-personas-1-31-7",
                     "command": "storeXpathCount",
                     "target": "xpath=//*[contains(@class, 'aviso-info')]",
                     "value": "cuentaAvisosInfo"
                 },
                 {
-                    "id": "testea-personas-1-31-7",
+                    "id": "testea-personas-1-31-8",
                     "command": "assert",
                     "target": "cuentaAvisosInfo",
                     "value": "1"
                 },
                 {
-                    "id": "testea-personas-1-31-8",
+                    "id": "testea-personas-1-31-9",
                     "command": "storeXpathCount",
                     "target": "xpath=//*[contains(@class, 'aviso-')]",
                     "value": "cuentaAvisos"
                 },
                 {
-                    "id": "testea-personas-1-31-9",
+                    "id": "testea-personas-1-31-10",
                     "command": "assert",
                     "target": "cuentaAvisos",
                     "value": "1"
                 },
                 {
-                    "id": "testea-personas-1-31-10",
+                    "id": "testea-personas-1-31-11",
                     "command": "click",
                     "target": "linkText=Listar",
                     "value": ""
                 },
                 {
-                    "id": "testea-personas-1-31-11",
-                    "command": "pause",
-                    "target": "${pausaTrasListados}",
-                    "value": ""
+                    "id": "testea-personas-1-31-12",
+                    "command": "waitForElementPresent",
+                    "target": "xpath=//h1[.=\"${h1Personas} Listar\"]",
+                    "value": "${maxEspera}"
                 },
                 {
-                    "id": "testea-personas-1-31-12",
+                    "id": "testea-personas-1-31-13",
                     "command": "assertText",
                     "target": "xpath=//tr[1]/td[1]",
                     "value": "Juan"
                 },
                 {
-                    "id": "testea-personas-1-31-13",
+                    "id": "testea-personas-1-31-14",
                     "command": "storeXpathCount",
                     "target": "xpath=//tr",
                     "value": "cuentaFilas"
                 },
                 {
-                    "id": "testea-personas-1-31-14",
+                    "id": "testea-personas-1-31-15",
                     "command": "assert",
                     "target": "cuentaFilas",
                     "value": "2"
                 },
                 {
-                    "id": "testea-personas-1-31-15",
+                    "id": "testea-personas-1-31-16",
                     "command": "storeXpathCount",
                     "target": "xpath=//*[contains(@class, 'aviso-')]",
                     "value": "cuentaAvisos"
                 },
                 {
-                    "id": "testea-personas-1-31-16",
+                    "id": "testea-personas-1-31-17",
                     "command": "assert",
                     "target": "cuentaAvisos",
                     "value": "0"
                 },
                 {
-                    "id": "testea-personas-1-31-17",
+                    "id": "testea-personas-1-31-18",
                     "command": "run",
                     "target": "Función Borrar Todo (con registros de prueba)",
                     "value": ""
                 },
                 {
-                    "id": "testea-personas-1-31-18",
+                    "id": "testea-personas-1-31-19",
                     "command": "click",
                     "target": "linkText=Personas",
                     "value": ""
+                },
+                {
+                    "id": "testea-personas-1-31-20",
+                    "command": "waitForElementPresent",
+                    "target": "xpath=//h1[.=\"${h1Personas} Inicio\"]",
+                    "value": "${maxEspera}"
                 },
                 {
                     "id": "testea-personas-1-32-1",
@@ -2216,56 +2444,68 @@
                 },
                 {
                     "id": "testea-personas-1-32-2",
+                    "command": "waitForElementPresent",
+                    "target": "xpath=//h1[.=\"${h1Personas} Borrar 1\"]",
+                    "value": "${maxEspera}"
+                },
+                {
+                    "id": "testea-personas-1-32-3",
                     "command": "click",
                     "target": "xpath=//input[@value='Borrar registro']",
                     "value": ""
                 },
                 {
-                    "id": "testea-personas-1-32-3",
+                    "id": "testea-personas-1-32-4",
+                    "command": "waitForElementPresent",
+                    "target": "xpath=//h1[.=\"${h1Personas} Borrar 1\"]",
+                    "value": "${maxEspera}"
+                },
+                {
+                    "id": "testea-personas-1-32-5",
                     "comment": "ATENCION: Se duplica el aviso (la frase no es idéntica)",
                     "command": "assertText",
                     "target": "xpath=//p[1]",
                     "value": "No ha seleccionado ningún registro."
                 },
                 {
-                    "id": "testea-personas-1-32-4",
+                    "id": "testea-personas-1-32-6",
                     "comment": "ATENCION: Se duplica el aviso (la frase no es idéntica)",
                     "command": "assertText",
                     "target": "xpath=//p[2]",
                     "value": "No se ha seleccionado ningún registro."
                 },
                 {
-                    "id": "testea-personas-1-32-5",
+                    "id": "testea-personas-1-32-7",
                     "command": "storeXpathCount",
                     "target": "xpath=//tr",
                     "value": "cuentaFilas"
                 },
                 {
-                    "id": "testea-personas-1-32-6",
+                    "id": "testea-personas-1-32-8",
                     "command": "assert",
                     "target": "cuentaFilas",
                     "value": "3"
                 },
                 {
-                    "id": "testea-personas-1-32-7",
+                    "id": "testea-personas-1-32-9",
                     "command": "storeXpathCount",
                     "target": "xpath=//*[contains(@class, 'aviso-error')]",
                     "value": "cuentaAvisosError"
                 },
                 {
-                    "id": "testea-personas-1-32-8",
+                    "id": "testea-personas-1-32-10",
                     "command": "assert",
                     "target": "cuentaAvisosError",
                     "value": "2"
                 },
                 {
-                    "id": "testea-personas-1-32-9",
+                    "id": "testea-personas-1-32-11",
                     "command": "storeXpathCount",
                     "target": "xpath=//*[contains(@class, 'aviso-')]",
                     "value": "cuentaAvisos"
                 },
                 {
-                    "id": "testea-personas-1-32-10",
+                    "id": "testea-personas-1-32-12",
                     "command": "assert",
                     "target": "cuentaAvisos",
                     "value": "2"
@@ -2279,9 +2519,9 @@
                 },
                 {
                     "id": "testea-personas-1-33-2",
-                    "command": "pause",
-                    "target": "${pausaTrasAvisos}",
-                    "value": ""
+                    "command": "waitForElementPresent",
+                    "target": "xpath=//h1[.=\"${h1Personas} Borrar 1\"]",
+                    "value": "${maxEspera}"
                 },
                 {
                     "id": "testea-personas-1-33-3",
@@ -2334,9 +2574,9 @@
                 },
                 {
                     "id": "testea-personas-1-34-2",
-                    "command": "pause",
-                    "target": "${pausaTrasAvisos}",
-                    "value": ""
+                    "command": "waitForElementPresent",
+                    "target": "xpath=//h1[.=\"${h1Personas} Borrar 1\"]",
+                    "value": "${maxEspera}"
                 },
                 {
                     "id": "testea-personas-1-34-3",
@@ -2407,9 +2647,9 @@
                 },
                 {
                     "id": "testea-personas-1-35-2",
-                    "command": "pause",
-                    "target": "${pausaTrasAvisos}",
-                    "value": ""
+                    "command": "waitForElementPresent",
+                    "target": "xpath=//h1[.=\"${h1Personas} Borrar 1\"]",
+                    "value": "${maxEspera}"
                 },
                 {
                     "id": "testea-personas-1-35-3",
@@ -2456,115 +2696,121 @@
                 },
                 {
                     "id": "testea-personas-1-36-1",
-                    "comment": "(TEST) Personas > Buscar > Aviso general sinRegistros + Borra un registro correctamente",
+                    "comment": "(TEST) Personas > Buscar > Aviso general sinRegistros + Borra dos registros correctamente",
                     "command": "click",
                     "target": "linkText=Borrar",
                     "value": ""
                 },
                 {
                     "id": "testea-personas-1-36-2",
+                    "command": "waitForElementPresent",
+                    "target": "xpath=//h1[.=\"${h1Personas} Borrar 1\"]",
+                    "value": "${maxEspera}"
+                },
+                {
+                    "id": "testea-personas-1-36-3",
                     "command": "click",
                     "target": "name=id[1]",
                     "value": ""
                 },
                 {
-                    "id": "testea-personas-1-36-3",
+                    "id": "testea-personas-1-36-4",
                     "command": "click",
                     "target": "name=id[2]",
                     "value": ""
                 },
                 {
-                    "id": "testea-personas-1-36-4",
+                    "id": "testea-personas-1-36-5",
                     "command": "click",
                     "target": "xpath=//input[@value='Borrar registro']",
                     "value": ""
                 },
                 {
-                    "id": "testea-personas-1-36-5",
-                    "command": "pause",
-                    "target": "${pausaTrasAvisos}",
-                    "value": ""
+                    "id": "testea-personas-1-36-6",
+                    "command": "waitForElementPresent",
+                    "target": "xpath=//h1[.=\"${h1Personas} Borrar 2\"]",
+                    "value": "${maxEspera}"
                 },
                 {
-                    "id": "testea-personas-1-36-6",
+                    "id": "testea-personas-1-36-7",
                     "command": "assertText",
                     "target": "xpath=//p[1]",
                     "value": "Registro borrado correctamente."
                 },
                 {
-                    "id": "testea-personas-1-36-7",
+                    "id": "testea-personas-1-36-8",
                     "command": "assertText",
                     "target": "xpath=//p[2]",
                     "value": "Registro borrado correctamente."
                 },
                 {
-                    "id": "testea-personas-1-36-8",
+                    "id": "testea-personas-1-36-9",
                     "command": "storeXpathCount",
                     "target": "xpath=//*[contains(@class, 'aviso-info')]",
                     "value": "cuentaAvisosInfo"
                 },
                 {
-                    "id": "testea-personas-1-36-9",
+                    "id": "testea-personas-1-36-10",
                     "command": "assert",
                     "target": "cuentaAvisosInfo",
                     "value": "2"
                 },
                 {
-                    "id": "testea-personas-1-36-10",
+                    "id": "testea-personas-1-36-11",
                     "command": "storeXpathCount",
                     "target": "xpath=//*[contains(@class, 'aviso-')]",
                     "value": "cuentaAvisos"
                 },
                 {
-                    "id": "testea-personas-1-36-11",
+                    "id": "testea-personas-1-36-12",
                     "command": "assert",
                     "target": "cuentaAvisos",
                     "value": "2"
                 },
                 {
-                    "id": "testea-personas-1-36-12",
+                    "id": "testea-personas-1-36-13",
                     "command": "click",
                     "target": "linkText=Buscar",
                     "value": ""
                 },
                 {
-                    "id": "testea-personas-1-36-13",
-                    "command": "pause",
-                    "target": "${pausaTrasAvisos}",
-                    "value": ""
+                    "id": "testea-personas-1-36-14",
+                    "command": "waitForElementPresent",
+                    "target": "xpath=//h1[.=\"${h1Personas} Buscar 1\"]",
+                    "value": "${maxEspera}"
                 },
                 {
-                    "id": "testea-personas-1-36-14",
+                    "id": "testea-personas-1-36-15",
                     "command": "assertText",
                     "target": "xpath=//p",
                     "value": "No se ha creado todavía ningún registro."
                 },
                 {
-                    "id": "testea-personas-1-36-15",
+                    "id": "testea-personas-1-36-16",
                     "command": "storeXpathCount",
                     "target": "xpath=//*[contains(@class, 'aviso-error')]",
                     "value": "cuentaAvisosError"
                 },
                 {
-                    "id": "testea-personas-1-36-16",
+                    "id": "testea-personas-1-36-17",
                     "command": "assert",
                     "target": "cuentaAvisosError",
                     "value": "1"
                 },
                 {
-                    "id": "testea-personas-1-36-17",
+                    "id": "testea-personas-1-36-18",
                     "command": "storeXpathCount",
                     "target": "xpath=//*[contains(@class, 'aviso-')]",
                     "value": "cuentaAvisos"
                 },
                 {
-                    "id": "testea-personas-1-36-18",
+                    "id": "testea-personas-1-36-19",
                     "command": "assert",
                     "target": "cuentaAvisos",
                     "value": "1"
                 },
                 {
-                    "id": "testea-personas-1-36-19",
+                    "id": "testea-personas-1-36-20",
                     "command": "run",
                     "target": "Función Borrar Todo (con registros de prueba)",
                     "value": ""
@@ -2578,60 +2824,66 @@
                 },
                 {
                     "id": "testea-personas-1-37-2",
+                    "command": "waitForElementPresent",
+                    "target": "xpath=//h1[.=\"${h1Personas} Inicio\"]",
+                    "value": "${maxEspera}"
+                },
+                {
+                    "id": "testea-personas-1-37-3",
                     "command": "click",
                     "target": "linkText=Buscar",
                     "value": ""
                 },
                 {
-                    "id": "testea-personas-1-37-3",
-                    "command": "pause",
-                    "target": "${pausaTrasListado}",
-                    "value": ""
+                    "id": "testea-personas-1-37-4",
+                    "command": "waitForElementPresent",
+                    "target": "xpath=//h1[.=\"${h1Personas} Buscar 1\"]",
+                    "value": "${maxEspera}"
                 },
                 {
-                    "id": "testea-personas-1-37-4",
+                    "id": "testea-personas-1-37-5",
                     "command": "type",
                     "target": "name=nombre",
                     "value": "u"
                 },
                 {
-                    "id": "testea-personas-1-37-5",
+                    "id": "testea-personas-1-37-6",
                     "command": "click",
                     "target": "xpath=//input[@value='Buscar']",
                     "value": ""
                 },
                 {
-                    "id": "testea-personas-1-37-6",
-                    "command": "pause",
-                    "target": "${pausaTrasListado}",
-                    "value": ""
+                    "id": "testea-personas-1-37-7",
+                    "command": "waitForElementPresent",
+                    "target": "xpath=//h1[.=\"${h1Personas} Buscar 2\"]",
+                    "value": "${maxEspera}"
                 },
                 {
-                    "id": "testea-personas-1-37-7",
+                    "id": "testea-personas-1-37-8",
                     "command": "assertText",
                     "target": "xpath=//tr[1]/td[1]",
                     "value": "Juan"
                 },
                 {
-                    "id": "testea-personas-1-37-8",
+                    "id": "testea-personas-1-37-9",
                     "command": "storeXpathCount",
                     "target": "xpath=//tr",
                     "value": "cuentaFilas"
                 },
                 {
-                    "id": "testea-personas-1-37-9",
+                    "id": "testea-personas-1-37-10",
                     "command": "assert",
                     "target": "cuentaFilas",
                     "value": "2"
                 },
                 {
-                    "id": "testea-personas-1-37-10",
+                    "id": "testea-personas-1-37-11",
                     "command": "storeXpathCount",
                     "target": "xpath=//*[contains(@class, 'aviso-')]",
                     "value": "cuentaAvisos"
                 },
                 {
-                    "id": "testea-personas-1-37-11",
+                    "id": "testea-personas-1-37-12",
                     "command": "assert",
                     "target": "cuentaAvisos",
                     "value": "0"
@@ -2645,9 +2897,9 @@
                 },
                 {
                     "id": "testea-personas-1-38-2",
-                    "command": "pause",
-                    "target": "${pausaTrasListado}",
-                    "value": ""
+                    "command": "waitForElementPresent",
+                    "target": "xpath=//h1[.=\"${h1Personas} Buscar 1\"]",
+                    "value": "${maxEspera}"
                 },
                 {
                     "id": "testea-personas-1-38-3",
@@ -2663,9 +2915,9 @@
                 },
                 {
                     "id": "testea-personas-1-38-5",
-                    "command": "pause",
-                    "target": "${pausaTrasListado}",
-                    "value": ""
+                    "command": "waitForElementPresent",
+                    "target": "xpath=//h1[.=\"${h1Personas} Buscar 2\"]",
+                    "value": "${maxEspera}"
                 },
                 {
                     "id": "testea-personas-1-38-6",
@@ -2712,9 +2964,9 @@
                 },
                 {
                     "id": "testea-personas-1-39-2",
-                    "command": "pause",
-                    "target": "${pausaTrasListado}",
-                    "value": ""
+                    "command": "waitForElementPresent",
+                    "target": "xpath=//h1[.=\"${h1Personas} Buscar 1\"]",
+                    "value": "${maxEspera}"
                 },
                 {
                     "id": "testea-personas-1-39-3",
@@ -2730,9 +2982,9 @@
                 },
                 {
                     "id": "testea-personas-1-39-5",
-                    "command": "pause",
-                    "target": "${pausaTrasListado}",
-                    "value": ""
+                    "command": "waitForElementPresent",
+                    "target": "xpath=//h1[.=\"${h1Personas} Buscar 2\"]",
+                    "value": "${maxEspera}"
                 },
                 {
                     "id": "testea-personas-1-39-6",
@@ -2773,9 +3025,9 @@
                 },
                 {
                     "id": "testea-personas-1-40-2",
-                    "command": "pause",
-                    "target": "${pausaTrasListado}",
-                    "value": ""
+                    "command": "waitForElementPresent",
+                    "target": "xpath=//h1[.=\"${h1Personas} Buscar 1\"]",
+                    "value": "${maxEspera}"
                 },
                 {
                     "id": "testea-personas-1-40-3",
@@ -2791,9 +3043,9 @@
                 },
                 {
                     "id": "testea-personas-1-40-5",
-                    "command": "pause",
-                    "target": "${pausaTrasListado}",
-                    "value": ""
+                    "command": "waitForElementPresent",
+                    "target": "xpath=//h1[.=\"${h1Personas} Buscar 1\"]",
+                    "value": "${maxEspera}"
                 },
                 {
                     "id": "testea-personas-1-40-6",
@@ -2834,9 +3086,9 @@
                 },
                 {
                     "id": "testea-personas-1-41-2",
-                    "command": "pause",
-                    "target": "${pausaTrasAvisos}",
-                    "value": ""
+                    "command": "waitForElementPresent",
+                    "target": "xpath=//h1[.=\"${h1Personas} Buscar 1\"]",
+                    "value": "${maxEspera}"
                 },
                 {
                     "id": "testea-personas-1-41-3",
@@ -2877,9 +3129,9 @@
                 },
                 {
                     "id": "testea-personas-1-42-2",
-                    "command": "pause",
-                    "target": "${pausaTrasAvisos}",
-                    "value": ""
+                    "command": "waitForElementPresent",
+                    "target": "xpath=//h1[.=\"${h1Personas} Buscar 1\"]",
+                    "value": "${maxEspera}"
                 },
                 {
                     "id": "testea-personas-1-42-3",
@@ -2920,9 +3172,9 @@
                 },
                 {
                     "id": "testea-personas-1-43-2",
-                    "command": "pause",
-                    "target": "${pausaTrasAvisos}",
-                    "value": ""
+                    "command": "waitForElementPresent",
+                    "target": "xpath=//h1[.=\"${h1Personas} Buscar 1\"]",
+                    "value": "${maxEspera}"
                 },
                 {
                     "id": "testea-personas-1-43-3",
@@ -2963,24 +3215,30 @@
                 },
                 {
                     "id": "testea-personas-1-44-2",
+                    "command": "waitForElementPresent",
+                    "target": "xpath=//h1[.=\"${h1Personas} Modificar 1\"]",
+                    "value": "${maxEspera}"
+                },
+                {
+                    "id": "testea-personas-1-44-3",
                     "command": "storeXpathCount",
                     "target": "xpath=//tr",
                     "value": "cuentaFilas"
                 },
                 {
-                    "id": "testea-personas-1-44-3",
+                    "id": "testea-personas-1-44-4",
                     "command": "assert",
                     "target": "cuentaFilas",
                     "value": "3"
                 },
                 {
-                    "id": "testea-personas-1-44-4",
+                    "id": "testea-personas-1-44-5",
                     "command": "assertText",
                     "target": "xpath=//tr[2]/td[2]",
                     "value": "Juan"
                 },
                 {
-                    "id": "testea-personas-1-44-5",
+                    "id": "testea-personas-1-44-6",
                     "command": "click",
                     "target": "xpath=//tr[2]/td[1]/input",
                     "value": ""
@@ -2994,9 +3252,9 @@
                 },
                 {
                     "id": "testea-personas-1-45-2",
-                    "command": "pause",
-                    "target": "${pausaTrasListados}",
-                    "value": ""
+                    "command": "waitForElementPresent",
+                    "target": "xpath=//h1[.=\"${h1Personas} Modificar 1\"]",
+                    "value": "${maxEspera}"
                 },
                 {
                     "id": "testea-personas-1-45-3",
@@ -3043,9 +3301,9 @@
                 },
                 {
                     "id": "testea-personas-1-46-2",
-                    "command": "pause",
-                    "target": "${pausaTrasListados}",
-                    "value": ""
+                    "command": "waitForElementPresent",
+                    "target": "xpath=//h1[.=\"${h1Personas} Modificar 1\"]",
+                    "value": "${maxEspera}"
                 },
                 {
                     "id": "testea-personas-1-46-3",
@@ -3092,9 +3350,9 @@
                 },
                 {
                     "id": "testea-personas-1-47-2",
-                    "command": "pause",
-                    "target": "${pausaTrasListados}",
-                    "value": ""
+                    "command": "waitForElementPresent",
+                    "target": "xpath=//h1[.=\"${h1Personas} Modificar 1\"]",
+                    "value": "${maxEspera}"
                 },
                 {
                     "id": "testea-personas-1-47-3",
@@ -3141,9 +3399,9 @@
                 },
                 {
                     "id": "testea-personas-1-48-2",
-                    "command": "pause",
-                    "target": "${pausaTrasListados}",
-                    "value": ""
+                    "command": "waitForElementPresent",
+                    "target": "xpath=//h1[.=\"${h1Personas} Modificar 1\"]",
+                    "value": "${maxEspera}"
                 },
                 {
                     "id": "testea-personas-1-48-3",
@@ -3190,9 +3448,9 @@
                 },
                 {
                     "id": "testea-personas-1-49-2",
-                    "command": "pause",
-                    "target": "${pausaTrasListados}",
-                    "value": ""
+                    "command": "waitForElementPresent",
+                    "target": "xpath=//h1[.=\"${h1Personas} Modificar 1\"]",
+                    "value": "${maxEspera}"
                 },
                 {
                     "id": "testea-personas-1-49-3",
@@ -3239,9 +3497,9 @@
                 },
                 {
                     "id": "testea-personas-1-50-2",
-                    "command": "pause",
-                    "target": "${pausaTrasListados}",
-                    "value": ""
+                    "command": "waitForElementPresent",
+                    "target": "xpath=//h1[.=\"${h1Personas} Modificar 1\"]",
+                    "value": "${maxEspera}"
                 },
                 {
                     "id": "testea-personas-1-50-3",
@@ -3281,16 +3539,16 @@
                 },
                 {
                     "id": "testea-personas-1-51-1",
-                    "comment": "(TEST) Personas > Modificar > Aviso general Registro para borrar no encontrado (1 registro que no existe)",
+                    "comment": "(TEST) Personas > Modificar > Aviso general Registro para modificar no encontrado (1 registro que no existe)",
                     "command": "open",
                     "target": "${urlPersonas}/modificar-2.php?id=100",
                     "value": ""
                 },
                 {
                     "id": "testea-personas-1-51-2",
-                    "command": "pause",
-                    "target": "${pausaTrasAvisos}",
-                    "value": ""
+                    "command": "waitForElementPresent",
+                    "target": "xpath=//h1[.=\"${h1Personas} Modificar 1\"]",
+                    "value": "${maxEspera}"
                 },
                 {
                     "id": "testea-personas-1-51-3",
@@ -3343,9 +3601,9 @@
                 },
                 {
                     "id": "testea-personas-1-52-2",
-                    "command": "pause",
-                    "target": "${pausaTrasAvisos}",
-                    "value": ""
+                    "command": "waitForElementPresent",
+                    "target": "xpath=//h1[.=\"${h1Personas} Modificar 1\"]",
+                    "value": "${maxEspera}"
                 },
                 {
                     "id": "testea-personas-1-52-3",
@@ -3398,9 +3656,9 @@
                 },
                 {
                     "id": "testea-personas-1-53-2",
-                    "command": "pause",
-                    "target": "${pausaTrasListado}",
-                    "value": ""
+                    "command": "waitForElementPresent",
+                    "target": "xpath=//h1[.=\"${h1Personas} Modificar 1\"]",
+                    "value": "${maxEspera}"
                 },
                 {
                     "id": "testea-personas-1-53-3",
@@ -3422,9 +3680,9 @@
                 },
                 {
                     "id": "testea-personas-1-53-6",
-                    "command": "pause",
-                    "target": "${pausaTrasListado}",
-                    "value": ""
+                    "command": "waitForElementPresent",
+                    "target": "xpath=//h1[.=\"${h1Personas} Modificar 2\"]",
+                    "value": "${maxEspera}"
                 },
                 {
                     "id": "testea-personas-1-53-7",
@@ -3470,9 +3728,9 @@
                 },
                 {
                     "id": "testea-personas-1-53-14",
-                    "command": "pause",
-                    "target": "${pausaTrasListado}",
-                    "value": ""
+                    "command": "waitForElementPresent",
+                    "target": "xpath=//h1[.=\"${h1Personas} Modificar 3\"]",
+                    "value": "${maxEspera}"
                 },
                 {
                     "id": "testea-personas-1-53-15",
@@ -3512,9 +3770,9 @@
                 },
                 {
                     "id": "testea-personas-1-53-21",
-                    "command": "pause",
-                    "target": "${pausaTrasListados}",
-                    "value": ""
+                    "command": "waitForElementPresent",
+                    "target": "xpath=//h1[.=\"${h1Personas} Listar\"]",
+                    "value": "${maxEspera}"
                 },
                 {
                     "id": "testea-personas-1-53-22",
@@ -3567,9 +3825,9 @@
                 },
                 {
                     "id": "testea-personas-1-54-2",
-                    "command": "pause",
-                    "target": "${pausaTrasAvisos}",
-                    "value": ""
+                    "command": "waitForElementPresent",
+                    "target": "xpath=//h1[.=\"${h1Personas} Modificar 1\"]",
+                    "value": "${maxEspera}"
                 },
                 {
                     "id": "testea-personas-1-54-3",
@@ -3622,9 +3880,9 @@
                 },
                 {
                     "id": "testea-personas-1-55-2",
-                    "command": "pause",
-                    "target": "${pausaTrasAvisos}",
-                    "value": ""
+                    "command": "waitForElementPresent",
+                    "target": "xpath=//h1[.=\"${h1Personas} Modificar 1\"]",
+                    "value": "${maxEspera}"
                 },
                 {
                     "id": "testea-personas-1-55-3",
@@ -3677,9 +3935,9 @@
                 },
                 {
                     "id": "testea-personas-1-56-2",
-                    "command": "pause",
-                    "target": "${pausaTrasAvisos}",
-                    "value": ""
+                    "command": "waitForElementPresent",
+                    "target": "xpath=//h1[.=\"${h1Personas} Modificar 2\"]",
+                    "value": "${maxEspera}"
                 },
                 {
                     "id": "testea-personas-1-56-3",
@@ -3768,9 +4026,9 @@
                 },
                 {
                     "id": "testea-personas-1-57-5",
-                    "command": "pause",
-                    "target": "${pausaTrasAvisos}",
-                    "value": ""
+                    "command": "waitForElementPresent",
+                    "target": "xpath=//h1[.=\"${h1Personas} Modificar 2\"]",
+                    "value": "${maxEspera}"
                 },
                 {
                     "id": "testea-personas-1-57-6",
@@ -3841,9 +4099,9 @@
                 },
                 {
                     "id": "testea-personas-1-58-2",
-                    "command": "pause",
-                    "target": "${pausaTrasAvisos}",
-                    "value": ""
+                    "command": "waitForElementPresent",
+                    "target": "xpath=//h1[.=\"${h1Personas} Modificar 2\"]",
+                    "value": "${maxEspera}"
                 },
                 {
                     "id": "testea-personas-1-58-3",
@@ -3860,9 +4118,9 @@
                 },
                 {
                     "id": "testea-personas-1-59-2",
-                    "command": "pause",
-                    "target": "${pausaTrasAvisos}",
-                    "value": ""
+                    "command": "waitForElementPresent",
+                    "target": "xpath=//h1[.=\"${h1Personas} Modificar 3\"]",
+                    "value": "${maxEspera}"
                 },
                 {
                     "id": "testea-personas-1-59-3",
@@ -3903,9 +4161,9 @@
                 },
                 {
                     "id": "testea-personas-1-60-2",
-                    "command": "pause",
-                    "target": "${pausaTrasAvisos}",
-                    "value": ""
+                    "command": "waitForElementPresent",
+                    "target": "xpath=//h1[.=\"${h1Personas} Modificar 2\"]",
+                    "value": "${maxEspera}"
                 },
                 {
                     "id": "testea-personas-1-60-3",
@@ -3946,9 +4204,9 @@
                 },
                 {
                     "id": "testea-personas-1-61-2",
-                    "command": "pause",
-                    "target": "${pausaTrasAvisos}",
-                    "value": ""
+                    "command": "waitForElementPresent",
+                    "target": "xpath=//h1[.=\"${h1Personas} Modificar 3\"]",
+                    "value": "${maxEspera}"
                 },
                 {
                     "id": "testea-personas-1-61-3",
@@ -3989,9 +4247,9 @@
                 },
                 {
                     "id": "testea-personas-1-62-2",
-                    "command": "pause",
-                    "target": "${pausaTrasAvisos}",
-                    "value": ""
+                    "command": "waitForElementPresent",
+                    "target": "xpath=//h1[.=\"${h1Personas} Modificar 2\"]",
+                    "value": "${maxEspera}"
                 },
                 {
                     "id": "testea-personas-1-62-3",
@@ -4032,9 +4290,9 @@
                 },
                 {
                     "id": "testea-personas-1-63-2",
-                    "command": "pause",
-                    "target": "${pausaTrasAvisos}",
-                    "value": ""
+                    "command": "waitForElementPresent",
+                    "target": "xpath=//h1[.=\"${h1Personas} Modificar 3\"]",
+                    "value": "${maxEspera}"
                 },
                 {
                     "id": "testea-personas-1-63-3",
@@ -4075,9 +4333,9 @@
                 },
                 {
                     "id": "testea-personas-1-64-2",
-                    "command": "pause",
-                    "target": "${pausaTrasAvisos}",
-                    "value": ""
+                    "command": "waitForElementPresent",
+                    "target": "xpath=//h1[.=\"${h1Personas} Modificar 2\"]",
+                    "value": "${maxEspera}"
                 },
                 {
                     "id": "testea-personas-1-64-3",
@@ -4130,9 +4388,9 @@
                 },
                 {
                     "id": "testea-personas-1-65-2",
-                    "command": "pause",
-                    "target": "${pausaTrasAvisos}",
-                    "value": ""
+                    "command": "waitForElementPresent",
+                    "target": "xpath=//h1[.=\"${h1Personas} Modificar 3\"]",
+                    "value": "${maxEspera}"
                 },
                 {
                     "id": "testea-personas-1-65-3",
@@ -4175,6 +4433,12 @@
                     "command": "click",
                     "target": "linkText=Personas",
                     "value": ""
+                },
+                {
+                    "id": "testea-personas-1-65-10",
+                    "command": "waitForElementPresent",
+                    "target": "xpath=//h1[.=\"${h1Personas} Inicio\"]",
+                    "value": "${maxEspera}"
                 }
             ]
         },
@@ -4192,14 +4456,20 @@
                 {
                     "id": "testea-personas-2-2",
                     "command": "waitForElementPresent",
-                    "target": "xpath=//main",
-                    "value": "20000"
+                    "target": "xpath=//h1[.=\"${h1Inicio} Inicio\"]",
+                    "value": "${maxEspera}"
                 },
                 {
                     "id": "testea-personas-2-3",
                     "command": "click",
                     "target": "linkText=Personas",
                     "value": ""
+                },
+                {
+                    "id": "testea-personas-2-4",
+                    "command": "waitForElementPresent",
+                    "target": "xpath=//h1[.=\"${h1Personas} Inicio\"]",
+                    "value": "${maxEspera}"
                 }
             ]
         },

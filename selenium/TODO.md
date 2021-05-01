@@ -22,7 +22,10 @@ Estas son algunas de las cosas que podría hacer para Selenium
 
 ## Pruebas a realizar en cada página
 - Niveles de usuario
-  - Que cada usuario puede o no puede entrar en cada página.
+  - Que cada usuario puede o no puede entrar en cada página del sitio.
+  - Mensajes de error al hacer login
+- Administrador > Borrar todo
+  - Hacer clic en No
 - Pruebas comunes
   - Listar / Borrar / Modificar: <s>Aviso general: sinRegistros. No hay registros para mostrar.</s>
 - Listar
