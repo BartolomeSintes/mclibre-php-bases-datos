@@ -6,10 +6,18 @@ El formato se basa en [Keep a Changelog](https://keepachangelog.com/en/1.0.0/).
 
 Este changelog incluye los cambios hechos en Biblioteca-3, Biblioteca-4, etc.
 
-## 2021-05-11
+
+## 2021-05-03
+
+### Fixed (Corregido)
+- Borrar-1 generaba un aviso doble general cuando no se elegía ningún registro, porque se hacía una comprobación general registrosNoSeleccionados y la comprobación individual sobre id que también genera un aviso general. Lo he resuelto de dos maneras:
+  - He quitado la comprobación del aviso general registrosNoSeleccionados en borrar-2 (de hecho en modificar-2 no se hacía y por eso no se duplicaba el aviso)
+  - He añadido un array_unique en imprimeAvisosGenerales() para que elimine los avisos repetidos (con este cambio, si se generan avisos duplicados, no me enteraré nunca)
+
+## 2021-05-01
 
 ### Changed (Modificado)
-- Renombre tablas-comprobaciones.php y lo divido en funciones generales (comprobaciones-general.php) y particulares (comprobaciones-particular.php).
+- Divido tablas-comprobaciones.php en dos ficheros: funciones generales (comprobaciones-general.php) y particulares (comprobaciones-particular.php).
 
 ### Added (Añadido)
 - Cambio el nombre de la clase "aviso" a "aviso-error".

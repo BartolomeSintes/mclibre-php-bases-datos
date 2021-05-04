@@ -13,8 +13,6 @@ borraAvisosExcepto();
 
 [$id_prestamo, $devuelto] = compruebaAvisosIndividuales("devolver-2", "prestamos", "id_prestamo", "devuelto");
 
-compruebaAvisosGenerales("devolver-2", "registrosNoSeleccionados", $id_prestamo);
-
 compruebaAvisosGenerales("devolver-2", "fechasCrecientes2", "id_prestamo", "devuelto");
 
 if (hayErrores("devolver-2")) {

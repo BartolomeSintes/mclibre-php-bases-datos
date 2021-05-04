@@ -15,8 +15,6 @@ $id = recoge("id", []);
 
 borraAvisosExcepto();
 
-compruebaAvisosGenerales("borrar-2", "registrosNoSeleccionados", $id);
-
 compruebaAvisosIndividuales("borrar-2", "prestamos", "id");
 
 if (hayErrores("borrar-2")) {

@@ -71,6 +71,7 @@ function imprimeAvisosGenerales()
     $avisosImpresos = false;
     foreach ($argumentos as $origen) {
         if (isset($_SESSION["avisosGenerales"][$origen]) && count($_SESSION["avisosGenerales"][$origen]) > 0) {
+            $_SESSION["avisosGenerales"][$origen] = array_unique($_SESSION["avisosGenerales"][$origen]);
             foreach ($_SESSION["avisosGenerales"][$origen] as $mensaje) {
                 print "    <p class=\"aviso-error\">$mensaje</p>\n";
             }
@@ -83,6 +84,7 @@ function imprimeAvisosGenerales()
 function imprimeAvisosIndividuales($origen, $tabla, $campo, $tipo, $valor = "SINVALORNINGUNO")
 {
     if (hayErrores($origen) && !hayErroresGenerales($origen)) {
+    // if (hayErrores($origen)) {
         if (isset($_SESSION["avisosIndividuales"][$origen][$tabla][$campo])) {
             if ($tipo == "valor") {
                 return " value=\"{$_SESSION["avisosIndividuales"][$origen][$tabla][$campo]["valor"]}\"";

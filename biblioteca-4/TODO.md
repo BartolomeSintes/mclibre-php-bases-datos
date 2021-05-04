@@ -16,17 +16,23 @@ Estas son algunas de las cosas que me quedan por hacer y que podrían hacerse en
 
 * [2021-04-29] Al buscar, si no encuentra registros no reescribe los términos de búsqueda. Tendría que pensar si hacerlo o no.
 
-* [2021-04-29] Al buscar, no comprueba si lo que ha escrito el usuario se podría haber insertado (es decir, por ahora si el texto es demasiado largo)
+* [2021-04-29] Al buscar, no comprueba si lo que ha escrito el usuario se podría haber insertado (es decir, por ahora si el texto es demasiado largo).
+
+* [2021-05-04] Tendría que hacer una tabla que tuviera en su formulario de entrada todos los tipos de controles (text, radio, checkbox, date, etc.) para que se viera cómo manejar cada uno de ellos (valores vacío o incorrrectos, recuperar el dato si hay errores, etc.).
 
 ## Próximos pasos
 
-* [2021-04-10] Los select no muestran el valor elegido por el usuario cuando se detectan errores y se vuelve al formulario.
+* [2021-04-10] Los select no muestran el valor elegido por el usuario cuando se detectan errores y se vuelve al formulario (prestamos/insertar-1 y prestamos/modificar-2)
+
+* [2021-04-27] Al devolver un préstamo, si se deja la fecha vacía dice que "La fecha de devolución es anterior a la de préstamo" pero debería decir que no se ha indicado la fecha.
 
 ## Para corregir (más importante)
 
 * [2021-04-20] La aplicación no deja modificar el usuario root. Igual tendría que dejar cambiar la contraseña, pero no el nombre ni el nivel.
 
 * [2021-04-20] Al modificar la contraseña, si se deja en blanco para mantenerla (como dice modificar-2), sale un mensaje de error diciendo que no se puede dejar en blanco. Tendría que incluir el origen en la comprobación de la contraseña y hacer dos comprobaciones distintas.
+
+* [2021-05-04] En ImprimeAvisosIndivduales el if es if (hayErrores($origen) && !hayErroresGenerales($origen)) { para que funciones bien modificar-2, pero no tengo claro si podría dar problemas porque si en un formulario hay un aviso general y además avisos individuales, no escribirá los avisos individuales (no he pensado si se puede dar esa situación, pero probablemente sí).
 
 ## Para corregir (menos importante)
 
@@ -37,6 +43,19 @@ Estas son algunas de las cosas que me quedan por hacer y que podrían hacerse en
 * [2021-04-28] Al borrar registros si se envían id que no corresponden a registros, no borra ninguno y se muestran tantos avisos como registros no encontrados. Debería sacar un único mensaje de error que dijera "Alguno de los registros que ha solicitado borrar no existe. No se ha borrado ningún registro." Aunque en realidad eso solo ocurre cuando se manipula la barra de dirección.
 
 * [2021-04-28] Al borrar varios registros a la vez escribe "Registro borrado correctamente" tantas veces como registros borrados. Debería escribir simplemente "Registro borrado correctamente" o "Registros borrados correctamente" si son varios.
+
+## Comprobación de ids
+
+* [2021-05-03] Los ids se pueden recibir de dos lugares:
+  - de un botón radio o un checkbox. En ese caso si llega un valor vacío o no encontrado no se puede saber de dónde ha salido y por eso se genera un aviso general.
+  - de un select. En ese caso si llega un valor vacío o no encontrado sí que se sabe de dónde ha salido y se puede mostrar un aviso individual al volver al formulario.
+
+* [2021-05-03] Los avisos generales "No ha seleccionado ningún registro." y "Registro no encontrado." que genero si algún id es vacío es problemático. Si solo se espera un id funciona bien (si es vacío, muestra el avidso), pero si se recibe una matriz de id:
+  - si el primer id incorrecto es uno vacío se genera el aviso general "No ha seleccionado ningún registro." (cuando puede que el resto sean correctos).
+  - si el primer id incorrecto es uno vacío y el siguiente no se encuentra se genera los dos avisos generales.
+  - si el primer id incorrecto es uno no encontrado y el siguiente es uno vacío, solo se genera el aviso "Registro no encontrado."
+
+  La solución en el caso de una matriz de ids podría ser emitir un único aviso general "Algún identificador de registro no es correcto". Quedaría por decidir si los id correctos se muestran o no marcados al volver al formulario.
 
 ## Mejoras
 
@@ -94,6 +113,8 @@ Estas son algunas de las cosas que me quedan por hacer y que podrían hacerse en
 * [2021-04-19] No es fácil decidir qué tiene que hacer modificar-2 cuando le llegan avisos desde modificar-3. Lo que he hecho es que si hay avisos generales (que son que esté todo vacío o que ya exista el registro modificado), muestra los valores originales. Pero si hay avisos individuales muestra los modificados junto con los avisos individuales.
 
 * [2021-04-20] Podría hacer una función hayErroresIndividuales() y que la función hayErrores() hiciera hayErroresIndividuales() || hayErroresGenerales().
+
+* [2021-05-03] Ya no uso la comprobación general registrosNoSeleccionados.
 
 
 ## Problemas

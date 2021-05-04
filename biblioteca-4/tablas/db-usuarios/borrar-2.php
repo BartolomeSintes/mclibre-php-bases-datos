@@ -15,8 +15,6 @@ $id = recoge("id", []);
 
 borraAvisosExcepto();
 
-compruebaAvisosGenerales("borrar-2", "registrosNoSeleccionados", $id);
-
 compruebaAvisosGenerales("borrar-2", "incluyeUsuarioRoot", $id);
 
 compruebaAvisosIndividuales("borrar-2", "usuarios", "id");

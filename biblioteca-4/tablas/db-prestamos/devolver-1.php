@@ -15,9 +15,9 @@ borraAvisosExcepto("devolver-2");
 
 imprimeAvisosGenerales("devolver-2");
 
-compruebaAvisosGenerales("modificar-1", "sinPrestamosPendientes", "prestamos");
+compruebaAvisosGenerales("devolver-1", "sinPrestamosPendientes", "prestamos");
 
-if (!imprimeAvisosGenerales("modificar-1")) {
+if (!imprimeAvisosGenerales("devolver-1")) {
     $pdo = conectaDb();
 
     $ordena = recogeValores("ordena", $db["columnasPrestamosOrden"], "autor ASC");
@@ -55,6 +55,7 @@ if (!imprimeAvisosGenerales("modificar-1")) {
             print "                <option value=\"$valor[id]\">$valor[nombre] $valor[apellidos] - $valor[autor] - $valor[titulo] - $valor[prestado]</option>\n";
         }
         print "              </select>\n";
+        print "              " . imprimeAvisosIndividuales("devolver-2", "prestamos", "id_prestamo", "mensaje") . "\n";
         print "            </td>\n";
         print "          </tr>\n";
         print "          <tr>\n";

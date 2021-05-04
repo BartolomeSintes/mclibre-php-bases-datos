@@ -2462,17 +2462,9 @@
                 },
                 {
                     "id": "testea-personas-1-32-5",
-                    "comment": "ATENCION: Se duplica el aviso (la frase no es idéntica)",
                     "command": "assertText",
                     "target": "xpath=//p[1]",
                     "value": "No ha seleccionado ningún registro."
-                },
-                {
-                    "id": "testea-personas-1-32-6",
-                    "comment": "ATENCION: Se duplica el aviso (la frase no es idéntica)",
-                    "command": "assertText",
-                    "target": "xpath=//p[2]",
-                    "value": "No se ha seleccionado ningún registro."
                 },
                 {
                     "id": "testea-personas-1-32-7",
@@ -2496,7 +2488,7 @@
                     "id": "testea-personas-1-32-10",
                     "command": "assert",
                     "target": "cuentaAvisosError",
-                    "value": "2"
+                    "value": "1"
                 },
                 {
                     "id": "testea-personas-1-32-11",
@@ -2508,7 +2500,7 @@
                     "id": "testea-personas-1-32-12",
                     "command": "assert",
                     "target": "cuentaAvisos",
-                    "value": "2"
+                    "value": "1"
                 },
                 {
                     "id": "testea-personas-1-33-1",
@@ -3609,7 +3601,7 @@
                     "id": "testea-personas-1-52-3",
                     "command": "assertText",
                     "target": "xpath=//p[1]",
-                    "value": "No se ha seleccionado ningún registro."
+                    "value": "No ha seleccionado ningún registro."
                 },
                 {
                     "id": "testea-personas-1-52-4",
@@ -3833,7 +3825,7 @@
                     "id": "testea-personas-1-54-3",
                     "command": "assertText",
                     "target": "xpath=//p[1]",
-                    "value": "No se ha seleccionado ningún registro."
+                    "value": "No ha seleccionado ningún registro."
                 },
                 {
                     "id": "testea-personas-1-54-4",

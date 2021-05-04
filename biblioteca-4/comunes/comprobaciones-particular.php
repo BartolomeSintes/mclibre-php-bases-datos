@@ -14,20 +14,17 @@ function comprobaciones($origen, $tabla, $campo, $valor)
 
     if ($campo == "id") {
         if ($valor == "") {
-            // 2021-04-28 Comento la línea para que no salga el mensaje duplicado si no se selecciona ningún registro al borrar o mdificar, aunque no sé si sirve para algo
-            // $mensaje                                = "No se ha seleccionado ningún registro.";
-            $_SESSION["avisosGenerales"][$origen][] = "No se ha seleccionado ningún registro.";
+            $_SESSION["avisosGenerales"][$origen][] = "No ha seleccionado ningún registro.";
         } else {
             $pdo      = conectaDb();
             $consulta = "SELECT COUNT(*)
                          FROM $db[$tabla]
-                     WHERE id=:id_recibido";
+                         WHERE id=:id_recibido";
             $result = $pdo->prepare($consulta);
             $result->execute([":id_recibido" => $valor]);
             if (!$result) {
                 $mensaje = "Error en la consulta.";
             } elseif ($result->fetchColumn() == 0) {
-                // $mensaje                                = "Registro no encontrado.";
                 $_SESSION["avisosGenerales"][$origen][] = "Registro no encontrado.";
             } else {
                 $campoOk = true;
@@ -125,18 +122,22 @@ function comprobaciones($origen, $tabla, $campo, $valor)
         }
         $pdo = null;
     } elseif ($campo == "id_prestamo") {                // Tabla Préstamos (para devolución)
-        $pdo      = conectaDb();
-        $consulta = "SELECT COUNT(*)
-                     FROM $db[prestamos]
-                     WHERE id=:id_prestamo";
-        $result = $pdo->prepare($consulta);
-        $result->execute([":id_prestamo" => $valor]);
-        if (!$result) {
-            $mensaje = "Error en la consulta.";
-        } elseif ($result->fetchColumn() == 0) {
-            $mensaje = "El préstamo seleccionado no existe.";
-        } else {
-            $campoOk = true;
+        if ($valor == "") {
+            $mensaje = "No se ha seleccionado ningún préstamo.";
+        }else {
+            $pdo      = conectaDb();
+            $consulta = "SELECT COUNT(*)
+                         FROM $db[prestamos]
+                         WHERE id=:id_prestamo";
+            $result = $pdo->prepare($consulta);
+            $result->execute([":id_prestamo" => $valor]);
+            if (!$result) {
+                $mensaje = "Error en la consulta.";
+            } elseif ($result->fetchColumn() == 0) {
+                $mensaje = "El préstamo seleccionado no existe.";
+            } else {
+                $campoOk = true;
+            }
         }
         $pdo = null;
     } elseif ($campo == "prestado") {                   // Tabla Préstamos
@@ -177,6 +178,8 @@ function compruebaAvisosGenerales()
     $tipoComprobacion = $argumentos[0];
     array_shift($argumentos);
 
+    // Esta comprobación no se utiliza, ya que en la comprobación individual del id o de los id si
+    // es vacío se genera este mismo avisoGeneral.
     if ($tipoComprobacion == "registrosNoSeleccionados") {
         if (is_array($argumentos[0])) {
             if (count($argumentos[0]) == 0) {
