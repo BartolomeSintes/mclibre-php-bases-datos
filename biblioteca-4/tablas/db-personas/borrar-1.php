@@ -10,7 +10,7 @@ require_once "../../comunes/biblioteca.php";
 compruebaSesion(NIVEL_3, PROFUNDIDAD_2);
 
 cabecera("Personas - Borrar 1", MENU_PERSONAS, PROFUNDIDAD_2);
-
+printSesion();
 imprimeAvisosGenerales("borrar-2");
 
 borraAvisosExcepto();

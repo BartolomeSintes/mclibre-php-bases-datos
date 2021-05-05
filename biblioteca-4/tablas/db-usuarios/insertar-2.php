@@ -17,7 +17,7 @@ compruebaAvisosGenerales("insertar-2", "algunoVacio", "usuario", "password", "ni
 
 compruebaAvisosGenerales("insertar-2", "limiteNumeroRegistros", "usuarios");
 
-compruebaAvisosGenerales("insertar-2", "yaExisteRegistro", "usuarios", "usuario", "password", "nivel");
+compruebaAvisosGenerales("insertar-2", "yaExisteRegistro", "usuarios", "usuario");
 
 if (hayErrores("insertar-2")) {
     header("Location:insertar-1.php");

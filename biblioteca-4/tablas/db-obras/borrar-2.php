@@ -9,8 +9,6 @@ require_once "../../comunes/biblioteca.php";
 
 compruebaSesion(NIVEL_3, PROFUNDIDAD_2);
 
-cabecera("Obras - Borrar 2", MENU_OBRAS, PROFUNDIDAD_2);
-
 $id = recoge("id", []);
 
 borraAvisosExcepto();
@@ -21,6 +19,8 @@ if (hayErrores("borrar-2")) {
     header("Location:borrar-1.php");
     exit();
 }
+
+cabecera("Obras - Borrar 2", MENU_OBRAS, PROFUNDIDAD_2);
 
 $pdo = conectaDb();
 

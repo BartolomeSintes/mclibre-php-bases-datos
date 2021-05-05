@@ -9,8 +9,6 @@ require_once "../../comunes/biblioteca.php";
 
 compruebaSesion(NIVEL_2, PROFUNDIDAD_2);
 
-cabecera("Obras - Buscar 2", MENU_OBRAS, PROFUNDIDAD_2);
-
 borraAvisosExcepto();
 
 [$autor, $titulo, $editorial] = compruebaAvisosIndividuales("buscar-2", "obras", "autor", "titulo", "editorial");
@@ -21,6 +19,8 @@ if (hayErrores("buscar-2")) {
     header("Location:buscar-1.php");
     exit();
 }
+
+cabecera("Obras - Buscar 2", MENU_OBRAS, PROFUNDIDAD_2);
 
 $pdo = conectaDb();
 
