@@ -45,16 +45,15 @@ function compruebaAvisosIndividuales()
     $paraSesion = [];
     $error      = false;
     foreach ($argumentos as $campo) {
-        if (isset($_REQUEST[$campo]) && is_array($_REQUEST[$campo])) {
-            $valor = recoge($campo, []);
+        $valor = recoge($campo);
+        if (is_array($valor)) {
             $comp  = [];
             foreach ($valor as $indice => $valor2) {
                 $resp          = comprobaciones($origen, $tabla, $campo, $indice);
                 $comp[$indice] = ["valor" => $resp["valor"], "campoOk" => $resp["campoOk"], "mensaje" => $resp["mensaje"]];
             }
         } else {
-            $valor = recoge($campo);
-            $comp  = comprobaciones($origen, $tabla, $campo, $valor);
+            $comp = comprobaciones($origen, $tabla, $campo, $valor);
         }
         $paraSesion[$campo] = $comp;
         $resp[]             = $valor;

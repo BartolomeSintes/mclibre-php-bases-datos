@@ -24,6 +24,8 @@ Estas son algunas de las cosas que me quedan por hacer y que podrían hacerse en
 
 * [2021-05-04] Tendría que hacer una tabla que tuviera en su formulario de entrada todos los tipos de controles (text, radio, checkbox, date, etc.) para que se viera cómo manejar cada uno de ellos (valores vacío o incorrrectos, recuperar el dato si hay errores, etc.).
 
+* [2021-05-06] Si llega una matriz a una variable que no lo es o llega un escalar a una variable que es una matriz debería detectarlo como error.
+
 
 ## Próximos pasos
 

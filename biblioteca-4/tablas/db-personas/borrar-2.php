@@ -9,7 +9,7 @@ require_once "../../comunes/biblioteca.php";
 
 compruebaSesion(NIVEL_3, PROFUNDIDAD_2);
 
-$id = recoge("id", []);
+$id = recoge("id[]");
 
 borraAvisosExcepto();
 

@@ -21,7 +21,7 @@ if (!imprimeAvisosGenerales("borrar-1")) {
     $pdo = conectaDb();
 
     $ordena = recogeValores("ordena", $db["columnasUsuariosOrden"], "usuario ASC");
-    $id     = recoge("id", []);
+    $id     = recoge("id[]");
 
     $consulta = "SELECT *
                  FROM $db[usuarios]
