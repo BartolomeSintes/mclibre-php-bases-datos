@@ -2645,7 +2645,6 @@
                 },
                 {
                     "id": "testea-personas-1-35-3",
-                    "comment": "ATENCION: Se duplica el aviso",
                     "command": "assertText",
                     "target": "xpath=//p[1]",
                     "value": "Registro no encontrado."
@@ -2672,7 +2671,7 @@
                     "id": "testea-personas-1-35-7",
                     "command": "assert",
                     "target": "cuentaAvisosError",
-                    "value": "2"
+                    "value": "1"
                 },
                 {
                     "id": "testea-personas-1-35-8",
@@ -2684,7 +2683,7 @@
                     "id": "testea-personas-1-35-9",
                     "command": "assert",
                     "target": "cuentaAvisos",
-                    "value": "2"
+                    "value": "1"
                 },
                 {
                     "id": "testea-personas-1-36-1",

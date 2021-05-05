@@ -21,6 +21,10 @@ Estas son algunas de las cosas que podría hacer para Selenium
 * [2021-04-29] Al renumerar los test, podría tener en cuenta tests con comentarios para saltar de 100 en 100. O al menos los comentarios que empezarán por alguna palabra que significara que empieza un bloque de tests. Antes de eso tendría que comprobar que saltar de 100 en 100 es suficiente.
 
 ## Pruebas a realizar en cada página
+
+* [2021-05-05] ¿Desde Selenium se podrá conocer la configuración del servidor? Me refiero a error_reporting y a output_buffering. Si es XAMPP Se podría hacer abriendo http://localhost/dashboard/phpinfo.php y buscando los valores en la tabla
+
+
 - Niveles de usuario
   - Que cada usuario puede o no puede entrar en cada página del sitio.
   - Mensajes de error al hacer login
@@ -72,8 +76,8 @@ Estas son algunas de las cosas que podría hacer para Selenium
   - <s>Aviso individual: Texto demasiado largo.</s>
 
 Errores detectados:
-  - He puesto ATENCION en el "comment" del json cuando hace algo mal y el test no lo detecta (había puersto verify y la comprobación de lo que debería hacer, para que me señale el error pero termine el test pero cuando hay errores el IDE no presenta la información de forma fácil, así que he dejado assert y la comprobación de lo que hace, pero con el aviso ATENCION)
-  - En Borrar, si no se selecciona ningún registro, se muestran dos avisos: "No se ha creado todavía ningún registro." y "No se ha creado todavía ningún registro."
+  - He puesto ATENCION en el "comment" del json cuando hace algo mal y el test no lo detecta (había puersto verify y la comprobación de lo que debería hacer, para que me señale el error pero termine el test pero cuando hay errores el IDE no presenta la información de forma fácil, así que he dejado assert y la comprobación de lo que hace, pero con el aviso ATENCION).
+  - Cuando se marcan varios registros para borrar saca varias veces el mensaje "Registro borrado correctamente.". Lo tengo marcado con ATENCION. Realmente no es incorrecto, pero queda raro. Quizás debería incluir campos del registro en el mensaje para que se viera que cada mensaje corresponde a cada uno de los registros borrados. O quizás sería mejor sacar un único mensaje
 
 
 ## Test de las tablas
@@ -84,3 +88,4 @@ Errores detectados:
 
 * [2021-04-27] El tamaño de los campos es configurable. Al probar si detecta los campos demasiado largos habría que asegurarse de que prueba con cadenas lo suficientemente largas.
 
+* [2021-03-05] Faltan las comprobaciones de superación del límite de registros, pero para eso hay que poner un valor pequeño y activarlo.
