@@ -18,7 +18,7 @@ if (hayErrores("modificar-3")) {
     exit();
 }
 
-[$nombre, $apellidos, $dni, $id] = compruebaAvisosIndividuales("modificar-3", "personas", "nombre", "apellidos", "dni", "id");
+[$nombre, $apellidos, $dni] = compruebaAvisosIndividuales("modificar-3", "personas", "nombre", "apellidos", "dni");
 
 compruebaAvisosGenerales("modificar-3", "todosVaciosMenosPrimero", "id", "nombre", "apellidos", "dni");
 

@@ -16,9 +16,9 @@ borraAvisosExcepto();
 compruebaAvisosGenerales("listar", "sinRegistros", "obras");
 
 if (!imprimeAvisosGenerales("listar")) {
-    $ordena = recogeValores("ordena", $db["columnasObrasOrden"], "titulo ASC");
-
     $pdo = conectaDb();
+
+    $ordena = recogeValores("ordena", $db["columnasObrasOrden"], "titulo ASC");
 
     $consulta = "SELECT *
                  FROM $db[obras]

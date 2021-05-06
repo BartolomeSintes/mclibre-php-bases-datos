@@ -11,11 +11,13 @@ compruebaSesion(NIVEL_3, PROFUNDIDAD_2);
 
 cabecera("Préstamos - Añadir 1", MENU_PRESTAMOS, PROFUNDIDAD_2);
 
+imprimeAvisosGenerales("insertar-2");
+
 borraAvisosExcepto("insertar-2");
 
 compruebaAvisosGenerales("insertar-1", "limiteNumeroRegistros", "prestamos");
 
-imprimeAvisosGenerales("insertar-1", "insertar-2");
+imprimeAvisosGenerales("insertar-1");
 
 $pdo = conectaDb();
 

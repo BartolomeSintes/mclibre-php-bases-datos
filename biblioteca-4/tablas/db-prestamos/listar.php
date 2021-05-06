@@ -16,9 +16,9 @@ borraAvisosExcepto();
 compruebaAvisosGenerales("listar", "sinRegistros", "prestamos");
 
 if (!imprimeAvisosGenerales("listar")) {
-    $ordena = recogeValores("ordena", $db["columnasPrestamosOrden"], "apellidos ASC");
-
     $pdo = conectaDb();
+
+    $ordena = recogeValores("ordena", $db["columnasPrestamosOrden"], "apellidos ASC");
 
     $consulta = "SELECT
                    prestamos.id,

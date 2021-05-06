@@ -94,7 +94,7 @@ if (!$result) {
                 . $consultaPrestado
                 . $consultaDevuelto
                 . " ORDER BY $ordena";
-printValores($consulta);
+
     $result = $pdo->prepare($consulta);
     $result->execute($parametros);
     if (!$result) {

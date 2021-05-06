@@ -13,8 +13,9 @@ function comprobaciones($origen, $tabla, $campo, $valor)
     $mensaje = "";
 
     if ($campo == "id") {
-        if ($valor == "") {
+        if ($valor == "" || $valor == []) {
             $_SESSION["avisosGenerales"][$origen][] = "No ha seleccionado ningún registro.";
+            $valor = "";
         } else {
             $pdo      = conectaDb();
             $consulta = "SELECT COUNT(*)
@@ -235,7 +236,7 @@ function compruebaAvisosGenerales()
                 $_SESSION["avisosGenerales"][$origen][] = "Error en la consulta.";
                 return true;
             }
-            $valor = $valor = $result->fetch(PDO::FETCH_ASSOC);
+            $valor = $result->fetch(PDO::FETCH_ASSOC);
             if ($valor["usuario"] == $cfg["rootName"]) {
                 $_SESSION["avisosGenerales"][$origen][] = "El usuario root no se puede borrar o modificar.";
                 return true;

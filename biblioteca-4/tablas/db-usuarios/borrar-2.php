@@ -9,13 +9,11 @@ require_once "../../comunes/biblioteca.php";
 
 compruebaSesion(NIVEL_3, PROFUNDIDAD_2);
 
-$id = recoge("id[]");
-
 borraAvisosExcepto();
 
-compruebaAvisosGenerales("borrar-2", "incluyeUsuarioRoot", $id);
+[$id] = compruebaAvisosIndividuales("borrar-2", "usuarios", "id[]");
 
-compruebaAvisosIndividuales("borrar-2", "usuarios", "id");
+compruebaAvisosGenerales("borrar-2", "incluyeUsuarioRoot", $id);
 
 if (hayErrores("borrar-2")) {
     header("Location:borrar-1.php");

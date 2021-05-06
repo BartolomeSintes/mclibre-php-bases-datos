@@ -46,7 +46,8 @@ function compruebaAvisosIndividuales()
     $error      = false;
     foreach ($argumentos as $campo) {
         $valor = recoge($campo);
-        if (is_array($valor)) {
+        $campo = (substr($campo, -2) == "[]") ? substr($campo, 0, -2) : $campo;
+        if (is_array($valor) && count($valor) > 0) {
             $comp  = [];
             foreach ($valor as $indice => $valor2) {
                 $resp          = comprobaciones($origen, $tabla, $campo, $indice);
@@ -58,7 +59,11 @@ function compruebaAvisosIndividuales()
         $paraSesion[$campo] = $comp;
         $resp[]             = $valor;
     }
-    $_SESSION["avisosIndividuales"][$origen][$tabla] = $paraSesion;
+    if (isset($_SESSION["avisosIndividuales"][$origen][$tabla])) {
+        $_SESSION["avisosIndividuales"][$origen][$tabla] = array_merge_recursive($_SESSION["avisosIndividuales"][$origen][$tabla], $paraSesion);
+    } else {
+        $_SESSION["avisosIndividuales"][$origen][$tabla] = $paraSesion;
+    }
     // devuelve [$valor1, $valor2, ...
     return $resp;
 }

@@ -18,7 +18,7 @@ if (hayErrores("modificar-3")) {
     exit();
 }
 
-[$autor, $titulo, $editorial, $id] = compruebaAvisosIndividuales("modificar-3", "obras", "autor", "titulo", "editorial", "id");
+[$autor, $titulo, $editorial] = compruebaAvisosIndividuales("modificar-3", "obras", "autor", "titulo", "editorial");
 
 compruebaAvisosGenerales("modificar-3", "todosVaciosMenosPrimero", "id", "autor", "titulo", "editorial");
 

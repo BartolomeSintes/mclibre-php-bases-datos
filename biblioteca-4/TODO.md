@@ -64,7 +64,7 @@ Estas son algunas de las cosas que me quedan por hacer y que podrían hacerse en
 
 * [2021-04-29] En una [página de IBM sobre log levels](https://www.ibm.com/docs/en/sdi/7.1.1?topic=debugging-log-levels-log-level-control) describían los diferentes tipos de avisos que tenía una aplicación: Off, Fatal, Error, Warn, Info, Debug y All. Hay [listas más amplias]/https://www.ibm.com/docs/en/imdm/11.6?topic=handling-severity-levels). En la Wikipedia hay una [página sobre Syslog](https://en.wikipedia.org/wiki/Syslog) que es un [RFC 5424: Protocolo Syslog](https://tools.ietf.org/html/rfc5424). En Syslog definen 7 niveles: Emergency, Alert, Critical, Error, Warning, Notice, Information y Debug. Me inspiré en esa lista para llamar a las clases aviso-error y aviso-info.
 
-* [2021-05-03] borrar-2. Probar a cargar id usando $id = compruebaAvisosIndividuales para no tener que recoger id con la función recoge().
+* [2021-05-03] borrar-2. Probar a cargar id usando [$id] = compruebaAvisosIndividuales para no tener que recoger id con la función recoge().
 
 
 ## Para corregir (menos importante)
@@ -88,6 +88,12 @@ Estas son algunas de las cosas que me quedan por hacer y que podrían hacerse en
 * [2021-04-21] insertar-2. Después de hayErrores insertar-2 pone borraAvisos() pero yo diría que se puede quitar.
 
 * [2021-04-21] Poner en date devolución atributo min con la fecha del préstamo para que no deje poner una fecha anterior.
+
+* [2021-05-06] prestamos > buscar-2. No utiliza compruebaAvisosIndividuales ni compruebaAvisosGenerales.
+
+* [2021-05-06] prestamos > buscar-2. Averiguar si el if para incluir las fechas en la consulta se podría simplificar con dos if seguidos (tanto en la fecha de préstamo como en la de devolución).
+
+* [2021-05-06] usuarios > modificar-3. Si se deja la contraseña en blanco vuelve a modificar-2 y escribe mensaje "Debe escribir una contraseña.". Se supone que si se deja en blanco es que se quiere mantener la contraseña.
 
 ## Para averiguar
 

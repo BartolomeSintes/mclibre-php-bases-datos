@@ -11,9 +11,9 @@ compruebaSesion(NIVEL_3, PROFUNDIDAD_2);
 
 cabecera("Préstamos - Borrar 1", MENU_PRESTAMOS, PROFUNDIDAD_2);
 
-borraAvisosExcepto("borrar-2");
-
 imprimeAvisosGenerales("borrar-2");
+
+borraAvisosExcepto();
 
 compruebaAvisosGenerales("borrar-1", "sinRegistros", "prestamos");
 
@@ -113,8 +113,7 @@ if (!imprimeAvisosGenerales("borrar-1")) {
         print "      </p>\n";
         print "    </form>\n";
     }
+    $pdo = null;
 }
-
-$pdo = null;
 
 pie();

@@ -26,7 +26,7 @@ if (!$usuario) {
     if (!$result) {
         $_SESSION["avisosGenerales"]["login-2"][] = "Error en la consulta";
     } else {
-        $valor = $valor = $result->fetch(PDO::FETCH_ASSOC);
+        $valor = $result->fetch(PDO::FETCH_ASSOC);
         if ($valor["password"] != encripta($password)) {
             $_SESSION["avisosGenerales"]["login-2"][] = "Nombre de usuario y/o contraseña incorrectos";
         }

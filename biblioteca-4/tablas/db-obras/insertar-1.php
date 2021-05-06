@@ -11,9 +11,9 @@ compruebaSesion(NIVEL_3, PROFUNDIDAD_2);
 
 cabecera("Obras - Añadir 1", MENU_OBRAS, PROFUNDIDAD_2);
 
-borraAvisosExcepto("insertar-2");
-
 imprimeAvisosGenerales("insertar-2");
+
+borraAvisosExcepto("insertar-2");
 
 compruebaAvisosGenerales("insertar-1", "limiteNumeroRegistros", "obras");
 

@@ -11,9 +11,9 @@ compruebaSesion(NIVEL_2, PROFUNDIDAD_2);
 
 cabecera("Obras - Buscar 1", MENU_OBRAS, PROFUNDIDAD_2);
 
-borraAvisosExcepto("buscar-2");
-
 imprimeAvisosGenerales("buscar-2");
+
+borraAvisosExcepto();
 
 compruebaAvisosGenerales("buscar-1", "sinRegistros", "obras");
 

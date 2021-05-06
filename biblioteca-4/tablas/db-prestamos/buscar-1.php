@@ -11,9 +11,9 @@ compruebaSesion(NIVEL_2, PROFUNDIDAD_2);
 
 cabecera("Préstamos - Buscar 1", MENU_PRESTAMOS, PROFUNDIDAD_2);
 
-borraAvisosExcepto("buscar-2");
-
 imprimeAvisosGenerales("buscar-2");
+
+borraAvisosExcepto();
 
 compruebaAvisosGenerales("buscar-1", "sinRegistros", "prestamos");
 

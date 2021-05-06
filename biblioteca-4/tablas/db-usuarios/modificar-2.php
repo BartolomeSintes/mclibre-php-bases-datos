@@ -39,7 +39,7 @@ $result->execute([":id" => $id]);
 if (!$result) {
     print "    <p class=\"aviso-error\">Error en la consulta.</p>\n";
 } else {
-    $valor = $valor = $result->fetch(PDO::FETCH_ASSOC);
+    $valor = $result->fetch(PDO::FETCH_ASSOC);
     print "    <form action=\"modificar-3.php\" method=\"$cfg[formMethod]\">\n";
     print "      <p>Modifique los campos que desee (deje la contraseña en blanco para mantenerla):</p>\n";
     print "\n";
