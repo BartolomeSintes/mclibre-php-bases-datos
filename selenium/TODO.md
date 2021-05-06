@@ -10,7 +10,7 @@ Estas son algunas de las cosas que podría hacer para Selenium
 
 * [2021-04-24] Los assertNotText son un poco peligrosos, porque puedo estar mirando el elemento que no toca. No he visto cómo buscar un texto en cualquier lugar de la página.
 
-* [2021-04-26] Debería ver si se pueden crear variables de array y hacer bubles que iteren sobre ellas. Lo necesitaría para crear una función Insertar general, porque cada tabla tiene un número de campos distintos.
+* [2021-04-26] Debería ver si se pueden crear variables de array y hacer bucles que iteren sobre ellas. Lo necesitaría para crear una función Insertar general, porque cada tabla tiene un número de campos distintos.
 
 * [2021-04-29] He intentado sumar dos variables creadas con **store** para guardarlas en otra variable y no lo he conseguido. En Internet hacen todo el rato referencia a storeEval que no funciona en Selenium IDE 3 y con Javascript dicen de usar la matriz storedVars (storedvars['nombreVariable']), pero el IDE dice que storedVars no existe.
 
@@ -20,10 +20,17 @@ Estas son algunas de las cosas que podría hacer para Selenium
 
 * [2021-04-29] Al renumerar los test, podría tener en cuenta tests con comentarios para saltar de 100 en 100. O al menos los comentarios que empezarán por alguna palabra que significara que empieza un bloque de tests. Antes de eso tendría que comprobar que saltar de 100 en 100 es suficiente.
 
-## Pruebas a realizar en cada página
+## Pruebas para Biblioteca-4
 
 * [2021-05-05] ¿Desde Selenium se podrá conocer la configuración del servidor? Me refiero a error_reporting y a output_buffering. Si es XAMPP Se podría hacer abriendo http://localhost/dashboard/phpinfo.php y buscando los valores en la tabla
 
+* [2021-05-03] Tendría que hacer las pruebas con el límite de registros activado y un número bajo. Serían unas pruebas aparte.
+
+* [2021-05-06] Tendría que hacer las pruebas sin base de datos para ver mensajes de error.
+
+* [2021-05-06] Añadir en la comprobación de avisos la comprobación de la clase aviso-error, aviso-info, etc.
+
+### Pruebas a realizar en cada página
 
 - Niveles de usuario
   - Que cada usuario puede o no puede entrar en cada página del sitio.
@@ -87,5 +94,3 @@ Errores detectados:
 * [2021-04-26] Averiguar cómo comprobar que dentro del main sólo está el avisoGeneral que se busca (para los casos en que sólo se tiene que mostrar un aviso general).
 
 * [2021-04-27] El tamaño de los campos es configurable. Al probar si detecta los campos demasiado largos habría que asegurarse de que prueba con cadenas lo suficientemente largas.
-
-* [2021-03-05] Faltan las comprobaciones de superación del límite de registros, pero para eso hay que poner un valor pequeño y activarlo.

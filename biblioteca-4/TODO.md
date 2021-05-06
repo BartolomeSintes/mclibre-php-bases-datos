@@ -2,6 +2,16 @@
 
 Estas son algunas de las cosas que me quedan por hacer y que podrían hacerse en biblioteca-4 y siguientes.
 
+## Estructura $_SESSION
+
+- [conectado] => Nivel de usuario
+- [avisosIndividuales][página][tabla][campo][valor] => Texto introducido por el usuario
+- [avisosIndividuales][página][tabla][campo][campoOK] => true/false
+- [avisosIndividuales][página][tabla][campo][texto] => Mensaje de error para mostrar en el formulario
+- [avisosGenerales][ocultaFormulario] => true (no hay false, o es true o no existe)
+- [avisosGenerales][página][nº][texto] => Mensaje de error para mostrar al principio de la página
+- [avisosGenerales][página][nº][claseAviso] => error / info
+
 ## Ideas para Biblioteca-5
 
 * [2021-04-10] Hacer una página para que el usuario pueda cambiar la configuración. Para ello, la configuración debería estar en un fichero json (clave, valor, comentario) para poder guardarlo.
@@ -64,6 +74,9 @@ Estas son algunas de las cosas que me quedan por hacer y que podrían hacerse en
 
 * [2021-04-29] En una [página de IBM sobre log levels](https://www.ibm.com/docs/en/sdi/7.1.1?topic=debugging-log-levels-log-level-control) describían los diferentes tipos de avisos que tenía una aplicación: Off, Fatal, Error, Warn, Info, Debug y All. Hay [listas más amplias]/https://www.ibm.com/docs/en/imdm/11.6?topic=handling-severity-levels). En la Wikipedia hay una [página sobre Syslog](https://en.wikipedia.org/wiki/Syslog) que es un [RFC 5424: Protocolo Syslog](https://tools.ietf.org/html/rfc5424). En Syslog definen 7 niveles: Emergency, Alert, Critical, Error, Warning, Notice, Information y Debug. Me inspiré en esa lista para llamar a las clases aviso-error y aviso-info.
 
+* [2021-05-06] Cuando detecta errores individuales, podría generar un aviso general diciendo "Se han detectado problemas en los datos enviados" o algo similar.
+
+* [2021-05-06] Si el usuario root no se puede borrar, lo lógico sería que no apareciera al hacer usuarios > borrar-1.
 
 ## Para corregir (menos importante)
 
@@ -91,6 +104,10 @@ Estas son algunas de las cosas que me quedan por hacer y que podrían hacerse en
 
 * [2021-05-06] usuarios > modificar-3. Si se deja la contraseña en blanco vuelve a modificar-2 y escribe mensaje "Debe escribir una contraseña.". Se supone que si se deja en blanco es que se quiere mantener la contraseña.
 
+* [2021-05-06] Si se vuelve a un formulario con errores y te vas a otra opción del menú, cuando vuelves a la página te salen los avisos. Sólo se borran si envías el formulario, porque se borrar en la página 2.
+
+* [2021-05-06] Al reordenar un listado no se comprueban errores. En el criterio de ordenación da lo mismo porque hay uno por defecto, pero en los id igual debería decir algo, aunque la verdad es que no afecta a la página porque sólo marca las casillas correctas.
+
 ## Para averiguar
 
 * [2021-04-23] Si se borra un registro, ¿la base de datos reutiliza el valor del id? ¿O depende de la bd? Para Selenium igual es un problema, porque al guardar un registro no puedo saber su id a priori.
@@ -98,6 +115,8 @@ Estas son algunas de las cosas que me quedan por hacer y que podrían hacerse en
 * [2021-04-22] Pensar una manera de trabajar con las fechas de forma transparente, que convierta las fechas al fromato correcto para formularios y para la base de datos.
 
 * [2021-04-17] Comprobar si MySQL detecta máximo de registros, porque en config.php["maxRegTabla"] pone "usuarios", etc. y no $db["usuarios"], etc.
+
+* [2021-05-06] Los avisos generales duplicados se eliminan en imprimeAvisosGenerales()() si son de la misma página, pero si son de páginas distintas no. Por ejemplo, si se ha alcanzado el límite de registros y se llama en la barra de dirección a insertar-2 con campos incorrectos, vuelve a insertar-1 y escribe dos veces el aviso del límite superado (uno detectado por insertar-2 y otro detectado por insertar-1). No sé si merece la pena corregirlo.
 
 
 ## Comprobación de ids
@@ -207,3 +226,4 @@ Tendría que hacer una lista de comprobaciones que yo hago y ver cuáles se pued
 * [2021-04-19] Aclarar cómo manejan las mayúsculas y minúsculas SQLite o MySQL (en existeRegistro lo resuelvo con lower).
 
 * [2021-04-17] ¿Alguna base de datos da error si se intenta borrar un registro que no existe? MySQL y SQLite no dan error. Es más una curiosidad que otra cosa porque en biblioteca-4 al recoger un id compruebaAvisosIndividuales() comprueba que el registro exista y si no genera un aviso.
+

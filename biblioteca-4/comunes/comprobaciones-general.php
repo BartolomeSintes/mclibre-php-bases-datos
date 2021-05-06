@@ -75,8 +75,8 @@ function imprimeAvisosGenerales()
     foreach ($argumentos as $origen) {
         if (isset($_SESSION["avisosGenerales"][$origen]) && count($_SESSION["avisosGenerales"][$origen]) > 0) {
             $_SESSION["avisosGenerales"][$origen] = array_unique($_SESSION["avisosGenerales"][$origen]);
-            foreach ($_SESSION["avisosGenerales"][$origen] as $mensaje) {
-                print "    <p class=\"aviso-error\">$mensaje</p>\n";
+            foreach ($_SESSION["avisosGenerales"][$origen] as $aviso) {
+                print "    <p class=\"$aviso[claseAviso]\">$aviso[texto]</p>\n";
             }
         }
     }

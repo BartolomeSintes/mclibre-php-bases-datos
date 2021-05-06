@@ -892,7 +892,7 @@
                 {
                     "id": "testea-personas-1-3-5",
                     "command": "storeXpathCount",
-                    "target": "xpath=//*[contains(@class, 'aviso-error')]",
+                    "target": "xpath=//*[contains(@class, 'aviso-info')]",
                     "value": "cuentaAvisosError"
                 },
                 {
@@ -941,7 +941,7 @@
                 {
                     "id": "testea-personas-1-4-5",
                     "command": "storeXpathCount",
-                    "target": "xpath=//*[contains(@class, 'aviso-error')]",
+                    "target": "xpath=//*[contains(@class, 'aviso-info')]",
                     "value": "cuentaAvisosError"
                 },
                 {
@@ -990,7 +990,7 @@
                 {
                     "id": "testea-personas-1-5-5",
                     "command": "storeXpathCount",
-                    "target": "xpath=//*[contains(@class, 'aviso-error')]",
+                    "target": "xpath=//*[contains(@class, 'aviso-info')]",
                     "value": "cuentaAvisosError"
                 },
                 {
@@ -2797,7 +2797,7 @@
                 {
                     "id": "testea-personas-1-36-16",
                     "command": "storeXpathCount",
-                    "target": "xpath=//*[contains(@class, 'aviso-error')]",
+                    "target": "xpath=//*[contains(@class, 'aviso-info')]",
                     "value": "cuentaAvisosError"
                 },
                 {

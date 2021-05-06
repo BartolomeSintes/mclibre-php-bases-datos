@@ -6,16 +6,17 @@ El formato se basa en [Keep a Changelog](https://keepachangelog.com/en/1.0.0/).
 
 Este changelog incluye los cambios hechos en Biblioteca-3, Biblioteca-4, etc.
 
-
-## 2021-05-
+## 2021-05-06
 
 ### Changed (Modificado)
 - Cambio función recoge() para que tenga un único argumento, de manera que cuando el argumento termine en "[]" signifique que va a ser una matriz ("id" o "id[]").
 - Añado variable de sesión $_SESSION["avisosGenerales"]["ocultaFormulario"] y función muestraFormulario() para no mostrar el formulario cuando sea necesario. La función imprimeAvisosImpresos() ya no devuelve nada (antes devolvía true o false) porque antes lo utilizaba para decidir si ponía o no el formulario (no era una buena idea porque el hecho de haber avisos generales no es suficiente para decidirlo).
+- Modifico la estructura de $_SESSION["avisosGenerales"] para incluir clase de aviso ["claseAviso"] (por ahora, solo tengo definidas las clases aviso-error y aviso-info) y el texto ["texto"].
 
 ### Fixed (Corregido)
 - Corrijo problema aviso duplicado (registro no seleccionado)
 - Muevo función cabecera() para que no de errores con output_buffering
+
 
 ## 2021-05-03
 
@@ -23,6 +24,7 @@ Este changelog incluye los cambios hechos en Biblioteca-3, Biblioteca-4, etc.
 - Borrar-1 generaba un aviso doble general cuando no se elegía ningún registro, porque se hacía una comprobación general registrosNoSeleccionados y la comprobación individual sobre id que también genera un aviso general. Lo he resuelto de dos maneras:
   - He quitado la comprobación del aviso general registrosNoSeleccionados en borrar-2 (de hecho en modificar-2 no se hacía y por eso no se duplicaba el aviso)
   - He añadido un array_unique en imprimeAvisosGenerales() para que elimine los avisos repetidos (con este cambio, si se generan avisos duplicados, no me enteraré nunca)
+
 
 ## 2021-05-01
 
