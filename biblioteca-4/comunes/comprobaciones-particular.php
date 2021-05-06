@@ -361,6 +361,7 @@ function compruebaAvisosGenerales()
         }
         if ($result->fetchColumn() == 0) {
             $_SESSION["avisosGenerales"][$origen][] = "No se ha creado todavía ningún registro.";
+            $_SESSION["avisosGenerales"]["ocultaFormulario"] = true;
             return true;
         }
         $pdo = null;
@@ -384,6 +385,7 @@ function compruebaAvisosGenerales()
         }
         if ($result->fetchColumn() == 0) {
             $_SESSION["avisosGenerales"][$origen][] = "No hay obras pendientes de devolución.";
+            $_SESSION["avisosGenerales"]["ocultaFormulario"] = true;
             return true;
         }
         $pdo = null;
@@ -406,6 +408,7 @@ function compruebaAvisosGenerales()
         }
         if ($result->fetchColumn() >= $cfg["maxRegTabla"][$tabla]) {
             $_SESSION["avisosGenerales"][$origen][] = "Se ha alcanzado el número máximo de registros que se pueden guardar. Por favor, borre algún registro antes.";
+            $_SESSION["avisosGenerales"]["ocultaFormulario"] = true;
             return true;
         }
         $pdo = null;

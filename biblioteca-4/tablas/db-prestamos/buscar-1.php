@@ -17,7 +17,9 @@ borraAvisosExcepto();
 
 compruebaAvisosGenerales("buscar-1", "sinRegistros", "prestamos");
 
-if (!imprimeAvisosGenerales("buscar-1")) {
+imprimeAvisosGenerales("buscar-1");
+
+if (muestraFormulario()) {
     print "    <form action=\"buscar-2.php\" method=\"$cfg[formMethod]\">\n";
     print "      <p>Escriba el criterio de búsqueda (caracteres o números):</p>\n";
     print "\n";

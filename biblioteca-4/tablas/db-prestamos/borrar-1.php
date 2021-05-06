@@ -17,7 +17,9 @@ borraAvisosExcepto();
 
 compruebaAvisosGenerales("borrar-1", "sinRegistros", "prestamos");
 
-if (!imprimeAvisosGenerales("borrar-1")) {
+imprimeAvisosGenerales("borrar-1");
+
+if (muestraFormulario()) {
     $pdo = conectaDb();
 
     $ordena = recogeValores("ordena", $db["columnasPrestamosOrden"], "apellidos ASC");

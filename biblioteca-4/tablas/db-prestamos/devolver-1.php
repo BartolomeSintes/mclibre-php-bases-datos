@@ -17,7 +17,9 @@ imprimeAvisosGenerales("devolver-2");
 
 compruebaAvisosGenerales("devolver-1", "sinPrestamosPendientes", "prestamos");
 
-if (!imprimeAvisosGenerales("devolver-1")) {
+imprimeAvisosGenerales("devolver-1");
+
+if (muestraFormulario()) {
     $pdo = conectaDb();
 
     $ordena = recogeValores("ordena", $db["columnasPrestamosOrden"], "autor ASC");

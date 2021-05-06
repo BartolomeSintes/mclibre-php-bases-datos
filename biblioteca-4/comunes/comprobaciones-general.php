@@ -72,17 +72,14 @@ function imprimeAvisosGenerales()
 {
     $argumentos = func_get_args();
 
-    $avisosImpresos = false;
     foreach ($argumentos as $origen) {
         if (isset($_SESSION["avisosGenerales"][$origen]) && count($_SESSION["avisosGenerales"][$origen]) > 0) {
             $_SESSION["avisosGenerales"][$origen] = array_unique($_SESSION["avisosGenerales"][$origen]);
             foreach ($_SESSION["avisosGenerales"][$origen] as $mensaje) {
                 print "    <p class=\"aviso-error\">$mensaje</p>\n";
             }
-            $avisosImpresos = true;
         }
     }
-    return $avisosImpresos;
 }
 
 function imprimeAvisosIndividuales($origen, $tabla, $campo, $tipo, $valor = "SINVALORNINGUNO")
@@ -197,4 +194,9 @@ function hayErrores()
 function hayErroresGenerales($origen)
 {
     return isset($_SESSION["avisosGenerales"][$origen]);
+}
+
+function muestraFormulario()
+{
+    return !isset($_SESSION["avisosGenerales"]["ocultaFormulario"]);
 }

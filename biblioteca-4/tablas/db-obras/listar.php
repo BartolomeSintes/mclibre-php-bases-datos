@@ -15,7 +15,9 @@ borraAvisosExcepto();
 
 compruebaAvisosGenerales("listar", "sinRegistros", "obras");
 
-if (!imprimeAvisosGenerales("listar")) {
+imprimeAvisosGenerales("insertar-1");
+
+if (muestraFormulario()) {
     $pdo = conectaDb();
 
     $ordena = recogeValores("ordena", $db["columnasObrasOrden"], "titulo ASC");

@@ -26,12 +26,14 @@ Estas son algunas de las cosas que me quedan por hacer y que podrían hacerse en
 
 * [2021-05-06] Si llega una matriz a una variable que no lo es o llega un escalar a una variable que es una matriz debería detectarlo como error.
 
+* [2021-05-06] Si se inserta un registro que ya existía, vuelve al formulario pero no rellena el formulario con los datos que escribió el usuario. No sé si se tendría que rellenar o no.
+
+* [2021-05-06] borrar-2. Si se envía id[válido] = "loquesea" borra el registro, no hace falta que sea "on".
+
 
 ## Próximos pasos
 
 * [2021-05-05] Si no puede acceder a SQLite, Error grave duplica las cabeceras.
-
-* [2021-05-04] Unificar el orden de las primeras líneas en insertar/listar/borrar/etc. No están igual en todas las páginas y convendría que fueran lo más parecidas posibles.
 
 * [2021-04-10] Los select/radio/checkbox no muestran el valor elegido por el usuario cuando se detectan errores y se vuelve al formulario (prestamos/insertar-1 y prestamos/modificar-2)
 
@@ -42,8 +44,6 @@ Estas son algunas de las cosas que me quedan por hacer y que podrían hacerse en
 * [2021-04-10] Aclarar cómo trabajar con las fechas: cómo quitar una fecha (si tiene sentido hacerlo), etc.
 
 * [2021-04-10] Hacer páginas /acceso y /administrador como /tablas.
-
-* [2021-04-27] Cuando el aviso general es que se ha superado el límite, no debería sacar el formulario. Igual debería añadir un campo que fuera (sin-formulario) y se activara cuando el error lo requiere.
 
 
 ## Para corregir (más importante)
@@ -64,14 +64,10 @@ Estas son algunas de las cosas que me quedan por hacer y que podrían hacerse en
 
 * [2021-04-29] En una [página de IBM sobre log levels](https://www.ibm.com/docs/en/sdi/7.1.1?topic=debugging-log-levels-log-level-control) describían los diferentes tipos de avisos que tenía una aplicación: Off, Fatal, Error, Warn, Info, Debug y All. Hay [listas más amplias]/https://www.ibm.com/docs/en/imdm/11.6?topic=handling-severity-levels). En la Wikipedia hay una [página sobre Syslog](https://en.wikipedia.org/wiki/Syslog) que es un [RFC 5424: Protocolo Syslog](https://tools.ietf.org/html/rfc5424). En Syslog definen 7 niveles: Emergency, Alert, Critical, Error, Warning, Notice, Information y Debug. Me inspiré en esa lista para llamar a las clases aviso-error y aviso-info.
 
-* [2021-05-03] borrar-2. Probar a cargar id usando [$id] = compruebaAvisosIndividuales para no tener que recoger id con la función recoge().
-
 
 ## Para corregir (menos importante)
 
 * [2021-04-20] En Usuarios &gt; Buscar el nivel no ofrece la posibilidad de dejarlo en blanco (que querría decir que te da lo mismo el nivel).
-
-* [2021-04-27] Al detectar un aviso en insertar-2, puede ser más lógico que no se muestre el formualrio. Por ejemplo si se ha superado el número de registros al insertar o si no hay registros al buscar. En selenium habría que detectar que no se han mostrado esos elementos.
 
 * [2021-04-28] Al borrar registros si se envían id que no corresponden a registros, no borra ninguno y se muestran tantos avisos como registros no encontrados. Debería sacar un único mensaje de error que dijera "Alguno de los registros que ha solicitado borrar no existe. No se ha borrado ningún registro." Aunque en realidad eso solo ocurre cuando se manipula la barra de dirección.
 
@@ -168,12 +164,6 @@ Tendría que hacer una lista de comprobaciones que yo hago y ver cuáles se pued
 * [2021-04-07] La comprobación de datos que estoy haciendo no contempla que un campo se llame de la misma forma en dos tablas distintas. Por ejemplo, no se podría comprobar si existe un registro con el id recogido. La solución parece que tendrá que ser enviar la tabla y el campo.
 
 * [2021-04-09] Aclarar qué hacer con las comprobaciones de id (si existe un registro, por ejemplo). Tendría que enviar el nombre de la tabla.
-
-* [2021-04-09] Tanto compruebaAvisosIndividuales como compruebaAvisosGenerales recogen los datos. Lo hago para que solo haya que dar como argumento los nombres de los campos (si pasara las variables que recogen los datos, de todas formas tendría que decirle cómo se llama el campo que tiene que guardar). Parece que lo que tendría que poder quitar es la función recoge() de las páginas como hago en buscar-2.
-
-El único problema es que id puede ser tanto un escalar (en modificar) como una matriz (en borrar). En la función recoge() tengo un argumento opcional en el que pongo [] para indicar que se quiere recoger una matriz pero en las funciones compruebaAvisos no (si llega una matriz recoge una matriz).
-
-Una solución podría ser que el argumento que dice el nombre del campo fuera "id" o "id[]" y la función pudiera saber si se espera un escalar o una matriz.
 
 * [2021-04-09] Igual en las comprobaciones habría que distinguir entre errores (error en la consulta, por ejemplo) y avisos (falta un campo, etc.) y hacer un log de los errores
 

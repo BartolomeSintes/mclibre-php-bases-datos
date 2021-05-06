@@ -11,6 +11,7 @@ Este changelog incluye los cambios hechos en Biblioteca-3, Biblioteca-4, etc.
 
 ### Changed (Modificado)
 - Cambio función recoge() para que tenga un único argumento, de manera que cuando el argumento termine en "[]" signifique que va a ser una matriz ("id" o "id[]").
+- Añado variable de sesión $_SESSION["avisosGenerales"]["ocultaFormulario"] y función muestraFormulario() para no mostrar el formulario cuando sea necesario. La función imprimeAvisosImpresos() ya no devuelve nada (antes devolvía true o false) porque antes lo utilizaba para decidir si ponía o no el formulario (no era una buena idea porque el hecho de haber avisos generales no es suficiente para decidirlo).
 
 ### Fixed (Corregido)
 - Corrijo problema aviso duplicado (registro no seleccionado)
