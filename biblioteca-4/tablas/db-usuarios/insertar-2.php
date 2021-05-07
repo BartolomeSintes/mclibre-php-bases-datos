@@ -24,8 +24,6 @@ if (hayErrores("insertar-2")) {
     exit();
 }
 
-borraAvisosExcepto();
-
 cabecera("Usuarios - Añadir 2", MENU_USUARIOS, PROFUNDIDAD_2);
 
 $pdo = conectaDb();

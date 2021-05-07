@@ -14,11 +14,13 @@ Estas son algunas de las cosas que podría hacer para Selenium
 
 * [2021-04-29] He intentado sumar dos variables creadas con **store** para guardarlas en otra variable y no lo he conseguido. En Internet hacen todo el rato referencia a storeEval que no funciona en Selenium IDE 3 y con Javascript dicen de usar la matriz storedVars (storedvars['nombreVariable']), pero el IDE dice que storedVars no existe.
 
+
 ## utilidades.py
 
 * [2021-04-26] Que compruebe si los nombres de los tests utilizados en las suites existen.
 
 * [2021-04-29] Al renumerar los test, podría tener en cuenta tests con comentarios para saltar de 100 en 100. O al menos los comentarios que empezarán por alguna palabra que significara que empieza un bloque de tests. Antes de eso tendría que comprobar que saltar de 100 en 100 es suficiente.
+
 
 ## Pruebas para Biblioteca-4
 
@@ -29,6 +31,14 @@ Estas son algunas de las cosas que podría hacer para Selenium
 * [2021-05-06] Tendría que hacer las pruebas sin base de datos para ver mensajes de error.
 
 * [2021-05-06] Añadir en la comprobación de avisos la comprobación de la clase aviso-error, aviso-info, etc.
+
+* [2021-05-07] para comprobar que no duplica la cabecera podría contar el número de h1.
+
+* [2021-05-07] Podría dividir las pruebas en:
+  - uso normal de la aplicación
+  - intentos de manipular modificando la url
+  - uso caótico de la aplicación (¿fuzzy testing?). Esto sólo tendría sentido hacerlo por programa, pero aparte de hacer clic a lo loco, no se me ocurre qué debería hacerse y el problema es saber qué tiene que hacer la aplicación.
+
 
 ### Pruebas a realizar en cada página
 

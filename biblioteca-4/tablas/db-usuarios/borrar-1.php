@@ -27,6 +27,7 @@ if (muestraFormulario()) {
 
     $consulta = "SELECT *
                  FROM $db[usuarios]
+                 WHERE usuario!='$cfg[rootName]'
                  ORDER BY $ordena";
     $result = $pdo->query($consulta);
     if (!$result) {

@@ -24,8 +24,6 @@ if (hayErrores("insertar-2")) {
     exit();
 }
 
-borraAvisosExcepto();
-
 cabecera("Obras - Añadir 2", MENU_OBRAS, PROFUNDIDAD_2);
 
 $pdo = conectaDb();

@@ -2,16 +2,6 @@
 
 Estas son algunas de las cosas que me quedan por hacer y que podrían hacerse en biblioteca-4 y siguientes.
 
-## Estructura $_SESSION
-
-- [conectado] => Nivel de usuario
-- [avisosIndividuales][página][tabla][campo][valor] => Texto introducido por el usuario
-- [avisosIndividuales][página][tabla][campo][campoOK] => true/false
-- [avisosIndividuales][página][tabla][campo][texto] => Mensaje de error para mostrar en el formulario
-- [avisosGenerales][ocultaFormulario] => true (no hay false, o es true o no existe)
-- [avisosGenerales][página][nº][texto] => Mensaje de error para mostrar al principio de la página
-- [avisosGenerales][página][nº][claseAviso] => error / info
-
 ## Ideas para Biblioteca-5
 
 * [2021-04-10] Hacer una página para que el usuario pueda cambiar la configuración. Para ello, la configuración debería estar en un fichero json (clave, valor, comentario) para poder guardarlo.
@@ -25,8 +15,6 @@ Estas son algunas de las cosas que me quedan por hacer y que podrían hacerse en
 * [2021-04-27] Añadir función de comprobación de DNI (tener en cuenta el carnet de extranjeros). Pregutnarle a Fina qué documentos de identificación presenta la gente al matricularase en el instituto.
 
 * [2021-04-29] La matriz $dbTablas igual habría alguna manera de que se generara automáticamente.
-
-* [2021-04-29] Los avisos generales son tanto info (No se ha creado todavía ningún registro) como error. Debería distinguirlos (añadiendo un campo clase a la matriz sería suficiente).
 
 * [2021-04-29] Al buscar, si no encuentra registros no reescribe los términos de búsqueda. Tendría que pensar si hacerlo o no.
 
@@ -43,8 +31,6 @@ Estas son algunas de las cosas que me quedan por hacer y que podrían hacerse en
 
 ## Próximos pasos
 
-* [2021-05-05] Si no puede acceder a SQLite, Error grave duplica las cabeceras.
-
 * [2021-04-10] Los select/radio/checkbox no muestran el valor elegido por el usuario cuando se detectan errores y se vuelve al formulario (prestamos/insertar-1 y prestamos/modificar-2)
 
 * [2021-04-19] Decidir si la clave principal de cada tabla la sigo llamando id o las cambio a id_persona, id_obra, etc. Entocnes las referencia las debería cambia a persona_id, obra_id, etc.
@@ -58,7 +44,7 @@ Estas son algunas de las cosas que me quedan por hacer y que podrían hacerse en
 
 ## Para corregir (más importante)
 
-* [2021-05-05] La página http://localhost/mclibre/consultar/php-bases-datos/biblioteca-4/tablas/db-usuarios/borrar-2.php?id[100]=on&id[101]=on falla de maenra escandalosa porque la comprobación incluyeUsuarioRoot falla al pedir un usuario que no existe.
+* [2021-05-05] La página http://localhost/mclibre/consultar/php-bases-datos/biblioteca-4/tablas/db-usuarios/borrar-2.php?id[100]=on&id[101]=on falla de manera escandalosa porque la comprobación incluyeUsuarioRoot falla al pedir un usuario que no existe.
 
 * [2021-04-20] La aplicación no deja modificar el usuario root. Igual tendría que dejar cambiar la contraseña, pero no el nombre ni el nivel.
 
@@ -70,13 +56,9 @@ Estas son algunas de las cosas que me quedan por hacer y que podrían hacerse en
 
 * [2021-04-22] devolver-2. Si se pone un id que no existe, no muestra ningún aviso, aunque vuelve al formulario.
 
-* [2021-04-29] En la hoja de estilo hay dos tipos de avisos (aviso-info y aviso-error) y en algunos sitios (insertar-2, etc.) se utiliza uno u otro dependiendo del resultado de las consultas. Pero los avisos generados en las funciones compruebaAvisos se muestran siempre como aviso-error, cuando no siempre deberías ser así (por ejemplo, el aviso de que todavía no se han creado registros). Debería añadir en $_SESSION el tipo de aviso.
-
 * [2021-04-29] En una [página de IBM sobre log levels](https://www.ibm.com/docs/en/sdi/7.1.1?topic=debugging-log-levels-log-level-control) describían los diferentes tipos de avisos que tenía una aplicación: Off, Fatal, Error, Warn, Info, Debug y All. Hay [listas más amplias]/https://www.ibm.com/docs/en/imdm/11.6?topic=handling-severity-levels). En la Wikipedia hay una [página sobre Syslog](https://en.wikipedia.org/wiki/Syslog) que es un [RFC 5424: Protocolo Syslog](https://tools.ietf.org/html/rfc5424). En Syslog definen 7 niveles: Emergency, Alert, Critical, Error, Warning, Notice, Information y Debug. Me inspiré en esa lista para llamar a las clases aviso-error y aviso-info.
 
 * [2021-05-06] Cuando detecta errores individuales, podría generar un aviso general diciendo "Se han detectado problemas en los datos enviados" o algo similar.
-
-* [2021-05-06] Si el usuario root no se puede borrar, lo lógico sería que no apareciera al hacer usuarios > borrar-1.
 
 ## Para corregir (menos importante)
 
@@ -90,11 +72,7 @@ Estas son algunas de las cosas que me quedan por hacer y que podrían hacerse en
 
 * [2021-04-29] Cuando se marcan varios registros para borrar saca varias veces el mensaje "Registro borrado correctamente.". Realmente no es incorrecto, pero queda raro. Quizás debería incluir campos del registro en el mensaje para que se viera que cada mensaje corresponde a cada uno de los registros borrados. O quizás sería mejor sacar un único mensaje
 
-* [2021-04-21] insertar-1 no tiene if !avisosGenerales ... Creo que es porque con algún aviso hay que mostrar el formulario y con otros no.
-
 * [2021-04-21] modificar préstamos. Si se quita la fecha dice registro no encontrado.
-
-* [2021-04-21] insertar-2. Después de hayErrores insertar-2 pone borraAvisos() pero yo diría que se puede quitar.
 
 * [2021-04-21] Poner en date devolución atributo min con la fecha del préstamo para que no deje poner una fecha anterior.
 
@@ -144,7 +122,7 @@ Estas son algunas de las cosas que me quedan por hacer y que podrían hacerse en
 
 * [2021-04-21] Al hacer un préstamo habría que comprobar más cosas: que el libro no estuviera prestado
 
-* [2021-04-21] No tengo en cuena que puede haber dos ejemplares del mismo libro.
+* [2021-04-21] No tengo en cuenta que puede haber dos ejemplares del mismo libro.
 
 * [2021-04-23] PDO fetch devuelve cada fila con los campos duplicados (con índice numérico y asociativo) por defecto. Se puede hacer que sólo devuelva la matriz asociativa haciendo fetch(PDO::FETCH_ASSOC), pero no sé si mejorará algo el rendimiento. Lo he añadido donde uso fetch, pero no he mirado si accediendo con foreach se puede obtener solo la asociativa.
 
@@ -165,17 +143,15 @@ Estas son algunas de las cosas que me quedan por hacer y que podrían hacerse en
 
 * [2021-04-11] La funión existenTablas() supone que existen y cambia a no. Igual sería mejor suponer que no existen y asegurarse que existen todas. Aunque realmente es lo mismo.
 
-* [2021-04-11] Al hacer login, si no se puede conectar con MySQL, la cabecera sale dos veces. Arreglarlo.
-
 * [2021-04-11] Al modificar fechas, creo que no se pueden dejar en blanco de nuevo. Comprobarlo y arreglarlo.
 
 * [2021-04-17] En la definición de la tabla préstamos podría añadir un CONSTRAINT CHECK (prestado < devuelto). Y pensar más restricciones de este tipo. De todas formas, las comprobaciones en el programa las tendría que hacer igual, para que se avise al usuario en caso de error, pero la base de datos estaría más protegida ante modificaciones manuales con phpMyAdmin o similares. Otra restricción podría ser que al modificar un registro se obtenga uno que ya existe (UNIQUE).
 
-Tendría que hacer una lista de comprobaciones que yo hago y ver cuáles se pueden traducir a restricciones en la base de datos.
+  Tendría que hacer una lista de comprobaciones que yo hago y ver cuáles se pueden traducir a restricciones en la base de datos.
 
 * [2021-04-17] En PHP 8 añadieron los [argumentos de funciones](https://www.php.net/manual/es/functions.arguments.php). Cuando pueda utilizar PHP 8 en glup debería utilizarlos para simplificar las funciones. Pero pasará tiempo, porque actualmente [no está incluido en ninguna distribución](https://www.mclibre.org/consultar/php/otros/historia-cuadros.html#distribuciones).
 
-* [2021-04-27] En SQLite, hay manera de que avise si estás usando algo que necesita activarse.
+* [2021-04-27] En SQLite, ¿hay manera de que avise si estás usando algo que necesita activarse?
 
 
 ## Funciones de comprobación de datos (comprobaciones-general.php)
@@ -227,3 +203,13 @@ Tendría que hacer una lista de comprobaciones que yo hago y ver cuáles se pued
 
 * [2021-04-17] ¿Alguna base de datos da error si se intenta borrar un registro que no existe? MySQL y SQLite no dan error. Es más una curiosidad que otra cosa porque en biblioteca-4 al recoger un id compruebaAvisosIndividuales() comprueba que el registro exista y si no genera un aviso.
 
+
+## Estructura $_SESSION
+
+[conectado] => Nivel de usuario \
+[avisosIndividuales][página][tabla][campo][valor] => Texto introducido por el usuario \
+[avisosIndividuales][página][tabla][campo][campoOK] => true/false \
+[avisosIndividuales][página][tabla][campo][texto] => Mensaje de error para mostrar en el formulario \
+[avisosGenerales][ocultaFormulario] => true (no hay false, o es true o no existe) \
+[avisosGenerales][página][nº][texto] => Mensaje de error para mostrar al principio de la página \
+[avisosGenerales][página][nº][claseAviso] => error / info

@@ -6,6 +6,14 @@ El formato se basa en [Keep a Changelog](https://keepachangelog.com/en/1.0.0/).
 
 Este changelog incluye los cambios hechos en Biblioteca-3, Biblioteca-4, etc.
 
+## 2021-05-07
+
+### Fixed (Corregido)
+- Si no se conectaba a SQLite/MySQL, Error grave duplicaba las cabeceras.
+- insertar-2. Elimino borraAvisos() después de hayErrores que no hace nada.
+- usuarios > borrar-1. Ya no muestra al usuario root en la tabla.
+
+
 ## 2021-05-06
 
 ### Changed (Modificado)

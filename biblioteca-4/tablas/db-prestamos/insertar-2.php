@@ -24,8 +24,6 @@ if (hayErrores("insertar-2")) {
     exit();
 }
 
-borraAvisosExcepto();
-
 cabecera("Préstamos - Añadir 2", MENU_PRESTAMOS, PROFUNDIDAD_2);
 
 $pdo = conectaDb();
