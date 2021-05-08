@@ -18,6 +18,13 @@ if (hayErrores("modificar-3")) {
     exit();
 }
 
+compruebaAvisosGenerales("modificar-3", "registrosExisten", "obras", $id);
+
+if (hayErrores("modificar-3")) {
+    header("Location:modificar-1.php");
+    exit();
+}
+
 [$autor, $titulo, $editorial] = compruebaAvisosIndividuales("modificar-3", "obras", "autor", "titulo", "editorial");
 
 compruebaAvisosGenerales("modificar-3", "todosVaciosMenosPrimero", "id", "autor", "titulo", "editorial");

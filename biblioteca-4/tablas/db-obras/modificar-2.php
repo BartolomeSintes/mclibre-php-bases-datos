@@ -23,6 +23,13 @@ if (hayErrores("modificar-2")) {
     exit();
 }
 
+compruebaAvisosGenerales("modificar-2", "registrosExisten", "obras", $id);
+
+if (hayErrores("modificar-2")) {
+    header("Location:modificar-1.php");
+    exit();
+}
+
 cabecera("Obras - Modificar 2", MENU_OBRAS, PROFUNDIDAD_2);
 
 imprimeAvisosGenerales("modificar-3");

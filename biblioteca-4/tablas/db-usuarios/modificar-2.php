@@ -18,6 +18,13 @@ if (isset($_SESSION["avisosIndividuales"]["modificar-3"]["usuarios"]["id"]["valo
     [$id] = compruebaAvisosIndividuales("modificar-2", "usuarios", "id");
 }
 
+if (hayErrores("modificar-2")) {
+    header("Location:modificar-1.php");
+    exit();
+}
+
+compruebaAvisosGenerales("modificar-2", "registrosExisten", "usuarios", $id);
+
 compruebaAvisosGenerales("modificar-2", "incluyeUsuarioRoot", $id);
 
 if (hayErrores("modificar-2")) {

@@ -9,37 +9,13 @@ require_once "../comunes/biblioteca.php";
 
 compruebaNoSesion(PROFUNDIDAD_1);
 
-$usuario  = recoge("usuario");
-$password = recoge("password");
-
-$pdo = conectaDb();
-
 borraAvisosExcepto();
-if (!$usuario) {
-    $_SESSION["avisosGenerales"]["login-2"][] = ["texto" => "Escriba el nombre del usuario.", "claseAviso" => "aviso-error"];
-} else {
-    $consulta = "SELECT *
-                 FROM $db[usuarios]
-                 WHERE usuario=:usuario";
-    $result = $pdo->prepare($consulta);
-    $result->execute([":usuario" => $usuario]);
-    if (!$result) {
-        $_SESSION["avisosGenerales"]["login-2"][] = ["texto" => "Error en la consulta.", "claseAviso" => "aviso-error"];
-    } else {
-        $valor = $result->fetch(PDO::FETCH_ASSOC);
-        if ($valor["password"] != encripta($password)) {
-            $_SESSION["avisosGenerales"]["login-2"][] = ["texto" => "Nombre de usuario y/o contraseña incorrectos.", "claseAviso" => "aviso-error"];
-        }
-    }
-}
 
-$pdo = null;
+compruebaAvisosGenerales("login-2", "validaLogin", "usuarios", "usuario", "password");
 
-if (isset($_SESSION["avisosGenerales"]["login-2"])) {
+if (hayErrores("login-2")) {
     header("Location:login-1.php");
     exit();
 }
 
-$_SESSION["conectado"] = $valor["nivel"];
 header("Location:../index.php");
-exit();

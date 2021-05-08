@@ -2537,7 +2537,7 @@
                     "id": "testea-personas-1-33-3",
                     "command": "assertText",
                     "target": "xpath=//p[1]",
-                    "value": "Registro no encontrado."
+                    "value": "El registro indicado no existe."
                 },
                 {
                     "id": "testea-personas-1-33-4",
@@ -2592,7 +2592,7 @@
                     "id": "testea-personas-1-34-3",
                     "command": "assertText",
                     "target": "xpath=//p[1]",
-                    "value": "Registro no encontrado."
+                    "value": "Al menos uno de los registros indicados no existe."
                 },
                 {
                     "id": "testea-personas-1-34-4",
@@ -2665,7 +2665,7 @@
                     "id": "testea-personas-1-35-3",
                     "command": "assertText",
                     "target": "xpath=//p[1]",
-                    "value": "Registro no encontrado."
+                    "value": "Al menos uno de los registros indicados no existe."
                 },
                 {
                     "id": "testea-personas-1-35-4",
@@ -3563,7 +3563,7 @@
                     "id": "testea-personas-1-51-3",
                     "command": "assertText",
                     "target": "xpath=//p[1]",
-                    "value": "Registro no encontrado."
+                    "value": "El registro indicado no existe."
                 },
                 {
                     "id": "testea-personas-1-51-4",
@@ -3897,7 +3897,7 @@
                     "id": "testea-personas-1-55-3",
                     "command": "assertText",
                     "target": "xpath=//p[1]",
-                    "value": "Registro no encontrado."
+                    "value": "El registro indicado no existe."
                 },
                 {
                     "id": "testea-personas-1-55-4",

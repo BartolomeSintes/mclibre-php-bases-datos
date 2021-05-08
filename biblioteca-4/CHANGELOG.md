@@ -6,12 +6,24 @@ El formato se basa en [Keep a Changelog](https://keepachangelog.com/en/1.0.0/).
 
 Este changelog incluye los cambios hechos en Biblioteca-3, Biblioteca-4, etc.
 
+
+## 2021-05-XX
+
+### Changed (Modificado)
+- Reescribo login-2.php para usar compruebaAvisosGenerales() y que el único aviso sea "Nombre de usuario y/o contraseña incorrectos."
+- Cambio tratamiento del id. En avisoIndividual solo mira que no esté vacío. En avisoGeneral mira que exista todos los que se reciben.
+
+### Fixed (Corregido)
+- añado SORT_REGULAR a array_unique para que compare matrices.
+
+
 ## 2021-05-07
 
 ### Fixed (Corregido)
 - Si no se conectaba a SQLite/MySQL, Error grave duplicaba las cabeceras.
 - insertar-2. Elimino borraAvisos() después de hayErrores que no hace nada.
 - usuarios > borrar-1. Ya no muestra al usuario root en la tabla.
+- añado SORT_REGULAR a array_unique para que compare matrices.
 
 
 ## 2021-05-06

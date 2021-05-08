@@ -10,7 +10,7 @@ require_once "../comunes/biblioteca.php";
 compruebaSesion(NIVEL_3, PROFUNDIDAD_1);
 
 $borrar = recoge("borrar");
-$demo = recoge("demo");
+$demo   = recoge("demo");
 
 if ($borrar != "Sí") {
     header("Location:index.php");

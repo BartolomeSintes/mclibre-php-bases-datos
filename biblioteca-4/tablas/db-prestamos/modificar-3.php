@@ -11,7 +11,14 @@ compruebaSesion(NIVEL_3, PROFUNDIDAD_2);
 
 borraAvisosExcepto();
 
-[$id] = compruebaAvisosIndividuales("modificar-3", "obras", "id");
+[$id] = compruebaAvisosIndividuales("modificar-3", "prestamos", "id");
+
+if (hayErrores("modificar-3")) {
+    header("Location:modificar-1.php");
+    exit();
+}
+
+compruebaAvisosGenerales("modificar-3", "registrosExisten", "prestamos", $id);
 
 if (hayErrores("modificar-3")) {
     header("Location:modificar-1.php");
@@ -20,11 +27,11 @@ if (hayErrores("modificar-3")) {
 
 [$id_persona, $id_obra, $prestado, $devuelto, $id] = compruebaAvisosIndividuales("modificar-3", "prestamos", "id_persona", "id_obra", "prestado", "devuelto", "id");
 
-compruebaAvisosGenerales("modificar-3", "fechasCrecientes", "prestado", "devuelto");
-
 compruebaAvisosGenerales("modificar-3", "todosVaciosMenosPrimero", "id", "id_persona", "id_obra", "prestado", "devuelto");
 
 compruebaAvisosGenerales("modificar-3", "yaExisteRegistroConOtroId", "prestamos", "id_persona", "id_obra", "prestado", "devuelto", "id");
+
+compruebaAvisosGenerales("modificar-3", "fechasCrecientes", "prestado", "devuelto");
 
 if (hayErrores("modificar-3")) {
     header("Location:modificar-2.php");

@@ -13,6 +13,8 @@ borraAvisosExcepto();
 
 [$id] = compruebaAvisosIndividuales("borrar-2", "personas", "id[]");
 
+compruebaAvisosGenerales("borrar-2", "registrosExisten", "personas", $id);
+
 if (hayErrores("borrar-2")) {
     header("Location:borrar-1.php");
     exit();

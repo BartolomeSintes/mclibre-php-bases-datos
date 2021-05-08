@@ -13,6 +13,8 @@ borraAvisosExcepto();
 
 [$id] = compruebaAvisosIndividuales("borrar-2", "usuarios", "id[]");
 
+compruebaAvisosGenerales("borrar-2", "registrosExisten", "usuarios", $id);
+
 compruebaAvisosGenerales("borrar-2", "incluyeUsuarioRoot", $id);
 
 if (hayErrores("borrar-2")) {
