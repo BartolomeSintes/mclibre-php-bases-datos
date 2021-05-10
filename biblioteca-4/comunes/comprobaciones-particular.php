@@ -310,7 +310,8 @@ function compruebaAvisosGenerales()
             $_SESSION["avisosGenerales"][$origen][] = ["texto" => "Error en la consulta.", "claseAviso" => "aviso-error"];
         }
         if ($result->fetchColumn() > 0) {
-            $_SESSION["avisosGenerales"][$origen][] = ["texto" => "Ya existe un registro con esos mismos valores. Se muestran los datos originales (sin modificar).", "claseAviso" => "aviso-error"];
+            $_SESSION["avisosGenerales"][$origen][] = ["texto" => "No puede modificarse el registro porque ya existe un registro con esos valores. Se muestran de nuevo los datos originales del registro.", "claseAviso" => "aviso-error"];
+            $_SESSION["avisosIndividuales"][$origen]["muestraValoresOriginalesEnFormulario"] = true;
         }
         $pdo = null;
     }

@@ -27,6 +27,8 @@ if (hayErrores("modificar-3")) {
 
 [$autor, $titulo, $editorial] = compruebaAvisosIndividuales("modificar-3", "obras", "autor", "titulo", "editorial");
 
+incluyeValoresOriginalesEnAvisos("modificar-3", "obras", "autor", "titulo", "editorial", "id");
+
 compruebaAvisosGenerales("modificar-3", "todosVaciosMenosPrimero", "id", "autor", "titulo", "editorial");
 
 compruebaAvisosGenerales("modificar-3", "yaExisteRegistroConOtroId", "obras", "autor", "titulo", "editorial", "id");

@@ -3952,7 +3952,7 @@
                     "id": "testea-personas-1-56-3",
                     "command": "assertText",
                     "target": "xpath=//p[1]",
-                    "value": "Ya existe un registro con esos mismos valores. Se muestran los datos originales (sin modificar)."
+                    "value": "No puede modificarse el registro porque ya existe un registro con esos valores. Se muestran de nuevo los datos originales del registro."
                 },
                 {
                     "id": "testea-personas-1-56-4",

@@ -68,6 +68,28 @@ function compruebaAvisosIndividuales()
     return $resp;
 }
 
+function incluyeValoresOriginalesEnAvisos()
+{
+    $argumentos = func_get_args();
+    $origen     = $argumentos[0];
+    array_shift($argumentos);
+    $pdo      = conectaDb();
+    $consulta = "SELECT *
+                 FROM $argumentos[0] "
+              . "WHERE id=:id";
+    $result = $pdo->prepare($consulta);
+    $result->execute([":id" => recoge($argumentos[count($argumentos) - 1])]);
+    if (!$result) {
+        $_SESSION["avisosGenerales"][$origen][] = ["texto" => "Error en la consulta.", "claseAviso" => "aviso-error"];
+    } else {
+        $valor = $result->fetch(PDO::FETCH_ASSOC);
+        for ($i = 1; $i < count($argumentos); $i++) {
+            $_SESSION["avisosIndividuales"][$origen][$argumentos[0]][$argumentos[$i]]["original"] = $valor[$argumentos[$i]];
+        }
+    }
+    $_SESSION["avisosIndividuales"][$origen]["muestraValoresOriginalesEnFormulario"] = true;
+}
+
 function imprimeAvisosGenerales()
 {
     $argumentos = func_get_args();
@@ -82,12 +104,15 @@ function imprimeAvisosGenerales()
     }
 }
 
-function imprimeAvisosIndividuales($origen, $tabla, $campo, $tipo, $valor = "SINVALORNINGUNO")
+function imprimeAvisosIndividuales($origen, $tabla, $campo, $tipo, $valor = "")
 {
-    if (hayErrores($origen) && !hayErroresGenerales($origen)) {
-    // if (hayErrores($origen)) {
+    if (hayErrores($origen)) {
+        // if (hayErrores($origen)) {
         if (isset($_SESSION["avisosIndividuales"][$origen][$tabla][$campo])) {
             if ($tipo == "valor") {
+                if (isset($_SESSION["avisosIndividuales"][$origen]["muestraValoresOriginalesEnFormulario"])) {
+                    return " value=\"{$_SESSION["avisosIndividuales"][$origen][$tabla][$campo]["original"]}\"";
+                }
                 return " value=\"{$_SESSION["avisosIndividuales"][$origen][$tabla][$campo]["valor"]}\"";
             }
             if ($tipo == "mensaje" && $_SESSION["avisosIndividuales"][$origen][$tabla][$campo]["mensaje"]) {
@@ -95,7 +120,7 @@ function imprimeAvisosIndividuales($origen, $tabla, $campo, $tipo, $valor = "SIN
             }
         }
     } else {
-        if ($tipo == "valor" && $valor != "SINVALORNINGUNO") {
+        if ($tipo == "valor" && $valor) {
             return " value=\"$valor\"";
         }
     }

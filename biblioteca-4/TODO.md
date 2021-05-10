@@ -4,7 +4,7 @@ Estas son algunas de las cosas que me quedan por hacer y que podrían hacerse en
 
 ## Ideas para Biblioteca-5
 
-* [2021-05-09] Hacer una matriz que defina cada campo de las tablas para saber qué comprobaciones hay que hacer en él: tipo de control (text, checkbox, radio, date, etc.)
+* [2021-05-09] Hacer una matriz que defina cada campo de las tablas para saber qué comprobaciones hay que hacer en él: tipo de control (text, checkbox, radio, date, etc.).
 
 * [2021-04-06] Añadir log opcional de las consultas que modifican la base de datos (incluyendo el usuario que las ordenó y la fecha y la hora). No sé qué se podría hacer con las consultas preparadas (guardar las consultas y los parámetros). O quizás es mejor utilizar el log de mysql.
 
@@ -32,16 +32,23 @@ Estas son algunas de las cosas que me quedan por hacer y que podrían hacerse en
 
 * [2021-04-29] Al buscar, no comprueba si lo que ha escrito el usuario se podría haber insertado (es decir, por ahora si el texto es demasiado largo).
 
-* [2021-05-04] Tendría que hacer una tabla que tuviera en su formulario de entrada todos los tipos de controles (text, radio, checkbox, date, etc.) para que se viera cómo manejar cada uno de ellos (valores vacío o incorrrectos, recuperar el dato si hay errores, etc.).
+* [2021-05-04] Tendría que hacer una tabla en la base de datos que tuviera en su formulario de entrada todos los tipos de controles (text, radio, checkbox, date, etc.) para que se viera cómo manejar cada uno de ellos (valores vacío o incorrrectos, recuperar el dato si hay errores, etc.). En Biblioteca-4 tendría que ser la tabla de préstamos.
 
 * [2021-05-06] Si se inserta un registro que ya existía, vuelve al formulario pero no rellena el formulario con los datos que escribió el usuario. No sé si se tendría que rellenar o no.
 
-* [2021-05-06] borrar-2. Si se envía id[válido] = "loquesea" borra el registro, no hace falta que sea "on".
+* [2021-05-06] borrar-2. Si se envía id[válido] = "loquesea" borra el registro, no hace falta que sea "on". Una de las comprobaciones que podría añadir es que el valor sea uno de los esperados y si no lo deje en blanco o de error.
 
 * [2021-05-08] Configurar el servidor (o añadir un .htaccess) para que si se pide un directorio sin index o un fichero que no existe que redirigiera al inicio. Preguntar a Quique.
 
+* [2021-05-10] Otro campo que podría añadir es una imagen, para tenerlo de muestra (una foto de la persona, por ejemplo).
+
+* [2021-05-10] Ahora pienso que cuando llegan datos del usuario que no pueden salir del formulario, sino que es que el usuario ha manipulado la url, entonces deberían simplemente ponerse a cero, sin dar ningún aviso especial más allá de los avisos que se generen cuando no llega un dato (dar un aviso especial de alguna manera es dar una pista al atacante). Es lo que he hecho cuando llega matriz en vez de escalar. Pero tendría que pensar qué hago en otras situaciones. Por ejemplo, si llega un id de un registro que no existe debería decir que no se ha indicado el id, no registro no encontrado o similar. O si el campo que llega es demasiado largo, que ahora sí que sale un aviso, ¿debería descartarlo y ponerlo a cero también?
+
+* [2021-05-10] Un problema que no sé cómo evitar es cómo saber cómo se ha llegado a una página. Me refiero a que a una página se puede llegar redireccionado desde otra página o porque el usuario ha hecho clic en el enlace. Por ejemplo si modificar-3 encuentra errores (por ejmplo, porque se ha dejado todo vacío) redirige a modificar-1 que los muestra. Si el usuario hace entonces clic en el menú Modificar, entra otra vez en modificar-1, pero los avisos siguen mostrándose. Lo mismo pasa con insertar-2 si se ha dejado todo vacío. ¿Deberían eliminarse los avisos?
 
 ## Próximos pasos
+
+* [2021-04-10] Los avisos sólo indican la página que lo originó, pero no la tabla, así que que generas un aviso en una tabla y te vas a otra tabla, te sale el aviso anterior. Al borrar avisos habría que tener en cuenta no solo la página, sino también la  tabla.
 
 * [2021-04-10] Los select/radio/checkbox no muestran el valor elegido por el usuario cuando se detectan errores y se vuelve al formulario (prestamos/insertar-1 y prestamos/modificar-2)
 
@@ -57,8 +64,6 @@ Estas son algunas de las cosas que me quedan por hacer y que podrían hacerse en
 * [2021-04-20] La aplicación no deja modificar el usuario root. Igual tendría que dejar cambiar la contraseña, pero no el nombre ni el nivel.
 
 * [2021-04-20] Al modificar la contraseña, si se deja en blanco para mantenerla (como dice modificar-2), sale un mensaje de error diciendo que no se puede dejar en blanco. Tendría que incluir el origen en la comprobación de la contraseña y hacer dos comprobaciones distintas.
-
-* [2021-05-04] En ImprimeAvisosIndivduales el if es if (hayErrores($origen) && !hayErroresGenerales($origen)) para que funcione bien modificar-2, pero eso da problemas en otros sitios. Por ejemplo al insertar un usuario, si no se indica un campo saca un aviso general "Hay que rellenar todos los campos. No se ha guardado el registro.", pero ya no saca los avisos individuales (por ejemplo, que no se ha indicado el nivel, o que ya existe ese usuario).
 
 * [2021-05-04] Personas > Insertar. Inserto un registro en blanco y saca aviso general. Pero si entonces hago clic en el enlace "Añadir registro", vuelve a salir el mensaje. Sin embargo, eso en borrar no pasa si no selecciono ningún registro para borrar.
 
@@ -94,7 +99,7 @@ Estas son algunas de las cosas que me quedan por hacer y que podrían hacerse en
 
 * [2021-04-23] Si se borra un registro, ¿la base de datos reutiliza el valor del id? ¿O depende de la bd? Para Selenium igual es un problema, porque al guardar un registro no puedo saber su id a priori.
 
-* [2021-04-22] Pensar una manera de trabajar con las fechas de forma transparente, que convierta las fechas al fromato correcto para formularios y para la base de datos.
+* [2021-04-22] Pensar una manera de trabajar con las fechas de forma transparente, que convierta las fechas al formato correcto para formularios y para la base de datos.
 
 * [2021-04-17] Comprobar si MySQL detecta máximo de registros, porque en config.php["maxRegTabla"] pone "usuarios", etc. y no $db["usuarios"], etc.
 
@@ -106,8 +111,6 @@ Estas son algunas de las cosas que me quedan por hacer y que podrían hacerse en
 * [2021-05-03] Los ids se pueden recibir de dos lugares:
   - de un botón radio o un checkbox. En ese caso si llega un valor vacío o no encontrado no se puede saber de dónde ha salido y por eso se genera un aviso general.
   - de un select. En ese caso si llega un valor vacío o no encontrado sí que se sabe de dónde ha salido y se puede mostrar un aviso individual al volver al formulario.
-
-* [2021-04-22] devolver-2. Si se pone un id que no existe, vuelve al formulario y muestra el aviso "No se ha seleccionado ningún préstamo." en vez de "El préstamo seleccionado no existe.", que sería más lógico
 
 
 ## Mejoras
@@ -197,8 +200,10 @@ Estas son algunas de las cosas que me quedan por hacer y que podrían hacerse en
 
 [conectado] => Nivel de usuario \
 [avisosIndividuales][página][tabla][campo][valor] => Texto introducido por el usuario \
+[avisosIndividuales][página][tabla][campo][original] => Texto del registro original (se usa al modificar) \
 [avisosIndividuales][página][tabla][campo][campoOK] => true/false \
 [avisosIndividuales][página][tabla][campo][texto] => Mensaje de error para mostrar en el formulario \
 [avisosGenerales][ocultaFormulario] => true (no hay false, o es true o no existe) \
+[avisosGenerales][página][muestraValoresOriginalesEnFormulario] => true (no hay false, o es true o no existe) \
 [avisosGenerales][página][nº][texto] => Mensaje de error para mostrar al principio de la página \
 [avisosGenerales][página][nº][claseAviso] => error / info
