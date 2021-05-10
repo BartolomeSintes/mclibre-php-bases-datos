@@ -137,7 +137,9 @@ function comprobaciones($origen, $tabla, $campo, $valor)
             $campoOk = true;
         }
     } elseif ($campo == "devuelto") {                   // Tabla Préstamos
-        if ($valor == "") {
+        if ($origen == "devolver-2" && $valor == "") {
+            $mensaje = "No ha indicado la fecha.";
+        } elseif ($valor == "") {
             $valor   = "0000-00-00";
             $campoOk = true;
         } elseif (mb_strlen($valor, "UTF-8") < TAM_FECHA) {
@@ -224,7 +226,7 @@ function compruebaAvisosGenerales()
     }
 
     if ($tipoComprobacion == "incluyeUsuarioRoot") {
-        $pdo = conectaDb();
+        $pdo      = conectaDb();
         $consulta = "SELECT *
                      FROM $db[usuarios]
                      WHERE usuario='$cfg[rootName]'";

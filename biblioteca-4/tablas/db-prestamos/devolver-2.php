@@ -13,6 +13,11 @@ borraAvisosExcepto();
 
 [$id_prestamo, $devuelto] = compruebaAvisosIndividuales("devolver-2", "prestamos", "id_prestamo", "devuelto");
 
+if (hayErrores("devolver-2")) {
+    header("Location:devolver-1.php");
+    exit();
+}
+
 compruebaAvisosGenerales("devolver-2", "fechasCrecientes2", "id_prestamo", "devuelto");
 
 if (hayErrores("devolver-2")) {

@@ -48,7 +48,7 @@ function compruebaAvisosIndividuales()
         $valor = recoge($campo);
         $campo = (substr($campo, -2) == "[]") ? substr($campo, 0, -2) : $campo;
         if (is_array($valor) && count($valor) > 0) {
-            $comp  = [];
+            $comp = [];
             foreach ($valor as $indice => $valor2) {
                 $resp          = comprobaciones($origen, $tabla, $campo, $indice);
                 $comp[$indice] = ["valor" => $resp["valor"], "campoOk" => $resp["campoOk"], "mensaje" => $resp["mensaje"]];

@@ -4,6 +4,8 @@ Estas son algunas de las cosas que me quedan por hacer y que podrían hacerse en
 
 ## Ideas para Biblioteca-5
 
+* [2021-05-09] Hacer una matriz que defina cada campo de las tablas para saber qué comprobaciones hay que hacer en él: tipo de control (text, checkbox, radio, date, etc.)
+
 * [2021-04-06] Añadir log opcional de las consultas que modifican la base de datos (incluyendo el usuario que las ordenó y la fecha y la hora). No sé qué se podría hacer con las consultas preparadas (guardar las consultas y los parámetros). O quizás es mejor utilizar el log de mysql.
 
 * [2021-04-09] Igual habría hacer un log de los errores en las consultas.
@@ -20,6 +22,8 @@ Estas son algunas de las cosas que me quedan por hacer y que podrían hacerse en
 
 * [2021-04-27] Si algún campo es obligatorio en un formulario, indicarlo con asterisco (\*). Los campos obligatorios se podrían indicar al crear la base de datos y crear una matriz con ellos. Supongo que habrá una manera de consultar para saber si hay campos obligatorios y se puede crear esa matriz automáticamente.
 
+* [2021-04-21] Estaría bien poner en date devolución atributo min con la fecha del préstamo para que no deje poner una fecha anterior. El problema es que habría que hacerlo con javascript porque esa fecha mínima depende del prestamos.
+
 * [2021-04-27] Añadir función de comprobación de DNI o el NIE. Preguntarle a Fina qué documentos de identificación presenta la gente al matricularase en el instituto.
 
 * [2021-04-29] La matriz $dbTablas igual habría alguna manera de que se generara automáticamente.
@@ -29,8 +33,6 @@ Estas son algunas de las cosas que me quedan por hacer y que podrían hacerse en
 * [2021-04-29] Al buscar, no comprueba si lo que ha escrito el usuario se podría haber insertado (es decir, por ahora si el texto es demasiado largo).
 
 * [2021-05-04] Tendría que hacer una tabla que tuviera en su formulario de entrada todos los tipos de controles (text, radio, checkbox, date, etc.) para que se viera cómo manejar cada uno de ellos (valores vacío o incorrrectos, recuperar el dato si hay errores, etc.).
-
-* [2021-05-06] Si llega una matriz a una variable que no lo es o llega un escalar a una variable que es una matriz debería detectarlo como error.
 
 * [2021-05-06] Si se inserta un registro que ya existía, vuelve al formulario pero no rellena el formulario con los datos que escribió el usuario. No sé si se tendría que rellenar o no.
 
@@ -69,15 +71,11 @@ Estas son algunas de las cosas que me quedan por hacer y que podrían hacerse en
 
 * [2021-04-20] En Usuarios &gt; Buscar el nivel no ofrece la posibilidad de dejarlo en blanco (que querría decir que te da lo mismo el nivel).
 
-* [2021-04-28] Al borrar varios registros a la vez escribe "Registro borrado correctamente" tantas veces como registros borrados. Debería escribir simplemente "Registro borrado correctamente" o "Registros borrados correctamente" si son varios.
-
 * [2021-04-22] buscar-2: si no se encuentra nada, vuelve al formulario y muestra un aviso, pero no muestra los términos de búsqueda anteriores. Realmente, no sé si es mejor recuperarlos o no.
 
-* [2021-04-29] Cuando se marcan varios registros para borrar saca varias veces el mensaje "Registro borrado correctamente.". Realmente no es incorrecto, pero queda raro. Quizás debería incluir campos del registro en el mensaje para que se viera que cada mensaje corresponde a cada uno de los registros borrados. O quizás sería mejor sacar un único mensaje
+* [2021-04-29] Cuando se marcan varios registros para borrar saca varias veces el mensaje "Registro borrado correctamente.". Realmente no es incorrecto, pero queda raro. Quizás debería incluir campos del registro en el mensaje para que se viera que cada mensaje corresponde a cada uno de los registros borrados. O quizás sería mejor sacar un único mensaje "Registro borrado correctamente" o "Registros borrados correctamente" si son varios.
 
 * [2021-04-21] modificar préstamos. Si se quita la fecha dice registro no encontrado.
-
-* [2021-04-21] Poner en date devolución atributo min con la fecha del préstamo para que no deje poner una fecha anterior.
 
 * [2021-05-06] prestamos > buscar-2. No utiliza compruebaAvisosIndividuales ni compruebaAvisosGenerales.
 
@@ -114,7 +112,7 @@ Estas son algunas de las cosas que me quedan por hacer y que podrían hacerse en
 
 ## Mejoras
 
-* [2021-04-22] La función calendario envía la fecha en la dirección. Podría cambiar a botones como en las flechas de ordenación d elos listados.
+* [2021-04-22] La función calendario envía la fecha en la dirección. Podría cambiar a botones como en las flechas de ordenación de los listados.
 
 
 ## Para pensar
@@ -155,8 +153,6 @@ Estas son algunas de las cosas que me quedan por hacer y que podrían hacerse en
 
 * [2021-04-07] La comprobación de datos que estoy haciendo no contempla que un campo se llame de la misma forma en dos tablas distintas. Por ejemplo, no se podría comprobar si existe un registro con el id recogido. La solución parece que tendrá que ser enviar la tabla y el campo.
 
-* [2021-04-09] Aclarar qué hacer con las comprobaciones de id (si existe un registro, por ejemplo). Tendría que enviar el nombre de la tabla.
-
 * [2021-04-10] Las comprobaciones individuales no son siempre las mismas. Por ejemplo, en Usuarios para insertar los campos no pueden estar vacíos, pero para buscar sí. Lo que he hecho es dejar buscar-2, como estaba, sin usar comprobacionesIndividuales(), ya que simplemente se usaba recoge(). Pero para otras situaciones debería distinguir cada caso.
 
 * [2021-04-19] No es fácil decidir qué tiene que hacer modificar-2 cuando le llegan avisos desde modificar-3. Lo que he hecho es que si hay avisos generales (que son que esté todo vacío o que ya exista el registro modificado), muestra los valores originales. Pero si hay avisos individuales muestra los modificados junto con los avisos individuales.
@@ -164,8 +160,6 @@ Estas son algunas de las cosas que me quedan por hacer y que podrían hacerse en
 * [2021-04-20] Podría hacer una función hayErroresIndividuales() y que la función hayErrores() hiciera hayErroresIndividuales() || hayErroresGenerales().
 
 * [2021-05-03] Ya no uso la comprobación general registrosNoSeleccionados.
-
-* [2021-05-08] Un caso curioso es si en borrar-2 se envia id=10000. Como la página espera una matriz marca varias casillas porque en vez de mirar posiciones en la matriz mira posiciones en la cadena. Cuando añada la comprobación de que lo que llegue sea del tipo que se espera, este problema se arreglará solo. Lo tendré que añadir en Selenium.
 
 
 ## Problemas
@@ -178,8 +172,6 @@ Estas son algunas de las cosas que me quedan por hacer y que podrían hacerse en
 ## Por clasificar
 
 - La fecha de préstamo es obligatoria. No se puede dejar a cero.
-- Podría hacerse una función para comprobar que el DNI es correcto
-- ¿Cómo funciona el NIE?
 - préstamo > insertar-1: si una obra ya estuviera prestada, no debería salir en la lista
 - préstamo > insertar-2: Si una persona coge la misma obra de nuevo, habría que comprobar que la fecha de préstamo no está dentro de las fechas de préstamo y devolución y que hay fecha de devolución (si el préstamo no se ha devuelto, creo que no se debería poder prestar ni antes ni después). Ahora sólo mira que la fecha de préstamo no sea la misma, independientemente de la fecha de devolución.
 - préstamos > devolver-2: si ponía la fecha de devolución en la consulta preparada no funcionaba, así que la he insertado en la consulta (como he comprobado antes que es correcta, posiblemente no importe).
@@ -188,7 +180,7 @@ Estas son algunas de las cosas que me quedan por hacer y que podrían hacerse en
 
 ## Dudas SQL
 
-* [2021-04-19] Decidir si la clave principal de cada tabla la sigo llamando id o las cambio a id_persona, id_obra, etc. Entocnes las referencia las debería cambia a persona_id, obra_id, etc.
+* [2021-04-19] Decidir si la clave principal de cada tabla la sigo llamando id o las cambio a id_persona, id_obra, etc. Entonces las referencia las debería cambia a persona_id, obra_id, etc.
 
 * [2021-04-19] Parece ser que ni MySQL ni SQLite permiten proteger una fila para que no se pueda borrar. Eso se llama [Row-level secutity](https://www.sqlservercentral.com/steps/stairway-to-sql-server-security-level-10-row-level-security)
 

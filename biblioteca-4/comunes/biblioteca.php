@@ -148,10 +148,14 @@ $db["consultasValoresDemo"] = [
 
 function recoge($var)
 {
-    $esMatriz = substr($var, -2) == "[]";
-    $var = ($esMatriz) ? substr($var, 0, -2) : $var;
+    $esperaMatriz = substr($var, -2) == "[]";
+    $var = ($esperaMatriz) ? substr($var, 0, -2) : $var;
     if (!isset($_REQUEST[$var])) {
-        $tmp = ($esMatriz) ? [] : "";
+        $tmp = ($esperaMatriz) ? [] : "";
+    } elseif ($esperaMatriz && !is_array($_REQUEST[$var])) {
+        $tmp = [];
+    } elseif (!$esperaMatriz && is_array($_REQUEST[$var])) {
+        $tmp = "";
     } elseif (!is_array($_REQUEST[$var])) {
         $tmp = trim(htmlspecialchars($_REQUEST[$var], ENT_QUOTES, "UTF-8"));
     } else {

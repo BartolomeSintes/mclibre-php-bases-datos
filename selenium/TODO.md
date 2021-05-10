@@ -39,6 +39,7 @@ Estas son algunas de las cosas que podría hacer para Selenium
   - intentos de manipular modificando la url
   - uso caótico de la aplicación (¿fuzzy testing?). Esto sólo tendría sentido hacerlo por programa, pero aparte de hacer clic a lo loco, no se me ocurre qué debería hacerse y el problema es saber qué tiene que hacer la aplicación.
 
+* [2021-05-10] He añadido a la función recoge() que si llega dato en forma de matriz cuando esperaba un escalar o viceversa, deja el dato vacío (no hace ningún aviso especial, es como si no hubiera llegado nada). Pero en las pruebas no pruebo ese error en ningún sitio. El 2021-05-08 me di cuenta de que al no hacer esa comprobación podían ocurrir cosas curiosas como por ejemplo si en borrar-2 se enviaba id=10000. Como la página espera una matriz marcaba varias casillas porque en vez de mirar posiciones en la matriz miraba posiciones en la cadena.
 
 ### Pruebas a realizar en cada página
 

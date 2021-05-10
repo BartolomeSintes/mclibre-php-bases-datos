@@ -62,7 +62,9 @@ if (muestraFormulario()) {
         print "          </tr>\n";
         print "          <tr>\n";
         print "            <td>Fecha de devolución:</td>\n";
-        print "            <td><input type=\"date\" name=\"devuelto\" value=\"" . date("Y-m-j") . "\"></td>\n";
+        print "            <td><input type=\"date\" name=\"devuelto\" value=\"" . date("Y-m-j") . "\">\n";
+        print "              " . imprimeAvisosIndividuales("devolver-2", "prestamos", "devuelto", "mensaje") . "\n";
+        print "            </td>\n";
         print "          </tr>\n";
         print "        </tbody>\n";
         print "      </table>\n";

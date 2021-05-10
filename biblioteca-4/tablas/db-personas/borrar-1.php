@@ -24,7 +24,7 @@ if (muestraFormulario()) {
 
     $ordena = recogeValores("ordena", $db["columnasPersonasOrden"], "apellidos ASC");
     $id     = recoge("id[]");
-print_r($id);
+
     $consulta = "SELECT *
                  FROM $db[personas]
                  ORDER BY $ordena";

@@ -6,8 +6,16 @@ El formato se basa en [Keep a Changelog](https://keepachangelog.com/en/1.0.0/).
 
 Este changelog incluye los cambios hechos en Biblioteca-3, Biblioteca-4, etc.
 
+## 2021-05-
 
-## 2021-05-XX
+### Added (Añadido)
+- Si a la función recoge() le llega una matriz cuando esperaba un escalar o viceversa, descarta lo recibido y hace como si hubiera llegado en blanco (no genera ningún aviso, en la comprobación individual o general posterior ya se generará el aviso que toque por llegar un dato vacío).
+
+### Fixed (Corregido)
+- Al devolver préstamo si se deja la fecha vacía ahora dice "No ha indicado la fecha.".
+
+
+## 2021-05-08
 
 ### Changed (Modificado)
 - Reescribo login-2.php para usar compruebaAvisosGenerales() y que el único aviso sea "Nombre de usuario y/o contraseña incorrectos."
