@@ -27,11 +27,13 @@ if (muestraFormulario()) {
     print "        <tbody>\n";
     print "          <tr>\n";
     print "            <td>Usuario:</td>\n";
-    print "            <td><input type=\"text\" name=\"usuario\" size=\"$db[tamUsuariosUsuario]\" maxlength=\"$db[tamUsuariosUsuario]\" autofocus></td>\n";
+    print "            <td><input type=\"text\" name=\"usuario\" size=\"$db[tamUsuariosUsuario]\" maxlength=\"$db[tamUsuariosUsuario]\""
+        . imprimeAvisosIndividuales("usuarios", "buscar-2", "usuario", "valor") . " autofocus></td>\n";
     print "          </tr>\n";
     print "          <tr>\n";
     print "            <td>Contraseña:</td>\n";
-    print "            <td><input type=\"text\" name=\"password\" size=\"$db[tamUsuariosPassword]\" maxlength=\"$db[tamUsuariosPassword]\"></td>\n";
+    print "            <td><input type=\"text\" name=\"password\" size=\"$db[tamUsuariosPassword]\" maxlength=\"$db[tamUsuariosPassword]\""
+        . imprimeAvisosIndividuales("usuarios", "buscar-2", "password", "valor") . "></td>\n";
     print "          </tr>\n";
     print "          <tr>\n";
     print "            <td>Nivel:</td>\n";

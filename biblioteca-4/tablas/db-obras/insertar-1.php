@@ -28,20 +28,20 @@ if (muestraFormulario()) {
     print "          <tr>\n";
     print "            <td>Autor:</td>\n";
     print "            <td><input type=\"text\" name=\"autor\" size=\"$db[tamObrasAutor]\" maxlength=\"$db[tamObrasAutor]\""
-    . imprimeAvisosIndividuales("obras", "insertar-2", "autor", "valor") . " autofocus>"
-    . imprimeAvisosIndividuales("obras", "insertar-2", "autor", "mensaje") . "</td>\n";
+        . imprimeAvisosIndividuales("obras", "insertar-2", "autor", "valor") . " autofocus>"
+        . imprimeAvisosIndividuales("obras", "insertar-2", "autor", "mensaje") . "</td>\n";
     print "          </tr>\n";
     print "          <tr>\n";
     print "            <td>Título:</td>\n";
     print "            <td><input type=\"text\" name=\"titulo\" size=\"$db[tamObrasTitulo]\" maxlength=\"$db[tamObrasTitulo]\""
-    . imprimeAvisosIndividuales("obras", "insertar-2", "titulo", "valor") . ">"
-    . imprimeAvisosIndividuales("obras", "insertar-2", "titulo", "mensaje") . "</td>\n";
+        . imprimeAvisosIndividuales("obras", "insertar-2", "titulo", "valor") . ">"
+        . imprimeAvisosIndividuales("obras", "insertar-2", "titulo", "mensaje") . "</td>\n";
     print "          </tr>\n";
     print "          <tr>\n";
     print "            <td>Editorial:</td>\n";
     print "            <td><input type=\"text\" name=\"editorial\" size=\"$db[tamObrasEditorial]\" maxlength=\"$db[tamObrasEditorial]\""
-    . imprimeAvisosIndividuales("obras", "insertar-2", "editorial", "valor") . ">"
-    . imprimeAvisosIndividuales("obras", "insertar-2", "editorial", "mensaje") . "</td>\n";
+        . imprimeAvisosIndividuales("obras", "insertar-2", "editorial", "valor") . ">"
+        . imprimeAvisosIndividuales("obras", "insertar-2", "editorial", "mensaje") . "</td>\n";
     print "          </tr>\n";
     print "        </tbody>\n";
     print "      </table>\n";

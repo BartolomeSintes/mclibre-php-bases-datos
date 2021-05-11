@@ -28,14 +28,14 @@ if (muestraFormulario()) {
     print "          <tr>\n";
     print "            <td>Usuario:</td>\n";
     print "            <td><input type=\"text\" name=\"usuario\" size=\"$db[tamUsuariosUsuario]\" maxlength=\"$db[tamUsuariosUsuario]\""
-    . imprimeAvisosIndividuales("usuarios", "insertar-2", "usuario", "valor") . " autofocus>"
-    . imprimeAvisosIndividuales("usuarios", "insertar-2", "usuario", "mensaje") . "</td>\n";
+        . imprimeAvisosIndividuales("usuarios", "insertar-2", "usuario", "valor") . " autofocus>"
+        . imprimeAvisosIndividuales("usuarios", "insertar-2", "usuario", "mensaje") . "</td>\n";
     print "          </tr>\n";
     print "          <tr>\n";
     print "            <td>Contraseña:</td>\n";
     print "            <td><input type=\"text\" name=\"password\" size=\"$db[tamUsuariosPassword]\" maxlength=\"$db[tamUsuariosPassword]\""
-    . imprimeAvisosIndividuales("usuarios", "insertar-2", "password", "valor") . ">"
-    . imprimeAvisosIndividuales("usuarios", "insertar-2", "password", "mensaje") . "</td>\n";
+        . imprimeAvisosIndividuales("usuarios", "insertar-2", "password", "valor") . ">"
+        . imprimeAvisosIndividuales("usuarios", "insertar-2", "password", "mensaje") . "</td>\n";
     print "          </tr>\n";
     print "          <tr>\n";
     print "            <td>Nivel:</td>\n";

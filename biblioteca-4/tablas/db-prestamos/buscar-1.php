@@ -27,19 +27,23 @@ if (muestraFormulario()) {
     print "        <tbody>\n";
     print "          <tr>\n";
     print "            <td>Persona - Nombre:</td>\n";
-    print "            <td><input type=\"text\" name=\"nombre\" size=\"$db[tamPersonasNombre]\" maxlength=\"$db[tamPersonasNombre]\" autofocus></td>\n";
+    print "            <td><input type=\"text\" name=\"nombre\" size=\"$db[tamPersonasNombre]\" maxlength=\"$db[tamPersonasNombre]\""
+        . imprimeAvisosIndividuales("prestamos", "buscar-2", "nombre", "valor") . " autofocus></td>\n";
     print "          </tr>\n";
     print "          <tr>\n";
     print "            <td>Persona - Apellidos:</td>\n";
-    print "            <td><input type=\"text\" name=\"apellidos\" size=\"$db[tamPersonasApellidos]\" maxlength=\"$db[tamPersonasApellidos]\"></td>\n";
+    print "            <td><input type=\"text\" name=\"apellidos\" size=\"$db[tamPersonasApellidos]\" maxlength=\"$db[tamPersonasApellidos]\""
+        . imprimeAvisosIndividuales("prestamos", "buscar-2", "apellidos", "valor") . "></td>\n";
     print "          </tr>\n";
     print "          <tr>\n";
     print "            <td>Obra - Autor:</td>\n";
-    print "            <td><input type=\"text\" name=\"autor\" size=\"$db[tamObrasAutor]\" maxlength=\"$db[tamObrasAutor]\"></td>\n";
+    print "            <td><input type=\"text\" name=\"autor\" size=\"$db[tamObrasAutor]\" maxlength=\"$db[tamObrasAutor]\""
+        . imprimeAvisosIndividuales("prestamos", "buscar-2", "autor", "valor") . "></td>\n";
     print "          </tr>\n";
     print "          <tr>\n";
     print "            <td>Obra - Título:</td>\n";
-    print "            <td><input type=\"text\" name=\"titulo\" size=\"$db[tamObrasTitulo]\" maxlength=\"$db[tamObrasTitulo]\"></td>\n";
+    print "            <td><input type=\"text\" name=\"titulo\" size=\"$db[tamObrasTitulo]\" maxlength=\"$db[tamObrasTitulo]\""
+        . imprimeAvisosIndividuales("prestamos", "buscar-2", "titulo", "valor") . "></td>\n";
     print "          </tr>\n";
     print "          <tr>\n";
     print "            <td>Fecha de préstamo:</td>\n";

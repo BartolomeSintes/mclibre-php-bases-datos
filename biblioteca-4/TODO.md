@@ -44,11 +44,13 @@ Estas son algunas de las cosas que me quedan por hacer y que podrían hacerse en
 
 * [2021-05-10] Un problema que no sé cómo evitar es cómo saber cómo se ha llegado a una página. Me refiero a que a una página se puede llegar redireccionado desde otra página o porque el usuario ha hecho clic en el enlace. Por ejemplo si modificar-3 encuentra errores (por ejmplo, porque se ha dejado todo vacío) redirige a modificar-1 que los muestra. Si el usuario hace entonces clic en el menú Modificar, entra otra vez en modificar-1, pero los avisos siguen mostrándose. Lo mismo pasa con insertar-2 si se ha dejado todo vacío. ¿Deberían eliminarse los avisos?
 
+* [2021-05-11] Buscar debería estar en una sola página, de manera que al escribir los criteriors de búsqueda, se actualizara el resultado. Tednría que estar hecho en javascript. Igual que el listado también tendría que reordenarse por javascript en vez de hacer una petición al servidor.
+
 ## Próximos pasos
 
 * [2021-04-10] Los avisos sólo indican la página que lo originó, pero no la tabla, así que que generas un aviso en una tabla y te vas a otra tabla, te sale el aviso anterior. Al borrar avisos habría que tener en cuenta no solo la página, sino también la  tabla.
 
-* [2021-04-10] Los select/radio/checkbox no muestran el valor elegido por el usuario cuando se detectan errores y se vuelve al formulario (prestamos/insertar-1 y prestamos/modificar-2)
+* [2021-04-10] Los select/radio/checkbox no muestran el valor elegido por el usuario cuando se detectan errores y se vuelve al formulario (prestamos/insertar-1, prestamos/buscar-1 y prestamos/modificar-2)
 
 * [2021-04-10] Aclarar cómo trabajar con las fechas: cómo quitar una fecha (si tiene sentido hacerlo), etc.
 
@@ -74,13 +76,11 @@ Estas son algunas de las cosas que me quedan por hacer y que podrían hacerse en
 
 * [2021-04-20] En Usuarios &gt; Buscar el nivel no ofrece la posibilidad de dejarlo en blanco (que querría decir que te da lo mismo el nivel).
 
-* [2021-04-22] buscar-2: si no se encuentra nada, vuelve al formulario y muestra un aviso, pero no muestra los términos de búsqueda anteriores. Realmente, no sé si es mejor recuperarlos o no.
-
 * [2021-04-29] Cuando se marcan varios registros para borrar saca varias veces el mensaje "Registro borrado correctamente.". Realmente no es incorrecto, pero queda raro. Quizás debería incluir campos del registro en el mensaje para que se viera que cada mensaje corresponde a cada uno de los registros borrados. O quizás sería mejor sacar un único mensaje "Registro borrado correctamente" o "Registros borrados correctamente" si son varios.
 
 * [2021-04-21] modificar préstamos. Si se quita la fecha dice registro no encontrado.
 
-* [2021-05-06] prestamos > buscar-2. No utiliza compruebaAvisosIndividuales ni compruebaAvisosGenerales.
+* [2021-05-06] prestamos > buscar-2. No utiliza compruebaAvisosIndividuales ni compruebaAvisosGenerales, ni devuelve a buscar-1 si no encuentra registros. De todas formas en buscar-1 he añadido los imprimeAvisosIndividuales(), que ahora no hacen nada.
 
 * [2021-05-06] prestamos > buscar-2. Averiguar si el if para incluir las fechas en la consulta se podría simplificar con dos if seguidos (tanto en la fecha de préstamo como en la de devolución). El problema supongo que será el "and" que hay que entre las condiciones en la consulta SQL.
 

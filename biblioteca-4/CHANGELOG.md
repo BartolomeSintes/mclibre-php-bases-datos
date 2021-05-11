@@ -10,6 +10,7 @@ Este changelog incluye los cambios hechos en Biblioteca-3, Biblioteca-4, etc.
 
 ### Added (Añadido)
 - Si a la función recoge() le llega una matriz cuando esperaba un escalar o viceversa, descarta lo recibido y hace como si hubiera llegado en blanco (no genera ningún aviso, en la comprobación individual o general posterior ya se generará el aviso que toque por llegar un dato vacío).
+- El formulario de buscar-1 muestra los términos de búsqueda utilizados si la búsqueda no da ningún resultado.
 
 ### Changed (Modificado)
 - Añado función incluyeValoresOriginalesEnAvisos() para guardar en $_SESSION los valores del registro elegido en modificar y que se puedan mostrar los valores originales en el formulario (cuando se deja todo vacío o cuando se escriben valores que coinciden con los de otro registro).

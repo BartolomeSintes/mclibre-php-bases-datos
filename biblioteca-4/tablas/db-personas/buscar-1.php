@@ -13,7 +13,7 @@ cabecera("Personas - Buscar 1", MENU_PERSONAS, PROFUNDIDAD_2);
 
 imprimeAvisosGenerales("personas", "buscar-2");
 
-borraAvisosExcepto();
+borraAvisosExcepto("buscar-2");
 
 compruebaAvisosGenerales("personas", "buscar-1", "sinRegistros");
 
@@ -27,15 +27,18 @@ if (muestraFormulario()) {
     print "        <tbody>\n";
     print "          <tr>\n";
     print "            <td>Nombre:</td>\n";
-    print "            <td><input type=\"text\" name=\"nombre\" size=\"$db[tamPersonasNombre]\" maxlength=\"$db[tamPersonasNombre]\" autofocus></td>\n";
+    print "            <td><input type=\"text\" name=\"nombre\" size=\"$db[tamPersonasNombre]\" maxlength=\"$db[tamPersonasNombre]\""
+        . imprimeAvisosIndividuales("personas", "buscar-2", "nombre", "valor") . " autofocus></td>\n";
     print "          </tr>\n";
     print "          <tr>\n";
     print "            <td>Apellidos:</td>\n";
-    print "            <td><input type=\"text\" name=\"apellidos\" size=\"$db[tamPersonasApellidos]\" maxlength=\"$db[tamPersonasApellidos]\"></td>\n";
+    print "            <td><input type=\"text\" name=\"apellidos\" size=\"$db[tamPersonasApellidos]\" maxlength=\"$db[tamPersonasApellidos]\""
+        . imprimeAvisosIndividuales("personas", "buscar-2", "apellidos", "valor") . "></td>\n";
     print "          </tr>\n";
     print "          <tr>\n";
     print "            <td>DNI:</td>\n";
-    print "            <td><input type=\"text\" name=\"dni\" size=\"$db[tamPersonasDni]\" maxlength=\"$db[tamPersonasDni]\"></td>\n";
+    print "            <td><input type=\"text\" name=\"dni\" size=\"$db[tamPersonasDni]\" maxlength=\"$db[tamPersonasDni]\""
+        . imprimeAvisosIndividuales("personas", "buscar-2", "dni", "valor") . "></td>\n";
     print "          </tr>\n";
     print "        </tbody>\n";
     print "      </table>\n";
