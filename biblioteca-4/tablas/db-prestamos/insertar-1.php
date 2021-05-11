@@ -44,7 +44,7 @@ if (muestraFormulario()) {
         foreach ($result2 as $valor) {
             print "                <option value=\"$valor[id]\">$valor[nombre] $valor[apellidos]</option>\n";
         }
-        print "              </select>" . imprimeAvisosIndividuales("insertar-2", "prestamos", "id_persona", "mensaje") . "\n";
+        print "              </select>" . imprimeAvisosIndividuales("prestamos", "insertar-2", "id_persona", "mensaje") . "\n";
         print "            </td>\n";
         print "          </tr>\n";
         print "          <tr>\n";
@@ -55,13 +55,13 @@ if (muestraFormulario()) {
         foreach ($result3 as $valor) {
             print "                <option value=\"$valor[id]\">$valor[autor] - $valor[titulo]</option>\n";
         }
-        print "              </select>" . imprimeAvisosIndividuales("insertar-2", "prestamos", "id_obra", "mensaje") . "\n";
+        print "              </select>" . imprimeAvisosIndividuales("prestamos", "insertar-2", "id_obra", "mensaje") . "\n";
         print "            </td>\n";
         print "          </tr>\n";
         print "          <tr>\n";
         print "            <td>Fecha de préstamo:</td>\n";
         print "            <td><input type=\"date\" name=\"prestado\" value=\"" . date("Y-m-j") . "\">"
-        . imprimeAvisosIndividuales("insertar-2", "prestamos", "prestado", "mensaje") . "</td>\n";
+        . imprimeAvisosIndividuales("prestamos", "insertar-2", "prestado", "mensaje") . "</td>\n";
         print "          </tr>\n";
         print "        </tbody>\n";
         print "      </table>\n";

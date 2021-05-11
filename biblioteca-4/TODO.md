@@ -26,17 +26,15 @@ Estas son algunas de las cosas que me quedan por hacer y que podrían hacerse en
 
 * [2021-04-27] Añadir función de comprobación de DNI o el NIE. Preguntarle a Fina qué documentos de identificación presenta la gente al matricularase en el instituto.
 
-* [2021-04-29] La matriz $dbTablas igual habría alguna manera de que se generara automáticamente.
-
-* [2021-04-29] Al buscar, si no encuentra registros no reescribe los términos de búsqueda. Tendría que pensar si hacerlo o no.
+* [2021-04-29] La matriz $dbTablas igual habría alguna manera de que se generara automáticamente. O hacer una función que al hacer Borrar Todo comprobara que las tablas de la BD son las de la matriz $tablas.
 
 * [2021-04-29] Al buscar, no comprueba si lo que ha escrito el usuario se podría haber insertado (es decir, por ahora si el texto es demasiado largo).
 
 * [2021-05-04] Tendría que hacer una tabla en la base de datos que tuviera en su formulario de entrada todos los tipos de controles (text, radio, checkbox, date, etc.) para que se viera cómo manejar cada uno de ellos (valores vacío o incorrrectos, recuperar el dato si hay errores, etc.). En Biblioteca-4 tendría que ser la tabla de préstamos.
 
-* [2021-05-06] Si se inserta un registro que ya existía, vuelve al formulario pero no rellena el formulario con los datos que escribió el usuario. No sé si se tendría que rellenar o no.
-
 * [2021-05-06] borrar-2. Si se envía id[válido] = "loquesea" borra el registro, no hace falta que sea "on". Una de las comprobaciones que podría añadir es que el valor sea uno de los esperados y si no lo deje en blanco o de error.
+
+* [2021-05-06] Si se vuelve a un formulario con errores y te vas a otra opción del menú, cuando vuelves a la página te salen los avisos. Sólo se borran si envías el formulario, porque se borran en la página 2.
 
 * [2021-05-08] Configurar el servidor (o añadir un .htaccess) para que si se pide un directorio sin index o un fichero que no existe que redirigiera al inicio. Preguntar a Quique.
 
@@ -51,8 +49,6 @@ Estas son algunas de las cosas que me quedan por hacer y que podrían hacerse en
 * [2021-04-10] Los avisos sólo indican la página que lo originó, pero no la tabla, así que que generas un aviso en una tabla y te vas a otra tabla, te sale el aviso anterior. Al borrar avisos habría que tener en cuenta no solo la página, sino también la  tabla.
 
 * [2021-04-10] Los select/radio/checkbox no muestran el valor elegido por el usuario cuando se detectan errores y se vuelve al formulario (prestamos/insertar-1 y prestamos/modificar-2)
-
-* [2021-04-27] Al devolver un préstamo, si se deja la fecha vacía dice que "La fecha de devolución es anterior a la de préstamo" pero debería decir que no se ha indicado la fecha.
 
 * [2021-04-10] Aclarar cómo trabajar con las fechas: cómo quitar una fecha (si tiene sentido hacerlo), etc.
 
@@ -86,20 +82,18 @@ Estas son algunas de las cosas que me quedan por hacer y que podrían hacerse en
 
 * [2021-05-06] prestamos > buscar-2. No utiliza compruebaAvisosIndividuales ni compruebaAvisosGenerales.
 
-* [2021-05-06] prestamos > buscar-2. Averiguar si el if para incluir las fechas en la consulta se podría simplificar con dos if seguidos (tanto en la fecha de préstamo como en la de devolución).
+* [2021-05-06] prestamos > buscar-2. Averiguar si el if para incluir las fechas en la consulta se podría simplificar con dos if seguidos (tanto en la fecha de préstamo como en la de devolución). El problema supongo que será el "and" que hay que entre las condiciones en la consulta SQL.
 
 * [2021-05-06] usuarios > modificar-3. Si se deja la contraseña en blanco vuelve a modificar-2 y escribe mensaje "Debe escribir una contraseña.". Se supone que si se deja en blanco es que se quiere mantener la contraseña.
-
-* [2021-05-06] Si se vuelve a un formulario con errores y te vas a otra opción del menú, cuando vuelves a la página te salen los avisos. Sólo se borran si envías el formulario, porque se borrar en la página 2.
 
 * [2021-05-06] Al reordenar un listado no se comprueban errores. En el criterio de ordenación da lo mismo porque hay uno por defecto, pero en los id igual debería decir algo, aunque la verdad es que no afecta a la página porque sólo marca las casillas correctas.
 
 * [2021-05-08] login-1 tiene la comprobación de tablas al principio. Reconvertirlo en avisoGeneral.
 
+* [2021-05-11] Al añadir usuario, si no se elige nivel, el mensaje de error es "Nivel de usuario incorrecto." Sería mejor que dijera "Debe elegir un nivel de usuario.".
+
 
 ## Para averiguar
-
-* [2021-04-23] Si se borra un registro, ¿la base de datos reutiliza el valor del id? ¿O depende de la bd? Para Selenium igual es un problema, porque al guardar un registro no puedo saber su id a priori.
 
 * [2021-04-22] Pensar una manera de trabajar con las fechas de forma transparente, que convierta las fechas al formato correcto para formularios y para la base de datos.
 
@@ -187,11 +181,11 @@ Estas son algunas de las cosas que me quedan por hacer y que podrían hacerse en
 
 * [2021-04-19] Decidir si la clave principal de cada tabla la sigo llamando id o las cambio a id_persona, id_obra, etc. Entonces las referencia las debería cambia a persona_id, obra_id, etc.
 
-* [2021-04-19] Parece ser que ni MySQL ni SQLite permiten proteger una fila para que no se pueda borrar. Eso se llama [Row-level secutity](https://www.sqlservercentral.com/steps/stairway-to-sql-server-security-level-10-row-level-security)
+* [2021-04-19] Parece ser que ni MySQL ni SQLite permiten proteger una fila para que no se pueda borrar (por ejemplo, el registro de root en la tabla usuarios). Eso se llama [Row-level secutity](https://www.sqlservercentral.com/steps/stairway-to-sql-server-security-level-10-row-level-security)
 
 * [2021-04-20] He leído un consejo que decía que campos muy comunes no debían enlazar a otras tablas (nombres de países, etc) sino incluirse directamente en la tabla, para simplificar después las consultas. ¿Bastaría quizás con que en el momento de la inserción se comprobara que el valor es correcto?
 
-* [2021-04-20] Averiguar si SQL permite hacer un registro imborrable (sería el registro de root en la tabla usuarios).
+* [2021-04-23] Si se borra un registro, ¿la base de datos reutiliza el valor del id? ¿O depende de la bd? Para Selenium igual es un problema, porque al guardar un registro no puedo saber su id a priori.
 
 * [2021-04-19] Aclarar cómo manejan las mayúsculas y minúsculas SQLite o MySQL (en existeRegistro lo resuelvo con lower).
 

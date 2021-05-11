@@ -57,13 +57,13 @@ if (muestraFormulario()) {
             print "                <option value=\"$valor[id]\">$valor[nombre] $valor[apellidos] - $valor[autor] - $valor[titulo] - $valor[prestado]</option>\n";
         }
         print "              </select>\n";
-        print "              " . imprimeAvisosIndividuales("devolver-2", "prestamos", "id_prestamo", "mensaje") . "\n";
+        print "              " . imprimeAvisosIndividuales("prestamos", "devolver-2", "id_prestamo", "mensaje") . "\n";
         print "            </td>\n";
         print "          </tr>\n";
         print "          <tr>\n";
         print "            <td>Fecha de devolución:</td>\n";
         print "            <td><input type=\"date\" name=\"devuelto\" value=\"" . date("Y-m-j") . "\">\n";
-        print "              " . imprimeAvisosIndividuales("devolver-2", "prestamos", "devuelto", "mensaje") . "\n";
+        print "              " . imprimeAvisosIndividuales("prestamos", "devolver-2", "devuelto", "mensaje") . "\n";
         print "            </td>\n";
         print "          </tr>\n";
         print "        </tbody>\n";

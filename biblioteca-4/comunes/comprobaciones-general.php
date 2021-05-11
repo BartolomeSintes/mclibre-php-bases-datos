@@ -107,7 +107,7 @@ function imprimeAvisosGenerales()
     }
 }
 
-function imprimeAvisosIndividuales($origen, $tabla, $campo, $tipo, $valor = "")
+function imprimeAvisosIndividuales($tabla, $origen, $campo, $tipo, $valor = "")
 {
     if (hayErrores($origen)) {
         // if (hayErrores($origen)) {

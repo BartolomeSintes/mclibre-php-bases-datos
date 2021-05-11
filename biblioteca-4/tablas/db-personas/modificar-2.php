@@ -53,20 +53,20 @@ if (!$result) {
     print "          <tr>\n";
     print "            <td>Nombre:</td>\n";
     print "            <td><input type=\"text\" name=\"nombre\" size=\"$db[tamPersonasNombre]\" maxlength=\"$db[tamPersonasNombre]\""
-        . imprimeAvisosIndividuales("modificar-3", "personas", "nombre", "valor", $valor["nombre"]) . " autofocus>"
-        . imprimeAvisosIndividuales("modificar-3", "personas", "nombre", "mensaje") . "</td>\n";
+        . imprimeAvisosIndividuales("personas", "modificar-3", "nombre", "valor", $valor["nombre"]) . " autofocus>"
+        . imprimeAvisosIndividuales("personas", "modificar-3", "nombre", "mensaje") . "</td>\n";
     print "          </tr>\n";
     print "          <tr>\n";
     print "            <td>Apellidos:</td>\n";
     print "            <td><input type=\"text\" name=\"apellidos\" size=\"$db[tamPersonasApellidos]\" maxlength=\"$db[tamPersonasApellidos]\""
-        . imprimeAvisosIndividuales("modificar-3", "personas", "apellidos", "valor", $valor["apellidos"]) . ">"
-        . imprimeAvisosIndividuales("modificar-3", "personas", "apellidos", "mensaje") . "</td>\n";
+        . imprimeAvisosIndividuales("personas", "modificar-3", "apellidos", "valor", $valor["apellidos"]) . ">"
+        . imprimeAvisosIndividuales("personas", "modificar-3", "apellidos", "mensaje") . "</td>\n";
     print "          </tr>\n";
     print "          <tr>\n";
     print "            <td>DNI:</td>\n";
     print "            <td><input type=\"text\" name=\"dni\" size=\"$db[tamPersonasDni]\" maxlength=\"$db[tamPersonasDni]\""
-        . imprimeAvisosIndividuales("modificar-3", "personas", "dni", "valor", $valor["dni"]) . ">"
-        . imprimeAvisosIndividuales("modificar-3", "personas", "dni", "mensaje") . "</td>\n";
+        . imprimeAvisosIndividuales("personas", "modificar-3", "dni", "valor", $valor["dni"]) . ">"
+        . imprimeAvisosIndividuales("personas", "modificar-3", "dni", "mensaje") . "</td>\n";
     print "          </tr>\n";
     print "        </tbody>\n";
     print "      </table>\n";

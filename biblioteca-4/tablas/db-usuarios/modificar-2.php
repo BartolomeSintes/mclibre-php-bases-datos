@@ -55,13 +55,13 @@ if (!$result) {
     print "          <tr>\n";
     print "            <td>Usuario:</td>\n";
     print "            <td><input type=\"text\" name=\"usuario\" size=\"$db[tamUsuariosUsuario]\" maxlength=\"$db[tamUsuariosUsuario]\""
-        . imprimeAvisosIndividuales("modificar-3", "usuarios", "usuario", "valor", $valor["usuario"]) . " autofocus>"
-        . imprimeAvisosIndividuales("modificar-3", "usuarios", "usuario", "mensaje") . "</td>\n";
+        . imprimeAvisosIndividuales("usuarios", "modificar-3", "usuario", "valor", $valor["usuario"]) . " autofocus>"
+        . imprimeAvisosIndividuales("usuarios", "modificar-3", "usuario", "mensaje") . "</td>\n";
     print "          </tr>\n";
     print "          <tr>\n";
     print "            <td>Contraseña:</td>\n";
     print "            <td><input type=\"text\" name=\"password\" size=\"$db[tamUsuariosPassword]\" maxlength=\"$db[tamUsuariosPassword]\">"
-        . imprimeAvisosIndividuales("modificar-3", "usuarios", "password", "mensaje") . "</td>\n";
+        . imprimeAvisosIndividuales("usuarios", "modificar-3", "password", "mensaje") . "</td>\n";
     print "          </tr>\n";
     print "          <tr>\n";
     print "            <td>Nivel:</td>\n";
@@ -74,7 +74,7 @@ if (!$result) {
         }
         print ">$indice2</option>\n";
     }
-    print "              </select>" . imprimeAvisosIndividuales("modificar-3", "usuarios", "nivel", "mensaje") . "\n";
+    print "              </select>" . imprimeAvisosIndividuales("usuarios", "modificar-3", "nivel", "mensaje") . "\n";
     print "            </td>\n";
     print "          </tr>\n";
     print "        </tbody>\n";

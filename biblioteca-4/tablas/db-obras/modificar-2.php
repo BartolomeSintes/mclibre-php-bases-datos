@@ -53,20 +53,20 @@ if (!$result) {
     print "          <tr>\n";
     print "            <td>Autor:</td>\n";
     print "            <td><input type=\"text\" name=\"autor\" size=\"$db[tamObrasAutor]\" maxlength=\"$db[tamObrasAutor]\""
-        . imprimeAvisosIndividuales("modificar-3", "obras", "autor", "valor", $valor["autor"]) . " autofocus>"
-        . imprimeAvisosIndividuales("modificar-3", "obras", "autor", "mensaje") . "</td>\n";
+        . imprimeAvisosIndividuales("obras", "modificar-3", "autor", "valor", $valor["autor"]) . " autofocus>"
+        . imprimeAvisosIndividuales("obras", "modificar-3", "autor", "mensaje") . "</td>\n";
     print "          </tr>\n";
     print "          <tr>\n";
     print "            <td>Título:</td>\n";
     print "            <td><input type=\"text\" name=\"titulo\" size=\"$db[tamObrasTitulo]\" maxlength=\"$db[tamObrasTitulo]\""
-        . imprimeAvisosIndividuales("modificar-3", "obras", "titulo", "valor", $valor["titulo"]) . ">"
-        . imprimeAvisosIndividuales("modificar-3", "obras", "titulo", "mensaje") . "</td>\n";
+        . imprimeAvisosIndividuales("obras", "modificar-3", "titulo", "valor", $valor["titulo"]) . ">"
+        . imprimeAvisosIndividuales("obras", "modificar-3", "titulo", "mensaje") . "</td>\n";
     print "          </tr>\n";
     print "          <tr>\n";
     print "            <td>Editorial:</td>\n";
     print "            <td><input type=\"text\" name=\"editorial\" size=\"$db[tamObrasEditorial]\" maxlength=\"$db[tamObrasEditorial]\""
-        . imprimeAvisosIndividuales("modificar-3", "obras", "editorial", "valor", $valor["editorial"]) . ">"
-        . imprimeAvisosIndividuales("modificar-3", "obras", "editorial", "mensaje") . "</td>\n";
+        . imprimeAvisosIndividuales("obras", "modificar-3", "editorial", "valor", $valor["editorial"]) . ">"
+        . imprimeAvisosIndividuales("obras", "modificar-3", "editorial", "mensaje") . "</td>\n";
     print "          </tr>\n";
     print "        </tbody>\n";
     print "      </table>\n";
