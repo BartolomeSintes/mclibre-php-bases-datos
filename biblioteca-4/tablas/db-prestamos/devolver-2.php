@@ -18,7 +18,7 @@ if (hayErrores("devolver-2")) {
     exit();
 }
 
-compruebaAvisosGenerales("devolver-2", "fechasCrecientes2", "id_prestamo", "devuelto");
+compruebaAvisosGenerales("prestamos", "devolver-2", "fechasCrecientes2", "id_prestamo", "devuelto");
 
 if (hayErrores("devolver-2")) {
     header("Location:devolver-1.php");

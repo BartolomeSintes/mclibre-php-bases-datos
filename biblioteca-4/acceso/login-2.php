@@ -11,7 +11,7 @@ compruebaNoSesion(PROFUNDIDAD_1);
 
 borraAvisosExcepto();
 
-compruebaAvisosGenerales("login-2", "validaLogin", "usuarios", "usuario", "password");
+compruebaAvisosGenerales("usuarios", "login-2", "validaLogin","usuario", "password");
 
 if (hayErrores("login-2")) {
     header("Location:login-1.php");

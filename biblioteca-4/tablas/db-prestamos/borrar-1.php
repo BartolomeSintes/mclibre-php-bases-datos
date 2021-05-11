@@ -11,13 +11,13 @@ compruebaSesion(NIVEL_3, PROFUNDIDAD_2);
 
 cabecera("Préstamos - Borrar 1", MENU_PRESTAMOS, PROFUNDIDAD_2);
 
-imprimeAvisosGenerales("borrar-2");
+imprimeAvisosGenerales("prestamos", "borrar-2");
 
 borraAvisosExcepto();
 
-compruebaAvisosGenerales("borrar-1", "sinRegistros", "prestamos");
+compruebaAvisosGenerales("prestamos", "borrar-1", "sinRegistros");
 
-imprimeAvisosGenerales("borrar-1");
+imprimeAvisosGenerales("prestamos", "borrar-1");
 
 if (muestraFormulario()) {
     $pdo = conectaDb();

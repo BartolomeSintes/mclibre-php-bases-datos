@@ -13,6 +13,8 @@ Este changelog incluye los cambios hechos en Biblioteca-3, Biblioteca-4, etc.
 
 ### Changed (Modificado)
 - Añado función incluyeValoresOriginalesEnAvisos() para guardar en $_SESSION los valores del registro elegido en modificar y que se puedan mostrar los valores originales en el formulario (cuando se deja todo vacío o cuando se escriben valores que coinciden con los de otro registro).
+- Añado índice tabla a $_SESSION["avisosGenerales"], ahora la estructura es $_SESSION["avisosGenerales"][página][tabla]
+- Unifico compruebaAvisosGenerales(), imprimeAvisosGenerales() y incluyeValoresOriginalesEnAvisos() poniendo como primer argumento la tabla y como segundo argumento la página de origen.
 
 ### Fixed (Corregido)
 - Al devolver préstamo si se deja la fecha vacía ahora dice "No ha indicado la fecha.".

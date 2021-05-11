@@ -58,6 +58,8 @@ Estas son algunas de las cosas que me quedan por hacer y que podrían hacerse en
 
 * [2021-04-10] Hacer páginas /administrador como /tablas.
 
+* [2021-05-10] En $_SESSION en vez de [origen][tabla] quizás sería mejor pòner [table][origen]
+
 
 ## Para corregir (más importante)
 

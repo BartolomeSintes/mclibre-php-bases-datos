@@ -13,9 +13,9 @@ cabecera("Obras - Listar", MENU_OBRAS, PROFUNDIDAD_2);
 
 borraAvisosExcepto();
 
-compruebaAvisosGenerales("listar", "sinRegistros", "obras");
+compruebaAvisosGenerales("obras", "listar", "sinRegistros");
 
-imprimeAvisosGenerales("insertar-1");
+imprimeAvisosGenerales("obras", "listar");
 
 if (muestraFormulario()) {
     $pdo = conectaDb();

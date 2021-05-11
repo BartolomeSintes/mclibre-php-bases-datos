@@ -13,9 +13,9 @@ cabecera("Préstamos - Listar", MENU_PRESTAMOS, PROFUNDIDAD_2);
 
 borraAvisosExcepto();
 
-compruebaAvisosGenerales("listar", "sinRegistros", "prestamos");
+compruebaAvisosGenerales("prestamos", "listar", "sinRegistros");
 
-imprimeAvisosGenerales("insertar-1");
+imprimeAvisosGenerales("prestamos", "listar");
 
 if (muestraFormulario()) {
     $pdo = conectaDb();

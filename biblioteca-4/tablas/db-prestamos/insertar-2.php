@@ -13,11 +13,11 @@ borraAvisosExcepto();
 
 [$id_persona, $id_obra, $prestado] = compruebaAvisosIndividuales("insertar-2", "prestamos", "id_persona", "id_obra", "prestado");
 
-compruebaAvisosGenerales("insertar-2", "algunoVacio", "id_persona", "id_obra", "prestado");
+compruebaAvisosGenerales("prestamos", "insertar-2", "algunoVacio", "id_persona", "id_obra", "prestado");
 
-compruebaAvisosGenerales("insertar-2", "limiteNumeroRegistros", "prestamos");
+compruebaAvisosGenerales("prestamos", "insertar-2", "limiteNumeroRegistros");
 
-compruebaAvisosGenerales("insertar-2", "yaExisteRegistro", "prestamos", "id_persona", "id_obra", "prestado");
+compruebaAvisosGenerales("prestamos", "insertar-2", "yaExisteRegistro", "id_persona", "id_obra", "prestado");
 
 if (hayErrores("insertar-2")) {
     header("Location:insertar-1.php");

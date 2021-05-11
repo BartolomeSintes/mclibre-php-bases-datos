@@ -18,7 +18,7 @@ if (hayErrores("modificar-3")) {
     exit();
 }
 
-compruebaAvisosGenerales("modificar-3", "registrosExisten", "obras", $id);
+compruebaAvisosGenerales("obras", "modificar-3", "registrosExisten", $id);
 
 if (hayErrores("modificar-3")) {
     header("Location:modificar-1.php");
@@ -27,11 +27,11 @@ if (hayErrores("modificar-3")) {
 
 [$autor, $titulo, $editorial] = compruebaAvisosIndividuales("modificar-3", "obras", "autor", "titulo", "editorial");
 
-incluyeValoresOriginalesEnAvisos("modificar-3", "obras", "autor", "titulo", "editorial", "id");
+incluyeValoresOriginalesEnAvisos("obras", "modificar-3", "autor", "titulo", "editorial", "id");
 
-compruebaAvisosGenerales("modificar-3", "todosVaciosMenosPrimero", "id", "autor", "titulo", "editorial");
+compruebaAvisosGenerales("obras", "modificar-3", "todosVaciosMenosPrimero", "id", "autor", "titulo", "editorial");
 
-compruebaAvisosGenerales("modificar-3", "yaExisteRegistroConOtroId", "obras", "autor", "titulo", "editorial", "id");
+compruebaAvisosGenerales("obras", "modificar-3", "yaExisteRegistroConOtroId", "autor", "titulo", "editorial", "id");
 
 if (hayErrores("modificar-3")) {
     header("Location:modificar-2.php");

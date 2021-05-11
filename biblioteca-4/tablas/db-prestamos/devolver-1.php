@@ -13,11 +13,11 @@ cabecera("Préstamos - Devolver 1", MENU_PRESTAMOS, PROFUNDIDAD_2);
 
 borraAvisosExcepto("devolver-2");
 
-imprimeAvisosGenerales("devolver-2");
+imprimeAvisosGenerales("prestamos", "devolver-2");
 
-compruebaAvisosGenerales("devolver-1", "sinPrestamosPendientes", "prestamos");
+compruebaAvisosGenerales("prestamos", "devolver-1", "sinPrestamosPendientes");
 
-imprimeAvisosGenerales("devolver-1");
+imprimeAvisosGenerales("prestamos", "devolver-1");
 
 if (muestraFormulario()) {
     $pdo = conectaDb();

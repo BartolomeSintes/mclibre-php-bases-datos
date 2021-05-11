@@ -11,13 +11,13 @@ compruebaSesion(NIVEL_3, PROFUNDIDAD_2);
 
 cabecera("Usuarios - Modificar 1", MENU_USUARIOS, PROFUNDIDAD_2);
 
-imprimeAvisosGenerales("modificar-2", "modificar-3");
+imprimeAvisosGenerales("usuarios", "modificar-2", "modificar-3");
 
 borraAvisosExcepto();
 
-compruebaAvisosGenerales("modificar-1", "sinRegistros", "usuarios");
+compruebaAvisosGenerales("usuarios", "modificar-1", "sinRegistros");
 
-imprimeAvisosGenerales("modificar-1");
+imprimeAvisosGenerales("usuarios", "modificar-1");
 
 if (muestraFormulario()) {
     $pdo = conectaDb();

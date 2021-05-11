@@ -18,7 +18,7 @@ if (hayErrores("modificar-3")) {
     exit();
 }
 
-compruebaAvisosGenerales("modificar-3", "registrosExisten", "prestamos", $id);
+compruebaAvisosGenerales("prestamos", "modificar-3", "registrosExisten", $id);
 
 if (hayErrores("modificar-3")) {
     header("Location:modificar-1.php");
@@ -27,13 +27,13 @@ if (hayErrores("modificar-3")) {
 
 [$id_persona, $id_obra, $prestado, $devuelto, $id] = compruebaAvisosIndividuales("modificar-3", "prestamos", "id_persona", "id_obra", "prestado", "devuelto", "id");
 
-incluyeValoresOriginalesEnAvisos("modificar-3", "prestamos", "id_persona", "id_obra", "prestado", "devuelto", "id");
+incluyeValoresOriginalesEnAvisos("prestamos", "modificar-3", "id_persona", "id_obra", "prestado", "devuelto", "id");
 
-compruebaAvisosGenerales("modificar-3", "todosVaciosMenosPrimero", "id", "id_persona", "id_obra", "prestado", "devuelto");
+compruebaAvisosGenerales("prestamos", "modificar-3", "todosVaciosMenosPrimero", "id", "id_persona", "id_obra", "prestado", "devuelto");
 
-compruebaAvisosGenerales("modificar-3", "yaExisteRegistroConOtroId", "prestamos", "id_persona", "id_obra", "prestado", "devuelto", "id");
+compruebaAvisosGenerales("prestamos", "modificar-3", "yaExisteRegistroConOtroId", "id_persona", "id_obra", "prestado", "devuelto", "id");
 
-compruebaAvisosGenerales("modificar-3", "fechasCrecientes", "prestado", "devuelto");
+compruebaAvisosGenerales("prestamos", "modificar-3", "fechasCrecientes", "prestado", "devuelto");
 
 if (hayErrores("modificar-3")) {
     header("Location:modificar-2.php");

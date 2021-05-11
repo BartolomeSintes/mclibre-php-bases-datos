@@ -23,7 +23,7 @@ if (hayErrores("modificar-2")) {
     exit();
 }
 
-compruebaAvisosGenerales("modificar-2", "registrosExisten", "personas", $id);
+compruebaAvisosGenerales("personas", "modificar-2", "registrosExisten", $id);
 
 if (hayErrores("modificar-2")) {
     header("Location:modificar-1.php");
@@ -32,7 +32,7 @@ if (hayErrores("modificar-2")) {
 
 cabecera("Personas - Modificar 2", MENU_PERSONAS, PROFUNDIDAD_2);
 
-imprimeAvisosGenerales("modificar-3");
+imprimeAvisosGenerales("personas", "modificar-3");
 
 $pdo = conectaDb();
 

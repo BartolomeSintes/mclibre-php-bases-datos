@@ -13,7 +13,7 @@ borraAvisosExcepto();
 
 [$nombre, $apellidos, $dni] = compruebaAvisosIndividuales("buscar-2", "personas", "nombre", "apellidos", "dni");
 
-compruebaAvisosGenerales("buscar-2", "registrosNoEncontrados", "personas", "nombre", "apellidos", "dni");
+compruebaAvisosGenerales("personas", "buscar-2", "registrosNoEncontrados", "nombre", "apellidos", "dni");
 
 if (hayErrores("buscar-2")) {
     header("Location:buscar-1.php");

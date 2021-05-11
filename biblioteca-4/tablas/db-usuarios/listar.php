@@ -13,9 +13,9 @@ cabecera("Usuarios - Listar", MENU_USUARIOS, PROFUNDIDAD_2);
 
 borraAvisosExcepto();
 
-compruebaAvisosGenerales("listar", "sinRegistros", "usuarios");
+compruebaAvisosGenerales("usuarios", "listar", "sinRegistros");
 
-imprimeAvisosGenerales("insertar-1");
+imprimeAvisosGenerales("usuarios", "listar");
 
 if (muestraFormulario()) {
     $pdo = conectaDb();

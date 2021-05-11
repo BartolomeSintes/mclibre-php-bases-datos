@@ -11,13 +11,13 @@ compruebaSesion(NIVEL_3, PROFUNDIDAD_2);
 
 cabecera("Obras - Añadir 1", MENU_OBRAS, PROFUNDIDAD_2);
 
-imprimeAvisosGenerales("insertar-2");
+imprimeAvisosGenerales("obras", "insertar-2");
 
 borraAvisosExcepto("insertar-2");
 
-compruebaAvisosGenerales("insertar-1", "limiteNumeroRegistros", "obras");
+compruebaAvisosGenerales("obras", "insertar-1", "limiteNumeroRegistros");
 
-imprimeAvisosGenerales("insertar-1");
+imprimeAvisosGenerales("obras", "insertar-1");
 
 if (muestraFormulario()) {
     print "    <form action=\"insertar-2.php\" method=\"$cfg[formMethod]\">\n";

@@ -23,9 +23,9 @@ if (hayErrores("modificar-2")) {
     exit();
 }
 
-compruebaAvisosGenerales("modificar-2", "registrosExisten", "usuarios", $id);
+compruebaAvisosGenerales("usuarios", "modificar-2", "registrosExisten", $id);
 
-compruebaAvisosGenerales("modificar-2", "incluyeUsuarioRoot", $id);
+compruebaAvisosGenerales("usuarios", "modificar-2", "incluyeUsuarioRoot", $id);
 
 if (hayErrores("modificar-2")) {
     header("Location:modificar-1.php");
@@ -34,7 +34,7 @@ if (hayErrores("modificar-2")) {
 
 cabecera("Usuarios - Modificar 2", MENU_USUARIOS, PROFUNDIDAD_2);
 
-imprimeAvisosGenerales("modificar-3");
+imprimeAvisosGenerales("usuarios", "modificar-3");
 
 $pdo = conectaDb();
 

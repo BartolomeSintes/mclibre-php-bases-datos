@@ -71,20 +71,22 @@ function compruebaAvisosIndividuales()
 function incluyeValoresOriginalesEnAvisos()
 {
     $argumentos = func_get_args();
+    $tabla     = $argumentos[0];
+    array_shift($argumentos);
     $origen     = $argumentos[0];
     array_shift($argumentos);
     $pdo      = conectaDb();
     $consulta = "SELECT *
-                 FROM $argumentos[0] "
+                 FROM $tabla "
               . "WHERE id=:id";
     $result = $pdo->prepare($consulta);
     $result->execute([":id" => recoge($argumentos[count($argumentos) - 1])]);
     if (!$result) {
-        $_SESSION["avisosGenerales"][$origen][] = ["texto" => "Error en la consulta.", "claseAviso" => "aviso-error"];
+        $_SESSION["avisosGenerales"][$origen][$tabla][] = ["texto" => "Error en la consulta.", "claseAviso" => "aviso-error"];
     } else {
         $valor = $result->fetch(PDO::FETCH_ASSOC);
-        for ($i = 1; $i < count($argumentos); $i++) {
-            $_SESSION["avisosIndividuales"][$origen][$argumentos[0]][$argumentos[$i]]["original"] = $valor[$argumentos[$i]];
+        for ($i = 0; $i < count($argumentos); $i++) {
+            $_SESSION["avisosIndividuales"][$origen][$tabla][$argumentos[$i]]["original"] = $valor[$argumentos[$i]];
         }
     }
     $_SESSION["avisosIndividuales"][$origen]["muestraValoresOriginalesEnFormulario"] = true;
@@ -93,11 +95,12 @@ function incluyeValoresOriginalesEnAvisos()
 function imprimeAvisosGenerales()
 {
     $argumentos = func_get_args();
-
+    $tabla     = $argumentos[0];
+    array_shift($argumentos);
     foreach ($argumentos as $origen) {
-        if (isset($_SESSION["avisosGenerales"][$origen]) && count($_SESSION["avisosGenerales"][$origen]) > 0) {
-            $_SESSION["avisosGenerales"][$origen] = array_unique($_SESSION["avisosGenerales"][$origen], SORT_REGULAR);
-            foreach ($_SESSION["avisosGenerales"][$origen] as $aviso) {
+        if (isset($_SESSION["avisosGenerales"][$origen][$tabla]) && count($_SESSION["avisosGenerales"][$origen][$tabla]) > 0) {
+            $_SESSION["avisosGenerales"][$origen][$tabla] = array_unique($_SESSION["avisosGenerales"][$origen][$tabla], SORT_REGULAR);
+            foreach ($_SESSION["avisosGenerales"][$origen][$tabla] as $aviso) {
                 print "    <p class=\"$aviso[claseAviso]\">$aviso[texto]</p>\n";
             }
         }

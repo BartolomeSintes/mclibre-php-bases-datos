@@ -11,13 +11,13 @@ compruebaSesion(NIVEL_2, PROFUNDIDAD_2);
 
 cabecera("Personas - Buscar 1", MENU_PERSONAS, PROFUNDIDAD_2);
 
-imprimeAvisosGenerales("buscar-2");
+imprimeAvisosGenerales("personas", "buscar-2");
 
 borraAvisosExcepto();
 
-compruebaAvisosGenerales("buscar-1", "sinRegistros", "personas");
+compruebaAvisosGenerales("personas", "buscar-1", "sinRegistros");
 
-imprimeAvisosGenerales("buscar-1");
+imprimeAvisosGenerales("personas", "buscar-1");
 
 if (muestraFormulario()) {
     print "    <form action=\"buscar-2.php\" method=\"$cfg[formMethod]\">\n";

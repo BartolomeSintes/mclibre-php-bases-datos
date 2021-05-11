@@ -13,9 +13,9 @@ cabecera("Personas - Listar", MENU_PERSONAS, PROFUNDIDAD_2);
 
 borraAvisosExcepto();
 
-compruebaAvisosGenerales("listar", "sinRegistros", "personas");
+compruebaAvisosGenerales("personas", "listar", "sinRegistros");
 
-imprimeAvisosGenerales("listar");
+imprimeAvisosGenerales("personas", "listar");
 
 if (muestraFormulario()) {
     $pdo = conectaDb();
