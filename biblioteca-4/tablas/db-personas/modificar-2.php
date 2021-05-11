@@ -15,7 +15,7 @@ borraAvisosExcepto("modificar-3");
 if (isset($_SESSION["avisosIndividuales"]["modificar-3"]["personas"]["id"]["valor"])) {
     $id = $_SESSION["avisosIndividuales"]["modificar-3"]["personas"]["id"]["valor"];
 } else {
-    [$id] = compruebaAvisosIndividuales("modificar-2", "personas", "id");
+    [$id] = compruebaAvisosIndividuales("personas", "modificar-2", "id");
 }
 
 if (hayErrores("modificar-2")) {

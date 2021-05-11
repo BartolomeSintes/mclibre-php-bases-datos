@@ -11,7 +11,7 @@ compruebaSesion(NIVEL_3, PROFUNDIDAD_2);
 
 borraAvisosExcepto();
 
-[$id] = compruebaAvisosIndividuales("borrar-2", "personas", "id[]");
+[$id] = compruebaAvisosIndividuales("personas", "borrar-2", "id[]");
 
 compruebaAvisosGenerales("personas", "borrar-2", "registrosExisten", $id);
 

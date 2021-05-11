@@ -11,7 +11,7 @@ compruebaSesion(NIVEL_3, PROFUNDIDAD_2);
 
 borraAvisosExcepto();
 
-[$nombre, $apellidos, $dni] = compruebaAvisosIndividuales("insertar-2", "personas", "nombre", "apellidos", "dni");
+[$nombre, $apellidos, $dni] = compruebaAvisosIndividuales("personas", "insertar-2", "nombre", "apellidos", "dni");
 
 compruebaAvisosGenerales("personas", "insertar-2", "todosVacios", "nombre", "apellidos", "dni");
 

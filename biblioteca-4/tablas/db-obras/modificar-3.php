@@ -11,7 +11,7 @@ compruebaSesion(NIVEL_3, PROFUNDIDAD_2);
 
 borraAvisosExcepto();
 
-[$id] = compruebaAvisosIndividuales("modificar-3", "obras", "id");
+[$id] = compruebaAvisosIndividuales("obras", "modificar-3", "id");
 
 if (hayErrores("modificar-3")) {
     header("Location:modificar-1.php");
@@ -25,7 +25,7 @@ if (hayErrores("modificar-3")) {
     exit();
 }
 
-[$autor, $titulo, $editorial] = compruebaAvisosIndividuales("modificar-3", "obras", "autor", "titulo", "editorial");
+[$autor, $titulo, $editorial] = compruebaAvisosIndividuales("obras", "modificar-3", "autor", "titulo", "editorial");
 
 incluyeValoresOriginalesEnAvisos("obras", "modificar-3", "autor", "titulo", "editorial", "id");
 

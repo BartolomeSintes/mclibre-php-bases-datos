@@ -11,7 +11,7 @@ compruebaSesion(NIVEL_2, PROFUNDIDAD_2);
 
 borraAvisosExcepto();
 
-[$autor, $titulo, $editorial] = compruebaAvisosIndividuales("buscar-2", "obras", "autor", "titulo", "editorial");
+[$autor, $titulo, $editorial] = compruebaAvisosIndividuales("obras", "buscar-2", "autor", "titulo", "editorial");
 
 compruebaAvisosGenerales("obras", "buscar-2", "registrosNoEncontrados", "autor", "titulo", "editorial");
 

@@ -11,7 +11,7 @@ compruebaSesion(NIVEL_3, PROFUNDIDAD_2);
 
 borraAvisosExcepto();
 
-[$id_prestamo, $devuelto] = compruebaAvisosIndividuales("devolver-2", "prestamos", "id_prestamo", "devuelto");
+[$id_prestamo, $devuelto] = compruebaAvisosIndividuales("prestamos", "devolver-2", "id_prestamo", "devuelto");
 
 if (hayErrores("devolver-2")) {
     header("Location:devolver-1.php");

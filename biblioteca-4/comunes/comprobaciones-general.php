@@ -37,9 +37,9 @@ function compruebaAvisosIndividuales()
 {
     // Argumentos: pagina_de_origen, tabla, campo_1, campo_2, ...
     $argumentos = func_get_args();
-    $origen     = $argumentos[0];
-    array_shift($argumentos);
     $tabla = $argumentos[0];
+    array_shift($argumentos);
+    $origen     = $argumentos[0];
     array_shift($argumentos);
     $resp       = [];
     $paraSesion = [];
