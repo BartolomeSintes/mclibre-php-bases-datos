@@ -43,6 +43,11 @@ Estas son algunas de las cosas que podría hacer para Selenium
 
 * [2021-05-11] Si no encuentra registros al buscar, vuelve al formulario y escribe los valores de búsqueda que no dieron resultado, pero Selenium eso no lo comprueba. En modificar creo que si comprueba que reescribe los valores originales o los de la modificación, pero no estoy seguro.
 
+* [2021-05-11] Otra comprobación a a añadir a todas las páginas sería ver que no hay mensajes de error de PHp (Warning, Notice, etc.)
+
+* [2021-05-11] Otra comprobación a a añadir a todas las páginas sería ver que no hay ningún printSesion() o printValores() olvidado. Tendría que añadir un mensaje en esas funciones para que fuera lo que detectara.
+
+
 ### Pruebas a realizar en cada página
 
 - Niveles de usuario

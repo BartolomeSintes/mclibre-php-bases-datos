@@ -56,7 +56,9 @@ Estas son algunas de las cosas que me quedan por hacer y que podrían hacerse en
 
 * [2021-04-10] Hacer páginas /administrador como /tablas.
 
-* [2021-05-10] En $_SESSION en vez de [origen][tabla] quizás sería mejor pòner [table][origen]
+* [2021-05-10] En $_SESSION en vez de [origen][tabla] quizás sería mejor pòner [table][origen].
+
+* [2021-05-11] En modificar-3 he tenido que meter el incluyeValoresOriginalesEnAvisos() dentro del if (hayErrores("modificar-3")) porque si no, al hacer hayErrores() daba error en la línea foreach ($_SESSION["avisosIndividuales"][$origen][$tabla] as $campo => $valor) {. El problema es que la anotación muestraValoresOriginalesEnFormulario está al mismo nivel que las tablas, así que cuando hace el foreach sobre las tablas coge también el valor. Tendría que cambiar la estructura de $_SESSION.
 
 
 ## Para corregir (más importante)
@@ -96,8 +98,6 @@ Estas son algunas de las cosas que me quedan por hacer y que podrían hacerse en
 ## Para averiguar
 
 * [2021-04-22] Pensar una manera de trabajar con las fechas de forma transparente, que convierta las fechas al formato correcto para formularios y para la base de datos.
-
-* [2021-04-17] Comprobar si MySQL detecta máximo de registros, porque en config.php["maxRegTabla"] pone "usuarios", etc. y no $db["usuarios"], etc.
 
 * [2021-05-06] Los avisos generales duplicados se eliminan en imprimeAvisosGenerales()() si son de la misma página, pero si son de páginas distintas no. Por ejemplo, si se ha alcanzado el límite de registros y se llama en la barra de dirección a insertar-2 con campos incorrectos, vuelve a insertar-1 y escribe dos veces el aviso del límite superado (uno detectado por insertar-2 y otro detectado por insertar-1). No sé si merece la pena corregirlo.
 
@@ -191,6 +191,8 @@ Estas son algunas de las cosas que me quedan por hacer y que podrían hacerse en
 
 * [2021-04-17] ¿Alguna base de datos da error si se intenta borrar un registro que no existe? MySQL y SQLite no dan error. Es más una curiosidad que otra cosa porque en biblioteca-4 al recoger un id compruebaAvisosIndividuales() comprueba que el registro exista y si no genera un aviso.
 
+## Code smells
+
 
 ## Estructura $_SESSION
 
@@ -199,7 +201,7 @@ Estas son algunas de las cosas que me quedan por hacer y que podrían hacerse en
 [avisosIndividuales][página][tabla][campo][original] => Texto del registro original (se usa al modificar) \
 [avisosIndividuales][página][tabla][campo][campoOK] => true/false \
 [avisosIndividuales][página][tabla][campo][texto] => Mensaje de error para mostrar en el formulario \
+[avisosIndividuales][página][tabla][muestraValoresOriginalesEnFormulario] => true (no hay false, o es true o no existe) \
 [avisosGenerales][ocultaFormulario] => true (no hay false, o es true o no existe) \
-[avisosGenerales][página][muestraValoresOriginalesEnFormulario] => true (no hay false, o es true o no existe) \
 [avisosGenerales][página][nº][texto] => Mensaje de error para mostrar al principio de la página \
 [avisosGenerales][página][nº][claseAviso] => error / info

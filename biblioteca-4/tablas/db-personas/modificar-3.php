@@ -27,13 +27,12 @@ if (hayErrores("modificar-3")) {
 
 [$nombre, $apellidos, $dni] = compruebaAvisosIndividuales("personas", "modificar-3", "nombre", "apellidos", "dni");
 
-incluyeValoresOriginalesEnAvisos("personas", "modificar-3", "nombre", "apellidos", "dni", "id");
-
 compruebaAvisosGenerales("personas", "modificar-3", "todosVaciosMenosPrimero", "id", "nombre", "apellidos", "dni");
 
 compruebaAvisosGenerales("personas", "modificar-3", "yaExisteRegistroConOtroId", "nombre", "apellidos", "dni", "id");
 
 if (hayErrores("modificar-3")) {
+    incluyeValoresOriginalesEnAvisos("personas", "modificar-3", "nombre", "apellidos", "dni", "id");
     header("Location:modificar-2.php");
     exit();
 }
