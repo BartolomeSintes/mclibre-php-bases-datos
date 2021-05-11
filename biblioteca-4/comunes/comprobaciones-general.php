@@ -70,6 +70,8 @@ function compruebaAvisosIndividuales()
 
 function incluyeValoresOriginalesEnAvisos()
 {
+    global $db;
+
     $argumentos = func_get_args();
     $tabla     = $argumentos[0];
     array_shift($argumentos);
@@ -77,7 +79,7 @@ function incluyeValoresOriginalesEnAvisos()
     array_shift($argumentos);
     $pdo      = conectaDb();
     $consulta = "SELECT *
-                 FROM $tabla "
+                 FROM $db[$tabla] "
               . "WHERE id=:id";
     $result = $pdo->prepare($consulta);
     $result->execute([":id" => recoge($argumentos[count($argumentos) - 1])]);

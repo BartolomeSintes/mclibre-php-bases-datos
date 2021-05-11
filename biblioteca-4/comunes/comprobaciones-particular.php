@@ -185,9 +185,9 @@ function compruebaAvisosGenerales()
     if ($tipoComprobacion == "validaLogin") {
         $pdo      = conectaDb();
         $consulta = "SELECT *
-                     FROM $tabla
+                     FROM $db[$tabla]
                      WHERE usuario=:usuario
-                    AND password=:password";
+                     AND password=:password";
         $result = $pdo->prepare($consulta);
         $result->execute([":usuario" => recoge($argumentos[0]), ":password" => encripta(recoge($argumentos[1]))]);
         if (!$result) {
@@ -206,7 +206,7 @@ function compruebaAvisosGenerales()
     if ($tipoComprobacion == "yaExisteRegistro") {
         $pdo      = conectaDb();
         $consulta = "SELECT COUNT(*)
-                     FROM $tabla "
+                     FROM $db[$tabla] "
                   . "WHERE ";
         for ($i = 0; $i < count($argumentos) - 1; $i++) {
             $consulta .= "lower($argumentos[$i])=lower(:$argumentos[$i]) AND ";
@@ -252,7 +252,7 @@ function compruebaAvisosGenerales()
         $pdo = conectaDb();
         if (!is_array($argumentos[0])) {
             $consulta = "SELECT COUNT(*)
-                         FROM $tabla
+                         FROM $db[$tabla]
                          WHERE id=:id";
             $result = $pdo->prepare($consulta);
             $result->execute([":id" => $argumentos[0]]);
@@ -264,7 +264,7 @@ function compruebaAvisosGenerales()
         } else {
             if (count($argumentos[0]) == 1) {
                 $consulta = "SELECT COUNT(*)
-                             FROM $tabla
+                             FROM $db[$tabla]
                              WHERE id=:id";
                 $result = $pdo->prepare($consulta);
                 $result->execute([":id" => key($argumentos[0])]);
@@ -276,7 +276,7 @@ function compruebaAvisosGenerales()
             } else {
                 foreach ($argumentos[0] as $indice => $valor2) {
                     $consulta = "SELECT COUNT(*)
-                             FROM $tabla
+                             FROM $db[$tabla]
                              WHERE id=:id";
                     $result = $pdo->prepare($consulta);
                     $result->execute([":id" => $indice]);
@@ -296,7 +296,7 @@ function compruebaAvisosGenerales()
     if ($tipoComprobacion == "yaExisteRegistroConOtroId") {
         $pdo      = conectaDb();
         $consulta = "SELECT COUNT(*)
-                     FROM $tabla "
+                     FROM $db[$tabla] "
                   . "WHERE ";
         for ($i = 0; $i < count($argumentos) - 1; $i++) {
             $consulta .= "lower($argumentos[$i])=lower(:$argumentos[$i]) AND ";
@@ -321,7 +321,7 @@ function compruebaAvisosGenerales()
     if ($tipoComprobacion == "registrosNoEncontrados") {            // Para Buscar
         $pdo      = conectaDb();
         $consulta = "SELECT COUNT(*)
-                     FROM $tabla "
+                     FROM $db[$tabla] "
                   . "WHERE ";
         for ($i = 0; $i < count($argumentos) - 1; $i++) {
             $consulta .= "$argumentos[$i] like :$argumentos[$i] AND ";
@@ -388,7 +388,7 @@ function compruebaAvisosGenerales()
     if ($tipoComprobacion == "sinRegistros") {
         // Devuelve true si la tabla no tiene registros
         $pdo   = conectaDb();
-        if (!in_array($tabla, $db["tablas"])) {
+        if (!in_array($db[$tabla], $db["tablas"])) {
             $_SESSION["avisosGenerales"][$origen][$tabla][] = ["texto" => "La tabla $tabla no existe.", "claseAviso" => "aviso-error"];
         }
         $consulta = "SELECT COUNT(*)
@@ -408,7 +408,7 @@ function compruebaAvisosGenerales()
         // Devuelve true si la tabla no tiene registros
         $pdo   = conectaDb();
         $tabla = $tabla;
-        if (!in_array($tabla, $db["tablas"])) {
+        if (!in_array($db[$tabla], $db["tablas"])) {
             $_SESSION["avisosGenerales"][$origen][$tabla][] = ["texto" => "La tabla $tabla no existe", "claseAviso" => "aviso-error"];
         }
         $consulta = "SELECT COUNT(*)
@@ -428,7 +428,7 @@ function compruebaAvisosGenerales()
     if ($tipoComprobacion == "limiteNumeroRegistros" && $cfg["maxRegTablaActivado"]) {
         // Devuelve true si se ha alcanzado el número máximo de registros en la tabla
         $pdo   = conectaDb();
-        if (!in_array($tabla, $db["tablas"])) {
+        if (!in_array($db[$tabla], $db["tablas"])) {
             $_SESSION["avisosGenerales"][$origen][$tabla][] = ["texto" => "La tabla $tabla no existe", "claseAviso" => "aviso-error"];
         }
         $consulta = "SELECT COUNT(*)

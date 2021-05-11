@@ -20,6 +20,7 @@ Este changelog incluye los cambios hechos en Biblioteca-3, Biblioteca-4, etc.
 
 ### Fixed (Corregido)
 - Al devolver préstamo si se deja la fecha vacía ahora dice "No ha indicado la fecha.".
+- Corrijo consultas para que funcione en MySQL (usar FROM $db[$tablas] en vez de FROM $tablas).
 
 
 ## 2021-05-08
