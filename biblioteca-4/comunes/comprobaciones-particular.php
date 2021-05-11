@@ -19,6 +19,12 @@ function comprobaciones($origen, $tabla, $campo, $valor)
         } else {
             $campoOk = true;
         }
+    } elseif ($campo == "usuario" && $origen == "buscar-2") {                    // Tabla Usuarios
+        if (mb_strlen($valor, "UTF-8") > $db["tamUsuariosUsuario"]) {
+            $mensaje = "El nombre del usuario no puede tener más de $db[tamUsuariosUsuario] caracteres.";
+        } else {
+            $campoOk = true;
+        }
     } elseif ($campo == "usuario") {                    // Tabla Usuarios
         if ($valor == "") {
             $mensaje = "Debe escribir un nombre de usuario.";
@@ -27,11 +33,29 @@ function comprobaciones($origen, $tabla, $campo, $valor)
         } else {
             $campoOk = true;
         }
+    } elseif ($campo == "password" && $origen == "buscar-2") {                   // Tabla Usuarios
+        if (mb_strlen($valor, "UTF-8") > $db["tamUsuariosPassword"]) {
+            $mensaje = "La contraseña no puede tener más de $db[tamUsuariosPassword] caracteres.";
+        } else {
+            $campoOk = true;
+        }
+    } elseif ($campo == "password" && $origen == "modificar-3") {                   // Tabla Usuarios
+        if (mb_strlen($valor, "UTF-8") > $db["tamUsuariosPassword"]) {
+            $mensaje = "La contraseña no puede tener más de $db[tamUsuariosPassword] caracteres.";
+        } else {
+            $campoOk = true;
+        }
     } elseif ($campo == "password") {                   // Tabla Usuarios
         if ($valor == "") {
             $mensaje = "Debe escribir una contraseña.";
         } elseif (mb_strlen($valor, "UTF-8") > $db["tamUsuariosPassword"]) {
             $mensaje = "La contraseña no puede tener más de $db[tamUsuariosPassword] caracteres.";
+        } else {
+            $campoOk = true;
+        }
+    } elseif ($campo == "nivel" && $origen == "buscar-2") {                      // Tabla Usuarios
+        if ($valor && !in_array($valor, $usuariosNiveles)) {
+            $mensaje = "Nivel de usuario incorrecto.";
         } else {
             $campoOk = true;
         }
@@ -220,14 +244,13 @@ function compruebaAvisosGenerales()
         $result->execute($parametros);
         if (!$result) {
             $_SESSION["avisosGenerales"][$origen][$tabla][] = ["texto" => "Error en la consulta.", "claseAviso" => "aviso-error"];
-        }
-        if ($result->fetchColumn() > 0) {
+        } elseif ($result->fetchColumn() > 0) {
             $_SESSION["avisosGenerales"][$origen][$tabla][] = ["texto" => "El registro ya existe.", "claseAviso" => "aviso-error"];
         }
         $pdo = null;
     }
 
-    if ($tipoComprobacion == "incluyeUsuarioRoot") {
+    if ($tipoComprobacion == "incluyeUsuarioRoot"  && $origen == "borrar-2") {
         $pdo      = conectaDb();
         $consulta = "SELECT *
                      FROM $db[usuarios]
@@ -235,14 +258,31 @@ function compruebaAvisosGenerales()
         $result = $pdo->query($consulta);
         if (!$result) {
             $_SESSION["avisosGenerales"][$origen][$tabla][] = ["texto" => "Error en la consulta.", "claseAviso" => "aviso-error"];
+        } else {
+            $valor = $result->fetch(PDO::FETCH_ASSOC);
+            if (!is_array($argumentos[0])) {
+                $argumentos[0] = [$argumentos[0] => "on"];
+            }
+            foreach ($argumentos[0] as $indice => $valor2) {
+                if ($valor["id"] == $indice) {
+                    $_SESSION["avisosGenerales"][$origen][$tabla][] = ["texto" => "El usuario root no se puede borrar.", "claseAviso" => "aviso-error"];
+                }
+            }
         }
-        $valor = $result->fetch(PDO::FETCH_ASSOC);
-        if (!is_array($argumentos[0])) {
-            $argumentos[0] = [$argumentos[0] => "on"];
-        }
-        foreach ($argumentos[0] as $indice => $valor2) {
-            if ($valor["id"] == $indice) {
-                $_SESSION["avisosGenerales"][$origen][$tabla][] = ["texto" => "El usuario root no se puede borrar.", "claseAviso" => "aviso-error"];
+        $pdo = null;
+    } elseif ($tipoComprobacion == "incluyeUsuarioRoot"  && $origen == "modificar-3") {
+        $pdo      = conectaDb();
+        $consulta = "SELECT *
+                     FROM $db[usuarios]
+                     WHERE usuario='$cfg[rootName]'";
+        $result = $pdo->query($consulta);
+        if (!$result) {
+            $_SESSION["avisosGenerales"][$origen][$tabla][] = ["texto" => "Error en la consulta.", "claseAviso" => "aviso-error"];
+        } else {
+            $valor = $result->fetch(PDO::FETCH_ASSOC);
+            [$usuario, $password, $nivel, $id] = $argumentos;
+            if ($valor["id"] == $id && ($valor["usuario"] != $usuario || $valor["nivel"] != $nivel)) {
+                $_SESSION["avisosGenerales"][$origen][$tabla][] = ["texto" => "No se puede cambiar el nombre ni el nivel del usuario root.", "claseAviso" => "aviso-error"];
             }
         }
         $pdo = null;

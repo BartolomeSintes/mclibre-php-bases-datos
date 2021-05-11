@@ -11,7 +11,7 @@ compruebaSesion(NIVEL_3, PROFUNDIDAD_2);
 
 borraAvisosExcepto();
 
-[$autor, $password, $nivel] = compruebaAvisosIndividuales("ususarios", "buscar-2", "usuario", "password", "nivel");
+[$usuario, $password, $nivel] = compruebaAvisosIndividuales("usuarios", "buscar-2", "usuario", "password", "nivel");
 
 compruebaAvisosGenerales("usuarios", "buscar-2", "registrosNoEncontrados", "usuario", "password", "nivel");
 

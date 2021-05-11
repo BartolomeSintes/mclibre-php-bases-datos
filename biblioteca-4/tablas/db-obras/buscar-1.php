@@ -13,7 +13,7 @@ cabecera("Obras - Buscar 1", MENU_OBRAS, PROFUNDIDAD_2);
 
 imprimeAvisosGenerales("obras", "buscar-2");
 
-borraAvisosExcepto();
+borraAvisosExcepto("buscar-2");
 
 compruebaAvisosGenerales("obras", "buscar-1", "sinRegistros");
 

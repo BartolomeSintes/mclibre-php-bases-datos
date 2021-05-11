@@ -15,7 +15,7 @@ borraAvisosExcepto("modificar-3");
 if (isset($_SESSION["avisosIndividuales"]["modificar-3"]["usuarios"]["id"]["valor"])) {
     $id = $_SESSION["avisosIndividuales"]["modificar-3"]["usuarios"]["id"]["valor"];
 } else {
-    [$id] = compruebaAvisosIndividuales("ususarios", "modificar-2", "id");
+    [$id] = compruebaAvisosIndividuales("usuarios", "modificar-2", "id");
 }
 
 if (hayErrores("modificar-2")) {
@@ -24,8 +24,6 @@ if (hayErrores("modificar-2")) {
 }
 
 compruebaAvisosGenerales("usuarios", "modificar-2", "registrosExisten", $id);
-
-compruebaAvisosGenerales("usuarios", "modificar-2", "incluyeUsuarioRoot", $id);
 
 if (hayErrores("modificar-2")) {
     header("Location:modificar-1.php");

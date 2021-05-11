@@ -46,6 +46,11 @@ Estas son algunas de las cosas que me quedan por hacer y que podrían hacerse en
 
 * [2021-05-11] Buscar debería estar en una sola página, de manera que al escribir los criteriors de búsqueda, se actualizara el resultado. Tednría que estar hecho en javascript. Igual que el listado también tendría que reordenarse por javascript en vez de hacer una petición al servidor.
 
+* [2021-05-11] En modificar cuando un campo no se puede modificar, podría desactivarse (el nombre y el nivel del usuario root, por ejemplo, no sé si habría algo más).
+
+* [2021-05-11] Podría permitirse cambiar el nombre del usuario root, pero que siguiera siendo un registro imborrable y que no se puede cambiar de nivel.
+
+
 ## Próximos pasos
 
 * [2021-04-10] Los avisos sólo indican la página que lo originó, pero no la tabla, así que que generas un aviso en una tabla y te vas a otra tabla, te sale el aviso anterior. Al borrar avisos habría que tener en cuenta no solo la página, sino también la  tabla.
@@ -63,10 +68,6 @@ Estas son algunas de las cosas que me quedan por hacer y que podrían hacerse en
 
 ## Para corregir (más importante)
 
-* [2021-04-20] La aplicación no deja modificar el usuario root. Igual tendría que dejar cambiar la contraseña, pero no el nombre ni el nivel.
-
-* [2021-04-20] Al modificar la contraseña, si se deja en blanco para mantenerla (como dice modificar-2), sale un mensaje de error diciendo que no se puede dejar en blanco. Tendría que incluir el origen en la comprobación de la contraseña y hacer dos comprobaciones distintas.
-
 * [2021-05-04] Personas > Insertar. Inserto un registro en blanco y saca aviso general. Pero si entonces hago clic en el enlace "Añadir registro", vuelve a salir el mensaje. Sin embargo, eso en borrar no pasa si no selecciono ningún registro para borrar.
 
 * [2021-04-29] En una [página de IBM sobre log levels](https://www.ibm.com/docs/en/sdi/7.1.1?topic=debugging-log-levels-log-level-control) describían los diferentes tipos de avisos que tenía una aplicación: Off, Fatal, Error, Warn, Info, Debug y All. Hay [listas más amplias]/https://www.ibm.com/docs/en/imdm/11.6?topic=handling-severity-levels). En la Wikipedia hay una [página sobre Syslog](https://en.wikipedia.org/wiki/Syslog) que es un [RFC 5424: Protocolo Syslog](https://tools.ietf.org/html/rfc5424). En Syslog definen 7 niveles: Emergency, Alert, Critical, Error, Warning, Notice, Information y Debug. Me inspiré en esa lista para llamar a las clases aviso-error y aviso-info.
@@ -76,8 +77,6 @@ Estas son algunas de las cosas que me quedan por hacer y que podrían hacerse en
 
 ## Para corregir (menos importante)
 
-* [2021-04-20] En Usuarios &gt; Buscar el nivel no ofrece la posibilidad de dejarlo en blanco (que querría decir que te da lo mismo el nivel).
-
 * [2021-04-29] Cuando se marcan varios registros para borrar saca varias veces el mensaje "Registro borrado correctamente.". Realmente no es incorrecto, pero queda raro. Quizás debería incluir campos del registro en el mensaje para que se viera que cada mensaje corresponde a cada uno de los registros borrados. O quizás sería mejor sacar un único mensaje "Registro borrado correctamente" o "Registros borrados correctamente" si son varios.
 
 * [2021-04-21] modificar préstamos. Si se quita la fecha dice registro no encontrado.
@@ -85,8 +84,6 @@ Estas son algunas de las cosas que me quedan por hacer y que podrían hacerse en
 * [2021-05-06] prestamos > buscar-2. No utiliza compruebaAvisosIndividuales ni compruebaAvisosGenerales, ni devuelve a buscar-1 si no encuentra registros. De todas formas en buscar-1 he añadido los imprimeAvisosIndividuales(), que ahora no hacen nada.
 
 * [2021-05-06] prestamos > buscar-2. Averiguar si el if para incluir las fechas en la consulta se podría simplificar con dos if seguidos (tanto en la fecha de préstamo como en la de devolución). El problema supongo que será el "and" que hay que entre las condiciones en la consulta SQL.
-
-* [2021-05-06] usuarios > modificar-3. Si se deja la contraseña en blanco vuelve a modificar-2 y escribe mensaje "Debe escribir una contraseña.". Se supone que si se deja en blanco es que se quiere mantener la contraseña.
 
 * [2021-05-06] Al reordenar un listado no se comprueban errores. En el criterio de ordenación da lo mismo porque hay uno por defecto, pero en los id igual debería decir algo, aunque la verdad es que no afecta a la página porque sólo marca las casillas correctas.
 
@@ -99,7 +96,7 @@ Estas son algunas de las cosas que me quedan por hacer y que podrían hacerse en
 
 * [2021-04-22] Pensar una manera de trabajar con las fechas de forma transparente, que convierta las fechas al formato correcto para formularios y para la base de datos.
 
-* [2021-05-06] Los avisos generales duplicados se eliminan en imprimeAvisosGenerales()() si son de la misma página, pero si son de páginas distintas no. Por ejemplo, si se ha alcanzado el límite de registros y se llama en la barra de dirección a insertar-2 con campos incorrectos, vuelve a insertar-1 y escribe dos veces el aviso del límite superado (uno detectado por insertar-2 y otro detectado por insertar-1). No sé si merece la pena corregirlo.
+* [2021-05-06] Los avisos generales duplicados se eliminan en imprimeAvisosGenerales() si son de la misma página, pero si son de páginas distintas no. Por ejemplo, si se ha alcanzado el límite de registros y se llama en la barra de dirección a insertar-2 con campos incorrectos, vuelve a insertar-1 y escribe dos veces el aviso del límite superado (uno detectado por insertar-2 y otro detectado por insertar-1). No sé si merece la pena corregirlo.
 
 
 ## Comprobación de ids
@@ -205,3 +202,13 @@ Estas son algunas de las cosas que me quedan por hacer y que podrían hacerse en
 [avisosGenerales][ocultaFormulario] => true (no hay false, o es true o no existe) \
 [avisosGenerales][página][nº][texto] => Mensaje de error para mostrar al principio de la página \
 [avisosGenerales][página][nº][claseAviso] => error / info
+
+function compruebaAvisosIndividuales(tabla, página, campos ...)
+function compruebaAvisosGenerale(tabla, página, tipo, campos ...)
+function incluyeValoresOriginalesEnAvisos(tabla, página, campos ...)
+function imprimeAvisosIndividuales($tabla, $origen, $campo, $tipo, $valor = "")
+function imprimeAvisosGenerales(tabla, página)
+function borraAvisosExcepto(página)
+function hayErrores()
+function hayErroresGenerales($origen)
+

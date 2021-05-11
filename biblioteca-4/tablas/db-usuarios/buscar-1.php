@@ -13,7 +13,7 @@ cabecera("Usuarios - Buscar 1", MENU_USUARIOS, PROFUNDIDAD_2);
 
 imprimeAvisosGenerales("usuarios", "buscar-2");
 
-borraAvisosExcepto();
+borraAvisosExcepto("buscar-2");
 
 compruebaAvisosGenerales("usuarios", "buscar-1", "sinRegistros");
 
@@ -39,6 +39,7 @@ if (muestraFormulario()) {
     print "            <td>Nivel:</td>\n";
     print "            <td>\n";
     print "              <select name=\"nivel\">\n";
+    print "                <option value=\"\"></option>\n";
     foreach ($usuariosNiveles as $indice => $valor) {
         print "                <option value=\"$valor\">$indice</option>\n";
     }

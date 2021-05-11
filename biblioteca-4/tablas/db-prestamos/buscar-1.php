@@ -13,7 +13,7 @@ cabecera("Préstamos - Buscar 1", MENU_PRESTAMOS, PROFUNDIDAD_2);
 
 imprimeAvisosGenerales("prestamos", "buscar-2");
 
-borraAvisosExcepto();
+borraAvisosExcepto("buscar-2");
 
 compruebaAvisosGenerales("prestamos", "buscar-1", "sinRegistros", );
 

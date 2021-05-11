@@ -22,6 +22,8 @@ Este changelog incluye los cambios hechos en Biblioteca-3, Biblioteca-4, etc.
 - Al devolver préstamo si se deja la fecha vacía ahora dice "No ha indicado la fecha.".
 - Corrijo consultas para que funcione en MySQL (usar FROM $db[$tablas] en vez de FROM $tablas).
 - modificar-3: Cambio incluyeValoresOriginalesEnAvisos() dentro de if (hayErrores("modificar-3")) para evitar un warning de PHP.
+- usuarios > buscar-1: añado opción en blanco para nivel
+- usuarios > modificar: ahora parece que ya funciona. Del usuario root no se puede cambiar ni el nombre ni el nivel. Del resto sí.
 
 
 ## 2021-05-08
