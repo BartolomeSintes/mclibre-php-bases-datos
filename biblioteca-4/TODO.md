@@ -83,8 +83,6 @@ Estas son algunas de las cosas que me quedan por hacer y que podrían hacerse en
 
 * [2021-05-08] login-1 tiene la comprobación de tablas al principio. Reconvertirlo en avisoGeneral.
 
-* [2021-05-11] Al añadir usuario, si no se elige nivel, el mensaje de error es "Nivel de usuario incorrecto." Sería mejor que dijera "Debe elegir un nivel de usuario.".
-
 
 ## Para averiguar
 

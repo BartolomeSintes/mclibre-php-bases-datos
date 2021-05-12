@@ -60,7 +60,9 @@ function comprobaciones($origen, $tabla, $campo, $valor)
             $campoOk = true;
         }
     } elseif ($campo == "nivel") {                                                  // Tabla Usuarios
-        if (!in_array($valor, $usuariosNiveles)) {
+        if (!$valor) {
+            $mensaje = "Debe elegir un nivel de usuario.";
+        } elseif (!in_array($valor, $usuariosNiveles)) {
             $mensaje = "Nivel de usuario incorrecto.";
         } else {
             $campoOk = true;
