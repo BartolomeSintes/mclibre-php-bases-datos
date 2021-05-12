@@ -63,7 +63,7 @@ Estas son algunas de las cosas que me quedan por hacer y que podrían hacerse en
 
 * [2021-05-10] En $_SESSION en vez de [origen][tabla] quizás sería mejor pòner [table][origen].
 
-* [2021-05-11] En modificar-3 he tenido que meter el incluyeValoresOriginalesEnAvisos() dentro del if (hayErrores("modificar-3")) porque si no, al hacer hayErrores() daba error en la línea foreach ($_SESSION["avisosIndividuales"][$origen][$tabla] as $campo => $valor) {. El problema es que la anotación muestraValoresOriginalesEnFormulario está al mismo nivel que las tablas, así que cuando hace el foreach sobre las tablas coge también el valor. Tendría que cambiar la estructura de $_SESSION.
+* [2021-05-11] En modificar-3 he tenido que meter el incluyeValoresOriginalesEnAvisos() dentro del if (hayErrores("modificar-3")) porque si no, al hacer hayErrores() daba error en la línea foreach ($_SESSION["avisos"][$tabla][$origen]["campos"] as $campo => $valor) {. El problema es que la anotación muestraValoresOriginalesEnFormulario está al mismo nivel que las tablas, así que cuando hace el foreach sobre las tablas coge también el valor. Tendría que cambiar la estructura de $_SESSION.
 
 
 ## Para corregir (más importante)
@@ -153,7 +153,7 @@ Estas son algunas de las cosas que me quedan por hacer y que podrían hacerse en
 
 * [2021-04-19] No es fácil decidir qué tiene que hacer modificar-2 cuando le llegan avisos desde modificar-3. Lo que he hecho es que si hay avisos generales (que son que esté todo vacío o que ya exista el registro modificado), muestra los valores originales. Pero si hay avisos individuales muestra los modificados junto con los avisos individuales.
 
-* [2021-04-20] Podría hacer una función hayErroresIndividuales() y que la función hayErrores() hiciera hayErroresIndividuales() || hayErroresGenerales().
+* [2021-04-20] Podría hacer dos funciones hayErroresIndividuales() y hayErroresGenerales() y que la función hayErrores() hiciera hayErroresIndividuales() || hayErroresGenerales().
 
 * [2021-05-03] Ya no uso la comprobación general registrosNoSeleccionados.
 
@@ -194,21 +194,20 @@ Estas son algunas de las cosas que me quedan por hacer y que podrían hacerse en
 ## Estructura $_SESSION
 
 [conectado] => Nivel de usuario \
-[avisosIndividuales][página][tabla][campo][valor] => Texto introducido por el usuario \
-[avisosIndividuales][página][tabla][campo][original] => Texto del registro original (se usa al modificar) \
-[avisosIndividuales][página][tabla][campo][campoOK] => true/false \
-[avisosIndividuales][página][tabla][campo][texto] => Mensaje de error para mostrar en el formulario \
-[avisosIndividuales][página][tabla][muestraValoresOriginalesEnFormulario] => true (no hay false, o es true o no existe) \
-[avisosGenerales][ocultaFormulario] => true (no hay false, o es true o no existe) \
-[avisosGenerales][página][nº][texto] => Mensaje de error para mostrar al principio de la página \
-[avisosGenerales][página][nº][claseAviso] => error / info
+["avisos"][tabla][página]["generales"][nº][texto] => Mensaje de error para mostrar al principio de la página \
+["avisos"][tabla][página]["generales"][nº][claseAviso] => error / info
+["avisos"][tabla][página]["campos"][tabla][campo][valor] => Texto introducido por el usuario \
+["avisos"][tabla][página]["campos"][tabla][campo][original] => Texto del registro original (se usa al modificar) \
+["avisos"][tabla][página]["campos"][tabla][campo][campoOK] => true/false \
+["avisos"][tabla][página]["campos"][tabla][campo][texto] => Mensaje de error para mostrar en el formulario \
+["avisos"][tabla][página][muestraValoresOriginalesEnFormulario] => true (no hay false, o es true o no existe) \
+["avisos"][tabla][página][ocultaFormulario] => true (no hay false, o es true o no existe) \
 
 function compruebaAvisosIndividuales(tabla, página, campos ...)
 function compruebaAvisosGenerale(tabla, página, tipo, campos ...)
 function incluyeValoresOriginalesEnAvisos(tabla, página, campos ...)
 function imprimeAvisosIndividuales($tabla, $origen, $campo, $tipo, $valor = "")
 function imprimeAvisosGenerales(tabla, página)
-function borraAvisosExcepto(página)
-function hayErrores()
-function hayErroresGenerales($origen)
+function borraAvisosExcepto(tabla, página)
+function hayErrores(tabla, pagina)
 

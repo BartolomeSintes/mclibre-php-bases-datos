@@ -11,7 +11,9 @@ compruebaSesion(NIVEL_3, PROFUNDIDAD_2);
 
 cabecera("Personas - Modificar 1", MENU_PERSONAS, PROFUNDIDAD_2);
 
-imprimeAvisosGenerales("personas", "modificar-2", "modificar-3");
+imprimeAvisosGenerales("personas", "modificar-2");
+
+imprimeAvisosGenerales("personas", "modificar-3");
 
 borraAvisosExcepto();
 
@@ -19,7 +21,7 @@ compruebaAvisosGenerales("personas", "modificar-1", "sinRegistros");
 
 imprimeAvisosGenerales("personas", "modificar-1");
 
-if (muestraFormulario()) {
+if (muestraFormulario("personas", "modificar-1")) {
     $pdo = conectaDb();
 
     $ordena = recogeValores("ordena", $db["columnasPersonasOrden"], "apellidos ASC");

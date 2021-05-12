@@ -14,7 +14,7 @@ function comprobaciones($origen, $tabla, $campo, $valor)
 
     if ($campo == "id") {
         if ($valor == "" || $valor == []) {
-            $_SESSION["avisosGenerales"][$origen][$tabla][] = ["texto" => "No ha seleccionado ningún registro.", "claseAviso" => "aviso-error"];
+            $_SESSION["avisos"][$tabla][$origen]["generales"][] = ["texto" => "No ha seleccionado ningún registro.", "claseAviso" => "aviso-error"];
             $valor                                  = "";
         } else {
             $campoOk = true;
@@ -197,11 +197,11 @@ function compruebaAvisosGenerales()
     if ($tipoComprobacion == "registrosNoSeleccionados") {
         if (is_array($argumentos[0])) {
             if (count($argumentos[0]) == 0) {
-                $_SESSION["avisosGenerales"][$origen][$tabla][] = ["texto" => "No ha seleccionado ningún registro.", "claseAviso" => "aviso-error"];
+                $_SESSION["avisos"][$tabla][$origen]["generales"][] = ["texto" => "No ha seleccionado ningún registro.", "claseAviso" => "aviso-error"];
             }
         } else {
             if ($argumentos[0] == "") {
-                $_SESSION["avisosGenerales"][$origen][$tabla][] = ["texto" => "No ha seleccionado ningún registro.", "claseAviso" => "aviso-error"];
+                $_SESSION["avisos"][$tabla][$origen]["generales"][] = ["texto" => "No ha seleccionado ningún registro.", "claseAviso" => "aviso-error"];
             }
         }
     }
@@ -215,11 +215,11 @@ function compruebaAvisosGenerales()
         $result = $pdo->prepare($consulta);
         $result->execute([":usuario" => recoge($argumentos[0]), ":password" => encripta(recoge($argumentos[1]))]);
         if (!$result) {
-            $_SESSION["avisosGenerales"][$origen][$tabla][] = ["texto" => "Error en la consulta.", "claseAviso" => "aviso-error"];
+            $_SESSION["avisos"][$tabla][$origen]["generales"][] = ["texto" => "Error en la consulta.", "claseAviso" => "aviso-error"];
         } else {
             $valor = $result->fetch(PDO::FETCH_ASSOC);
             if (!is_array($valor)) {
-                $_SESSION["avisosGenerales"][$origen][$tabla][] = ["texto" => "Nombre de usuario y/o contraseña incorrectos.", "claseAviso" => "aviso-error"];
+                $_SESSION["avisos"][$tabla][$origen]["generales"][] = ["texto" => "Nombre de usuario y/o contraseña incorrectos.", "claseAviso" => "aviso-error"];
             } else {
                 $_SESSION["conectado"] = $valor["nivel"];
             }
@@ -243,9 +243,9 @@ function compruebaAvisosGenerales()
         $result = $pdo->prepare($consulta);
         $result->execute($parametros);
         if (!$result) {
-            $_SESSION["avisosGenerales"][$origen][$tabla][] = ["texto" => "Error en la consulta.", "claseAviso" => "aviso-error"];
+            $_SESSION["avisos"][$tabla][$origen]["generales"][] = ["texto" => "Error en la consulta.", "claseAviso" => "aviso-error"];
         } elseif ($result->fetchColumn() > 0) {
-            $_SESSION["avisosGenerales"][$origen][$tabla][] = ["texto" => "El registro ya existe.", "claseAviso" => "aviso-error"];
+            $_SESSION["avisos"][$tabla][$origen]["generales"][] = ["texto" => "El registro ya existe.", "claseAviso" => "aviso-error"];
         }
         $pdo = null;
     }
@@ -257,7 +257,7 @@ function compruebaAvisosGenerales()
                      WHERE usuario='$cfg[rootName]'";
         $result = $pdo->query($consulta);
         if (!$result) {
-            $_SESSION["avisosGenerales"][$origen][$tabla][] = ["texto" => "Error en la consulta.", "claseAviso" => "aviso-error"];
+            $_SESSION["avisos"][$tabla][$origen]["generales"][] = ["texto" => "Error en la consulta.", "claseAviso" => "aviso-error"];
         } else {
             $valor = $result->fetch(PDO::FETCH_ASSOC);
             if (!is_array($argumentos[0])) {
@@ -265,7 +265,7 @@ function compruebaAvisosGenerales()
             }
             foreach ($argumentos[0] as $indice => $valor2) {
                 if ($valor["id"] == $indice) {
-                    $_SESSION["avisosGenerales"][$origen][$tabla][] = ["texto" => "El usuario root no se puede borrar.", "claseAviso" => "aviso-error"];
+                    $_SESSION["avisos"][$tabla][$origen]["generales"][] = ["texto" => "El usuario root no se puede borrar.", "claseAviso" => "aviso-error"];
                 }
             }
         }
@@ -277,12 +277,12 @@ function compruebaAvisosGenerales()
                      WHERE usuario='$cfg[rootName]'";
         $result = $pdo->query($consulta);
         if (!$result) {
-            $_SESSION["avisosGenerales"][$origen][$tabla][] = ["texto" => "Error en la consulta.", "claseAviso" => "aviso-error"];
+            $_SESSION["avisos"][$tabla][$origen]["generales"][] = ["texto" => "Error en la consulta.", "claseAviso" => "aviso-error"];
         } else {
             $valor = $result->fetch(PDO::FETCH_ASSOC);
             [$usuario, $password, $nivel, $id] = $argumentos;
             if ($valor["id"] == $id && ($valor["usuario"] != $usuario || $valor["nivel"] != $nivel)) {
-                $_SESSION["avisosGenerales"][$origen][$tabla][] = ["texto" => "No se puede cambiar el nombre ni el nivel del usuario root.", "claseAviso" => "aviso-error"];
+                $_SESSION["avisos"][$tabla][$origen]["generales"][] = ["texto" => "No se puede cambiar el nombre ni el nivel del usuario root.", "claseAviso" => "aviso-error"];
             }
         }
         $pdo = null;
@@ -297,9 +297,9 @@ function compruebaAvisosGenerales()
             $result = $pdo->prepare($consulta);
             $result->execute([":id" => $argumentos[0]]);
             if (!$result) {
-                $_SESSION["avisosGenerales"][$origen][$tabla][] = ["texto" => "Error en la consulta.", "claseAviso" => "aviso-error"];
+                $_SESSION["avisos"][$tabla][$origen]["generales"][] = ["texto" => "Error en la consulta.", "claseAviso" => "aviso-error"];
             } elseif ($result->fetchColumn() == 0) {
-                $_SESSION["avisosGenerales"][$origen][$tabla][] = ["texto" => "El registro indicado no existe.", "claseAviso" => "aviso-error"];
+                $_SESSION["avisos"][$tabla][$origen]["generales"][] = ["texto" => "El registro indicado no existe.", "claseAviso" => "aviso-error"];
             }
         } else {
             if (count($argumentos[0]) == 1) {
@@ -309,9 +309,9 @@ function compruebaAvisosGenerales()
                 $result = $pdo->prepare($consulta);
                 $result->execute([":id" => key($argumentos[0])]);
                 if (!$result) {
-                    $_SESSION["avisosGenerales"][$origen][$tabla][] = ["texto" => "Error en la consulta.", "claseAviso" => "aviso-error"];
+                    $_SESSION["avisos"][$tabla][$origen]["generales"][] = ["texto" => "Error en la consulta.", "claseAviso" => "aviso-error"];
                 } elseif ($result->fetchColumn() == 0) {
-                    $_SESSION["avisosGenerales"][$origen][$tabla][] = ["texto" => "El registro indicado no existe.", "claseAviso" => "aviso-error"];
+                    $_SESSION["avisos"][$tabla][$origen]["generales"][] = ["texto" => "El registro indicado no existe.", "claseAviso" => "aviso-error"];
                 }
             } else {
                 foreach ($argumentos[0] as $indice => $valor2) {
@@ -321,9 +321,9 @@ function compruebaAvisosGenerales()
                     $result = $pdo->prepare($consulta);
                     $result->execute([":id" => $indice]);
                     if (!$result) {
-                        $_SESSION["avisosGenerales"][$origen][$tabla][] = ["texto" => "Error en la consulta.", "claseAviso" => "aviso-error"];
+                        $_SESSION["avisos"][$tabla][$origen]["generales"][] = ["texto" => "Error en la consulta.", "claseAviso" => "aviso-error"];
                     } elseif ($result->fetchColumn() == 0) {
-                        $_SESSION["avisosGenerales"][$origen][$tabla][] = ["texto" => "Al menos uno de los registros indicados no existe.", "claseAviso" => "aviso-error"];
+                        $_SESSION["avisos"][$tabla][$origen]["generales"][] = ["texto" => "Al menos uno de los registros indicados no existe.", "claseAviso" => "aviso-error"];
                     }
                 }
             }
@@ -349,11 +349,11 @@ function compruebaAvisosGenerales()
         $result = $pdo->prepare($consulta);
         $result->execute($parametros);
         if (!$result) {
-            $_SESSION["avisosGenerales"][$origen][$tabla][] = ["texto" => "Error en la consulta.", "claseAviso" => "aviso-error"];
+            $_SESSION["avisos"][$tabla][$origen]["generales"][] = ["texto" => "Error en la consulta.", "claseAviso" => "aviso-error"];
         }
         if ($result->fetchColumn() > 0) {
-            $_SESSION["avisosGenerales"][$origen][$tabla][] = ["texto" => "No puede modificarse el registro porque ya existe un registro con esos valores. Se muestran de nuevo los datos originales del registro.", "claseAviso" => "aviso-error"];
-            $_SESSION["avisosIndividuales"][$origen]["muestraValoresOriginalesEnFormulario"] = true;
+            $_SESSION["avisos"][$tabla][$origen]["generales"][] = ["texto" => "No puede modificarse el registro porque ya existe un registro con esos valores. Se muestran de nuevo los datos originales del registro.", "claseAviso" => "aviso-error"];
+            $_SESSION["avisos"][$tabla][$origen]["muestraValoresOriginalesEnFormulario"] = true;
         }
         $pdo = null;
     }
@@ -375,10 +375,10 @@ function compruebaAvisosGenerales()
         $result = $pdo->prepare($consulta);
         $result->execute($parametros);
         if (!$result) {
-            $_SESSION["avisosGenerales"][$origen][$tabla][] = ["texto" => "Error en la consulta.", "claseAviso" => "aviso-error"];
+            $_SESSION["avisos"][$tabla][$origen]["generales"][] = ["texto" => "Error en la consulta.", "claseAviso" => "aviso-error"];
         }
         if ($result->fetchColumn() == 0) {
-            $_SESSION["avisosGenerales"][$origen][$tabla][] = ["texto" => "No se han encontrado registros.", "claseAviso" => "aviso-error"];
+            $_SESSION["avisos"][$tabla][$origen]["generales"][] = ["texto" => "No se han encontrado registros.", "claseAviso" => "aviso-error"];
         }
         $pdo = null;
     }
@@ -391,7 +391,7 @@ function compruebaAvisosGenerales()
             $todosVacios = $todosVacios && ($valor == "");
         }
         if ($todosVacios) {
-            $_SESSION["avisosGenerales"][$origen][$tabla][] = ["texto" => "Hay que rellenar al menos uno de los campos. No se ha guardado el registro.", "claseAviso" => "aviso-error"];
+            $_SESSION["avisos"][$tabla][$origen]["generales"][] = ["texto" => "Hay que rellenar al menos uno de los campos. No se ha guardado el registro.", "claseAviso" => "aviso-error"];
         }
     }
 
@@ -409,7 +409,7 @@ function compruebaAvisosGenerales()
             $todosVacios = $todosVacios && ($valor == "");
         }
         if ($todosVacios) {
-            $_SESSION["avisosGenerales"][$origen][$tabla][] = ["texto" => "Hay que rellenar al menos uno de los campos. Se muestran los datos originales (sin modificar).", "claseAviso" => "aviso-error"];
+            $_SESSION["avisos"][$tabla][$origen]["generales"][] = ["texto" => "Hay que rellenar al menos uno de los campos. Se muestran los datos originales (sin modificar).", "claseAviso" => "aviso-error"];
         }
     }
 
@@ -421,7 +421,7 @@ function compruebaAvisosGenerales()
             $algunoVacio = $algunoVacio || ($valor == "");
         }
         if ($algunoVacio) {
-            $_SESSION["avisosGenerales"][$origen][$tabla][] = ["texto" => "Hay que rellenar todos los campos. No se ha guardado el registro.", "claseAviso" => "aviso-error"];
+            $_SESSION["avisos"][$tabla][$origen]["generales"][] = ["texto" => "Hay que rellenar todos los campos. No se ha guardado el registro.", "claseAviso" => "aviso-error"];
         }
     }
 
@@ -429,17 +429,17 @@ function compruebaAvisosGenerales()
         // Devuelve true si la tabla no tiene registros
         $pdo   = conectaDb();
         if (!in_array($db[$tabla], $db["tablas"])) {
-            $_SESSION["avisosGenerales"][$origen][$tabla][] = ["texto" => "La tabla $tabla no existe.", "claseAviso" => "aviso-error"];
+            $_SESSION["avisos"][$tabla][$origen]["generales"][] = ["texto" => "La tabla $tabla no existe.", "claseAviso" => "aviso-error"];
         }
         $consulta = "SELECT COUNT(*)
                      FROM $db[$tabla]";
         $result = $pdo->query($consulta);
         if (!$result) {
-            $_SESSION["avisosGenerales"][$origen][$tabla][] = ["texto" => "Error en la consulta.", "claseAviso" => "aviso-error"];
+            $_SESSION["avisos"][$tabla][$origen]["generales"][] = ["texto" => "Error en la consulta.", "claseAviso" => "aviso-error"];
         }
         if ($result->fetchColumn() == 0) {
-            $_SESSION["avisosGenerales"][$origen][$tabla][]          = ["texto" => "No se ha creado todavía ningún registro.", "claseAviso" => "aviso-info"];
-            $_SESSION["avisosGenerales"]["ocultaFormulario"] = true;
+            $_SESSION["avisos"][$tabla][$origen]["generales"][]          = ["texto" => "No se ha creado todavía ningún registro.", "claseAviso" => "aviso-info"];
+            $_SESSION["avisos"][$tabla][$origen]["ocultaFormulario"] = true;
         }
         $pdo = null;
     }
@@ -449,18 +449,18 @@ function compruebaAvisosGenerales()
         $pdo   = conectaDb();
         $tabla = $tabla;
         if (!in_array($db[$tabla], $db["tablas"])) {
-            $_SESSION["avisosGenerales"][$origen][$tabla][] = ["texto" => "La tabla $tabla no existe", "claseAviso" => "aviso-error"];
+            $_SESSION["avisos"][$tabla][$origen]["generales"][] = ["texto" => "La tabla $tabla no existe", "claseAviso" => "aviso-error"];
         }
         $consulta = "SELECT COUNT(*)
                      FROM $db[prestamos]
                      WHERE devuelto='0000-00-00'";
         $result = $pdo->query($consulta);
         if (!$result) {
-            $_SESSION["avisosGenerales"][$origen][$tabla][] = ["texto" => "Error en la consulta.", "claseAviso" => "aviso-error"];
+            $_SESSION["avisos"][$tabla][$origen]["generales"][] = ["texto" => "Error en la consulta.", "claseAviso" => "aviso-error"];
         }
         if ($result->fetchColumn() == 0) {
-            $_SESSION["avisosGenerales"][$origen][$tabla][]          = ["texto" => "No hay préstamos pendientes de devolución.", "claseAviso" => "aviso-info"];
-            $_SESSION["avisosGenerales"]["ocultaFormulario"] = true;
+            $_SESSION["avisos"][$tabla][$origen]["generales"][]          = ["texto" => "No hay préstamos pendientes de devolución.", "claseAviso" => "aviso-info"];
+            $_SESSION["avisos"][$tabla][$origen]["ocultaFormulario"] = true;
         }
         $pdo = null;
     }
@@ -469,17 +469,17 @@ function compruebaAvisosGenerales()
         // Devuelve true si se ha alcanzado el número máximo de registros en la tabla
         $pdo   = conectaDb();
         if (!in_array($db[$tabla], $db["tablas"])) {
-            $_SESSION["avisosGenerales"][$origen][$tabla][] = ["texto" => "La tabla $tabla no existe", "claseAviso" => "aviso-error"];
+            $_SESSION["avisos"][$tabla][$origen]["generales"][] = ["texto" => "La tabla $tabla no existe", "claseAviso" => "aviso-error"];
         }
         $consulta = "SELECT COUNT(*)
                      FROM $db[$tabla]";
         $result = $pdo->query($consulta);
         if (!$result) {
-            $_SESSION["avisosGenerales"][$origen][$tabla][] = ["texto" => "Error en la consulta.", "claseAviso" => "aviso-error"];
+            $_SESSION["avisos"][$tabla][$origen]["generales"][] = ["texto" => "Error en la consulta.", "claseAviso" => "aviso-error"];
         }
         if ($result->fetchColumn() >= $cfg["maxRegTabla"][$tabla]) {
-            $_SESSION["avisosGenerales"][$origen][$tabla][]          = ["texto" => "Se ha alcanzado el número máximo de registros que se pueden guardar. Por favor, borre algún registro antes.", "claseAviso" => "aviso-info"];
-            $_SESSION["avisosGenerales"]["ocultaFormulario"] = true;
+            $_SESSION["avisos"][$tabla][$origen]["generales"][]          = ["texto" => "Se ha alcanzado el número máximo de registros que se pueden guardar. Por favor, borre algún registro antes.", "claseAviso" => "aviso-info"];
+            $_SESSION["avisos"][$tabla][$origen]["ocultaFormulario"] = true;
         }
         $pdo = null;
     }
@@ -491,7 +491,7 @@ function compruebaAvisosGenerales()
         if (!checkdate(substr($antes, 5, 2), substr($antes, 8, 2), substr($antes, 0, 4))
             || !checkdate(substr($despues, 5, 2), substr($despues, 8, 2), substr($despues, 0, 4))
             || $antes > $despues) {
-            $_SESSION["avisosGenerales"][$origen][$tabla][] = ["texto" => "La fecha de devolución <strong>$despues</strong> es anterior a la de préstamo <strong>$antes</strong>.", "claseAviso" => "aviso-error"];
+            $_SESSION["avisos"][$tabla][$origen]["generales"][] = ["texto" => "La fecha de devolución <strong>$despues</strong> es anterior a la de préstamo <strong>$antes</strong>.", "claseAviso" => "aviso-error"];
         }
     }
 
@@ -505,11 +505,11 @@ function compruebaAvisosGenerales()
         $result = $pdo->prepare($consulta);
         $result->execute([":id" => $id_prestamo]);
         if (!$result) {
-            $_SESSION["avisosGenerales"][$origen][$tabla][] = ["texto" => "Error en la consulta.", "claseAviso" => "aviso-error"];
+            $_SESSION["avisos"][$tabla][$origen]["generales"][] = ["texto" => "Error en la consulta.", "claseAviso" => "aviso-error"];
         }
         $prestado = $result->fetchColumn();
         if ($prestado > $devuelto) {
-            $_SESSION["avisosGenerales"][$origen][$tabla][] = ["texto" => "La fecha de devolución <strong>$devuelto</strong> es anterior a la de préstamo <strong>$prestado</strong>.", "claseAviso" => "aviso-error"];
+            $_SESSION["avisos"][$tabla][$origen]["generales"][] = ["texto" => "La fecha de devolución <strong>$devuelto</strong> es anterior a la de préstamo <strong>$prestado</strong>.", "claseAviso" => "aviso-error"];
         }
         $pdo = null;
     }

@@ -11,7 +11,7 @@ compruebaSesion(NIVEL_3, PROFUNDIDAD_2);
 
 cabecera("Préstamos - Devolver 1", MENU_PRESTAMOS, PROFUNDIDAD_2);
 
-borraAvisosExcepto("devolver-2");
+borraAvisosExcepto("prestamos", "devolver-2");
 
 imprimeAvisosGenerales("prestamos", "devolver-2");
 
@@ -19,7 +19,7 @@ compruebaAvisosGenerales("prestamos", "devolver-1", "sinPrestamosPendientes");
 
 imprimeAvisosGenerales("prestamos", "devolver-1");
 
-if (muestraFormulario()) {
+if (muestraFormulario("prestamos", "devolver-1")) {
     $pdo = conectaDb();
 
     $ordena = recogeValores("ordena", $db["columnasPrestamosOrden"], "autor ASC");

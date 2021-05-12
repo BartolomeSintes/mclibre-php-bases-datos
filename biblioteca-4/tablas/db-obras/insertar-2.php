@@ -19,7 +19,7 @@ compruebaAvisosGenerales("obras", "insertar-2", "limiteNumeroRegistros");
 
 compruebaAvisosGenerales("obras", "insertar-2", "yaExisteRegistro", "autor", "titulo", "editorial");
 
-if (hayErrores("insertar-2")) {
+if (hayErrores("obras", "insertar-2")) {
     header("Location:insertar-1.php");
     exit();
 }

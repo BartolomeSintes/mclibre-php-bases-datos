@@ -9,6 +9,17 @@ Este changelog incluye los cambios hechos en Biblioteca-3, Biblioteca-4, etc.
 ## 2021-05-
 
 ### Added (Añadido)
+
+### Changed (Modificado)
+- Cambio estructura de aviso en $_SESSION. Los avisos generales están ["avisos"][tabla][origen]["generales"], los avisos individuales están en ["avisos"][tabla][origen]["campos"][tabla][campo] y los controles especiales están en ["avisos"][tabla][origen][muestraValoresOriginalesEnFormulario] o ["avisos"][tabla][origen][ocultaFormulario].
+- Unifico funciones relacionadas con avisos para incluir siempre tabla y origen.
+
+### Fixed (Corregido)
+
+
+## 2021-05-11
+
+### Added (Añadido)
 - Si a la función recoge() le llega una matriz cuando esperaba un escalar o viceversa, descarta lo recibido y hace como si hubiera llegado en blanco (no genera ningún aviso, en la comprobación individual o general posterior ya se generará el aviso que toque por llegar un dato vacío).
 - El formulario de buscar-1 muestra los términos de búsqueda utilizados si la búsqueda no da ningún resultado.
 

@@ -9,23 +9,23 @@ require_once "../../comunes/biblioteca.php";
 
 compruebaSesion(NIVEL_3, PROFUNDIDAD_2);
 
-borraAvisosExcepto("modificar-3");
+borraAvisosExcepto("obras", "modificar-3");
 
 // Si en modificar-3 se detecta un error, al volver a modificar-2 se necesita recuperar el id
-if (isset($_SESSION["avisosIndividuales"]["modificar-3"]["obras"]["id"]["valor"])) {
-    $id = $_SESSION["avisosIndividuales"]["modificar-3"]["obras"]["id"]["valor"];
+if (isset($_SESSION["avisos"]["obras"]["modificar-3"]["campos"]["id"]["valor"])) {
+    $id = $_SESSION["avisos"]["obras"]["modificar-3"]["campos"]["id"]["valor"];
 } else {
     [$id] = compruebaAvisosIndividuales("obras", "modificar-2", "id");
 }
 
-if (hayErrores("modificar-2")) {
+if (hayErrores("obras", "modificar-2")) {
     header("Location:modificar-1.php");
     exit();
 }
 
 compruebaAvisosGenerales("obras", "modificar-2", "registrosExisten", $id);
 
-if (hayErrores("modificar-2")) {
+if (hayErrores("obras", "modificar-2")) {
     header("Location:modificar-1.php");
     exit();
 }

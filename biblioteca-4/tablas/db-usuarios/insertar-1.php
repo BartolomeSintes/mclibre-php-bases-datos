@@ -13,13 +13,13 @@ cabecera("Usuarios - Añadir 1", MENU_USUARIOS, PROFUNDIDAD_2);
 
 imprimeAvisosGenerales("usuarios", "insertar-2");
 
-borraAvisosExcepto("insertar-2");
+borraAvisosExcepto("usuarios", "insertar-2");
 
 compruebaAvisosGenerales("usuarios", "insertar-1", "limiteNumeroRegistros");
 
 imprimeAvisosGenerales("usuarios", "insertar-1");
 
-if (muestraFormulario()) {
+if (muestraFormulario("usuarios", "insertar-1")) {
     print "    <form action=\"insertar-2.php\" method=\"$cfg[formMethod]\">\n";
     print "      <p>Escriba los datos del nuevo registro:</p>\n";
     print "\n";

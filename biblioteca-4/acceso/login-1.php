@@ -21,7 +21,7 @@ if (!existenTablas()) {
     borraTodo($cfg["insertaRegistrosDemo"]);
 }
 
-borraAvisosExcepto("login-2");
+borraAvisosExcepto("usuarios", "login-2");
 
 imprimeAvisosGenerales("usuarios", "login-2");
 

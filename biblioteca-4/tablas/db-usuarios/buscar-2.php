@@ -15,7 +15,7 @@ borraAvisosExcepto();
 
 compruebaAvisosGenerales("usuarios", "buscar-2", "registrosNoEncontrados", "usuario", "password", "nivel");
 
-if (hayErrores("buscar-2")) {
+if (hayErrores("usuarios", "buscar-2")) {
     header("Location:buscar-1.php");
     exit();
 }

@@ -13,13 +13,13 @@ cabecera("Préstamos - Añadir 1", MENU_PRESTAMOS, PROFUNDIDAD_2);
 
 imprimeAvisosGenerales("prestamos", "insertar-2");
 
-borraAvisosExcepto("insertar-2");
+borraAvisosExcepto("prestamos", "insertar-2");
 
 compruebaAvisosGenerales("prestamos", "insertar-1", "limiteNumeroRegistros");
 
 imprimeAvisosGenerales("prestamos", "insertar-1");
 
-if (muestraFormulario()) {
+if (muestraFormulario("prestamos", "insertar-1")) {
     $pdo = conectaDb();
 
     $consulta2 = "SELECT * FROM $db[personas] ORDER BY apellidos";

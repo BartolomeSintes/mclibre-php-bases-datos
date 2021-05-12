@@ -11,7 +11,9 @@ compruebaSesion(NIVEL_3, PROFUNDIDAD_2);
 
 cabecera("Préstamos - Modificar 1", MENU_PRESTAMOS, PROFUNDIDAD_2);
 
-imprimeAvisosGenerales("prestamos", "modificar-2", "modificar-3");
+imprimeAvisosGenerales("prestamos", "modificar-2");
+
+imprimeAvisosGenerales("prestamos", "modificar-3");
 
 borraAvisosExcepto();
 
@@ -19,7 +21,7 @@ compruebaAvisosGenerales("prestamos", "modificar-1", "sinRegistros");
 
 imprimeAvisosGenerales("prestamos", "modificar-1");
 
-if (muestraFormulario()) {
+if (muestraFormulario("prestamos", "modificar-1")) {
     $pdo = conectaDb();
 
     $ordena = recogeValores("ordena", $db["columnasPrestamosOrden"], "apellidos ASC");

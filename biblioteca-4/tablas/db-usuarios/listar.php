@@ -17,7 +17,7 @@ compruebaAvisosGenerales("usuarios", "listar", "sinRegistros");
 
 imprimeAvisosGenerales("usuarios", "listar");
 
-if (muestraFormulario()) {
+if (muestraFormulario("usuarios", "listar")) {
     $pdo = conectaDb();
 
     $ordena = recogeValores("ordena", $db["columnasUsuariosOrden"], "usuario ASC");

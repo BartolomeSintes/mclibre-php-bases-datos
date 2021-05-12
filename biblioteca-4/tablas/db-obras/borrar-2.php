@@ -15,7 +15,7 @@ borraAvisosExcepto();
 
 compruebaAvisosGenerales("obras", "borrar-2", "registrosExisten", $id);
 
-if (hayErrores("borrar-2")) {
+if (hayErrores("obras", "borrar-2")) {
     header("Location:borrar-1.php");
     exit();
 }

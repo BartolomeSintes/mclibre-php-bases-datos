@@ -15,7 +15,7 @@ borraAvisosExcepto();
 
 compruebaAvisosGenerales("obras", "buscar-2", "registrosNoEncontrados", "autor", "titulo", "editorial");
 
-if (hayErrores("buscar-2")) {
+if (hayErrores("obras", "buscar-2")) {
     header("Location:buscar-1.php");
     exit();
 }

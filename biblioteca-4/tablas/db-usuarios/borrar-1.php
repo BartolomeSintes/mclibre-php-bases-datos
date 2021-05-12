@@ -19,7 +19,7 @@ compruebaAvisosGenerales("usuarios", "borrar-1", "sinRegistros");
 
 imprimeAvisosGenerales("usuarios", "borrar-1");
 
-if (muestraFormulario()) {
+if (muestraFormulario("usuarios", "borrar-1")) {
     $pdo = conectaDb();
 
     $ordena = recogeValores("ordena", $db["columnasUsuariosOrden"], "usuario ASC");

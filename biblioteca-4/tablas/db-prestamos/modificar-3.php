@@ -13,14 +13,14 @@ borraAvisosExcepto();
 
 [$id] = compruebaAvisosIndividuales("prestamos", "modificar-3", "id");
 
-if (hayErrores("modificar-3")) {
+if (hayErrores("prestamos", "modificar-3")) {
     header("Location:modificar-1.php");
     exit();
 }
 
 compruebaAvisosGenerales("prestamos", "modificar-3", "registrosExisten", $id);
 
-if (hayErrores("modificar-3")) {
+if (hayErrores("prestamos", "modificar-3")) {
     header("Location:modificar-1.php");
     exit();
 }
@@ -33,7 +33,7 @@ compruebaAvisosGenerales("prestamos", "modificar-3", "yaExisteRegistroConOtroId"
 
 compruebaAvisosGenerales("prestamos", "modificar-3", "fechasCrecientes", "prestado", "devuelto");
 
-if (hayErrores("modificar-3")) {
+if (hayErrores("prestamos", "modificar-3")) {
     incluyeValoresOriginalesEnAvisos("prestamos", "modificar-3", "id_persona", "id_obra", "prestado", "devuelto", "id");
     header("Location:modificar-2.php");
     exit();

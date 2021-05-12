@@ -13,7 +13,7 @@ borraAvisosExcepto();
 
 compruebaAvisosGenerales("usuarios", "login-2", "validaLogin","usuario", "password");
 
-if (hayErrores("login-2")) {
+if (hayErrores("usuarios", "login-2")) {
     header("Location:login-1.php");
     exit();
 }

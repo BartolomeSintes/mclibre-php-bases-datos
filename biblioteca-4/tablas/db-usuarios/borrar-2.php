@@ -17,7 +17,7 @@ compruebaAvisosGenerales("usuarios", "borrar-2", "registrosExisten", $id);
 
 compruebaAvisosGenerales("usuarios", "borrar-2", "incluyeUsuarioRoot", $id);
 
-if (hayErrores("borrar-2")) {
+if (hayErrores("usuarios", "borrar-2")) {
     header("Location:borrar-1.php");
     exit();
 }

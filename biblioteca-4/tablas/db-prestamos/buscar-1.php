@@ -13,13 +13,13 @@ cabecera("Préstamos - Buscar 1", MENU_PRESTAMOS, PROFUNDIDAD_2);
 
 imprimeAvisosGenerales("prestamos", "buscar-2");
 
-borraAvisosExcepto("buscar-2");
+borraAvisosExcepto("prestamos", "buscar-2");
 
 compruebaAvisosGenerales("prestamos", "buscar-1", "sinRegistros", );
 
 imprimeAvisosGenerales("prestamos", "buscar-1");
 
-if (muestraFormulario()) {
+if (muestraFormulario("prestamos", "buscar-1")) {
     print "    <form action=\"buscar-2.php\" method=\"$cfg[formMethod]\">\n";
     print "      <p>Escriba el criterio de búsqueda (caracteres o números):</p>\n";
     print "\n";

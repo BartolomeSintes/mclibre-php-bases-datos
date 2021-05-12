@@ -19,7 +19,7 @@ compruebaAvisosGenerales("personas", "insertar-2", "limiteNumeroRegistros");
 
 compruebaAvisosGenerales("personas", "insertar-2", "yaExisteRegistro", "nombre", "apellidos", "dni");
 
-if (hayErrores("insertar-2")) {
+if (hayErrores("personas", "insertar-2")) {
     header("Location:insertar-1.php");
     exit();
 }

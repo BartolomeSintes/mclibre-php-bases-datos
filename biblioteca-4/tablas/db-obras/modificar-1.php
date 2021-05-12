@@ -11,7 +11,9 @@ compruebaSesion(NIVEL_3, PROFUNDIDAD_2);
 
 cabecera("Obras - Modificar 1", MENU_OBRAS, PROFUNDIDAD_2);
 
-imprimeAvisosGenerales("obras", "modificar-2", "modificar-3");
+imprimeAvisosGenerales("obras", "modificar-2");
+
+imprimeAvisosGenerales("obras", "modificar-3");
 
 borraAvisosExcepto();
 
@@ -19,7 +21,7 @@ compruebaAvisosGenerales("obras", "modificar-1", "sinRegistros");
 
 imprimeAvisosGenerales("obras", "modificar-1");
 
-if (muestraFormulario()) {
+if (muestraFormulario("obras", "modificar-1")) {
     $pdo = conectaDb();
 
     $ordena = recogeValores("ordena", $db["columnasObrasOrden"], "titulo ASC");
