@@ -53,17 +53,11 @@ Estas son algunas de las cosas que me quedan por hacer y que podrían hacerse en
 
 ## Próximos pasos
 
-* [2021-04-10] Los avisos sólo indican la página que lo originó, pero no la tabla, así que que generas un aviso en una tabla y te vas a otra tabla, te sale el aviso anterior. Al borrar avisos habría que tener en cuenta no solo la página, sino también la  tabla.
-
 * [2021-04-10] Los select/radio/checkbox no muestran el valor elegido por el usuario cuando se detectan errores y se vuelve al formulario (prestamos/insertar-1, prestamos/buscar-1 y prestamos/modificar-2)
 
 * [2021-04-10] Aclarar cómo trabajar con las fechas: cómo quitar una fecha (si tiene sentido hacerlo), etc.
 
 * [2021-04-10] Hacer páginas /administrador como /tablas.
-
-* [2021-05-10] En $_SESSION en vez de [origen][tabla] quizás sería mejor pòner [table][origen].
-
-* [2021-05-11] En modificar-3 he tenido que meter el incluyeValoresOriginalesEnAvisos() dentro del if (hayErrores("modificar-3")) porque si no, al hacer hayErrores() daba error en la línea foreach ($_SESSION["avisos"][$tabla][$origen]["campos"] as $campo => $valor) {. El problema es que la anotación muestraValoresOriginalesEnFormulario está al mismo nivel que las tablas, así que cuando hace el foreach sobre las tablas coge también el valor. Tendría que cambiar la estructura de $_SESSION.
 
 
 ## Para corregir (más importante)

@@ -25,7 +25,7 @@ function comprobaciones($origen, $tabla, $campo, $valor)
         } else {
             $campoOk = true;
         }
-    } elseif ($campo == "usuario") {                    // Tabla Usuarios
+    } elseif ($campo == "usuario") {                                             // Tabla Usuarios
         if ($valor == "") {
             $mensaje = "Debe escribir un nombre de usuario.";
         } elseif (mb_strlen($valor, "UTF-8") > $db["tamUsuariosUsuario"]) {
@@ -45,7 +45,7 @@ function comprobaciones($origen, $tabla, $campo, $valor)
         } else {
             $campoOk = true;
         }
-    } elseif ($campo == "password") {                   // Tabla Usuarios
+    } elseif ($campo == "password") {                                               // Tabla Usuarios
         if ($valor == "") {
             $mensaje = "Debe escribir una contraseña.";
         } elseif (mb_strlen($valor, "UTF-8") > $db["tamUsuariosPassword"]) {
@@ -53,55 +53,55 @@ function comprobaciones($origen, $tabla, $campo, $valor)
         } else {
             $campoOk = true;
         }
-    } elseif ($campo == "nivel" && $origen == "buscar-2") {                      // Tabla Usuarios
+    } elseif ($campo == "nivel" && $origen == "buscar-2") {                         // Tabla Usuarios
         if ($valor && !in_array($valor, $usuariosNiveles)) {
             $mensaje = "Nivel de usuario incorrecto.";
         } else {
             $campoOk = true;
         }
-    } elseif ($campo == "nivel") {                      // Tabla Usuarios
+    } elseif ($campo == "nivel") {                                                  // Tabla Usuarios
         if (!in_array($valor, $usuariosNiveles)) {
             $mensaje = "Nivel de usuario incorrecto.";
         } else {
             $campoOk = true;
         }
-    } elseif ($campo == "autor") {                      // Tabla Obras
+    } elseif ($campo == "autor") {                                                  // Tabla Obras
         if (mb_strlen($valor, "UTF-8") > $db["tamObrasAutor"]) {
             $mensaje = "El nombre del autor no puede tener más de $db[tamObrasAutor] caracteres.";
         } else {
             $campoOk = true;
         }
-    } elseif ($campo == "titulo") {                     // Tabla Obras
+    } elseif ($campo == "titulo") {                                                 // Tabla Obras
         if (mb_strlen($valor, "UTF-8") > $db["tamObrasTitulo"]) {
             $mensaje = "El título no puede tener más de $db[tamObrasTitulo] caracteres.";
         } else {
             $campoOk = true;
         }
-    } elseif ($campo == "editorial") {                  // Tabla Obras
+    } elseif ($campo == "editorial") {                                              // Tabla Obras
         if (mb_strlen($valor, "UTF-8") > $db["tamObrasEditorial"]) {
             $mensaje = "La editorial no puede tener más de $db[tamObrasEditorial] caracteres.";
         } else {
             $campoOk = true;
         }
-    } elseif ($campo == "nombre") {                     // Tabla Personas
+    } elseif ($campo == "nombre") {                                                 // Tabla Personas
         if (mb_strlen($valor, "UTF-8") > $db["tamPersonasNombre"]) {
             $mensaje = "El nombre no puede tener más de $db[tamPersonasNombre] caracteres.";
         } else {
             $campoOk = true;
         }
-    } elseif ($campo == "apellidos") {                  // Tabla Personas
+    } elseif ($campo == "apellidos") {                                              // Tabla Personas
         if (mb_strlen($valor, "UTF-8") > $db["tamPersonasApellidos"]) {
             $mensaje = "Los apellidos no pueden tener más de $db[tamPersonasApellidos] caracteres.";
         } else {
             $campoOk = true;
         }
-    } elseif ($campo == "dni") {                        // Tabla Personas
+    } elseif ($campo == "dni") {                                                    // Tabla Personas
         if (mb_strlen($valor, "UTF-8") > $db["tamPersonasDni"]) {
             $mensaje = "El DNI no puede tener más de $db[tamPersonasDni] caracteres.";
         } else {
             $campoOk = true;
         }
-    } elseif ($campo == "id_persona") {                 // Tabla Préstamos
+    } elseif ($campo == "id_persona") {                                             // Tabla Préstamos
         $pdo      = conectaDb();
         $consulta = "SELECT COUNT(*)
                      FROM $db[personas]
@@ -116,7 +116,7 @@ function comprobaciones($origen, $tabla, $campo, $valor)
             $campoOk = true;
         }
         $pdo = null;
-    } elseif ($campo == "id_obra") {                    // Tabla Préstamos
+    } elseif ($campo == "id_obra") {                                                // Tabla Préstamos
         $pdo      = conectaDb();
         $consulta = "SELECT COUNT(*)
                      FROM $db[obras]
@@ -131,7 +131,7 @@ function comprobaciones($origen, $tabla, $campo, $valor)
             $campoOk = true;
         }
         $pdo = null;
-    } elseif ($campo == "id_prestamo") {                // Tabla Préstamos (para devolución)
+    } elseif ($campo == "id_prestamo") {                                            // Tabla Préstamos (para devolución)
         if ($valor == "") {
             $mensaje = "No se ha seleccionado ningún préstamo.";
         } else {
@@ -150,7 +150,7 @@ function comprobaciones($origen, $tabla, $campo, $valor)
             }
         }
         $pdo = null;
-    } elseif ($campo == "prestado") {                   // Tabla Préstamos
+    } elseif ($campo == "prestado") {                                               // Tabla Préstamos
         if ($valor == "" || mb_strlen($valor, "UTF-8") < TAM_FECHA) {
             $mensaje = "La fecha <strong>$valor</strong> no es una fecha válida.";
         } elseif (!ctype_digit(substr($valor, 5, 2)) || !ctype_digit(substr($valor, 8, 2)) || !ctype_digit(substr($valor, 0, 4))) {
@@ -160,7 +160,7 @@ function comprobaciones($origen, $tabla, $campo, $valor)
         } else {
             $campoOk = true;
         }
-    } elseif ($campo == "devuelto") {                   // Tabla Préstamos
+    } elseif ($campo == "devuelto") {                                               // Tabla Préstamos
         if ($origen == "devolver-2" && $valor == "") {
             $mensaje = "No ha indicado la fecha.";
         } elseif ($valor == "") {

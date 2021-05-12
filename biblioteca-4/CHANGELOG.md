@@ -15,7 +15,7 @@ Este changelog incluye los cambios hechos en Biblioteca-3, Biblioteca-4, etc.
 - Unifico funciones relacionadas con avisos para incluir siempre tabla y origen.
 
 ### Fixed (Corregido)
-
+- modificar-3: Vuelvo a sacar incluyeValoresOriginalesEnAvisos() del if (hayErrores(tabla, "modificar-3")) porque con la nueva estructura de $_SESSION ya no se genera el warning.
 
 ## 2021-05-11
 

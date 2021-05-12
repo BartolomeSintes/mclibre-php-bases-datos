@@ -27,12 +27,13 @@ if (hayErrores("usuarios", "modificar-3")) {
 
 [$usuario, $password, $nivel] = compruebaAvisosIndividuales("usuarios", "modificar-3", "usuario", "password", "nivel");
 
+incluyeValoresOriginalesEnAvisos("usuarios", "modificar-3", "usuario", "password", "nivel", "id");
+
 compruebaAvisosGenerales("usuarios", "modificar-3", "yaExisteRegistroConOtroId", "usuario", "password", "nivel", "id");
 
 compruebaAvisosGenerales("usuarios", "modificar-3", "incluyeUsuarioRoot", $usuario, $password, $nivel, $id);
 
 if (hayErrores("usuarios", "modificar-3")) {
-    incluyeValoresOriginalesEnAvisos("usuarios", "modificar-3", "usuario", "password", "nivel", "id");
     header("Location:modificar-2.php");
     exit();
 }

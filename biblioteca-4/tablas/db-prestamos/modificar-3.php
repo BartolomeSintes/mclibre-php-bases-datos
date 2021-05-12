@@ -27,6 +27,8 @@ if (hayErrores("prestamos", "modificar-3")) {
 
 [$id_persona, $id_obra, $prestado, $devuelto, $id] = compruebaAvisosIndividuales("prestamos", "modificar-3", "id_persona", "id_obra", "prestado", "devuelto", "id");
 
+incluyeValoresOriginalesEnAvisos("prestamos", "modificar-3", "id_persona", "id_obra", "prestado", "devuelto", "id");
+
 compruebaAvisosGenerales("prestamos", "modificar-3", "todosVaciosMenosPrimero", "id", "id_persona", "id_obra", "prestado", "devuelto");
 
 compruebaAvisosGenerales("prestamos", "modificar-3", "yaExisteRegistroConOtroId", "id_persona", "id_obra", "prestado", "devuelto", "id");
@@ -34,7 +36,6 @@ compruebaAvisosGenerales("prestamos", "modificar-3", "yaExisteRegistroConOtroId"
 compruebaAvisosGenerales("prestamos", "modificar-3", "fechasCrecientes", "prestado", "devuelto");
 
 if (hayErrores("prestamos", "modificar-3")) {
-    incluyeValoresOriginalesEnAvisos("prestamos", "modificar-3", "id_persona", "id_obra", "prestado", "devuelto", "id");
     header("Location:modificar-2.php");
     exit();
 }
