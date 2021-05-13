@@ -77,18 +77,20 @@ function incluyeValoresOriginalesEnAvisos()
     array_shift($argumentos);
     $origen = $argumentos[0];
     array_shift($argumentos);
+    $id = $argumentos[0];
+    array_shift($argumentos);
     $pdo      = conectaDb();
     $consulta = "SELECT *
                  FROM $db[$tabla] "
               . "WHERE id=:id";
     $result = $pdo->prepare($consulta);
-    $result->execute([":id" => recoge($argumentos[count($argumentos) - 1])]);
+    $result->execute([":id" => recoge($id)]);
     if (!$result) {
         $_SESSION["avisos"][$tabla][$origen]["generales"][] = ["texto" => "Error en la consulta.", "claseAviso" => "aviso-error"];
     } else {
         $valor = $result->fetch(PDO::FETCH_ASSOC);
-        for ($i = 0; $i < count($argumentos); $i++) {
-            $_SESSION["avisos"][$tabla][$origen]["campos"][$argumentos[$i]]["original"] = $valor[$argumentos[$i]];
+        foreach ($argumentos as $campo) {
+            $_SESSION["avisos"][$tabla][$origen]["campos"][$campo]["original"] = $valor[$campo];
         }
     }
     $_SESSION["avisos"][$tabla][$origen]["muestraValoresOriginalesEnFormulario"] = true;

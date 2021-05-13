@@ -27,7 +27,7 @@ if (hayErrores("prestamos", "modificar-3")) {
 
 [$id_persona, $id_obra, $prestado, $devuelto] = compruebaAvisosIndividuales("prestamos", "modificar-3", "id_persona", "id_obra", "prestado", "devuelto");
 
-incluyeValoresOriginalesEnAvisos("prestamos", "modificar-3", "id_persona", "id_obra", "prestado", "devuelto", "id");
+incluyeValoresOriginalesEnAvisos("prestamos", "modificar-3", "id", "id_persona", "id_obra", "prestado", "devuelto");
 
 compruebaAvisosGenerales("prestamos", "modificar-3", "todosVaciosMenosPrimero", "id", "id_persona", "id_obra", "prestado", "devuelto");
 

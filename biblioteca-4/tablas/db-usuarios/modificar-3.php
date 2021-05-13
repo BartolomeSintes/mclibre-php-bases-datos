@@ -27,7 +27,7 @@ if (hayErrores("usuarios", "modificar-3")) {
 
 [$usuario, $password, $nivel] = compruebaAvisosIndividuales("usuarios", "modificar-3", "usuario", "password", "nivel");
 
-incluyeValoresOriginalesEnAvisos("usuarios", "modificar-3", "usuario", "password", "nivel", "id");
+incluyeValoresOriginalesEnAvisos("usuarios", "modificar-3", "id", "usuario", "password", "nivel");
 
 compruebaAvisosGenerales("usuarios", "modificar-3", "yaExisteRegistroConOtroId", "usuario", "password", "nivel", "id");
 

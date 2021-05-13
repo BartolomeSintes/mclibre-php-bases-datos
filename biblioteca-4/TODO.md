@@ -207,7 +207,7 @@ he hecho también los select de nivel en usuarios/insertar-1, usuarios/buscar-1.
 
 function compruebaAvisosIndividuales(tabla, página, campos ...)
 function compruebaAvisosGenerales(tabla, página, tipo, campos ...)
-function incluyeValoresOriginalesEnAvisos(tabla, página, campos ...)
+function incluyeValoresOriginalesEnAvisos(tabla, página, id, campos ...)
 function imprimeAvisosIndividuales($tabla, $origen, $campo, $tipo, $valor = "")
 function imprimeAvisosGenerales(tabla, página)
 function borraAvisosExcepto(tabla, página)
