@@ -22,7 +22,7 @@ Estas son algunas de las cosas que me quedan por hacer y que podrían hacerse en
 
 * [2021-04-27] Si algún campo es obligatorio en un formulario, indicarlo con asterisco (\*). Los campos obligatorios se podrían indicar al crear la base de datos y crear una matriz con ellos. Supongo que habrá una manera de consultar para saber si hay campos obligatorios y se puede crear esa matriz automáticamente.
 
-* [2021-04-21] Estaría bien poner en date devolución atributo min con la fecha del préstamo para que no deje poner una fecha anterior. El problema es que habría que hacerlo con javascript porque esa fecha mínima depende del prestamos.
+* [2021-04-21] Estaría bien poner en date devolución atributo min con la fecha del préstamo para que no deje poner una fecha anterior. El problema es que habría que hacerlo con javascript porque esa fecha mínima depende del préstamo.
 
 * [2021-04-27] Añadir función de comprobación de DNI o el NIE. Preguntarle a Fina qué documentos de identificación presenta la gente al matricularase en el instituto.
 
@@ -54,12 +54,16 @@ Estas son algunas de las cosas que me quedan por hacer y que podrían hacerse en
 
 * [2021-05-08] login-1 tiene la comprobación de tablas al principio. Había pensado reconvertirlo en un avisoGeneral pero el problema es que el aviso no está realmente asociado a ninguna tabla y el primer índice de avisoGeneral es la tabla. Así que lo he dejado porque para acomodar este aviso tendría que reorganizar avisoGeneral.
 
+* [2021-05-13] Al llamar a compruebaAvisosGenerales() unas veces envío "id" y otras veces $id, pero en el resto de campos envío siempre el nombre del campo. Realmente sería mejor enviar las variables, porque ahora compruebaAvisosGenerales() tiene que hacer recoge() cuando ya se han recogido al hacer compruebaAvisosIndividuales(). Quizás sería mejor recoger todos los datos con compruebaAvisosIndividuales() y detectar todos los problemas y después hacer compruebaAvisosGenerales() enviandoles las variables, pero necesito enviar el nombre del campo también porque enalgunas comprobaciones se construyen consultas con esos nombres. Quizás la solución podría ser que compruebaAvisosIndividuales() guardar los datos en $_SESSION y que compruebaAvisosGenerales() reciba los nombres y cogiera los valores de $_SESSION.
+
+* [2021-05-13] modificar-2 tiene un if feo al principio para resolver de dónde coger el id. No sé si sería mejor moverlo a compruebaAvisosIndividuales().
+
 
 ## Próximos pasos
 
 * [2021-04-10] Los select no muestran el valor elegido por el usuario cuando se detectan errores y se vuelve al formulario.
 
-He hecho los selects de personas, obras y prestamos prestamos/insertar-1, prestamos/devolver-1 y prestamos/modificar-2, pero en modificar-2 creo que no está bien del todo. Si se cambia un select y el otro se pone un valor incorrecto (o falta la fecha), no tengo claro qué debería sacar en el select cambiado (si el valor original o el modificado). Tendría que hacer lo mismo que en otros modificar.
+He hecho los selects de personas, obras y préstamos prestamos/insertar-1, prestamos/devolver-1 y prestamos/modificar-2, pero en modificar-2 creo que no está bien del todo. Si se cambia un select y el otro se pone un valor incorrecto (o falta la fecha), no tengo claro qué debería sacar en el select cambiado (si el valor original o el modificado). Tendría que hacer lo mismo que en otros modificar.
 
 he hecho también los select de nivel en usuarios/insertar-1, usuarios/buscar-1. Em usuarios/modificar-2 me pasa lo mismo, que no tengo claro qué tiene que hacer.
 
@@ -72,9 +76,11 @@ he hecho también los select de nivel en usuarios/insertar-1, usuarios/buscar-1.
 
 ## Para corregir (más importante)
 
-* [2021-05-04] Personas > Insertar. Inserto un registro en blanco y saca aviso general. Pero si entonces hago clic en el enlace "Añadir registro", vuelve a salir el mensaje. Sin embargo, eso en borrar no pasa si no selecciono ningún registro para borrar. El motivo es que en insertar no se borran todos los avisos porque en el formulario se puede tener que escribir los avisos individuales, mientras que en borrar como no hay avisos individuales, sí que se borra todos los avisos. Igual la solución sería borrar todos los avisos al terminar la página.
+* [2021-05-06] prestamos > buscar-2. No utiliza compruebaAvisosIndividuales ni compruebaAvisosGenerales, ni devuelve a buscar-1 si no encuentra registros. De todas formas en buscar-1 he añadido los imprimeAvisosIndividuales(), que ahora no hacen nada.
 
-* [2021-04-29] En una [página de IBM sobre log levels](https://www.ibm.com/docs/en/sdi/7.1.1?topic=debugging-log-levels-log-level-control) describían los diferentes tipos de avisos que tenía una aplicación: Off, Fatal, Error, Warn, Info, Debug y All. Hay [listas más amplias]/https://www.ibm.com/docs/en/imdm/11.6?topic=handling-severity-levels). En la Wikipedia hay una [página sobre Syslog](https://en.wikipedia.org/wiki/Syslog) que es un [RFC 5424: Protocolo Syslog](https://tools.ietf.org/html/rfc5424). En Syslog definen 7 niveles: Emergency, Alert, Critical, Error, Warning, Notice, Information y Debug. Me inspiré en esa lista para llamar a las clases aviso-error y aviso-info.
+* [2021-05-06] prestamos > buscar-2. Averiguar si el if para incluir las fechas en la consulta se podría simplificar con dos if seguidos (tanto en la fecha de préstamo como en la de devolución). El problema supongo que será el "and" que hay que entre las condiciones en la consulta SQL.
+
+* [2021-05-04] Personas > Insertar. Inserto un registro en blanco y saca aviso general. Pero si entonces hago clic en el enlace "Añadir registro", vuelve a salir el mensaje. Sin embargo, eso en borrar no pasa si no selecciono ningún registro para borrar. El motivo es que en insertar no se borran todos los avisos porque en el formulario se puede tener que escribir los avisos individuales, mientras que en borrar como no hay avisos individuales, sí que se borra todos los avisos. Igual la solución sería borrar todos los avisos al terminar la página.
 
 * [2021-05-06] Cuando detecta errores individuales, podría generar un aviso general diciendo "Se han detectado problemas en los datos enviados" o algo similar.
 
@@ -83,17 +89,7 @@ he hecho también los select de nivel en usuarios/insertar-1, usuarios/buscar-1.
 
 * [2021-04-29] Cuando se marcan varios registros para borrar saca varias veces el mensaje "Registro borrado correctamente.". Realmente no es incorrecto, pero queda raro. Quizás debería incluir campos del registro en el mensaje para que se viera que cada mensaje corresponde a cada uno de los registros borrados. O quizás sería mejor sacar un único mensaje "Registro borrado correctamente" o "Registros borrados correctamente" si son varios.
 
-* [2021-04-21] modificar préstamos. Si se quita la fecha dice registro no encontrado.
-
-* [2021-05-06] prestamos > buscar-2. No utiliza compruebaAvisosIndividuales ni compruebaAvisosGenerales, ni devuelve a buscar-1 si no encuentra registros. De todas formas en buscar-1 he añadido los imprimeAvisosIndividuales(), que ahora no hacen nada.
-
-* [2021-05-06] prestamos > buscar-2. Averiguar si el if para incluir las fechas en la consulta se podría simplificar con dos if seguidos (tanto en la fecha de préstamo como en la de devolución). El problema supongo que será el "and" que hay que entre las condiciones en la consulta SQL.
-
 * [2021-05-06] Al reordenar un listado no se comprueban errores. En el criterio de ordenación da lo mismo porque hay uno por defecto, pero en los id igual debería decir algo, aunque la verdad es que no afecta a la página porque sólo marca las casillas correctas.
-
-* [2021-05-13] En compruebaAvisosIndividuales() comprueba si lo que llega es una matriz, pero podría mirar que fuera una matriz de una dimensión.
-
-* [2021-05-13] En la función comprobaciones() hace if ($valor == "" || $valor == []) { $valor = ""; }. Si me asegurara de que las matrices son unidimensionales, creo que no haría falta comparar con [].
 
 
 ## Para averiguar
@@ -115,11 +111,26 @@ he hecho también los select de nivel en usuarios/insertar-1, usuarios/buscar-1.
 * [2021-04-22] La función calendario envía la fecha en la dirección. Podría cambiar a botones como en las flechas de ordenación de los listados.
 
 
-## Para pensar
+## Préstamos
+
+* [2020-XX-XX] La fecha de préstamo es obligatoria. No se puede dejar a cero.
+
+* [2020-XX-XX] préstamo > insertar-1: si una obra ya estuviera prestada, no debería salir en la lista
+
+* [2020-XX-XX] préstamo > insertar-2: Si una persona coge la misma obra de nuevo, habría que comprobar que la fecha de préstamo no está dentro de las fechas de préstamo y devolución y que hay fecha de devolución (si el préstamo no se ha devuelto, creo que no se debería poder prestar ni antes ni después). Ahora sólo mira que la fecha de préstamo no sea la misma, independientemente de la fecha de devolución.
+
+* [2020-XX-XX] préstamos > devolver-2: si ponía la fecha de devolución en la consulta preparada no funcionaba, así que la he insertado en la consulta (como he comprobado antes que es correcta, posiblemente no importe).
+
+* [2020-XX-XX] obras > listar: podría indicar si las obras están prestadas
 
 * [2021-04-21] Al modificar un préstamo comprueba que no coincida todo, pero en biblioteca-3 solo comprobaba que no coincidiera obra y persona.
 
 * [2021-04-21] Al hacer un préstamo habría que comprobar más cosas: que el libro no estuviera prestado
+
+* [2021-04-21] modificar préstamos. Si se quita la fecha dice registro no encontrado.
+
+
+## Para pensar
 
 * [2021-04-21] No tengo en cuenta que puede haber dos ejemplares del mismo libro.
 
@@ -144,6 +155,7 @@ he hecho también los select de nivel en usuarios/insertar-1, usuarios/buscar-1.
 
 * [2021-04-17] En PHP 8 añadieron los [argumentos de funciones](https://www.php.net/manual/es/functions.arguments.php). Cuando pueda utilizar PHP 8 en glup debería utilizarlos para simplificar las funciones. Pero pasará tiempo, porque actualmente [no está incluido en ninguna distribución](https://www.mclibre.org/consultar/php/otros/historia-cuadros.html#distribuciones).
 
+
 ## Funciones de comprobación de datos (comprobaciones-general.php)
 
 * [2021-04-07] La comprobación de datos que estoy haciendo no contempla que un campo se llame de la misma forma en dos tablas distintas. Por ejemplo, no se podría comprobar si existe un registro con el id recogido. La solución parece que tendrá que ser enviar la tabla y el campo.
@@ -164,13 +176,9 @@ he hecho también los select de nivel en usuarios/insertar-1, usuarios/buscar-1.
 * [2021-04-19] El problema de las variantes acentos/sin acentos (Jose vs José). En el caso de las acentos / sin acentos creo que SQLite no tiene una solución general. Igual me toca hacer una tabla de sustitución de caracteres. - [How to remove accents in MySQL?](https://stackoverflow.com/questions/4813620/how-to-remove-accents-in-mysql) - [MySQL Cast Functions and Operators](https://dev.mysql.com/doc/refman/8.0/en/cast-functions.html)
 
 
-## Por clasificar
+## Otros
 
-- La fecha de préstamo es obligatoria. No se puede dejar a cero.
-- préstamo > insertar-1: si una obra ya estuviera prestada, no debería salir en la lista
-- préstamo > insertar-2: Si una persona coge la misma obra de nuevo, habría que comprobar que la fecha de préstamo no está dentro de las fechas de préstamo y devolución y que hay fecha de devolución (si el préstamo no se ha devuelto, creo que no se debería poder prestar ni antes ni después). Ahora sólo mira que la fecha de préstamo no sea la misma, independientemente de la fecha de devolución.
-- préstamos > devolver-2: si ponía la fecha de devolución en la consulta preparada no funcionaba, así que la he insertado en la consulta (como he comprobado antes que es correcta, posiblemente no importe).
-- obras > listar: podría indicar si las obras están prestadas
+* [2021-04-29] En una [página de IBM sobre log levels](https://www.ibm.com/docs/en/sdi/7.1.1?topic=debugging-log-levels-log-level-control) describían los diferentes tipos de avisos que tenía una aplicación: Off, Fatal, Error, Warn, Info, Debug y All. Hay [listas más amplias]/https://www.ibm.com/docs/en/imdm/11.6?topic=handling-severity-levels). En la Wikipedia hay una [página sobre Syslog](https://en.wikipedia.org/wiki/Syslog) que es un [RFC 5424: Protocolo Syslog](https://tools.ietf.org/html/rfc5424). En Syslog definen 7 niveles: Emergency, Alert, Critical, Error, Warning, Notice, Information y Debug. Me inspiré en esa lista para llamar a las clases aviso-error y aviso-info.
 
 
 ## Dudas SQL
@@ -192,6 +200,7 @@ he hecho también los select de nivel en usuarios/insertar-1, usuarios/buscar-1.
 
 ## Code smells
 
+* [2021-05-13] La función compruebaAvisosIndividuales() está pensada para recibir datos simples o matrices unidimensionales. En comprobaciones() he añadido un  if ($valor == []) { $valor = ""; } para dejarlo claro.
 
 ## Estructura $_SESSION
 

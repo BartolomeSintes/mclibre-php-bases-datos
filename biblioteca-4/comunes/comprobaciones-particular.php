@@ -12,10 +12,13 @@ function comprobaciones($origen, $tabla, $campo, $valor)
     $campoOk = false;
     $mensaje = "";
 
+    if ($valor == []) {
+        $valor = "";
+    }
+
     if ($campo == "id") {
-        if ($valor == "" || $valor == []) {
+        if ($valor == "") {
             $_SESSION["avisos"][$tabla][$origen]["generales"][] = ["texto" => "No ha seleccionado ningún registro.", "claseAviso" => "aviso-error"];
-            $valor                                              = "";
         } else {
             $campoOk = true;
         }
@@ -247,8 +250,8 @@ function compruebaAvisosGenerales()
         }
         $consulta .= "lower($argumentos[$i])=lower(:$argumentos[$i])";
         $parametros = [];
-        for ($i = 0; $i < count($argumentos); $i++) {
-            $parametros += [":" . $argumentos[$i] => recoge($argumentos[$i])];
+        foreach ($argumentos as $campo) {
+            $parametros += [":$campo" => recoge($campo)];
         }
         $result = $pdo->prepare($consulta);
         $result->execute($parametros);
@@ -353,8 +356,8 @@ function compruebaAvisosGenerales()
         }
         $consulta .= "lower($argumentos[$i])<>lower(:$argumentos[$i])";
         $parametros = [];
-        for ($i = 0; $i < count($argumentos); $i++) {
-            $parametros += [":" . $argumentos[$i] => recoge($argumentos[$i])];
+        foreach ($argumentos as $campo) {
+            $parametros += [":$campo" => recoge($campo)];
         }
         $result = $pdo->prepare($consulta);
         $result->execute($parametros);
@@ -379,8 +382,8 @@ function compruebaAvisosGenerales()
         $consulta .= "$argumentos[$i] like :$argumentos[$i]";
 
         $parametros = [];
-        for ($i = 0; $i < count($argumentos); $i++) {
-            $parametros += [":" . $argumentos[$i] => "%" . recoge($argumentos[$i]) . "%"];
+        foreach ($argumentos as $campo) {
+            $parametros += [":$campo" => "%" . recoge($campo) . "%"];
         }
         $result = $pdo->prepare($consulta);
         $result->execute($parametros);

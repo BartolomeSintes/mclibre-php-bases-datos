@@ -6,11 +6,12 @@ El formato se basa en [Keep a Changelog](https://keepachangelog.com/en/1.0.0/).
 
 Este changelog incluye los cambios hechos en Biblioteca-3, Biblioteca-4, etc.
 
-## 2021-05-
+## 2021-05-13
 
 ### Added (Añadido)
 - La función imprimeAvisosIndividuales() añade selected en los select para mostrar la opción elegida por el usuario (falta aclarar qué hacer en modificar-2).
 - Reordeno argumentos incluyeValoresOriginalesEnAvisos() poniendo el id en tercera posición.
+- Pongo a cero los datos recibidos que no son escalares o matrices de una dimensión.
 
 ### Changed (Modificado)
 - Cambio estructura de aviso en $_SESSION. Los avisos generales están ["avisos"][tabla][origen]["generales"], los avisos individuales están en ["avisos"][tabla][origen]["campos"][tabla][campo] y los controles especiales están en ["avisos"][tabla][origen][muestraValoresOriginalesEnFormulario] o ["avisos"][tabla][origen][ocultaFormulario].
@@ -18,6 +19,7 @@ Este changelog incluye los cambios hechos en Biblioteca-3, Biblioteca-4, etc.
 
 ### Fixed (Corregido)
 - modificar-3: Vuelvo a sacar incluyeValoresOriginalesEnAvisos() del if (hayErrores(tabla, "modificar-3")) porque con la nueva estructura de $_SESSION ya no se genera el warning.
+
 
 ## 2021-05-11
 
