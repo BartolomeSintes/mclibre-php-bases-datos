@@ -44,25 +44,35 @@ Estas son algunas de las cosas que me quedan por hacer y que podrían hacerse en
 
 * [2021-05-10] Un problema que no sé cómo evitar es cómo saber cómo se ha llegado a una página. Me refiero a que a una página se puede llegar redireccionado desde otra página o porque el usuario ha hecho clic en el enlace. Por ejemplo si modificar-3 encuentra errores (por ejmplo, porque se ha dejado todo vacío) redirige a modificar-1 que los muestra. Si el usuario hace entonces clic en el menú Modificar, entra otra vez en modificar-1, pero los avisos siguen mostrándose. Lo mismo pasa con insertar-2 si se ha dejado todo vacío. ¿Deberían eliminarse los avisos?
 
-* [2021-05-11] Buscar debería estar en una sola página, de manera que al escribir los criteriors de búsqueda, se actualizara el resultado. Tednría que estar hecho en javascript. Igual que el listado también tendría que reordenarse por javascript en vez de hacer una petición al servidor.
+* [2021-05-11] Buscar debería estar en una sola página, de manera que al escribir los criterios de búsqueda, se actualizara el resultado. Tendría que estar hecho en javascript.
+
+* [2021-05-11] Los listados tendrían que reordenarse por javascript en vez de hacer una petición al servidor.
 
 * [2021-05-11] En modificar cuando un campo no se puede modificar, podría desactivarse (el nombre y el nivel del usuario root, por ejemplo, no sé si habría algo más).
 
 * [2021-05-11] Podría permitirse cambiar el nombre del usuario root, pero que siguiera siendo un registro imborrable y que no se puede cambiar de nivel.
 
+* [2021-05-08] login-1 tiene la comprobación de tablas al principio. Había pensado reconvertirlo en un avisoGeneral pero el problema es que el aviso no está realmente asociado a ninguna tabla y el primer índice de avisoGeneral es la tabla. Así que lo he dejado porque para acomodar este aviso tendría que reorganizar avisoGeneral.
+
 
 ## Próximos pasos
 
-* [2021-04-10] Los select/radio/checkbox no muestran el valor elegido por el usuario cuando se detectan errores y se vuelve al formulario (prestamos/insertar-1, prestamos/buscar-1 y prestamos/modificar-2)
+* [2021-04-10] Los select no muestran el valor elegido por el usuario cuando se detectan errores y se vuelve al formulario.
 
-* [2021-04-10] Aclarar cómo trabajar con las fechas: cómo quitar una fecha (si tiene sentido hacerlo), etc.
+He hecho los selects de personas, obras y prestamos prestamos/insertar-1, prestamos/devolver-1 y prestamos/modificar-2, pero en modificar-2 creo que no está bien del todo. Si se cambia un select y el otro se pone un valor incorrecto (o falta la fecha), no tengo claro qué debería sacar en el select cambiado (si el valor original o el modificado). Tendría que hacer lo mismo que en otros modificar.
+
+he hecho también los select de nivel en usuarios/insertar-1, usuarios/buscar-1. Em usuarios/modificar-2 me pasa lo mismo, que no tengo claro qué tiene que hacer.
+
+* [2021-04-10] Los radio/checkbox no muestran el valor elegido por el usuario cuando se detectan errores y se vuelve al formulario. Como por ahora solo uso radio y checkbox para seleccionar los registros a borrar o modificar, si hay errores es porque el usuario ha manipulado la url, así que que no se recuperen los correctos tampoco me importa demasiado.
+
+* [2021-04-10] Aclarar cómo trabajar con las fechas. Por ejemplo, al modificar fechas no se pueden dejar en blanco de nuevo (si tiene sentido que el usuario pueda dejar en blanco una fecha, habría que poner un checkbox al lado para que el usuario lo indique), etc.
 
 * [2021-04-10] Hacer páginas /administrador como /tablas.
 
 
 ## Para corregir (más importante)
 
-* [2021-05-04] Personas > Insertar. Inserto un registro en blanco y saca aviso general. Pero si entonces hago clic en el enlace "Añadir registro", vuelve a salir el mensaje. Sin embargo, eso en borrar no pasa si no selecciono ningún registro para borrar.
+* [2021-05-04] Personas > Insertar. Inserto un registro en blanco y saca aviso general. Pero si entonces hago clic en el enlace "Añadir registro", vuelve a salir el mensaje. Sin embargo, eso en borrar no pasa si no selecciono ningún registro para borrar. El motivo es que en insertar no se borran todos los avisos porque en el formulario se puede tener que escribir los avisos individuales, mientras que en borrar como no hay avisos individuales, sí que se borra todos los avisos. Igual la solución sería borrar todos los avisos al terminar la página.
 
 * [2021-04-29] En una [página de IBM sobre log levels](https://www.ibm.com/docs/en/sdi/7.1.1?topic=debugging-log-levels-log-level-control) describían los diferentes tipos de avisos que tenía una aplicación: Off, Fatal, Error, Warn, Info, Debug y All. Hay [listas más amplias]/https://www.ibm.com/docs/en/imdm/11.6?topic=handling-severity-levels). En la Wikipedia hay una [página sobre Syslog](https://en.wikipedia.org/wiki/Syslog) que es un [RFC 5424: Protocolo Syslog](https://tools.ietf.org/html/rfc5424). En Syslog definen 7 niveles: Emergency, Alert, Critical, Error, Warning, Notice, Information y Debug. Me inspiré en esa lista para llamar a las clases aviso-error y aviso-info.
 
@@ -81,7 +91,9 @@ Estas son algunas de las cosas que me quedan por hacer y que podrían hacerse en
 
 * [2021-05-06] Al reordenar un listado no se comprueban errores. En el criterio de ordenación da lo mismo porque hay uno por defecto, pero en los id igual debería decir algo, aunque la verdad es que no afecta a la página porque sólo marca las casillas correctas.
 
-* [2021-05-08] login-1 tiene la comprobación de tablas al principio. Reconvertirlo en avisoGeneral.
+* [2021-05-13] En compruebaAvisosIndividuales() comprueba si lo que llega es una matriz, pero podría mirar que fuera una matriz de una dimensión.
+
+* [2021-05-13] En la función comprobaciones() hace if ($valor == "" || $valor == []) { $valor = ""; }. Si me asegurara de que las matrices son unidimensionales, creo que no haría falta comparar con [].
 
 
 ## Para averiguar
@@ -124,18 +136,13 @@ Estas son algunas de las cosas que me quedan por hacer y que podrían hacerse en
 
 * [2021-04-10] El comentario que tengo en modificar-3 sobre mayúsculas y minúsculas en MySQL lo tendría que revisar a ver si sigue siendo cierto o tiene solución.
 
-* [2021-04-11] La funión existenTablas() supone que existen y cambia a no. Igual sería mejor suponer que no existen y asegurarse que existen todas. Aunque realmente es lo mismo.
-
-* [2021-04-11] Al modificar fechas, creo que no se pueden dejar en blanco de nuevo. Comprobarlo y arreglarlo.
+* [2021-04-11] La función existenTablas() supone que existen y cambia a no. Igual sería mejor suponer que no existen y asegurarse que existen todas. Aunque realmente es lo mismo.
 
 * [2021-04-17] En la definición de la tabla préstamos podría añadir un CONSTRAINT CHECK (prestado < devuelto). Y pensar más restricciones de este tipo. De todas formas, las comprobaciones en el programa las tendría que hacer igual, para que se avise al usuario en caso de error, pero la base de datos estaría más protegida ante modificaciones manuales con phpMyAdmin o similares. Otra restricción podría ser que al modificar un registro se obtenga uno que ya existe (UNIQUE).
 
   Tendría que hacer una lista de comprobaciones que yo hago y ver cuáles se pueden traducir a restricciones en la base de datos.
 
 * [2021-04-17] En PHP 8 añadieron los [argumentos de funciones](https://www.php.net/manual/es/functions.arguments.php). Cuando pueda utilizar PHP 8 en glup debería utilizarlos para simplificar las funciones. Pero pasará tiempo, porque actualmente [no está incluido en ninguna distribución](https://www.mclibre.org/consultar/php/otros/historia-cuadros.html#distribuciones).
-
-* [2021-04-27] En SQLite, ¿hay manera de que avise si estás usando algo que necesita activarse?
-
 
 ## Funciones de comprobación de datos (comprobaciones-general.php)
 
@@ -180,6 +187,9 @@ Estas son algunas de las cosas que me quedan por hacer y que podrían hacerse en
 
 * [2021-04-17] ¿Alguna base de datos da error si se intenta borrar un registro que no existe? MySQL y SQLite no dan error. Es más una curiosidad que otra cosa porque en biblioteca-4 al recoger un id compruebaAvisosIndividuales() comprueba que el registro exista y si no genera un aviso.
 
+* [2021-04-27] En SQLite, ¿hay manera de que avise si estás usando algo que necesita activarse?
+
+
 ## Code smells
 
 
@@ -196,10 +206,9 @@ Estas son algunas de las cosas que me quedan por hacer y que podrían hacerse en
 ["avisos"][tabla][página][ocultaFormulario] => true (no hay false, o es true o no existe) \
 
 function compruebaAvisosIndividuales(tabla, página, campos ...)
-function compruebaAvisosGenerale(tabla, página, tipo, campos ...)
+function compruebaAvisosGenerales(tabla, página, tipo, campos ...)
 function incluyeValoresOriginalesEnAvisos(tabla, página, campos ...)
 function imprimeAvisosIndividuales($tabla, $origen, $campo, $tipo, $valor = "")
 function imprimeAvisosGenerales(tabla, página)
 function borraAvisosExcepto(tabla, página)
 function hayErrores(tabla, pagina)
-

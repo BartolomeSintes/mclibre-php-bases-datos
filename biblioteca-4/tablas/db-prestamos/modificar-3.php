@@ -25,7 +25,7 @@ if (hayErrores("prestamos", "modificar-3")) {
     exit();
 }
 
-[$id_persona, $id_obra, $prestado, $devuelto, $id] = compruebaAvisosIndividuales("prestamos", "modificar-3", "id_persona", "id_obra", "prestado", "devuelto", "id");
+[$id_persona, $id_obra, $prestado, $devuelto] = compruebaAvisosIndividuales("prestamos", "modificar-3", "id_persona", "id_obra", "prestado", "devuelto");
 
 incluyeValoresOriginalesEnAvisos("prestamos", "modificar-3", "id_persona", "id_obra", "prestado", "devuelto", "id");
 

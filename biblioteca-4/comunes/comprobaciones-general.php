@@ -117,6 +117,9 @@ function imprimeAvisosIndividuales($tabla, $origen, $campo, $tipo, $valor = "")
             if ($tipo == "mensaje" && $_SESSION["avisos"][$tabla][$origen]["campos"][$campo]["mensaje"]) {
                 return " <span class=\"aviso-error\">{$_SESSION["avisos"][$tabla][$origen]["campos"][$campo]["mensaje"]}</span>";
             }
+            if ($tipo == "select" && $_SESSION["avisos"][$tabla][$origen]["campos"][$campo]["valor"] == $valor) {
+                return " selected";
+            }
         }
     } else {
         if ($tipo == "valor" && $valor) {

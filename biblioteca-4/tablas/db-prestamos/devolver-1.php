@@ -54,7 +54,9 @@ if (muestraFormulario("prestamos", "devolver-1")) {
         print "            <select name=\"id_prestamo\">\n";
         print "                <option value=\"\"></option>\n";
         foreach ($result as $valor) {
-            print "                <option value=\"$valor[id]\">$valor[nombre] $valor[apellidos] - $valor[autor] - $valor[titulo] - $valor[prestado]</option>\n";
+            print "                <option value=\"$valor[id]\" "
+            . imprimeAvisosIndividuales("prestamos", "devolver-2", "id_prestamo", "select", $valor["id"])
+            . ">$valor[nombre] $valor[apellidos] - $valor[autor] - $valor[titulo] - $valor[prestado]</option>\n";
         }
         print "              </select>\n";
         print "              " . imprimeAvisosIndividuales("prestamos", "devolver-2", "id_prestamo", "mensaje") . "\n";

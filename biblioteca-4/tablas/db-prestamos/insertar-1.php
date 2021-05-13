@@ -42,7 +42,8 @@ if (muestraFormulario("prestamos", "insertar-1")) {
         print "              <select name=\"id_persona\">\n";
         print "                <option value=\"\"></option>\n";
         foreach ($result2 as $valor) {
-            print "                <option value=\"$valor[id]\">$valor[nombre] $valor[apellidos]</option>\n";
+            print "                <option value=\"$valor[id]\" "
+                . imprimeAvisosIndividuales("prestamos", "insertar-2", "id_persona", "select", $valor["id"]) . "> $valor[nombre] $valor[apellidos]</option>\n";
         }
         print "              </select>" . imprimeAvisosIndividuales("prestamos", "insertar-2", "id_persona", "mensaje") . "\n";
         print "            </td>\n";
@@ -53,7 +54,8 @@ if (muestraFormulario("prestamos", "insertar-1")) {
         print "              <select name=\"id_obra\">\n";
         print "                <option value=\"\"></option>\n";
         foreach ($result3 as $valor) {
-            print "                <option value=\"$valor[id]\">$valor[autor] - $valor[titulo]</option>\n";
+            print "                <option value=\"$valor[id]\" "
+            . imprimeAvisosIndividuales("prestamos", "insertar-2", "id_obra", "select", $valor["id"]) . ">$valor[autor] - $valor[titulo]</option>\n";
         }
         print "              </select>" . imprimeAvisosIndividuales("prestamos", "insertar-2", "id_obra", "mensaje") . "\n";
         print "            </td>\n";
@@ -61,7 +63,7 @@ if (muestraFormulario("prestamos", "insertar-1")) {
         print "          <tr>\n";
         print "            <td>Fecha de préstamo:</td>\n";
         print "            <td><input type=\"date\" name=\"prestado\" value=\"" . date("Y-m-j") . "\">"
-        . imprimeAvisosIndividuales("prestamos", "insertar-2", "prestado", "mensaje") . "</td>\n";
+            . imprimeAvisosIndividuales("prestamos", "insertar-2", "prestado", "mensaje") . "</td>\n";
         print "          </tr>\n";
         print "        </tbody>\n";
         print "      </table>\n";

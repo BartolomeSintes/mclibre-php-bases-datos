@@ -15,7 +15,7 @@ function comprobaciones($origen, $tabla, $campo, $valor)
     if ($campo == "id") {
         if ($valor == "" || $valor == []) {
             $_SESSION["avisos"][$tabla][$origen]["generales"][] = ["texto" => "No ha seleccionado ningún registro.", "claseAviso" => "aviso-error"];
-            $valor                                  = "";
+            $valor                                              = "";
         } else {
             $campoOk = true;
         }
@@ -104,35 +104,43 @@ function comprobaciones($origen, $tabla, $campo, $valor)
             $campoOk = true;
         }
     } elseif ($campo == "id_persona") {                                             // Tabla Préstamos
-        $pdo      = conectaDb();
-        $consulta = "SELECT COUNT(*)
+        if ($valor == "") {
+            $mensaje = "Debe elegir una persona.";
+        } else {
+            $pdo      = conectaDb();
+            $consulta = "SELECT COUNT(*)
                      FROM $db[personas]
                      WHERE id=:id_persona";
-        $result = $pdo->prepare($consulta);
-        $result->execute([":id_persona" => $valor]);
-        if (!$result) {
-            $mensaje = "Error en la consulta.";
-        } elseif ($result->fetchColumn() == 0) {
-            $mensaje = "La persona seleccionada no existe.";
-        } else {
-            $campoOk = true;
+            $result = $pdo->prepare($consulta);
+            $result->execute([":id_persona" => $valor]);
+            if (!$result) {
+                $mensaje = "Error en la consulta.";
+            } elseif ($result->fetchColumn() == 0) {
+                $mensaje = "La persona seleccionada no existe.";
+            } else {
+                $campoOk = true;
+            }
+            $pdo = null;
         }
-        $pdo = null;
     } elseif ($campo == "id_obra") {                                                // Tabla Préstamos
-        $pdo      = conectaDb();
-        $consulta = "SELECT COUNT(*)
+        if ($valor == "") {
+            $mensaje = "Debe elegir una obra.";
+        } else {
+            $pdo      = conectaDb();
+            $consulta = "SELECT COUNT(*)
                      FROM $db[obras]
                      WHERE id=:id_obra";
-        $result = $pdo->prepare($consulta);
-        $result->execute([":id_obra" => $valor]);
-        if (!$result) {
-            $mensaje = "Error en la consulta.";
-        } elseif ($result->fetchColumn() == 0) {
-            $mensaje = "La obra seleccionada no existe.";
-        } else {
-            $campoOk = true;
+            $result = $pdo->prepare($consulta);
+            $result->execute([":id_obra" => $valor]);
+            if (!$result) {
+                $mensaje = "Error en la consulta.";
+            } elseif ($result->fetchColumn() == 0) {
+                $mensaje = "La obra seleccionada no existe.";
+            } else {
+                $campoOk = true;
+            }
+            $pdo = null;
         }
-        $pdo = null;
     } elseif ($campo == "id_prestamo") {                                            // Tabla Préstamos (para devolución)
         if ($valor == "") {
             $mensaje = "No se ha seleccionado ningún préstamo.";
@@ -187,9 +195,9 @@ function compruebaAvisosGenerales()
     global $cfg, $db;
 
     $argumentos = func_get_args();
-    $tabla     = $argumentos[0];
+    $tabla      = $argumentos[0];
     array_shift($argumentos);
-    $origen     = $argumentos[0];
+    $origen = $argumentos[0];
     array_shift($argumentos);
     $tipoComprobacion = $argumentos[0];
     array_shift($argumentos);
@@ -252,7 +260,7 @@ function compruebaAvisosGenerales()
         $pdo = null;
     }
 
-    if ($tipoComprobacion == "incluyeUsuarioRoot"  && $origen == "borrar-2") {
+    if ($tipoComprobacion == "incluyeUsuarioRoot" && $origen == "borrar-2") {
         $pdo      = conectaDb();
         $consulta = "SELECT *
                      FROM $db[usuarios]
@@ -272,7 +280,7 @@ function compruebaAvisosGenerales()
             }
         }
         $pdo = null;
-    } elseif ($tipoComprobacion == "incluyeUsuarioRoot"  && $origen == "modificar-3") {
+    } elseif ($tipoComprobacion == "incluyeUsuarioRoot" && $origen == "modificar-3") {
         $pdo      = conectaDb();
         $consulta = "SELECT *
                      FROM $db[usuarios]
@@ -281,7 +289,7 @@ function compruebaAvisosGenerales()
         if (!$result) {
             $_SESSION["avisos"][$tabla][$origen]["generales"][] = ["texto" => "Error en la consulta.", "claseAviso" => "aviso-error"];
         } else {
-            $valor = $result->fetch(PDO::FETCH_ASSOC);
+            $valor                             = $result->fetch(PDO::FETCH_ASSOC);
             [$usuario, $password, $nivel, $id] = $argumentos;
             if ($valor["id"] == $id && ($valor["usuario"] != $usuario || $valor["nivel"] != $nivel)) {
                 $_SESSION["avisos"][$tabla][$origen]["generales"][] = ["texto" => "No se puede cambiar el nombre ni el nivel del usuario root.", "claseAviso" => "aviso-error"];
@@ -354,7 +362,7 @@ function compruebaAvisosGenerales()
             $_SESSION["avisos"][$tabla][$origen]["generales"][] = ["texto" => "Error en la consulta.", "claseAviso" => "aviso-error"];
         }
         if ($result->fetchColumn() > 0) {
-            $_SESSION["avisos"][$tabla][$origen]["generales"][] = ["texto" => "No puede modificarse el registro porque ya existe un registro con esos valores. Se muestran de nuevo los datos originales del registro.", "claseAviso" => "aviso-error"];
+            $_SESSION["avisos"][$tabla][$origen]["generales"][]                          = ["texto" => "No puede modificarse el registro porque ya existe un registro con esos valores. Se muestran de nuevo los datos originales del registro.", "claseAviso" => "aviso-error"];
             $_SESSION["avisos"][$tabla][$origen]["muestraValoresOriginalesEnFormulario"] = true;
         }
         $pdo = null;
@@ -429,7 +437,7 @@ function compruebaAvisosGenerales()
 
     if ($tipoComprobacion == "sinRegistros") {
         // Devuelve true si la tabla no tiene registros
-        $pdo   = conectaDb();
+        $pdo = conectaDb();
         if (!in_array($db[$tabla], $db["tablas"])) {
             $_SESSION["avisos"][$tabla][$origen]["generales"][] = ["texto" => "La tabla $tabla no existe.", "claseAviso" => "aviso-error"];
         }
@@ -440,7 +448,7 @@ function compruebaAvisosGenerales()
             $_SESSION["avisos"][$tabla][$origen]["generales"][] = ["texto" => "Error en la consulta.", "claseAviso" => "aviso-error"];
         }
         if ($result->fetchColumn() == 0) {
-            $_SESSION["avisos"][$tabla][$origen]["generales"][]          = ["texto" => "No se ha creado todavía ningún registro.", "claseAviso" => "aviso-info"];
+            $_SESSION["avisos"][$tabla][$origen]["generales"][]      = ["texto" => "No se ha creado todavía ningún registro.", "claseAviso" => "aviso-info"];
             $_SESSION["avisos"][$tabla][$origen]["ocultaFormulario"] = true;
         }
         $pdo = null;
@@ -461,7 +469,7 @@ function compruebaAvisosGenerales()
             $_SESSION["avisos"][$tabla][$origen]["generales"][] = ["texto" => "Error en la consulta.", "claseAviso" => "aviso-error"];
         }
         if ($result->fetchColumn() == 0) {
-            $_SESSION["avisos"][$tabla][$origen]["generales"][]          = ["texto" => "No hay préstamos pendientes de devolución.", "claseAviso" => "aviso-info"];
+            $_SESSION["avisos"][$tabla][$origen]["generales"][]      = ["texto" => "No hay préstamos pendientes de devolución.", "claseAviso" => "aviso-info"];
             $_SESSION["avisos"][$tabla][$origen]["ocultaFormulario"] = true;
         }
         $pdo = null;
@@ -469,7 +477,7 @@ function compruebaAvisosGenerales()
 
     if ($tipoComprobacion == "limiteNumeroRegistros" && $cfg["maxRegTablaActivado"]) {
         // Devuelve true si se ha alcanzado el número máximo de registros en la tabla
-        $pdo   = conectaDb();
+        $pdo = conectaDb();
         if (!in_array($db[$tabla], $db["tablas"])) {
             $_SESSION["avisos"][$tabla][$origen]["generales"][] = ["texto" => "La tabla $tabla no existe", "claseAviso" => "aviso-error"];
         }
@@ -480,7 +488,7 @@ function compruebaAvisosGenerales()
             $_SESSION["avisos"][$tabla][$origen]["generales"][] = ["texto" => "Error en la consulta.", "claseAviso" => "aviso-error"];
         }
         if ($result->fetchColumn() >= $cfg["maxRegTabla"][$tabla]) {
-            $_SESSION["avisos"][$tabla][$origen]["generales"][]          = ["texto" => "Se ha alcanzado el número máximo de registros que se pueden guardar. Por favor, borre algún registro antes.", "claseAviso" => "aviso-info"];
+            $_SESSION["avisos"][$tabla][$origen]["generales"][]      = ["texto" => "Se ha alcanzado el número máximo de registros que se pueden guardar. Por favor, borre algún registro antes.", "claseAviso" => "aviso-info"];
             $_SESSION["avisos"][$tabla][$origen]["ocultaFormulario"] = true;
         }
         $pdo = null;
@@ -490,9 +498,9 @@ function compruebaAvisosGenerales()
         // Devuelve true si la primera fecha es anterior a la primera
         $antes   = recoge($argumentos[0]);
         $despues = recoge($argumentos[1]);
-        if (!checkdate(substr($antes, 5, 2), substr($antes, 8, 2), substr($antes, 0, 4))
-            || !checkdate(substr($despues, 5, 2), substr($despues, 8, 2), substr($despues, 0, 4))
-            || $antes > $despues) {
+        if ($antes && $despues && checkdate(substr($antes, 5, 2), substr($antes, 8, 2), substr($antes, 0, 4))
+            && checkdate(substr($despues, 5, 2), substr($despues, 8, 2), substr($despues, 0, 4))
+            && $antes > $despues) {
             $_SESSION["avisos"][$tabla][$origen]["generales"][] = ["texto" => "La fecha de devolución <strong>$despues</strong> es anterior a la de préstamo <strong>$antes</strong>.", "claseAviso" => "aviso-error"];
         }
     }

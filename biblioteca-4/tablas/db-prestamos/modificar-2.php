@@ -108,10 +108,8 @@ if (!$result) {
     print "          </tr>\n";
     print "          <tr>\n";
     print "            <td>Fecha de devolución:</td>\n";
-    print "            <td><input type=\"date\" name=\"devuelto\" value=\"$valor[devuelto]\">";
-    print "            <td><input type=\"date\" name=\"devuelto\" "
-        . imprimeAvisosIndividuales("prestamos", "modificar-3", "devuelto", "mensaje") . ">"
-        . imprimeAvisosIndividuales("prestamos", "devuelto", "mensaje") . "</td>\n";
+    print "            <td><input type=\"date\" name=\"devuelto\" value=\"$valor[devuelto]\">"
+        . imprimeAvisosIndividuales("prestamos", "modificar-3", "devuelto", "mensaje") . "</td>\n";
     print "          </tr>\n";
     print "        </tbody>\n";
     print "      </table>\n";

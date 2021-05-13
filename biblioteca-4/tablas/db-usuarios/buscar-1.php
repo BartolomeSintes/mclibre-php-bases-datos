@@ -41,7 +41,8 @@ if (muestraFormulario("usuarios", "buscar-1")) {
     print "              <select name=\"nivel\">\n";
     print "                <option value=\"\"></option>\n";
     foreach ($usuariosNiveles as $indice => $valor) {
-        print "                <option value=\"$valor\">$indice</option>\n";
+        print "                <option value=\"$valor\" "
+        . imprimeAvisosIndividuales("usuarios", "buscar-2", "nivel", "select", $valor) . ">$indice</option>\n";
     }
     print "              </select>\n";
     print "            </td>\n";
