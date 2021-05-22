@@ -22,7 +22,7 @@ imprimeAvisosGenerales("prestamos", "devolver-1");
 if (muestraFormulario("prestamos", "devolver-1")) {
     $pdo = conectaDb();
 
-    $ordena = recogeValores("ordena", $db["columnasPrestamosOrden"], "autor ASC");
+    recogeValores("ordena", $db["columnasPrestamosOrden"], "autor ASC");
 
     $consulta = "SELECT
                    prestamos.id,
@@ -38,7 +38,7 @@ if (muestraFormulario("prestamos", "devolver-1")) {
                  JOIN $db[personas] as personas
                  ON prestamos.id_persona=personas.id
                  WHERE prestamos.devuelto='0000-00-00'
-                 ORDER BY $ordena";
+                 ORDER BY $recogido[ordena]";
     $result = $pdo->query($consulta);
     if (!$result) {
         print "    <p class=\"aviso-error\">Error en la consulta.</p>\n";

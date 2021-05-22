@@ -11,7 +11,9 @@ compruebaSesion(NIVEL_3, PROFUNDIDAD_2);
 
 borraAvisosExcepto();
 
-[$usuario, $password, $nivel] = compruebaAvisosIndividuales("usuarios", "insertar-2", "usuario", "password", "nivel");
+recoge("usuario", "password", "nivel");
+
+compruebaAvisosIndividuales("usuarios", "insertar-2", "usuario", "password", "nivel");
 
 compruebaAvisosGenerales("usuarios", "insertar-2", "algunoVacio", "usuario", "password", "nivel");
 
@@ -29,12 +31,12 @@ cabecera("Usuarios - Añadir 2", MENU_USUARIOS, PROFUNDIDAD_2);
 $pdo = conectaDb();
 
 $consulta = "INSERT INTO $db[usuarios] (usuario, password, nivel)
-             VALUES (:usuario, :password, $nivel)";
+             VALUES (:usuario, :password, :nivel)";
 $result = $pdo->prepare($consulta);
-if ($result->execute([":usuario" => $usuario, ":password" => encripta($password)])) {
-    print "    <p class=\"aviso-info\">Registro <strong>$usuario</strong> creado correctamente.</p>\n";
+if ($result->execute([":usuario" => $recogido["usuario"], ":password" => encripta($recogido["password"]), ":nivel" => $recogido["nivel"]])) {
+    print "    <p class=\"aviso-info\">Registro <strong>$recogido[usuario]</strong> creado correctamente.</p>\n";
 } else {
-    print "    <p class=\"aviso-error\">Error al crear el registro <strong>$usuario</strong>.</p>\n";
+    print "    <p class=\"aviso-error\">Error al crear el registro <strong>$recogido[usuario]</strong>.</p>\n";
 }
 
 $pdo = null;

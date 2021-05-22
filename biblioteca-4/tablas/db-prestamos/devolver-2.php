@@ -11,7 +11,9 @@ compruebaSesion(NIVEL_3, PROFUNDIDAD_2);
 
 borraAvisosExcepto();
 
-[$id_prestamo, $devuelto] = compruebaAvisosIndividuales("prestamos", "devolver-2", "id_prestamo", "devuelto");
+recoge("id_prestamo", "devuelto");
+
+compruebaAvisosIndividuales("prestamos", "devolver-2", "id_prestamo", "devuelto");
 
 if (hayErrores("prestamos", "devolver-2")) {
     header("Location:devolver-1.php");
@@ -32,10 +34,10 @@ cabecera("Préstamos - Devolver 2", MENU_PRESTAMOS, PROFUNDIDAD_2);
 $pdo = conectaDb();
 
 $consulta = "UPDATE $db[prestamos]
-             SET devuelto='$devuelto'
+             SET devuelto='$recogido[devuelto]'
              WHERE id=:id";
 $result = $pdo->prepare($consulta);
-if ($result->execute([":id" => $id_prestamo])) {
+if ($result->execute([":id" => $recogido["id_prestamo"]])) {
     print "    <p class=\"aviso-info\">Registro modificado correctamente.</p>\n";
 } else {
     print "    <p class=\"aviso-error\">Error al modificar el registro.</p>\n";

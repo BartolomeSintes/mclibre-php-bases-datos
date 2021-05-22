@@ -11,7 +11,9 @@ compruebaSesion(NIVEL_3, PROFUNDIDAD_2);
 
 borraAvisosExcepto();
 
-[$id_persona, $id_obra, $prestado] = compruebaAvisosIndividuales("prestamos", "insertar-2", "id_persona", "id_obra", "prestado");
+recoge("id_persona", "id_obra", "prestado");
+
+compruebaAvisosIndividuales("prestamos", "insertar-2", "id_persona", "id_obra", "prestado");
 
 compruebaAvisosGenerales("prestamos", "insertar-2", "algunoVacio", "id_persona", "id_obra", "prestado");
 
@@ -31,7 +33,7 @@ $pdo = conectaDb();
 $consulta = "INSERT INTO $db[prestamos] (id_persona, id_obra, prestado, devuelto)
              VALUES (:id_persona, :id_obra, :prestado, '0000-00-00')";
 $result = $pdo->prepare($consulta);
-if ($result->execute([":id_persona" => $id_persona, ":id_obra" => $id_obra, ":prestado" => $prestado])) {
+if ($result->execute([":id_persona" => $recogido["id_persona"], ":id_obra" => $recogido["id_obra"], ":prestado" => $recogido["prestado"]])) {
     print "    <p class=\"aviso-info\">Registro creado correctamente.</p>\n";
 } else {
     print "    <p class=\"aviso-error\">Error al crear el registro.</p>\n";

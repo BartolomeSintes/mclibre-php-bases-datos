@@ -18,7 +18,7 @@ print "      <p>También puede incluir en la base de datos unos datos de prueba.
 print "\n";
 print "      <p><label><input type=\"checkbox\" name=\"demo\" checked> Incluir datos de prueba</label></p>\n";
 print "\n";
-print "      <p>Haga clic en Sí para borrar todo los datos.</p>\n";
+print "      <p>Haga clic en Sí para borrar todos los datos.</p>\n";
 print "      <p>\n";
 print "        <input type=\"submit\" value=\"Sí\" name=\"borrar\">\n";
 print "        <input type=\"submit\" value=\"No\" name=\"borrar\">\n";

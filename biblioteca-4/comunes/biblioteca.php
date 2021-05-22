@@ -94,7 +94,7 @@ $db["tablas"] = [
     $db["prestamos"],
 ];
 
-// Valores de ordenación de las tablas
+// Rangos de valores de controles (niveles de usuario, criterios de ordenación de tablas)
 
 $db["columnasUsuariosOrden"] = [
     "usuario ASC", "usuario DESC",
@@ -146,35 +146,41 @@ $db["consultasValoresDemo"] = [
 
 // Funciones comunes
 
-function recoge($var)
+function recoge()
 {
-    $esperaMatriz = substr($var, -2) == "[]";
-    $var = ($esperaMatriz) ? substr($var, 0, -2) : $var;
-    if (!isset($_REQUEST[$var])) {
-        $tmp = ($esperaMatriz) ? [] : "";
-    } elseif ($esperaMatriz && !is_array($_REQUEST[$var])) {
-        $tmp = [];
-    } elseif (!$esperaMatriz && is_array($_REQUEST[$var])) {
-        $tmp = "";
-    } elseif (!is_array($_REQUEST[$var])) {
-        $tmp = trim(htmlspecialchars($_REQUEST[$var], ENT_QUOTES, "UTF-8"));
-    } else {
-        $tmp = $_REQUEST[$var];
-        array_walk_recursive($tmp, function (&$valor) {
-            $valor = trim(htmlspecialchars($valor, ENT_QUOTES, "UTF-8"));
-        });
+    global $recogido;
+
+    $argumentos = func_get_args();
+    foreach ($argumentos as $nombre) {
+        $esperaMatriz = substr($nombre, -2) == "[]";
+        $nombre       = ($esperaMatriz) ? substr($nombre, 0, -2) : $nombre;
+        if (!isset($_REQUEST[$nombre])) {
+            $tmp = ($esperaMatriz) ? [] : "";
+        } elseif ($esperaMatriz && !is_array($_REQUEST[$nombre])) {
+            $tmp = [];
+        } elseif (!$esperaMatriz && is_array($_REQUEST[$nombre])) {
+            $tmp = "";
+        } elseif (!is_array($_REQUEST[$nombre])) {
+            $tmp = trim(htmlspecialchars($_REQUEST[$nombre], ENT_QUOTES, "UTF-8"));
+        } else {
+            $tmp = $_REQUEST[$nombre];
+            array_walk_recursive($tmp, function (&$valor) {
+                $valor = trim(htmlspecialchars($valor, ENT_QUOTES, "UTF-8"));
+            });
+        }
+        $recogido[$nombre] = $tmp;
     }
-    return $tmp;
 }
 
-function recogeValores($var, $valoresValidos, $valorPredeterminado)
+function recogeValores($nombre, $valoresValidos, $valorPredeterminado)
 {
-    foreach ($valoresValidos as $valorValido) {
-        if (isset($_REQUEST[$var]) && $_REQUEST[$var] == $valorValido) {
-            return $valorValido;
-        }
+    global $recogido;
+
+    if (isset($_REQUEST[$nombre]) && in_array($_REQUEST[$nombre], $valoresValidos)) {
+        $recogido[$nombre] = $_REQUEST[$nombre];
+    } else {
+        $recogido[$nombre] = $valorPredeterminado;
     }
-    return $valorPredeterminado;
 }
 
 function compruebaSesion($nivel, $profundidad)

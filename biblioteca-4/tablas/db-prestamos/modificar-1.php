@@ -24,8 +24,8 @@ imprimeAvisosGenerales("prestamos", "modificar-1");
 if (muestraFormulario("prestamos", "modificar-1")) {
     $pdo = conectaDb();
 
-    $ordena = recogeValores("ordena", $db["columnasPrestamosOrden"], "apellidos ASC");
-    $id     = recoge("id");
+    recoge("id");
+    recogeValores("ordena", $db["columnasPrestamosOrden"], "apellidos ASC");
 
     $consulta = "SELECT
                    prestamos.id,
@@ -40,7 +40,7 @@ if (muestraFormulario("prestamos", "modificar-1")) {
                  ON prestamos.id_obra=obras.id
                  JOIN $db[personas] as personas
                  ON prestamos.id_persona=personas.id
-                 ORDER BY $ordena";
+                 ORDER BY $recogido[ordena]";
     $result = $pdo->query($consulta);
     if (!$result) {
         print "    <p class=\"aviso-error\">Error en la consulta.</p>\n";
@@ -93,7 +93,7 @@ if (muestraFormulario("prestamos", "modificar-1")) {
         print "        <tbody>\n";
         foreach ($result as $valor) {
             print "          <tr>\n";
-            if ($id == $valor["id"]) {
+            if ($recogido["id"] == $valor["id"]) {
                 print "            <td class=\"centrado\"><input type=\"radio\" name=\"id\" value=\"$valor[id]\" checked></td>\n";
             } else {
                 print "            <td class=\"centrado\"><input type=\"radio\" name=\"id\" value=\"$valor[id]\"></td>\n";

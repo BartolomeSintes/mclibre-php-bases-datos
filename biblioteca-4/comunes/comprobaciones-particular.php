@@ -195,7 +195,7 @@ function comprobaciones($origen, $tabla, $campo, $valor)
 
 function compruebaAvisosGenerales()
 {
-    global $cfg, $db;
+    global $cfg, $db, $recogido;
 
     $argumentos = func_get_args();
     $tabla      = $argumentos[0];
@@ -205,15 +205,22 @@ function compruebaAvisosGenerales()
     $tipoComprobacion = $argumentos[0];
     array_shift($argumentos);
 
+    foreach($argumentos as $argumento) {
+        if (!isset($recogido[$argumento])) {
+            $_SESSION["avisos"][$tabla][$origen]["generales"][] = ["texto" => "Error en el programa. Intento de acceso a dato \"$argumento\" no recogido.", "claseAviso" => "aviso-error"];
+            return;
+        }
+    }
+
     // Esta comprobación no se utiliza, ya que en la comprobación individual del id o de los id si
     // es vacío se genera este mismo avisoGeneral.
     if ($tipoComprobacion == "registrosNoSeleccionados") {
-        if (is_array($argumentos[0])) {
-            if (count($argumentos[0]) == 0) {
+        if (is_array($recogido[$argumentos[0]])) {
+            if (count($recogido[$argumentos[0]]) == 0) {
                 $_SESSION["avisos"][$tabla][$origen]["generales"][] = ["texto" => "No ha seleccionado ningún registro.", "claseAviso" => "aviso-error"];
             }
         } else {
-            if ($argumentos[0] == "") {
+            if ($recogido[$argumentos[0]] == "") {
                 $_SESSION["avisos"][$tabla][$origen]["generales"][] = ["texto" => "No ha seleccionado ningún registro.", "claseAviso" => "aviso-error"];
             }
         }
@@ -226,7 +233,7 @@ function compruebaAvisosGenerales()
                      WHERE usuario=:usuario
                      AND password=:password";
         $result = $pdo->prepare($consulta);
-        $result->execute([":usuario" => recoge($argumentos[0]), ":password" => encripta(recoge($argumentos[1]))]);
+        $result->execute([":usuario" => $recogido[$argumentos[0]], ":password" => encripta($recogido[$argumentos[1]])]);
         if (!$result) {
             $_SESSION["avisos"][$tabla][$origen]["generales"][] = ["texto" => "Error en la consulta.", "claseAviso" => "aviso-error"];
         } else {
@@ -251,7 +258,7 @@ function compruebaAvisosGenerales()
         $consulta .= "lower($argumentos[$i])=lower(:$argumentos[$i])";
         $parametros = [];
         foreach ($argumentos as $campo) {
-            $parametros += [":$campo" => recoge($campo)];
+            $parametros += [":$campo" => $recogido[$campo]];
         }
         $result = $pdo->prepare($consulta);
         $result->execute($parametros);
@@ -273,10 +280,10 @@ function compruebaAvisosGenerales()
             $_SESSION["avisos"][$tabla][$origen]["generales"][] = ["texto" => "Error en la consulta.", "claseAviso" => "aviso-error"];
         } else {
             $valor = $result->fetch(PDO::FETCH_ASSOC);
-            if (!is_array($argumentos[0])) {
-                $argumentos[0] = [$argumentos[0] => "on"];
+            if (!is_array($recogido[$argumentos[0]])) {
+                $recogido[$argumentos[0]] = [$recogido[$argumentos[0]] => "on"];
             }
-            foreach ($argumentos[0] as $indice => $valor2) {
+            foreach ($recogido[$argumentos[0]] as $indice => $valor2) {
                 if ($valor["id"] == $indice) {
                     $_SESSION["avisos"][$tabla][$origen]["generales"][] = ["texto" => "El usuario root no se puede borrar.", "claseAviso" => "aviso-error"];
                 }
@@ -303,31 +310,31 @@ function compruebaAvisosGenerales()
 
     if ($tipoComprobacion == "registrosExisten") {
         $pdo = conectaDb();
-        if (!is_array($argumentos[0])) {
+        if (!is_array($recogido[$argumentos[0]])) {
             $consulta = "SELECT COUNT(*)
                          FROM $db[$tabla]
                          WHERE id=:id";
             $result = $pdo->prepare($consulta);
-            $result->execute([":id" => $argumentos[0]]);
+            $result->execute([":id" => $recogido[$argumentos[0]]]);
             if (!$result) {
                 $_SESSION["avisos"][$tabla][$origen]["generales"][] = ["texto" => "Error en la consulta.", "claseAviso" => "aviso-error"];
             } elseif ($result->fetchColumn() == 0) {
                 $_SESSION["avisos"][$tabla][$origen]["generales"][] = ["texto" => "El registro indicado no existe.", "claseAviso" => "aviso-error"];
             }
         } else {
-            if (count($argumentos[0]) == 1) {
+            if (count($recogido[$argumentos[0]]) == 1) {
                 $consulta = "SELECT COUNT(*)
                              FROM $db[$tabla]
                              WHERE id=:id";
                 $result = $pdo->prepare($consulta);
-                $result->execute([":id" => key($argumentos[0])]);
+                $result->execute([":id" => key($recogido[$argumentos[0]])]);
                 if (!$result) {
                     $_SESSION["avisos"][$tabla][$origen]["generales"][] = ["texto" => "Error en la consulta.", "claseAviso" => "aviso-error"];
                 } elseif ($result->fetchColumn() == 0) {
                     $_SESSION["avisos"][$tabla][$origen]["generales"][] = ["texto" => "El registro indicado no existe.", "claseAviso" => "aviso-error"];
                 }
             } else {
-                foreach ($argumentos[0] as $indice => $valor2) {
+                foreach ($recogido[$argumentos[0]] as $indice => $valor2) {
                     $consulta = "SELECT COUNT(*)
                              FROM $db[$tabla]
                              WHERE id=:id";
@@ -357,7 +364,7 @@ function compruebaAvisosGenerales()
         $consulta .= "lower($argumentos[$i])<>lower(:$argumentos[$i])";
         $parametros = [];
         foreach ($argumentos as $campo) {
-            $parametros += [":$campo" => recoge($campo)];
+            $parametros += [":$campo" => $recogido[$campo]];
         }
         $result = $pdo->prepare($consulta);
         $result->execute($parametros);
@@ -383,7 +390,7 @@ function compruebaAvisosGenerales()
 
         $parametros = [];
         foreach ($argumentos as $campo) {
-            $parametros += [":$campo" => "%" . recoge($campo) . "%"];
+            $parametros += [":$campo" => "%$recogido[$campo]%"];
         }
         $result = $pdo->prepare($consulta);
         $result->execute($parametros);
@@ -400,7 +407,7 @@ function compruebaAvisosGenerales()
         // Devuelve true si todos los valores son vacíos
         $todosVacios = true;
         foreach ($argumentos as $campo) {
-            $valor       = recoge($campo);
+            $valor       = $recogido[$campo];
             $todosVacios = $todosVacios && ($valor == "");
         }
         if ($todosVacios) {
@@ -418,7 +425,7 @@ function compruebaAvisosGenerales()
         // Devuelve true si todos los valores son vacíos
         $todosVacios = true;
         foreach ($argumentos as $campo) {
-            $valor       = recoge($campo);
+            $valor       = $recogido[$campo];
             $todosVacios = $todosVacios && ($valor == "");
         }
         if ($todosVacios) {
@@ -430,7 +437,7 @@ function compruebaAvisosGenerales()
         // Devuelve true si algún valor es vacío
         $algunoVacio = false;
         foreach ($argumentos as $campo) {
-            $valor       = recoge($campo);
+            $valor       = $recogido[$campo];
             $algunoVacio = $algunoVacio || ($valor == "");
         }
         if ($algunoVacio) {
@@ -499,8 +506,8 @@ function compruebaAvisosGenerales()
 
     if ($tipoComprobacion == "fechasCrecientes") {
         // Devuelve true si la primera fecha es anterior a la primera
-        $antes   = recoge($argumentos[0]);
-        $despues = recoge($argumentos[1]);
+        $antes   = $recogido[$argumentos[0]];
+        $despues = $recogido[$argumentos[1]];
         if ($antes && $despues && checkdate(substr($antes, 5, 2), substr($antes, 8, 2), substr($antes, 0, 4))
             && checkdate(substr($despues, 5, 2), substr($despues, 8, 2), substr($despues, 0, 4))
             && $antes > $despues) {
@@ -511,8 +518,8 @@ function compruebaAvisosGenerales()
     if ($tipoComprobacion == "fechasCrecientes2") {
         // Devuelve true si fecha es anterior a la fecha del registro del préstamo
         $pdo         = conectaDb();
-        $id_prestamo = recoge($argumentos[0]);
-        $devuelto    = recoge($argumentos[1]);
+        $id_prestamo = $recogido[$argumentos[0]];
+        $devuelto    = $recogido[$argumentos[1]];
         $consulta    = "SELECT prestado FROM $db[prestamos]
                         WHERE id=:id";
         $result = $pdo->prepare($consulta);

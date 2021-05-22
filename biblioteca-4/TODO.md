@@ -54,8 +54,6 @@ Estas son algunas de las cosas que me quedan por hacer y que podrían hacerse en
 
 * [2021-05-08] login-1 tiene la comprobación de tablas al principio. Había pensado reconvertirlo en un avisoGeneral pero el problema es que el aviso no está realmente asociado a ninguna tabla y el primer índice de avisoGeneral es la tabla. Así que lo he dejado porque para acomodar este aviso tendría que reorganizar avisoGeneral.
 
-* [2021-05-13] Al llamar a compruebaAvisosGenerales() unas veces envío "id" y otras veces $id, pero en el resto de campos envío siempre el nombre del campo. Realmente sería mejor enviar las variables, porque ahora compruebaAvisosGenerales() tiene que hacer recoge() cuando ya se han recogido al hacer compruebaAvisosIndividuales(). Quizás sería mejor recoger todos los datos con compruebaAvisosIndividuales() y detectar todos los problemas y después hacer compruebaAvisosGenerales() enviandoles las variables, pero necesito enviar el nombre del campo también porque enalgunas comprobaciones se construyen consultas con esos nombres. Quizás la solución podría ser que compruebaAvisosIndividuales() guardar los datos en $_SESSION y que compruebaAvisosGenerales() reciba los nombres y cogiera los valores de $_SESSION.
-
 * [2021-05-13] modificar-2 tiene un if feo al principio para resolver de dónde coger el id. No sé si sería mejor moverlo a compruebaAvisosIndividuales().
 
 
@@ -65,7 +63,7 @@ Estas son algunas de las cosas que me quedan por hacer y que podrían hacerse en
 
 He hecho los selects de personas, obras y préstamos prestamos/insertar-1, prestamos/devolver-1 y prestamos/modificar-2, pero en modificar-2 creo que no está bien del todo. Si se cambia un select y el otro se pone un valor incorrecto (o falta la fecha), no tengo claro qué debería sacar en el select cambiado (si el valor original o el modificado). Tendría que hacer lo mismo que en otros modificar.
 
-he hecho también los select de nivel en usuarios/insertar-1, usuarios/buscar-1. Em usuarios/modificar-2 me pasa lo mismo, que no tengo claro qué tiene que hacer.
+He hecho también los select de nivel en usuarios/insertar-1, usuarios/buscar-1. Em usuarios/modificar-2 me pasa lo mismo, que no tengo claro qué tiene que hacer.
 
 * [2021-04-10] Los radio/checkbox no muestran el valor elegido por el usuario cuando se detectan errores y se vuelve al formulario. Como por ahora solo uso radio y checkbox para seleccionar los registros a borrar o modificar, si hay errores es porque el usuario ha manipulado la url, así que que no se recuperen los correctos tampoco me importa demasiado.
 
@@ -90,6 +88,8 @@ he hecho también los select de nivel en usuarios/insertar-1, usuarios/buscar-1.
 * [2021-04-29] Cuando se marcan varios registros para borrar saca varias veces el mensaje "Registro borrado correctamente.". Realmente no es incorrecto, pero queda raro. Quizás debería incluir campos del registro en el mensaje para que se viera que cada mensaje corresponde a cada uno de los registros borrados. O quizás sería mejor sacar un único mensaje "Registro borrado correctamente" o "Registros borrados correctamente" si son varios.
 
 * [2021-05-06] Al reordenar un listado no se comprueban errores. En el criterio de ordenación da lo mismo porque hay uno por defecto, pero en los id igual debería decir algo, aunque la verdad es que no afecta a la página porque sólo marca las casillas correctas.
+
+* [2021-05-22] En borrar-todo-2.php podría recoger borrar y demo con recogeValores() en vez de con recoge().
 
 
 ## Para averiguar
@@ -202,6 +202,7 @@ he hecho también los select de nivel en usuarios/insertar-1, usuarios/buscar-1.
 
 * [2021-05-13] La función compruebaAvisosIndividuales() está pensada para recibir datos simples o matrices unidimensionales. En comprobaciones() he añadido un  if ($valor == []) { $valor = ""; } para dejarlo claro.
 
+
 ## Estructura $_SESSION
 
 [conectado] => Nivel de usuario \
@@ -209,7 +210,7 @@ he hecho también los select de nivel en usuarios/insertar-1, usuarios/buscar-1.
 ["avisos"][tabla][página]["generales"][nº][claseAviso] => error / info
 ["avisos"][tabla][página]["campos"][tabla][campo][valor] => Texto introducido por el usuario \
 ["avisos"][tabla][página]["campos"][tabla][campo][original] => Texto del registro original (se usa al modificar) \
-["avisos"][tabla][página]["campos"][tabla][campo][campoOK] => true/false \
+["avisos"][tabla][página]["campos"][tabla][campo][campoOk] => true/false \
 ["avisos"][tabla][página]["campos"][tabla][campo][texto] => Mensaje de error para mostrar en el formulario \
 ["avisos"][tabla][página][muestraValoresOriginalesEnFormulario] => true (no hay false, o es true o no existe) \
 ["avisos"][tabla][página][ocultaFormulario] => true (no hay false, o es true o no existe) \

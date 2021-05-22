@@ -11,21 +11,25 @@ compruebaSesion(NIVEL_3, PROFUNDIDAD_2);
 
 borraAvisosExcepto();
 
-[$id] = compruebaAvisosIndividuales("obras", "modificar-3", "id");
+recoge("id");
+
+compruebaAvisosIndividuales("obras", "modificar-3", "id");
 
 if (hayErrores("obras", "modificar-3")) {
     header("Location:modificar-1.php");
     exit();
 }
 
-compruebaAvisosGenerales("obras", "modificar-3", "registrosExisten", $id);
+compruebaAvisosGenerales("obras", "modificar-3", "registrosExisten", "id");
 
 if (hayErrores("obras", "modificar-3")) {
     header("Location:modificar-1.php");
     exit();
 }
 
-[$autor, $titulo, $editorial] = compruebaAvisosIndividuales("obras", "modificar-3", "autor", "titulo", "editorial");
+recoge("autor", "titulo", "editorial");
+
+compruebaAvisosIndividuales("obras", "modificar-3", "autor", "titulo", "editorial");
 
 incluyeValoresOriginalesEnAvisos("obras", "modificar-3", "id", "autor", "titulo", "editorial");
 
@@ -49,7 +53,7 @@ $consulta = "UPDATE $db[obras]
                editorial=:editorial
              WHERE id=:id";
 $result = $pdo->prepare($consulta);
-if ($result->execute([":autor" => $autor, ":titulo" => $titulo, ":editorial" => $editorial, ":id" => $id])) {
+if ($result->execute([":autor" => $recogido["autor"], ":titulo" => $recogido["titulo"], ":editorial" => $recogido["editorial"], ":id" => $recogido["id"]])) {
     print "    <p class=\"aviso-info\">Registro modificado correctamente.</p>\n";
 } else {
     print "    <p class=\"aviso-error\">Error al modificar el registro.</p>\n";

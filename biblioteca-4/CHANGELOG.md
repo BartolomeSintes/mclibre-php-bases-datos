@@ -6,6 +6,12 @@ El formato se basa en [Keep a Changelog](https://keepachangelog.com/en/1.0.0/).
 
 Este changelog incluye los cambios hechos en Biblioteca-3, Biblioteca-4, etc.
 
+## 2021-05-22
+
+### Changed (Modificado)
+- Cambio las funciones recoge() y recogeValores() para que en vez de guardar los datos recibidos en variables independientes ($nombre, $apellidos, etc) guarden los datos recibidos en una matriz $recogido ($recogido["nombre"], $recogido["apellidos"], etc.).
+
+
 ## 2021-05-13
 
 ### Added (Añadido)

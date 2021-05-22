@@ -10,13 +10,13 @@ require_once "../comunes/biblioteca.php";
 compruebaSesion(NIVEL_3, PROFUNDIDAD_1);
 
 if (!isset($_SESSION["anyo"])) {
-    $fecha            = date("Y-m-j");
-    $mes              = substr($fecha, 5, 2);
-    $anyo             = substr($fecha, 0, 4);
-    $dia              = substr($fecha, 8, 2);
-    $_SESSION["mes"]  = $mes;
-    $_SESSION["anyo"] = $anyo;
-    $_SESSION["dia"]  = $dia;
+    $recogido["fecha"] = date("Y-m-j");
+    $mes               = substr($recogido["fecha"], 5, 2);
+    $anyo              = substr($recogido["fecha"], 0, 4);
+    $dia               = substr($recogido["fecha"], 8, 2);
+    $_SESSION["mes"]   = $mes;
+    $_SESSION["anyo"]  = $anyo;
+    $_SESSION["dia"]   = $dia;
 }
 
 function calendario($pdo, $anyo, $mes, $diaMostrado, $consultaPlantilla)
@@ -103,22 +103,23 @@ function calendario($pdo, $anyo, $mes, $diaMostrado, $consultaPlantilla)
 $pdo = conectaDb();
 cabecera("Calendario", MENU_ADMINISTRADOR, PROFUNDIDAD_1);
 
-$fecha  = recoge("fecha");
-$ordena = recogeValores("ordena", $db["columnasPrestamosOrden"], "apellidos ASC");
+recoge("fecha");
 
-if ($fecha == "") {
-    $fecha = $_SESSION["anyo"] . "-" . $_SESSION["mes"] . "-" . $_SESSION["dia"];
+recogeValores("ordena", $db["columnasPrestamosOrden"], "apellidos ASC");
+
+if ($recogido["fecha"] == "") {
+    $recogido["fecha"] = $_SESSION["anyo"] . "-" . $_SESSION["mes"] . "-" . $_SESSION["dia"];
 }
 
-$mes  = substr($fecha, 5, 2);
-$anyo = substr($fecha, 0, 4);
-$dia  = substr($fecha, 8, 2);
+$mes  = substr($recogido["fecha"], 5, 2);
+$anyo = substr($recogido["fecha"], 0, 4);
+$dia  = substr($recogido["fecha"], 8, 2);
 
 if (!checkdate($mes, $dia, $anyo)) {
-    $fecha = date("Y-m-j");
-    $mes   = substr($fecha, 5, 2);
-    $anyo  = substr($fecha, 0, 4);
-    $dia   = substr($fecha, 8, 2);
+    $recogido["fecha"] = date("Y-m-j");
+    $mes               = substr($recogido["fecha"], 5, 2);
+    $anyo              = substr($recogido["fecha"], 0, 4);
+    $dia               = substr($recogido["fecha"], 8, 2);
 }
 
 $_SESSION["mes"]  = $mes;
@@ -131,7 +132,7 @@ $consulta = "SELECT COUNT(*)
              FROM $db[prestamos]
              WHERE prestado=:prestado";
 $result = $pdo->prepare($consulta);
-$result->execute([":prestado" => $fecha]);
+$result->execute([":prestado" => $recogido["fecha"]]);
 if (!$result) {
     print "    <p class=\"aviso-error\">Error en la consulta.</p>\n";
 } elseif ($result->fetchColumn() == 0) {
@@ -148,9 +149,24 @@ if (!$result) {
                  WHERE $db[prestamos].id_persona=$db[personas].id
                  AND $db[prestamos].id_obra=$db[obras].id
                  AND prestado=:prestado
-                 ORDER BY $ordena";
+                 ORDER BY $recogido[ordena]";
+    $consulta = "SELECT prestamos.id,
+                   prestamos.id,
+                   personas.nombre,
+                   personas.apellidos,
+                   obras.titulo,
+                   obras.autor,
+                   prestamos.prestado,
+                   prestamos.devuelto
+                 FROM $db[prestamos] as prestamos
+                 JOIN $db[obras] as obras
+                 ON prestamos.id_obra=obras.id
+                 JOIN $db[personas] as personas
+                 ON prestamos.id_persona=personas.id
+                 WHERE prestado=:prestado
+                 ORDER BY $recogido[ordena]";
     $result = $pdo->prepare($consulta);
-    $result->execute([":prestado" => $fecha]);
+    $result->execute([":prestado" => $recogido["fecha"]]);
     if (!$result) {
         print "    <p class=\"aviso-error\">Error en la consulta.</p>\n";
     } else {

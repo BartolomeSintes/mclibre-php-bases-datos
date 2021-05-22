@@ -13,9 +13,10 @@ borraAvisosExcepto("usuarios", "modificar-3");
 
 // Si en modificar-3 se detecta un error, al volver a modificar-2 se necesita recuperar el id
 if (isset($_SESSION["avisos"]["usuarios"]["modificar-3"]["campos"]["id"]["valor"])) {
-    $id = $_SESSION["avisos"]["usuarios"]["modificar-3"]["campos"]["id"]["valor"];
+    $recogido["id"] = $_SESSION["avisos"]["usuarios"]["modificar-3"]["campos"]["id"]["valor"];
 } else {
-    [$id] = compruebaAvisosIndividuales("usuarios", "modificar-2", "id");
+    recoge("id");
+    compruebaAvisosIndividuales("usuarios", "modificar-2", "id");
 }
 
 if (hayErrores("usuarios", "modificar-2")) {
@@ -23,7 +24,7 @@ if (hayErrores("usuarios", "modificar-2")) {
     exit();
 }
 
-compruebaAvisosGenerales("usuarios", "modificar-2", "registrosExisten", $id);
+compruebaAvisosGenerales("usuarios", "modificar-2", "registrosExisten", "id");
 
 if (hayErrores("usuarios", "modificar-2")) {
     header("Location:modificar-1.php");
@@ -40,7 +41,7 @@ $consulta = "SELECT *
              FROM $db[usuarios]
              WHERE id=:id";
 $result = $pdo->prepare($consulta);
-$result->execute([":id" => $id]);
+$result->execute([":id" => $recogido["id"]]);
 if (!$result) {
     print "    <p class=\"aviso-error\">Error en la consulta.</p>\n";
 } else {
@@ -79,7 +80,7 @@ if (!$result) {
     print "      </table>\n";
     print "\n";
     print "      <p>\n";
-    print "        <input type=\"hidden\" name=\"id\" value=\"$id\">\n";
+    print "        <input type=\"hidden\" name=\"id\" value=\"$recogido[id]\">\n";
     print "        <input type=\"submit\" value=\"Actualizar\">\n";
     print "        <input type=\"reset\" value=\"Reiniciar formulario\">\n";
     print "      </p>\n";

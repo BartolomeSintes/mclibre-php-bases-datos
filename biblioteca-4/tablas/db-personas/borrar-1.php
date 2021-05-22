@@ -22,12 +22,12 @@ imprimeAvisosGenerales("personas", "borrar-1");
 if (muestraFormulario("personas", "borrar-1")) {
     $pdo = conectaDb();
 
-    $ordena = recogeValores("ordena", $db["columnasPersonasOrden"], "apellidos ASC");
-    $id     = recoge("id[]");
+    recogeValores("ordena", $db["columnasPersonasOrden"], "apellidos ASC");
+    recoge("id[]");
 
     $consulta = "SELECT *
                  FROM $db[personas]
-                 ORDER BY $ordena";
+                 ORDER BY $recogido[ordena]";
     $result = $pdo->query($consulta);
     if (!$result) {
         print "    <p class=\"aviso-error\">Error en la consulta.</p>\n";
@@ -71,7 +71,7 @@ if (muestraFormulario("personas", "borrar-1")) {
         print "        <tbody>\n";
         foreach ($result as $valor) {
             print "          <tr>\n";
-            if (isset($id[$valor["id"]])) {
+            if (isset($recogido["id"][$valor["id"]])) {
                 print "            <td class=\"centrado\"><input type=\"checkbox\" name=\"id[$valor[id]]\" checked></td>\n";
             } else {
                 print "            <td class=\"centrado\"><input type=\"checkbox\" name=\"id[$valor[id]]\"></td>\n";

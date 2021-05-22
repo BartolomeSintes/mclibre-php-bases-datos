@@ -11,27 +11,31 @@ compruebaSesion(NIVEL_3, PROFUNDIDAD_2);
 
 borraAvisosExcepto();
 
-[$id] = compruebaAvisosIndividuales("usuarios", "modificar-3", "id");
+recoge("id");
+
+compruebaAvisosIndividuales("usuarios", "modificar-3", "id");
 
 if (hayErrores("usuarios", "modificar-3")) {
     header("Location:modificar-1.php");
     exit();
 }
 
-compruebaAvisosGenerales("usuarios", "modificar-3", "registrosExisten", $id);
+compruebaAvisosGenerales("usuarios", "modificar-3", "registrosExisten", "id");
 
 if (hayErrores("usuarios", "modificar-3")) {
     header("Location:modificar-1.php");
     exit();
 }
 
-[$usuario, $password, $nivel] = compruebaAvisosIndividuales("usuarios", "modificar-3", "usuario", "password", "nivel");
+recoge("usuario", "password", "nivel");
+
+compruebaAvisosIndividuales("usuarios", "modificar-3", "usuario", "password", "nivel");
 
 incluyeValoresOriginalesEnAvisos("usuarios", "modificar-3", "id", "usuario", "password", "nivel");
 
 compruebaAvisosGenerales("usuarios", "modificar-3", "yaExisteRegistroConOtroId", "usuario", "password", "nivel", "id");
 
-compruebaAvisosGenerales("usuarios", "modificar-3", "incluyeUsuarioRoot", $usuario, $password, $nivel, $id);
+compruebaAvisosGenerales("usuarios", "modificar-3", "incluyeUsuarioRoot", "usuario", "password", "nivel", "id");
 
 if (hayErrores("usuarios", "modificar-3")) {
     header("Location:modificar-2.php");
@@ -50,7 +54,7 @@ if ($password != "") {
                    nivel=:nivel
                  WHERE id=:id";
     $result = $pdo->prepare($consulta);
-    if ($result->execute([":usuario" => $usuario, ":password" => encripta($password), ":nivel" => $nivel, ":id" => $id])) {
+    if ($result->execute([":usuario" => $recogido["usuario"], ":password" => encripta($recogido["password"]), ":nivel" => $recogido["nivel"], ":id" => $recogido["id"]])) {
         print "    <p class=\"aviso-info\">Registro modificado correctamente.</p>\n";
     } else {
         print "    <p class=\"aviso-error\">Error al modificar el registro.</p>\n";
@@ -62,7 +66,7 @@ if ($password != "") {
                    nivel=:nivel
                  WHERE id=:id";
     $result = $pdo->prepare($consulta);
-    if ($result->execute([":usuario" => $usuario, ":nivel" => $nivel, ":id" => $id])) {
+    if ($result->execute([":usuario" => $recogido["usuario"], ":nivel" => $recogido["nivel"], ":id" => $recogido["id"]])) {
         print "    <p class=\"aviso-info\">Registro modificado correctamente.</p>\n";
     } else {
         print "    <p class=\"aviso-error\">Error al modificar el registro.</p>\n";

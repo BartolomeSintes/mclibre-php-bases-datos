@@ -20,11 +20,11 @@ imprimeAvisosGenerales("obras", "listar");
 if (muestraFormulario("obras", "listar")) {
     $pdo = conectaDb();
 
-    $ordena = recogeValores("ordena", $db["columnasObrasOrden"], "titulo ASC");
+    recogeValores("ordena", $db["columnasObrasOrden"], "titulo ASC");
 
     $consulta = "SELECT *
                  FROM $db[obras]
-                 ORDER BY $ordena";
+                 ORDER BY $recogido[ordena]";
     $result = $pdo->query($consulta);
     if (!$result) {
         print "    <p class=\"aviso-error\">Error en la consulta.</p>\n";

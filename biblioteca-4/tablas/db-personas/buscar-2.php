@@ -11,7 +11,9 @@ compruebaSesion(NIVEL_2, PROFUNDIDAD_2);
 
 borraAvisosExcepto();
 
-[$nombre, $apellidos, $dni] = compruebaAvisosIndividuales("personas", "buscar-2", "nombre", "apellidos", "dni");
+recoge("nombre", "apellidos", "dni");
+
+compruebaAvisosIndividuales("personas", "buscar-2", "nombre", "apellidos", "dni");
 
 compruebaAvisosGenerales("personas", "buscar-2", "registrosNoEncontrados", "nombre", "apellidos", "dni");
 
@@ -24,7 +26,7 @@ cabecera("Personas - Buscar 2", MENU_PERSONAS, PROFUNDIDAD_2);
 
 $pdo = conectaDb();
 
-$ordena = recogeValores("ordena", $db["columnasPersonasOrden"], "apellidos ASC");
+recogeValores("ordena", $db["columnasPersonasOrden"], "apellidos ASC");
 
 $consulta = "SELECT *
              FROM $db[personas]
@@ -32,17 +34,17 @@ $consulta = "SELECT *
                nombre LIKE :nombre
                AND apellidos LIKE :apellidos
                AND dni LIKE :dni
-             ORDER BY $ordena";
+             ORDER BY $recogido[ordena]";
 $result = $pdo->prepare($consulta);
-$result->execute([":nombre" => "%$nombre%", ":apellidos" => "%$apellidos%", ":dni" => "%$dni%"]);
+$result->execute([":nombre" => "%$recogido[nombre]%", ":apellidos" => "%$recogido[apellidos]%", ":dni" => "%$recogido[dni]%"]);
 if (!$result) {
     print "    <p class=\"aviso-error\">Error en la consulta.</p>\n";
 } else {
     print "    <form action=\"$_SERVER[PHP_SELF]\" method=\"$cfg[formMethod]\">\n";
     print "      <p>\n";
-    print "        <input type=\"hidden\" name=\"nombre\" value=\"$nombre\">\n";
-    print "        <input type=\"hidden\" name=\"apellidos\" value=\"$apellidos\">\n";
-    print "        <input type=\"hidden\" name=\"dni\" value=\"$dni\">\n";
+    print "        <input type=\"hidden\" name=\"nombre\" value=\"$recogido[nombre]\">\n";
+    print "        <input type=\"hidden\" name=\"apellidos\" value=\"$recogido[apellidos]\">\n";
+    print "        <input type=\"hidden\" name=\"dni\" value=\"$recogido[dni]\">\n";
     print "      </p>\n";
     print "\n";
     print "      <p>Registros encontrados:</p>\n";

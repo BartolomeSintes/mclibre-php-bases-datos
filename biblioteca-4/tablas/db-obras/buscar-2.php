@@ -11,7 +11,9 @@ compruebaSesion(NIVEL_2, PROFUNDIDAD_2);
 
 borraAvisosExcepto();
 
-[$autor, $titulo, $editorial] = compruebaAvisosIndividuales("obras", "buscar-2", "autor", "titulo", "editorial");
+recoge("autor", "titulo", "editorial");
+
+compruebaAvisosIndividuales("obras", "buscar-2", "autor", "titulo", "editorial");
 
 compruebaAvisosGenerales("obras", "buscar-2", "registrosNoEncontrados", "autor", "titulo", "editorial");
 
@@ -24,7 +26,7 @@ cabecera("Obras - Buscar 2", MENU_OBRAS, PROFUNDIDAD_2);
 
 $pdo = conectaDb();
 
-$ordena = recogeValores("ordena", $db["columnasObrasOrden"], "autor ASC");
+recogeValores("ordena", $db["columnasObrasOrden"], "autor ASC");
 
 $consulta = "SELECT *
              FROM $db[obras]
@@ -32,17 +34,17 @@ $consulta = "SELECT *
                autor LIKE :autor
                AND titulo LIKE :titulo
                AND editorial LIKE :editorial
-             ORDER BY $ordena";
+             ORDER BY $recogido[ordena]";
 $result = $pdo->prepare($consulta);
-$result->execute([":autor" => "%$autor%", ":titulo" => "%$titulo%", ":editorial" => "%$editorial%"]);
+$result->execute([":autor" => "%$recogido[autor]%", ":titulo" => "%$recogido[titulo]%", ":editorial" => "%$recogido[editorial]%"]);
 if (!$result) {
     print "    <p class=\"aviso-error\">Error en la consulta.</p>\n";
 } else {
     print "    <form action=\"$_SERVER[PHP_SELF]\" method=\"$cfg[formMethod]\">\n";
     print "      <p>\n";
-    print "        <input type=\"hidden\" name=\"autor\" value=\"$autor\">\n";
-    print "        <input type=\"hidden\" name=\"titulo\" value=\"$titulo\">\n";
-    print "        <input type=\"hidden\" name=\"editorial\" value=\"$editorial\">\n";
+    print "        <input type=\"hidden\" name=\"autor\" value=\"$recogido[autor]\">\n";
+    print "        <input type=\"hidden\" name=\"titulo\" value=\"$recogido[titulo]\">\n";
+    print "        <input type=\"hidden\" name=\"editorial\" value=\"$recogido[editorial]\">\n";
     print "      </p>\n";
     print "\n";
     print "      <p>Registros encontrados:</p>\n";

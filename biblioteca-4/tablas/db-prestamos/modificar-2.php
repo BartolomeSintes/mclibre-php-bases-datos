@@ -13,9 +13,10 @@ borraAvisosExcepto("prestamos", "modificar-3");
 
 // Si en modificar-3 se detecta un error, al volver a modificar-2 se necesita recuperar el id
 if (isset($_SESSION["avisos"]["prestamos"]["modificar-3"]["campos"]["id"]["valor"])) {
-    $id = $_SESSION["avisos"]["prestamos"]["modificar-3"]["campos"]["id"]["valor"];
+    $recogido["id"] = $_SESSION["avisos"]["prestamos"]["modificar-3"]["campos"]["id"]["valor"];
 } else {
-    [$id] = compruebaAvisosIndividuales("prestamos", "modificar-2", "id");
+    recoge("id");
+    compruebaAvisosIndividuales("prestamos", "modificar-2", "id");
 }
 
 if (hayErrores("prestamos", "modificar-2")) {
@@ -23,7 +24,7 @@ if (hayErrores("prestamos", "modificar-2")) {
     exit();
 }
 
-compruebaAvisosGenerales("prestamos", "modificar-2", "registrosExisten", $id);
+compruebaAvisosGenerales("prestamos", "modificar-2", "registrosExisten", "id");
 
 if (hayErrores("prestamos", "modificar-2")) {
     header("Location:modificar-1.php");
@@ -53,7 +54,7 @@ $consulta = "SELECT
             ON prestamos.id_persona=personas.id
             WHERE prestamos.id=:id";
 $result = $pdo->prepare($consulta);
-$result->execute([":id" => $id]);
+$result->execute([":id" => $recogido["id"]]);
 $consulta2 = "SELECT * FROM $db[personas] ORDER BY apellidos";
 $result2   = $pdo->query($consulta2);
 $consulta3 = "SELECT * FROM $db[obras] ORDER BY autor";
@@ -115,7 +116,7 @@ if (!$result) {
     print "      </table>\n";
     print "\n";
     print "      <p>\n";
-    print "        <input type=\"hidden\" name=\"id\" value=\"$id\">\n";
+    print "        <input type=\"hidden\" name=\"id\" value=\"$recogido[id]\">\n";
     print "        <input type=\"submit\" value=\"Actualizar\">\n";
     print "        <input type=\"reset\" value=\"Reiniciar formulario\">\n";
     print "      </p>\n";

@@ -35,18 +35,27 @@ function printSesion()
 
 function compruebaAvisosIndividuales()
 {
+    global $recogido;
+
     // Argumentos: pagina_de_origen, tabla, campo_1, campo_2, ...
     $argumentos = func_get_args();
     $tabla      = $argumentos[0];
     array_shift($argumentos);
     $origen = $argumentos[0];
     array_shift($argumentos);
+
+    foreach($argumentos as $argumento) {
+        if (!isset($recogido[$argumento])) {
+            $_SESSION["avisos"][$tabla][$origen]["generales"][] = ["texto" => "Error en el programa. Intento de acceso a dato \"$argumento\" no recogido.", "claseAviso" => "aviso-error"];
+            return;
+        }
+    }
+
     $resp       = [];
     $paraSesion = [];
     $error      = false;
     foreach ($argumentos as $campo) {
-        $valor = recoge($campo);
-        $campo = (substr($campo, -2) == "[]") ? substr($campo, 0, -2) : $campo;
+        $valor = isset($recogido[$campo]) ? $recogido[$campo] : "";
         if (is_array($valor) && count($valor) > 0) {
             $comp = [];
             foreach ($valor as $indice => $valor2) {
@@ -57,20 +66,17 @@ function compruebaAvisosIndividuales()
             $comp = comprobaciones($origen, $tabla, $campo, $valor);
         }
         $paraSesion[$campo] = $comp;
-        $resp[]             = $valor;
     }
     if (isset($_SESSION["avisos"][$tabla][$origen]["campos"])) {
         $_SESSION["avisos"][$tabla][$origen]["campos"] = array_merge_recursive($_SESSION["avisos"][$tabla][$origen]["campos"], $paraSesion);
     } else {
         $_SESSION["avisos"][$tabla][$origen]["campos"] = $paraSesion;
     }
-    // devuelve [$valor1, $valor2, ...
-    return $resp;
 }
 
 function incluyeValoresOriginalesEnAvisos()
 {
-    global $db;
+    global $db, $recogido;
 
     $argumentos = func_get_args();
     $tabla      = $argumentos[0];
@@ -79,12 +85,20 @@ function incluyeValoresOriginalesEnAvisos()
     array_shift($argumentos);
     $id = $argumentos[0];
     array_shift($argumentos);
+
+    foreach($argumentos as $argumento) {
+        if (!isset($recogido[$argumento])) {
+            $_SESSION["avisos"][$tabla][$origen]["generales"][] = ["texto" => "Error en el programa. Intento de acceso a dato \"$argumento\" no recogido.", "claseAviso" => "aviso-error"];
+            return;
+        }
+    }
+
     $pdo      = conectaDb();
     $consulta = "SELECT *
                  FROM $db[$tabla] "
               . "WHERE id=:id";
     $result = $pdo->prepare($consulta);
-    $result->execute([":id" => recoge($id)]);
+    $result->execute([":id" => $recogido["id"]]);
     if (!$result) {
         $_SESSION["avisos"][$tabla][$origen]["generales"][] = ["texto" => "Error en la consulta.", "claseAviso" => "aviso-error"];
     } else {

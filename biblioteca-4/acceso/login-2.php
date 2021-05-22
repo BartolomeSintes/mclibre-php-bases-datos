@@ -11,6 +11,8 @@ compruebaNoSesion(PROFUNDIDAD_1);
 
 borraAvisosExcepto();
 
+recoge("usuario", "password");
+
 compruebaAvisosGenerales("usuarios", "login-2", "validaLogin","usuario", "password");
 
 if (hayErrores("usuarios", "login-2")) {

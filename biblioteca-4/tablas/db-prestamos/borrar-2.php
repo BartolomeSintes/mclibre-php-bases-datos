@@ -11,9 +11,11 @@ compruebaSesion(NIVEL_3, PROFUNDIDAD_2);
 
 borraAvisosExcepto();
 
-[$id] = compruebaAvisosIndividuales("prestamos", "borrar-2", "id[]");
+recoge("id[]");
 
-compruebaAvisosGenerales("prestamos", "borrar-2", "registrosExisten", $id);
+compruebaAvisosIndividuales("prestamos", "borrar-2", "id");
+
+compruebaAvisosGenerales("prestamos", "borrar-2", "registrosExisten", "id");
 
 if (hayErrores("prestamos", "borrar-2")) {
     header("Location:borrar-1.php");
@@ -24,7 +26,7 @@ cabecera("Préstamos - Borrar 2", MENU_PRESTAMOS, PROFUNDIDAD_2);
 
 $pdo = conectaDb();
 
-foreach ($id as $indice => $valor) {
+foreach ($recogido["id"] as $indice => $valor) {
     $consulta = "DELETE
                  FROM $db[prestamos]
                  WHERE id=:indice";

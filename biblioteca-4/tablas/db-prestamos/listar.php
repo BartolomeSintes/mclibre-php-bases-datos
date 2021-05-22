@@ -20,7 +20,7 @@ imprimeAvisosGenerales("prestamos", "listar");
 if (muestraFormulario("prestamos", "listar")) {
     $pdo = conectaDb();
 
-    $ordena = recogeValores("ordena", $db["columnasPrestamosOrden"], "apellidos ASC");
+    recogeValores("ordena", $db["columnasPrestamosOrden"], "apellidos ASC");
 
     $consulta = "SELECT
                    prestamos.id,
@@ -35,7 +35,7 @@ if (muestraFormulario("prestamos", "listar")) {
                  ON prestamos.id_obra=obras.id
                  JOIN $db[personas] as personas
                  ON prestamos.id_persona=personas.id
-                 ORDER BY $ordena";
+                 ORDER BY $recogido[ordena]";
     $result = $pdo->query($consulta);
     if (!$result) {
         print "    <p class=\"aviso-error\">Error en la consulta.</p>\n";

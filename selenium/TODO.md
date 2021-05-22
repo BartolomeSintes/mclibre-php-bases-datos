@@ -14,6 +14,7 @@ Estas son algunas de las cosas que podría hacer para Selenium
 
 * [2021-04-29] He intentado sumar dos variables creadas con **store** para guardarlas en otra variable y no lo he conseguido. En Internet hacen todo el rato referencia a storeEval que no funciona en Selenium IDE 3 y con Javascript dicen de usar la matriz storedVars (storedvars['nombreVariable']), pero el IDE dice que storedVars no existe.
 
+* [2021-05-14] Averiguar si Selenium puede mirar en el código fuente de la página. Por ejemplo, para localizar mensajes de error de PHP que según en qué punto de la página se creen (dentro de una etiqueta, entre < y >, por ejemplo), igual no se ven en el navegador, pero sí están en el código fuente.
 
 ## utilidades.py
 

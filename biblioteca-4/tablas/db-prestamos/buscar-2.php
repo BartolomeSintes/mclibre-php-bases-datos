@@ -11,45 +11,39 @@ compruebaSesion(NIVEL_2, PROFUNDIDAD_2);
 
 cabecera("Préstamos - Buscar 2", MENU_PRESTAMOS, PROFUNDIDAD_2);
 
-$nombre     = recoge("nombre");
-$apellidos  = recoge("apellidos");
-$autor      = recoge("autor");
-$titulo     = recoge("titulo");
-$prestado_1 = recoge("prestado_1");
-$prestado_2 = recoge("prestado_2");
-$devuelto_1 = recoge("devuelto_1");
-$devuelto_2 = recoge("devuelto_2");
-$ordena     = recogeValores("ordena", $db["columnasPrestamosOrden"], "apellidos ASC");
+recoge("nombre", "apellidos", "autor", "titulo", "prestado_1", "prestado_2", "devuelto_1", "devuelto_2");
+
+recogeValores("ordena", $db["columnasPrestamosOrden"], "apellidos ASC");
 
 $pdo = conectaDb();
 
 // El número de parámetros en execute debe coincidir con el número de parámetros en la consulta.
 $consultaPrestado = "";
 $consultaDevuelto = "";
-$parametros       = [":nombre" => "%$nombre%", ":apellidos" => "%$apellidos%", ":autor" => "%$autor%", ":titulo" => "%$titulo%"];
+$parametros       = [":nombre" => "%$recogido[nombre]%", ":apellidos" => "%$recogido[apellidos]%", ":autor" => "%$recogido[autor]%", ":titulo" => "%$recogido[titulo]%"];
 
-if ($prestado_1 != "" && $prestado_2 != "") {
+if ($recogido["prestado_1"] != "" && $recogido["prestado_2"] != "") {
     $consultaPrestado          = "AND $db[prestamos].prestado BETWEEN :prestado_1 AND :prestado_2 ";
-    $parametros[":prestado_1"] = $prestado_1;
-    $parametros[":prestado_2"] = $prestado_2;
-} elseif ($prestado_1 != "") {
+    $parametros[":prestado_1"] = $recogido["prestado_1"];
+    $parametros[":prestado_2"] = $recogido["prestado_2"];
+} elseif ($recogido["prestado_1"] != "") {
     $consultaPrestado          = "AND $db[prestamos].prestado >= :prestado_1 ";
-    $parametros[":prestado_1"] = $prestado_1;
-} elseif ($prestado_2 != "") {
+    $parametros[":prestado_1"] = $recogido["prestado_1"];
+} elseif ($recogido["prestado_2"] != "") {
     $consultaPrestado          = "AND $db[prestamos].prestado <= :prestado_2 ";
-    $parametros[":prestado_2"] = $prestado_2;
+    $parametros[":prestado_2"] = $recogido["prestado_2"];
 }
 
-if ($devuelto_1 != "" && $devuelto_2 != "") {
+if ($recogido["devuelto_1"] != "" && $recogido["devuelto_2"] != "") {
     $consultaDevuelto          = "AND $db[prestamos].devuelto BETWEEN :devuelto_1 AND :devuelto_2 ";
-    $parametros[":devuelto_1"] = $devuelto_1;
-    $parametros[":devuelto_2"] = $devuelto_2;
-} elseif ($devuelto_1 != "") {
+    $parametros[":devuelto_1"] = $recogido["devuelto_1"];
+    $parametros[":devuelto_2"] = $recogido["devuelto_2"];
+} elseif ($recogido["devuelto_1"] != "") {
     $consultaDevuelto          = "AND $db[prestamos].devuelto >= :devuelto_1 ";
-    $parametros[":devuelto_1"] = $devuelto_1;
-} elseif ($devuelto_2 != "") {
+    $parametros[":devuelto_1"] = $recogido["devuelto_1"];
+} elseif ($recogido["devuelto_2"] != "") {
     $consultaDevuelto          = "AND $db[prestamos].devuelto <= :devuelto_2 ";
-    $parametros[":devuelto_2"] = $devuelto_2;
+    $parametros[":devuelto_2"] = $recogido["devuelto_2"];
 }
 
 $consulta = "SELECT COUNT(*)
@@ -93,7 +87,7 @@ if (!$result) {
                   AND titulo LIKE :titulo "
                 . $consultaPrestado
                 . $consultaDevuelto
-                . " ORDER BY $ordena";
+                . " ORDER BY $recogido[ordena]";
 
     $result = $pdo->prepare($consulta);
     $result->execute($parametros);
@@ -102,14 +96,14 @@ if (!$result) {
     } else {
         print "    <form action=\"$_SERVER[PHP_SELF]\" method=\"$cfg[formMethod]\">\n";
         print "      <p>\n";
-        print "        <input type=\"hidden\" name=\"nombre\" value=\"$nombre\">\n";
-        print "        <input type=\"hidden\" name=\"apellidos\" value=\"$apellidos\">\n";
-        print "        <input type=\"hidden\" name=\"autor\" value=\"$autor\">\n";
-        print "        <input type=\"hidden\" name=\"titulo\" value=\"$titulo\">\n";
-        print "        <input type=\"hidden\" name=\"prestado_1\" value=\"$prestado_1\">\n";
-        print "        <input type=\"hidden\" name=\"prestado_2\" value=\"$prestado_2\">\n";
-        print "        <input type=\"hidden\" name=\"devuelto_1\" value=\"$devuelto_1\">\n";
-        print "        <input type=\"hidden\" name=\"devuelto_2\" value=\"$devuelto_2\">\n";
+        print "        <input type=\"hidden\" name=\"nombre\" value=\"$recogido[nombre]\">\n";
+        print "        <input type=\"hidden\" name=\"apellidos\" value=\"$recogido[apellidos]\">\n";
+        print "        <input type=\"hidden\" name=\"autor\" value=\"$recogido[autor]\">\n";
+        print "        <input type=\"hidden\" name=\"titulo\" value=\"$recogido[titulo]\">\n";
+        print "        <input type=\"hidden\" name=\"prestado_1\" value=\"$recogido[prestado_1]\">\n";
+        print "        <input type=\"hidden\" name=\"prestado_2\" value=\"$recogido[prestado_2]\">\n";
+        print "        <input type=\"hidden\" name=\"devuelto_1\" value=\"$recogido[devuelto_1]\">\n";
+        print "        <input type=\"hidden\" name=\"devuelto_2\" value=\"$recogido[devuelto_2]\">\n";
         print "      </p>\n";
         print "\n";
         print "      <p>Registros encontrados:</p>\n";

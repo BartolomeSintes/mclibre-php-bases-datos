@@ -11,7 +11,9 @@ compruebaSesion(NIVEL_3, PROFUNDIDAD_2);
 
 borraAvisosExcepto();
 
-[$usuario, $password, $nivel] = compruebaAvisosIndividuales("usuarios", "buscar-2", "usuario", "password", "nivel");
+recoge("usuario", "password", "nivel");
+
+compruebaAvisosIndividuales("usuarios", "buscar-2", "usuario", "password", "nivel");
 
 compruebaAvisosGenerales("usuarios", "buscar-2", "registrosNoEncontrados", "usuario", "password", "nivel");
 
@@ -24,7 +26,7 @@ cabecera("Usuarios - Buscar 2", MENU_USUARIOS, PROFUNDIDAD_2);
 
 $pdo = conectaDb();
 
-$ordena = recogeValores("ordena", $db["columnasUsuariosOrden"], "password ASC");
+recogeValores("ordena", $db["columnasUsuariosOrden"], "password ASC");
 
 $consulta = "SELECT *
              FROM $db[usuarios]
@@ -32,17 +34,17 @@ $consulta = "SELECT *
                usuario LIKE :usuario
                AND password LIKE :password
                AND nivel LIKE :nivel
-             ORDER BY $ordena";
+             ORDER BY $recogido[ordena]";
 $result = $pdo->prepare($consulta);
-$result->execute([":usuario" => "%$usuario%", ":password" => "%$password%", ":nivel" => "%$nivel%"]);
+$result->execute([":usuario" => "%$recogido[usuario]%", ":password" => "%$recogido[password]%", ":nivel" => "%$recogido[nivel]%"]);
 if (!$result) {
     print "    <p class=\"aviso-error\">Error en la consulta.</p>\n";
 } else {
     print "    <form action=\"$_SERVER[PHP_SELF]\" method=\"$cfg[formMethod]\">\n";
     print "      <p>\n";
-    print "        <input type=\"hidden\" name=\"usuario\" value=\"$usuario\">\n";
-    print "        <input type=\"hidden\" name=\"password\" value=\"$password\">\n";
-    print "        <input type=\"hidden\" name=\"nivel\" value=\"$nivel\">\n";
+    print "        <input type=\"hidden\" name=\"usuario\" value=\"$recogido[usuario]\">\n";
+    print "        <input type=\"hidden\" name=\"password\" value=\"$recogido[password]\">\n";
+    print "        <input type=\"hidden\" name=\"nivel\" value=\"$recogido[nivel]\">\n";
     print "      </p>\n";
     print "\n";
     print "      <p>Registros encontrados:</p>\n";

@@ -11,7 +11,9 @@ compruebaSesion(NIVEL_3, PROFUNDIDAD_2);
 
 borraAvisosExcepto();
 
-[$nombre, $apellidos, $dni] = compruebaAvisosIndividuales("personas", "insertar-2", "nombre", "apellidos", "dni");
+recoge("nombre", "apellidos", "dni");
+
+compruebaAvisosIndividuales("personas", "insertar-2", "nombre", "apellidos", "dni");
 
 compruebaAvisosGenerales("personas", "insertar-2", "todosVacios", "nombre", "apellidos", "dni");
 
@@ -31,10 +33,10 @@ $pdo = conectaDb();
 $consulta = "INSERT INTO $db[personas] (nombre, apellidos, dni)
              VALUES (:nombre, :apellidos, :dni)";
 $result = $pdo->prepare($consulta);
-if ($result->execute([":nombre" => $nombre, ":apellidos" => $apellidos, ":dni" => $dni])) {
-    print "    <p class=\"aviso-info\">Registro <strong>$nombre $apellidos - $dni</strong> creado correctamente.</p>\n";
+if ($result->execute([":nombre" => $recogido["nombre"], ":apellidos" => $recogido["apellidos"], ":dni" => $recogido["dni"]])) {
+    print "    <p class=\"aviso-info\">Registro <strong>$recogido[nombre] $recogido[apellidos] - $recogido[dni]</strong> creado correctamente.</p>\n";
 } else {
-    print "    <p class=\"aviso-error\">Error al crear el registro <strong>$nombre $apellidos - $dni</strong>.</p>\n";
+    print "    <p class=\"aviso-error\">Error al crear el registro <strong>$recogido[nombre] $recogido[apellidos] - $recogido[dni]</strong>.</p>\n";
 }
 
 $pdo = null;
