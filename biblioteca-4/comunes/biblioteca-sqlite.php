@@ -21,6 +21,7 @@ $db["consultasBorraTodo"] = [
     // En SQLite la condición IF EXISTS falla si está habilitada la restricción FOREIGN_KEYS.
     // Como en cada conexión tengo que habilitarla para que funcionen los ON CASCADE,
     // aquí tengo que deshabilitarla, borrar las tablas y habilitarla de nuevo
+    // 15/12/2021 : Parece que esto en PHP 8.0 (que lleva SQLite 3.33) ya no pasa, así que podré quitar estos PRAGMA
     "PRAGMA foreign_keys = OFF",
     "DROP TABLE IF EXISTS $db[usuarios]",
     "DROP TABLE IF EXISTS $db[personas]",

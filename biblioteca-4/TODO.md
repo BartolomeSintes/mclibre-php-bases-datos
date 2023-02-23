@@ -56,6 +56,25 @@ Estas son algunas de las cosas que me quedan por hacer y que podrían hacerse en
 
 * [2021-05-13] modificar-2 tiene un if feo al principio para resolver de dónde coger el id. No sé si sería mejor moverlo a compruebaAvisosIndividuales().
 
+* [2022-01-04] En smagris el directorio /tmp lo gestiona systemd y se lo carga cuando quiere (al menos cuando se reinicia el sistema). Así que no puedo poner como camino de las bases de datos /tmp/mclibre/sqlite/ porque no existiría. Quique me dijo que lo que tenía que hacer era crear el directorio desde la aplicación PHP y la verdad es que es algo razonable, que compruebe si el camino existe y lo cree en vez de simplemente fallar como ocurre ahora. Lo debería añadir en Bases de datos (1) 1 y en el resto.
+
+* [2022-01-06] El tamaño de los campos en la pantalla es el mismo que el tamaño de los campos en la base de datos, excepto para el password cifrado porque una cosa es el password que escribe el usuario y otra el hash que se guarda. Igual tendría que tener duplicados los valores para todo: por un lado el tamaño en pantalla y por otro el tamaño en la bse de datos.
+
+* [2022-01-06] Podría hacer una comprobación de Selenium que comprobara que el menú es el correto, por ejemplo añadiendo un id al ul del menú.
+
+* [2022-01-06] Al crear un registro de usuario, ¿la contraseña debería escribirse dos veces?
+
+* [2022-01-06] Al recoger un id no hago un idOk con las comprobaciones. Debería hacerlo por unificar. Cuando se recogen varios ids (al borrar por ejemplo), si alguno es incorrecto, entonces no haría caso de ninguno, cuando ahora sí que borra los buenos.
+
+* [2022-01-07] En los menús para gestionar las tablas (Usuarios, Personas, etc.), el primer enlace se llama Volver. El nombre despista un poco, porque es para volver al menú de nivel superior, pero en ejercicios Bases de datos 1, 2 y 3 en las que te salen mensajes en la página 2 (insertar-2, buscar-2, etc.) parece que Volver es para volver a la página 1 (insertar-1, buscar-1, etc). Tendría que pensar en otra palabra (¿Subir?).
+
+* [2022-01-07] Después de Borrar todo, ¿no debería desconectarse?
+
+* [2022-01-07] En buscar no se hace ninguna comprobación de lo que llega, ni siquiera que sea algo demasiado grande o un nivel incorrecto. Supongo que lo hago porque en esos casos no encontrará nada y ya está.
+
+* [2022-01-07] Al insertar o modificar no dejo que la contraseña esté en blanco. No sé por qué.
+
+* [2022-01-07] Del usuario root inicial sólo dejo cambiar la contraseña, pero no el nivel ni el nombre.
 
 ## Próximos pasos
 
@@ -91,6 +110,7 @@ He hecho también los select de nivel en usuarios/insertar-1, usuarios/buscar-1.
 
 * [2021-05-22] En borrar-todo-2.php podría recoger borrar y demo con recogeValores() en vez de con recoge().
 
+* [2021-12-14] Mirando la función conectaDb() de SQLite, veo que hace una consulta "PRAGMA foreign_keys = ON"; pero no comprueba si el resultado es correcto. Debería dar error si no devolviera lo que toca (que no sé lo que es por cierto).
 
 ## Para averiguar
 
