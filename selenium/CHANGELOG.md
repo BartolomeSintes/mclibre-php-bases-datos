@@ -9,7 +9,7 @@ Este changelog incluye los cambios hechos en ficheros de test para Selenium, en 
 ## 2021-04-26
 
 ### Changed (Modificado)
-- biblioteca-4-1. Intento definir tests de tareas concretas para reutilizarlos. Creo un test que llama a las funciones. La suite está formada por ese test y todas las funciones. Pero con Selenium IDE no es fácil hacer que unos tests se llamen a otros (no es exactamente como utilizar funciones en un lenguaje de programación), así que dejo este fichero y continuo el trabajo en un segundo fichero sin tantas llamadas a funciones. Cuando deje de utilziar el IDE y ejecute los tests desde Python lo volveré a intentar.
+- biblioteca-4-1. Intento definir tests de tareas concretas para reutilizarlos. Creo un test que llama a las funciones. La suite está formada por ese test y todas las funciones. Pero con Selenium IDE no es fácil hacer que unos tests se llamen a otros (no es exactamente como utilizar funciones en un lenguaje de programación), así que dejo este fichero y continuo el trabajo en un segundo fichero sin tantas llamadas a funciones. Cuando deje de utilizar el IDE y ejecute los tests desde Python lo volveré a intentar.
 
 ### Added (Añadido)
 - biblioteca-4-2. Creo un segundo json para escribir los tests, sin preocuparme de reutilizar demasiado el código.

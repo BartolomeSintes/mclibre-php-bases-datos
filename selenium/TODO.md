@@ -48,6 +48,10 @@ Estas son algunas de las cosas que podría hacer para Selenium
 
 * [2021-05-11] Otra comprobación a a añadir a todas las páginas sería ver que no hay ningún printSesion() o printValores() olvidado. Tendría que añadir un mensaje en esas funciones para que fuera lo que detectara.
 
+* [2022-01-04] He añadido un if else en borrar todo de bases de datos 2-3 para que detecte los mensajes de MySQL o los de SQLite, pero no en biblioteca-4.
+
+* [2021-01-04] Lo que no parece tener remedio es el problema de los acentos en SQLite ya que no tiene un COLLATE para idiomas distintos del inglés, como mucho hace COLLATE de mayúsculas y minúsculas.
+
 
 ### Pruebas a realizar en cada página
 
@@ -90,7 +94,7 @@ Estas son algunas de las cosas que podría hacer para Selenium
 - Modificar-1
   - <s>Al reordenar registros no se pierde la casilla marcada.</s>
 - Modificar-2
-  - <s>Aviso individual: No existe el registro con ese id).</s>
+  - <s>Aviso individual: No existe el registro con ese id.</s>
   - <s>Aviso general: No se indica el id.</s>
 - Modificar-3
   - <s>Modifica registro correctamente.</s>
@@ -113,3 +117,5 @@ Errores detectados:
 * [2021-04-26] Averiguar cómo comprobar que dentro del main sólo está el avisoGeneral que se busca (para los casos en que sólo se tiene que mostrar un aviso general).
 
 * [2021-04-27] El tamaño de los campos es configurable. Al probar si detecta los campos demasiado largos habría que asegurarse de que prueba con cadenas lo suficientemente largas.
+
+* [2022-01-31] Una fuente de error es que si me dedico a borrar y crear registros, los ids pueden no coincidir en MySQL y SQlite porque MySQL tiene AUTO_INCREMENT y SQLite no (y auqnue lo tuvieran los dos tampoco está garantizado). Así que chequear el id de los registros puede fallar.

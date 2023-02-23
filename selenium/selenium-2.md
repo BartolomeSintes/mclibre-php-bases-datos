@@ -18,7 +18,7 @@ new XPathEvaluator().evaluate("//*[@class='aviso-error']", document, null, XPath
 
 - En una expresión XPath si se busca el n-ésimo elemento consecutivo hay que añadir [n] después del elemento.
 
-- No he visto la manera de buscar un texto en toda la página, de manera que pueda estar seguro de que no está, porque parece que Selenium trabaja con elementos. Igual se puede hacer con JvaScript...
+- Con XPath parece que no se puede localizar texto (tendría que hacer más pruebas), pero he encontrado una solución con JvaScript...
 
 ## Comandos
 
@@ -170,7 +170,18 @@ Detiene Selenium hasta que la página contenga un elemento. La clave **target** 
     "command": "type",
     "target": "name=usuario",
     "value": "basico"
-}
+},
+```
+
+### select: Selecciona un option de un select
+
+```json
+{
+    "id": "correo-usuarios-5-12",
+    "command": "select",
+    "target": "name=nivel",
+    "value": "label=Administrador"
+},
 ```
 
 ### assertText: Comprueba que existe un texto
@@ -185,7 +196,7 @@ Detiene Selenium hasta que la página contenga un elemento. La clave **target** 
 }
 {
     "id": "assertText-2",
-    "comment": "El uso de los números no tengo claro cómo funciona ... No sé si cuenta desde 0 o desde 1.",
+    "comment": "El uso de los números no tengo claro cómo funciona ... En Borrar todo cuando busco párrafos, empiezan a contar en 1, pero en Listar cuando busco filas o celdas, empieza a contar en 0.",
     "command": "assertText",
     "target": "xpath=//tr[2]/td[1]",
     "value": "Juan"
@@ -202,6 +213,48 @@ Detiene Selenium hasta que la página contenga un elemento. La clave **target** 
     "command": "assertText",
     "target": "xpath=//p[1]",
     "value": "Escriba el criterio de búsqueda (caracteres o números):"
+},
+```
+
+### assert: Busca y comprueba que existe un texto
+
+```json
+{
+    "id": "assert-1",
+    "comment": "Aquí busco con javascript. Devuelve true o false",
+    "command": "executeScript",
+    "target": "return(document.body.innerHTML.includes('Las contraseñas no coinciden.'))",
+    "value": "${detectadaCadena}"
+},
+{
+    "id": "assert-2",
+    "comment": "Aquí compruebo que lo ha encontrado",
+    "command": "assert",
+    "target": "${detectadaCadena}",
+    "value": "true"
+},
+```
+
+### assert: Busca y comprueba que existe un texto en una celda (que no está vacía)
+
+```json
+{
+    "id": "numero-registros-usuario-1-6",
+    "command": "storeText",
+    "target": "xpath=//tr[1]/td[4]",
+    "value": "contenidoCelda"
+},
+{
+    "id": "numero-registros-usuario-1-7",
+    "command": "executeScript",
+    "target": "return(${contenidoCelda} != '')",
+    "value": "contenidoCeldaVacio"
+},
+{
+    "id": "numero-registros-usuario-1-8",
+    "command": "assert",
+    "target": "contenidoCeldaVacio",
+    "value": "true"
 },
 ```
 

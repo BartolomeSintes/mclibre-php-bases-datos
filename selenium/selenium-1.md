@@ -1,10 +1,15 @@
 # Selenium. Estructura general
 
-[Selenium IDE](https://www.selenium.dev/selenium-ide/) te permite grabar lo que hace el usuario en una web y repetir podteriormente lo que haya hecho el usuario. Los pasos realizados se pueden guardar en un fichero json con extensión .side.
+[Selenium IDE](https://www.selenium.dev/selenium-ide/) te permite grabar lo que hace el usuario en una web y repetir posteriormente lo que haya hecho el usuario. Los pasos realizados se pueden guardar en un fichero json con extensión .side.
 
 Este documento describe la estructura simplificada del fichero json que guarda Selenium IDE. El fichero que guarda Selenium tiene más campos, pero lo que he hecho ha sido simplificarlo al máximo para poder editarlo manualmente de forma más cómoda.
 
 En la página [Comandos de Selenium](selenium-2.md) comento los comandos.
+
+## Nombre de fichero
+
+Aunque sea un fichero json, el fichero tiene que tener la extensión .side. Si se deja con la extensión .json, al cargarlo desde Selenium IDE da error.
+
 
 ## Estructura general
 
