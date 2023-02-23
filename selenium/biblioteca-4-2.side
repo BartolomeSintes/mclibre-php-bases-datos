@@ -1325,8 +1325,8 @@
                 },
                 {
                     "id": "testea-personas-1-12-1",
-                    "command": "click",
                     "comment": "(TEST) Personas > Listar > Prueba que ordena el listado correctamente. (dni ASC)",
+                    "command": "click",
                     "target": "xpath=//button[@value='dni ASC']",
                     "value": ""
                 },

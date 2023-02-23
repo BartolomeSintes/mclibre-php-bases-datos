@@ -45,12 +45,12 @@
                     "id": "preparacion-desconexion-inicial-3",
                     "command": "executeScript",
                     "target": "return (document.querySelectorAll('[data-test-id=\"desconectarse\"]').length != 0)",
-                    "value": "contieneDesconectase"
+                    "value": "contieneDesconectarse"
                 },
                 {
                     "id": "preparacion-desconexion-inicial-4",
                     "command": "if",
-                    "target": "${contieneDesconectase}",
+                    "target": "${contieneDesconectarse}",
                     "value": ""
                 },
                 {
