@@ -1,0 +1,63 @@
+{
+    "id": "store-xpath-count-test-1",
+    "version": "2.0",
+    "name": "Testing storeXpathCount command",
+    "url": "https://mclibre.org",
+    "tests": [
+        {
+            "id": "test-1",
+            "name": "Testing storeXpathCount command",
+            "comment": "Comprueba todo",
+            "commands": [
+                {
+                    "id": "test-1-1",
+                    "command": "open",
+                    "target": "/tmp/store-xpath-count-test-1.html",
+                    "value": ""
+                },
+                {
+                    "id": "test-1-2",
+                    "command": "waitForElementPresent",
+                    "target": "xpath=//body",
+                    "value": "20000"
+                },
+                {
+                    "id": "test-1-3",
+                    "command": "assertText",
+                    "target": "xpath=//p[1]",
+                    "value": "First paragraph."
+                },
+                {
+                    "id": "test-1-4",
+                    "command": "assertText",
+                    "target": "xpath=//p[2]",
+                    "value": "Second paragraph."
+                },
+                {
+                    "id": "test-1-5",
+                    "command": "storeXpathCount",
+                    "target": "xpath=//p",
+                    "value": "paragraphCount"
+                },
+                {
+                    "id": "test-1-6",
+                    "command": "assert",
+                    "target": "paragraphCount",
+                    "value": "2"
+                }
+            ]
+        }
+    ],
+    "suites": [
+        {
+            "id": "suite",
+            "name": "Suite",
+            "persistSession": false,
+            "parallel": false,
+            "timeout": 300,
+            "tests": [
+                "test-1"
+            ]
+        }
+    ]
+}

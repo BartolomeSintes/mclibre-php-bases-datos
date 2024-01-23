@@ -7,22 +7,22 @@ SELENIUM_FILE = "biblioteca-4-2.side.json"
 SELENIUM_FILE = "bases-de-datos-2-3.side"
 
 lista = [
-    "bases-de-datos-1-b-0.side",
-    "bases-de-datos-1-b-1.side",
-    "bases-de-datos-1-b-2.side",
-    "bases-de-datos-2-b-0.side",
-    "bases-de-datos-2-b-1.side",
-    "bases-de-datos-2-b-2.side",
+    # "bases-de-datos-1-b-0.side",
+    # "bases-de-datos-1-b-1.side",
+    # "bases-de-datos-1-b-2.side",
+    # "bases-de-datos-2-b-0.side",
+    # "bases-de-datos-2-b-1.side",
+    # "bases-de-datos-2-b-2.side",
     "bases-de-datos-3-b-0.side",
-    "bases-de-datos-3-c-estadisticas-administrador.side",
-    "bases-de-datos-3-c-confirma-contrasena.side",
-    "bases-de-datos-3-c-usuario-miron.side",
-    "bases-de-datos-3-c-correo-usuarios.side",
-    "bases-de-datos-3-c-datos-repetidos.side",
-    "bases-de-datos-3-c-registros-incompletos.side",
-    "bases-de-datos-3-c-cambia-password.side",
-    "bases-de-datos-3-c-contador-conexiones.side",
-    "bases-de-datos-3-c-numero-registros-usuario.side",
+    # "bases-de-datos-3-c-estadisticas-administrador.side",
+    # "bases-de-datos-3-c-confirma-contrasena.side",
+    # "bases-de-datos-3-c-usuario-miron.side",
+    # "bases-de-datos-3-c-correo-usuarios.side",
+    # "bases-de-datos-3-c-datos-repetidos.side",
+    # "bases-de-datos-3-c-registros-incompletos.side",
+    # "bases-de-datos-3-c-cambia-password.side",
+    # "bases-de-datos-3-c-contador-conexiones.side",
+    # "bases-de-datos-3-c-numero-registros-usuario.side",
 ]
 
 def lee_json(fichero):
