@@ -1,18 +1,18 @@
 {
-    "id": "mclibre-bases-de-datos-1-6-tests",
+    "id": "mclibre-bases-de-datos-1-b-1-tests",
     "version": "2024-01-19",
-    "name": "Test ejercicio Bases de datos (1) 6",
+    "name": "Test ejercicio Bases de datos (1 B) 1",
     "url": "http://localhost",
     "tests": [
         {
             "id": "test-completo",
-            "name": "Test ejercicio Bases de datos (1) 6",
+            "name": "Test ejercicio Bases de datos (1 B) 1",
             "comment": "Comprueba todo",
             "commands": [
                 {
                     "id": "definiciones-generales-1",
                     "command": "store",
-                    "target": "/iaw/php/ejercicios/bases-datos/bases-de-datos-1/bases-de-datos-1-6",
+                    "target": "/iaw/php/ejercicios/bases-datos/bases-de-datos-1-b/bases-de-datos-1-b-1",
                     "value": "urlBase"
                 },
                 {
@@ -24,7 +24,7 @@
                 {
                     "id": "inicio-2",
                     "command": "waitForElementPresent",
-                    "target": "xpath=//h1[.=\"Bases de datos (1) 6 - Inicio\"]",
+                    "target": "xpath=//h1[.=\"Bases de datos (1 B) 1 - Inicio\"]",
                     "value": "20000"
                 },
                 {
@@ -36,7 +36,7 @@
                 {
                     "id": "borrar-todo-2",
                     "command": "waitForElementPresent",
-                    "target": "xpath=//h1[.=\"Bases de datos (1) 6 - Borrar todo 1\"]",
+                    "target": "xpath=//h1[.=\"Bases de datos (1 B) 1 - Borrar todo 1\"]",
                     "value": "1000"
                 },
                 {
@@ -48,7 +48,7 @@
                 {
                     "id": "borrar-todo-4",
                     "command": "waitForElementPresent",
-                    "target": "xpath=//h1[.=\"Bases de datos (1) 6 - Inicio\"]",
+                    "target": "xpath=//h1[.=\"Bases de datos (1 B) 1 - Inicio\"]",
                     "value": "1000"
                 },
                 {
@@ -60,7 +60,7 @@
                 {
                     "id": "borrar-todo-6",
                     "command": "waitForElementPresent",
-                    "target": "xpath=//h1[.=\"Bases de datos (1) 6 - Borrar todo 1\"]",
+                    "target": "xpath=//h1[.=\"Bases de datos (1 B) 1 - Borrar todo 1\"]",
                     "value": "1000"
                 },
                 {
@@ -72,7 +72,7 @@
                 {
                     "id": "borrar-todo-8",
                     "command": "waitForElementPresent",
-                    "target": "xpath=//h1[.=\"Bases de datos (1) 6 - Borrar todo 2\"]",
+                    "target": "xpath=//h1[.=\"Bases de datos (1 B) 1 - Borrar todo 2\"]",
                     "value": "1000"
                 },
                 {
@@ -150,7 +150,7 @@
                 {
                     "id": "borrar-todo-21",
                     "command": "waitForElementPresent",
-                    "target": "xpath=//h1[.=\"Bases de datos (1) 6 - Inicio\"]",
+                    "target": "xpath=//h1[.=\"Bases de datos (1 B) 1 - Inicio\"]",
                     "value": "1000"
                 },
                 {
@@ -163,7 +163,7 @@
                 {
                     "id": "insertar-1-2",
                     "command": "waitForElementPresent",
-                    "target": "xpath=//h1[.=\"Bases de datos (1) 6 - Añadir 1\"]",
+                    "target": "xpath=//h1[.=\"Bases de datos (1 B) 1 - Añadir 1\"]",
                     "value": "1000"
                 },
                 {
@@ -180,45 +180,51 @@
                 },
                 {
                     "id": "insertar-1-5",
+                    "command": "type",
+                    "target": "name=telefono",
+                    "value": "123456"
+                },
+                {
+                    "id": "insertar-1-6",
                     "command": "click",
                     "target": "xpath=//input[@value='Añadir']",
                     "value": ""
                 },
                 {
-                    "id": "insertar-1-6",
+                    "id": "insertar-1-7",
                     "command": "waitForElementPresent",
-                    "target": "xpath=//h1[.=\"Bases de datos (1) 6 - Añadir 2\"]",
+                    "target": "xpath=//h1[.=\"Bases de datos (1 B) 1 - Añadir 2\"]",
                     "value": "1000"
                 },
                 {
-                    "id": "insertar-1-7",
+                    "id": "insertar-1-8",
                     "command": "assertText",
                     "target": "xpath=//p",
                     "value": "Registro creado correctamente."
                 },
                 {
-                    "id": "insertar-1-8",
+                    "id": "insertar-1-9",
                     "command": "click",
                     "target": "linkText=Volver",
                     "value": ""
                 },
                 {
-                    "id": "insertar-1-9",
+                    "id": "insertar-1-10",
                     "command": "waitForElementPresent",
-                    "target": "xpath=//h1[.=\"Bases de datos (1) 6 - Inicio\"]",
+                    "target": "xpath=//h1[.=\"Bases de datos (1 B) 1 - Inicio\"]",
                     "value": "1000"
                 },
                 {
                     "id": "insertar-2-1",
-                    "comment": "(TEST) Insertar > Avisos individuales Nombre / Apellidos largos",
+                    "comment": "(TEST) Insertar > Avisos individuales Nombre / Apellidos / Teléfono largos",
                     "command": "open",
-                    "target": "${urlBase}/insertar-2.php?nombre=abcdefghi1abcdefghi2abcdefghi3abcdefghi4a&apellidos=abcdefghi1abcdefghi2abcdefghi3abcdefghi4abcdefghi5abcdefghi6a",
+                    "target": "${urlBase}/insertar-2.php?nombre=abcdefghi1abcdefghi2abcdefghi3abcdefghi4a&apellidos=abcdefghi1abcdefghi2abcdefghi3abcdefghi4abcdefghi5abcdefghi6a&telefono=0123456789012345",
                     "value": ""
                 },
                 {
                     "id": "insertar-2-2",
                     "command": "waitForElementPresent",
-                    "target": "xpath=//h1[.=\"Bases de datos (1) 6 - Añadir 2\"]",
+                    "target": "xpath=//h1[.=\"Bases de datos (1 B) 1 - Añadir 2\"]",
                     "value": "1000"
                 },
                 {
@@ -235,27 +241,33 @@
                 },
                 {
                     "id": "insertar-2-5",
+                    "command": "assertText",
+                    "target": "xpath=//p[3]",
+                    "value": "El teléfono no puede tener más de 15 caracteres."
+                },
+                {
+                    "id": "insertar-2-6",
                     "command": "storeElementCount",
                     "target": "xpath=//*[contains(@class, 'aviso')]",
                     "value": "cuentaAvisos"
                 },
                 {
-                    "id": "insertar-2-6",
+                    "id": "insertar-2-7",
                     "command": "assert",
                     "target": "cuentaAvisos",
-                    "value": "2"
+                    "value": "3"
                 },
                 {
                     "id": "insertar-3-1",
                     "comment": "(TEST) Insertar > Inserta un registro directamente",
                     "command": "open",
-                    "target": "${urlBase}/insertar-2.php?nombre=Pepito&apellidos=Conejo",
+                    "target": "${urlBase}/insertar-2.php?nombre=Pepito&apellidos=Conejo&telefono=98765",
                     "value": ""
                 },
                 {
                     "id": "insertar-3-2",
                     "command": "waitForElementPresent",
-                    "target": "xpath=//h1[.=\"Bases de datos (1) 6 - Añadir 2\"]",
+                    "target": "xpath=//h1[.=\"Bases de datos (1 B) 1 - Añadir 2\"]",
                     "value": "1000"
                 },
                 {
@@ -273,7 +285,7 @@
                 {
                     "id": "insertar-3-5",
                     "command": "waitForElementPresent",
-                    "target": "xpath=//h1[.=\"Bases de datos (1) 6 - Inicio\"]",
+                    "target": "xpath=//h1[.=\"Bases de datos (1 B) 1 - Inicio\"]",
                     "value": "1000"
                 },
                 {
@@ -286,7 +298,7 @@
                 {
                     "id": "listar-1-2",
                     "command": "waitForElementPresent",
-                    "target": "xpath=//h1[.=\"Bases de datos (1) 6 - Listar\"]",
+                    "target": "xpath=//h1[.=\"Bases de datos (1 B) 1 - Listar\"]",
                     "value": "1000"
                 },
                 {
@@ -304,49 +316,67 @@
                 {
                     "id": "listar-1-5",
                     "command": "assertText",
+                    "target": "xpath=//tr/th[3]",
+                    "value": "Teléfono"
+                },
+                {
+                    "id": "listar-1-6",
+                    "command": "assertText",
                     "target": "xpath=//tr[1]/td[1]",
                     "value": "Numa"
                 },
                 {
-                    "id": "listar-1-6",
+                    "id": "listar-1-7",
                     "command": "assertText",
                     "target": "xpath=//tr[1]/td[2]",
                     "value": "Nigerio"
                 },
                 {
-                    "id": "listar-1-7",
+                    "id": "listar-1-8",
+                    "command": "assertText",
+                    "target": "xpath=//tr[1]/td[3]",
+                    "value": "123456"
+                },
+                {
+                    "id": "listar-1-9",
                     "command": "assertText",
                     "target": "xpath=//tr[2]/td[1]",
                     "value": "Pepito"
                 },
                 {
-                    "id": "listar-1-8",
+                    "id": "listar-1-10",
                     "command": "assertText",
                     "target": "xpath=//tr[2]/td[2]",
                     "value": "Conejo"
                 },
                 {
-                    "id": "listar-1-9",
+                    "id": "listar-1-11",
+                    "command": "assertText",
+                    "target": "xpath=//tr[2]/td[3]",
+                    "value": "98765"
+                },
+                {
+                    "id": "listar-1-12",
                     "command": "storeElementCount",
                     "target": "xpath=//tr",
                     "value": "cuentaFilas"
                 },
                 {
-                    "id": "listar-1-10",
+                    "id": "listar-1-13",
                     "command": "assert",
                     "target": "cuentaFilas",
                     "value": "3"
                 },
                 {
-                    "id": "listar-1-11",
+                    "id": "listar-1-14",
                     "command": "click",
                     "target": "linkText=Volver",
                     "value": ""
                 },
                 {
-                    "id": "listar-1-12",
+                    "id": "listar-1-15",
                     "command": "waitForElementPresent",
-                    "target": "xpath=//h1[.=\"Bases de datos (1) 6 - Inicio\"]",
+                    "target": "xpath=//h1[.=\"Bases de datos (1 B) 1 - Inicio\"]",
                     "value": "1000"
                 },
                 {
@@ -359,19 +389,19 @@
                 {
                     "id": "borrar-1-2",
                     "command": "waitForElementPresent",
-                    "target": "xpath=//h1[.=\"Bases de datos (1) 6 - Añadir 1\"]",
+                    "target": "xpath=//h1[.=\"Bases de datos (1 B) 1 - Añadir 1\"]",
                     "value": "1000"
                 },
                 {
                     "id": "borrar-1-3",
                     "command": "open",
-                    "target": "${urlBase}/insertar-2.php?nombre=Julio&apellidos=César",
+                    "target": "${urlBase}/insertar-2.php?nombre=Julio&apellidos=César&telefono=3141592",
                     "value": ""
                 },
                 {
                     "id": "borrar-1-4",
                     "command": "waitForElementPresent",
-                    "target": "xpath=//h1[.=\"Bases de datos (1) 6 - Añadir 2\"]",
+                    "target": "xpath=//h1[.=\"Bases de datos (1 B) 1 - Añadir 2\"]",
                     "value": "1000"
                 },
                 {
@@ -389,7 +419,7 @@
                 {
                     "id": "borrar-1-7",
                     "command": "waitForElementPresent",
-                    "target": "xpath=//h1[.=\"Bases de datos (1) 6 - Inicio\"]",
+                    "target": "xpath=//h1[.=\"Bases de datos (1 B) 1 - Inicio\"]",
                     "value": "1000"
                 },
                 {
@@ -402,7 +432,7 @@
                 {
                     "id": "borrar-2-2",
                     "command": "waitForElementPresent",
-                    "target": "xpath=//h1[.=\"Bases de datos (1) 6 - Borrar 1\"]",
+                    "target": "xpath=//h1[.=\"Bases de datos (1 B) 1 - Borrar 1\"]",
                     "value": "1000"
                 },
                 {
@@ -438,23 +468,35 @@
                 {
                     "id": "borrar-2-8",
                     "command": "assertText",
+                    "target": "xpath=//tr/th[4]",
+                    "value": "Teléfono"
+                },
+                {
+                    "id": "borrar-2-9",
+                    "command": "assertText",
                     "target": "xpath=//tr[1]/td[2]",
                     "value": "Numa"
                 },
                 {
-                    "id": "borrar-2-9",
+                    "id": "borrar-2-10",
                     "command": "assertText",
                     "target": "xpath=//tr[1]/td[3]",
                     "value": "Nigerio"
                 },
                 {
-                    "id": "borrar-2-10",
+                    "id": "borrar-2-11",
+                    "command": "assertText",
+                    "target": "xpath=//tr[1]/td[4]",
+                    "value": "123456"
+                },
+                {
+                    "id": "borrar-2-12",
                     "command": "click",
                     "target": "name=id[1]",
                     "value": ""
                 },
                 {
-                    "id": "borrar-2-11",
+                    "id": "borrar-2-13",
                     "command": "verifyChecked",
                     "target": "xpath=//input[@name=\"id[1]\"]",
                     "value": ""
@@ -481,7 +523,7 @@
                 {
                     "id": "borrar-3-4",
                     "command": "waitForElementPresent",
-                    "target": "xpath=//h1[.=\"Bases de datos (1) 6 - Borrar 2\"]",
+                    "target": "xpath=//h1[.=\"Bases de datos (1 B) 1 - Borrar 2\"]",
                     "value": "1000"
                 },
                 {
@@ -499,7 +541,7 @@
                 {
                     "id": "borrar-3-7",
                     "command": "waitForElementPresent",
-                    "target": "xpath=//h1[.=\"Bases de datos (1) 6 - Inicio\"]",
+                    "target": "xpath=//h1[.=\"Bases de datos (1 B) 1 - Inicio\"]",
                     "value": "1000"
                 },
                 {
@@ -512,7 +554,7 @@
                 {
                     "id": "borrar-4-2",
                     "command": "waitForElementPresent",
-                    "target": "xpath=//h1[.=\"Bases de datos (1) 6 - Borrar 2\"]",
+                    "target": "xpath=//h1[.=\"Bases de datos (1 B) 1 - Borrar 2\"]",
                     "value": "1000"
                 },
                 {
@@ -543,7 +585,7 @@
                 {
                     "id": "borrar-5-2",
                     "command": "waitForElementPresent",
-                    "target": "xpath=//h1[.=\"Bases de datos (1) 6 - Borrar 1\"]",
+                    "target": "xpath=//h1[.=\"Bases de datos (1 B) 1 - Borrar 1\"]",
                     "value": "1000"
                 },
                 {
@@ -567,7 +609,7 @@
                 {
                     "id": "borrar-5-6",
                     "command": "waitForElementPresent",
-                    "target": "xpath=//h1[.=\"Bases de datos (1) 6 - Borrar 2\"]",
+                    "target": "xpath=//h1[.=\"Bases de datos (1 B) 1 - Borrar 2\"]",
                     "value": "1000"
                 },
                 {
@@ -585,7 +627,7 @@
                 {
                     "id": "borrar-5-9",
                     "command": "waitForElementPresent",
-                    "target": "xpath=//h1[.=\"Bases de datos (1) 6 - Inicio\"]",
+                    "target": "xpath=//h1[.=\"Bases de datos (1 B) 1 - Inicio\"]",
                     "value": "1000"
                 },
                 {
@@ -598,7 +640,7 @@
                 {
                     "id": "borrar-6-2",
                     "command": "waitForElementPresent",
-                    "target": "xpath=//h1[.=\"Bases de datos (1) 6 - Borrar 1\"]",
+                    "target": "xpath=//h1[.=\"Bases de datos (1 B) 1 - Borrar 1\"]",
                     "value": "1000"
                 },
                 {
@@ -646,7 +688,7 @@
                 {
                     "id": "borrar-6-10",
                     "command": "waitForElementPresent",
-                    "target": "xpath=//h1[.=\"Bases de datos (1) 6 - Borrar 2\"]",
+                    "target": "xpath=//h1[.=\"Bases de datos (1 B) 1 - Borrar 2\"]",
                     "value": "1000"
                 },
                 {
@@ -670,7 +712,7 @@
                 {
                     "id": "borrar-6-14",
                     "command": "waitForElementPresent",
-                    "target": "xpath=//h1[.=\"Bases de datos (1) 6 - Inicio\"]",
+                    "target": "xpath=//h1[.=\"Bases de datos (1 B) 1 - Inicio\"]",
                     "value": "1000"
                 },
                 {
@@ -683,7 +725,7 @@
                 {
                     "id": "borrar-7-2",
                     "command": "waitForElementPresent",
-                    "target": "xpath=//h1[.=\"Bases de datos (1) 6 - Borrar 1\"]",
+                    "target": "xpath=//h1[.=\"Bases de datos (1 B) 1 - Borrar 1\"]",
                     "value": "1000"
                 },
                 {
@@ -707,20 +749,20 @@
                 {
                     "id": "borrar-7-6",
                     "command": "waitForElementPresent",
-                    "target": "xpath=//h1[.=\"Bases de datos (1) 6 - Inicio\"]",
+                    "target": "xpath=//h1[.=\"Bases de datos (1 B) 1 - Inicio\"]",
                     "value": "1000"
                 },
                 {
                     "id": "buscar-1-1",
                     "comment": "(TEST) Buscar > Inserta tres registros directamente",
                     "command": "open",
-                    "target": "${urlBase}/insertar-2.php?nombre=Numa&apellidos=Nigerio",
+                    "target": "${urlBase}/insertar-2.php?nombre=Numa&apellidos=Nigerio&telefono=123456",
                     "value": ""
                 },
                 {
                     "id": "buscar-1-2",
                     "command": "waitForElementPresent",
-                    "target": "xpath=//h1[.=\"Bases de datos (1) 6 - Añadir 2\"]",
+                    "target": "xpath=//h1[.=\"Bases de datos (1 B) 1 - Añadir 2\"]",
                     "value": "1000"
                 },
                 {
@@ -732,13 +774,13 @@
                 {
                     "id": "buscar-1-4",
                     "command": "open",
-                    "target": "${urlBase}/insertar-2.php?nombre=Pepito&apellidos=Conejo",
+                    "target": "${urlBase}/insertar-2.php?nombre=Pepito&apellidos=Conejo&telefono=98765",
                     "value": ""
                 },
                 {
                     "id": "buscar-1-5",
                     "command": "waitForElementPresent",
-                    "target": "xpath=//h1[.=\"Bases de datos (1) 6 - Añadir 2\"]",
+                    "target": "xpath=//h1[.=\"Bases de datos (1 B) 1 - Añadir 2\"]",
                     "value": "1000"
                 },
                 {
@@ -750,13 +792,13 @@
                 {
                     "id": "buscar-1-7",
                     "command": "open",
-                    "target": "${urlBase}/insertar-2.php?nombre=Julio&apellidos=César",
+                    "target": "${urlBase}/insertar-2.php?nombre=Julio&apellidos=César&telefono=3141592",
                     "value": ""
                 },
                 {
                     "id": "buscar-1-8",
                     "command": "waitForElementPresent",
-                    "target": "xpath=//h1[.=\"Bases de datos (1) 6 - Añadir 2\"]",
+                    "target": "xpath=//h1[.=\"Bases de datos (1 B) 1 - Añadir 2\"]",
                     "value": "1000"
                 },
                 {
@@ -774,7 +816,7 @@
                 {
                     "id": "buscar-1-11",
                     "command": "waitForElementPresent",
-                    "target": "xpath=//h1[.=\"Bases de datos (1) 6 - Inicio\"]",
+                    "target": "xpath=//h1[.=\"Bases de datos (1 B) 1 - Inicio\"]",
                     "value": "1000"
                 },
                 {
@@ -787,7 +829,7 @@
                 {
                     "id": "buscar-2-2",
                     "command": "waitForElementPresent",
-                    "target": "xpath=//h1[.=\"Bases de datos (1) 6 - Buscar 1\"]",
+                    "target": "xpath=//h1[.=\"Bases de datos (1 B) 1 - Buscar 1\"]",
                     "value": "1000"
                 },
                 {
@@ -805,7 +847,7 @@
                 {
                     "id": "buscar-2-5",
                     "command": "waitForElementPresent",
-                    "target": "xpath=//h1[.=\"Bases de datos (1) 6 - Buscar 2\"]",
+                    "target": "xpath=//h1[.=\"Bases de datos (1 B) 1 - Buscar 2\"]",
                     "value": "1000"
                 },
                 {
@@ -823,49 +865,67 @@
                 {
                     "id": "buscar-2-8",
                     "command": "assertText",
+                    "target": "xpath=//tr/th[3]",
+                    "value": "Teléfono"
+                },
+                {
+                    "id": "buscar-2-9",
+                    "command": "assertText",
                     "target": "xpath=//tr[1]/td[1]",
                     "value": "Numa"
                 },
                 {
-                    "id": "buscar-2-9",
+                    "id": "buscar-2-10",
                     "command": "assertText",
                     "target": "xpath=//tr[1]/td[2]",
                     "value": "Nigerio"
                 },
                 {
-                    "id": "buscar-2-10",
+                    "id": "buscar-2-11",
+                    "command": "assertText",
+                    "target": "xpath=//tr[1]/td[3]",
+                    "value": "123456"
+                },
+                {
+                    "id": "buscar-2-12",
                     "command": "assertText",
                     "target": "xpath=//tr[2]/td[1]",
                     "value": "Julio"
                 },
                 {
-                    "id": "buscar-2-11",
+                    "id": "buscar-2-13",
                     "command": "assertText",
                     "target": "xpath=//tr[2]/td[2]",
                     "value": "César"
                 },
                 {
-                    "id": "buscar-2-12",
+                    "id": "buscar-2-14",
+                    "command": "assertText",
+                    "target": "xpath=//tr[2]/td[3]",
+                    "value": "3141592"
+                },
+                {
+                    "id": "buscar-2-15",
                     "command": "storeElementCount",
                     "target": "xpath=//tr",
                     "value": "cuentaFilas"
                 },
                 {
-                    "id": "buscar-2-13",
+                    "id": "buscar-2-16",
                     "command": "assert",
                     "target": "cuentaFilas",
                     "value": "3"
                 },
                 {
-                    "id": "buscar-2-14",
+                    "id": "buscar-2-17",
                     "command": "click",
                     "target": "linkText=Volver",
                     "value": ""
                 },
                 {
-                    "id": "buscar-2-15",
+                    "id": "buscar-2-18",
                     "command": "waitForElementPresent",
-                    "target": "xpath=//h1[.=\"Bases de datos (1) 6 - Inicio\"]",
+                    "target": "xpath=//h1[.=\"Bases de datos (1 B) 1 - Inicio\"]",
                     "value": "1000"
                 },
                 {
@@ -878,7 +938,7 @@
                 {
                     "id": "buscar-3-2",
                     "command": "waitForElementPresent",
-                    "target": "xpath=//h1[.=\"Bases de datos (1) 6 - Buscar 1\"]",
+                    "target": "xpath=//h1[.=\"Bases de datos (1 B) 1 - Buscar 1\"]",
                     "value": "1000"
                 },
                 {
@@ -896,7 +956,7 @@
                 {
                     "id": "buscar-3-5",
                     "command": "waitForElementPresent",
-                    "target": "xpath=//h1[.=\"Bases de datos (1) 6 - Buscar 2\"]",
+                    "target": "xpath=//h1[.=\"Bases de datos (1 B) 1 - Buscar 2\"]",
                     "value": "1000"
                 },
                 {
@@ -913,31 +973,37 @@
                 },
                 {
                     "id": "buscar-3-8",
+                    "command": "assertText",
+                    "target": "xpath=//tr[1]/td[3]",
+                    "value": "3141592"
+                },
+                {
+                    "id": "buscar-3-9",
                     "command": "storeElementCount",
                     "target": "xpath=//tr",
                     "value": "cuentaFilas"
                 },
                 {
-                    "id": "buscar-3-9",
+                    "id": "buscar-3-10",
                     "command": "assert",
                     "target": "cuentaFilas",
                     "value": "2"
                 },
                 {
-                    "id": "buscar-3-10",
+                    "id": "buscar-3-11",
                     "command": "click",
                     "target": "linkText=Volver",
                     "value": ""
                 },
                 {
-                    "id": "buscar-3-11",
+                    "id": "buscar-3-12",
                     "command": "waitForElementPresent",
-                    "target": "xpath=//h1[.=\"Bases de datos (1) 6 - Inicio\"]",
+                    "target": "xpath=//h1[.=\"Bases de datos (1 B) 1 - Inicio\"]",
                     "value": "1000"
                 },
                 {
                     "id": "buscar-4-1",
-                    "comment": "(TEST) Buscar > Encuentra registros correctamente (busca por nombre y apellidos",
+                    "comment": "(TEST) Buscar > Encuentra registros correctamente (busca por nombre y telefono)",
                     "command": "click",
                     "target": "linkText=Buscar",
                     "value": ""
@@ -945,7 +1011,7 @@
                 {
                     "id": "buscar-4-2",
                     "command": "waitForElementPresent",
-                    "target": "xpath=//h1[.=\"Bases de datos (1) 6 - Buscar 1\"]",
+                    "target": "xpath=//h1[.=\"Bases de datos (1 B) 1 - Buscar 1\"]",
                     "value": "1000"
                 },
                 {
@@ -957,8 +1023,8 @@
                 {
                     "id": "buscar-4-4",
                     "command": "type",
-                    "target": "name=apellidos",
-                    "value": "g"
+                    "target": "name=telefono",
+                    "value": "6"
                 },
                 {
                     "id": "buscar-4-5",
@@ -969,7 +1035,7 @@
                 {
                     "id": "buscar-4-6",
                     "command": "waitForElementPresent",
-                    "target": "xpath=//h1[.=\"Bases de datos (1) 6 - Buscar 2\"]",
+                    "target": "xpath=//h1[.=\"Bases de datos (1 B) 1 - Buscar 2\"]",
                     "value": "1000"
                 },
                 {
@@ -986,31 +1052,37 @@
                 },
                 {
                     "id": "buscar-4-9",
+                    "command": "assertText",
+                    "target": "xpath=//tr[1]/td[3]",
+                    "value": "123456"
+                },
+                {
+                    "id": "buscar-4-10",
                     "command": "storeElementCount",
                     "target": "xpath=//tr",
                     "value": "cuentaFilas"
                 },
                 {
-                    "id": "buscar-4-10",
+                    "id": "buscar-4-11",
                     "command": "assert",
                     "target": "cuentaFilas",
                     "value": "2"
                 },
                 {
-                    "id": "buscar-4-11",
+                    "id": "buscar-4-12",
                     "command": "click",
                     "target": "linkText=Volver",
                     "value": ""
                 },
                 {
-                    "id": "buscar-4-12",
+                    "id": "buscar-4-13",
                     "command": "waitForElementPresent",
-                    "target": "xpath=//h1[.=\"Bases de datos (1) 6 - Inicio\"]",
+                    "target": "xpath=//h1[.=\"Bases de datos (1 B) 1 - Inicio\"]",
                     "value": "1000"
                 },
                 {
                     "id": "buscar-5-1",
-                    "comment": "(TEST) Buscar > No encuentra registros correctamente (busca por apellidos)",
+                    "comment": "(TEST) Buscar > No encuentra registros correctamente (busca por teléfono)",
                     "command": "click",
                     "target": "linkText=Buscar",
                     "value": ""
@@ -1018,14 +1090,14 @@
                 {
                     "id": "buscar-5-2",
                     "command": "waitForElementPresent",
-                    "target": "xpath=//h1[.=\"Bases de datos (1) 6 - Buscar 1\"]",
+                    "target": "xpath=//h1[.=\"Bases de datos (1 B) 1 - Buscar 1\"]",
                     "value": "1000"
                 },
                 {
                     "id": "buscar-5-3",
                     "command": "type",
-                    "target": "name=apellidos",
-                    "value": "x"
+                    "target": "name=telefono",
+                    "value": "91"
                 },
                 {
                     "id": "buscar-5-4",
@@ -1036,7 +1108,7 @@
                 {
                     "id": "buscar-5-5",
                     "command": "waitForElementPresent",
-                    "target": "xpath=//h1[.=\"Bases de datos (1) 6 - Buscar 2\"]",
+                    "target": "xpath=//h1[.=\"Bases de datos (1 B) 1 - Buscar 2\"]",
                     "value": "1000"
                 },
                 {
@@ -1060,7 +1132,7 @@
                 {
                     "id": "buscar-5-9",
                     "command": "waitForElementPresent",
-                    "target": "xpath=//h1[.=\"Bases de datos (1) 6 - Inicio\"]",
+                    "target": "xpath=//h1[.=\"Bases de datos (1 B) 1 - Inicio\"]",
                     "value": "1000"
                 },
                 {
@@ -1073,7 +1145,7 @@
                 {
                     "id": "modificar-1-2",
                     "command": "waitForElementPresent",
-                    "target": "xpath=//h1[.=\"Bases de datos (1) 6 - Modificar 2\"]",
+                    "target": "xpath=//h1[.=\"Bases de datos (1 B) 1 - Modificar 2\"]",
                     "value": "1000"
                 },
                 {
@@ -1103,7 +1175,7 @@
                 {
                     "id": "modificar-1-7",
                     "command": "waitForElementPresent",
-                    "target": "xpath=//h1[.=\"Bases de datos (1) 6 - Inicio\"]",
+                    "target": "xpath=//h1[.=\"Bases de datos (1 B) 1 - Inicio\"]",
                     "value": "1000"
                 },
                 {
@@ -1116,7 +1188,7 @@
                 {
                     "id": "modificar-2-2",
                     "command": "waitForElementPresent",
-                    "target": "xpath=//h1[.=\"Bases de datos (1) 6 - Modificar 1\"]",
+                    "target": "xpath=//h1[.=\"Bases de datos (1 B) 1 - Modificar 1\"]",
                     "value": "1000"
                 },
                 {
@@ -1152,17 +1224,29 @@
                 {
                     "id": "modificar-2-8",
                     "command": "assertText",
+                    "target": "xpath=//tr/th[4]",
+                    "value": "Teléfono"
+                },
+                {
+                    "id": "modificar-2-9",
+                    "command": "assertText",
                     "target": "xpath=//tr[2]/td[2]",
                     "value": "Pepito"
                 },
                 {
-                    "id": "modificar-2-9",
+                    "id": "modificar-2-10",
                     "command": "assertText",
                     "target": "xpath=//tr[2]/td[3]",
                     "value": "Conejo"
                 },
                 {
-                    "id": "modificar-2-10",
+                    "id": "modificar-2-11",
+                    "command": "assertText",
+                    "target": "xpath=//tr[2]/td[4]",
+                    "value": "98765"
+                },
+                {
+                    "id": "modificar-2-12",
                     "command": "click",
                     "target": "xpath=//tr[2]/td[1]/input",
                     "value": ""
@@ -1177,7 +1261,7 @@
                 {
                     "id": "modificar-3-2",
                     "command": "waitForElementPresent",
-                    "target": "xpath=//h1[.=\"Bases de datos (1) 6 - Modificar 2\"]",
+                    "target": "xpath=//h1[.=\"Bases de datos (1 B) 1 - Modificar 2\"]",
                     "value": "1000"
                 },
                 {
@@ -1194,92 +1278,110 @@
                 },
                 {
                     "id": "modificar-3-5",
+                    "command": "assertValue",
+                    "target": "xpath=//input[@name='telefono']",
+                    "value": "98765"
+                },
+                {
+                    "id": "modificar-3-6",
                     "command": "type",
                     "target": "name=nombre",
                     "value": "Pepita"
                 },
                 {
-                    "id": "modificar-3-6",
+                    "id": "modificar-3-7",
                     "command": "type",
                     "target": "name=apellidos",
                     "value": "Coneja"
                 },
                 {
-                    "id": "modificar-3-7",
+                    "id": "modificar-3-8",
+                    "command": "type",
+                    "target": "name=telefono",
+                    "value": "4567"
+                },
+                {
+                    "id": "modificar-3-9",
                     "command": "click",
                     "target": "xpath=//input[@value='Actualizar']",
                     "value": ""
                 },
                 {
-                    "id": "modificar-3-8",
+                    "id": "modificar-3-10",
                     "command": "waitForElementPresent",
-                    "target": "xpath=//h1[.=\"Bases de datos (1) 6 - Modificar 3\"]",
+                    "target": "xpath=//h1[.=\"Bases de datos (1 B) 1 - Modificar 3\"]",
                     "value": "1000"
                 },
                 {
-                    "id": "modificar-3-9",
+                    "id": "modificar-3-11",
                     "command": "assertText",
                     "target": "xpath=//p",
                     "value": "Registro modificado correctamente."
                 },
                 {
-                    "id": "modificar-3-10",
-                    "command": "click",
-                    "target": "linkText=Volver",
-                    "value": ""
-                },
-                {
-                    "id": "modificar-3-11",
-                    "command": "waitForElementPresent",
-                    "target": "xpath=//h1[.=\"Bases de datos (1) 6 - Inicio\"]",
-                    "value": "1000"
-                },
-                {
                     "id": "modificar-3-12",
                     "command": "click",
-                    "target": "linkText=Listar",
+                    "target": "linkText=Volver",
                     "value": ""
                 },
                 {
                     "id": "modificar-3-13",
                     "command": "waitForElementPresent",
-                    "target": "xpath=//h1[.=\"Bases de datos (1) 6 - Listar\"]",
+                    "target": "xpath=//h1[.=\"Bases de datos (1 B) 1 - Inicio\"]",
                     "value": "1000"
                 },
                 {
                     "id": "modificar-3-14",
+                    "command": "click",
+                    "target": "linkText=Listar",
+                    "value": ""
+                },
+                {
+                    "id": "modificar-3-15",
+                    "command": "waitForElementPresent",
+                    "target": "xpath=//h1[.=\"Bases de datos (1 B) 1 - Listar\"]",
+                    "value": "1000"
+                },
+                {
+                    "id": "modificar-3-16",
                     "command": "assertText",
                     "target": "xpath=//tr[2]/td[1]",
                     "value": "Pepita"
                 },
                 {
-                    "id": "modificar-3-15",
+                    "id": "modificar-3-17",
                     "command": "assertText",
                     "target": "xpath=//tr[2]/td[2]",
                     "value": "Coneja"
                 },
                 {
-                    "id": "modificar-3-16",
+                    "id": "modificar-3-18",
+                    "command": "assertText",
+                    "target": "xpath=//tr[2]/td[3]",
+                    "value": "4567"
+                },
+                {
+                    "id": "modificar-3-19",
                     "command": "storeElementCount",
                     "target": "xpath=//tr",
                     "value": "cuentaFilas"
                 },
                 {
-                    "id": "modificar-3-17",
+                    "id": "modificar-3-20",
                     "command": "assert",
                     "target": "cuentaFilas",
                     "value": "4"
                 },
                 {
-                    "id": "modificar-3-18",
+                    "id": "modificar-3-21",
                     "command": "click",
                     "target": "linkText=Volver",
                     "value": ""
                 },
                 {
-                    "id": "modificar-3-19",
+                    "id": "modificar-3-22",
                     "command": "waitForElementPresent",
-                    "target": "xpath=//h1[.=\"Bases de datos (1) 6 - Inicio\"]",
+                    "target": "xpath=//h1[.=\"Bases de datos (1 B) 1 - Inicio\"]",
                     "value": "1000"
                 }
             ]
