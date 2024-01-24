@@ -486,9 +486,9 @@
                 },
                 {
                     "id": "borrar-3-5",
-                    "command": "verifyNotText",
+                    "command": "assertText",
                     "target": "xpath=//p",
-                    "value": "Registro borrado correctamente (si existía)."
+                    "value": "No se ha seleccionado ningún registro."
                 },
                 {
                     "id": "borrar-3-6",
