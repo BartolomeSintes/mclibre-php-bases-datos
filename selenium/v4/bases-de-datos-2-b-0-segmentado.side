@@ -1,6 +1,6 @@
 {
     "id": "mclibre-bases-de-datos-2-b-0-tests",
-    "version": "2024-01-19",
+    "version": "2024-01-25",
     "name": "Test ejercicio Bases de datos (2 B) 0",
     "url": "http://localhost",
     "tests": [
@@ -122,13 +122,15 @@
                     "id": "borrar-todo-11",
                     "command": "assertText",
                     "target": "xpath=//p[2]",
-                    "value": "Tabla borrada correctamente (si existía)."
+                    "value": "Tabla borrada correctamente (si existía).",
+                    "comment": "Ha borrado la tabla en SQLite."
                 },
                 {
                     "id": "borrar-todo-12",
                     "command": "assertText",
                     "target": "xpath=//p[3]",
-                    "value": "Tabla creada correctamente."
+                    "value": "Tabla creada correctamente.",
+                    "comment": "Ha creado la tabla en SQLite."
                 },
                 {
                     "id": "borrar-todo-13",
@@ -140,31 +142,36 @@
                     "id": "borrar-todo-14",
                     "command": "assertText",
                     "target": "xpath=//p[1]",
-                    "value": "Sistema Gestor de Bases de Datos: MySQL."
+                    "value": "Sistema Gestor de Bases de Datos: MySQL.",
+                    "comment": "Seleccionado Sistema Gestor de Bases de Datos MySQL/MariaDB."
                 },
                 {
                     "id": "borrar-todo-15",
                     "command": "assertText",
                     "target": "xpath=//p[2]",
-                    "value": "Base de datos borrada correctamente (si existía)."
+                    "value": "Base de datos borrada correctamente (si existía).",
+                    "comment": "Ha borrado la base datos en MySQL/MariaDB."
                 },
                 {
                     "id": "borrar-todo-16",
                     "command": "assertText",
                     "target": "xpath=//p[3]",
-                    "value": "Base de datos creada correctamente."
+                    "value": "Base de datos creada correctamente.",
+                    "comment": "Ha creado la base de datos en MySQL/MariaDB."
                 },
                 {
                     "id": "borrar-todo-17",
                     "command": "assertText",
                     "target": "xpath=//p[4]",
-                    "value": "Base de datos seleccionada correctamente."
+                    "value": "Base de datos seleccionada correctamente.",
+                    "comment": "Ha seleccionado la base de datos en MySQL/MariaDB."
                 },
                 {
                     "id": "borrar-todo-18",
                     "command": "assertText",
                     "target": "xpath=//p[5]",
-                    "value": "Tabla creada correctamente."
+                    "value": "Tabla creada correctamente.",
+                    "comment": "Ha creado la tabla en MySQL/MariaDB."
                 },
                 {
                     "id": "borrar-todo-19",

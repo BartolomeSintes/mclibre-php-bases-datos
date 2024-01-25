@@ -275,19 +275,22 @@
                     "id": "borrar-todo-15",
                     "command": "assertText",
                     "target": "xpath=//p[1]",
-                    "value": "Sistema Gestor de Bases de Datos: MySQL."
+                    "value": "Sistema Gestor de Bases de Datos: MySQL.",
+                    "comment": "Seleccionado Sistema Gestor de Bases de Datos MySQL/MariaDB."
                 },
                 {
                     "id": "borrar-todo-16",
                     "command": "assertText",
                     "target": "xpath=//p[2]",
-                    "value": "Base de datos borrada correctamente (si existía)."
+                    "value": "Base de datos borrada correctamente (si existía).",
+                    "comment": "Ha borrado la base datos en MySQL/MariaDB."
                 },
                 {
                     "id": "borrar-todo-17",
                     "command": "assertText",
                     "target": "xpath=//p[3]",
-                    "value": "Base de datos creada correctamente."
+                    "value": "Base de datos creada correctamente.",
+                    "comment": "Ha creado la base de datos en MySQL/MariaDB."
                 },
                 {
                     "id": "borrar-todo-18",
