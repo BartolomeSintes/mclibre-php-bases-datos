@@ -369,7 +369,8 @@
                     "id": "sin-registros-5",
                     "command": "assertText",
                     "target": "xpath=//p",
-                    "value": "No se ha creado todavía ningún registro."
+                    "value": "No se ha creado todavía ningún registro.",
+                    "comment": "Muestra aviso: No se ha creado todavía ningún registro."
                 },
                 {
                     "id": "sin-registros-6",
@@ -387,7 +388,8 @@
                     "id": "sin-registros-8",
                     "command": "assertText",
                     "target": "xpath=//p",
-                    "value": "No se ha creado todavía ningún registro."
+                    "value": "No se ha creado todavía ningún registro.",
+                    "comment": "Muestra aviso: No se ha creado todavía ningún registro."
                 },
                 {
                     "id": "sin-registros-9",
@@ -405,7 +407,8 @@
                     "id": "sin-registros-11",
                     "command": "assertText",
                     "target": "xpath=//p",
-                    "value": "No se ha creado todavía ningún registro."
+                    "value": "No se ha creado todavía ningún registro.",
+                    "comment": "Muestra aviso: No se ha creado todavía ningún registro."
                 },
                 {
                     "id": "sin-registros-12",
@@ -528,7 +531,8 @@
                     "id": "insertar-2-7",
                     "command": "assert",
                     "target": "cuentaAvisos",
-                    "value": "1"
+                    "value": "1",
+                    "comment": "Muestra exactamente 1 aviso."
                 },
                 {
                     "id": "insertar-3-1",
@@ -577,7 +581,8 @@
                     "id": "insertar-3-8",
                     "command": "assert",
                     "target": "cuentaAvisos",
-                    "value": "4"
+                    "value": "4",
+                    "comment": "Muestra exactamente 4 avisos."
                 },
                 {
                     "id": "insertar-4-1",
@@ -659,7 +664,8 @@
                     "id": "listar-1-6",
                     "command": "assert",
                     "target": "cuentaFilas",
-                    "value": "3"
+                    "value": "3",
+                    "comment": "La tabla contiene exactamente 3 filas."
                 },
                 {
                     "id": "listar-2-1",
@@ -696,7 +702,8 @@
                     "id": "listar-2-6",
                     "command": "assert",
                     "target": "cuentaFilas",
-                    "value": "3"
+                    "value": "3",
+                    "comment": "La tabla contiene exactamente 3 filas."
                 },
                 {
                     "id": "listar-3-1",
@@ -733,7 +740,8 @@
                     "id": "listar-3-6",
                     "command": "assert",
                     "target": "cuentaFilas",
-                    "value": "3"
+                    "value": "3",
+                    "comment": "La tabla contiene exactamente 3 filas."
                 },
                 {
                     "id": "listar-4-1",
@@ -770,7 +778,8 @@
                     "id": "listar-4-6",
                     "command": "assert",
                     "target": "cuentaFilas",
-                    "value": "3"
+                    "value": "3",
+                    "comment": "La tabla contiene exactamente 3 filas."
                 },
                 {
                     "id": "listar-5-1",
@@ -807,7 +816,8 @@
                     "id": "listar-5-6",
                     "command": "assert",
                     "target": "cuentaFilas",
-                    "value": "3"
+                    "value": "3",
+                    "comment": "La tabla contiene exactamente 3 filas."
                 },
                 {
                     "id": "listar-6-1",
@@ -844,7 +854,8 @@
                     "id": "listar-6-6",
                     "command": "assert",
                     "target": "cuentaFilas",
-                    "value": "3"
+                    "value": "3",
+                    "comment": "La tabla contiene exactamente 3 filas."
                 },
                 {
                     "id": "listar-7-1",
@@ -881,7 +892,8 @@
                     "id": "listar-7-6",
                     "command": "assert",
                     "target": "cuentaFilas",
-                    "value": "3"
+                    "value": "3",
+                    "comment": "La tabla contiene exactamente 3 filas."
                 },
                 {
                     "id": "listar-8-1",
@@ -918,7 +930,8 @@
                     "id": "listar-8-6",
                     "command": "assert",
                     "target": "cuentaFilas",
-                    "value": "3"
+                    "value": "3",
+                    "comment": "La tabla contiene exactamente 3 filas."
                 },
                 {
                     "id": "listar-9-1",
@@ -1018,7 +1031,8 @@
                     "id": "borrar-2-4",
                     "command": "assert",
                     "target": "cuentaFilas",
-                    "value": "4"
+                    "value": "4",
+                    "comment": "La tabla contiene exactamente 4 filas."
                 },
                 {
                     "id": "borrar-2-5",
@@ -1055,7 +1069,8 @@
                     "id": "borrar-3-4",
                     "command": "assert",
                     "target": "cuentaFilas",
-                    "value": "4"
+                    "value": "4",
+                    "comment": "La tabla contiene exactamente 4 filas."
                 },
                 {
                     "id": "borrar-3-5",
@@ -1092,7 +1107,8 @@
                     "id": "borrar-4-4",
                     "command": "assert",
                     "target": "cuentaFilas",
-                    "value": "4"
+                    "value": "4",
+                    "comment": "La tabla contiene exactamente 4 filas."
                 },
                 {
                     "id": "borrar-4-5",
@@ -1380,7 +1396,8 @@
                     "id": "buscar-2-9",
                     "command": "assert",
                     "target": "cuentaFilas",
-                    "value": "3"
+                    "value": "3",
+                    "comment": "La tabla contiene exactamente 3 filas."
                 },
                 {
                     "id": "buscar-3-1",
@@ -1417,7 +1434,8 @@
                     "id": "buscar-3-6",
                     "command": "assert",
                     "target": "cuentaFilas",
-                    "value": "3"
+                    "value": "3",
+                    "comment": "La tabla contiene exactamente 3 filas."
                 },
                 {
                     "id": "buscar-3-7",
@@ -1453,7 +1471,8 @@
                     "id": "buscar-3-12",
                     "command": "assert",
                     "target": "cuentaFilas",
-                    "value": "3"
+                    "value": "3",
+                    "comment": "La tabla contiene exactamente 3 filas."
                 },
                 {
                     "id": "buscar-4-1",
@@ -1502,7 +1521,8 @@
                     "id": "buscar-4-8",
                     "command": "assert",
                     "target": "cuentaFilas",
-                    "value": "2"
+                    "value": "2",
+                    "comment": "La tabla contiene exactamente 2 filas."
                 },
                 {
                     "id": "buscar-5-1",
@@ -1557,7 +1577,8 @@
                     "id": "buscar-5-9",
                     "command": "assert",
                     "target": "cuentaFilas",
-                    "value": "2"
+                    "value": "2",
+                    "comment": "La tabla contiene exactamente 2 filas."
                 },
                 {
                     "id": "buscar-6-1",
@@ -1632,7 +1653,8 @@
                     "id": "modificar-1-5",
                     "command": "assert",
                     "target": "cuentaAvisos",
-                    "value": "1"
+                    "value": "1",
+                    "comment": "Muestra exactamente 1 aviso."
                 },
                 {
                     "id": "modificar-2-1",
@@ -1663,7 +1685,8 @@
                     "id": "modificar-2-5",
                     "command": "assert",
                     "target": "cuentaAvisos",
-                    "value": "1"
+                    "value": "1",
+                    "comment": "Muestra exactamente 1 aviso."
                 },
                 {
                     "id": "modificar-3-1",
@@ -1688,7 +1711,8 @@
                     "id": "modificar-3-4",
                     "command": "assert",
                     "target": "cuentaFilas",
-                    "value": "4"
+                    "value": "4",
+                    "comment": "La tabla contiene exactamente 4 filas."
                 },
                 {
                     "id": "modificar-3-5",
@@ -1725,7 +1749,8 @@
                     "id": "modificar-4-4",
                     "command": "assert",
                     "target": "cuentaFilas",
-                    "value": "4"
+                    "value": "4",
+                    "comment": "La tabla contiene exactamente 4 filas."
                 },
                 {
                     "id": "modificar-4-5",
@@ -1762,7 +1787,8 @@
                     "id": "modificar-5-4",
                     "command": "assert",
                     "target": "cuentaFilas",
-                    "value": "4"
+                    "value": "4",
+                    "comment": "La tabla contiene exactamente 4 filas."
                 },
                 {
                     "id": "modificar-5-5",
@@ -1901,7 +1927,8 @@
                     "id": "modificar-6-21",
                     "command": "assert",
                     "target": "cuentaFilas",
-                    "value": "4"
+                    "value": "4",
+                    "comment": "La tabla contiene exactamente 4 filas."
                 },
                 {
                     "id": "modificar-6-22",
@@ -1938,7 +1965,8 @@
                     "id": "test-completo-3",
                     "command": "open",
                     "target": "${urlBase}/index.php",
-                    "value": ""
+                    "value": "",
+                    "comment": "Abre página Inicio."
                 },
                 {
                     "id": "test-completo-4",

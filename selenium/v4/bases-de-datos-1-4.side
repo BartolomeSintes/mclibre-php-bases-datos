@@ -19,7 +19,8 @@
                     "id": "inicio-1",
                     "command": "open",
                     "target": "${urlBase}/index.php",
-                    "value": ""
+                    "value": "",
+                    "comment": "Abre página Inicio."
                 },
                 {
                     "id": "inicio-2",
@@ -260,7 +261,8 @@
                     "id": "insertar-2-6",
                     "command": "assert",
                     "target": "cuentaAvisos",
-                    "value": "2"
+                    "value": "2",
+                    "comment": "Muestra exactamente 2 avisos."
                 },
                 {
                     "id": "insertar-3-1",
@@ -355,7 +357,8 @@
                     "id": "listar-1-10",
                     "command": "assert",
                     "target": "cuentaFilas",
-                    "value": "3"
+                    "value": "3",
+                    "comment": "La tabla contiene exactamente 3 filas."
                 },
                 {
                     "id": "listar-1-11",
@@ -440,7 +443,8 @@
                     "id": "borrar-2-4",
                     "command": "assert",
                     "target": "cuentaFilas",
-                    "value": "4"
+                    "value": "4",
+                    "comment": "La tabla contiene exactamente 4 filas."
                 },
                 {
                     "id": "borrar-2-5",
@@ -643,7 +647,8 @@
                     "id": "borrar-6-4",
                     "command": "assert",
                     "target": "cuentaFilas",
-                    "value": "3"
+                    "value": "3",
+                    "comment": "La tabla contiene exactamente 3 filas."
                 },
                 {
                     "id": "borrar-6-5",
@@ -731,7 +736,8 @@
                     "id": "borrar-7-4",
                     "command": "assert",
                     "target": "cuentaFilas",
-                    "value": "1"
+                    "value": "1",
+                    "comment": "La tabla contiene exactamente 1 fila."
                 },
                 {
                     "id": "borrar-7-5",

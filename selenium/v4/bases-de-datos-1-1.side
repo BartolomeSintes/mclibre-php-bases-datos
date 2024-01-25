@@ -19,7 +19,8 @@
                     "id": "inicio-1",
                     "command": "open",
                     "target": "${urlBase}/index.php",
-                    "value": ""
+                    "value": "",
+                    "comment": "Abre página Inicio."
                 },
                 {
                     "id": "inicio-2",

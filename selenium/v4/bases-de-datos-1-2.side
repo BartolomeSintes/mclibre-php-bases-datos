@@ -19,7 +19,8 @@
                     "id": "inicio-1",
                     "command": "open",
                     "target": "${urlBase}/index.php",
-                    "value": ""
+                    "value": "",
+                    "comment": "Abre página Inicio."
                 },
                 {
                     "id": "inicio-2",
@@ -260,7 +261,8 @@
                     "id": "insertar-2-6",
                     "command": "assert",
                     "target": "cuentaAvisos",
-                    "value": "2"
+                    "value": "2",
+                    "comment": "Muestra exactamente 2 avisos."
                 },
                 {
                     "id": "insertar-3-1",

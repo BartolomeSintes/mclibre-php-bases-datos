@@ -19,7 +19,8 @@
                     "id": "inicio-1",
                     "command": "open",
                     "target": "${urlBase}/index.php",
-                    "value": ""
+                    "value": "",
+                    "comment": "Abre página Inicio."
                 },
                 {
                     "id": "inicio-2",
@@ -272,7 +273,8 @@
                     "id": "insertar-2-7",
                     "command": "assert",
                     "target": "cuentaAvisos",
-                    "value": "3"
+                    "value": "3",
+                    "comment": "Muestra exactamente 3 avisos."
                 },
                 {
                     "id": "insertar-3-1",
@@ -385,7 +387,8 @@
                     "id": "listar-1-13",
                     "command": "assert",
                     "target": "cuentaFilas",
-                    "value": "3"
+                    "value": "3",
+                    "comment": "La tabla contiene exactamente 3 filas."
                 },
                 {
                     "id": "listar-1-14",
@@ -470,7 +473,8 @@
                     "id": "borrar-2-4",
                     "command": "assert",
                     "target": "cuentaFilas",
-                    "value": "4"
+                    "value": "4",
+                    "comment": "La tabla contiene exactamente 4 filas."
                 },
                 {
                     "id": "borrar-2-5",
@@ -685,7 +689,8 @@
                     "id": "borrar-6-4",
                     "command": "assert",
                     "target": "cuentaFilas",
-                    "value": "3"
+                    "value": "3",
+                    "comment": "La tabla contiene exactamente 3 filas."
                 },
                 {
                     "id": "borrar-6-5",
@@ -773,7 +778,8 @@
                     "id": "borrar-7-4",
                     "command": "assert",
                     "target": "cuentaFilas",
-                    "value": "1"
+                    "value": "1",
+                    "comment": "La tabla contiene exactamente 1 fila."
                 },
                 {
                     "id": "borrar-7-5",
@@ -854,6 +860,64 @@
                 },
                 {
                     "id": "buscar-1-11",
+                    "command": "waitForElementPresent",
+                    "target": "xpath=//h1[.=\"Bases de datos (1 B) 1 - Inicio\"]",
+                    "value": "1000",
+                    "comment": "Vuelve a página Inicio. Título h1 correcto."
+                },
+                {
+                    "id": "buscar-11-1",
+                    "comment": "(TEST) Buscar > Avisos individuales Nombre / Apellidos / Teléfono largos",
+                    "command": "open",
+                    "target": "${urlBase}/buscar-2.php?nombre=abcdefghi1abcdefghi2abcdefghi3abcdefghi4a&apellidos=abcdefghi1abcdefghi2abcdefghi3abcdefghi4abcdefghi5abcdefghi6a&telefono=0123456789012345",
+                    "value": ""
+                },
+                {
+                    "id": "buscar-11-2",
+                    "command": "waitForElementPresent",
+                    "target": "xpath=//h1[.=\"Bases de datos (1 B) 1 - Buscar 2\"]",
+                    "value": "1000",
+                    "comment": "Abre página Buscar 2. Título h1 correcto."
+                },
+                {
+                    "id": "buscar-11-3",
+                    "command": "assertText",
+                    "target": "xpath=//p[1]",
+                    "value": "El nombre no puede tener más de 40 caracteres."
+                },
+                {
+                    "id": "buscar-11-4",
+                    "command": "assertText",
+                    "target": "xpath=//p[2]",
+                    "value": "Los apellidos no pueden tener más de 60 caracteres."
+                },
+                {
+                    "id": "buscar-11-5",
+                    "command": "assertText",
+                    "target": "xpath=//p[3]",
+                    "value": "El teléfono no puede tener más de 15 caracteres."
+                },
+                {
+                    "id": "buscar-11-6",
+                    "command": "storeElementCount",
+                    "target": "xpath=//*[contains(@class, 'aviso')]",
+                    "value": "cuentaAvisos"
+                },
+                {
+                    "id": "buscar-11-7",
+                    "command": "assert",
+                    "target": "cuentaAvisos",
+                    "value": "3",
+                    "comment": "Muestra exactamente 3 avisos."
+                },
+                {
+                    "id": "buscar-11-8",
+                    "command": "click",
+                    "target": "linkText=Volver",
+                    "value": ""
+                },
+                {
+                    "id": "buscar-11-9",
                     "command": "waitForElementPresent",
                     "target": "xpath=//h1[.=\"Bases de datos (1 B) 1 - Inicio\"]",
                     "value": "1000",
@@ -956,7 +1020,8 @@
                     "id": "buscar-2-16",
                     "command": "assert",
                     "target": "cuentaFilas",
-                    "value": "3"
+                    "value": "3",
+                    "comment": "La tabla contiene exactamente 3 filas."
                 },
                 {
                     "id": "buscar-2-17",
@@ -1032,7 +1097,8 @@
                     "id": "buscar-3-10",
                     "command": "assert",
                     "target": "cuentaFilas",
-                    "value": "2"
+                    "value": "2",
+                    "comment": "La tabla contiene exactamente 2 filas."
                 },
                 {
                     "id": "buscar-3-11",
@@ -1114,7 +1180,8 @@
                     "id": "buscar-4-11",
                     "command": "assert",
                     "target": "cuentaFilas",
-                    "value": "2"
+                    "value": "2",
+                    "comment": "La tabla contiene exactamente 2 filas."
                 },
                 {
                     "id": "buscar-4-12",
@@ -1172,7 +1239,8 @@
                     "id": "buscar-5-7",
                     "command": "assert",
                     "target": "cuentaFilas",
-                    "value": "1"
+                    "value": "1",
+                    "comment": "La tabla contiene exactamente 1 fila."
                 },
                 {
                     "id": "buscar-5-8",
@@ -1217,7 +1285,8 @@
                     "id": "modificar-1-5",
                     "command": "assert",
                     "target": "cuentaAvisos",
-                    "value": "1"
+                    "value": "1",
+                    "comment": "Muestra exactamente 1 aviso."
                 },
                 {
                     "id": "modificar-1-6",
@@ -1256,7 +1325,8 @@
                     "id": "modificar-2-4",
                     "command": "assert",
                     "target": "cuentaFilas",
-                    "value": "4"
+                    "value": "4",
+                    "comment": "La tabla contiene exactamente 4 filas."
                 },
                 {
                     "id": "modificar-2-5",
@@ -1429,7 +1499,8 @@
                     "id": "modificar-3-20",
                     "command": "assert",
                     "target": "cuentaFilas",
-                    "value": "4"
+                    "value": "4",
+                    "comment": "La tabla contiene exactamente 4 filas."
                 },
                 {
                     "id": "modificar-3-21",

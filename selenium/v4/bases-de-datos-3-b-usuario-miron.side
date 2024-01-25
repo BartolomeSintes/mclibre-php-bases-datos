@@ -264,7 +264,8 @@
                     "id": "usuario-miron-1-6",
                     "command": "assert",
                     "target": "cuentaFilas",
-                    "value": "3"
+                    "value": "3",
+                    "comment": "La tabla contiene exactamente 3 filas."
                 },
                 {
                     "id": "usuario-miron-1-7",
@@ -434,7 +435,8 @@
                     "id": "usuario-miron-3-15",
                     "command": "assert",
                     "target": "cuentaFilas",
-                    "value": "4"
+                    "value": "4",
+                    "comment": "La tabla contiene exactamente 4 filas."
                 },
                 {
                     "id": "usuario-miron-3-16",
@@ -541,7 +543,8 @@
                     "id": "test-completo-2",
                     "command": "open",
                     "target": "${urlBase}/index.php",
-                    "value": ""
+                    "value": "",
+                    "comment": "Abre página Inicio."
                 },
                 {
                     "id": "test-completo-3",

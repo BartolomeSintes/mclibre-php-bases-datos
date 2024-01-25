@@ -263,7 +263,8 @@
                     "id": "contador-conexiones-1-4",
                     "command": "assert",
                     "target": "cuentaFilas",
-                    "value": "5"
+                    "value": "5",
+                    "comment": "La tabla contiene exactamente 5 filas."
                 },
                 {
                     "id": "contador-conexiones-1-5",
@@ -540,7 +541,8 @@
                     "id": "contador-conexiones-8-4",
                     "command": "assert",
                     "target": "cuentaFilas",
-                    "value": "5"
+                    "value": "5",
+                    "comment": "La tabla contiene exactamente 5 filas."
                 },
                 {
                     "id": "contador-conexiones-8-5",
@@ -619,7 +621,8 @@
                     "id": "contador-conexiones-9-4",
                     "command": "assert",
                     "target": "cuentaFilas",
-                    "value": "5"
+                    "value": "5",
+                    "comment": "La tabla contiene exactamente 5 filas."
                 },
                 {
                     "id": "contador-conexiones-9-5",
@@ -698,7 +701,8 @@
                     "id": "contador-conexiones-10-4",
                     "command": "assert",
                     "target": "cuentaFilas",
-                    "value": "5"
+                    "value": "5",
+                    "comment": "La tabla contiene exactamente 5 filas."
                 },
                 {
                     "id": "contador-conexiones-10-5",
@@ -826,7 +830,8 @@
                     "id": "contador-conexiones-12-6",
                     "command": "assert",
                     "target": "cuentaFilas",
-                    "value": "5"
+                    "value": "5",
+                    "comment": "La tabla contiene exactamente 5 filas."
                 },
                 {
                     "id": "contador-conexiones-12-7",
@@ -936,7 +941,8 @@
                     "id": "test-completo-2",
                     "command": "open",
                     "target": "${urlBase}/index.php",
-                    "value": ""
+                    "value": "",
+                    "comment": "Abre página Inicio."
                 },
                 {
                     "id": "test-completo-3",

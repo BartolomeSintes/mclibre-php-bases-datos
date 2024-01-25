@@ -275,7 +275,8 @@
                     "id": "registros-incompletos-1-8",
                     "command": "assert",
                     "target": "cuentaAvisos",
-                    "value": "1"
+                    "value": "1",
+                    "comment": "Muestra exactamente 1 aviso."
                 },
                 {
                     "id": "registros-incompletos-2-1",
@@ -324,7 +325,8 @@
                     "id": "registros-incompletos-2-8",
                     "command": "assert",
                     "target": "cuentaFilas",
-                    "value": "2"
+                    "value": "2",
+                    "comment": "La tabla contiene exactamente 2 filas."
                 },
                 {
                     "id": "registros-incompletos-2-9",
@@ -408,7 +410,8 @@
                     "id": "registros-incompletos-2-22",
                     "command": "assert",
                     "target": "cuentaFilas",
-                    "value": "4"
+                    "value": "4",
+                    "comment": "La tabla contiene exactamente 4 filas."
                 },
                 {
                     "id": "registros-incompletos-2-23",
@@ -1090,7 +1093,8 @@
                     "id": "registros-incompletos-6-14",
                     "command": "assert",
                     "target": "cuentaAvisos",
-                    "value": "1"
+                    "value": "1",
+                    "comment": "Muestra exactamente 1 aviso."
                 },
                 {
                     "id": "registros-incompletos-6-15",
@@ -1138,7 +1142,8 @@
                     "id": "registros-incompletos-6-22",
                     "command": "assert",
                     "target": "cuentaFilas",
-                    "value": "2"
+                    "value": "2",
+                    "comment": "La tabla contiene exactamente 2 filas."
                 },
                 {
                     "id": "registros-incompletos-6-23",
@@ -1222,7 +1227,8 @@
                     "id": "registros-incompletos-6-36",
                     "command": "assert",
                     "target": "cuentaFilas",
-                    "value": "4"
+                    "value": "4",
+                    "comment": "La tabla contiene exactamente 4 filas."
                 },
                 {
                     "id": "registros-incompletos-6-37",
@@ -1386,7 +1392,8 @@
                     "id": "test-completo-2",
                     "command": "open",
                     "target": "${urlBase}/index.php",
-                    "value": ""
+                    "value": "",
+                    "comment": "Abre página Inicio."
                 },
                 {
                     "id": "test-completo-3",

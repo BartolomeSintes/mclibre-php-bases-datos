@@ -257,7 +257,8 @@
                     "id": "correo-usuarios-1-7",
                     "command": "assert",
                     "target": "cuentaFilas",
-                    "value": "5"
+                    "value": "5",
+                    "comment": "La tabla contiene exactamente 5 filas."
                 },
                 {
                     "id": "correo-usuarios-1-8",
@@ -318,7 +319,8 @@
                     "id": "correo-usuarios-2-5",
                     "command": "assert",
                     "target": "cuentaFilas",
-                    "value": "5"
+                    "value": "5",
+                    "comment": "La tabla contiene exactamente 5 filas."
                 },
                 {
                     "id": "correo-usuarios-2-6",
@@ -379,7 +381,8 @@
                     "id": "correo-usuarios-3-5",
                     "command": "assert",
                     "target": "cuentaAvisos",
-                    "value": "1"
+                    "value": "1",
+                    "comment": "Muestra exactamente 1 aviso."
                 },
                 {
                     "id": "correo-usuarios-4-1",
@@ -410,7 +413,8 @@
                     "id": "correo-usuarios-4-5",
                     "command": "assert",
                     "target": "cuentaAvisos",
-                    "value": "1"
+                    "value": "1",
+                    "comment": "Muestra exactamente 1 aviso."
                 },
                 {
                     "id": "correo-usuarios-5-1",
@@ -435,7 +439,8 @@
                     "id": "correo-usuarios-5-4",
                     "command": "assert",
                     "target": "cuentaFilas",
-                    "value": "4"
+                    "value": "4",
+                    "comment": "La tabla contiene exactamente 4 filas."
                 },
                 {
                     "id": "correo-usuarios-5-5",
@@ -606,7 +611,8 @@
                     "id": "test-completo-2",
                     "command": "open",
                     "target": "${urlBase}/index.php",
-                    "value": ""
+                    "value": "",
+                    "comment": "Abre página Inicio."
                 },
                 {
                     "id": "test-completo-3",

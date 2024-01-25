@@ -264,7 +264,8 @@
                     "id": "confirma-contrasena-1-6",
                     "command": "assert",
                     "target": "cuentaFilas",
-                    "value": "4"
+                    "value": "4",
+                    "comment": "La tabla contiene exactamente 4 filas."
                 },
                 {
                     "id": "confirma-contrasena-1-7",
@@ -361,7 +362,8 @@
                     "id": "confirma-contrasena-2-6",
                     "command": "assert",
                     "target": "cuentaAvisos",
-                    "value": "2"
+                    "value": "2",
+                    "comment": "Muestra exactamente 2 avisos."
                 },
                 {
                     "id": "confirma-contrasena-3-1",
@@ -398,7 +400,8 @@
                     "id": "confirma-contrasena-3-6",
                     "command": "assert",
                     "target": "cuentaAvisos",
-                    "value": "2"
+                    "value": "2",
+                    "comment": "Muestra exactamente 2 avisos."
                 },
                 {
                     "id": "confirma-contrasena-4-1",
@@ -429,7 +432,8 @@
                     "id": "confirma-contrasena-4-5",
                     "command": "assert",
                     "target": "cuentaAvisos",
-                    "value": "1"
+                    "value": "1",
+                    "comment": "Muestra exactamente 1 aviso."
                 },
                 {
                     "id": "confirma-contrasena-5-1",
@@ -466,7 +470,8 @@
                     "id": "confirma-contrasena-5-6",
                     "command": "assert",
                     "target": "cuentaAvisos",
-                    "value": "2"
+                    "value": "2",
+                    "comment": "Muestra exactamente 2 avisos."
                 },
                 {
                     "id": "confirma-contrasena-6-1",
@@ -515,7 +520,8 @@
                     "id": "confirma-contrasena-6-8",
                     "command": "assert",
                     "target": "cuentaAvisos",
-                    "value": "2"
+                    "value": "2",
+                    "comment": "Muestra exactamente 2 avisos."
                 },
                 {
                     "id": "confirma-contrasena-6-9",
@@ -571,7 +577,8 @@
                     "id": "test-completo-2",
                     "command": "open",
                     "target": "${urlBase}/index.php",
-                    "value": ""
+                    "value": "",
+                    "comment": "Abre página Inicio."
                 },
                 {
                     "id": "test-completo-3",
