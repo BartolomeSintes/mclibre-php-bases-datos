@@ -57,7 +57,8 @@
                     "id": "preparacion-desconexion-inicial-5",
                     "command": "click",
                     "target": "linkText=Desconectarse",
-                    "value": ""
+                    "value": "",
+                    "comment": "Hace clic en el enlace 'Desconectarse'"
                 },
                 {
                     "id": "preparacion-desconexion-inicial-6",
@@ -94,7 +95,8 @@
                     "id": "conexion-root-1",
                     "command": "click",
                     "target": "linkText=Conectarse",
-                    "value": ""
+                    "value": "",
+                    "comment": "Hace clic en el enlace 'Conectarse'"
                 },
                 {
                     "id": "conexion-root-2",
@@ -112,7 +114,8 @@
                     "id": "conexion-root-4",
                     "command": "click",
                     "target": "xpath=//input[@value='Identificar']",
-                    "value": ""
+                    "value": "",
+                    "comment": "Hace clic en el botón 'Identificar'"
                 },
                 {
                     "id": "conexion-root-5",
@@ -190,7 +193,8 @@
                     "id": "funcion-1-3",
                     "command": "click",
                     "target": "linkText=Volver",
-                    "value": ""
+                    "value": "",
+                    "comment": "Hace clic en el enlace 'Volver'"
                 },
                 {
                     "id": "funcion-1-4",
@@ -202,13 +206,15 @@
                     "id": "funcion-1-5",
                     "command": "click",
                     "target": "linkText=Administrador",
-                    "value": ""
+                    "value": "",
+                    "comment": "Hace clic en el enlace 'Administrador'"
                 },
                 {
                     "id": "funcion-1-6",
                     "command": "click",
                     "target": "linkText=Calendario",
-                    "value": ""
+                    "value": "",
+                    "comment": "Hace clic en el enlace 'Calendario'"
                 },
                 {
                     "id": "funcion-1-7",
@@ -238,7 +244,8 @@
                     "id": "funcion-2-1",
                     "command": "click",
                     "target": "linkText=Volver",
-                    "value": ""
+                    "value": "",
+                    "comment": "Hace clic en el enlace 'Volver'"
                 }
             ]
         },

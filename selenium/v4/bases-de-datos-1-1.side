@@ -1,6 +1,6 @@
 {
     "id": "mclibre-bases-de-datos-1-1-tests",
-    "version": "2024-01-25",
+    "version": "2024-02-05",
     "name": "Test ejercicio Bases de datos (1) 1",
     "url": "http://localhost",
     "tests": [
@@ -33,7 +33,8 @@
                     "id": "borrar-todo-1",
                     "command": "click",
                     "target": "linkText=Borrar todo",
-                    "value": ""
+                    "value": "",
+                    "comment": "Hace clic en el enlace 'Borrar todo'"
                 },
                 {
                     "id": "borrar-todo-2",
@@ -46,7 +47,8 @@
                     "id": "borrar-todo-3",
                     "command": "click",
                     "target": "xpath=//input[@value='No']",
-                    "value": ""
+                    "value": "",
+                    "comment": "Hace clic en el botón 'No'"
                 },
                 {
                     "id": "borrar-todo-4",
@@ -59,7 +61,8 @@
                     "id": "borrar-todo-5",
                     "command": "click",
                     "target": "linkText=Borrar todo",
-                    "value": ""
+                    "value": "",
+                    "comment": "Hace clic en el enlace 'Borrar todo'"
                 },
                 {
                     "id": "borrar-todo-6",
@@ -72,7 +75,8 @@
                     "id": "borrar-todo-7",
                     "command": "click",
                     "target": "xpath=//input[@value='Sí']",
-                    "value": ""
+                    "value": "",
+                    "comment": "Hace clic en el botón 'Sí'"
                 },
                 {
                     "id": "borrar-todo-8",
@@ -96,72 +100,80 @@
                 {
                     "id": "borrar-todo-11",
                     "command": "assertText",
-                    "target": "xpath=//p[2]",
-                    "value": "Tabla borrada correctamente (si existía).",
-                    "comment": "Ha borrado la tabla en SQLite."
+                    "target": "xpath=//p[1]",
+                    "value": "Sistema Gestor de Bases de Datos: SQLite.",
+                    "comment": "Muestra el mensaje 'Sistema Gestor de Bases de Datos: SQLite.'"
                 },
                 {
                     "id": "borrar-todo-12",
                     "command": "assertText",
-                    "target": "xpath=//p[3]",
-                    "value": "Tabla creada correctamente.",
-                    "comment": "Ha creado la tabla en SQLite."
+                    "target": "xpath=//p[2]",
+                    "value": "Tabla borrada correctamente (si existía).",
+                    "comment": "Muestra el mensaje 'Tabla borrada correctamente (si existía).'"
                 },
                 {
                     "id": "borrar-todo-13",
+                    "command": "assertText",
+                    "target": "xpath=//p[3]",
+                    "value": "Tabla creada correctamente.",
+                    "comment": "Muestra el mensaje 'Tabla creada correctamente.'"
+                },
+                {
+                    "id": "borrar-todo-14",
                     "command": "else",
                     "target": "",
                     "value": ""
                 },
                 {
-                    "id": "borrar-todo-14",
+                    "id": "borrar-todo-15",
                     "command": "assertText",
                     "target": "xpath=//p[1]",
                     "value": "Sistema Gestor de Bases de Datos: MySQL.",
-                    "comment": "Seleccionado Sistema Gestor de Bases de Datos MySQL/MariaDB."
-                },
-                {
-                    "id": "borrar-todo-15",
-                    "command": "assertText",
-                    "target": "xpath=//p[2]",
-                    "value": "Base de datos borrada correctamente (si existía).",
-                    "comment": "Ha borrado la base datos en MySQL/MariaDB."
+                    "comment": "Muestra el mensaje 'Sistema Gestor de Bases de Datos: MySQL.'"
                 },
                 {
                     "id": "borrar-todo-16",
                     "command": "assertText",
-                    "target": "xpath=//p[3]",
-                    "value": "Base de datos creada correctamente.",
-                    "comment": "Ha creado la base de datos en MySQL/MariaDB."
+                    "target": "xpath=//p[2]",
+                    "value": "Base de datos borrada correctamente (si existía).",
+                    "comment": "Muestra el mensaje 'Base de datos borrada correctamente (si existía).'"
                 },
                 {
                     "id": "borrar-todo-17",
                     "command": "assertText",
-                    "target": "xpath=//p[4]",
-                    "value": "Base de datos seleccionada correctamente.",
-                    "comment": "Ha seleccionado la base de datos en MySQL/MariaDB."
+                    "target": "xpath=//p[3]",
+                    "value": "Base de datos creada correctamente.",
+                    "comment": "Ha creado la base de datos"
                 },
                 {
                     "id": "borrar-todo-18",
                     "command": "assertText",
-                    "target": "xpath=//p[5]",
-                    "value": "Tabla creada correctamente.",
-                    "comment": "Ha creado la tabla en MySQL/MariaDB."
+                    "target": "xpath=//p[4]",
+                    "value": "Base de datos seleccionada correctamente.",
+                    "comment": "Ha seleccionado la base de datos"
                 },
                 {
                     "id": "borrar-todo-19",
+                    "command": "assertText",
+                    "target": "xpath=//p[5]",
+                    "value": "Tabla creada correctamente.",
+                    "comment": "Ha creado la tabla"
+                },
+                {
+                    "id": "borrar-todo-20",
                     "command": "end",
                     "target": "",
                     "value": ""
                 },
                 {
-                    "id": "borrar-todo-20",
+                    "id": "borrar-todo-21",
                     "command": "click",
                     "target": "linkText=Volver",
-                    "value": ""
+                    "value": "",
+                    "comment": "Hace clic en el enlace 'Volver'"
                 },
                 {
-                    "id": "borrar-todo-21",
+                    "id": "borrar-todo-22",
                     "command": "waitForElementPresent",
                     "target": "xpath=//h1[.=\"Bases de datos (1) 1 - Inicio\"]",
                     "value": "1000"

@@ -79,13 +79,13 @@
                 {
                     "id": "definiciones-generales-8",
                     "command": "store",
-                    "target": "0123456789",
+                    "target": "123456789012345",
                     "value": "personasTelefonoCorto"
                 },
                 {
                     "id": "definiciones-generales-9",
                     "command": "store",
-                    "target": "01234567890",
+                    "target": "1234567890123456",
                     "value": "personasTelefonoLargo"
                 },
                 {
@@ -110,7 +110,7 @@
                 {
                     "id": "preparacion-desconexion-inicial-1",
                     "command": "executeScript",
-                    "target": "return (document.body.innerHTML.search('Desconectarse') > -1)",
+                    "target": "return (document.body.innerHTML.includes('Desconectarse'))",
                     "value": "contieneDesconectarse"
                 },
                 {
@@ -123,7 +123,8 @@
                     "id": "preparacion-desconexion-inicial-3",
                     "command": "click",
                     "target": "linkText=Desconectarse",
-                    "value": ""
+                    "value": "",
+                    "comment": "Hace clic en el enlace 'Desconectarse'"
                 },
                 {
                     "id": "preparacion-desconexion-inicial-4",
@@ -148,7 +149,8 @@
                     "id": "preparacion-borrar-todo-con-1",
                     "command": "click",
                     "target": "linkText=Conectarse",
-                    "value": ""
+                    "value": "",
+                    "comment": "Hace clic en el enlace 'Conectarse'"
                 },
                 {
                     "id": "preparacion-borrar-todo-con-2",
@@ -172,7 +174,8 @@
                     "id": "preparacion-borrar-todo-con-5",
                     "command": "click",
                     "target": "xpath=//input[@value='Identificar']",
-                    "value": ""
+                    "value": "",
+                    "comment": "Hace clic en el botón 'Identificar'"
                 },
                 {
                     "id": "preparacion-borrar-todo-con-6",
@@ -191,7 +194,8 @@
                     "id": "borrar-todo-1",
                     "command": "click",
                     "target": "linkText=Administrador",
-                    "value": ""
+                    "value": "",
+                    "comment": "Hace clic en el enlace 'Administrador'"
                 },
                 {
                     "id": "borrar-todo-2",
@@ -203,7 +207,8 @@
                     "id": "borrar-todo-3",
                     "command": "click",
                     "target": "linkText=Borrar todo",
-                    "value": ""
+                    "value": "",
+                    "comment": "Hace clic en el enlace 'Borrar todo'"
                 },
                 {
                     "id": "borrar-todo-4",
@@ -214,8 +219,9 @@
                 {
                     "id": "borrar-todo-5",
                     "command": "click",
-                    "target": "xpath=/html/body/main/form/p[5]/input[1]",
-                    "value": ""
+                    "target": "xpath=//input[@name='borrar' and @value='Sí']",
+                    "value": "",
+                    "comment": "Hace clic en el botón con atributo 'name' con valor 'borrar' y atributo 'value' con valor 'Sí'"
                 },
                 {
                     "id": "borrar-todo-6",
@@ -238,98 +244,106 @@
                 {
                     "id": "borrar-todo-9",
                     "command": "assertText",
+                    "target": "xpath=//p[1]",
+                    "value": "Sistema Gestor de Bases de Datos: SQLite.",
+                    "comment": "Muestra el mensaje 'Sistema Gestor de Bases de Datos: SQLite.'"
+                },
+                {
+                    "id": "borrar-todo-10",
+                    "command": "assertText",
                     "target": "xpath=//p[2]",
                     "value": "Tabla Usuarios borrada correctamente (si existía)."
                 },
                 {
-                    "id": "borrar-todo-10",
+                    "id": "borrar-todo-11",
                     "command": "assertText",
                     "target": "xpath=//p[3]",
                     "value": "Tabla Personas borrada correctamente (si existía)."
                 },
                 {
-                    "id": "borrar-todo-11",
+                    "id": "borrar-todo-12",
                     "command": "assertText",
                     "target": "xpath=//p[4]",
                     "value": "Tabla Usuarios creada correctamente."
                 },
                 {
-                    "id": "borrar-todo-12",
+                    "id": "borrar-todo-13",
                     "command": "assertText",
                     "target": "xpath=//p[5]",
                     "value": "Registro de usuario creado correctamente."
                 },
                 {
-                    "id": "borrar-todo-13",
+                    "id": "borrar-todo-14",
                     "command": "assertText",
                     "target": "xpath=//p[6]",
                     "value": "Tabla Personas creada correctamente."
                 },
                 {
-                    "id": "borrar-todo-14",
+                    "id": "borrar-todo-15",
                     "command": "else",
                     "target": "",
                     "value": ""
                 },
                 {
-                    "id": "borrar-todo-15",
+                    "id": "borrar-todo-16",
                     "command": "assertText",
                     "target": "xpath=//p[1]",
                     "value": "Sistema Gestor de Bases de Datos: MySQL.",
-                    "comment": "Seleccionado Sistema Gestor de Bases de Datos MySQL/MariaDB."
-                },
-                {
-                    "id": "borrar-todo-16",
-                    "command": "assertText",
-                    "target": "xpath=//p[2]",
-                    "value": "Base de datos borrada correctamente (si existía).",
-                    "comment": "Ha borrado la base datos en MySQL/MariaDB."
+                    "comment": "Muestra el mensaje 'Sistema Gestor de Bases de Datos: MySQL.'"
                 },
                 {
                     "id": "borrar-todo-17",
                     "command": "assertText",
-                    "target": "xpath=//p[3]",
-                    "value": "Base de datos creada correctamente.",
-                    "comment": "Ha creado la base de datos en MySQL/MariaDB."
+                    "target": "xpath=//p[2]",
+                    "value": "Base de datos borrada correctamente (si existía).",
+                    "comment": "Muestra el mensaje 'Base de datos borrada correctamente (si existía).'"
                 },
                 {
                     "id": "borrar-todo-18",
                     "command": "assertText",
-                    "target": "xpath=//p[4]",
-                    "value": "Tabla Usuarios seleccionada correctamente."
+                    "target": "xpath=//p[3]",
+                    "value": "Base de datos creada correctamente.",
+                    "comment": "Ha creado la base de datos"
                 },
                 {
                     "id": "borrar-todo-19",
+                    "command": "assertText",
+                    "target": "xpath=//p[4]",
+                    "value": "Base de datos seleccionada correctamente."
+                },
+                {
+                    "id": "borrar-todo-20",
                     "command": "assertText",
                     "target": "xpath=//p[5]",
                     "value": "Tabla Usuarios creada correctamente."
                 },
                 {
-                    "id": "borrar-todo-20",
+                    "id": "borrar-todo-21",
                     "command": "assertText",
                     "target": "xpath=//p[6]",
                     "value": "Registro de usuario creado correctamente."
                 },
                 {
-                    "id": "borrar-todo-21",
+                    "id": "borrar-todo-22",
                     "command": "assertText",
                     "target": "xpath=//p[7]",
                     "value": "Tabla Personas creada correctamente."
                 },
                 {
-                    "id": "borrar-todo-22",
+                    "id": "borrar-todo-23",
                     "command": "end",
                     "target": "",
                     "value": ""
                 },
                 {
-                    "id": "borrar-todo-23",
+                    "id": "borrar-todo-24",
                     "command": "click",
                     "target": "linkText=Volver",
-                    "value": ""
+                    "value": "",
+                    "comment": "Hace clic en el enlace 'Volver'"
                 },
                 {
-                    "id": "borrar-todo-24",
+                    "id": "borrar-todo-25",
                     "command": "waitForElementPresent",
                     "target": "xpath=//h1[.=\"${h1Base} Inicio\"]",
                     "value": "${maxEspera}"
@@ -345,7 +359,8 @@
                     "id": "sin-registros-1",
                     "command": "click",
                     "target": "linkText=Personas",
-                    "value": ""
+                    "value": "",
+                    "comment": "Hace clic en el enlace 'Personas'"
                 },
                 {
                     "id": "sin-registros-2",
@@ -357,7 +372,8 @@
                     "id": "sin-registros-3",
                     "command": "click",
                     "target": "linkText=Listar",
-                    "value": ""
+                    "value": "",
+                    "comment": "Hace clic en el enlace 'Listar'"
                 },
                 {
                     "id": "sin-registros-4",
@@ -376,7 +392,8 @@
                     "id": "sin-registros-6",
                     "command": "click",
                     "target": "linkText=Borrar",
-                    "value": ""
+                    "value": "",
+                    "comment": "Hace clic en el enlace 'Borrar'"
                 },
                 {
                     "id": "sin-registros-7",
@@ -395,7 +412,8 @@
                     "id": "sin-registros-9",
                     "command": "click",
                     "target": "linkText=Buscar",
-                    "value": ""
+                    "value": "",
+                    "comment": "Hace clic en el enlace 'Buscar'"
                 },
                 {
                     "id": "sin-registros-10",
@@ -414,7 +432,8 @@
                     "id": "sin-registros-12",
                     "command": "click",
                     "target": "linkText=Modificar",
-                    "value": ""
+                    "value": "",
+                    "comment": "Hace clic en el enlace 'Modificar'"
                 },
                 {
                     "id": "sin-registros-13",
@@ -437,10 +456,11 @@
             "commands": [
                 {
                     "id": "insertar-1-1",
-                    "comment": "(TEST) Insertar > Inserta correctamente",
+                    "title": "(TEST) Insertar > Inserta correctamente",
                     "command": "click",
                     "target": "linkText=Añadir registro",
-                    "value": ""
+                    "value": "",
+                    "comment": "Hace clic en el enlace 'Añadir registro'"
                 },
                 {
                     "id": "insertar-1-2",
@@ -452,31 +472,36 @@
                     "id": "insertar-1-3",
                     "command": "type",
                     "target": "name=nombre",
-                    "value": "Numa"
+                    "value": "Numa",
+                    "comment": "Escribe 'Numa' en el campo 'nombre'"
                 },
                 {
                     "id": "insertar-1-4",
                     "command": "type",
                     "target": "name=apellidos",
-                    "value": "Nigerio"
+                    "value": "Nigerio",
+                    "comment": "Escribe 'Nigerio' en el campo 'apellidos'"
                 },
                 {
                     "id": "insertar-1-5",
                     "command": "type",
                     "target": "name=telefono",
-                    "value": "123456"
+                    "value": "123456",
+                    "comment": "Escribe '123456' en el campo 'telefono'"
                 },
                 {
                     "id": "insertar-1-6",
                     "command": "type",
                     "target": "name=correo",
-                    "value": "numa.nigerio@micorreo.com"
+                    "value": "numa.nigerio@micorreo.com",
+                    "comment": "Escribe 'numa.nigerio@micorreo.com' en el campo 'correo'"
                 },
                 {
                     "id": "insertar-1-7",
                     "command": "click",
                     "target": "xpath=//input[@value='Añadir']",
-                    "value": ""
+                    "value": "",
+                    "comment": "Hace clic en el botón 'Añadir'"
                 },
                 {
                     "id": "insertar-1-8",
@@ -488,14 +513,16 @@
                     "id": "insertar-1-9",
                     "command": "assertText",
                     "target": "xpath=//p",
-                    "value": "Registro creado correctamente."
+                    "value": "Registro creado correctamente.",
+                    "comment": "Muestra mensaje: 'Registro creado correctamente.'"
                 },
                 {
                     "id": "insertar-2-1",
-                    "comment": "(TEST) Insertar > Aviso Todos los campos vacíos",
+                    "title": "(TEST) Insertar > Aviso Todos los campos vacíos",
                     "command": "click",
                     "target": "linkText=Añadir registro",
-                    "value": ""
+                    "value": "",
+                    "comment": "Hace clic en el enlace 'Añadir registro'"
                 },
                 {
                     "id": "insertar-2-2",
@@ -507,7 +534,8 @@
                     "id": "insertar-2-3",
                     "command": "click",
                     "target": "xpath=//input[@value='Añadir']",
-                    "value": ""
+                    "value": "",
+                    "comment": "Hace clic en el botón 'Añadir'"
                 },
                 {
                     "id": "insertar-2-4",
@@ -519,7 +547,8 @@
                     "id": "insertar-2-5",
                     "command": "assertText",
                     "target": "xpath=//p",
-                    "value": "Hay que rellenar al menos uno de los campos. No se ha guardado el registro."
+                    "value": "Hay que rellenar al menos uno de los campos. No se ha guardado el registro.",
+                    "comment": "Muestra aviso: 'Hay que rellenar al menos uno de los campos. No se ha guardado el registro.'"
                 },
                 {
                     "id": "insertar-2-6",
@@ -536,7 +565,7 @@
                 },
                 {
                     "id": "insertar-3-1",
-                    "comment": "(TEST) Insertar > Avisos individuales Nombre / Apellidos / Teléfono / Correo largos",
+                    "title": "(TEST) Insertar > Avisos individuales Nombre / Apellidos / Teléfono / Correo largos",
                     "command": "open",
                     "target": "${urlPersonas}/insertar-2.php?nombre=${personasNombreLargo}&apellidos=${personasApellidosLargo}&telefono=${personasTelefonoLargo}&correo=${personasCorreoLargo}",
                     "value": ""
@@ -551,25 +580,29 @@
                     "id": "insertar-3-3",
                     "command": "assertText",
                     "target": "xpath=//p[1]",
-                    "value": "El nombre no puede tener más de 40 caracteres."
+                    "value": "El nombre no puede tener más de 40 caracteres.",
+                    "comment": "Muestra aviso: 'El nombre no puede tener más de 40 caracteres.'"
                 },
                 {
                     "id": "insertar-3-4",
                     "command": "assertText",
                     "target": "xpath=//p[2]",
-                    "value": "Los apellidos no pueden tener más de 60 caracteres."
+                    "value": "Los apellidos no pueden tener más de 60 caracteres.",
+                    "comment": "Muestra aviso: 'Los apellidos no pueden tener más de 60 caracteres.'"
                 },
                 {
                     "id": "insertar-3-5",
                     "command": "assertText",
                     "target": "xpath=//p[3]",
-                    "value": "El teléfono no puede tener más de 10 caracteres."
+                    "value": "El teléfono no puede tener más de 15 caracteres.",
+                    "comment": "Muestra aviso: 'El teléfono no puede tener más de 15 caracteres.'"
                 },
                 {
                     "id": "insertar-3-6",
                     "command": "assertText",
                     "target": "xpath=//p[4]",
-                    "value": "El correo no puede tener más de 50 caracteres."
+                    "value": "El correo no puede tener más de 50 caracteres.",
+                    "comment": "Muestra aviso: 'El correo no puede tener más de 50 caracteres.'"
                 },
                 {
                     "id": "insertar-3-7",
@@ -586,7 +619,7 @@
                 },
                 {
                     "id": "insertar-4-1",
-                    "comment": "(TEST) Insertar > Inserta un registro directamente",
+                    "title": "(TEST) Insertar > Inserta un registro directamente",
                     "command": "open",
                     "target": "${urlPersonas}/insertar-2.php?nombre=Pepito&apellidos=Conejo&telefono=98765&correo=pepito.conejo@micorreo.com",
                     "value": ""
@@ -601,11 +634,12 @@
                     "id": "insertar-4-3",
                     "command": "assertText",
                     "target": "xpath=//p",
-                    "value": "Registro creado correctamente."
+                    "value": "Registro creado correctamente.",
+                    "comment": "Muestra mensaje: 'Registro creado correctamente.'"
                 },
                 {
                     "id": "insertar-5-1",
-                    "comment": "(TEST) Insertar > Inserta un registro repetido",
+                    "title": "(TEST) Insertar > Inserta un registro repetido",
                     "command": "open",
                     "target": "${urlPersonas}/insertar-2.php?nombre=Pepito&apellidos=Conejo&telefono=98765&correo=pepito.conejo@micorreo.com",
                     "value": ""
@@ -620,7 +654,8 @@
                     "id": "insertar-5-3",
                     "command": "assertText",
                     "target": "xpath=//p",
-                    "value": "El registro ya existe."
+                    "value": "El registro ya existe.",
+                    "comment": "Muestra aviso: 'El registro ya existe.'"
                 }
             ]
         },
@@ -631,10 +666,11 @@
             "commands": [
                 {
                     "id": "listar-1-1",
-                    "comment": "(TEST) Personas > Listar > Prueba que muestra el listado correctamente",
+                    "title": "(TEST) Personas > Listar > Prueba que muestra el listado correctamente",
                     "command": "click",
                     "target": "linkText=Listar",
-                    "value": ""
+                    "value": "",
+                    "comment": "Hace clic en el enlace 'Listar'"
                 },
                 {
                     "id": "listar-1-2",
@@ -646,13 +682,15 @@
                     "id": "listar-1-3",
                     "command": "assertText",
                     "target": "xpath=//tr[1]/td[1]",
-                    "value": "Numa"
+                    "value": "Numa",
+                    "comment": "La primera celda de la segunda fila de la tabla contiene 'Numa'"
                 },
                 {
                     "id": "listar-1-4",
                     "command": "assertText",
                     "target": "xpath=//tr[2]/td[1]",
-                    "value": "Pepito"
+                    "value": "Pepito",
+                    "comment": "La primera celda de la tercera fila de la tabla contiene 'Pepito'"
                 },
                 {
                     "id": "listar-1-5",
@@ -669,10 +707,11 @@
                 },
                 {
                     "id": "listar-2-1",
-                    "comment": "(TEST) Personas > Listar > Prueba que ordena el listado correctamente. (nombre ASC)",
+                    "title": "(TEST) Personas > Listar > Prueba que ordena el listado correctamente. (nombre ASC)",
                     "command": "click",
                     "target": "xpath=//button[@value='nombre ASC']",
-                    "value": ""
+                    "value": "",
+                    "comment": "Hace clic en el botón con atributo 'value' con valor 'nombre ASC'"
                 },
                 {
                     "id": "listar-2-2",
@@ -684,13 +723,15 @@
                     "id": "listar-2-3",
                     "command": "assertText",
                     "target": "xpath=//tr[1]/td[1]",
-                    "value": "Numa"
+                    "value": "Numa",
+                    "comment": "La primera celda de la segunda fila de la tabla contiene 'Numa'"
                 },
                 {
                     "id": "listar-2-4",
                     "command": "assertText",
                     "target": "xpath=//tr[2]/td[1]",
-                    "value": "Pepito"
+                    "value": "Pepito",
+                    "comment": "La primera celda de la tercera fila de la tabla contiene 'Pepito'"
                 },
                 {
                     "id": "listar-2-5",
@@ -707,10 +748,11 @@
                 },
                 {
                     "id": "listar-3-1",
-                    "comment": "(TEST) Personas > Listar > Prueba que ordena el listado correctamente. (nombre DESC)",
+                    "title": "(TEST) Personas > Listar > Prueba que ordena el listado correctamente. (nombre DESC)",
                     "command": "click",
                     "target": "xpath=//button[@value='nombre DESC']",
-                    "value": ""
+                    "value": "",
+                    "comment": "Hace clic en el botón con atributo 'value' con valor 'nombre DESC'"
                 },
                 {
                     "id": "listar-3-2",
@@ -745,10 +787,11 @@
                 },
                 {
                     "id": "listar-4-1",
-                    "comment": "(TEST) Personas > Listar > Prueba que ordena el listado correctamente. (apellido ASC)",
+                    "title": "(TEST) Personas > Listar > Prueba que ordena el listado correctamente. (apellido ASC)",
                     "command": "click",
                     "target": "xpath=//button[@value='apellidos ASC']",
-                    "value": ""
+                    "value": "",
+                    "comment": "Hace clic en el botón con atributo 'value' con valor 'apellidos ASC'"
                 },
                 {
                     "id": "listar-4-2",
@@ -783,10 +826,11 @@
                 },
                 {
                     "id": "listar-5-1",
-                    "comment": "(TEST) Personas > Listar > Prueba que ordena el listado correctamente. (apellido DESC)",
+                    "title": "(TEST) Personas > Listar > Prueba que ordena el listado correctamente. (apellido DESC)",
                     "command": "click",
                     "target": "xpath=//button[@value='apellidos DESC']",
-                    "value": ""
+                    "value": "",
+                    "comment": "Hace clic en el botón con atributo 'value' con valor 'apellidos DESC'"
                 },
                 {
                     "id": "listar-5-2",
@@ -798,13 +842,15 @@
                     "id": "listar-5-3",
                     "command": "assertText",
                     "target": "xpath=//tr[1]/td[1]",
-                    "value": "Numa"
+                    "value": "Numa",
+                    "comment": "La primera celda de la segunda fila de la tabla contiene 'Numa'"
                 },
                 {
                     "id": "listar-5-4",
                     "command": "assertText",
                     "target": "xpath=//tr[2]/td[1]",
-                    "value": "Pepito"
+                    "value": "Pepito",
+                    "comment": "La primera celda de la tercera fila de la tabla contiene 'Pepito'"
                 },
                 {
                     "id": "listar-5-5",
@@ -821,10 +867,11 @@
                 },
                 {
                     "id": "listar-6-1",
-                    "comment": "(TEST) Personas > Listar > Prueba que ordena el listado correctamente. (telefono ASC)",
+                    "title": "(TEST) Personas > Listar > Prueba que ordena el listado correctamente. (telefono ASC)",
                     "command": "click",
                     "target": "xpath=//button[@value='telefono ASC']",
-                    "value": ""
+                    "value": "",
+                    "comment": "Hace clic en el botón con atributo 'value' con valor 'telefono ASC'"
                 },
                 {
                     "id": "listar-6-2",
@@ -836,13 +883,15 @@
                     "id": "listar-6-3",
                     "command": "assertText",
                     "target": "xpath=//tr[1]/td[1]",
-                    "value": "Numa"
+                    "value": "Numa",
+                    "comment": "La primera celda de la segunda fila de la tabla contiene 'Numa'"
                 },
                 {
                     "id": "listar-6-4",
                     "command": "assertText",
                     "target": "xpath=//tr[2]/td[1]",
-                    "value": "Pepito"
+                    "value": "Pepito",
+                    "comment": "La primera celda de la tercera fila de la tabla contiene 'Pepito'"
                 },
                 {
                     "id": "listar-6-5",
@@ -859,10 +908,11 @@
                 },
                 {
                     "id": "listar-7-1",
-                    "comment": "(TEST) Personas > Listar > Prueba que ordena el listado correctamente. (telefono DESC)",
+                    "title": "(TEST) Personas > Listar > Prueba que ordena el listado correctamente. (telefono DESC)",
                     "command": "click",
                     "target": "xpath=//button[@value='telefono DESC']",
-                    "value": ""
+                    "value": "",
+                    "comment": "Hace clic en el botón con atributo 'value' con valor 'telefono DESC'"
                 },
                 {
                     "id": "listar-7-2",
@@ -897,10 +947,11 @@
                 },
                 {
                     "id": "listar-8-1",
-                    "comment": "(TEST) Personas > Listar > Prueba que ordena el listado correctamente. (correo ASC)",
+                    "title": "(TEST) Personas > Listar > Prueba que ordena el listado correctamente. (correo ASC)",
                     "command": "click",
                     "target": "xpath=//button[@value='correo ASC']",
-                    "value": ""
+                    "value": "",
+                    "comment": "Hace clic en el botón con atributo 'value' con valor 'correo ASC'"
                 },
                 {
                     "id": "listar-8-2",
@@ -912,13 +963,15 @@
                     "id": "listar-8-3",
                     "command": "assertText",
                     "target": "xpath=//tr[1]/td[1]",
-                    "value": "Numa"
+                    "value": "Numa",
+                    "comment": "La primera celda de la segunda fila de la tabla contiene 'Numa'"
                 },
                 {
                     "id": "listar-8-4",
                     "command": "assertText",
                     "target": "xpath=//tr[2]/td[1]",
-                    "value": "Pepito"
+                    "value": "Pepito",
+                    "comment": "La primera celda de la tercera fila de la tabla contiene 'Pepito'"
                 },
                 {
                     "id": "listar-8-5",
@@ -935,10 +988,11 @@
                 },
                 {
                     "id": "listar-9-1",
-                    "comment": "(TEST) Personas > Listar > Prueba que ordena el listado correctamente. (correo DESC)",
+                    "title": "(TEST) Personas > Listar > Prueba que ordena el listado correctamente. (correo DESC)",
                     "command": "click",
                     "target": "xpath=//button[@value='correo DESC']",
-                    "value": ""
+                    "value": "",
+                    "comment": "Hace clic en el botón con atributo 'value' con valor 'correo DESC'"
                 },
                 {
                     "id": "listar-9-2",
@@ -979,10 +1033,11 @@
             "commands": [
                 {
                     "id": "borrar-1-1",
-                    "comment": "(TEST) Personas > Borrar > Añade un tercer registro",
+                    "title": "(TEST) Personas > Borrar > Añade un tercer registro",
                     "command": "click",
                     "target": "linkText=Añadir registro",
-                    "value": ""
+                    "value": "",
+                    "comment": "Hace clic en el enlace 'Añadir registro'"
                 },
                 {
                     "id": "borrar-1-2",
@@ -1006,14 +1061,16 @@
                     "id": "borrar-1-5",
                     "command": "assertText",
                     "target": "xpath=//p",
-                    "value": "Registro creado correctamente."
+                    "value": "Registro creado correctamente.",
+                    "comment": "Muestra mensaje: 'Registro creado correctamente.'"
                 },
                 {
                     "id": "borrar-2-1",
-                    "comment": "(TEST) Personas > Borrar > Reordena registros sin perder casillas marcadas. Marca casilla",
+                    "title": "(TEST) Personas > Borrar > Reordena registros sin perder casillas marcadas. Marca casilla",
                     "command": "click",
                     "target": "linkText=Borrar",
-                    "value": ""
+                    "value": "",
+                    "comment": "Hace clic en el enlace 'Borrar'"
                 },
                 {
                     "id": "borrar-2-2",
@@ -1044,14 +1101,16 @@
                     "id": "borrar-2-6",
                     "command": "click",
                     "target": "name=id[1]",
-                    "value": ""
+                    "value": "",
+                    "comment": "Hace clic en la casilla con atributo 'name' con valor 'id[1]'"
                 },
                 {
                     "id": "borrar-3-1",
-                    "comment": "(TEST) Personas > Borrar > Reordena registros sin perder casillas marcadas. (apellidos ASC)",
+                    "title": "(TEST) Personas > Borrar > Reordena registros sin perder casillas marcadas. (apellidos ASC)",
                     "command": "click",
                     "target": "xpath=//button[@value='apellidos ASC']",
-                    "value": ""
+                    "value": "",
+                    "comment": "Hace clic en el botón con atributo 'value' con valor 'apellidos ASC'"
                 },
                 {
                     "id": "borrar-3-2",
@@ -1086,10 +1145,11 @@
                 },
                 {
                     "id": "borrar-4-1",
-                    "comment": "(TEST) Personas > Borrar > Reordena registros sin perder casillas marcadas. (apellidos DESC)",
+                    "title": "(TEST) Personas > Borrar > Reordena registros sin perder casillas marcadas. (apellidos DESC)",
                     "command": "click",
                     "target": "xpath=//button[@value='apellidos DESC']",
-                    "value": ""
+                    "value": "",
+                    "comment": "Hace clic en el botón con atributo 'value' con valor 'apellidos DESC'"
                 },
                 {
                     "id": "borrar-4-2",
@@ -1124,10 +1184,11 @@
                 },
                 {
                     "id": "borrar-5-1",
-                    "comment": "(TEST) Personas > Borrar > Intenta borrar registro sin marcar ninguno",
+                    "title": "(TEST) Personas > Borrar > Intenta borrar registro sin marcar ninguno",
                     "command": "click",
                     "target": "name=id[1]",
-                    "value": ""
+                    "value": "",
+                    "comment": "Hace clic en la casilla con atributo 'name' con valor 'id[1]'"
                 },
                 {
                     "id": "borrar-5-2",
@@ -1139,7 +1200,8 @@
                     "id": "borrar-5-3",
                     "command": "click",
                     "target": "xpath=//input[@value='Borrar registro']",
-                    "value": ""
+                    "value": "",
+                    "comment": "Hace clic en el botón 'Borrar registro'"
                 },
                 {
                     "id": "borrar-5-4",
@@ -1155,7 +1217,7 @@
                 },
                 {
                     "id": "borrar-6-1",
-                    "comment": "(TEST) Personas > Borrar > Intenta borrar dos registros inexistentes",
+                    "title": "(TEST) Personas > Borrar > Intenta borrar dos registros inexistentes",
                     "command": "open",
                     "target": "${urlPersonas}/borrar-2.php?id[50]=on&id[60]=on",
                     "value": ""
@@ -1182,7 +1244,8 @@
                     "id": "borrar-6-5",
                     "command": "click",
                     "target": "linkText=Borrar",
-                    "value": ""
+                    "value": "",
+                    "comment": "Hace clic en el enlace 'Borrar'"
                 },
                 {
                     "id": "borrar-6-6",
@@ -1194,7 +1257,8 @@
                     "id": "borrar-6-7",
                     "command": "click",
                     "target": "name=id[1]",
-                    "value": ""
+                    "value": "",
+                    "comment": "Hace clic en la casilla con atributo 'name' con valor 'id[1]'"
                 },
                 {
                     "id": "borrar-6-8",
@@ -1206,7 +1270,8 @@
                     "id": "borrar-6-9",
                     "command": "click",
                     "target": "xpath=//input[@value='Borrar registro']",
-                    "value": ""
+                    "value": "",
+                    "comment": "Hace clic en el botón 'Borrar registro'"
                 },
                 {
                     "id": "borrar-6-10",
@@ -1222,10 +1287,11 @@
                 },
                 {
                     "id": "borrar-7-1",
-                    "comment": "(TEST) Borrar > Borra dos registros",
+                    "title": "(TEST) Borrar > Borra dos registros",
                     "command": "click",
                     "target": "linkText=Borrar",
-                    "value": ""
+                    "value": "",
+                    "comment": "Hace clic en el enlace 'Borrar'"
                 },
                 {
                     "id": "borrar-7-2",
@@ -1237,7 +1303,8 @@
                     "id": "borrar-7-3",
                     "command": "click",
                     "target": "name=id[2]",
-                    "value": ""
+                    "value": "",
+                    "comment": "Hace clic en la casilla con atributo 'name' con valor 'id[2]'"
                 },
                 {
                     "id": "borrar-7-4",
@@ -1249,7 +1316,8 @@
                     "id": "borrar-7-5",
                     "command": "click",
                     "target": "name=id[3]",
-                    "value": ""
+                    "value": "",
+                    "comment": "Hace clic en la casilla con atributo 'name' con valor 'id[3]'"
                 },
                 {
                     "id": "borrar-7-6",
@@ -1261,7 +1329,8 @@
                     "id": "borrar-7-7",
                     "command": "click",
                     "target": "xpath=//input[@value='Borrar registro']",
-                    "value": ""
+                    "value": "",
+                    "comment": "Hace clic en el botón 'Borrar registro'"
                 },
                 {
                     "id": "borrar-7-8",
@@ -1290,7 +1359,7 @@
             "commands": [
                 {
                     "id": "buscar-1-1",
-                    "comment": "(TEST) Personas > Buscar > Inserta tres registros directamente",
+                    "title": "(TEST) Personas > Buscar > Inserta tres registros directamente",
                     "command": "open",
                     "target": "${urlPersonas}/insertar-2.php?nombre=Numa&apellidos=Nigerio&telefono=123456&correo=numa.nigerio@micorreo.com",
                     "value": ""
@@ -1305,7 +1374,8 @@
                     "id": "buscar-1-3",
                     "command": "assertText",
                     "target": "xpath=//p",
-                    "value": "Registro creado correctamente."
+                    "value": "Registro creado correctamente.",
+                    "comment": "Muestra mensaje: 'Registro creado correctamente.'"
                 },
                 {
                     "id": "buscar-1-4",
@@ -1323,7 +1393,8 @@
                     "id": "buscar-1-6",
                     "command": "assertText",
                     "target": "xpath=//p",
-                    "value": "Registro creado correctamente."
+                    "value": "Registro creado correctamente.",
+                    "comment": "Muestra mensaje: 'Registro creado correctamente.'"
                 },
                 {
                     "id": "buscar-1-7",
@@ -1341,14 +1412,16 @@
                     "id": "buscar-1-9",
                     "command": "assertText",
                     "target": "xpath=//p",
-                    "value": "Registro creado correctamente."
+                    "value": "Registro creado correctamente.",
+                    "comment": "Muestra mensaje: 'Registro creado correctamente.'"
                 },
                 {
                     "id": "buscar-2-1",
-                    "comment": "(TEST) Personas > Buscar > Encuentra registros correctamente (busca por Nombre)",
+                    "title": "(TEST) Personas > Buscar > Encuentra registros correctamente (busca por Nombre)",
                     "command": "click",
                     "target": "linkText=Buscar",
-                    "value": ""
+                    "value": "",
+                    "comment": "Hace clic en el enlace 'Buscar'"
                 },
                 {
                     "id": "buscar-2-2",
@@ -1360,13 +1433,15 @@
                     "id": "buscar-2-3",
                     "command": "type",
                     "target": "name=nombre",
-                    "value": "u"
+                    "value": "u",
+                    "comment": "Escribe 'u' en el campo 'nombre'"
                 },
                 {
                     "id": "buscar-2-4",
                     "command": "click",
                     "target": "xpath=//input[@value='Buscar']",
-                    "value": ""
+                    "value": "",
+                    "comment": "Hace clic en el botón 'Buscar'"
                 },
                 {
                     "id": "buscar-2-5",
@@ -1401,10 +1476,11 @@
                 },
                 {
                     "id": "buscar-3-1",
-                    "comment": "(TEST) Personas > Buscar > Reordena los registros encontrado correctamente (reordena por nombre)",
+                    "title": "(TEST) Personas > Buscar > Reordena los registros encontrado correctamente (reordena por nombre)",
                     "command": "click",
                     "target": "xpath=//button[@value='nombre DESC']",
-                    "value": ""
+                    "value": "",
+                    "comment": "Hace clic en el botón con atributo 'value' con valor 'nombre DESC'"
                 },
                 {
                     "id": "buscar-3-2",
@@ -1416,7 +1492,8 @@
                     "id": "buscar-3-3",
                     "command": "assertText",
                     "target": "xpath=//tr[1]/td[1]",
-                    "value": "Numa"
+                    "value": "Numa",
+                    "comment": "La primera celda de la segunda fila de la tabla contiene 'Numa'"
                 },
                 {
                     "id": "buscar-3-4",
@@ -1441,7 +1518,8 @@
                     "id": "buscar-3-7",
                     "command": "click",
                     "target": "xpath=//button[@value='nombre ASC']",
-                    "value": ""
+                    "value": "",
+                    "comment": "Hace clic en el botón con atributo 'value' con valor 'nombre ASC'"
                 },
                 {
                     "id": "buscar-3-8",
@@ -1476,10 +1554,11 @@
                 },
                 {
                     "id": "buscar-4-1",
-                    "comment": "(TEST) Personas > Buscar > Encuentra registros correctamente (busca por Apellidos)",
+                    "title": "(TEST) Personas > Buscar > Encuentra registros correctamente (busca por Apellidos)",
                     "command": "click",
                     "target": "linkText=Buscar",
-                    "value": ""
+                    "value": "",
+                    "comment": "Hace clic en el enlace 'Buscar'"
                 },
                 {
                     "id": "buscar-4-2",
@@ -1491,13 +1570,15 @@
                     "id": "buscar-4-3",
                     "command": "type",
                     "target": "name=apellidos",
-                    "value": "a"
+                    "value": "a",
+                    "comment": "Escribe 'a' en el campo 'apellidos'"
                 },
                 {
                     "id": "buscar-4-4",
                     "command": "click",
                     "target": "xpath=//input[@value='Buscar']",
-                    "value": ""
+                    "value": "",
+                    "comment": "Hace clic en el botón 'Buscar'"
                 },
                 {
                     "id": "buscar-4-5",
@@ -1526,10 +1607,11 @@
                 },
                 {
                     "id": "buscar-5-1",
-                    "comment": "(TEST) Personas > Buscar > Encuentra registros correctamente (busca por Teléfono y Correo)",
+                    "title": "(TEST) Personas > Buscar > Encuentra registros correctamente (busca por Teléfono y Correo)",
                     "command": "click",
                     "target": "linkText=Buscar",
-                    "value": ""
+                    "value": "",
+                    "comment": "Hace clic en el enlace 'Buscar'"
                 },
                 {
                     "id": "buscar-5-2",
@@ -1553,7 +1635,8 @@
                     "id": "buscar-5-5",
                     "command": "click",
                     "target": "xpath=//input[@value='Buscar']",
-                    "value": ""
+                    "value": "",
+                    "comment": "Hace clic en el botón 'Buscar'"
                 },
                 {
                     "id": "buscar-5-6",
@@ -1565,7 +1648,8 @@
                     "id": "buscar-5-7",
                     "command": "assertText",
                     "target": "xpath=//tr[1]/td[1]",
-                    "value": "Numa"
+                    "value": "Numa",
+                    "comment": "La primera celda de la segunda fila de la tabla contiene 'Numa'"
                 },
                 {
                     "id": "buscar-5-8",
@@ -1582,10 +1666,11 @@
                 },
                 {
                     "id": "buscar-6-1",
-                    "comment": "(TEST) Personas > Buscar > No encuentra registros correctamente (busca por Teléfono)",
+                    "title": "(TEST) Personas > Buscar > No encuentra registros correctamente (busca por Teléfono)",
                     "command": "click",
                     "target": "linkText=Buscar",
-                    "value": ""
+                    "value": "",
+                    "comment": "Hace clic en el enlace 'Buscar'"
                 },
                 {
                     "id": "buscar-6-2",
@@ -1603,7 +1688,8 @@
                     "id": "buscar-6-4",
                     "command": "click",
                     "target": "xpath=//input[@value='Buscar']",
-                    "value": ""
+                    "value": "",
+                    "comment": "Hace clic en el botón 'Buscar'"
                 },
                 {
                     "id": "buscar-6-5",
@@ -1626,7 +1712,7 @@
             "commands": [
                 {
                     "id": "modificar-1-1",
-                    "comment": "(TEST) Personas > Modificar > Sin seleccionar registros.",
+                    "title": "(TEST) Personas > Modificar > Sin seleccionar registros.",
                     "command": "open",
                     "target": "${urlPersonas}/modificar-2.php",
                     "value": ""
@@ -1658,7 +1744,7 @@
                 },
                 {
                     "id": "modificar-2-1",
-                    "comment": "(TEST) Personas > Modificar > Selecciona registro no existente.",
+                    "title": "(TEST) Personas > Modificar > Selecciona registro no existente.",
                     "command": "open",
                     "target": "${urlPersonas}/modificar-2.php?id=50",
                     "value": ""
@@ -1690,10 +1776,11 @@
                 },
                 {
                     "id": "modificar-3-1",
-                    "comment": "(TEST) Personas > Modificar > Reordena registros sin perder casillas marcadas. Marca casilla",
+                    "title": "(TEST) Personas > Modificar > Reordena registros sin perder casillas marcadas. Marca casilla",
                     "command": "click",
                     "target": "linkText=Modificar",
-                    "value": ""
+                    "value": "",
+                    "comment": "Hace clic en el enlace 'Modificar'"
                 },
                 {
                     "id": "modificar-3-2",
@@ -1724,14 +1811,16 @@
                     "id": "modificar-3-6",
                     "command": "click",
                     "target": "xpath=//tr[3]/td[1]/input",
-                    "value": ""
+                    "value": "",
+                    "comment": "Hace clic en la casilla situada en la primera celda de la cuarta fila de la tabla"
                 },
                 {
                     "id": "modificar-4-1",
-                    "comment": "(TEST) Personas > Modificar > Reordena registros sin perder casillas marcadas. (nombre ASC)",
+                    "title": "(TEST) Personas > Modificar > Reordena registros sin perder casillas marcadas. (nombre ASC)",
                     "command": "click",
                     "target": "xpath=//button[@value='nombre ASC']",
-                    "value": ""
+                    "value": "",
+                    "comment": "Hace clic en el botón con atributo 'value' con valor 'nombre ASC'"
                 },
                 {
                     "id": "modificar-4-2",
@@ -1766,10 +1855,11 @@
                 },
                 {
                     "id": "modificar-5-1",
-                    "comment": "(TEST) Personas > Modificar > Reordena registros sin perder casillas marcadas. (nombre DESC)",
+                    "title": "(TEST) Personas > Modificar > Reordena registros sin perder casillas marcadas. (nombre DESC)",
                     "command": "click",
                     "target": "xpath=//button[@value='nombre DESC']",
-                    "value": ""
+                    "value": "",
+                    "comment": "Hace clic en el botón con atributo 'value' con valor 'nombre DESC'"
                 },
                 {
                     "id": "modificar-5-2",
@@ -1804,10 +1894,11 @@
                 },
                 {
                     "id": "modificar-6-1",
-                    "comment": "(TEST) Personas > Modificar > Modifica correctamente",
+                    "title": "(TEST) Personas > Modificar > Modifica correctamente",
                     "command": "click",
                     "target": "xpath=//input[@value='Modificar registro']",
-                    "value": ""
+                    "value": "",
+                    "comment": "Hace clic en el botón 'Modificar registro'"
                 },
                 {
                     "id": "modificar-6-2",
@@ -1843,13 +1934,15 @@
                     "id": "modificar-6-7",
                     "command": "type",
                     "target": "name=nombre",
-                    "value": "Pepita"
+                    "value": "Pepita",
+                    "comment": "Escribe 'Pepita' en el campo 'nombre'"
                 },
                 {
                     "id": "modificar-6-8",
                     "command": "type",
                     "target": "name=apellidos",
-                    "value": "Coneja"
+                    "value": "Coneja",
+                    "comment": "Escribe 'Coneja' en el campo 'apellidos'"
                 },
                 {
                     "id": "modificar-6-9",
@@ -1867,7 +1960,8 @@
                     "id": "modificar-6-11",
                     "command": "click",
                     "target": "xpath=//input[@value='Actualizar']",
-                    "value": ""
+                    "value": "",
+                    "comment": "Hace clic en el botón 'Actualizar'"
                 },
                 {
                     "id": "modificar-6-12",
@@ -1885,7 +1979,8 @@
                     "id": "modificar-6-14",
                     "command": "click",
                     "target": "linkText=Listar",
-                    "value": ""
+                    "value": "",
+                    "comment": "Hace clic en el enlace 'Listar'"
                 },
                 {
                     "id": "modificar-6-15",
@@ -1934,7 +2029,8 @@
                     "id": "modificar-6-22",
                     "command": "click",
                     "target": "linkText=Volver",
-                    "value": ""
+                    "value": "",
+                    "comment": "Hace clic en el enlace 'Volver'"
                 },
                 {
                     "id": "modificar-6-23",

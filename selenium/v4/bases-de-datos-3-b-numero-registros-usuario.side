@@ -74,7 +74,8 @@
                     "id": "preparacion-desconexion-inicial-5",
                     "command": "click",
                     "target": "linkText=Desconectarse",
-                    "value": ""
+                    "value": "",
+                    "comment": "Hace clic en el enlace 'Desconectarse'"
                 },
                 {
                     "id": "preparacion-desconexion-inicial-6",
@@ -105,7 +106,8 @@
                     "id": "preparacion-borrar-todo-con-1",
                     "command": "click",
                     "target": "linkText=Conectarse",
-                    "value": ""
+                    "value": "",
+                    "comment": "Hace clic en el enlace 'Conectarse'"
                 },
                 {
                     "id": "preparacion-borrar-todo-con-2",
@@ -129,7 +131,8 @@
                     "id": "preparacion-borrar-todo-con-5",
                     "command": "click",
                     "target": "xpath=//input[@value='Identificar']",
-                    "value": ""
+                    "value": "",
+                    "comment": "Hace clic en el botón 'Identificar'"
                 },
                 {
                     "id": "preparacion-borrar-todo-con-6",
@@ -141,7 +144,8 @@
                     "id": "preparacion-borrar-todo-con-7",
                     "command": "click",
                     "target": "linkText=Administrador",
-                    "value": ""
+                    "value": "",
+                    "comment": "Hace clic en el enlace 'Administrador'"
                 },
                 {
                     "id": "preparacion-borrar-todo-con-8",
@@ -153,7 +157,8 @@
                     "id": "preparacion-borrar-todo-con-9",
                     "command": "click",
                     "target": "linkText=Borrar todo",
-                    "value": ""
+                    "value": "",
+                    "comment": "Hace clic en el enlace 'Borrar todo'"
                 },
                 {
                     "id": "preparacion-borrar-todo-con-10",
@@ -165,7 +170,8 @@
                     "id": "preparacion-borrar-todo-con-11",
                     "command": "click",
                     "target": "name=demo",
-                    "value": ""
+                    "value": "",
+                    "comment": "Hace clic en la casilla con atributo 'name' con valor 'demo'"
                 },
                 {
                     "id": "preparacion-borrar-todo-con-12",
@@ -177,7 +183,8 @@
                     "id": "preparacion-borrar-todo-con-13",
                     "command": "click",
                     "target": "xpath=//input[@name='borrar' and @value='Sí']",
-                    "value": ""
+                    "value": "",
+                    "comment": "Hace clic en el botón con atributo 'name' con valor 'borrar' y atributo 'value' con valor 'Sí'"
                 },
                 {
                     "id": "preparacion-borrar-todo-con-14",
@@ -201,7 +208,8 @@
                     "id": "preparacion-borrar-todo-con-17",
                     "command": "click",
                     "target": "linkText=Volver",
-                    "value": ""
+                    "value": "",
+                    "comment": "Hace clic en el enlace 'Volver'"
                 },
                 {
                     "id": "preparacion-borrar-todo-con-18",
@@ -218,7 +226,7 @@
             "commands": [
                 {
                     "id": "numero-registros-usuario-1-1",
-                    "comment": "(TEST) Comprobación inicial conexiones",
+                    "title": "(TEST) Comprobación inicial conexiones",
                     "command": "open",
                     "target": "${urlBase}/db/tabla-usuarios/listar.php",
                     "value": ""
@@ -231,7 +239,7 @@
                 },
                 {
                     "id": "numero-registros-usuario-1-3",
-                    "command": "storeXpathCount",
+                    "command": "storeElementCount",
                     "target": "xpath=//tr",
                     "value": "cuentaFilas"
                 },
@@ -322,7 +330,7 @@
                 },
                 {
                     "id": "numero-registros-usuario-2-1",
-                    "comment": "(TEST) Borra registros usuarios",
+                    "title": "(TEST) Borra registros usuarios",
                     "command": "open",
                     "target": "${urlBase}/db/tabla-usuarios/borrar-2.php?id[2]=on&id[3]=on&id[4]=on",
                     "value": ""
@@ -353,7 +361,7 @@
                 },
                 {
                     "id": "numero-registros-usuario-3-1",
-                    "comment": "(TEST) Insertar usuario básico incorrecto",
+                    "title": "(TEST) Insertar usuario básico incorrecto",
                     "command": "open",
                     "target": "${urlBase}/db/tabla-usuarios/insertar-2.php?usuario=prueba-1-1&password=prueba-1-2&nivel=10",
                     "value": ""
@@ -372,7 +380,7 @@
                 },
                 {
                     "id": "numero-registros-usuario-3-4",
-                    "command": "storeXpathCount",
+                    "command": "storeElementCount",
                     "target": "xpath=//*[contains(@class, 'aviso')]",
                     "value": "cuentaAvisos"
                 },
@@ -385,7 +393,7 @@
                 },
                 {
                     "id": "numero-registros-usuario-4-1",
-                    "comment": "(TEST) Insertar usuario básico límite 5",
+                    "title": "(TEST) Insertar usuario básico límite 5",
                     "command": "open",
                     "target": "${urlBase}/db/tabla-usuarios/insertar-2.php?usuario=prueba-1-1&password=prueba-1-2&nivel=10&registros=5",
                     "value": ""
@@ -400,11 +408,12 @@
                     "id": "numero-registros-usuario-4-3",
                     "command": "assertText",
                     "target": "xpath=//p",
-                    "value": "Registro creado correctamente."
+                    "value": "Registro creado correctamente.",
+                    "comment": "Muestra mensaje: 'Registro creado correctamente.'"
                 },
                 {
                     "id": "numero-registros-usuario-5-1",
-                    "comment": "(TEST) Comprueba orden Listar (registros ASC)",
+                    "title": "(TEST) Comprueba orden Listar (registros ASC)",
                     "command": "open",
                     "target": "${urlBase}/db/tabla-usuarios/listar.php?ordena=registros+ASC",
                     "value": ""
@@ -417,7 +426,7 @@
                 },
                 {
                     "id": "numero-registros-usuario-5-3",
-                    "command": "storeXpathCount",
+                    "command": "storeElementCount",
                     "target": "xpath=//tr",
                     "value": "cuentaFilas"
                 },
@@ -448,7 +457,7 @@
                 },
                 {
                     "id": "numero-registros-usuario-6-1",
-                    "comment": "(TEST) Comprueba orden Listar (registros DESC)",
+                    "title": "(TEST) Comprueba orden Listar (registros DESC)",
                     "command": "open",
                     "target": "${urlBase}/db/tabla-usuarios/listar.php?ordena=registros+DESC",
                     "value": ""
@@ -461,7 +470,7 @@
                 },
                 {
                     "id": "numero-registros-usuario-6-3",
-                    "command": "storeXpathCount",
+                    "command": "storeElementCount",
                     "target": "xpath=//tr",
                     "value": "cuentaFilas"
                 },
@@ -492,7 +501,7 @@
                 },
                 {
                     "id": "numero-registros-usuario-7-1",
-                    "comment": "(TEST) Entrar como usuario básico",
+                    "title": "(TEST) Entrar como usuario básico",
                     "command": "open",
                     "target": "${urlBase}/acceso/logout.php",
                     "value": ""
@@ -529,7 +538,7 @@
                 },
                 {
                     "id": "numero-registros-usuario-8-1",
-                    "comment": "(TEST) Inserta registro personas nº 4",
+                    "title": "(TEST) Inserta registro personas nº 4",
                     "command": "open",
                     "target": "${urlBase}/db/tabla-personas/insertar-2.php?nombre=prueba-2-1&apellidos=prueba-2-2&telefono=2-3&correo=prueba-2-4@example.com",
                     "value": ""
@@ -544,11 +553,12 @@
                     "id": "numero-registros-usuario-8-3",
                     "command": "assertText",
                     "target": "xpath=//p",
-                    "value": "Registro creado correctamente."
+                    "value": "Registro creado correctamente.",
+                    "comment": "Muestra mensaje: 'Registro creado correctamente.'"
                 },
                 {
                     "id": "numero-registros-usuario-9-1",
-                    "comment": "(TEST) Inserta registro personas nº 5",
+                    "title": "(TEST) Inserta registro personas nº 5",
                     "command": "open",
                     "target": "${urlBase}/db/tabla-personas/insertar-2.php?nombre=prueba-3-1&apellidos=prueba-3-2&telefono=3-3&correo=prueba-3-4@example.com",
                     "value": ""
@@ -563,11 +573,12 @@
                     "id": "numero-registros-usuario-9-3",
                     "command": "assertText",
                     "target": "xpath=//p",
-                    "value": "Registro creado correctamente."
+                    "value": "Registro creado correctamente.",
+                    "comment": "Muestra mensaje: 'Registro creado correctamente.'"
                 },
                 {
                     "id": "numero-registros-usuario-10-1",
-                    "comment": "(TEST) Inserta registro personas nº 6",
+                    "title": "(TEST) Inserta registro personas nº 6",
                     "command": "open",
                     "target": "${urlBase}/db/tabla-personas/insertar-2.php?nombre=prueba-4-1&apellidos=prueba-4-2&telefono=4-3&correo=prueba-4-4@example.com",
                     "value": ""
@@ -592,7 +603,7 @@
                 },
                 {
                     "id": "numero-registros-usuario-10-5",
-                    "command": "storeXpathCount",
+                    "command": "storeElementCount",
                     "target": "xpath=//*[contains(@class, 'aviso')]",
                     "value": "cuentaAvisos"
                 },
@@ -607,7 +618,8 @@
                     "id": "numero-registros-usuario-10-7",
                     "command": "click",
                     "target": "linkText=Volver",
-                    "value": ""
+                    "value": "",
+                    "comment": "Hace clic en el enlace 'Volver'"
                 },
                 {
                     "id": "numero-registros-usuario-10-8",
@@ -623,10 +635,11 @@
                 },
                 {
                     "id": "numero-registros-usuario-11-1",
-                    "comment": "(TEST) Desconexión final",
+                    "title": "(TEST) Desconexión final",
                     "command": "click",
                     "target": "linkText=Desconectarse",
-                    "value": ""
+                    "value": "",
+                    "comment": "Hace clic en el enlace 'Desconectarse'"
                 },
                 {
                     "id": "numero-registros-usuario-11-2",

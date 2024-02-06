@@ -86,7 +86,8 @@
                     "id": "preparacion-desconexion-inicial-5",
                     "command": "click",
                     "target": "linkText=Desconectarse",
-                    "value": ""
+                    "value": "",
+                    "comment": "Hace clic en el enlace 'Desconectarse'"
                 },
                 {
                     "id": "preparacion-desconexion-inicial-6",
@@ -117,7 +118,8 @@
                     "id": "preparacion-borrar-todo-con-1",
                     "command": "click",
                     "target": "linkText=Conectarse",
-                    "value": ""
+                    "value": "",
+                    "comment": "Hace clic en el enlace 'Conectarse'"
                 },
                 {
                     "id": "preparacion-borrar-todo-con-2",
@@ -141,7 +143,8 @@
                     "id": "preparacion-borrar-todo-con-5",
                     "command": "click",
                     "target": "xpath=//input[@value='Identificar']",
-                    "value": ""
+                    "value": "",
+                    "comment": "Hace clic en el botón 'Identificar'"
                 },
                 {
                     "id": "preparacion-borrar-todo-con-6",
@@ -153,7 +156,8 @@
                     "id": "preparacion-borrar-todo-con-7",
                     "command": "click",
                     "target": "linkText=Administrador",
-                    "value": ""
+                    "value": "",
+                    "comment": "Hace clic en el enlace 'Administrador'"
                 },
                 {
                     "id": "preparacion-borrar-todo-con-8",
@@ -165,7 +169,8 @@
                     "id": "preparacion-borrar-todo-con-9",
                     "command": "click",
                     "target": "linkText=Borrar todo",
-                    "value": ""
+                    "value": "",
+                    "comment": "Hace clic en el enlace 'Borrar todo'"
                 },
                 {
                     "id": "preparacion-borrar-todo-con-10",
@@ -177,7 +182,8 @@
                     "id": "preparacion-borrar-todo-con-11",
                     "command": "click",
                     "target": "name=demo",
-                    "value": ""
+                    "value": "",
+                    "comment": "Hace clic en la casilla con atributo 'name' con valor 'demo'"
                 },
                 {
                     "id": "preparacion-borrar-todo-con-12",
@@ -189,7 +195,8 @@
                     "id": "preparacion-borrar-todo-con-13",
                     "command": "click",
                     "target": "xpath=//input[@name='borrar' and @value='Sí']",
-                    "value": ""
+                    "value": "",
+                    "comment": "Hace clic en el botón con atributo 'name' con valor 'borrar' y atributo 'value' con valor 'Sí'"
                 },
                 {
                     "id": "preparacion-borrar-todo-con-14",
@@ -213,7 +220,8 @@
                     "id": "preparacion-borrar-todo-con-17",
                     "command": "click",
                     "target": "linkText=Volver",
-                    "value": ""
+                    "value": "",
+                    "comment": "Hace clic en el enlace 'Volver'"
                 },
                 {
                     "id": "preparacion-borrar-todo-con-18",
@@ -230,10 +238,11 @@
             "commands": [
                 {
                     "id": "registros-incompletos-1-1",
-                    "comment": "(TEST) Sin registros incompletos",
+                    "title": "(TEST) Sin registros incompletos",
                     "command": "click",
                     "target": "linkText=Personas",
-                    "value": ""
+                    "value": "",
+                    "comment": "Hace clic en el enlace 'Personas'"
                 },
                 {
                     "id": "registros-incompletos-1-2",
@@ -251,7 +260,8 @@
                     "id": "registros-incompletos-1-4",
                     "command": "click",
                     "target": "linkText=Incompletos",
-                    "value": ""
+                    "value": "",
+                    "comment": "Hace clic en el enlace 'Incompletos'"
                 },
                 {
                     "id": "registros-incompletos-1-5",
@@ -267,7 +277,7 @@
                 },
                 {
                     "id": "registros-incompletos-1-7",
-                    "command": "storeXpathCount",
+                    "command": "storeElementCount",
                     "target": "xpath=//*[contains(@class, 'aviso')]",
                     "value": "cuentaAvisos"
                 },
@@ -280,7 +290,7 @@
                 },
                 {
                     "id": "registros-incompletos-2-1",
-                    "comment": "(TEST) Registro sin Nombre",
+                    "title": "(TEST) Registro sin Nombre",
                     "command": "open",
                     "target": "${urlBase}/db/tabla-personas/insertar-2.php?nombre=&apellidos=prueba-1-2&telefono=1-3&correo=prueba-1-4@example.com",
                     "value": ""
@@ -301,7 +311,8 @@
                     "id": "registros-incompletos-2-4",
                     "command": "click",
                     "target": "linkText=Incompletos",
-                    "value": ""
+                    "value": "",
+                    "comment": "Hace clic en el enlace 'Incompletos'"
                 },
                 {
                     "id": "registros-incompletos-2-5",
@@ -317,7 +328,7 @@
                 },
                 {
                     "id": "registros-incompletos-2-7",
-                    "command": "storeXpathCount",
+                    "command": "storeElementCount",
                     "target": "xpath=//tr",
                     "value": "cuentaFilas"
                 },
@@ -391,8 +402,9 @@
                 {
                     "id": "registros-incompletos-2-19",
                     "command": "click",
-                    "target": "xpath=//input[@value='Completar registro']",
-                    "value": ""
+                    "target": "xpath=//input[@value=''Completar registro']",
+                    "value": "",
+                    "comment": "Hace clic en el botón ''Completa rregistro'"
                 },
                 {
                     "id": "registros-incompletos-2-20",
@@ -402,7 +414,7 @@
                 },
                 {
                     "id": "registros-incompletos-2-21",
-                    "command": "storeXpathCount",
+                    "command": "storeElementCount",
                     "target": "xpath=//tr",
                     "value": "cuentaFilas"
                 },
@@ -417,25 +429,29 @@
                     "id": "registros-incompletos-2-23",
                     "command": "assertText",
                     "target": "xpath=//tr[1]/td[1]",
-                    "value": "Nombre:"
+                    "value": "Nombre:",
+                    "comment": "La primera celda de la primera fila de la tabla contiene 'Nombre:'"
                 },
                 {
                     "id": "registros-incompletos-2-24",
                     "command": "assertText",
                     "target": "xpath=//tr[2]/td[1]",
-                    "value": "Apellidos:"
+                    "value": "Apellidos:",
+                    "comment": "La primera celda de la segunda fila de la tabla contiene 'Apellidos:'"
                 },
                 {
                     "id": "registros-incompletos-2-25",
                     "command": "assertText",
                     "target": "xpath=//tr[3]/td[1]",
-                    "value": "Teléfono:"
+                    "value": "Teléfono:",
+                    "comment": "La primera celda de la tercera fila de la tabla contiene 'Teléfono:'"
                 },
                 {
                     "id": "registros-incompletos-2-26",
                     "command": "assertText",
                     "target": "xpath=//tr[4]/td[1]",
-                    "value": "Correo:"
+                    "value": "Correo:",
+                    "comment": "La primera celda de la cuarta fila de la tabla contiene 'Correo:'"
                 },
                 {
                     "id": "registros-incompletos-2-27",
@@ -465,13 +481,15 @@
                     "id": "registros-incompletos-2-31",
                     "command": "type",
                     "target": "name=nombre",
-                    "value": "prueba-1-1"
+                    "value": "prueba-1-1",
+                    "comment": "Escribe 'prueba-1-1' en el campo 'nombre'"
                 },
                 {
                     "id": "registros-incompletos-2-32",
                     "command": "click",
-                    "target": "xpath=//input[@value='Guardar']",
-                    "value": ""
+                    "target": "xpath=//input[@value=''Guardar']",
+                    "value": "",
+                    "comment": "Hace clic en el botón ''Guardar'"
                 },
                 {
                     "id": "registros-incompletos-2-33",
@@ -489,7 +507,8 @@
                     "id": "registros-incompletos-2-35",
                     "command": "click",
                     "target": "linkText=Listar",
-                    "value": ""
+                    "value": "",
+                    "comment": "Hace clic en el enlace 'Listar'"
                 },
                 {
                     "id": "registros-incompletos-2-36",
@@ -523,7 +542,7 @@
                 },
                 {
                     "id": "registros-incompletos-3-1",
-                    "comment": "(TEST) Registro sin Apellidos",
+                    "title": "(TEST) Registro sin Apellidos",
                     "command": "open",
                     "target": "${urlBase}/db/tabla-personas/insertar-2.php?nombre=prueba-2-1&telefono=2-3&correo=prueba-2-4@example.com",
                     "value": ""
@@ -544,7 +563,8 @@
                     "id": "registros-incompletos-3-4",
                     "command": "click",
                     "target": "linkText=Incompletos",
-                    "value": ""
+                    "value": "",
+                    "comment": "Hace clic en el enlace 'Incompletos'"
                 },
                 {
                     "id": "registros-incompletos-3-5",
@@ -591,8 +611,9 @@
                 {
                     "id": "registros-incompletos-3-12",
                     "command": "click",
-                    "target": "xpath=//input[@value='Completar registro']",
-                    "value": ""
+                    "target": "xpath=//input[@value=''Completar registro']",
+                    "value": "",
+                    "comment": "Hace clic en el botón ''Completa rregistro'"
                 },
                 {
                     "id": "registros-incompletos-3-13",
@@ -628,13 +649,15 @@
                     "id": "registros-incompletos-3-18",
                     "command": "type",
                     "target": "name=apellidos",
-                    "value": "prueba-2-2"
+                    "value": "prueba-2-2",
+                    "comment": "Escribe 'prueba-2-2' en el campo 'apellidos'"
                 },
                 {
                     "id": "registros-incompletos-3-19",
                     "command": "click",
-                    "target": "xpath=//input[@value='Guardar']",
-                    "value": ""
+                    "target": "xpath=//input[@value=''Guardar']",
+                    "value": "",
+                    "comment": "Hace clic en el botón ''Guardar'"
                 },
                 {
                     "id": "registros-incompletos-3-20",
@@ -652,7 +675,8 @@
                     "id": "registros-incompletos-3-22",
                     "command": "click",
                     "target": "linkText=Listar",
-                    "value": ""
+                    "value": "",
+                    "comment": "Hace clic en el enlace 'Listar'"
                 },
                 {
                     "id": "registros-incompletos-3-23",
@@ -686,7 +710,7 @@
                 },
                 {
                     "id": "registros-incompletos-4-1",
-                    "comment": "(TEST) Registro sin Telefono",
+                    "title": "(TEST) Registro sin Telefono",
                     "command": "open",
                     "target": "${urlBase}/db/tabla-personas/insertar-2.php?nombre=prueba-3-1&apellidos=prueba-3-2&correo=prueba-3-4@example.com",
                     "value": ""
@@ -707,7 +731,8 @@
                     "id": "registros-incompletos-4-4",
                     "command": "click",
                     "target": "linkText=Incompletos",
-                    "value": ""
+                    "value": "",
+                    "comment": "Hace clic en el enlace 'Incompletos'"
                 },
                 {
                     "id": "registros-incompletos-4-5",
@@ -754,8 +779,9 @@
                 {
                     "id": "registros-incompletos-4-12",
                     "command": "click",
-                    "target": "xpath=//input[@value='Completar registro']",
-                    "value": ""
+                    "target": "xpath=//input[@value=''Completar registro']",
+                    "value": "",
+                    "comment": "Hace clic en el botón ''Completa rregistro'"
                 },
                 {
                     "id": "registros-incompletos-4-13",
@@ -796,8 +822,9 @@
                 {
                     "id": "registros-incompletos-4-19",
                     "command": "click",
-                    "target": "xpath=//input[@value='Guardar']",
-                    "value": ""
+                    "target": "xpath=//input[@value=''Guardar']",
+                    "value": "",
+                    "comment": "Hace clic en el botón ''Guardar'"
                 },
                 {
                     "id": "registros-incompletos-4-20",
@@ -815,7 +842,8 @@
                     "id": "registros-incompletos-4-22",
                     "command": "click",
                     "target": "linkText=Listar",
-                    "value": ""
+                    "value": "",
+                    "comment": "Hace clic en el enlace 'Listar'"
                 },
                 {
                     "id": "registros-incompletos-4-23",
@@ -849,7 +877,7 @@
                 },
                 {
                     "id": "registros-incompletos-5-1",
-                    "comment": "(TEST) Registro sin Correo",
+                    "title": "(TEST) Registro sin Correo",
                     "command": "open",
                     "target": "${urlBase}/db/tabla-personas/insertar-2.php?nombre=prueba-4-1&apellidos=prueba-4-2&telefono=4-3",
                     "value": ""
@@ -870,7 +898,8 @@
                     "id": "registros-incompletos-5-4",
                     "command": "click",
                     "target": "linkText=Incompletos",
-                    "value": ""
+                    "value": "",
+                    "comment": "Hace clic en el enlace 'Incompletos'"
                 },
                 {
                     "id": "registros-incompletos-5-5",
@@ -917,8 +946,9 @@
                 {
                     "id": "registros-incompletos-5-12",
                     "command": "click",
-                    "target": "xpath=//input[@value='Completar registro']",
-                    "value": ""
+                    "target": "xpath=//input[@value=''Completar registro']",
+                    "value": "",
+                    "comment": "Hace clic en el botón ''Completa rregistro'"
                 },
                 {
                     "id": "registros-incompletos-5-13",
@@ -959,8 +989,9 @@
                 {
                     "id": "registros-incompletos-5-19",
                     "command": "click",
-                    "target": "xpath=//input[@value='Guardar']",
-                    "value": ""
+                    "target": "xpath=//input[@value=''Guardar']",
+                    "value": "",
+                    "comment": "Hace clic en el botón ''Guardar'"
                 },
                 {
                     "id": "registros-incompletos-5-20",
@@ -978,7 +1009,8 @@
                     "id": "registros-incompletos-5-22",
                     "command": "click",
                     "target": "linkText=Listar",
-                    "value": ""
+                    "value": "",
+                    "comment": "Hace clic en el enlace 'Listar'"
                 },
                 {
                     "id": "registros-incompletos-5-23",
@@ -1012,7 +1044,7 @@
                 },
                 {
                     "id": "registros-incompletos-6-1",
-                    "comment": "(TEST) Sale y entra como usuario1. Registro sin Nombre",
+                    "title": "(TEST) Sale y entra como usuario1. Registro sin Nombre",
                     "command": "open",
                     "target": "${urlBase}/acceso/logout.php",
                     "value": ""
@@ -1051,7 +1083,8 @@
                     "id": "registros-incompletos-6-7",
                     "command": "click",
                     "target": "linkText=Personas",
-                    "value": ""
+                    "value": "",
+                    "comment": "Hace clic en el enlace 'Personas'"
                 },
                 {
                     "id": "registros-incompletos-6-8",
@@ -1069,7 +1102,8 @@
                     "id": "registros-incompletos-6-10",
                     "command": "click",
                     "target": "linkText=Incompletos",
-                    "value": ""
+                    "value": "",
+                    "comment": "Hace clic en el enlace 'Incompletos'"
                 },
                 {
                     "id": "registros-incompletos-6-11",
@@ -1085,7 +1119,7 @@
                 },
                 {
                     "id": "registros-incompletos-6-13",
-                    "command": "storeXpathCount",
+                    "command": "storeElementCount",
                     "target": "xpath=//*[contains(@class, 'aviso')]",
                     "value": "cuentaAvisos"
                 },
@@ -1118,7 +1152,8 @@
                     "id": "registros-incompletos-6-18",
                     "command": "click",
                     "target": "linkText=Incompletos",
-                    "value": ""
+                    "value": "",
+                    "comment": "Hace clic en el enlace 'Incompletos'"
                 },
                 {
                     "id": "registros-incompletos-6-19",
@@ -1134,7 +1169,7 @@
                 },
                 {
                     "id": "registros-incompletos-6-21",
-                    "command": "storeXpathCount",
+                    "command": "storeElementCount",
                     "target": "xpath=//tr",
                     "value": "cuentaFilas"
                 },
@@ -1208,8 +1243,9 @@
                 {
                     "id": "registros-incompletos-6-33",
                     "command": "click",
-                    "target": "xpath=//input[@value='Completar registro']",
-                    "value": ""
+                    "target": "xpath=//input[@value=''Completar registro']",
+                    "value": "",
+                    "comment": "Hace clic en el botón ''Completa rregistro'"
                 },
                 {
                     "id": "registros-incompletos-6-34",
@@ -1219,7 +1255,7 @@
                 },
                 {
                     "id": "registros-incompletos-6-35",
-                    "command": "storeXpathCount",
+                    "command": "storeElementCount",
                     "target": "xpath=//tr",
                     "value": "cuentaFilas"
                 },
@@ -1234,25 +1270,29 @@
                     "id": "registros-incompletos-6-37",
                     "command": "assertText",
                     "target": "xpath=//tr[1]/td[1]",
-                    "value": "Nombre:"
+                    "value": "Nombre:",
+                    "comment": "La primera celda de la primera fila de la tabla contiene 'Nombre:'"
                 },
                 {
                     "id": "registros-incompletos-6-38",
                     "command": "assertText",
                     "target": "xpath=//tr[2]/td[1]",
-                    "value": "Apellidos:"
+                    "value": "Apellidos:",
+                    "comment": "La primera celda de la segunda fila de la tabla contiene 'Apellidos:'"
                 },
                 {
                     "id": "registros-incompletos-6-39",
                     "command": "assertText",
                     "target": "xpath=//tr[3]/td[1]",
-                    "value": "Teléfono:"
+                    "value": "Teléfono:",
+                    "comment": "La primera celda de la tercera fila de la tabla contiene 'Teléfono:'"
                 },
                 {
                     "id": "registros-incompletos-6-40",
                     "command": "assertText",
                     "target": "xpath=//tr[4]/td[1]",
-                    "value": "Correo:"
+                    "value": "Correo:",
+                    "comment": "La primera celda de la cuarta fila de la tabla contiene 'Correo:'"
                 },
                 {
                     "id": "registros-incompletos-6-41",
@@ -1282,13 +1322,15 @@
                     "id": "registros-incompletos-6-45",
                     "command": "type",
                     "target": "name=nombre",
-                    "value": "prueba-5-1"
+                    "value": "prueba-5-1",
+                    "comment": "Escribe 'prueba-5-1' en el campo 'nombre'"
                 },
                 {
                     "id": "registros-incompletos-6-46",
                     "command": "click",
-                    "target": "xpath=//input[@value='Guardar']",
-                    "value": ""
+                    "target": "xpath=//input[@value=''Guardar']",
+                    "value": "",
+                    "comment": "Hace clic en el botón ''Guardar'"
                 },
                 {
                     "id": "registros-incompletos-6-47",
@@ -1306,7 +1348,8 @@
                     "id": "registros-incompletos-6-49",
                     "command": "click",
                     "target": "linkText=Listar",
-                    "value": ""
+                    "value": "",
+                    "comment": "Hace clic en el enlace 'Listar'"
                 },
                 {
                     "id": "registros-incompletos-6-50",
@@ -1342,7 +1385,8 @@
                     "id": "registros-incompletos-6-55",
                     "command": "click",
                     "target": "linkText=Volver",
-                    "value": ""
+                    "value": "",
+                    "comment": "Hace clic en el enlace 'Volver'"
                 },
                 {
                     "id": "registros-incompletos-6-56",
@@ -1358,10 +1402,11 @@
                 },
                 {
                     "id": "registros-incompletos-7-1",
-                    "comment": "(TEST) Desconexión final",
+                    "title": "(TEST) Desconexión final",
                     "command": "click",
                     "target": "linkText=Desconectarse",
-                    "value": ""
+                    "value": "",
+                    "comment": "Hace clic en el enlace 'Desconectarse'"
                 },
                 {
                     "id": "registros-incompletos-7-2",

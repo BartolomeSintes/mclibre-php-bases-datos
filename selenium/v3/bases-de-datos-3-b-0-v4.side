@@ -110,7 +110,7 @@
                 {
                     "id": "preparacion-desconexion-inicial-1",
                     "command": "executeScript",
-                    "target": "return (document.body.innerHTML.search('Desconectarse') > -1)",
+                    "target": "return (document.body.innerHTML.includes('Desconectarse'))",
                     "value": "contieneDesconectarse"
                 },
                 {

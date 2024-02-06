@@ -74,7 +74,8 @@
                     "id": "preparacion-desconexion-inicial-5",
                     "command": "click",
                     "target": "linkText=Desconectarse",
-                    "value": ""
+                    "value": "",
+                    "comment": "Hace clic en el enlace 'Desconectarse'"
                 },
                 {
                     "id": "preparacion-desconexion-inicial-6",
@@ -105,7 +106,8 @@
                     "id": "preparacion-borrar-todo-con-LIMITE-CONEXION-1",
                     "command": "click",
                     "target": "linkText=Conectarse",
-                    "value": ""
+                    "value": "",
+                    "comment": "Hace clic en el enlace 'Conectarse'"
                 },
                 {
                     "id": "preparacion-borrar-todo-con-LIMITE-CONEXION-2",
@@ -129,7 +131,8 @@
                     "id": "preparacion-borrar-todo-con-LIMITE-CONEXION-5",
                     "command": "click",
                     "target": "xpath=//input[@value='Identificar']",
-                    "value": ""
+                    "value": "",
+                    "comment": "Hace clic en el botón 'Identificar'"
                 },
                 {
                     "id": "preparacion-borrar-todo-con-LIMITE-CONEXION-6",
@@ -147,7 +150,8 @@
                     "id": "preparacion-borrar-todo-con-LIMITE-CONEXION-8",
                     "command": "click",
                     "target": "linkText=Volver",
-                    "value": ""
+                    "value": "",
+                    "comment": "Hace clic en el enlace 'Volver'"
                 },
                 {
                     "id": "preparacion-borrar-todo-con-LIMITE-CONEXION-9",
@@ -165,7 +169,8 @@
                     "id": "preparacion-borrar-todo-con-LIMITE-CONEXION-11",
                     "command": "click",
                     "target": "linkText=Administrador",
-                    "value": ""
+                    "value": "",
+                    "comment": "Hace clic en el enlace 'Administrador'"
                 },
                 {
                     "id": "preparacion-borrar-todo-con-LIMITE-CONEXION-12",
@@ -177,7 +182,8 @@
                     "id": "preparacion-borrar-todo-con-LIMITE-CONEXION-13",
                     "command": "click",
                     "target": "linkText=Borrar todo",
-                    "value": ""
+                    "value": "",
+                    "comment": "Hace clic en el enlace 'Borrar todo'"
                 },
                 {
                     "id": "preparacion-borrar-todo-con-LIMITE-CONEXION-14",
@@ -189,7 +195,8 @@
                     "id": "preparacion-borrar-todo-con-LIMITE-CONEXION-15",
                     "command": "click",
                     "target": "name=demo",
-                    "value": ""
+                    "value": "",
+                    "comment": "Hace clic en la casilla con atributo 'name' con valor 'demo'"
                 },
                 {
                     "id": "preparacion-borrar-todo-con-LIMITE-CONEXION-16",
@@ -201,7 +208,8 @@
                     "id": "preparacion-borrar-todo-con-LIMITE-CONEXION-17",
                     "command": "click",
                     "target": "xpath=//input[@name='borrar' and @value='Sí']",
-                    "value": ""
+                    "value": "",
+                    "comment": "Hace clic en el botón con atributo 'name' con valor 'borrar' y atributo 'value' con valor 'Sí'"
                 },
                 {
                     "id": "preparacion-borrar-todo-con-LIMITE-CONEXION-18",
@@ -225,7 +233,8 @@
                     "id": "preparacion-borrar-todo-con-LIMITE-CONEXION-21",
                     "command": "click",
                     "target": "linkText=Volver",
-                    "value": ""
+                    "value": "",
+                    "comment": "Hace clic en el enlace 'Volver'"
                 },
                 {
                     "id": "preparacion-borrar-todo-con-LIMITE-CONEXION-22",
@@ -242,7 +251,7 @@
             "commands": [
                 {
                     "id": "contador-conexiones-1-1",
-                    "comment": "(TEST) Comprobación inicial conexiones root",
+                    "title": "(TEST) Comprobación inicial conexiones root",
                     "command": "open",
                     "target": "${urlBase}/db/tabla-usuarios/listar.php",
                     "value": ""
@@ -255,7 +264,7 @@
                 },
                 {
                     "id": "contador-conexiones-1-3",
-                    "command": "storeXpathCount",
+                    "command": "storeElementCount",
                     "target": "xpath=//tr",
                     "value": "cuentaFilas"
                 },
@@ -298,7 +307,7 @@
                 },
                 {
                     "id": "contador-conexiones-2-1",
-                    "comment": "(TEST) Sale y entra como admin1",
+                    "title": "(TEST) Sale y entra como admin1",
                     "command": "open",
                     "target": "${urlBase}/acceso/logout.php",
                     "value": ""
@@ -335,7 +344,7 @@
                 },
                 {
                     "id": "contador-conexiones-3-1",
-                    "comment": "(TEST) Sale y entra como admin1",
+                    "title": "(TEST) Sale y entra como admin1",
                     "command": "open",
                     "target": "${urlBase}/acceso/logout.php",
                     "value": ""
@@ -372,7 +381,7 @@
                 },
                 {
                     "id": "contador-conexiones-4-1",
-                    "comment": "(TEST) Sale y entra como admin1",
+                    "title": "(TEST) Sale y entra como admin1",
                     "command": "open",
                     "target": "${urlBase}/acceso/logout.php",
                     "value": ""
@@ -409,7 +418,7 @@
                 },
                 {
                     "id": "contador-conexiones-5-1",
-                    "comment": "(TEST) Sale y entra como usuario1",
+                    "title": "(TEST) Sale y entra como usuario1",
                     "command": "open",
                     "target": "${urlBase}/acceso/logout.php",
                     "value": ""
@@ -446,7 +455,7 @@
                 },
                 {
                     "id": "contador-conexiones-6-1",
-                    "comment": "(TEST) Sale y entra como usuario1",
+                    "title": "(TEST) Sale y entra como usuario1",
                     "command": "open",
                     "target": "${urlBase}/acceso/logout.php",
                     "value": ""
@@ -483,7 +492,7 @@
                 },
                 {
                     "id": "contador-conexiones-7-1",
-                    "comment": "(TEST) Sale y entra como root",
+                    "title": "(TEST) Sale y entra como root",
                     "command": "open",
                     "target": "${urlBase}/acceso/logout.php",
                     "value": ""
@@ -520,7 +529,7 @@
                 },
                 {
                     "id": "contador-conexiones-8-1",
-                    "comment": "(TEST) Comprobación contadores conexiones",
+                    "title": "(TEST) Comprobación contadores conexiones",
                     "command": "open",
                     "target": "${urlBase}/db/tabla-usuarios/listar.php",
                     "value": ""
@@ -533,7 +542,7 @@
                 },
                 {
                     "id": "contador-conexiones-8-3",
-                    "command": "storeXpathCount",
+                    "command": "storeElementCount",
                     "target": "xpath=//tr",
                     "value": "cuentaFilas"
                 },
@@ -600,7 +609,7 @@
                 },
                 {
                     "id": "contador-conexiones-9-1",
-                    "comment": "(TEST) Reordena listado (conexiones ASC)",
+                    "title": "(TEST) Reordena listado (conexiones ASC)",
                     "command": "open",
                     "target": "${urlBase}/db/tabla-usuarios/listar.php?ordena=conexiones+ASC",
                     "value": ""
@@ -613,7 +622,7 @@
                 },
                 {
                     "id": "contador-conexiones-9-3",
-                    "command": "storeXpathCount",
+                    "command": "storeElementCount",
                     "target": "xpath=//tr",
                     "value": "cuentaFilas"
                 },
@@ -680,7 +689,7 @@
                 },
                 {
                     "id": "contador-conexiones-10-1",
-                    "comment": "(TEST) Reordena listado (conexiones DESC)",
+                    "title": "(TEST) Reordena listado (conexiones DESC)",
                     "command": "open",
                     "target": "${urlBase}/db/tabla-usuarios/listar.php?ordena=conexiones+DESC",
                     "value": ""
@@ -693,7 +702,7 @@
                 },
                 {
                     "id": "contador-conexiones-10-3",
-                    "command": "storeXpathCount",
+                    "command": "storeElementCount",
                     "target": "xpath=//tr",
                     "value": "cuentaFilas"
                 },
@@ -760,7 +769,7 @@
                 },
                 {
                     "id": "contador-conexiones-11-1",
-                    "comment": "(TEST) Sale y entra como admin1. Comprueba límite superado",
+                    "title": "(TEST) Sale y entra como admin1. Comprueba límite superado",
                     "command": "open",
                     "target": "${urlBase}/acceso/logout.php",
                     "value": ""
@@ -797,7 +806,7 @@
                 },
                 {
                     "id": "contador-conexiones-12-1",
-                    "comment": "(TEST) Cambia contraseña admin1 y comprueba contador a 0",
+                    "title": "(TEST) Cambia contraseña admin1 y comprueba contador a 0",
                     "command": "open",
                     "target": "${urlBase}/db/tabla-usuarios/modificar-3.php?usuario=admin1&password=admin1&nivel=20&id=4",
                     "value": ""
@@ -822,7 +831,7 @@
                 },
                 {
                     "id": "contador-conexiones-12-5",
-                    "command": "storeXpathCount",
+                    "command": "storeElementCount",
                     "target": "xpath=//tr",
                     "value": "cuentaFilas"
                 },
@@ -891,7 +900,8 @@
                     "id": "contador-conexiones-12-16",
                     "command": "click",
                     "target": "linkText=Volver",
-                    "value": ""
+                    "value": "",
+                    "comment": "Hace clic en el enlace 'Volver'"
                 },
                 {
                     "id": "contador-conexiones-12-17",
@@ -907,10 +917,11 @@
                 },
                 {
                     "id": "contador-conexiones-13-1",
-                    "comment": "(TEST) Desconexión final",
+                    "title": "(TEST) Desconexión final",
                     "command": "click",
                     "target": "linkText=Desconectarse",
-                    "value": ""
+                    "value": "",
+                    "comment": "Hace clic en el enlace 'Desconectarse'"
                 },
                 {
                     "id": "contador-conexiones-13-2",

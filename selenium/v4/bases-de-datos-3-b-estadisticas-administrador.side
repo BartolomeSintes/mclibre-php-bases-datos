@@ -63,7 +63,8 @@
                     "id": "preparacion-desconexion-inicial-5",
                     "command": "click",
                     "target": "linkText=Desconectarse",
-                    "value": ""
+                    "value": "",
+                    "comment": "Hace clic en el enlace 'Desconectarse'"
                 },
                 {
                     "id": "preparacion-desconexion-inicial-6",
@@ -94,7 +95,8 @@
                     "id": "preparacion-borrar-todo-con-1",
                     "command": "click",
                     "target": "linkText=Conectarse",
-                    "value": ""
+                    "value": "",
+                    "comment": "Hace clic en el enlace 'Conectarse'"
                 },
                 {
                     "id": "preparacion-borrar-todo-con-2",
@@ -118,7 +120,8 @@
                     "id": "preparacion-borrar-todo-con-5",
                     "command": "click",
                     "target": "xpath=//input[@value='Identificar']",
-                    "value": ""
+                    "value": "",
+                    "comment": "Hace clic en el botón 'Identificar'"
                 },
                 {
                     "id": "preparacion-borrar-todo-con-6",
@@ -130,7 +133,8 @@
                     "id": "preparacion-borrar-todo-con-7",
                     "command": "click",
                     "target": "linkText=Administrador",
-                    "value": ""
+                    "value": "",
+                    "comment": "Hace clic en el enlace 'Administrador'"
                 },
                 {
                     "id": "preparacion-borrar-todo-con-8",
@@ -142,7 +146,8 @@
                     "id": "preparacion-borrar-todo-con-9",
                     "command": "click",
                     "target": "linkText=Borrar todo",
-                    "value": ""
+                    "value": "",
+                    "comment": "Hace clic en el enlace 'Borrar todo'"
                 },
                 {
                     "id": "preparacion-borrar-todo-con-10",
@@ -154,7 +159,8 @@
                     "id": "preparacion-borrar-todo-con-11",
                     "command": "click",
                     "target": "name=demo",
-                    "value": ""
+                    "value": "",
+                    "comment": "Hace clic en la casilla con atributo 'name' con valor 'demo'"
                 },
                 {
                     "id": "preparacion-borrar-todo-con-12",
@@ -166,7 +172,8 @@
                     "id": "preparacion-borrar-todo-con-13",
                     "command": "click",
                     "target": "xpath=//input[@name='borrar' and @value='Sí']",
-                    "value": ""
+                    "value": "",
+                    "comment": "Hace clic en el botón con atributo 'name' con valor 'borrar' y atributo 'value' con valor 'Sí'"
                 },
                 {
                     "id": "preparacion-borrar-todo-con-14",
@@ -190,7 +197,8 @@
                     "id": "preparacion-borrar-todo-con-17",
                     "command": "click",
                     "target": "linkText=Volver",
-                    "value": ""
+                    "value": "",
+                    "comment": "Hace clic en el enlace 'Volver'"
                 },
                 {
                     "id": "preparacion-borrar-todo-con-18",
@@ -207,10 +215,11 @@
             "commands": [
                 {
                     "id": "estadisticas-administrador-1-1",
-                    "comment": "(TEST) Estadísticas administrador iniciales",
+                    "title": "(TEST) Estadísticas administrador iniciales",
                     "command": "click",
                     "target": "linkText=Administrador",
-                    "value": ""
+                    "value": "",
+                    "comment": "Hace clic en el enlace 'Administrador'"
                 },
                 {
                     "id": "estadisticas-administrador-1-2",
@@ -228,7 +237,8 @@
                     "id": "estadisticas-administrador-1-4",
                     "command": "click",
                     "target": "linkText=Estadísticas",
-                    "value": ""
+                    "value": "",
+                    "comment": "Hace clic en el enlace 'Estadísticas'"
                 },
                 {
                     "id": "estadisticas-administrador-1-5",
@@ -250,7 +260,7 @@
                 },
                 {
                     "id": "estadisticas-administrador-2-1",
-                    "comment": "(TEST) Borro dos registros de Personas",
+                    "title": "(TEST) Borro dos registros de Personas",
                     "command": "open",
                     "target": "${urlBase}/db/tabla-personas/borrar-2.php?id[2]=on&id[3]=on",
                     "value": ""
@@ -299,7 +309,7 @@
                 },
                 {
                     "id": "estadisticas-administrador-3-1",
-                    "comment": "(TEST) Borro un registro de Personas y tres de Usuarios",
+                    "title": "(TEST) Borro un registro de Personas y tres de Usuarios",
                     "command": "open",
                     "target": "${urlBase}/db/tabla-personas/borrar-2.php?id[1]=on",
                     "value": ""
@@ -374,7 +384,8 @@
                     "id": "estadisticas-administrador-3-13",
                     "command": "click",
                     "target": "linkText=Volver",
-                    "value": ""
+                    "value": "",
+                    "comment": "Hace clic en el enlace 'Volver'"
                 },
                 {
                     "id": "estadisticas-administrador-3-14",
@@ -390,10 +401,11 @@
                 },
                 {
                     "id": "estadisticas-administrador-4-1",
-                    "comment": "(TEST) Desconexión final",
+                    "title": "(TEST) Desconexión final",
                     "command": "click",
                     "target": "linkText=Desconectarse",
-                    "value": ""
+                    "value": "",
+                    "comment": "Hace clic en el enlace 'Desconectarse'"
                 },
                 {
                     "id": "estadisticas-administrador-4-2",

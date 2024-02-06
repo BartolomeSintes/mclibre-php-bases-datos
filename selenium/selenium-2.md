@@ -10,7 +10,11 @@ Los objetos **commands** tienen que contener al menos cuatro claves: **id**, **c
 
 - Para encontrar las expresiones XPath de un elemento, se pueden utilizar las herramientas para desarrolladores web de Firefox o Chrome. Con el inspector se seleciona el elemento y haciendo clic derecho sobre la etiqueta en la vista de código fuente se puede elegir Copiar &gt; XPath.
 
-- Para contar cuántos resultados encuentra una expresión xpath, en las herramientas de desarrollador de Fiefox se puede utilizar la siguiente expresión javaScript:
+- Las expresiones XPath pueden ser expresiones lógicas. Por ejemplo en Borrar todo 1 de 3 5 y posteriores hay una casilla y un botón con value "Sí" así que para hacer que haga clic en el botón he tenido que poner "xpath=//input[@value='Sí' and @name='borrar']".
+El 0&/02/2024 lo he cambiado a "target": "xpath=//input[@name='borrar']", y funciona bien porque marca el primero pero lo he dejado con la condición con and "xpath=//input[@name='borrar' and @value='Sí']", para mayor seguridad (si no estuviera antes, marcaría el no).
+En las páginas en las que sólo están los botones Sí/No lo he dejado "xpath=//input[@value='Sí']" ya que en esta página me da lo mismo cómo se llame el control ya que no hay ambigüedad.
+
+- Para contar cuántos resultados encuentra una expresión xpath, en las herramientas de desarrollador de Firefox se puede utilizar la siguiente expresión javaScript:
 
 ```javascript
 new XPathEvaluator().evaluate("//*[@class='aviso-error']", document, null, XPathResult.ORDERED_NODE_SNAPSHOT_TYPE).snapshotLength;
@@ -220,12 +224,23 @@ Detiene Selenium hasta que la página contenga un elemento. La clave **target** 
 
 ```json
 {
-    "id": "assert-1",
+    "id": "assert-1-a",
     "comment": "Aquí busco con javascript. Devuelve true o false",
     "command": "executeScript",
     "target": "return(document.body.innerHTML.includes('Las contraseñas no coinciden.'))",
     "value": "${detectadaCadena}"
 },
+
+```json
+{
+    "id": "assert-1-b",
+    "comment": "Aquí busco con javascript. Devuelve la posición de la cadena o -1 si no lo encuentra",
+    "command": "executeScript",
+    "target": "return(document.body.innerHTML.search('Las contraseñas no coinciden.') > -1)",
+    "value": "${detectadaCadena}"
+},
+
+
 {
     "id": "assert-2",
     "comment": "Aquí compruebo que lo ha encontrado",
@@ -290,6 +305,21 @@ Detiene Selenium hasta que la página contenga un elemento. La clave **target** 
     "command": "verify checked",
     "target": "name=demo",
     "value": ""
+}
+```
+
+### verifyNotText: Comprueba que un texto no existe.
+
+Lo utilizaba en borrar-2 cuando no marcaba ninguna casilla, pero como desde 2024-01-24 compruebo siempre $id, ahora escribe el mensaje "No se ha seleccionado ningún registro.", así que lo he cambiado por un assertText.
+
+Podría utilizarlo para verificar que no hay warnings ni errores en las páginas.
+
+```json
+{
+    "id": "borrar-3-5",
+    "command": "verifyNotText",
+    "target": "xpath=//p",
+    "value": "Registro borrado correctamente (si existía)."
 }
 ```
 

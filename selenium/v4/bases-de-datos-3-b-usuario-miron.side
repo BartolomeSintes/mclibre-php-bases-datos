@@ -87,7 +87,8 @@
                     "id": "preparacion-desconexion-inicial-5",
                     "command": "click",
                     "target": "linkText=Desconectarse",
-                    "value": ""
+                    "value": "",
+                    "comment": "Hace clic en el enlace 'Desconectarse'"
                 },
                 {
                     "id": "preparacion-desconexion-inicial-6",
@@ -118,7 +119,8 @@
                     "id": "preparacion-borrar-todo-con-1",
                     "command": "click",
                     "target": "linkText=Conectarse",
-                    "value": ""
+                    "value": "",
+                    "comment": "Hace clic en el enlace 'Conectarse'"
                 },
                 {
                     "id": "preparacion-borrar-todo-con-2",
@@ -142,7 +144,8 @@
                     "id": "preparacion-borrar-todo-con-5",
                     "command": "click",
                     "target": "xpath=//input[@value='Identificar']",
-                    "value": ""
+                    "value": "",
+                    "comment": "Hace clic en el botón 'Identificar'"
                 },
                 {
                     "id": "preparacion-borrar-todo-con-6",
@@ -154,7 +157,8 @@
                     "id": "preparacion-borrar-todo-con-7",
                     "command": "click",
                     "target": "linkText=Administrador",
-                    "value": ""
+                    "value": "",
+                    "comment": "Hace clic en el enlace 'Administrador'"
                 },
                 {
                     "id": "preparacion-borrar-todo-con-8",
@@ -166,7 +170,8 @@
                     "id": "preparacion-borrar-todo-con-9",
                     "command": "click",
                     "target": "linkText=Borrar todo",
-                    "value": ""
+                    "value": "",
+                    "comment": "Hace clic en el enlace 'Borrar todo'"
                 },
                 {
                     "id": "preparacion-borrar-todo-con-10",
@@ -178,7 +183,8 @@
                     "id": "preparacion-borrar-todo-con-11",
                     "command": "click",
                     "target": "name=demo",
-                    "value": ""
+                    "value": "",
+                    "comment": "Hace clic en la casilla con atributo 'name' con valor 'demo'"
                 },
                 {
                     "id": "preparacion-borrar-todo-con-12",
@@ -190,7 +196,8 @@
                     "id": "preparacion-borrar-todo-con-13",
                     "command": "click",
                     "target": "xpath=//input[@name='borrar' and @value='Sí']",
-                    "value": ""
+                    "value": "",
+                    "comment": "Hace clic en el botón con atributo 'name' con valor 'borrar' y atributo 'value' con valor 'Sí'"
                 },
                 {
                     "id": "preparacion-borrar-todo-con-14",
@@ -214,7 +221,8 @@
                     "id": "preparacion-borrar-todo-con-17",
                     "command": "click",
                     "target": "linkText=Volver",
-                    "value": ""
+                    "value": "",
+                    "comment": "Hace clic en el enlace 'Volver'"
                 },
                 {
                     "id": "preparacion-borrar-todo-con-18",
@@ -231,10 +239,11 @@
             "commands": [
                 {
                     "id": "usuario-miron-1-1",
-                    "comment": "(TEST) Insertar > Inserta correctamente",
+                    "title": "(TEST) Insertar > Inserta correctamente",
                     "command": "click",
                     "target": "linkText=Usuarios",
-                    "value": ""
+                    "value": "",
+                    "comment": "Hace clic en el enlace 'Usuarios'"
                 },
                 {
                     "id": "usuario-miron-1-2",
@@ -246,7 +255,8 @@
                     "id": "usuario-miron-1-3",
                     "command": "click",
                     "target": "linkText=Añadir registro",
-                    "value": ""
+                    "value": "",
+                    "comment": "Hace clic en el enlace 'Añadir registro'"
                 },
                 {
                     "id": "usuario-miron-1-4",
@@ -256,7 +266,7 @@
                 },
                 {
                     "id": "usuario-miron-1-5",
-                    "command": "storeXpathCount",
+                    "command": "storeElementCount",
                     "target": "xpath=//tr",
                     "value": "cuentaFilas"
                 },
@@ -301,7 +311,8 @@
                     "id": "usuario-miron-1-12",
                     "command": "click",
                     "target": "xpath=//input[@value='Añadir']",
-                    "value": ""
+                    "value": "",
+                    "comment": "Hace clic en el botón 'Añadir'"
                 },
                 {
                     "id": "usuario-miron-1-13",
@@ -313,11 +324,12 @@
                     "id": "usuario-miron-1-14",
                     "command": "assertText",
                     "target": "xpath=//p",
-                    "value": "Registro creado correctamente."
+                    "value": "Registro creado correctamente.",
+                    "comment": "Muestra mensaje: 'Registro creado correctamente.'"
                 },
                 {
                     "id": "usuario-miron-2-1",
-                    "comment": "(TEST) Listar > Muestra usuario mirón",
+                    "title": "(TEST) Listar > Muestra usuario mirón",
                     "command": "open",
                     "target": "${urlBase}/db/tabla-usuarios/listar.php",
                     "value": ""
@@ -348,7 +360,7 @@
                 },
                 {
                     "id": "usuario-miron-3-1",
-                    "comment": "(TEST) Entrar como Usuario mirón",
+                    "title": "(TEST) Entrar como Usuario mirón",
                     "command": "open",
                     "target": "${urlBase}/acceso/logout.php",
                     "value": ""
@@ -393,7 +405,8 @@
                     "id": "usuario-miron-3-8",
                     "command": "click",
                     "target": "linkText=Personas",
-                    "value": ""
+                    "value": "",
+                    "comment": "Hace clic en el enlace 'Personas'"
                 },
                 {
                     "id": "usuario-miron-3-9",
@@ -417,7 +430,8 @@
                     "id": "usuario-miron-3-12",
                     "command": "click",
                     "target": "linkText=Listar",
-                    "value": ""
+                    "value": "",
+                    "comment": "Hace clic en el enlace 'Listar'"
                 },
                 {
                     "id": "usuario-miron-3-13",
@@ -427,7 +441,7 @@
                 },
                 {
                     "id": "usuario-miron-3-14",
-                    "command": "storeXpathCount",
+                    "command": "storeElementCount",
                     "target": "xpath=//tr",
                     "value": "cuentaFilas"
                 },
@@ -442,7 +456,8 @@
                     "id": "usuario-miron-3-16",
                     "command": "assertText",
                     "target": "xpath=//tr/th[1]",
-                    "value": "Nombre"
+                    "value": "Nombre",
+                    "comment": "La primera celda de la fila de cabecera de la tabla contiene 'Nombre'"
                 },
                 {
                     "id": "usuario-miron-3-17",
@@ -464,7 +479,7 @@
                 },
                 {
                     "id": "usuario-miron-4-1",
-                    "comment": "(TEST) Comprueba que no puede entrar en Añadir",
+                    "title": "(TEST) Comprueba que no puede entrar en Añadir",
                     "command": "open",
                     "target": "${urlBase}/db/tabla-personas/insertar-1.php",
                     "value": ""
@@ -477,7 +492,7 @@
                 },
                 {
                     "id": "usuario-miron-5-1",
-                    "comment": "(TEST) Comprueba que no puede entrar en Borrar",
+                    "title": "(TEST) Comprueba que no puede entrar en Borrar",
                     "command": "open",
                     "target": "${urlBase}/db/tabla-personas/borrar-1.php",
                     "value": ""
@@ -490,7 +505,7 @@
                 },
                 {
                     "id": "usuario-miron-6-1",
-                    "comment": "(TEST) Comprueba que no puede entrar en Modificar",
+                    "title": "(TEST) Comprueba que no puede entrar en Modificar",
                     "command": "open",
                     "target": "${urlBase}/db/tabla-personas/modificar-1.php",
                     "value": ""
@@ -509,10 +524,11 @@
                 },
                 {
                     "id": "usuario-miron-7-1",
-                    "comment": "(TEST) Desconexión final",
+                    "title": "(TEST) Desconexión final",
                     "command": "click",
                     "target": "linkText=Desconectarse",
-                    "value": ""
+                    "value": "",
+                    "comment": "Hace clic en el enlace 'Desconectarse'"
                 },
                 {
                     "id": "usuario-miron-7-2",

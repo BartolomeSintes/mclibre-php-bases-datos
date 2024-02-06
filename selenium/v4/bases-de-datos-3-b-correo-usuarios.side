@@ -74,7 +74,8 @@
                     "id": "preparacion-desconexion-inicial-5",
                     "command": "click",
                     "target": "linkText=Desconectarse",
-                    "value": ""
+                    "value": "",
+                    "comment": "Hace clic en el enlace 'Desconectarse'"
                 },
                 {
                     "id": "preparacion-desconexion-inicial-6",
@@ -105,7 +106,8 @@
                     "id": "preparacion-borrar-todo-con-1",
                     "command": "click",
                     "target": "linkText=Conectarse",
-                    "value": ""
+                    "value": "",
+                    "comment": "Hace clic en el enlace 'Conectarse'"
                 },
                 {
                     "id": "preparacion-borrar-todo-con-2",
@@ -129,7 +131,8 @@
                     "id": "preparacion-borrar-todo-con-5",
                     "command": "click",
                     "target": "xpath=//input[@value='Identificar']",
-                    "value": ""
+                    "value": "",
+                    "comment": "Hace clic en el botón 'Identificar'"
                 },
                 {
                     "id": "preparacion-borrar-todo-con-6",
@@ -141,7 +144,8 @@
                     "id": "preparacion-borrar-todo-con-7",
                     "command": "click",
                     "target": "linkText=Administrador",
-                    "value": ""
+                    "value": "",
+                    "comment": "Hace clic en el enlace 'Administrador'"
                 },
                 {
                     "id": "preparacion-borrar-todo-con-8",
@@ -153,7 +157,8 @@
                     "id": "preparacion-borrar-todo-con-9",
                     "command": "click",
                     "target": "linkText=Borrar todo",
-                    "value": ""
+                    "value": "",
+                    "comment": "Hace clic en el enlace 'Borrar todo'"
                 },
                 {
                     "id": "preparacion-borrar-todo-con-10",
@@ -165,7 +170,8 @@
                     "id": "preparacion-borrar-todo-con-11",
                     "command": "click",
                     "target": "name=demo",
-                    "value": ""
+                    "value": "",
+                    "comment": "Hace clic en la casilla con atributo 'name' con valor 'demo'"
                 },
                 {
                     "id": "preparacion-borrar-todo-con-12",
@@ -177,7 +183,8 @@
                     "id": "preparacion-borrar-todo-con-13",
                     "command": "click",
                     "target": "xpath=//input[@name='borrar' and @value='Sí']",
-                    "value": ""
+                    "value": "",
+                    "comment": "Hace clic en el botón con atributo 'name' con valor 'borrar' y atributo 'value' con valor 'Sí'"
                 },
                 {
                     "id": "preparacion-borrar-todo-con-14",
@@ -201,7 +208,8 @@
                     "id": "preparacion-borrar-todo-con-17",
                     "command": "click",
                     "target": "linkText=Volver",
-                    "value": ""
+                    "value": "",
+                    "comment": "Hace clic en el enlace 'Volver'"
                 },
                 {
                     "id": "preparacion-borrar-todo-con-18",
@@ -218,10 +226,11 @@
             "commands": [
                 {
                     "id": "correo-usuarios-1-1",
-                    "comment": "(TEST) Correos usuarios demo",
+                    "title": "(TEST) Correos usuarios demo",
                     "command": "click",
                     "target": "linkText=Usuarios",
-                    "value": ""
+                    "value": "",
+                    "comment": "Hace clic en el enlace 'Usuarios'"
                 },
                 {
                     "id": "correo-usuarios-1-2",
@@ -233,7 +242,8 @@
                     "id": "correo-usuarios-1-3",
                     "command": "click",
                     "target": "linkText=Listar",
-                    "value": ""
+                    "value": "",
+                    "comment": "Hace clic en el enlace 'Listar'"
                 },
                 {
                     "id": "correo-usuarios-1-4",
@@ -249,7 +259,7 @@
                 },
                 {
                     "id": "correo-usuarios-1-6",
-                    "command": "storeXpathCount",
+                    "command": "storeElementCount",
                     "target": "xpath=//tr",
                     "value": "cuentaFilas"
                 },
@@ -292,10 +302,11 @@
                 },
                 {
                     "id": "correo-usuarios-2-1",
-                    "comment": "(TEST) Listar > Reordena registros. (correo DESC)",
+                    "title": "(TEST) Listar > Reordena registros. (correo DESC)",
                     "command": "click",
                     "target": "xpath=//button[@value='correo DESC']",
-                    "value": ""
+                    "value": "",
+                    "comment": "Hace clic en el botón con atributo 'value' con valor 'correo DESC'"
                 },
                 {
                     "id": "correo-usuarios-2-2",
@@ -311,7 +322,7 @@
                 },
                 {
                     "id": "correo-usuarios-2-4",
-                    "command": "storeXpathCount",
+                    "command": "storeElementCount",
                     "target": "xpath=//tr",
                     "value": "cuentaFilas"
                 },
@@ -354,7 +365,7 @@
                 },
                 {
                     "id": "correo-usuarios-3-1",
-                    "comment": "(TEST) Insertar Usuario sin Correo",
+                    "title": "(TEST) Insertar Usuario sin Correo",
                     "command": "open",
                     "target": "${urlBase}/db/tabla-usuarios/insertar-2.php?usuario=prueba-1-1&password=prueba-1-2&nivel=10",
                     "value": ""
@@ -373,7 +384,7 @@
                 },
                 {
                     "id": "correo-usuarios-3-4",
-                    "command": "storeXpathCount",
+                    "command": "storeElementCount",
                     "target": "xpath=//*[contains(@class, 'aviso')]",
                     "value": "cuentaAvisos"
                 },
@@ -386,7 +397,7 @@
                 },
                 {
                     "id": "correo-usuarios-4-1",
-                    "comment": "(TEST) Insertar Usuario Correo demasiado largo",
+                    "title": "(TEST) Insertar Usuario Correo demasiado largo",
                     "command": "open",
                     "target": "${urlBase}/db/tabla-usuarios/insertar-2.php?usuario=prueba-1-1&password=prueba-1-2&correo=${usuariosCorreoLargo}&nivel=10",
                     "value": ""
@@ -405,7 +416,7 @@
                 },
                 {
                     "id": "correo-usuarios-4-4",
-                    "command": "storeXpathCount",
+                    "command": "storeElementCount",
                     "target": "xpath=//*[contains(@class, 'aviso')]",
                     "value": "cuentaAvisos"
                 },
@@ -418,10 +429,11 @@
                 },
                 {
                     "id": "correo-usuarios-5-1",
-                    "comment": "(TEST) Insertar registro nuevo",
+                    "title": "(TEST) Insertar registro nuevo",
                     "command": "click",
                     "target": "linkText=Añadir registro",
-                    "value": ""
+                    "value": "",
+                    "comment": "Hace clic en el enlace 'Añadir registro'"
                 },
                 {
                     "id": "correo-usuarios-5-2",
@@ -431,7 +443,7 @@
                 },
                 {
                     "id": "correo-usuarios-5-3",
-                    "command": "storeXpathCount",
+                    "command": "storeElementCount",
                     "target": "xpath=//tr",
                     "value": "cuentaFilas"
                 },
@@ -494,7 +506,8 @@
                     "id": "correo-usuarios-5-13",
                     "command": "click",
                     "target": "xpath=//input[@value='Añadir']",
-                    "value": ""
+                    "value": "",
+                    "comment": "Hace clic en el botón 'Añadir'"
                 },
                 {
                     "id": "correo-usuarios-5-14",
@@ -506,14 +519,16 @@
                     "id": "correo-usuarios-5-15",
                     "command": "assertText",
                     "target": "xpath=//p",
-                    "value": "Registro creado correctamente."
+                    "value": "Registro creado correctamente.",
+                    "comment": "Muestra mensaje: 'Registro creado correctamente.'"
                 },
                 {
                     "id": "correo-usuarios-6-1",
-                    "comment": "(TEST) Comprueba nuevo registro en Listar",
+                    "title": "(TEST) Comprueba nuevo registro en Listar",
                     "command": "click",
                     "target": "linkText=Listar",
-                    "value": ""
+                    "value": "",
+                    "comment": "Hace clic en el enlace 'Listar'"
                 },
                 {
                     "id": "correo-usuarios-6-2",
@@ -523,7 +538,7 @@
                 },
                 {
                     "id": "correo-usuarios-6-3",
-                    "command": "storeXpathCount",
+                    "command": "storeElementCount",
                     "target": "xpath=//tr",
                     "value": "cuentaFilas"
                 },
@@ -561,7 +576,8 @@
                     "id": "correo-usuarios-6-9",
                     "command": "click",
                     "target": "linkText=Volver",
-                    "value": ""
+                    "value": "",
+                    "comment": "Hace clic en el enlace 'Volver'"
                 },
                 {
                     "id": "correo-usuarios-6-10",
@@ -577,10 +593,11 @@
                 },
                 {
                     "id": "correo-usuarios-7-1",
-                    "comment": "(TEST) Desconexión final",
+                    "title": "(TEST) Desconexión final",
                     "command": "click",
                     "target": "linkText=Desconectarse",
-                    "value": ""
+                    "value": "",
+                    "comment": "Hace clic en el enlace 'Desconectarse'"
                 },
                 {
                     "id": "correo-usuarios-7-2",

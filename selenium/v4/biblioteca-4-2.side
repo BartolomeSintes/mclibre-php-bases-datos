@@ -128,7 +128,8 @@
                     "id": "funcion-borrar-todo-3",
                     "command": "click",
                     "target": "linkText=Volver",
-                    "value": ""
+                    "value": "",
+                    "comment": "Hace clic en el enlace 'Volver'"
                 },
                 {
                     "id": "funcion-borrar-todo-4",
@@ -140,7 +141,8 @@
                     "id": "funcion-borrar-todo-5",
                     "command": "click",
                     "target": "linkText=Administrador",
-                    "value": ""
+                    "value": "",
+                    "comment": "Hace clic en el enlace 'Administrador'"
                 },
                 {
                     "id": "funcion-borrar-todo-6",
@@ -152,7 +154,8 @@
                     "id": "funcion-borrar-todo-7",
                     "command": "click",
                     "target": "linkText=Borrar todo",
-                    "value": ""
+                    "value": "",
+                    "comment": "Hace clic en el enlace 'Borrar todo'"
                 },
                 {
                     "id": "funcion-borrar-todo-8",
@@ -170,7 +173,8 @@
                     "id": "funcion-borrar-todo-10",
                     "command": "click",
                     "target": "xpath=//input[@value='Sí']",
-                    "value": ""
+                    "value": "",
+                    "comment": "Hace clic en el botón 'Sí'"
                 },
                 {
                     "id": "funcion-borrar-todo-11",
@@ -188,7 +192,8 @@
                     "id": "funcion-borrar-todo-13",
                     "command": "click",
                     "target": "linkText=Volver",
-                    "value": ""
+                    "value": "",
+                    "comment": "Hace clic en el enlace 'Volver'"
                 },
                 {
                     "id": "funcion-borrar-todo-14",
@@ -232,7 +237,8 @@
                     "id": "preparacion-desconexion-inicial-5",
                     "command": "click",
                     "target": "linkText=Desconectarse",
-                    "value": ""
+                    "value": "",
+                    "comment": "Hace clic en el enlace 'Desconectarse'"
                 },
                 {
                     "id": "preparacion-desconexion-inicial-6",
@@ -269,7 +275,8 @@
                     "id": "preparacion-borrar-todo-con-3",
                     "command": "click",
                     "target": "linkText=Conectarse",
-                    "value": ""
+                    "value": "",
+                    "comment": "Hace clic en el enlace 'Conectarse'"
                 },
                 {
                     "id": "preparacion-borrar-todo-con-4",
@@ -293,7 +300,8 @@
                     "id": "preparacion-borrar-todo-con-7",
                     "command": "click",
                     "target": "xpath=//input[@value='Identificar']",
-                    "value": ""
+                    "value": "",
+                    "comment": "Hace clic en el botón 'Identificar'"
                 },
                 {
                     "id": "preparacion-borrar-todo-con-8",
@@ -305,7 +313,8 @@
                     "id": "preparacion-borrar-todo-con-9",
                     "command": "click",
                     "target": "linkText=Administrador",
-                    "value": ""
+                    "value": "",
+                    "comment": "Hace clic en el enlace 'Administrador'"
                 },
                 {
                     "id": "preparacion-borrar-todo-con-10",
@@ -317,7 +326,8 @@
                     "id": "preparacion-borrar-todo-con-11",
                     "command": "click",
                     "target": "linkText=Borrar todo",
-                    "value": ""
+                    "value": "",
+                    "comment": "Hace clic en el enlace 'Borrar todo'"
                 },
                 {
                     "id": "preparacion-borrar-todo-con-12",
@@ -335,7 +345,8 @@
                     "id": "preparacion-borrar-todo-con-14",
                     "command": "click",
                     "target": "xpath=//input[@value='Sí']",
-                    "value": ""
+                    "value": "",
+                    "comment": "Hace clic en el botón 'Sí'"
                 },
                 {
                     "id": "preparacion-borrar-todo-con-15",
@@ -353,7 +364,8 @@
                     "id": "preparacion-borrar-todo-con-17",
                     "command": "click",
                     "target": "linkText=Volver",
-                    "value": ""
+                    "value": "",
+                    "comment": "Hace clic en el enlace 'Volver'"
                 },
                 {
                     "id": "preparacion-borrar-todo-con-18",
@@ -365,7 +377,8 @@
                     "id": "preparacion-borrar-todo-con-19",
                     "command": "click",
                     "target": "linkText=Desconectarse",
-                    "value": ""
+                    "value": "",
+                    "comment": "Hace clic en el enlace 'Desconectarse'"
                 },
                 {
                     "id": "preparacion-borrar-todo-con-20",
@@ -406,10 +419,11 @@
                 },
                 {
                     "id": "conexion-desconexion-niveles-4",
-                    "comment": "Se conecta como usuario root",
+                    "title": "Se conecta como usuario root",
                     "command": "click",
                     "target": "linkText=Conectarse",
-                    "value": ""
+                    "value": "",
+                    "comment": "Hace clic en el enlace 'Conectarse'"
                 },
                 {
                     "id": "conexion-desconexion-niveles-5",
@@ -433,7 +447,8 @@
                     "id": "conexion-desconexion-niveles-8",
                     "command": "click",
                     "target": "xpath=//input[@value='Identificar']",
-                    "value": ""
+                    "value": "",
+                    "comment": "Hace clic en el botón 'Identificar'"
                 },
                 {
                     "id": "conexion-desconexion-niveles-9",
@@ -445,7 +460,8 @@
                     "id": "conexion-desconexion-niveles-10",
                     "command": "click",
                     "target": "linkText=Administrador",
-                    "value": ""
+                    "value": "",
+                    "comment": "Hace clic en el enlace 'Administrador'"
                 },
                 {
                     "id": "conexion-desconexion-niveles-11",
@@ -457,7 +473,8 @@
                     "id": "conexion-desconexion-niveles-12",
                     "command": "click",
                     "target": "linkText=Volver",
-                    "value": ""
+                    "value": "",
+                    "comment": "Hace clic en el enlace 'Volver'"
                 },
                 {
                     "id": "conexion-desconexion-niveles-13",
@@ -469,7 +486,8 @@
                     "id": "conexion-desconexion-niveles-14",
                     "command": "click",
                     "target": "linkText=Desconectarse",
-                    "value": ""
+                    "value": "",
+                    "comment": "Hace clic en el enlace 'Desconectarse'"
                 },
                 {
                     "id": "conexion-desconexion-niveles-15",
@@ -485,10 +503,11 @@
                 },
                 {
                     "id": "conexion-desconexion-niveles-17",
-                    "comment": "Se conecta como usuario avanzado",
+                    "title": "Se conecta como usuario avanzado",
                     "command": "click",
                     "target": "linkText=Conectarse",
-                    "value": ""
+                    "value": "",
+                    "comment": "Hace clic en el enlace 'Conectarse'"
                 },
                 {
                     "id": "conexion-desconexion-niveles-18",
@@ -512,7 +531,8 @@
                     "id": "conexion-desconexion-niveles-21",
                     "command": "click",
                     "target": "xpath=//input[@value='Identificar']",
-                    "value": ""
+                    "value": "",
+                    "comment": "Hace clic en el botón 'Identificar'"
                 },
                 {
                     "id": "conexion-desconexion-niveles-22",
@@ -524,7 +544,8 @@
                     "id": "conexion-desconexion-niveles-23",
                     "command": "click",
                     "target": "linkText=Obras",
-                    "value": ""
+                    "value": "",
+                    "comment": "Hace clic en el enlace 'Obras'"
                 },
                 {
                     "id": "conexion-desconexion-niveles-24",
@@ -542,7 +563,8 @@
                     "id": "conexion-desconexion-niveles-26",
                     "command": "click",
                     "target": "linkText=Buscar",
-                    "value": ""
+                    "value": "",
+                    "comment": "Hace clic en el enlace 'Buscar'"
                 },
                 {
                     "id": "conexion-desconexion-niveles-27",
@@ -568,7 +590,8 @@
                     "id": "conexion-desconexion-niveles-30",
                     "command": "click",
                     "target": "linkText=Volver",
-                    "value": ""
+                    "value": "",
+                    "comment": "Hace clic en el enlace 'Volver'"
                 },
                 {
                     "id": "conexion-desconexion-niveles-31",
@@ -580,7 +603,8 @@
                     "id": "conexion-desconexion-niveles-32",
                     "command": "click",
                     "target": "linkText=Desconectarse",
-                    "value": ""
+                    "value": "",
+                    "comment": "Hace clic en el enlace 'Desconectarse'"
                 },
                 {
                     "id": "conexion-desconexion-niveles-33",
@@ -596,10 +620,11 @@
                 },
                 {
                     "id": "conexion-desconexion-niveles-35",
-                    "comment": "Se conecta como usuario basico",
+                    "title": "Se conecta como usuario basico",
                     "command": "click",
                     "target": "linkText=Conectarse",
-                    "value": ""
+                    "value": "",
+                    "comment": "Hace clic en el enlace 'Conectarse'"
                 },
                 {
                     "id": "conexion-desconexion-niveles-36",
@@ -623,7 +648,8 @@
                     "id": "conexion-desconexion-niveles-39",
                     "command": "click",
                     "target": "xpath=//input[@value='Identificar']",
-                    "value": ""
+                    "value": "",
+                    "comment": "Hace clic en el botón 'Identificar'"
                 },
                 {
                     "id": "conexion-desconexion-niveles-40",
@@ -635,7 +661,8 @@
                     "id": "conexion-desconexion-niveles-41",
                     "command": "click",
                     "target": "linkText=Obras",
-                    "value": ""
+                    "value": "",
+                    "comment": "Hace clic en el enlace 'Obras'"
                 },
                 {
                     "id": "conexion-desconexion-niveles-42",
@@ -661,7 +688,8 @@
                     "id": "conexion-desconexion-niveles-45",
                     "command": "click",
                     "target": "linkText=Volver",
-                    "value": ""
+                    "value": "",
+                    "comment": "Hace clic en el enlace 'Volver'"
                 },
                 {
                     "id": "conexion-desconexion-niveles-46",
@@ -673,7 +701,8 @@
                     "id": "conexion-desconexion-niveles-47",
                     "command": "click",
                     "target": "linkText=Desconectarse",
-                    "value": ""
+                    "value": "",
+                    "comment": "Hace clic en el enlace 'Desconectarse'"
                 },
                 {
                     "id": "conexion-desconexion-niveles-48",
@@ -716,7 +745,8 @@
                     "id": "conexion-root-4",
                     "command": "click",
                     "target": "linkText=Conectarse",
-                    "value": ""
+                    "value": "",
+                    "comment": "Hace clic en el enlace 'Conectarse'"
                 },
                 {
                     "id": "conexion-root-5",
@@ -740,7 +770,8 @@
                     "id": "conexion-root-8",
                     "command": "click",
                     "target": "xpath=//input[@value='Identificar']",
-                    "value": ""
+                    "value": "",
+                    "comment": "Hace clic en el botón 'Identificar'"
                 },
                 {
                     "id": "conexion-root-9",
@@ -783,7 +814,8 @@
                     "id": "testea-personas-1-1-3",
                     "command": "click",
                     "target": "linkText=Personas",
-                    "value": ""
+                    "value": "",
+                    "comment": "Hace clic en el enlace 'Personas'"
                 },
                 {
                     "id": "testea-personas-1-1-4",
@@ -793,10 +825,11 @@
                 },
                 {
                     "id": "testea-personas-1-2-1",
-                    "comment": "(TEST) Personas > Listar/Borrar/Modificar > Aviso general sinRegistros + Borra 2 registros correctamente",
+                    "title": "(TEST) Personas > Listar/Borrar/Modificar > Aviso general sinRegistros + Borra 2 registros correctamente",
                     "command": "click",
                     "target": "linkText=Borrar",
-                    "value": ""
+                    "value": "",
+                    "comment": "Hace clic en el enlace 'Borrar'"
                 },
                 {
                     "id": "testea-personas-1-2-2",
@@ -808,19 +841,22 @@
                     "id": "testea-personas-1-2-3",
                     "command": "click",
                     "target": "name=id[1]",
-                    "value": ""
+                    "value": "",
+                    "comment": "Hace clic en la casilla con atributo 'name' con valor 'id[1]'"
                 },
                 {
                     "id": "testea-personas-1-2-4",
                     "command": "click",
                     "target": "name=id[2]",
-                    "value": ""
+                    "value": "",
+                    "comment": "Hace clic en la casilla con atributo 'name' con valor 'id[2]'"
                 },
                 {
                     "id": "testea-personas-1-2-5",
                     "command": "click",
                     "target": "xpath=//input[@value='Borrar registro']",
-                    "value": ""
+                    "value": "",
+                    "comment": "Hace clic en el botón 'Borrar registro'"
                 },
                 {
                     "id": "testea-personas-1-2-6",
@@ -842,7 +878,7 @@
                 },
                 {
                     "id": "testea-personas-1-2-9",
-                    "command": "storeXpathCount",
+                    "command": "storeElementCount",
                     "target": "xpath=//*[contains(@class, 'aviso-info')]",
                     "value": "cuentaAvisosInfo"
                 },
@@ -854,7 +890,7 @@
                 },
                 {
                     "id": "testea-personas-1-2-11",
-                    "command": "storeXpathCount",
+                    "command": "storeElementCount",
                     "target": "xpath=//*[contains(@class, 'aviso-')]",
                     "value": "cuentaAvisos"
                 },
@@ -867,10 +903,11 @@
                 },
                 {
                     "id": "testea-personas-1-3-1",
-                    "comment": "(TEST) Personas > Listar > Aviso general sinRegistros",
+                    "title": "(TEST) Personas > Listar > Aviso general sinRegistros",
                     "command": "click",
                     "target": "linkText=Listar",
-                    "value": ""
+                    "value": "",
+                    "comment": "Hace clic en el enlace 'Listar'"
                 },
                 {
                     "id": "testea-personas-1-3-2",
@@ -893,7 +930,7 @@
                 },
                 {
                     "id": "testea-personas-1-3-5",
-                    "command": "storeXpathCount",
+                    "command": "storeElementCount",
                     "target": "xpath=//*[contains(@class, 'aviso-info')]",
                     "value": "cuentaAvisosError"
                 },
@@ -905,7 +942,7 @@
                 },
                 {
                     "id": "testea-personas-1-3-7",
-                    "command": "storeXpathCount",
+                    "command": "storeElementCount",
                     "target": "xpath=//*[contains(@class, 'aviso-')]",
                     "value": "cuentaAvisos"
                 },
@@ -918,10 +955,11 @@
                 },
                 {
                     "id": "testea-personas-1-4-1",
-                    "comment": "(TEST) Personas > Borrar > Aviso general sinRegistros",
+                    "title": "(TEST) Personas > Borrar > Aviso general sinRegistros",
                     "command": "click",
                     "target": "linkText=Borrar",
-                    "value": ""
+                    "value": "",
+                    "comment": "Hace clic en el enlace 'Borrar'"
                 },
                 {
                     "id": "testea-personas-1-4-2",
@@ -944,7 +982,7 @@
                 },
                 {
                     "id": "testea-personas-1-4-5",
-                    "command": "storeXpathCount",
+                    "command": "storeElementCount",
                     "target": "xpath=//*[contains(@class, 'aviso-info')]",
                     "value": "cuentaAvisosError"
                 },
@@ -956,7 +994,7 @@
                 },
                 {
                     "id": "testea-personas-1-4-7",
-                    "command": "storeXpathCount",
+                    "command": "storeElementCount",
                     "target": "xpath=//*[contains(@class, 'aviso-')]",
                     "value": "cuentaAvisos"
                 },
@@ -969,10 +1007,11 @@
                 },
                 {
                     "id": "testea-personas-1-5-1",
-                    "comment": "(TEST) Personas > Modificar > Aviso general sinRegistros",
+                    "title": "(TEST) Personas > Modificar > Aviso general sinRegistros",
                     "command": "click",
                     "target": "linkText=Modificar",
-                    "value": ""
+                    "value": "",
+                    "comment": "Hace clic en el enlace 'Modificar'"
                 },
                 {
                     "id": "testea-personas-1-5-2",
@@ -995,7 +1034,7 @@
                 },
                 {
                     "id": "testea-personas-1-5-5",
-                    "command": "storeXpathCount",
+                    "command": "storeElementCount",
                     "target": "xpath=//*[contains(@class, 'aviso-info')]",
                     "value": "cuentaAvisosError"
                 },
@@ -1007,7 +1046,7 @@
                 },
                 {
                     "id": "testea-personas-1-5-7",
-                    "command": "storeXpathCount",
+                    "command": "storeElementCount",
                     "target": "xpath=//*[contains(@class, 'aviso-')]",
                     "value": "cuentaAvisos"
                 },
@@ -1028,7 +1067,8 @@
                     "id": "testea-personas-1-5-10",
                     "command": "click",
                     "target": "linkText=Personas",
-                    "value": ""
+                    "value": "",
+                    "comment": "Hace clic en el enlace 'Personas'"
                 },
                 {
                     "id": "testea-personas-1-5-11",
@@ -1038,10 +1078,11 @@
                 },
                 {
                     "id": "testea-personas-1-6-1",
-                    "comment": "(TEST) Personas > Listar > Prueba que ordena el listado correctamente",
+                    "title": "(TEST) Personas > Listar > Prueba que ordena el listado correctamente",
                     "command": "click",
                     "target": "linkText=Listar",
-                    "value": ""
+                    "value": "",
+                    "comment": "Hace clic en el enlace 'Listar'"
                 },
                 {
                     "id": "testea-personas-1-6-2",
@@ -1063,7 +1104,7 @@
                 },
                 {
                     "id": "testea-personas-1-6-5",
-                    "command": "storeXpathCount",
+                    "command": "storeElementCount",
                     "target": "xpath=//tr",
                     "value": "cuentaFilas"
                 },
@@ -1076,7 +1117,7 @@
                 },
                 {
                     "id": "testea-personas-1-6-7",
-                    "command": "storeXpathCount",
+                    "command": "storeElementCount",
                     "target": "xpath=//*[contains(@class, 'aviso-')]",
                     "value": "cuentaAvisos"
                 },
@@ -1088,10 +1129,11 @@
                 },
                 {
                     "id": "testea-personas-1-7-1",
-                    "comment": "(TEST) Personas > Listar > Prueba que ordena el listado correctamente. (nombre ASC)",
+                    "title": "(TEST) Personas > Listar > Prueba que ordena el listado correctamente. (nombre ASC)",
                     "command": "click",
                     "target": "xpath=//button[@value='nombre ASC']",
-                    "value": ""
+                    "value": "",
+                    "comment": "Hace clic en el botón con atributo 'value' con valor 'nombre ASC'"
                 },
                 {
                     "id": "testea-personas-1-7-2",
@@ -1109,11 +1151,12 @@
                     "id": "testea-personas-1-7-4",
                     "command": "assertText",
                     "target": "xpath=//tr[2]/td[1]",
-                    "value": "Pepito"
+                    "value": "Pepito",
+                    "comment": "La primera celda de la tercera fila de la tabla contiene 'Pepito'"
                 },
                 {
                     "id": "testea-personas-1-7-5",
-                    "command": "storeXpathCount",
+                    "command": "storeElementCount",
                     "target": "xpath=//tr",
                     "value": "cuentaFilas"
                 },
@@ -1126,7 +1169,7 @@
                 },
                 {
                     "id": "testea-personas-1-7-7",
-                    "command": "storeXpathCount",
+                    "command": "storeElementCount",
                     "target": "xpath=//*[contains(@class, 'aviso-')]",
                     "value": "cuentaAvisos"
                 },
@@ -1138,10 +1181,11 @@
                 },
                 {
                     "id": "testea-personas-1-8-1",
-                    "comment": "(TEST) Personas > Listar > Prueba que ordena el listado correctamente. (nombre DESC)",
+                    "title": "(TEST) Personas > Listar > Prueba que ordena el listado correctamente. (nombre DESC)",
                     "command": "click",
                     "target": "xpath=//button[@value='nombre DESC']",
-                    "value": ""
+                    "value": "",
+                    "comment": "Hace clic en el botón con atributo 'value' con valor 'nombre DESC'"
                 },
                 {
                     "id": "testea-personas-1-8-2",
@@ -1163,7 +1207,7 @@
                 },
                 {
                     "id": "testea-personas-1-8-5",
-                    "command": "storeXpathCount",
+                    "command": "storeElementCount",
                     "target": "xpath=//tr",
                     "value": "cuentaFilas"
                 },
@@ -1176,7 +1220,7 @@
                 },
                 {
                     "id": "testea-personas-1-8-7",
-                    "command": "storeXpathCount",
+                    "command": "storeElementCount",
                     "target": "xpath=//*[contains(@class, 'aviso-')]",
                     "value": "cuentaAvisos"
                 },
@@ -1188,10 +1232,11 @@
                 },
                 {
                     "id": "testea-personas-1-9-1",
-                    "comment": "(TEST) Personas > Listar > Prueba que ordena el listado correctamente. (apellido DESC)",
+                    "title": "(TEST) Personas > Listar > Prueba que ordena el listado correctamente. (apellido DESC)",
                     "command": "click",
                     "target": "xpath=//button[@value='apellidos DESC']",
-                    "value": ""
+                    "value": "",
+                    "comment": "Hace clic en el botón con atributo 'value' con valor 'apellidos DESC'"
                 },
                 {
                     "id": "testea-personas-1-9-2",
@@ -1209,11 +1254,12 @@
                     "id": "testea-personas-1-9-4",
                     "command": "assertText",
                     "target": "xpath=//tr[2]/td[1]",
-                    "value": "Pepito"
+                    "value": "Pepito",
+                    "comment": "La primera celda de la tercera fila de la tabla contiene 'Pepito'"
                 },
                 {
                     "id": "testea-personas-1-9-5",
-                    "command": "storeXpathCount",
+                    "command": "storeElementCount",
                     "target": "xpath=//tr",
                     "value": "cuentaFilas"
                 },
@@ -1226,7 +1272,7 @@
                 },
                 {
                     "id": "testea-personas-1-9-7",
-                    "command": "storeXpathCount",
+                    "command": "storeElementCount",
                     "target": "xpath=//*[contains(@class, 'aviso-')]",
                     "value": "cuentaAvisos"
                 },
@@ -1238,10 +1284,11 @@
                 },
                 {
                     "id": "testea-personas-1-10-1",
-                    "comment": "(TEST) Personas > Listar > Prueba que ordena el listado correctamente. (apellido ASC)",
+                    "title": "(TEST) Personas > Listar > Prueba que ordena el listado correctamente. (apellido ASC)",
                     "command": "click",
                     "target": "xpath=//button[@value='apellidos ASC']",
-                    "value": ""
+                    "value": "",
+                    "comment": "Hace clic en el botón con atributo 'value' con valor 'apellidos ASC'"
                 },
                 {
                     "id": "testea-personas-1-10-2",
@@ -1263,7 +1310,7 @@
                 },
                 {
                     "id": "testea-personas-1-10-5",
-                    "command": "storeXpathCount",
+                    "command": "storeElementCount",
                     "target": "xpath=//tr",
                     "value": "cuentaFilas"
                 },
@@ -1276,7 +1323,7 @@
                 },
                 {
                     "id": "testea-personas-1-10-7",
-                    "command": "storeXpathCount",
+                    "command": "storeElementCount",
                     "target": "xpath=//*[contains(@class, 'aviso-')]",
                     "value": "cuentaAvisos"
                 },
@@ -1288,7 +1335,7 @@
                 },
                 {
                     "id": "testea-personas-1-11-1",
-                    "comment": "(TEST) Personas > Listar > Prueba que ordena el listado correctamente. (dni DESC)",
+                    "title": "(TEST) Personas > Listar > Prueba que ordena el listado correctamente. (dni DESC)",
                     "command": "click",
                     "target": "xpath=//button[@value='dni DESC']",
                     "value": ""
@@ -1309,11 +1356,12 @@
                     "id": "testea-personas-1-11-4",
                     "command": "assertText",
                     "target": "xpath=//tr[2]/td[1]",
-                    "value": "Pepito"
+                    "value": "Pepito",
+                    "comment": "La primera celda de la tercera fila de la tabla contiene 'Pepito'"
                 },
                 {
                     "id": "testea-personas-1-11-5",
-                    "command": "storeXpathCount",
+                    "command": "storeElementCount",
                     "target": "xpath=//tr",
                     "value": "cuentaFilas"
                 },
@@ -1326,7 +1374,7 @@
                 },
                 {
                     "id": "testea-personas-1-11-7",
-                    "command": "storeXpathCount",
+                    "command": "storeElementCount",
                     "target": "xpath=//*[contains(@class, 'aviso-')]",
                     "value": "cuentaAvisos"
                 },
@@ -1338,7 +1386,7 @@
                 },
                 {
                     "id": "testea-personas-1-12-1",
-                    "comment": "(TEST) Personas > Listar > Prueba que ordena el listado correctamente. (dni ASC)",
+                    "title": "(TEST) Personas > Listar > Prueba que ordena el listado correctamente. (dni ASC)",
                     "command": "click",
                     "target": "xpath=//button[@value='dni ASC']",
                     "value": ""
@@ -1363,7 +1411,7 @@
                 },
                 {
                     "id": "testea-personas-1-12-5",
-                    "command": "storeXpathCount",
+                    "command": "storeElementCount",
                     "target": "xpath=//tr",
                     "value": "cuentaFilas"
                 },
@@ -1376,7 +1424,7 @@
                 },
                 {
                     "id": "testea-personas-1-12-7",
-                    "command": "storeXpathCount",
+                    "command": "storeElementCount",
                     "target": "xpath=//*[contains(@class, 'aviso-')]",
                     "value": "cuentaAvisos"
                 },
@@ -1388,10 +1436,11 @@
                 },
                 {
                     "id": "testea-personas-1-13-1",
-                    "comment": "(TEST) Personas > Insertar > Inserta correctamente",
+                    "title": "(TEST) Personas > Insertar > Inserta correctamente",
                     "command": "click",
                     "target": "linkText=Añadir registro",
-                    "value": ""
+                    "value": "",
+                    "comment": "Hace clic en el enlace 'Añadir registro'"
                 },
                 {
                     "id": "testea-personas-1-13-2",
@@ -1403,13 +1452,15 @@
                     "id": "testea-personas-1-13-3",
                     "command": "type",
                     "target": "name=nombre",
-                    "value": "Numa"
+                    "value": "Numa",
+                    "comment": "Escribe 'Numa' en el campo 'nombre'"
                 },
                 {
                     "id": "testea-personas-1-13-4",
                     "command": "type",
                     "target": "name=apellidos",
-                    "value": "Nigerio"
+                    "value": "Nigerio",
+                    "comment": "Escribe 'Nigerio' en el campo 'apellidos'"
                 },
                 {
                     "id": "testea-personas-1-13-5",
@@ -1421,7 +1472,8 @@
                     "id": "testea-personas-1-13-6",
                     "command": "click",
                     "target": "xpath=//input[@value='Añadir']",
-                    "value": ""
+                    "value": "",
+                    "comment": "Hace clic en el botón 'Añadir'"
                 },
                 {
                     "id": "testea-personas-1-13-7",
@@ -1437,7 +1489,7 @@
                 },
                 {
                     "id": "testea-personas-1-13-9",
-                    "command": "storeXpathCount",
+                    "command": "storeElementCount",
                     "target": "xpath=//*[contains(@class, 'aviso-info')]",
                     "value": "cuentaAvisosInfo"
                 },
@@ -1449,7 +1501,7 @@
                 },
                 {
                     "id": "testea-personas-1-13-11",
-                    "command": "storeXpathCount",
+                    "command": "storeElementCount",
                     "target": "xpath=//*[contains(@class, 'aviso-')]",
                     "value": "cuentaAvisos"
                 },
@@ -1464,7 +1516,8 @@
                     "id": "testea-personas-1-13-13",
                     "command": "click",
                     "target": "linkText=Listar",
-                    "value": ""
+                    "value": "",
+                    "comment": "Hace clic en el enlace 'Listar'"
                 },
                 {
                     "id": "testea-personas-1-13-14",
@@ -1492,7 +1545,7 @@
                 },
                 {
                     "id": "testea-personas-1-13-18",
-                    "command": "storeXpathCount",
+                    "command": "storeElementCount",
                     "target": "xpath=//tr",
                     "value": "cuentaFilas"
                 },
@@ -1505,7 +1558,7 @@
                 },
                 {
                     "id": "testea-personas-1-13-20",
-                    "command": "storeXpathCount",
+                    "command": "storeElementCount",
                     "target": "xpath=//*[contains(@class, 'aviso-')]",
                     "value": "cuentaAvisos"
                 },
@@ -1517,10 +1570,11 @@
                 },
                 {
                     "id": "testea-personas-1-14-1",
-                    "comment": "(TEST) Personas > Insertar > Aviso general todosVacios",
+                    "title": "(TEST) Personas > Insertar > Aviso general todosVacios",
                     "command": "click",
                     "target": "linkText=Añadir registro",
-                    "value": ""
+                    "value": "",
+                    "comment": "Hace clic en el enlace 'Añadir registro'"
                 },
                 {
                     "id": "testea-personas-1-14-2",
@@ -1532,7 +1586,8 @@
                     "id": "testea-personas-1-14-3",
                     "command": "click",
                     "target": "xpath=//input[@value='Añadir']",
-                    "value": ""
+                    "value": "",
+                    "comment": "Hace clic en el botón 'Añadir'"
                 },
                 {
                     "id": "testea-personas-1-14-4",
@@ -1544,11 +1599,12 @@
                     "id": "testea-personas-1-14-5",
                     "command": "assertText",
                     "target": "xpath=//p",
-                    "value": "Hay que rellenar al menos uno de los campos. No se ha guardado el registro."
+                    "value": "Hay que rellenar al menos uno de los campos. No se ha guardado el registro.",
+                    "comment": "Muestra aviso: 'Hay que rellenar al menos uno de los campos. No se ha guardado el registro.'"
                 },
                 {
                     "id": "testea-personas-1-14-6",
-                    "command": "storeXpathCount",
+                    "command": "storeElementCount",
                     "target": "xpath=//*[contains(@class, 'aviso-error')]",
                     "value": "cuentaAvisosError"
                 },
@@ -1560,7 +1616,7 @@
                 },
                 {
                     "id": "testea-personas-1-14-8",
-                    "command": "storeXpathCount",
+                    "command": "storeElementCount",
                     "target": "xpath=//*[contains(@class, 'aviso-')]",
                     "value": "cuentaAvisos"
                 },
@@ -1573,10 +1629,11 @@
                 },
                 {
                     "id": "testea-personas-1-15-1",
-                    "comment": "(TEST) Personas > Insertar > Aviso general yaExisteRegistro",
+                    "title": "(TEST) Personas > Insertar > Aviso general yaExisteRegistro",
                     "command": "click",
                     "target": "linkText=Añadir registro",
-                    "value": ""
+                    "value": "",
+                    "comment": "Hace clic en el enlace 'Añadir registro'"
                 },
                 {
                     "id": "testea-personas-1-15-2",
@@ -1588,13 +1645,15 @@
                     "id": "testea-personas-1-15-3",
                     "command": "type",
                     "target": "name=nombre",
-                    "value": "Numa"
+                    "value": "Numa",
+                    "comment": "Escribe 'Numa' en el campo 'nombre'"
                 },
                 {
                     "id": "testea-personas-1-15-4",
                     "command": "type",
                     "target": "name=apellidos",
-                    "value": "Nigerio"
+                    "value": "Nigerio",
+                    "comment": "Escribe 'Nigerio' en el campo 'apellidos'"
                 },
                 {
                     "id": "testea-personas-1-15-5",
@@ -1606,7 +1665,8 @@
                     "id": "testea-personas-1-15-6",
                     "command": "click",
                     "target": "xpath=//input[@value='Añadir']",
-                    "value": ""
+                    "value": "",
+                    "comment": "Hace clic en el botón 'Añadir'"
                 },
                 {
                     "id": "testea-personas-1-15-7",
@@ -1618,11 +1678,12 @@
                     "id": "testea-personas-1-15-8",
                     "command": "assertText",
                     "target": "xpath=//p",
-                    "value": "El registro ya existe."
+                    "value": "El registro ya existe.",
+                    "comment": "Muestra aviso: 'El registro ya existe.'"
                 },
                 {
                     "id": "testea-personas-1-15-9",
-                    "command": "storeXpathCount",
+                    "command": "storeElementCount",
                     "target": "xpath=//*[contains(@class, 'aviso-error')]",
                     "value": "cuentaAvisosError"
                 },
@@ -1634,7 +1695,7 @@
                 },
                 {
                     "id": "testea-personas-1-15-11",
-                    "command": "storeXpathCount",
+                    "command": "storeElementCount",
                     "target": "xpath=//*[contains(@class, 'aviso-')]",
                     "value": "cuentaAvisos"
                 },
@@ -1647,7 +1708,7 @@
                 },
                 {
                     "id": "testea-personas-1-16-1",
-                    "comment": "(TEST) Personas > Insertar > Aviso individual Nombre largo",
+                    "title": "(TEST) Personas > Insertar > Aviso individual Nombre largo",
                     "command": "open",
                     "target": "${urlPersonas}/insertar-2.php?nombre=${personasNombreLargo}",
                     "value": ""
@@ -1666,7 +1727,7 @@
                 },
                 {
                     "id": "testea-personas-1-16-4",
-                    "command": "storeXpathCount",
+                    "command": "storeElementCount",
                     "target": "xpath=//*[contains(@class, 'aviso-error')]",
                     "value": "cuentaAvisosError"
                 },
@@ -1678,7 +1739,7 @@
                 },
                 {
                     "id": "testea-personas-1-16-6",
-                    "command": "storeXpathCount",
+                    "command": "storeElementCount",
                     "target": "xpath=//*[contains(@class, 'aviso-')]",
                     "value": "cuentaAvisos"
                 },
@@ -1691,7 +1752,7 @@
                 },
                 {
                     "id": "testea-personas-1-17-1",
-                    "comment": "(TEST) Personas > Insertar > Aviso individual Nombre corto",
+                    "title": "(TEST) Personas > Insertar > Aviso individual Nombre corto",
                     "command": "open",
                     "target": "${urlPersonas}/insertar-2.php?nombre=${personasNombreCorto}",
                     "value": ""
@@ -1710,7 +1771,7 @@
                 },
                 {
                     "id": "testea-personas-1-17-4",
-                    "command": "storeXpathCount",
+                    "command": "storeElementCount",
                     "target": "xpath=//*[contains(@class, 'aviso-info')]",
                     "value": "cuentaAvisosInfo"
                 },
@@ -1722,7 +1783,7 @@
                 },
                 {
                     "id": "testea-personas-1-17-6",
-                    "command": "storeXpathCount",
+                    "command": "storeElementCount",
                     "target": "xpath=//*[contains(@class, 'aviso-')]",
                     "value": "cuentaAvisos"
                 },
@@ -1735,7 +1796,7 @@
                 },
                 {
                     "id": "testea-personas-1-18-1",
-                    "comment": "(TEST) Personas > Insertar > Aviso individual Apellidos largo",
+                    "title": "(TEST) Personas > Insertar > Aviso individual Apellidos largo",
                     "command": "open",
                     "target": "${urlPersonas}/insertar-2.php?apellidos=${personasApellidosLargo}",
                     "value": ""
@@ -1754,7 +1815,7 @@
                 },
                 {
                     "id": "testea-personas-1-18-4",
-                    "command": "storeXpathCount",
+                    "command": "storeElementCount",
                     "target": "xpath=//*[contains(@class, 'aviso-error')]",
                     "value": "cuentaAvisosError"
                 },
@@ -1766,7 +1827,7 @@
                 },
                 {
                     "id": "testea-personas-1-18-6",
-                    "command": "storeXpathCount",
+                    "command": "storeElementCount",
                     "target": "xpath=//*[contains(@class, 'aviso-')]",
                     "value": "cuentaAvisos"
                 },
@@ -1779,7 +1840,7 @@
                 },
                 {
                     "id": "testea-personas-1-19-1",
-                    "comment": "(TEST) Personas > Insertar > Aviso individual Apellidos corto",
+                    "title": "(TEST) Personas > Insertar > Aviso individual Apellidos corto",
                     "command": "open",
                     "target": "${urlPersonas}/insertar-2.php?apellidos=${personasApellidosCorto}",
                     "value": ""
@@ -1798,7 +1859,7 @@
                 },
                 {
                     "id": "testea-personas-1-19-4",
-                    "command": "storeXpathCount",
+                    "command": "storeElementCount",
                     "target": "xpath=//*[contains(@class, 'aviso-info')]",
                     "value": "cuentaAvisosInfo"
                 },
@@ -1810,7 +1871,7 @@
                 },
                 {
                     "id": "testea-personas-1-19-6",
-                    "command": "storeXpathCount",
+                    "command": "storeElementCount",
                     "target": "xpath=//*[contains(@class, 'aviso-')]",
                     "value": "cuentaAvisos"
                 },
@@ -1823,7 +1884,7 @@
                 },
                 {
                     "id": "testea-personas-1-20-1",
-                    "comment": "(TEST) Personas > Insertar > Aviso individual DNI largo",
+                    "title": "(TEST) Personas > Insertar > Aviso individual DNI largo",
                     "command": "open",
                     "target": "${urlPersonas}/insertar-2.php?dni=${personasDniLargo}",
                     "value": ""
@@ -1842,7 +1903,7 @@
                 },
                 {
                     "id": "testea-personas-1-20-4",
-                    "command": "storeXpathCount",
+                    "command": "storeElementCount",
                     "target": "xpath=//*[contains(@class, 'aviso-error')]",
                     "value": "cuentaAvisosError"
                 },
@@ -1854,7 +1915,7 @@
                 },
                 {
                     "id": "testea-personas-1-20-6",
-                    "command": "storeXpathCount",
+                    "command": "storeElementCount",
                     "target": "xpath=//*[contains(@class, 'aviso-')]",
                     "value": "cuentaAvisos"
                 },
@@ -1867,7 +1928,7 @@
                 },
                 {
                     "id": "testea-personas-1-21-1",
-                    "comment": "(TEST) Personas > Insertar > Aviso individual DNI corto",
+                    "title": "(TEST) Personas > Insertar > Aviso individual DNI corto",
                     "command": "open",
                     "target": "${urlPersonas}/insertar-2.php?dni=${personasDniCorto}",
                     "value": ""
@@ -1886,7 +1947,7 @@
                 },
                 {
                     "id": "testea-personas-1-21-4",
-                    "command": "storeXpathCount",
+                    "command": "storeElementCount",
                     "target": "xpath=//*[contains(@class, 'aviso-info')]",
                     "value": "cuentaAvisosInfo"
                 },
@@ -1898,7 +1959,7 @@
                 },
                 {
                     "id": "testea-personas-1-21-6",
-                    "command": "storeXpathCount",
+                    "command": "storeElementCount",
                     "target": "xpath=//*[contains(@class, 'aviso-')]",
                     "value": "cuentaAvisos"
                 },
@@ -1911,7 +1972,7 @@
                 },
                 {
                     "id": "testea-personas-1-22-1",
-                    "comment": "(TEST) Personas > Insertar > Avisos individuales Nombre / Apellidos / DNI largos",
+                    "title": "(TEST) Personas > Insertar > Avisos individuales Nombre / Apellidos / DNI largos",
                     "command": "open",
                     "target": "${urlPersonas}/insertar-2.php?nombre=${personasNombreLargo}&apellidos=${personasApellidosLargo}&dni=${personasDniLargo}",
                     "value": ""
@@ -1942,7 +2003,7 @@
                 },
                 {
                     "id": "testea-personas-1-22-6",
-                    "command": "storeXpathCount",
+                    "command": "storeElementCount",
                     "target": "xpath=//*[contains(@class, 'aviso-error')]",
                     "value": "cuentaAvisosError"
                 },
@@ -1954,7 +2015,7 @@
                 },
                 {
                     "id": "testea-personas-1-22-8",
-                    "command": "storeXpathCount",
+                    "command": "storeElementCount",
                     "target": "xpath=//*[contains(@class, 'aviso-')]",
                     "value": "cuentaAvisos"
                 },
@@ -1967,7 +2028,7 @@
                 },
                 {
                     "id": "testea-personas-1-23-1",
-                    "comment": "(TEST) Personas > Insertar > Avisos individuales Nombre / Apellidos / DNI cortos",
+                    "title": "(TEST) Personas > Insertar > Avisos individuales Nombre / Apellidos / DNI cortos",
                     "command": "open",
                     "target": "${urlPersonas}/insertar-2.php?nombre=${personasNombreCorto}&apellidos=${personasApellidosCorto}&dni=${personasDniCorto}",
                     "value": ""
@@ -1986,7 +2047,7 @@
                 },
                 {
                     "id": "testea-personas-1-23-4",
-                    "command": "storeXpathCount",
+                    "command": "storeElementCount",
                     "target": "xpath=//*[contains(@class, 'aviso-info')]",
                     "value": "cuentaAvisosInfo"
                 },
@@ -1998,7 +2059,7 @@
                 },
                 {
                     "id": "testea-personas-1-23-6",
-                    "command": "storeXpathCount",
+                    "command": "storeElementCount",
                     "target": "xpath=//*[contains(@class, 'aviso-')]",
                     "value": "cuentaAvisos"
                 },
@@ -2019,7 +2080,8 @@
                     "id": "testea-personas-1-23-9",
                     "command": "click",
                     "target": "linkText=Personas",
-                    "value": ""
+                    "value": "",
+                    "comment": "Hace clic en el enlace 'Personas'"
                 },
                 {
                     "id": "testea-personas-1-23-10",
@@ -2029,10 +2091,11 @@
                 },
                 {
                     "id": "testea-personas-1-24-1",
-                    "comment": "(TEST) Personas > Borrar > Reordena registros sin perder casillas marcadas. Marca casilla",
+                    "title": "(TEST) Personas > Borrar > Reordena registros sin perder casillas marcadas. Marca casilla",
                     "command": "click",
                     "target": "linkText=Borrar",
-                    "value": ""
+                    "value": "",
+                    "comment": "Hace clic en el enlace 'Borrar'"
                 },
                 {
                     "id": "testea-personas-1-24-2",
@@ -2042,7 +2105,7 @@
                 },
                 {
                     "id": "testea-personas-1-24-3",
-                    "command": "storeXpathCount",
+                    "command": "storeElementCount",
                     "target": "xpath=//tr",
                     "value": "cuentaFilas"
                 },
@@ -2063,14 +2126,16 @@
                     "id": "testea-personas-1-24-6",
                     "command": "click",
                     "target": "name=id[1]",
-                    "value": ""
+                    "value": "",
+                    "comment": "Hace clic en la casilla con atributo 'name' con valor 'id[1]'"
                 },
                 {
                     "id": "testea-personas-1-25-1",
-                    "comment": "(TEST) Personas > Borrar > Reordena registros sin perder casillas marcadas. (nombre ASC)",
+                    "title": "(TEST) Personas > Borrar > Reordena registros sin perder casillas marcadas. (nombre ASC)",
                     "command": "click",
                     "target": "xpath=//button[@value='nombre ASC']",
-                    "value": ""
+                    "value": "",
+                    "comment": "Hace clic en el botón con atributo 'value' con valor 'nombre ASC'"
                 },
                 {
                     "id": "testea-personas-1-25-2",
@@ -2080,7 +2145,7 @@
                 },
                 {
                     "id": "testea-personas-1-25-3",
-                    "command": "storeXpathCount",
+                    "command": "storeElementCount",
                     "target": "xpath=//tr",
                     "value": "cuentaFilas"
                 },
@@ -2105,7 +2170,7 @@
                 },
                 {
                     "id": "testea-personas-1-25-7",
-                    "command": "storeXpathCount",
+                    "command": "storeElementCount",
                     "target": "xpath=//*[contains(@class, 'aviso-')]",
                     "value": "cuentaAvisos"
                 },
@@ -2117,10 +2182,11 @@
                 },
                 {
                     "id": "testea-personas-1-26-1",
-                    "comment": "(TEST) Personas > Borrar > Reordena registros sin perder casillas marcadas. (nombre DESC)",
+                    "title": "(TEST) Personas > Borrar > Reordena registros sin perder casillas marcadas. (nombre DESC)",
                     "command": "click",
                     "target": "xpath=//button[@value='nombre DESC']",
-                    "value": ""
+                    "value": "",
+                    "comment": "Hace clic en el botón con atributo 'value' con valor 'nombre DESC'"
                 },
                 {
                     "id": "testea-personas-1-26-2",
@@ -2130,7 +2196,7 @@
                 },
                 {
                     "id": "testea-personas-1-26-3",
-                    "command": "storeXpathCount",
+                    "command": "storeElementCount",
                     "target": "xpath=//tr",
                     "value": "cuentaFilas"
                 },
@@ -2155,7 +2221,7 @@
                 },
                 {
                     "id": "testea-personas-1-26-7",
-                    "command": "storeXpathCount",
+                    "command": "storeElementCount",
                     "target": "xpath=//*[contains(@class, 'aviso-')]",
                     "value": "cuentaAvisos"
                 },
@@ -2167,10 +2233,11 @@
                 },
                 {
                     "id": "testea-personas-1-27-1",
-                    "comment": "(TEST) Personas > Borrar > Reordena registros sin perder casillas marcadas. (apellidos DESC)",
+                    "title": "(TEST) Personas > Borrar > Reordena registros sin perder casillas marcadas. (apellidos DESC)",
                     "command": "click",
                     "target": "xpath=//button[@value='apellidos DESC']",
-                    "value": ""
+                    "value": "",
+                    "comment": "Hace clic en el botón con atributo 'value' con valor 'apellidos DESC'"
                 },
                 {
                     "id": "testea-personas-1-27-2",
@@ -2180,7 +2247,7 @@
                 },
                 {
                     "id": "testea-personas-1-27-3",
-                    "command": "storeXpathCount",
+                    "command": "storeElementCount",
                     "target": "xpath=//tr",
                     "value": "cuentaFilas"
                 },
@@ -2205,7 +2272,7 @@
                 },
                 {
                     "id": "testea-personas-1-27-7",
-                    "command": "storeXpathCount",
+                    "command": "storeElementCount",
                     "target": "xpath=//*[contains(@class, 'aviso-')]",
                     "value": "cuentaAvisos"
                 },
@@ -2217,10 +2284,11 @@
                 },
                 {
                     "id": "testea-personas-1-28-1",
-                    "comment": "(TEST) Personas > Borrar > Reordena registros sin perder casillas marcadas. (apellidos ASC)",
+                    "title": "(TEST) Personas > Borrar > Reordena registros sin perder casillas marcadas. (apellidos ASC)",
                     "command": "click",
                     "target": "xpath=//button[@value='apellidos ASC']",
-                    "value": ""
+                    "value": "",
+                    "comment": "Hace clic en el botón con atributo 'value' con valor 'apellidos ASC'"
                 },
                 {
                     "id": "testea-personas-1-28-2",
@@ -2230,7 +2298,7 @@
                 },
                 {
                     "id": "testea-personas-1-28-3",
-                    "command": "storeXpathCount",
+                    "command": "storeElementCount",
                     "target": "xpath=//tr",
                     "value": "cuentaFilas"
                 },
@@ -2255,7 +2323,7 @@
                 },
                 {
                     "id": "testea-personas-1-28-7",
-                    "command": "storeXpathCount",
+                    "command": "storeElementCount",
                     "target": "xpath=//*[contains(@class, 'aviso-')]",
                     "value": "cuentaAvisos"
                 },
@@ -2267,7 +2335,7 @@
                 },
                 {
                     "id": "testea-personas-1-29-1",
-                    "comment": "(TEST) Personas > Borrar > Reordena registros sin perder casillas marcadas. (dni DESC)",
+                    "title": "(TEST) Personas > Borrar > Reordena registros sin perder casillas marcadas. (dni DESC)",
                     "command": "click",
                     "target": "xpath=//button[@value='dni DESC']",
                     "value": ""
@@ -2280,7 +2348,7 @@
                 },
                 {
                     "id": "testea-personas-1-29-3",
-                    "command": "storeXpathCount",
+                    "command": "storeElementCount",
                     "target": "xpath=//tr",
                     "value": "cuentaFilas"
                 },
@@ -2305,7 +2373,7 @@
                 },
                 {
                     "id": "testea-personas-1-29-7",
-                    "command": "storeXpathCount",
+                    "command": "storeElementCount",
                     "target": "xpath=//*[contains(@class, 'aviso-')]",
                     "value": "cuentaAvisos"
                 },
@@ -2317,7 +2385,7 @@
                 },
                 {
                     "id": "testea-personas-1-30-1",
-                    "comment": "(TEST) Personas > Borrar > Reordena registros sin perder casillas marcadas. (dni ASC)",
+                    "title": "(TEST) Personas > Borrar > Reordena registros sin perder casillas marcadas. (dni ASC)",
                     "command": "click",
                     "target": "xpath=//button[@value='dni ASC']",
                     "value": ""
@@ -2330,7 +2398,7 @@
                 },
                 {
                     "id": "testea-personas-1-30-3",
-                    "command": "storeXpathCount",
+                    "command": "storeElementCount",
                     "target": "xpath=//tr",
                     "value": "cuentaFilas"
                 },
@@ -2355,7 +2423,7 @@
                 },
                 {
                     "id": "testea-personas-1-30-7",
-                    "command": "storeXpathCount",
+                    "command": "storeElementCount",
                     "target": "xpath=//*[contains(@class, 'aviso-')]",
                     "value": "cuentaAvisos"
                 },
@@ -2367,10 +2435,11 @@
                 },
                 {
                     "id": "testea-personas-1-31-1",
-                    "comment": "(TEST) Personas > Borrar > Borra 1 registro correctamente",
+                    "title": "(TEST) Personas > Borrar > Borra 1 registro correctamente",
                     "command": "click",
                     "target": "linkText=Borrar",
-                    "value": ""
+                    "value": "",
+                    "comment": "Hace clic en el enlace 'Borrar'"
                 },
                 {
                     "id": "testea-personas-1-31-2",
@@ -2382,13 +2451,15 @@
                     "id": "testea-personas-1-31-3",
                     "command": "click",
                     "target": "name=id[1]",
-                    "value": ""
+                    "value": "",
+                    "comment": "Hace clic en la casilla con atributo 'name' con valor 'id[1]'"
                 },
                 {
                     "id": "testea-personas-1-31-4",
                     "command": "click",
                     "target": "xpath=//input[@value='Borrar registro']",
-                    "value": ""
+                    "value": "",
+                    "comment": "Hace clic en el botón 'Borrar registro'"
                 },
                 {
                     "id": "testea-personas-1-31-5",
@@ -2404,7 +2475,7 @@
                 },
                 {
                     "id": "testea-personas-1-31-7",
-                    "command": "storeXpathCount",
+                    "command": "storeElementCount",
                     "target": "xpath=//*[contains(@class, 'aviso-info')]",
                     "value": "cuentaAvisosInfo"
                 },
@@ -2416,7 +2487,7 @@
                 },
                 {
                     "id": "testea-personas-1-31-9",
-                    "command": "storeXpathCount",
+                    "command": "storeElementCount",
                     "target": "xpath=//*[contains(@class, 'aviso-')]",
                     "value": "cuentaAvisos"
                 },
@@ -2431,7 +2502,8 @@
                     "id": "testea-personas-1-31-11",
                     "command": "click",
                     "target": "linkText=Listar",
-                    "value": ""
+                    "value": "",
+                    "comment": "Hace clic en el enlace 'Listar'"
                 },
                 {
                     "id": "testea-personas-1-31-12",
@@ -2447,7 +2519,7 @@
                 },
                 {
                     "id": "testea-personas-1-31-14",
-                    "command": "storeXpathCount",
+                    "command": "storeElementCount",
                     "target": "xpath=//tr",
                     "value": "cuentaFilas"
                 },
@@ -2460,7 +2532,7 @@
                 },
                 {
                     "id": "testea-personas-1-31-16",
-                    "command": "storeXpathCount",
+                    "command": "storeElementCount",
                     "target": "xpath=//*[contains(@class, 'aviso-')]",
                     "value": "cuentaAvisos"
                 },
@@ -2480,7 +2552,8 @@
                     "id": "testea-personas-1-31-19",
                     "command": "click",
                     "target": "linkText=Personas",
-                    "value": ""
+                    "value": "",
+                    "comment": "Hace clic en el enlace 'Personas'"
                 },
                 {
                     "id": "testea-personas-1-31-20",
@@ -2490,10 +2563,11 @@
                 },
                 {
                     "id": "testea-personas-1-32-1",
-                    "comment": "(TEST) Personas > Borrar > Aviso general registrosNoSeleccionados. No se ha seleccionado ningún registro.",
+                    "title": "(TEST) Personas > Borrar > Aviso general registrosNoSeleccionados. No se ha seleccionado ningún registro.",
                     "command": "click",
                     "target": "linkText=Borrar",
-                    "value": ""
+                    "value": "",
+                    "comment": "Hace clic en el enlace 'Borrar'"
                 },
                 {
                     "id": "testea-personas-1-32-2",
@@ -2505,7 +2579,8 @@
                     "id": "testea-personas-1-32-3",
                     "command": "click",
                     "target": "xpath=//input[@value='Borrar registro']",
-                    "value": ""
+                    "value": "",
+                    "comment": "Hace clic en el botón 'Borrar registro'"
                 },
                 {
                     "id": "testea-personas-1-32-4",
@@ -2521,7 +2596,7 @@
                 },
                 {
                     "id": "testea-personas-1-32-6",
-                    "command": "storeXpathCount",
+                    "command": "storeElementCount",
                     "target": "xpath=//tr",
                     "value": "cuentaFilas"
                 },
@@ -2534,7 +2609,7 @@
                 },
                 {
                     "id": "testea-personas-1-32-8",
-                    "command": "storeXpathCount",
+                    "command": "storeElementCount",
                     "target": "xpath=//*[contains(@class, 'aviso-error')]",
                     "value": "cuentaAvisosError"
                 },
@@ -2546,7 +2621,7 @@
                 },
                 {
                     "id": "testea-personas-1-32-10",
-                    "command": "storeXpathCount",
+                    "command": "storeElementCount",
                     "target": "xpath=//*[contains(@class, 'aviso-')]",
                     "value": "cuentaAvisos"
                 },
@@ -2559,7 +2634,7 @@
                 },
                 {
                     "id": "testea-personas-1-33-1",
-                    "comment": "(TEST) Personas > Borrar > Aviso general Registro para borrar no encontrado (1 registro que no existe)",
+                    "title": "(TEST) Personas > Borrar > Aviso general Registro para borrar no encontrado (1 registro que no existe)",
                     "command": "open",
                     "target": "${urlPersonas}/borrar-2.php?id[100]=on",
                     "value": ""
@@ -2578,7 +2653,7 @@
                 },
                 {
                     "id": "testea-personas-1-33-4",
-                    "command": "storeXpathCount",
+                    "command": "storeElementCount",
                     "target": "xpath=//tr",
                     "value": "cuentaFilas"
                 },
@@ -2591,7 +2666,7 @@
                 },
                 {
                     "id": "testea-personas-1-33-6",
-                    "command": "storeXpathCount",
+                    "command": "storeElementCount",
                     "target": "xpath=//*[contains(@class, 'aviso-error')]",
                     "value": "cuentaAvisosError"
                 },
@@ -2603,7 +2678,7 @@
                 },
                 {
                     "id": "testea-personas-1-33-8",
-                    "command": "storeXpathCount",
+                    "command": "storeElementCount",
                     "target": "xpath=//*[contains(@class, 'aviso-')]",
                     "value": "cuentaAvisos"
                 },
@@ -2616,7 +2691,7 @@
                 },
                 {
                     "id": "testea-personas-1-34-1",
-                    "comment": "(TEST) Personas > Borrar > Aviso general Registro para borrar no encontrado (1 registro que no existe y 1 que sí)",
+                    "title": "(TEST) Personas > Borrar > Aviso general Registro para borrar no encontrado (1 registro que no existe y 1 que sí)",
                     "command": "open",
                     "target": "${urlPersonas}/borrar-2.php?id[100]=on&id[1]=on",
                     "value": ""
@@ -2635,7 +2710,7 @@
                 },
                 {
                     "id": "testea-personas-1-34-4",
-                    "command": "storeXpathCount",
+                    "command": "storeElementCount",
                     "target": "xpath=//tr",
                     "value": "cuentaFilas"
                 },
@@ -2648,7 +2723,7 @@
                 },
                 {
                     "id": "testea-personas-1-34-6",
-                    "command": "storeXpathCount",
+                    "command": "storeElementCount",
                     "target": "xpath=//*[contains(@class, 'aviso-error')]",
                     "value": "cuentaAvisosError"
                 },
@@ -2660,7 +2735,7 @@
                 },
                 {
                     "id": "testea-personas-1-34-8",
-                    "command": "storeXpathCount",
+                    "command": "storeElementCount",
                     "target": "xpath=//*[contains(@class, 'aviso-')]",
                     "value": "cuentaAvisos"
                 },
@@ -2679,7 +2754,7 @@
                 },
                 {
                     "id": "testea-personas-1-34-11",
-                    "command": "storeXpathCount",
+                    "command": "storeElementCount",
                     "target": "xpath=//tr",
                     "value": "cuentaFilas"
                 },
@@ -2692,7 +2767,7 @@
                 },
                 {
                     "id": "testea-personas-1-35-1",
-                    "comment": "(TEST) Personas > Borrar > Aviso general Registro para borrar no encontrado (2 registros que no existen)",
+                    "title": "(TEST) Personas > Borrar > Aviso general Registro para borrar no encontrado (2 registros que no existen)",
                     "command": "open",
                     "target": "${urlPersonas}/borrar-2.php?id[100]=on&id[101]=on",
                     "value": ""
@@ -2711,7 +2786,7 @@
                 },
                 {
                     "id": "testea-personas-1-35-4",
-                    "command": "storeXpathCount",
+                    "command": "storeElementCount",
                     "target": "xpath=//tr",
                     "value": "cuentaFilas"
                 },
@@ -2724,7 +2799,7 @@
                 },
                 {
                     "id": "testea-personas-1-35-6",
-                    "command": "storeXpathCount",
+                    "command": "storeElementCount",
                     "target": "xpath=//*[contains(@class, 'aviso-error')]",
                     "value": "cuentaAvisosError"
                 },
@@ -2736,7 +2811,7 @@
                 },
                 {
                     "id": "testea-personas-1-35-8",
-                    "command": "storeXpathCount",
+                    "command": "storeElementCount",
                     "target": "xpath=//*[contains(@class, 'aviso-')]",
                     "value": "cuentaAvisos"
                 },
@@ -2749,10 +2824,11 @@
                 },
                 {
                     "id": "testea-personas-1-36-1",
-                    "comment": "(TEST) Personas > Buscar > Aviso general sinRegistros + Borra dos registros correctamente",
+                    "title": "(TEST) Personas > Buscar > Aviso general sinRegistros + Borra dos registros correctamente",
                     "command": "click",
                     "target": "linkText=Borrar",
-                    "value": ""
+                    "value": "",
+                    "comment": "Hace clic en el enlace 'Borrar'"
                 },
                 {
                     "id": "testea-personas-1-36-2",
@@ -2764,19 +2840,22 @@
                     "id": "testea-personas-1-36-3",
                     "command": "click",
                     "target": "name=id[1]",
-                    "value": ""
+                    "value": "",
+                    "comment": "Hace clic en la casilla con atributo 'name' con valor 'id[1]'"
                 },
                 {
                     "id": "testea-personas-1-36-4",
                     "command": "click",
                     "target": "name=id[2]",
-                    "value": ""
+                    "value": "",
+                    "comment": "Hace clic en la casilla con atributo 'name' con valor 'id[2]'"
                 },
                 {
                     "id": "testea-personas-1-36-5",
                     "command": "click",
                     "target": "xpath=//input[@value='Borrar registro']",
-                    "value": ""
+                    "value": "",
+                    "comment": "Hace clic en el botón 'Borrar registro'"
                 },
                 {
                     "id": "testea-personas-1-36-6",
@@ -2798,7 +2877,7 @@
                 },
                 {
                     "id": "testea-personas-1-36-9",
-                    "command": "storeXpathCount",
+                    "command": "storeElementCount",
                     "target": "xpath=//*[contains(@class, 'aviso-info')]",
                     "value": "cuentaAvisosInfo"
                 },
@@ -2810,7 +2889,7 @@
                 },
                 {
                     "id": "testea-personas-1-36-11",
-                    "command": "storeXpathCount",
+                    "command": "storeElementCount",
                     "target": "xpath=//*[contains(@class, 'aviso-')]",
                     "value": "cuentaAvisos"
                 },
@@ -2825,7 +2904,8 @@
                     "id": "testea-personas-1-36-13",
                     "command": "click",
                     "target": "linkText=Buscar",
-                    "value": ""
+                    "value": "",
+                    "comment": "Hace clic en el enlace 'Buscar'"
                 },
                 {
                     "id": "testea-personas-1-36-14",
@@ -2842,7 +2922,7 @@
                 },
                 {
                     "id": "testea-personas-1-36-16",
-                    "command": "storeXpathCount",
+                    "command": "storeElementCount",
                     "target": "xpath=//*[contains(@class, 'aviso-info')]",
                     "value": "cuentaAvisosError"
                 },
@@ -2854,7 +2934,7 @@
                 },
                 {
                     "id": "testea-personas-1-36-18",
-                    "command": "storeXpathCount",
+                    "command": "storeElementCount",
                     "target": "xpath=//*[contains(@class, 'aviso-')]",
                     "value": "cuentaAvisos"
                 },
@@ -2873,10 +2953,11 @@
                 },
                 {
                     "id": "testea-personas-1-37-1",
-                    "comment": "(TEST) Personas > Buscar > Encuentra registros correctamente (busca por nombre)",
+                    "title": "(TEST) Personas > Buscar > Encuentra registros correctamente (busca por nombre)",
                     "command": "click",
                     "target": "linkText=Personas",
-                    "value": ""
+                    "value": "",
+                    "comment": "Hace clic en el enlace 'Personas'"
                 },
                 {
                     "id": "testea-personas-1-37-2",
@@ -2888,7 +2969,8 @@
                     "id": "testea-personas-1-37-3",
                     "command": "click",
                     "target": "linkText=Buscar",
-                    "value": ""
+                    "value": "",
+                    "comment": "Hace clic en el enlace 'Buscar'"
                 },
                 {
                     "id": "testea-personas-1-37-4",
@@ -2900,13 +2982,15 @@
                     "id": "testea-personas-1-37-5",
                     "command": "type",
                     "target": "name=nombre",
-                    "value": "u"
+                    "value": "u",
+                    "comment": "Escribe 'u' en el campo 'nombre'"
                 },
                 {
                     "id": "testea-personas-1-37-6",
                     "command": "click",
                     "target": "xpath=//input[@value='Buscar']",
-                    "value": ""
+                    "value": "",
+                    "comment": "Hace clic en el botón 'Buscar'"
                 },
                 {
                     "id": "testea-personas-1-37-7",
@@ -2922,7 +3006,7 @@
                 },
                 {
                     "id": "testea-personas-1-37-9",
-                    "command": "storeXpathCount",
+                    "command": "storeElementCount",
                     "target": "xpath=//tr",
                     "value": "cuentaFilas"
                 },
@@ -2935,7 +3019,7 @@
                 },
                 {
                     "id": "testea-personas-1-37-11",
-                    "command": "storeXpathCount",
+                    "command": "storeElementCount",
                     "target": "xpath=//*[contains(@class, 'aviso-')]",
                     "value": "cuentaAvisos"
                 },
@@ -2947,10 +3031,11 @@
                 },
                 {
                     "id": "testea-personas-1-38-1",
-                    "comment": "(TEST) Personas > Buscar > Encuentra registros correctamente (busca por apellidos)",
+                    "title": "(TEST) Personas > Buscar > Encuentra registros correctamente (busca por apellidos)",
                     "command": "click",
                     "target": "linkText=Buscar",
-                    "value": ""
+                    "value": "",
+                    "comment": "Hace clic en el enlace 'Buscar'"
                 },
                 {
                     "id": "testea-personas-1-38-2",
@@ -2962,13 +3047,15 @@
                     "id": "testea-personas-1-38-3",
                     "command": "type",
                     "target": "name=apellidos",
-                    "value": "e"
+                    "value": "e",
+                    "comment": "Escribe 'e' en el campo 'apellidos'"
                 },
                 {
                     "id": "testea-personas-1-38-4",
                     "command": "click",
                     "target": "xpath=//input[@value='Buscar']",
-                    "value": ""
+                    "value": "",
+                    "comment": "Hace clic en el botón 'Buscar'"
                 },
                 {
                     "id": "testea-personas-1-38-5",
@@ -2990,7 +3077,7 @@
                 },
                 {
                     "id": "testea-personas-1-38-8",
-                    "command": "storeXpathCount",
+                    "command": "storeElementCount",
                     "target": "xpath=//tr",
                     "value": "cuentaFilas"
                 },
@@ -3003,7 +3090,7 @@
                 },
                 {
                     "id": "testea-personas-1-38-10",
-                    "command": "storeXpathCount",
+                    "command": "storeElementCount",
                     "target": "xpath=//*[contains(@class, 'aviso-')]",
                     "value": "cuentaAvisos"
                 },
@@ -3015,10 +3102,11 @@
                 },
                 {
                     "id": "testea-personas-1-39-1",
-                    "comment": "(TEST) Personas > Buscar > Encuentra registros correctamente (busca por dni)",
+                    "title": "(TEST) Personas > Buscar > Encuentra registros correctamente (busca por dni)",
                     "command": "click",
                     "target": "linkText=Buscar",
-                    "value": ""
+                    "value": "",
+                    "comment": "Hace clic en el enlace 'Buscar'"
                 },
                 {
                     "id": "testea-personas-1-39-2",
@@ -3036,7 +3124,8 @@
                     "id": "testea-personas-1-39-4",
                     "command": "click",
                     "target": "xpath=//input[@value='Buscar']",
-                    "value": ""
+                    "value": "",
+                    "comment": "Hace clic en el botón 'Buscar'"
                 },
                 {
                     "id": "testea-personas-1-39-5",
@@ -3052,7 +3141,7 @@
                 },
                 {
                     "id": "testea-personas-1-39-7",
-                    "command": "storeXpathCount",
+                    "command": "storeElementCount",
                     "target": "xpath=//tr",
                     "value": "cuentaFilas"
                 },
@@ -3065,7 +3154,7 @@
                 },
                 {
                     "id": "testea-personas-1-39-9",
-                    "command": "storeXpathCount",
+                    "command": "storeElementCount",
                     "target": "xpath=//*[contains(@class, 'aviso-')]",
                     "value": "cuentaAvisos"
                 },
@@ -3077,10 +3166,11 @@
                 },
                 {
                     "id": "testea-personas-1-40-1",
-                    "comment": "(TEST) Personas > Buscar > No encuentra registros (busca por apellidos)",
+                    "title": "(TEST) Personas > Buscar > No encuentra registros (busca por apellidos)",
                     "command": "click",
                     "target": "linkText=Buscar",
-                    "value": ""
+                    "value": "",
+                    "comment": "Hace clic en el enlace 'Buscar'"
                 },
                 {
                     "id": "testea-personas-1-40-2",
@@ -3092,13 +3182,15 @@
                     "id": "testea-personas-1-40-3",
                     "command": "type",
                     "target": "name=apellidos",
-                    "value": "u"
+                    "value": "u",
+                    "comment": "Escribe 'u' en el campo 'apellidos'"
                 },
                 {
                     "id": "testea-personas-1-40-4",
                     "command": "click",
                     "target": "xpath=//input[@value='Buscar']",
-                    "value": ""
+                    "value": "",
+                    "comment": "Hace clic en el botón 'Buscar'"
                 },
                 {
                     "id": "testea-personas-1-40-5",
@@ -3114,7 +3206,7 @@
                 },
                 {
                     "id": "testea-personas-1-40-7",
-                    "command": "storeXpathCount",
+                    "command": "storeElementCount",
                     "target": "xpath=//*[contains(@class, 'aviso-error')]",
                     "value": "cuentaAvisosError"
                 },
@@ -3126,7 +3218,7 @@
                 },
                 {
                     "id": "testea-personas-1-40-9",
-                    "command": "storeXpathCount",
+                    "command": "storeElementCount",
                     "target": "xpath=//*[contains(@class, 'aviso-')]",
                     "value": "cuentaAvisos"
                 },
@@ -3139,7 +3231,7 @@
                 },
                 {
                     "id": "testea-personas-1-41-1",
-                    "comment": "(TEST) Personas > Buscar > No encuentra registros (nombre demasiado largo, no saca aviso)",
+                    "title": "(TEST) Personas > Buscar > No encuentra registros (nombre demasiado largo, no saca aviso)",
                     "command": "open",
                     "target": "${urlPersonas}/buscar-2.php?nombre=${personasNombreLargo}",
                     "value": ""
@@ -3158,7 +3250,7 @@
                 },
                 {
                     "id": "testea-personas-1-41-4",
-                    "command": "storeXpathCount",
+                    "command": "storeElementCount",
                     "target": "xpath=//*[contains(@class, 'aviso-error')]",
                     "value": "cuentaAvisosError"
                 },
@@ -3170,7 +3262,7 @@
                 },
                 {
                     "id": "testea-personas-1-41-6",
-                    "command": "storeXpathCount",
+                    "command": "storeElementCount",
                     "target": "xpath=//*[contains(@class, 'aviso-')]",
                     "value": "cuentaAvisos"
                 },
@@ -3183,7 +3275,7 @@
                 },
                 {
                     "id": "testea-personas-1-42-1",
-                    "comment": "(TEST) Personas > Buscar > No encuentra registros (apellido demasiado largo, no saca aviso)",
+                    "title": "(TEST) Personas > Buscar > No encuentra registros (apellido demasiado largo, no saca aviso)",
                     "command": "open",
                     "target": "${urlPersonas}/buscar-2.php?apellidos=${personasApellidosLargo}",
                     "value": ""
@@ -3202,7 +3294,7 @@
                 },
                 {
                     "id": "testea-personas-1-42-4",
-                    "command": "storeXpathCount",
+                    "command": "storeElementCount",
                     "target": "xpath=//*[contains(@class, 'aviso-error')]",
                     "value": "cuentaAvisosError"
                 },
@@ -3214,7 +3306,7 @@
                 },
                 {
                     "id": "testea-personas-1-42-6",
-                    "command": "storeXpathCount",
+                    "command": "storeElementCount",
                     "target": "xpath=//*[contains(@class, 'aviso-')]",
                     "value": "cuentaAvisos"
                 },
@@ -3227,7 +3319,7 @@
                 },
                 {
                     "id": "testea-personas-1-43-1",
-                    "comment": "(TEST) Personas > Buscar > No encuentra registros (DNI demasiado largo, no saca aviso)",
+                    "title": "(TEST) Personas > Buscar > No encuentra registros (DNI demasiado largo, no saca aviso)",
                     "command": "open",
                     "target": "${urlPersonas}/buscar-2.php?dni=${personasDniLargo}",
                     "value": ""
@@ -3246,7 +3338,7 @@
                 },
                 {
                     "id": "testea-personas-1-43-4",
-                    "command": "storeXpathCount",
+                    "command": "storeElementCount",
                     "target": "xpath=//*[contains(@class, 'aviso-error')]",
                     "value": "cuentaAvisosError"
                 },
@@ -3258,7 +3350,7 @@
                 },
                 {
                     "id": "testea-personas-1-43-6",
-                    "command": "storeXpathCount",
+                    "command": "storeElementCount",
                     "target": "xpath=//*[contains(@class, 'aviso-')]",
                     "value": "cuentaAvisos"
                 },
@@ -3271,10 +3363,11 @@
                 },
                 {
                     "id": "testea-personas-1-44-1",
-                    "comment": "(TEST) Personas > Modificar > Reordena registros sin perder casillas marcadas. Marca casilla",
+                    "title": "(TEST) Personas > Modificar > Reordena registros sin perder casillas marcadas. Marca casilla",
                     "command": "click",
                     "target": "linkText=Modificar",
-                    "value": ""
+                    "value": "",
+                    "comment": "Hace clic en el enlace 'Modificar'"
                 },
                 {
                     "id": "testea-personas-1-44-2",
@@ -3284,7 +3377,7 @@
                 },
                 {
                     "id": "testea-personas-1-44-3",
-                    "command": "storeXpathCount",
+                    "command": "storeElementCount",
                     "target": "xpath=//tr",
                     "value": "cuentaFilas"
                 },
@@ -3305,14 +3398,16 @@
                     "id": "testea-personas-1-44-6",
                     "command": "click",
                     "target": "xpath=//tr[2]/td[1]/input",
-                    "value": ""
+                    "value": "",
+                    "comment": "Hace clic en la casilla situada en la primera celda de la tercera fila de la tabla"
                 },
                 {
                     "id": "testea-personas-1-45-1",
-                    "comment": "(TEST) Personas > Modificar > Reordena registros sin perder casillas marcadas. (nombre ASC)",
+                    "title": "(TEST) Personas > Modificar > Reordena registros sin perder casillas marcadas. (nombre ASC)",
                     "command": "click",
                     "target": "xpath=//button[@value='nombre ASC']",
-                    "value": ""
+                    "value": "",
+                    "comment": "Hace clic en el botón con atributo 'value' con valor 'nombre ASC'"
                 },
                 {
                     "id": "testea-personas-1-45-2",
@@ -3322,7 +3417,7 @@
                 },
                 {
                     "id": "testea-personas-1-45-3",
-                    "command": "storeXpathCount",
+                    "command": "storeElementCount",
                     "target": "xpath=//tr",
                     "value": "cuentaFilas"
                 },
@@ -3347,7 +3442,7 @@
                 },
                 {
                     "id": "testea-personas-1-45-7",
-                    "command": "storeXpathCount",
+                    "command": "storeElementCount",
                     "target": "xpath=//*[contains(@class, 'aviso-')]",
                     "value": "cuentaAvisos"
                 },
@@ -3359,10 +3454,11 @@
                 },
                 {
                     "id": "testea-personas-1-46-1",
-                    "comment": "(TEST) Personas > Borrar > Reordena registros sin perder casillas marcadas. (nombre DESC)",
+                    "title": "(TEST) Personas > Borrar > Reordena registros sin perder casillas marcadas. (nombre DESC)",
                     "command": "click",
                     "target": "xpath=//button[@value='nombre DESC']",
-                    "value": ""
+                    "value": "",
+                    "comment": "Hace clic en el botón con atributo 'value' con valor 'nombre DESC'"
                 },
                 {
                     "id": "testea-personas-1-46-2",
@@ -3372,7 +3468,7 @@
                 },
                 {
                     "id": "testea-personas-1-46-3",
-                    "command": "storeXpathCount",
+                    "command": "storeElementCount",
                     "target": "xpath=//tr",
                     "value": "cuentaFilas"
                 },
@@ -3397,7 +3493,7 @@
                 },
                 {
                     "id": "testea-personas-1-46-7",
-                    "command": "storeXpathCount",
+                    "command": "storeElementCount",
                     "target": "xpath=//*[contains(@class, 'aviso-')]",
                     "value": "cuentaAvisos"
                 },
@@ -3409,10 +3505,11 @@
                 },
                 {
                     "id": "testea-personas-1-47-1",
-                    "comment": "(TEST) Personas > Borrar > Reordena registros sin perder casillas marcadas. (apellidos DESC)",
+                    "title": "(TEST) Personas > Borrar > Reordena registros sin perder casillas marcadas. (apellidos DESC)",
                     "command": "click",
                     "target": "xpath=//button[@value='apellidos DESC']",
-                    "value": ""
+                    "value": "",
+                    "comment": "Hace clic en el botón con atributo 'value' con valor 'apellidos DESC'"
                 },
                 {
                     "id": "testea-personas-1-47-2",
@@ -3422,7 +3519,7 @@
                 },
                 {
                     "id": "testea-personas-1-47-3",
-                    "command": "storeXpathCount",
+                    "command": "storeElementCount",
                     "target": "xpath=//tr",
                     "value": "cuentaFilas"
                 },
@@ -3447,7 +3544,7 @@
                 },
                 {
                     "id": "testea-personas-1-47-7",
-                    "command": "storeXpathCount",
+                    "command": "storeElementCount",
                     "target": "xpath=//*[contains(@class, 'aviso-')]",
                     "value": "cuentaAvisos"
                 },
@@ -3459,10 +3556,11 @@
                 },
                 {
                     "id": "testea-personas-1-48-1",
-                    "comment": "(TEST) Personas > Borrar > Reordena registros sin perder casillas marcadas. (apellidos ASC)",
+                    "title": "(TEST) Personas > Borrar > Reordena registros sin perder casillas marcadas. (apellidos ASC)",
                     "command": "click",
                     "target": "xpath=//button[@value='apellidos ASC']",
-                    "value": ""
+                    "value": "",
+                    "comment": "Hace clic en el botón con atributo 'value' con valor 'apellidos ASC'"
                 },
                 {
                     "id": "testea-personas-1-48-2",
@@ -3472,7 +3570,7 @@
                 },
                 {
                     "id": "testea-personas-1-48-3",
-                    "command": "storeXpathCount",
+                    "command": "storeElementCount",
                     "target": "xpath=//tr",
                     "value": "cuentaFilas"
                 },
@@ -3497,7 +3595,7 @@
                 },
                 {
                     "id": "testea-personas-1-48-7",
-                    "command": "storeXpathCount",
+                    "command": "storeElementCount",
                     "target": "xpath=//*[contains(@class, 'aviso-')]",
                     "value": "cuentaAvisos"
                 },
@@ -3509,7 +3607,7 @@
                 },
                 {
                     "id": "testea-personas-1-49-1",
-                    "comment": "(TEST) Personas > Borrar > Reordena registros sin perder casillas marcadas. (dni DESC)",
+                    "title": "(TEST) Personas > Borrar > Reordena registros sin perder casillas marcadas. (dni DESC)",
                     "command": "click",
                     "target": "xpath=//button[@value='dni DESC']",
                     "value": ""
@@ -3522,7 +3620,7 @@
                 },
                 {
                     "id": "testea-personas-1-49-3",
-                    "command": "storeXpathCount",
+                    "command": "storeElementCount",
                     "target": "xpath=//tr",
                     "value": "cuentaFilas"
                 },
@@ -3547,7 +3645,7 @@
                 },
                 {
                     "id": "testea-personas-1-49-7",
-                    "command": "storeXpathCount",
+                    "command": "storeElementCount",
                     "target": "xpath=//*[contains(@class, 'aviso-')]",
                     "value": "cuentaAvisos"
                 },
@@ -3559,7 +3657,7 @@
                 },
                 {
                     "id": "testea-personas-1-50-1",
-                    "comment": "(TEST) Personas > Borrar > Reordena registros sin perder casillas marcadas. (dni ASC)",
+                    "title": "(TEST) Personas > Borrar > Reordena registros sin perder casillas marcadas. (dni ASC)",
                     "command": "click",
                     "target": "xpath=//button[@value='dni ASC']",
                     "value": ""
@@ -3572,7 +3670,7 @@
                 },
                 {
                     "id": "testea-personas-1-50-3",
-                    "command": "storeXpathCount",
+                    "command": "storeElementCount",
                     "target": "xpath=//tr",
                     "value": "cuentaFilas"
                 },
@@ -3597,7 +3695,7 @@
                 },
                 {
                     "id": "testea-personas-1-50-7",
-                    "command": "storeXpathCount",
+                    "command": "storeElementCount",
                     "target": "xpath=//*[contains(@class, 'aviso-')]",
                     "value": "cuentaAvisos"
                 },
@@ -3609,7 +3707,7 @@
                 },
                 {
                     "id": "testea-personas-1-51-1",
-                    "comment": "(TEST) Personas > Modificar > Aviso general Registro para modificar no encontrado (1 registro que no existe)",
+                    "title": "(TEST) Personas > Modificar > Aviso general Registro para modificar no encontrado (1 registro que no existe)",
                     "command": "open",
                     "target": "${urlPersonas}/modificar-2.php?id=100",
                     "value": ""
@@ -3628,7 +3726,7 @@
                 },
                 {
                     "id": "testea-personas-1-51-4",
-                    "command": "storeXpathCount",
+                    "command": "storeElementCount",
                     "target": "xpath=//tr",
                     "value": "cuentaFilas"
                 },
@@ -3641,7 +3739,7 @@
                 },
                 {
                     "id": "testea-personas-1-51-6",
-                    "command": "storeXpathCount",
+                    "command": "storeElementCount",
                     "target": "xpath=//*[contains(@class, 'aviso-error')]",
                     "value": "cuentaAvisosError"
                 },
@@ -3653,7 +3751,7 @@
                 },
                 {
                     "id": "testea-personas-1-51-8",
-                    "command": "storeXpathCount",
+                    "command": "storeElementCount",
                     "target": "xpath=//*[contains(@class, 'aviso-')]",
                     "value": "cuentaAvisos"
                 },
@@ -3666,7 +3764,7 @@
                 },
                 {
                     "id": "testea-personas-1-52-1",
-                    "comment": "(TEST) Personas > Modificar > Aviso general registrosNoSeleccionados. No se ha seleccionado ningún registro.",
+                    "title": "(TEST) Personas > Modificar > Aviso general registrosNoSeleccionados. No se ha seleccionado ningún registro.",
                     "command": "open",
                     "target": "${urlPersonas}/modificar-2.php",
                     "value": ""
@@ -3685,7 +3783,7 @@
                 },
                 {
                     "id": "testea-personas-1-52-4",
-                    "command": "storeXpathCount",
+                    "command": "storeElementCount",
                     "target": "xpath=//tr",
                     "value": "cuentaFilas"
                 },
@@ -3698,7 +3796,7 @@
                 },
                 {
                     "id": "testea-personas-1-52-6",
-                    "command": "storeXpathCount",
+                    "command": "storeElementCount",
                     "target": "xpath=//*[contains(@class, 'aviso-error')]",
                     "value": "cuentaAvisosError"
                 },
@@ -3710,7 +3808,7 @@
                 },
                 {
                     "id": "testea-personas-1-52-8",
-                    "command": "storeXpathCount",
+                    "command": "storeElementCount",
                     "target": "xpath=//*[contains(@class, 'aviso-')]",
                     "value": "cuentaAvisos"
                 },
@@ -3723,10 +3821,11 @@
                 },
                 {
                     "id": "testea-personas-1-53-1",
-                    "comment": "(TEST) Personas > Modificar > Modifica correctamente",
+                    "title": "(TEST) Personas > Modificar > Modifica correctamente",
                     "command": "click",
                     "target": "linkText=Modificar",
-                    "value": ""
+                    "value": "",
+                    "comment": "Hace clic en el enlace 'Modificar'"
                 },
                 {
                     "id": "testea-personas-1-53-2",
@@ -3750,7 +3849,8 @@
                     "id": "testea-personas-1-53-5",
                     "command": "click",
                     "target": "xpath=//input[@value='Modificar registro']",
-                    "value": ""
+                    "value": "",
+                    "comment": "Hace clic en el botón 'Modificar registro'"
                 },
                 {
                     "id": "testea-personas-1-53-6",
@@ -3780,13 +3880,15 @@
                     "id": "testea-personas-1-53-10",
                     "command": "type",
                     "target": "name=nombre",
-                    "value": "Pepita"
+                    "value": "Pepita",
+                    "comment": "Escribe 'Pepita' en el campo 'nombre'"
                 },
                 {
                     "id": "testea-personas-1-53-11",
                     "command": "type",
                     "target": "name=apellidos",
-                    "value": "Coneja"
+                    "value": "Coneja",
+                    "comment": "Escribe 'Coneja' en el campo 'apellidos'"
                 },
                 {
                     "id": "testea-personas-1-53-12",
@@ -3798,7 +3900,8 @@
                     "id": "testea-personas-1-53-13",
                     "command": "click",
                     "target": "xpath=//input[@value='Actualizar']",
-                    "value": ""
+                    "value": "",
+                    "comment": "Hace clic en el botón 'Actualizar'"
                 },
                 {
                     "id": "testea-personas-1-53-14",
@@ -3814,7 +3917,7 @@
                 },
                 {
                     "id": "testea-personas-1-53-16",
-                    "command": "storeXpathCount",
+                    "command": "storeElementCount",
                     "target": "xpath=//*[contains(@class, 'aviso-info')]",
                     "value": "cuentaAvisosInfo"
                 },
@@ -3826,7 +3929,7 @@
                 },
                 {
                     "id": "testea-personas-1-53-18",
-                    "command": "storeXpathCount",
+                    "command": "storeElementCount",
                     "target": "xpath=//*[contains(@class, 'aviso-')]",
                     "value": "cuentaAvisos"
                 },
@@ -3841,7 +3944,8 @@
                     "id": "testea-personas-1-53-20",
                     "command": "click",
                     "target": "linkText=Listar",
-                    "value": ""
+                    "value": "",
+                    "comment": "Hace clic en el enlace 'Listar'"
                 },
                 {
                     "id": "testea-personas-1-53-21",
@@ -3869,7 +3973,7 @@
                 },
                 {
                     "id": "testea-personas-1-53-25",
-                    "command": "storeXpathCount",
+                    "command": "storeElementCount",
                     "target": "xpath=//tr",
                     "value": "cuentaFilas"
                 },
@@ -3882,7 +3986,7 @@
                 },
                 {
                     "id": "testea-personas-1-53-27",
-                    "command": "storeXpathCount",
+                    "command": "storeElementCount",
                     "target": "xpath=//*[contains(@class, 'aviso-')]",
                     "value": "cuentaAvisos"
                 },
@@ -3894,7 +3998,7 @@
                 },
                 {
                     "id": "testea-personas-1-54-1",
-                    "comment": "(TEST) Personas > Modificar > Aviso general registrosNoSeleccionados. No se ha seleccionado ningún registro.",
+                    "title": "(TEST) Personas > Modificar > Aviso general registrosNoSeleccionados. No se ha seleccionado ningún registro.",
                     "command": "open",
                     "target": "${urlPersonas}/modificar-3.php",
                     "value": ""
@@ -3913,7 +4017,7 @@
                 },
                 {
                     "id": "testea-personas-1-54-4",
-                    "command": "storeXpathCount",
+                    "command": "storeElementCount",
                     "target": "xpath=//tr",
                     "value": "cuentaFilas"
                 },
@@ -3926,7 +4030,7 @@
                 },
                 {
                     "id": "testea-personas-1-54-6",
-                    "command": "storeXpathCount",
+                    "command": "storeElementCount",
                     "target": "xpath=//*[contains(@class, 'aviso-error')]",
                     "value": "cuentaAvisosError"
                 },
@@ -3938,7 +4042,7 @@
                 },
                 {
                     "id": "testea-personas-1-54-8",
-                    "command": "storeXpathCount",
+                    "command": "storeElementCount",
                     "target": "xpath=//*[contains(@class, 'aviso-')]",
                     "value": "cuentaAvisos"
                 },
@@ -3951,7 +4055,7 @@
                 },
                 {
                     "id": "testea-personas-1-55-1",
-                    "comment": "(TEST) Personas > Modificar > No existe el registro que se intenta modificar",
+                    "title": "(TEST) Personas > Modificar > No existe el registro que se intenta modificar",
                     "command": "open",
                     "target": "${urlPersonas}/modificar-3.php?id=100",
                     "value": ""
@@ -3970,7 +4074,7 @@
                 },
                 {
                     "id": "testea-personas-1-55-4",
-                    "command": "storeXpathCount",
+                    "command": "storeElementCount",
                     "target": "xpath=//tr",
                     "value": "cuentaFilas"
                 },
@@ -3983,7 +4087,7 @@
                 },
                 {
                     "id": "testea-personas-1-55-6",
-                    "command": "storeXpathCount",
+                    "command": "storeElementCount",
                     "target": "xpath=//*[contains(@class, 'aviso-error')]",
                     "value": "cuentaAvisosError"
                 },
@@ -3995,7 +4099,7 @@
                 },
                 {
                     "id": "testea-personas-1-55-8",
-                    "command": "storeXpathCount",
+                    "command": "storeElementCount",
                     "target": "xpath=//*[contains(@class, 'aviso-')]",
                     "value": "cuentaAvisos"
                 },
@@ -4008,7 +4112,7 @@
                 },
                 {
                     "id": "testea-personas-1-56-1",
-                    "comment": "(TEST) Personas > Modificar > Aviso general yaExisteRegistroConOtroId. Se intenta modificar un registro con los valores de otro registro.",
+                    "title": "(TEST) Personas > Modificar > Aviso general yaExisteRegistroConOtroId. Se intenta modificar un registro con los valores de otro registro.",
                     "command": "open",
                     "target": "${urlPersonas}/modificar-3.php?id=1&nombre=Juan&apellidos=Nadie&dni=9876X",
                     "value": ""
@@ -4045,7 +4149,7 @@
                 },
                 {
                     "id": "testea-personas-1-56-7",
-                    "command": "storeXpathCount",
+                    "command": "storeElementCount",
                     "target": "xpath=//tr",
                     "value": "cuentaFilas"
                 },
@@ -4058,7 +4162,7 @@
                 },
                 {
                     "id": "testea-personas-1-56-9",
-                    "command": "storeXpathCount",
+                    "command": "storeElementCount",
                     "target": "xpath=//*[contains(@class, 'aviso-error')]",
                     "value": "cuentaAvisosError"
                 },
@@ -4070,7 +4174,7 @@
                 },
                 {
                     "id": "testea-personas-1-56-11",
-                    "command": "storeXpathCount",
+                    "command": "storeElementCount",
                     "target": "xpath=//*[contains(@class, 'aviso-')]",
                     "value": "cuentaAvisos"
                 },
@@ -4083,16 +4187,18 @@
                 },
                 {
                     "id": "testea-personas-1-57-1",
-                    "comment": "(TEST) Personas > Modificar > Aviso general todosVacios. Se intenta modificar un registro con los valores vacíos.",
+                    "title": "(TEST) Personas > Modificar > Aviso general todosVacios. Se intenta modificar un registro con los valores vacíos.",
                     "command": "type",
                     "target": "name=nombre",
-                    "value": ""
+                    "value": "",
+                    "comment": "Deja vacío el campo 'nombre'"
                 },
                 {
                     "id": "testea-personas-1-57-2",
                     "command": "type",
                     "target": "name=apellidos",
-                    "value": ""
+                    "value": "",
+                    "comment": "Deja vacío el campo 'apellidos'"
                 },
                 {
                     "id": "testea-personas-1-57-3",
@@ -4104,7 +4210,8 @@
                     "id": "testea-personas-1-57-4",
                     "command": "click",
                     "target": "xpath=//input[@value='Actualizar']",
-                    "value": ""
+                    "value": "",
+                    "comment": "Hace clic en el botón 'Actualizar'"
                 },
                 {
                     "id": "testea-personas-1-57-5",
@@ -4138,7 +4245,7 @@
                 },
                 {
                     "id": "testea-personas-1-57-10",
-                    "command": "storeXpathCount",
+                    "command": "storeElementCount",
                     "target": "xpath=//tr",
                     "value": "cuentaFilas"
                 },
@@ -4151,7 +4258,7 @@
                 },
                 {
                     "id": "testea-personas-1-57-12",
-                    "command": "storeXpathCount",
+                    "command": "storeElementCount",
                     "target": "xpath=//*[contains(@class, 'aviso-error')]",
                     "value": "cuentaAvisosError"
                 },
@@ -4163,7 +4270,7 @@
                 },
                 {
                     "id": "testea-personas-1-57-14",
-                    "command": "storeXpathCount",
+                    "command": "storeElementCount",
                     "target": "xpath=//*[contains(@class, 'aviso-')]",
                     "value": "cuentaAvisos"
                 },
@@ -4176,7 +4283,7 @@
                 },
                 {
                     "id": "testea-personas-1-58-1",
-                    "comment": "(TEST) Personas > Modificar > Aviso individual Nombre largo",
+                    "title": "(TEST) Personas > Modificar > Aviso individual Nombre largo",
                     "command": "open",
                     "target": "${urlPersonas}/modificar-3.php?id=1&nombre=${personasNombreLargo}",
                     "value": ""
@@ -4195,7 +4302,7 @@
                 },
                 {
                     "id": "testea-personas-1-59-1",
-                    "comment": "(TEST) Personas > Modificar > Aviso individual Nombre corto",
+                    "title": "(TEST) Personas > Modificar > Aviso individual Nombre corto",
                     "command": "open",
                     "target": "${urlPersonas}/modificar-3.php?id=1&nombre=${personasNombreCorto}",
                     "value": ""
@@ -4214,7 +4321,7 @@
                 },
                 {
                     "id": "testea-personas-1-59-4",
-                    "command": "storeXpathCount",
+                    "command": "storeElementCount",
                     "target": "xpath=//*[contains(@class, 'aviso-info')]",
                     "value": "cuentaAvisosInfo"
                 },
@@ -4226,7 +4333,7 @@
                 },
                 {
                     "id": "testea-personas-1-59-6",
-                    "command": "storeXpathCount",
+                    "command": "storeElementCount",
                     "target": "xpath=//*[contains(@class, 'aviso-')]",
                     "value": "cuentaAvisos"
                 },
@@ -4239,7 +4346,7 @@
                 },
                 {
                     "id": "testea-personas-1-60-1",
-                    "comment": "(TEST) Personas > Modificar > Aviso individual Apellidos largo",
+                    "title": "(TEST) Personas > Modificar > Aviso individual Apellidos largo",
                     "command": "open",
                     "target": "${urlPersonas}/modificar-3.php?id=1&apellidos=${personasApellidosLargo}",
                     "value": ""
@@ -4258,7 +4365,7 @@
                 },
                 {
                     "id": "testea-personas-1-60-4",
-                    "command": "storeXpathCount",
+                    "command": "storeElementCount",
                     "target": "xpath=//*[contains(@class, 'aviso-error')]",
                     "value": "cuentaAvisosError"
                 },
@@ -4270,7 +4377,7 @@
                 },
                 {
                     "id": "testea-personas-1-60-6",
-                    "command": "storeXpathCount",
+                    "command": "storeElementCount",
                     "target": "xpath=//*[contains(@class, 'aviso-')]",
                     "value": "cuentaAvisos"
                 },
@@ -4283,7 +4390,7 @@
                 },
                 {
                     "id": "testea-personas-1-61-1",
-                    "comment": "(TEST) Personas > Modificar > Aviso individual Apellidos corto",
+                    "title": "(TEST) Personas > Modificar > Aviso individual Apellidos corto",
                     "command": "open",
                     "target": "${urlPersonas}/modificar-3.php?id=1&apellidos=${personasApellidosCorto}",
                     "value": ""
@@ -4302,7 +4409,7 @@
                 },
                 {
                     "id": "testea-personas-1-61-4",
-                    "command": "storeXpathCount",
+                    "command": "storeElementCount",
                     "target": "xpath=//*[contains(@class, 'aviso-info')]",
                     "value": "cuentaAvisosInfo"
                 },
@@ -4314,7 +4421,7 @@
                 },
                 {
                     "id": "testea-personas-1-61-6",
-                    "command": "storeXpathCount",
+                    "command": "storeElementCount",
                     "target": "xpath=//*[contains(@class, 'aviso-')]",
                     "value": "cuentaAvisos"
                 },
@@ -4327,7 +4434,7 @@
                 },
                 {
                     "id": "testea-personas-1-62-1",
-                    "comment": "(TEST) Personas > Modificar > Aviso individual DNI largo",
+                    "title": "(TEST) Personas > Modificar > Aviso individual DNI largo",
                     "command": "open",
                     "target": "${urlPersonas}/modificar-3.php?id=1&dni=${personasDniLargo}",
                     "value": ""
@@ -4346,7 +4453,7 @@
                 },
                 {
                     "id": "testea-personas-1-62-4",
-                    "command": "storeXpathCount",
+                    "command": "storeElementCount",
                     "target": "xpath=//*[contains(@class, 'aviso-error')]",
                     "value": "cuentaAvisosError"
                 },
@@ -4358,7 +4465,7 @@
                 },
                 {
                     "id": "testea-personas-1-62-6",
-                    "command": "storeXpathCount",
+                    "command": "storeElementCount",
                     "target": "xpath=//*[contains(@class, 'aviso-')]",
                     "value": "cuentaAvisos"
                 },
@@ -4371,7 +4478,7 @@
                 },
                 {
                     "id": "testea-personas-1-63-1",
-                    "comment": "(TEST) Personas > Modificar > Aviso individual DNI corto",
+                    "title": "(TEST) Personas > Modificar > Aviso individual DNI corto",
                     "command": "open",
                     "target": "${urlPersonas}/modificar-3.php?id=1&dni=${personasDniCorto}",
                     "value": ""
@@ -4390,7 +4497,7 @@
                 },
                 {
                     "id": "testea-personas-1-63-4",
-                    "command": "storeXpathCount",
+                    "command": "storeElementCount",
                     "target": "xpath=//*[contains(@class, 'aviso-info')]",
                     "value": "cuentaAvisosInfo"
                 },
@@ -4402,7 +4509,7 @@
                 },
                 {
                     "id": "testea-personas-1-63-6",
-                    "command": "storeXpathCount",
+                    "command": "storeElementCount",
                     "target": "xpath=//*[contains(@class, 'aviso-')]",
                     "value": "cuentaAvisos"
                 },
@@ -4415,7 +4522,7 @@
                 },
                 {
                     "id": "testea-personas-1-64-1",
-                    "comment": "(TEST) Personas > Modificar > Avisos individuales Nombre / Apellidos / DNI largos",
+                    "title": "(TEST) Personas > Modificar > Avisos individuales Nombre / Apellidos / DNI largos",
                     "command": "open",
                     "target": "${urlPersonas}/modificar-3.php?id=1&nombre=${personasNombreLargo}&apellidos=${personasApellidosLargo}&dni=${personasDniLargo}",
                     "value": ""
@@ -4446,7 +4553,7 @@
                 },
                 {
                     "id": "testea-personas-1-64-6",
-                    "command": "storeXpathCount",
+                    "command": "storeElementCount",
                     "target": "xpath=//*[contains(@class, 'aviso-error')]",
                     "value": "cuentaAvisosError"
                 },
@@ -4458,7 +4565,7 @@
                 },
                 {
                     "id": "testea-personas-1-64-8",
-                    "command": "storeXpathCount",
+                    "command": "storeElementCount",
                     "target": "xpath=//*[contains(@class, 'aviso-')]",
                     "value": "cuentaAvisos"
                 },
@@ -4471,7 +4578,7 @@
                 },
                 {
                     "id": "testea-personas-1-65-1",
-                    "comment": "(TEST) Personas > Modificar > Avisos individuales Nombre / Apellidos / DNI cortos",
+                    "title": "(TEST) Personas > Modificar > Avisos individuales Nombre / Apellidos / DNI cortos",
                     "command": "open",
                     "target": "${urlPersonas}/modificar-3.php?id=1&nombre=${personasNombreCorto}&apellidos=${personasApellidosCorto}&dni=${personasDniCorto}",
                     "value": ""
@@ -4490,7 +4597,7 @@
                 },
                 {
                     "id": "testea-personas-1-65-4",
-                    "command": "storeXpathCount",
+                    "command": "storeElementCount",
                     "target": "xpath=//*[contains(@class, 'aviso-info')]",
                     "value": "cuentaAvisosInfo"
                 },
@@ -4502,7 +4609,7 @@
                 },
                 {
                     "id": "testea-personas-1-65-6",
-                    "command": "storeXpathCount",
+                    "command": "storeElementCount",
                     "target": "xpath=//*[contains(@class, 'aviso-')]",
                     "value": "cuentaAvisos"
                 },
@@ -4523,7 +4630,8 @@
                     "id": "testea-personas-1-65-9",
                     "command": "click",
                     "target": "linkText=Personas",
-                    "value": ""
+                    "value": "",
+                    "comment": "Hace clic en el enlace 'Personas'"
                 },
                 {
                     "id": "testea-personas-1-65-10",
@@ -4554,7 +4662,8 @@
                     "id": "testea-personas-2-3",
                     "command": "click",
                     "target": "linkText=Personas",
-                    "value": ""
+                    "value": "",
+                    "comment": "Hace clic en el enlace 'Personas'"
                 },
                 {
                     "id": "testea-personas-2-4",
@@ -4591,7 +4700,8 @@
                     "id": "minitest-4",
                     "command": "click",
                     "target": "linkText=Personas",
-                    "value": ""
+                    "value": "",
+                    "comment": "Hace clic en el enlace 'Personas'"
                 }
             ]
         },
