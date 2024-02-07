@@ -132,13 +132,15 @@
                     "id": "preparacion-borrar-todo-con-3",
                     "command": "type",
                     "target": "name=usuario",
-                    "value": "root"
+                    "value": "root",
+                    "comment": "Escribe 'root' en el campo 'usuario'"
                 },
                 {
                     "id": "preparacion-borrar-todo-con-4",
                     "command": "type",
                     "target": "name=password",
-                    "value": "root"
+                    "value": "root",
+                    "comment": "Escribe 'root' en el campo 'password'"
                 },
                 {
                     "id": "preparacion-borrar-todo-con-5",
@@ -184,7 +186,7 @@
                     "command": "click",
                     "target": "name=demo",
                     "value": "",
-                    "comment": "Hace clic en la casilla con atributo 'name' con valor 'demo'"
+                    "comment": "Hace clic en la casilla 'demo'"
                 },
                 {
                     "id": "preparacion-borrar-todo-con-12",
@@ -197,7 +199,7 @@
                     "command": "click",
                     "target": "xpath=//input[@name='borrar' and @value='Sí']",
                     "value": "",
-                    "comment": "Hace clic en el botón con atributo 'name' con valor 'borrar' y atributo 'value' con valor 'Sí'"
+                    "comment": "Hace clic en el botón 'borrar' con atributo 'value' con valor 'Sí'"
                 },
                 {
                     "id": "preparacion-borrar-todo-con-14",
@@ -275,7 +277,7 @@
                     "command": "assert",
                     "target": "cuentaFilas",
                     "value": "4",
-                    "comment": "La tabla contiene exactamente 4 filas."
+                    "comment": "La tabla contiene exactamente 4 filas"
                 },
                 {
                     "id": "confirma-contrasena-1-7",
@@ -375,7 +377,7 @@
                     "command": "assert",
                     "target": "cuentaAvisos",
                     "value": "2",
-                    "comment": "Muestra exactamente 2 avisos."
+                    "comment": "Muestra exactamente 2 avisos"
                 },
                 {
                     "id": "confirma-contrasena-3-1",
@@ -413,7 +415,7 @@
                     "command": "assert",
                     "target": "cuentaAvisos",
                     "value": "2",
-                    "comment": "Muestra exactamente 2 avisos."
+                    "comment": "Muestra exactamente 2 avisos"
                 },
                 {
                     "id": "confirma-contrasena-4-1",
@@ -445,7 +447,7 @@
                     "command": "assert",
                     "target": "cuentaAvisos",
                     "value": "1",
-                    "comment": "Muestra exactamente 1 aviso."
+                    "comment": "Muestra exactamente 1 aviso"
                 },
                 {
                     "id": "confirma-contrasena-5-1",
@@ -483,7 +485,7 @@
                     "command": "assert",
                     "target": "cuentaAvisos",
                     "value": "2",
-                    "comment": "Muestra exactamente 2 avisos."
+                    "comment": "Muestra exactamente 2 avisos"
                 },
                 {
                     "id": "confirma-contrasena-6-1",
@@ -533,7 +535,7 @@
                     "command": "assert",
                     "target": "cuentaAvisos",
                     "value": "2",
-                    "comment": "Muestra exactamente 2 avisos."
+                    "comment": "Muestra exactamente 2 avisos"
                 },
                 {
                     "id": "confirma-contrasena-6-9",
@@ -592,7 +594,7 @@
                     "command": "open",
                     "target": "${urlBase}/index.php",
                     "value": "",
-                    "comment": "Abre página Inicio."
+                    "comment": "Abre página Inicio"
                 },
                 {
                     "id": "test-completo-3",

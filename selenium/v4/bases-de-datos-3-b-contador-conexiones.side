@@ -119,13 +119,15 @@
                     "id": "preparacion-borrar-todo-con-LIMITE-CONEXION-3",
                     "command": "type",
                     "target": "name=usuario",
-                    "value": "root"
+                    "value": "root",
+                    "comment": "Escribe 'root' en el campo 'usuario'"
                 },
                 {
                     "id": "preparacion-borrar-todo-con-LIMITE-CONEXION-4",
                     "command": "type",
                     "target": "name=password",
-                    "value": "root"
+                    "value": "root",
+                    "comment": "Escribe 'root' en el campo 'password'"
                 },
                 {
                     "id": "preparacion-borrar-todo-con-LIMITE-CONEXION-5",
@@ -196,7 +198,7 @@
                     "command": "click",
                     "target": "name=demo",
                     "value": "",
-                    "comment": "Hace clic en la casilla con atributo 'name' con valor 'demo'"
+                    "comment": "Hace clic en la casilla 'demo'"
                 },
                 {
                     "id": "preparacion-borrar-todo-con-LIMITE-CONEXION-16",
@@ -209,7 +211,7 @@
                     "command": "click",
                     "target": "xpath=//input[@name='borrar' and @value='Sí']",
                     "value": "",
-                    "comment": "Hace clic en el botón con atributo 'name' con valor 'borrar' y atributo 'value' con valor 'Sí'"
+                    "comment": "Hace clic en el botón 'borrar' con atributo 'value' con valor 'Sí'"
                 },
                 {
                     "id": "preparacion-borrar-todo-con-LIMITE-CONEXION-18",
@@ -273,7 +275,7 @@
                     "command": "assert",
                     "target": "cuentaFilas",
                     "value": "5",
-                    "comment": "La tabla contiene exactamente 5 filas."
+                    "comment": "La tabla contiene exactamente 5 filas"
                 },
                 {
                     "id": "contador-conexiones-1-5",
@@ -551,7 +553,7 @@
                     "command": "assert",
                     "target": "cuentaFilas",
                     "value": "5",
-                    "comment": "La tabla contiene exactamente 5 filas."
+                    "comment": "La tabla contiene exactamente 5 filas"
                 },
                 {
                     "id": "contador-conexiones-8-5",
@@ -631,7 +633,7 @@
                     "command": "assert",
                     "target": "cuentaFilas",
                     "value": "5",
-                    "comment": "La tabla contiene exactamente 5 filas."
+                    "comment": "La tabla contiene exactamente 5 filas"
                 },
                 {
                     "id": "contador-conexiones-9-5",
@@ -711,7 +713,7 @@
                     "command": "assert",
                     "target": "cuentaFilas",
                     "value": "5",
-                    "comment": "La tabla contiene exactamente 5 filas."
+                    "comment": "La tabla contiene exactamente 5 filas"
                 },
                 {
                     "id": "contador-conexiones-10-5",
@@ -840,7 +842,7 @@
                     "command": "assert",
                     "target": "cuentaFilas",
                     "value": "5",
-                    "comment": "La tabla contiene exactamente 5 filas."
+                    "comment": "La tabla contiene exactamente 5 filas"
                 },
                 {
                     "id": "contador-conexiones-12-7",
@@ -953,7 +955,7 @@
                     "command": "open",
                     "target": "${urlBase}/index.php",
                     "value": "",
-                    "comment": "Abre página Inicio."
+                    "comment": "Abre página Inicio"
                 },
                 {
                     "id": "test-completo-3",

@@ -162,13 +162,15 @@
                     "id": "preparacion-borrar-todo-con-3",
                     "command": "type",
                     "target": "name=usuario",
-                    "value": "root"
+                    "value": "root",
+                    "comment": "Escribe 'root' en el campo 'usuario'"
                 },
                 {
                     "id": "preparacion-borrar-todo-con-4",
                     "command": "type",
                     "target": "name=password",
-                    "value": "root"
+                    "value": "root",
+                    "comment": "Escribe 'root' en el campo 'password'"
                 },
                 {
                     "id": "preparacion-borrar-todo-con-5",
@@ -221,7 +223,7 @@
                     "command": "click",
                     "target": "xpath=//input[@name='borrar' and @value='Sí']",
                     "value": "",
-                    "comment": "Hace clic en el botón con atributo 'name' con valor 'borrar' y atributo 'value' con valor 'Sí'"
+                    "comment": "Hace clic en el botón 'borrar' con atributo 'value' con valor 'Sí'"
                 },
                 {
                     "id": "borrar-todo-6",
@@ -246,7 +248,7 @@
                     "command": "assertText",
                     "target": "xpath=//p[1]",
                     "value": "Sistema Gestor de Bases de Datos: SQLite.",
-                    "comment": "Muestra el mensaje 'Sistema Gestor de Bases de Datos: SQLite.'"
+                    "comment": "Muestra mensaje (1/3): 'Sistema Gestor de Bases de Datos: SQLite.'"
                 },
                 {
                     "id": "borrar-todo-10",
@@ -289,21 +291,21 @@
                     "command": "assertText",
                     "target": "xpath=//p[1]",
                     "value": "Sistema Gestor de Bases de Datos: MySQL.",
-                    "comment": "Muestra el mensaje 'Sistema Gestor de Bases de Datos: MySQL.'"
+                    "comment": "Muestra mensaje (1/5): 'Sistema Gestor de Bases de Datos: MySQL.'"
                 },
                 {
                     "id": "borrar-todo-17",
                     "command": "assertText",
                     "target": "xpath=//p[2]",
                     "value": "Base de datos borrada correctamente (si existía).",
-                    "comment": "Muestra el mensaje 'Base de datos borrada correctamente (si existía).'"
+                    "comment": "Muestra mensaje (2/5): 'Base de datos borrada correctamente (si existía).'"
                 },
                 {
                     "id": "borrar-todo-18",
                     "command": "assertText",
                     "target": "xpath=//p[3]",
                     "value": "Base de datos creada correctamente.",
-                    "comment": "Ha creado la base de datos"
+                    "comment": "Muestra mensaje (3/5): 'Base de datos creada correctamente.'"
                 },
                 {
                     "id": "borrar-todo-19",
@@ -386,7 +388,7 @@
                     "command": "assertText",
                     "target": "xpath=//p",
                     "value": "No se ha creado todavía ningún registro.",
-                    "comment": "Muestra aviso: No se ha creado todavía ningún registro."
+                    "comment": "Muestra aviso: 'No se ha creado todavía ningún registro.'"
                 },
                 {
                     "id": "sin-registros-6",
@@ -406,7 +408,7 @@
                     "command": "assertText",
                     "target": "xpath=//p",
                     "value": "No se ha creado todavía ningún registro.",
-                    "comment": "Muestra aviso: No se ha creado todavía ningún registro."
+                    "comment": "Muestra aviso: 'No se ha creado todavía ningún registro.'"
                 },
                 {
                     "id": "sin-registros-9",
@@ -426,7 +428,7 @@
                     "command": "assertText",
                     "target": "xpath=//p",
                     "value": "No se ha creado todavía ningún registro.",
-                    "comment": "Muestra aviso: No se ha creado todavía ningún registro."
+                    "comment": "Muestra aviso: 'No se ha creado todavía ningún registro.'"
                 },
                 {
                     "id": "sin-registros-12",
@@ -473,28 +475,28 @@
                     "command": "type",
                     "target": "name=nombre",
                     "value": "Numa",
-                    "comment": "Escribe 'Numa' en el campo 'nombre'"
+                    "comment": "Escribe 'Numa' en la caja de texto 'nombre'"
                 },
                 {
                     "id": "insertar-1-4",
                     "command": "type",
                     "target": "name=apellidos",
                     "value": "Nigerio",
-                    "comment": "Escribe 'Nigerio' en el campo 'apellidos'"
+                    "comment": "Escribe 'Nigerio' en la caja de texto 'apellidos'"
                 },
                 {
                     "id": "insertar-1-5",
                     "command": "type",
                     "target": "name=telefono",
                     "value": "123456",
-                    "comment": "Escribe '123456' en el campo 'telefono'"
+                    "comment": "Escribe '123456' en la caja de texto 'telefono'"
                 },
                 {
                     "id": "insertar-1-6",
                     "command": "type",
                     "target": "name=correo",
                     "value": "numa.nigerio@micorreo.com",
-                    "comment": "Escribe 'numa.nigerio@micorreo.com' en el campo 'correo'"
+                    "comment": "Escribe 'numa.nigerio@micorreo.com' en la caja de texto 'correo'"
                 },
                 {
                     "id": "insertar-1-7",
@@ -561,7 +563,7 @@
                     "command": "assert",
                     "target": "cuentaAvisos",
                     "value": "1",
-                    "comment": "Muestra exactamente 1 aviso."
+                    "comment": "Muestra exactamente 1 aviso"
                 },
                 {
                     "id": "insertar-3-1",
@@ -581,28 +583,28 @@
                     "command": "assertText",
                     "target": "xpath=//p[1]",
                     "value": "El nombre no puede tener más de 40 caracteres.",
-                    "comment": "Muestra aviso: 'El nombre no puede tener más de 40 caracteres.'"
+                    "comment": "Muestra aviso (1/4): 'El nombre no puede tener más de 40 caracteres.'"
                 },
                 {
                     "id": "insertar-3-4",
                     "command": "assertText",
                     "target": "xpath=//p[2]",
                     "value": "Los apellidos no pueden tener más de 60 caracteres.",
-                    "comment": "Muestra aviso: 'Los apellidos no pueden tener más de 60 caracteres.'"
+                    "comment": "Muestra aviso (2/4): 'Los apellidos no pueden tener más de 60 caracteres.'"
                 },
                 {
                     "id": "insertar-3-5",
                     "command": "assertText",
                     "target": "xpath=//p[3]",
                     "value": "El teléfono no puede tener más de 15 caracteres.",
-                    "comment": "Muestra aviso: 'El teléfono no puede tener más de 15 caracteres.'"
+                    "comment": "Muestra aviso (3/4): 'El teléfono no puede tener más de 15 caracteres.'"
                 },
                 {
                     "id": "insertar-3-6",
                     "command": "assertText",
                     "target": "xpath=//p[4]",
                     "value": "El correo no puede tener más de 50 caracteres.",
-                    "comment": "Muestra aviso: 'El correo no puede tener más de 50 caracteres.'"
+                    "comment": "Muestra aviso (4/4): 'El correo no puede tener más de 50 caracteres.'"
                 },
                 {
                     "id": "insertar-3-7",
@@ -615,7 +617,7 @@
                     "command": "assert",
                     "target": "cuentaAvisos",
                     "value": "4",
-                    "comment": "Muestra exactamente 4 avisos."
+                    "comment": "Muestra exactamente 4 avisos"
                 },
                 {
                     "id": "insertar-4-1",
@@ -703,7 +705,7 @@
                     "command": "assert",
                     "target": "cuentaFilas",
                     "value": "3",
-                    "comment": "La tabla contiene exactamente 3 filas."
+                    "comment": "La tabla contiene exactamente 3 filas"
                 },
                 {
                     "id": "listar-2-1",
@@ -744,7 +746,7 @@
                     "command": "assert",
                     "target": "cuentaFilas",
                     "value": "3",
-                    "comment": "La tabla contiene exactamente 3 filas."
+                    "comment": "La tabla contiene exactamente 3 filas"
                 },
                 {
                     "id": "listar-3-1",
@@ -764,13 +766,15 @@
                     "id": "listar-3-3",
                     "command": "assertText",
                     "target": "xpath=//tr[1]/td[1]",
-                    "value": "Pepito"
+                    "value": "Pepito",
+                    "comment": "La primera celda de la segunda fila de la tabla contiene 'Pepito'"
                 },
                 {
                     "id": "listar-3-4",
                     "command": "assertText",
                     "target": "xpath=//tr[2]/td[1]",
-                    "value": "Numa"
+                    "value": "Numa",
+                    "comment": "La primera celda de la tercera fila de la tabla contiene 'Numa'"
                 },
                 {
                     "id": "listar-3-5",
@@ -783,7 +787,7 @@
                     "command": "assert",
                     "target": "cuentaFilas",
                     "value": "3",
-                    "comment": "La tabla contiene exactamente 3 filas."
+                    "comment": "La tabla contiene exactamente 3 filas"
                 },
                 {
                     "id": "listar-4-1",
@@ -803,13 +807,15 @@
                     "id": "listar-4-3",
                     "command": "assertText",
                     "target": "xpath=//tr[1]/td[1]",
-                    "value": "Pepito"
+                    "value": "Pepito",
+                    "comment": "La primera celda de la segunda fila de la tabla contiene 'Pepito'"
                 },
                 {
                     "id": "listar-4-4",
                     "command": "assertText",
                     "target": "xpath=//tr[2]/td[1]",
-                    "value": "Numa"
+                    "value": "Numa",
+                    "comment": "La primera celda de la tercera fila de la tabla contiene 'Numa'"
                 },
                 {
                     "id": "listar-4-5",
@@ -822,7 +828,7 @@
                     "command": "assert",
                     "target": "cuentaFilas",
                     "value": "3",
-                    "comment": "La tabla contiene exactamente 3 filas."
+                    "comment": "La tabla contiene exactamente 3 filas"
                 },
                 {
                     "id": "listar-5-1",
@@ -863,7 +869,7 @@
                     "command": "assert",
                     "target": "cuentaFilas",
                     "value": "3",
-                    "comment": "La tabla contiene exactamente 3 filas."
+                    "comment": "La tabla contiene exactamente 3 filas"
                 },
                 {
                     "id": "listar-6-1",
@@ -904,7 +910,7 @@
                     "command": "assert",
                     "target": "cuentaFilas",
                     "value": "3",
-                    "comment": "La tabla contiene exactamente 3 filas."
+                    "comment": "La tabla contiene exactamente 3 filas"
                 },
                 {
                     "id": "listar-7-1",
@@ -924,13 +930,15 @@
                     "id": "listar-7-3",
                     "command": "assertText",
                     "target": "xpath=//tr[1]/td[1]",
-                    "value": "Pepito"
+                    "value": "Pepito",
+                    "comment": "La primera celda de la segunda fila de la tabla contiene 'Pepito'"
                 },
                 {
                     "id": "listar-7-4",
                     "command": "assertText",
                     "target": "xpath=//tr[2]/td[1]",
-                    "value": "Numa"
+                    "value": "Numa",
+                    "comment": "La primera celda de la tercera fila de la tabla contiene 'Numa'"
                 },
                 {
                     "id": "listar-7-5",
@@ -943,7 +951,7 @@
                     "command": "assert",
                     "target": "cuentaFilas",
                     "value": "3",
-                    "comment": "La tabla contiene exactamente 3 filas."
+                    "comment": "La tabla contiene exactamente 3 filas"
                 },
                 {
                     "id": "listar-8-1",
@@ -984,7 +992,7 @@
                     "command": "assert",
                     "target": "cuentaFilas",
                     "value": "3",
-                    "comment": "La tabla contiene exactamente 3 filas."
+                    "comment": "La tabla contiene exactamente 3 filas"
                 },
                 {
                     "id": "listar-9-1",
@@ -1004,13 +1012,15 @@
                     "id": "listar-9-3",
                     "command": "assertText",
                     "target": "xpath=//tr[1]/td[1]",
-                    "value": "Pepito"
+                    "value": "Pepito",
+                    "comment": "La primera celda de la segunda fila de la tabla contiene 'Pepito'"
                 },
                 {
                     "id": "listar-9-4",
                     "command": "assertText",
                     "target": "xpath=//tr[2]/td[1]",
-                    "value": "Numa"
+                    "value": "Numa",
+                    "comment": "La primera celda de la tercera fila de la tabla contiene 'Numa'"
                 },
                 {
                     "id": "listar-9-5",
@@ -1089,13 +1099,14 @@
                     "command": "assert",
                     "target": "cuentaFilas",
                     "value": "4",
-                    "comment": "La tabla contiene exactamente 4 filas."
+                    "comment": "La tabla contiene exactamente 4 filas"
                 },
                 {
                     "id": "borrar-2-5",
                     "command": "assertText",
                     "target": "xpath=//tr[2]/td[2]",
-                    "value": "Numa"
+                    "value": "Numa",
+                    "comment": "La segunda celda de la tercera fila de la tabla contiene 'Numa'"
                 },
                 {
                     "id": "borrar-2-6",
@@ -1129,19 +1140,21 @@
                     "command": "assert",
                     "target": "cuentaFilas",
                     "value": "4",
-                    "comment": "La tabla contiene exactamente 4 filas."
+                    "comment": "La tabla contiene exactamente 4 filas"
                 },
                 {
                     "id": "borrar-3-5",
                     "command": "verifyChecked",
                     "target": "xpath=//input[@name=\"id[1]\"]",
-                    "value": ""
+                    "value": "",
+                    "comment": "La casilla con atributo 'name' con valor 'id[1]' está marcada"
                 },
                 {
                     "id": "borrar-3-6",
                     "command": "assertText",
                     "target": "xpath=//tr[3]/td[2]",
-                    "value": "Numa"
+                    "value": "Numa",
+                    "comment": "La segunda celda de la cuarta fila de la tabla contiene 'Numa'"
                 },
                 {
                     "id": "borrar-4-1",
@@ -1168,19 +1181,21 @@
                     "command": "assert",
                     "target": "cuentaFilas",
                     "value": "4",
-                    "comment": "La tabla contiene exactamente 4 filas."
+                    "comment": "La tabla contiene exactamente 4 filas"
                 },
                 {
                     "id": "borrar-4-5",
                     "command": "verifyChecked",
                     "target": "xpath=//input[@name=\"id[1]\"]",
-                    "value": ""
+                    "value": "",
+                    "comment": "La casilla con atributo 'name' con valor 'id[1]' está marcada"
                 },
                 {
                     "id": "borrar-4-6",
                     "command": "assertText",
                     "target": "xpath=//tr[1]/td[2]",
-                    "value": "Numa"
+                    "value": "Numa",
+                    "comment": "La segunda celda de la segunda fila de la tabla contiene 'Numa'"
                 },
                 {
                     "id": "borrar-5-1",
@@ -1194,7 +1209,8 @@
                     "id": "borrar-5-2",
                     "command": "verifyNotChecked",
                     "target": "xpath=//input[@name=\"id[1]\"]",
-                    "value": ""
+                    "value": "",
+                    "comment": "La casilla con atributo 'name' con valor 'id[1]' está desmarcada"
                 },
                 {
                     "id": "borrar-5-3",
@@ -1213,7 +1229,8 @@
                     "id": "borrar-5-5",
                     "command": "assertText",
                     "target": "xpath=//p",
-                    "value": "No se ha seleccionado ningún registro."
+                    "value": "No se ha seleccionado ningún registro.",
+                    "comment": "Muestra aviso: 'No se ha seleccionado ningún registro.'"
                 },
                 {
                     "id": "borrar-6-1",
@@ -1232,13 +1249,15 @@
                     "id": "borrar-6-3",
                     "command": "assertText",
                     "target": "xpath=//p[1]",
-                    "value": "Registro no encontrado."
+                    "value": "Registro no encontrado.",
+                    "comment": "Muestra aviso (1/2): 'Registro no encontrado.'"
                 },
                 {
                     "id": "borrar-6-4",
                     "command": "assertText",
                     "target": "xpath=//p[2]",
-                    "value": "Registro no encontrado."
+                    "value": "Registro no encontrado.",
+                    "comment": "Muestra aviso (2/2): 'Registro no encontrado.'"
                 },
                 {
                     "id": "borrar-6-5",
@@ -1264,7 +1283,8 @@
                     "id": "borrar-6-8",
                     "command": "verifyChecked",
                     "target": "xpath=//input[@name=\"id[1]\"]",
-                    "value": ""
+                    "value": "",
+                    "comment": "La casilla con atributo 'name' con valor 'id[1]' está marcada"
                 },
                 {
                     "id": "borrar-6-9",
@@ -1283,7 +1303,8 @@
                     "id": "borrar-6-11",
                     "command": "assertText",
                     "target": "xpath=//p",
-                    "value": "Registro borrado correctamente."
+                    "value": "Registro borrado correctamente.",
+                    "comment": "Muestra mensaje: 'Registro borrado correctamente.'"
                 },
                 {
                     "id": "borrar-7-1",
@@ -1310,7 +1331,8 @@
                     "id": "borrar-7-4",
                     "command": "verifyChecked",
                     "target": "xpath=//input[@name=\"id[2]\"]",
-                    "value": ""
+                    "value": "",
+                    "comment": "La casilla con atributo 'name' con valor 'id[2]' está marcada"
                 },
                 {
                     "id": "borrar-7-5",
@@ -1323,7 +1345,8 @@
                     "id": "borrar-7-6",
                     "command": "verifyChecked",
                     "target": "xpath=//input[@name=\"id[3]\"]",
-                    "value": ""
+                    "value": "",
+                    "comment": "La casilla con atributo 'name' con valor 'id[3]' está marcada"
                 },
                 {
                     "id": "borrar-7-7",
@@ -1342,7 +1365,8 @@
                     "id": "borrar-7-9",
                     "command": "assertText",
                     "target": "xpath=//p[1]",
-                    "value": "Registro borrado correctamente."
+                    "value": "Registro borrado correctamente.",
+                    "comment": "Muestra mensaje (1/2): 'Registro borrado correctamente.'"
                 },
                 {
                     "id": "borrar-7-10",
@@ -1434,7 +1458,7 @@
                     "command": "type",
                     "target": "name=nombre",
                     "value": "u",
-                    "comment": "Escribe 'u' en el campo 'nombre'"
+                    "comment": "Escribe 'u' en la caja de texto 'nombre'"
                 },
                 {
                     "id": "buscar-2-4",
@@ -1453,13 +1477,15 @@
                     "id": "buscar-2-6",
                     "command": "assertText",
                     "target": "xpath=//tr[1]/td[1]",
-                    "value": "Julio"
+                    "value": "Julio",
+                    "comment": "La primera celda de la segunda fila de la tabla contiene 'Julio'"
                 },
                 {
                     "id": "buscar-2-7",
                     "command": "assertText",
                     "target": "xpath=//tr[2]/td[1]",
-                    "value": "Numa"
+                    "value": "Numa",
+                    "comment": "La primera celda de la tercera fila de la tabla contiene 'Numa'"
                 },
                 {
                     "id": "buscar-2-8",
@@ -1472,7 +1498,7 @@
                     "command": "assert",
                     "target": "cuentaFilas",
                     "value": "3",
-                    "comment": "La tabla contiene exactamente 3 filas."
+                    "comment": "La tabla contiene exactamente 3 filas"
                 },
                 {
                     "id": "buscar-3-1",
@@ -1499,7 +1525,8 @@
                     "id": "buscar-3-4",
                     "command": "assertText",
                     "target": "xpath=//tr[2]/td[1]",
-                    "value": "Julio"
+                    "value": "Julio",
+                    "comment": "La primera celda de la tercera fila de la tabla contiene 'Julio'"
                 },
                 {
                     "id": "buscar-3-5",
@@ -1512,7 +1539,7 @@
                     "command": "assert",
                     "target": "cuentaFilas",
                     "value": "3",
-                    "comment": "La tabla contiene exactamente 3 filas."
+                    "comment": "La tabla contiene exactamente 3 filas"
                 },
                 {
                     "id": "buscar-3-7",
@@ -1531,13 +1558,15 @@
                     "id": "buscar-3-9",
                     "command": "assertText",
                     "target": "xpath=//tr[1]/td[1]",
-                    "value": "Julio"
+                    "value": "Julio",
+                    "comment": "La primera celda de la segunda fila de la tabla contiene 'Julio'"
                 },
                 {
                     "id": "buscar-3-10",
                     "command": "assertText",
                     "target": "xpath=//tr[2]/td[1]",
-                    "value": "Numa"
+                    "value": "Numa",
+                    "comment": "La primera celda de la tercera fila de la tabla contiene 'Numa'"
                 },
                 {
                     "id": "buscar-3-11",
@@ -1550,7 +1579,7 @@
                     "command": "assert",
                     "target": "cuentaFilas",
                     "value": "3",
-                    "comment": "La tabla contiene exactamente 3 filas."
+                    "comment": "La tabla contiene exactamente 3 filas"
                 },
                 {
                     "id": "buscar-4-1",
@@ -1571,7 +1600,7 @@
                     "command": "type",
                     "target": "name=apellidos",
                     "value": "a",
-                    "comment": "Escribe 'a' en el campo 'apellidos'"
+                    "comment": "Escribe 'a' en la caja de texto 'apellidos'"
                 },
                 {
                     "id": "buscar-4-4",
@@ -1590,7 +1619,8 @@
                     "id": "buscar-4-6",
                     "command": "assertText",
                     "target": "xpath=//tr[1]/td[1]",
-                    "value": "Julio"
+                    "value": "Julio",
+                    "comment": "La primera celda de la segunda fila de la tabla contiene 'Julio'"
                 },
                 {
                     "id": "buscar-4-7",
@@ -1603,7 +1633,7 @@
                     "command": "assert",
                     "target": "cuentaFilas",
                     "value": "2",
-                    "comment": "La tabla contiene exactamente 2 filas."
+                    "comment": "La tabla contiene exactamente 2 filas"
                 },
                 {
                     "id": "buscar-5-1",
@@ -1623,7 +1653,8 @@
                     "id": "buscar-5-3",
                     "command": "type",
                     "target": "name=telefono",
-                    "value": "6"
+                    "value": "6",
+                    "comment": "Escribe '6' en la caja de texto 'telefono'"
                 },
                 {
                     "id": "buscar-5-4",
@@ -1662,7 +1693,7 @@
                     "command": "assert",
                     "target": "cuentaFilas",
                     "value": "2",
-                    "comment": "La tabla contiene exactamente 2 filas."
+                    "comment": "La tabla contiene exactamente 2 filas"
                 },
                 {
                     "id": "buscar-6-1",
@@ -1682,7 +1713,8 @@
                     "id": "buscar-6-3",
                     "command": "type",
                     "target": "name=telefono",
-                    "value": "91"
+                    "value": "91",
+                    "comment": "Escribe '91' en la caja de texto 'telefono'"
                 },
                 {
                     "id": "buscar-6-4",
@@ -1727,7 +1759,8 @@
                     "id": "modificar-1-3",
                     "command": "assertText",
                     "target": "xpath=//p",
-                    "value": "No se ha seleccionado ningún registro."
+                    "value": "No se ha seleccionado ningún registro.",
+                    "comment": "Muestra aviso: 'No se ha seleccionado ningún registro.'"
                 },
                 {
                     "id": "modificar-1-4",
@@ -1740,7 +1773,7 @@
                     "command": "assert",
                     "target": "cuentaAvisos",
                     "value": "1",
-                    "comment": "Muestra exactamente 1 aviso."
+                    "comment": "Muestra exactamente 1 aviso"
                 },
                 {
                     "id": "modificar-2-1",
@@ -1759,7 +1792,8 @@
                     "id": "modificar-2-3",
                     "command": "assertText",
                     "target": "xpath=//p",
-                    "value": "Registro no encontrado."
+                    "value": "Registro no encontrado.",
+                    "comment": "Muestra aviso: 'Registro no encontrado.'"
                 },
                 {
                     "id": "modificar-2-4",
@@ -1772,7 +1806,7 @@
                     "command": "assert",
                     "target": "cuentaAvisos",
                     "value": "1",
-                    "comment": "Muestra exactamente 1 aviso."
+                    "comment": "Muestra exactamente 1 aviso"
                 },
                 {
                     "id": "modificar-3-1",
@@ -1799,13 +1833,14 @@
                     "command": "assert",
                     "target": "cuentaFilas",
                     "value": "4",
-                    "comment": "La tabla contiene exactamente 4 filas."
+                    "comment": "La tabla contiene exactamente 4 filas"
                 },
                 {
                     "id": "modificar-3-5",
                     "command": "assertText",
                     "target": "xpath=//tr[3]/td[2]",
-                    "value": "Pepito"
+                    "value": "Pepito",
+                    "comment": "La segunda celda de la cuarta fila de la tabla contiene 'Pepito'"
                 },
                 {
                     "id": "modificar-3-6",
@@ -1839,19 +1874,21 @@
                     "command": "assert",
                     "target": "cuentaFilas",
                     "value": "4",
-                    "comment": "La tabla contiene exactamente 4 filas."
+                    "comment": "La tabla contiene exactamente 4 filas"
                 },
                 {
                     "id": "modificar-4-5",
                     "command": "verifyChecked",
                     "target": "xpath=//tr[3]/td[1]/input",
-                    "value": ""
+                    "value": "",
+                    "comment": "El botón radio situado en la primera celda de la cuarta fila está marcado"
                 },
                 {
                     "id": "modificar-4-6",
                     "command": "assertText",
                     "target": "xpath=//tr[3]/td[2]",
-                    "value": "Pepito"
+                    "value": "Pepito",
+                    "comment": "La segunda celda de la cuarta fila de la tabla contiene 'Pepito'"
                 },
                 {
                     "id": "modificar-5-1",
@@ -1878,19 +1915,21 @@
                     "command": "assert",
                     "target": "cuentaFilas",
                     "value": "4",
-                    "comment": "La tabla contiene exactamente 4 filas."
+                    "comment": "La tabla contiene exactamente 4 filas"
                 },
                 {
                     "id": "modificar-5-5",
                     "command": "verifyChecked",
                     "target": "xpath=//tr[1]/td[1]/input",
-                    "value": ""
+                    "value": "",
+                    "comment": "El botón radio situado en la primera celda de la segunda fila está marcado"
                 },
                 {
                     "id": "modificar-5-6",
                     "command": "assertText",
                     "target": "xpath=//tr[1]/td[2]",
-                    "value": "Pepito"
+                    "value": "Pepito",
+                    "comment": "La segunda celda de la segunda fila de la tabla contiene 'Pepito'"
                 },
                 {
                     "id": "modificar-6-1",
@@ -1910,51 +1949,57 @@
                     "id": "modificar-6-3",
                     "command": "assertValue",
                     "target": "xpath=//input[@name='nombre']",
-                    "value": "Pepito"
+                    "value": "Pepito",
+                    "comment": "La caja de texto 'nombre' contiene el texto 'Pepito'"
                 },
                 {
                     "id": "modificar-6-4",
                     "command": "assertValue",
                     "target": "xpath=//input[@name='apellidos']",
-                    "value": "Conejo"
+                    "value": "Conejo",
+                    "comment": "La caja de texto 'apellidos' contiene el texto 'Pepito'"
                 },
                 {
                     "id": "modificar-6-5",
                     "command": "assertValue",
                     "target": "xpath=//input[@name='telefono']",
-                    "value": "98765"
+                    "value": "98765",
+                    "comment": "La caja de texto 'telefono' contiene el texto '98765'"
                 },
                 {
                     "id": "modificar-6-6",
                     "command": "assertValue",
                     "target": "xpath=//input[@name='correo']",
-                    "value": "pepito.conejo@micorreo.com"
+                    "value": "pepito.conejo@micorreo.com",
+                    "comment": "La caja de texto 'correo' contiene el texto 'pepito.conejo@micorreo.com'"
                 },
                 {
                     "id": "modificar-6-7",
                     "command": "type",
                     "target": "name=nombre",
                     "value": "Pepita",
-                    "comment": "Escribe 'Pepita' en el campo 'nombre'"
+                    "comment": "Escribe 'Pepita' en la caja de texto 'nombre'"
                 },
                 {
                     "id": "modificar-6-8",
                     "command": "type",
                     "target": "name=apellidos",
                     "value": "Coneja",
-                    "comment": "Escribe 'Coneja' en el campo 'apellidos'"
+                    "comment": "Escribe 'Coneja' en la caja de texto 'apellidos'"
                 },
                 {
                     "id": "modificar-6-9",
                     "command": "type",
                     "target": "name=telefono",
-                    "value": "4567"
+                    "value": "4567",
+                    "comment": "Escribe '4567' en la caja de texto 'telefono'"
                 },
                 {
                     "id": "modificar-6-10",
                     "command": "type",
                     "target": "name=correo",
-                    "value": "pepita.coneja@micorreo.com"
+                    "value": "pepita.coneja@micorreo.com",
+                    "comment": "Escribe 'pepita.coneja@micorreo.com' en la caja de texto 'correo'"
                 },
                 {
                     "id": "modificar-6-11",
@@ -1973,7 +2018,8 @@
                     "id": "modificar-6-13",
                     "command": "assertText",
                     "target": "xpath=//p",
-                    "value": "Registro modificado correctamente."
+                    "value": "Registro modificado correctamente.",
+                    "comment": "Muestra mensaje: 'Registro modificado correctamente.'"
                 },
                 {
                     "id": "modificar-6-14",
@@ -1992,25 +2038,29 @@
                     "id": "modificar-6-16",
                     "command": "assertText",
                     "target": "xpath=//tr[3]/td[1]",
-                    "value": "Pepita"
+                    "value": "Pepita",
+                    "comment": "La primera celda de la cuarta fila de la tabla contiene 'Pepita'"
                 },
                 {
                     "id": "modificar-6-17",
                     "command": "assertText",
                     "target": "xpath=//tr[3]/td[2]",
-                    "value": "Coneja"
+                    "value": "Coneja",
+                    "comment": "La segunda celda de la cuarta fila de la tabla contiene 'Coneja'"
                 },
                 {
                     "id": "modificar-6-18",
                     "command": "assertText",
                     "target": "xpath=//tr[3]/td[3]",
-                    "value": "4567"
+                    "value": "4567",
+                    "comment": "La tercera celda de la cuarta fila de la tabla contiene '4567'"
                 },
                 {
                     "id": "modificar-6-19",
                     "command": "assertText",
                     "target": "xpath=//tr[3]/td[4]",
-                    "value": "pepita.coneja@micorreo.com"
+                    "value": "pepita.coneja@micorreo.com",
+                    "comment": "La cuarta celda de la cuarta fila de la tabla contiene 'pepita.coneja@micorreo.com'"
                 },
                 {
                     "id": "modificar-6-20",
@@ -2023,7 +2073,7 @@
                     "command": "assert",
                     "target": "cuentaFilas",
                     "value": "4",
-                    "comment": "La tabla contiene exactamente 4 filas."
+                    "comment": "La tabla contiene exactamente 4 filas"
                 },
                 {
                     "id": "modificar-6-22",
@@ -2062,7 +2112,7 @@
                     "command": "open",
                     "target": "${urlBase}/index.php",
                     "value": "",
-                    "comment": "Abre página Inicio."
+                    "comment": "Abre página Inicio"
                 },
                 {
                     "id": "test-completo-4",

@@ -119,13 +119,15 @@
                     "id": "preparacion-borrar-todo-con-3",
                     "command": "type",
                     "target": "name=usuario",
-                    "value": "root"
+                    "value": "root",
+                    "comment": "Escribe 'root' en el campo 'usuario'"
                 },
                 {
                     "id": "preparacion-borrar-todo-con-4",
                     "command": "type",
                     "target": "name=password",
-                    "value": "root"
+                    "value": "root",
+                    "comment": "Escribe 'root' en el campo 'password'"
                 },
                 {
                     "id": "preparacion-borrar-todo-con-5",
@@ -171,7 +173,7 @@
                     "command": "click",
                     "target": "name=demo",
                     "value": "",
-                    "comment": "Hace clic en la casilla con atributo 'name' con valor 'demo'"
+                    "comment": "Hace clic en la casilla 'demo'"
                 },
                 {
                     "id": "preparacion-borrar-todo-con-12",
@@ -184,7 +186,7 @@
                     "command": "click",
                     "target": "xpath=//input[@name='borrar' and @value='Sí']",
                     "value": "",
-                    "comment": "Hace clic en el botón con atributo 'name' con valor 'borrar' y atributo 'value' con valor 'Sí'"
+                    "comment": "Hace clic en el botón 'borrar' con atributo 'value' con valor 'Sí'"
                 },
                 {
                     "id": "preparacion-borrar-todo-con-14",
@@ -248,7 +250,7 @@
                     "command": "assert",
                     "target": "cuentaFilas",
                     "value": "5",
-                    "comment": "La tabla contiene exactamente 5 filas."
+                    "comment": "La tabla contiene exactamente 5 filas"
                 },
                 {
                     "id": "numero-registros-usuario-1-5",
@@ -345,13 +347,15 @@
                     "id": "numero-registros-usuario-2-3",
                     "command": "assertText",
                     "target": "xpath=//p[1]",
-                    "value": "Registro borrado correctamente."
+                    "value": "Registro borrado correctamente.",
+                    "comment": "Muestra mensaje (1/2): 'Registro borrado correctamente.'"
                 },
                 {
                     "id": "numero-registros-usuario-2-4",
                     "command": "assertText",
                     "target": "xpath=//p[2]",
-                    "value": "Registro borrado correctamente."
+                    "value": "Registro borrado correctamente.",
+                    "comment": "Muestra mensaje (2/2): 'Registro borrado correctamente.'"
                 },
                 {
                     "id": "numero-registros-usuario-2-5",
@@ -389,7 +393,7 @@
                     "command": "assert",
                     "target": "cuentaAvisos",
                     "value": "1",
-                    "comment": "Muestra exactamente 1 aviso."
+                    "comment": "Muestra exactamente 1 aviso"
                 },
                 {
                     "id": "numero-registros-usuario-4-1",
@@ -435,7 +439,7 @@
                     "command": "assert",
                     "target": "cuentaFilas",
                     "value": "3",
-                    "comment": "La tabla contiene exactamente 3 filas."
+                    "comment": "La tabla contiene exactamente 3 filas"
                 },
                 {
                     "id": "numero-registros-usuario-5-5",
@@ -479,7 +483,7 @@
                     "command": "assert",
                     "target": "cuentaFilas",
                     "value": "3",
-                    "comment": "La tabla contiene exactamente 3 filas."
+                    "comment": "La tabla contiene exactamente 3 filas"
                 },
                 {
                     "id": "numero-registros-usuario-6-5",
@@ -612,7 +616,7 @@
                     "command": "assert",
                     "target": "cuentaAvisos",
                     "value": "2",
-                    "comment": "Muestra exactamente 2 avisos."
+                    "comment": "Muestra exactamente 2 avisos"
                 },
                 {
                     "id": "numero-registros-usuario-10-7",
@@ -671,7 +675,7 @@
                     "command": "open",
                     "target": "${urlBase}/index.php",
                     "value": "",
-                    "comment": "Abre página Inicio."
+                    "comment": "Abre página Inicio"
                 },
                 {
                     "id": "test-completo-3",

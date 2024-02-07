@@ -102,13 +102,15 @@
                     "id": "conexion-root-2",
                     "command": "type",
                     "target": "name=usuario",
-                    "value": "root"
+                    "value": "root",
+                    "comment": "Escribe 'root' en el campo 'usuario'"
                 },
                 {
                     "id": "conexion-root-3",
                     "command": "type",
                     "target": "name=password",
-                    "value": "root"
+                    "value": "root",
+                    "comment": "Escribe 'root' en el campo 'password'"
                 },
                 {
                     "id": "conexion-root-4",

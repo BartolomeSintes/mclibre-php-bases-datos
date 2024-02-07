@@ -131,13 +131,15 @@
                     "id": "preparacion-borrar-todo-con-3",
                     "command": "type",
                     "target": "name=usuario",
-                    "value": "root"
+                    "value": "root",
+                    "comment": "Escribe 'root' en el campo 'usuario'"
                 },
                 {
                     "id": "preparacion-borrar-todo-con-4",
                     "command": "type",
                     "target": "name=password",
-                    "value": "root"
+                    "value": "root",
+                    "comment": "Escribe 'root' en el campo 'password'"
                 },
                 {
                     "id": "preparacion-borrar-todo-con-5",
@@ -183,7 +185,7 @@
                     "command": "click",
                     "target": "name=demo",
                     "value": "",
-                    "comment": "Hace clic en la casilla con atributo 'name' con valor 'demo'"
+                    "comment": "Hace clic en la casilla 'demo'"
                 },
                 {
                     "id": "preparacion-borrar-todo-con-12",
@@ -196,7 +198,7 @@
                     "command": "click",
                     "target": "xpath=//input[@name='borrar' and @value='Sí']",
                     "value": "",
-                    "comment": "Hace clic en el botón con atributo 'name' con valor 'borrar' y atributo 'value' con valor 'Sí'"
+                    "comment": "Hace clic en el botón 'borrar' con atributo 'value' con valor 'Sí'"
                 },
                 {
                     "id": "preparacion-borrar-todo-con-14",
@@ -274,7 +276,7 @@
                     "command": "assert",
                     "target": "cuentaFilas",
                     "value": "4",
-                    "comment": "La tabla contiene exactamente 4 filas."
+                    "comment": "La tabla contiene exactamente 4 filas"
                 },
                 {
                     "id": "datos-repetidos-1-7",
@@ -309,14 +311,14 @@
                     "command": "type",
                     "target": "name=nombre",
                     "value": "AAA",
-                    "comment": "Escribe 'AAA' en el campo 'nombre'"
+                    "comment": "Escribe 'AAA' en la caja de texto 'nombre'"
                 },
                 {
                     "id": "datos-repetidos-1-12",
                     "command": "type",
                     "target": "name=apellidos",
                     "value": "BBB",
-                    "comment": "Escribe 'BBB' en el campo 'apellidos'"
+                    "comment": "Escribe 'BBB' en la caja de texto 'apellidos'"
                 },
                 {
                     "id": "datos-repetidos-1-13",
@@ -381,7 +383,7 @@
                     "command": "assert",
                     "target": "cuentaAvisos",
                     "value": "1",
-                    "comment": "Muestra exactamente 1 aviso."
+                    "comment": "Muestra exactamente 1 aviso"
                 },
                 {
                     "id": "datos-repetidos-3-1",
@@ -453,7 +455,7 @@
                     "command": "assert",
                     "target": "cuentaAvisos",
                     "value": "1",
-                    "comment": "Muestra exactamente 1 aviso."
+                    "comment": "Muestra exactamente 1 aviso"
                 },
                 {
                     "id": "datos-repetidos-5-6",
@@ -510,7 +512,7 @@
                     "command": "assert",
                     "target": "cuentaAvisos",
                     "value": "1",
-                    "comment": "Muestra exactamente 1 aviso."
+                    "comment": "Muestra exactamente 1 aviso"
                 },
                 {
                     "id": "datos-repetidos-6-6",
@@ -574,7 +576,7 @@
                     "command": "assert",
                     "target": "cuentaAvisos",
                     "value": "1",
-                    "comment": "Muestra exactamente 1 aviso."
+                    "comment": "Muestra exactamente 1 aviso"
                 },
                 {
                     "id": "datos-repetidos-7-6",
@@ -638,7 +640,7 @@
                     "command": "assert",
                     "target": "cuentaAvisos",
                     "value": "1",
-                    "comment": "Muestra exactamente 1 aviso."
+                    "comment": "Muestra exactamente 1 aviso"
                 },
                 {
                     "id": "datos-repetidos-8-6",
@@ -809,7 +811,7 @@
                     "command": "open",
                     "target": "${urlBase}/index.php",
                     "value": "",
-                    "comment": "Abre página Inicio."
+                    "comment": "Abre página Inicio"
                 },
                 {
                     "id": "test-completo-3",

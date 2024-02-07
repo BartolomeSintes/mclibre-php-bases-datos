@@ -352,13 +352,15 @@
                     "id": "preparacion-borrar-todo-con-4",
                     "command": "type",
                     "target": "name=usuario",
-                    "value": "root"
+                    "value": "root",
+                    "comment": "Escribe 'root' en el campo 'usuario'"
                 },
                 {
                     "id": "preparacion-borrar-todo-con-5",
                     "command": "type",
                     "target": "name=password",
-                    "value": "root"
+                    "value": "root",
+                    "comment": "Escribe 'root' en el campo 'password'"
                 },
                 {
                     "id": "preparacion-borrar-todo-con-6",
@@ -462,13 +464,15 @@
                     "id": "conexion-desconexion-root-5",
                     "command": "type",
                     "target": "name=usuario",
-                    "value": "root"
+                    "value": "root",
+                    "comment": "Escribe 'root' en el campo 'usuario'"
                 },
                 {
                     "id": "conexion-desconexion-root-6",
                     "command": "type",
                     "target": "name=password",
-                    "value": "root"
+                    "value": "root",
+                    "comment": "Escribe 'root' en el campo 'password'"
                 },
                 {
                     "id": "conexion-desconexion-root-7",
@@ -756,13 +760,15 @@
                     "id": "conexion-root-5",
                     "command": "type",
                     "target": "name=usuario",
-                    "value": "root"
+                    "value": "root",
+                    "comment": "Escribe 'root' en el campo 'usuario'"
                 },
                 {
                     "id": "conexion-root-6",
                     "command": "type",
                     "target": "name=password",
-                    "value": "root"
+                    "value": "root",
+                    "comment": "Escribe 'root' en el campo 'password'"
                 },
                 {
                     "id": "conexion-root-7",
@@ -820,7 +826,8 @@
                     "id": "personas-listar-6",
                     "command": "assertText",
                     "target": "xpath=//tr[1]/td[1]",
-                    "value": "Pepito"
+                    "value": "Pepito",
+                    "comment": "La primera celda de la segunda fila de la tabla contiene 'Pepito'"
                 },
                 {
                     "id": "personas-listar-7",
@@ -859,7 +866,8 @@
                     "id": "personas-listar-12",
                     "command": "assertText",
                     "target": "xpath=//tr[1]/td[1]",
-                    "value": "Pepito"
+                    "value": "Pepito",
+                    "comment": "La primera celda de la segunda fila de la tabla contiene 'Pepito'"
                 },
                 {
                     "id": "personas-listar-13",
@@ -898,7 +906,8 @@
                     "id": "personas-listar-18",
                     "command": "assertText",
                     "target": "xpath=//tr[1]/td[1]",
-                    "value": "Pepito"
+                    "value": "Pepito",
+                    "comment": "La primera celda de la segunda fila de la tabla contiene 'Pepito'"
                 },
                 {
                     "id": "personas-listar-19",
@@ -935,7 +944,8 @@
                     "id": "personas-listar-24",
                     "command": "assertText",
                     "target": "xpath=//tr[1]/td[1]",
-                    "value": "Pepito"
+                    "value": "Pepito",
+                    "comment": "La primera celda de la segunda fila de la tabla contiene 'Pepito'"
                 },
                 {
                     "id": "personas-listar-25",
@@ -987,14 +997,14 @@
                     "command": "type",
                     "target": "name=nombre",
                     "value": "Numa",
-                    "comment": "Escribe 'Numa' en el campo 'nombre'"
+                    "comment": "Escribe 'Numa' en la caja de texto 'nombre'"
                 },
                 {
                     "id": "personas-insertar-7",
                     "command": "type",
                     "target": "name=apellidos",
                     "value": "Nigerio",
-                    "comment": "Escribe 'Nigerio' en el campo 'apellidos'"
+                    "comment": "Escribe 'Nigerio' en la caja de texto 'apellidos'"
                 },
                 {
                     "id": "personas-insertar-8",
@@ -1072,7 +1082,7 @@
                     "command": "type",
                     "target": "name=nombre",
                     "value": "a",
-                    "comment": "Escribe 'a' en el campo 'nombre'"
+                    "comment": "Escribe 'a' en la caja de texto 'nombre'"
                 },
                 {
                     "id": "personas-buscar-7",
@@ -1112,7 +1122,7 @@
                     "command": "type",
                     "target": "name=nombre",
                     "value": "y",
-                    "comment": "Escribe 'y' en el campo 'nombre'"
+                    "comment": "Escribe 'y' en la caja de texto 'nombre'"
                 },
                 {
                     "id": "personas-buscar-13",
@@ -1185,7 +1195,7 @@
                     "command": "type",
                     "target": "name=nombre",
                     "value": "Cayo",
-                    "comment": "Escribe 'Cayo' en el campo 'nombre'"
+                    "comment": "Escribe 'Cayo' en la caja de texto 'nombre'"
                 },
                 {
                     "id": "personas-modificar-9",
@@ -1198,7 +1208,8 @@
                     "id": "personas-modificar-10",
                     "command": "assertText",
                     "target": "xpath=//p",
-                    "value": "Registro modificado correctamente."
+                    "value": "Registro modificado correctamente.",
+                    "comment": "Muestra mensaje: 'Registro modificado correctamente.'"
                 },
                 {
                     "id": "personas-modificar-11",
@@ -1283,7 +1294,8 @@
                     "id": "personas-borrar-10",
                     "command": "assertText",
                     "target": "xpath=//p",
-                    "value": "Registro borrado correctamente."
+                    "value": "Registro borrado correctamente.",
+                    "comment": "Muestra mensaje: 'Registro borrado correctamente.'"
                 },
                 {
                     "id": "personas-borrar-11",

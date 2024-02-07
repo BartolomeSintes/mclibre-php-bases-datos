@@ -1,6 +1,6 @@
 {
     "id": "mclibre-bases-de-datos-1-b-2-tests",
-    "version": "2024-02-05",
+    "version": "2024-02-06",
     "name": "Test ejercicio Bases de datos (1 B) 2",
     "url": "http://localhost",
     "tests": [
@@ -20,14 +20,14 @@
                     "command": "open",
                     "target": "${urlBase}/index.php",
                     "value": "",
-                    "comment": "Abre página Inicio."
+                    "comment": "Abre página Inicio"
                 },
                 {
                     "id": "inicio-2",
                     "command": "waitForElementPresent",
                     "target": "xpath=//h1[.=\"Bases de datos (1 B) 2 - Inicio\"]",
                     "value": "20000",
-                    "comment": "Abre página Inicio. Título h1 correcto."
+                    "comment": "Muestra título h1: 'Bases de datos (1 B) 2 - Inicio'"
                 },
                 {
                     "id": "borrar-todo-1",
@@ -41,7 +41,7 @@
                     "command": "waitForElementPresent",
                     "target": "xpath=//h1[.=\"Bases de datos (1 B) 2 - Borrar todo 1\"]",
                     "value": "1000",
-                    "comment": "Abre página Borrar todo 1. Título h1 correcto."
+                    "comment": "Muestra título h1: 'Bases de datos (1 B) 2 - Borrar todo 1'"
                 },
                 {
                     "id": "borrar-todo-3",
@@ -55,7 +55,7 @@
                     "command": "waitForElementPresent",
                     "target": "xpath=//h1[.=\"Bases de datos (1 B) 2 - Inicio\"]",
                     "value": "1000",
-                    "comment": "Vuelve a página Inicio. Título h1 correcto."
+                    "comment": "Muestra título h1: 'Bases de datos (1 B) 2 - Inicio'"
                 },
                 {
                     "id": "borrar-todo-5",
@@ -69,7 +69,7 @@
                     "command": "waitForElementPresent",
                     "target": "xpath=//h1[.=\"Bases de datos (1 B) 2 - Borrar todo 1\"]",
                     "value": "1000",
-                    "comment": "Abre página Borrar todo 1. Título h1 correcto."
+                    "comment": "Muestra título h1: 'Bases de datos (1 B) 2 - Borrar todo 1'"
                 },
                 {
                     "id": "borrar-todo-7",
@@ -83,7 +83,7 @@
                     "command": "waitForElementPresent",
                     "target": "xpath=//h1[.=\"Bases de datos (1 B) 2 - Borrar todo 2\"]",
                     "value": "1000",
-                    "comment": "Abre página Borrar todo 2. Título h1 correcto."
+                    "comment": "Muestra título h1: 'Bases de datos (1 B) 2 - Borrar todo 2'"
                 },
                 {
                     "id": "borrar-todo-9",
@@ -102,21 +102,21 @@
                     "command": "assertText",
                     "target": "xpath=//p[1]",
                     "value": "Sistema Gestor de Bases de Datos: SQLite.",
-                    "comment": "Muestra el mensaje 'Sistema Gestor de Bases de Datos: SQLite.'"
+                    "comment": "Muestra mensaje (1/3): 'Sistema Gestor de Bases de Datos: SQLite.'"
                 },
                 {
                     "id": "borrar-todo-12",
                     "command": "assertText",
                     "target": "xpath=//p[2]",
                     "value": "Tabla borrada correctamente (si existía).",
-                    "comment": "Muestra el mensaje 'Tabla borrada correctamente (si existía).'"
+                    "comment": "Muestra mensaje (2/3): 'Tabla borrada correctamente (si existía).'"
                 },
                 {
                     "id": "borrar-todo-13",
                     "command": "assertText",
                     "target": "xpath=//p[3]",
                     "value": "Tabla creada correctamente.",
-                    "comment": "Muestra el mensaje 'Tabla creada correctamente.'"
+                    "comment": "Muestra mensaje (3/3): 'Tabla creada correctamente.'"
                 },
                 {
                     "id": "borrar-todo-14",
@@ -129,35 +129,35 @@
                     "command": "assertText",
                     "target": "xpath=//p[1]",
                     "value": "Sistema Gestor de Bases de Datos: MySQL.",
-                    "comment": "Muestra el mensaje 'Sistema Gestor de Bases de Datos: MySQL.'"
+                    "comment": "Muestra mensaje (1/5): 'Sistema Gestor de Bases de Datos: MySQL.'"
                 },
                 {
                     "id": "borrar-todo-16",
                     "command": "assertText",
                     "target": "xpath=//p[2]",
                     "value": "Base de datos borrada correctamente (si existía).",
-                    "comment": "Muestra el mensaje 'Base de datos borrada correctamente (si existía).'"
+                    "comment": "Muestra mensaje (2/5): 'Base de datos borrada correctamente (si existía).'"
                 },
                 {
                     "id": "borrar-todo-17",
                     "command": "assertText",
                     "target": "xpath=//p[3]",
                     "value": "Base de datos creada correctamente.",
-                    "comment": "Ha creado la base de datos"
+                    "comment": "Muestra mensaje (3/5): 'Base de datos creada correctamente.'"
                 },
                 {
                     "id": "borrar-todo-18",
                     "command": "assertText",
                     "target": "xpath=//p[4]",
                     "value": "Base de datos seleccionada correctamente.",
-                    "comment": "Ha seleccionado la base de datos"
+                    "comment": "Muestra mensaje (4/5): 'Base de datos seleccionada correctamente.'"
                 },
                 {
                     "id": "borrar-todo-19",
                     "command": "assertText",
                     "target": "xpath=//p[5]",
                     "value": "Tabla creada correctamente.",
-                    "comment": "Ha creado la tabla"
+                    "comment": "Muestra mensaje (5/5): 'Tabla creada correctamente.'"
                 },
                 {
                     "id": "borrar-todo-20",
@@ -177,7 +177,7 @@
                     "command": "waitForElementPresent",
                     "target": "xpath=//h1[.=\"Bases de datos (1 B) 2 - Inicio\"]",
                     "value": "1000",
-                    "comment": "Vuelve a página Inicio. Título h1 correcto."
+                    "comment": "Muestra título h1: 'Bases de datos (1 B) 2 - Inicio'"
                 },
                 {
                     "id": "insertar-1-1",
@@ -192,35 +192,35 @@
                     "command": "waitForElementPresent",
                     "target": "xpath=//h1[.=\"Bases de datos (1 B) 2 - Añadir 1\"]",
                     "value": "1000",
-                    "comment": "Abre página Añadir 1. Título h1 correcto."
+                    "comment": "Muestra título h1: 'Bases de datos (1 B) 2 - Añadir 1'"
                 },
                 {
                     "id": "insertar-1-3",
                     "command": "type",
                     "target": "name=nombre",
                     "value": "Numa",
-                    "comment": "Escribe 'Numa' en el campo 'nombre'"
+                    "comment": "Escribe 'Numa' en la caja de texto 'nombre'"
                 },
                 {
                     "id": "insertar-1-4",
                     "command": "type",
                     "target": "name=apellidos",
                     "value": "Nigerio",
-                    "comment": "Escribe 'Nigerio' en el campo 'apellidos'"
+                    "comment": "Escribe 'Nigerio' en la caja de texto 'apellidos'"
                 },
                 {
                     "id": "insertar-1-5",
                     "command": "type",
                     "target": "name=telefono",
                     "value": "123456",
-                    "comment": "Escribe '123456' en el campo 'telefono'"
+                    "comment": "Escribe '123456' en la caja de texto 'telefono'"
                 },
                 {
                     "id": "insertar-1-6",
                     "command": "type",
                     "target": "name=correo",
                     "value": "numa.nigerio@micorreo.com",
-                    "comment": "Escribe 'numa.nigerio@micorreo.com' en el campo 'correo'"
+                    "comment": "Escribe 'numa.nigerio@micorreo.com' en la caja de texto 'correo'"
                 },
                 {
                     "id": "insertar-1-7",
@@ -234,7 +234,7 @@
                     "command": "waitForElementPresent",
                     "target": "xpath=//h1[.=\"Bases de datos (1 B) 2 - Añadir 2\"]",
                     "value": "1000",
-                    "comment": "Abre página Añadir 2. Título h1 correcto."
+                    "comment": "Muestra título h1: 'Bases de datos (1 B) 2 - Añadir 2'"
                 },
                 {
                     "id": "insertar-1-9",
@@ -255,7 +255,7 @@
                     "command": "waitForElementPresent",
                     "target": "xpath=//h1[.=\"Bases de datos (1 B) 2 - Inicio\"]",
                     "value": "1000",
-                    "comment": "Vuelve a página Inicio. Título h1 correcto."
+                    "comment": "Muestra título h1: 'Bases de datos (1 B) 2 - Inicio'"
                 },
                 {
                     "id": "insertar-2-1",
@@ -263,42 +263,42 @@
                     "command": "open",
                     "target": "${urlBase}/insertar-2.php?nombre=abcdefghi1abcdefghi2abcdefghi3abcdefghi4a&apellidos=abcdefghi1abcdefghi2abcdefghi3abcdefghi4abcdefghi5abcdefghi6a&telefono=1234567890123456&correo=abcdefghi1abcdefghi2abcdefghi3abcdefghi4abcdefghi5a",
                     "value": "",
-                    "comment": "Inserta directamente un registro."
+                    "comment": "Intenta insertar directamente un registro con valores demasiado largos"
                 },
                 {
                     "id": "insertar-2-2",
                     "command": "waitForElementPresent",
                     "target": "xpath=//h1[.=\"Bases de datos (1 B) 2 - Añadir 2\"]",
                     "value": "1000",
-                    "comment": "Abre página Añadir 2. Título h1 correcto."
+                    "comment": "Muestra título h1: 'Bases de datos (1 B) 2 - Añadir 2'"
                 },
                 {
                     "id": "insertar-2-3",
                     "command": "assertText",
                     "target": "xpath=//p[1]",
                     "value": "El nombre no puede tener más de 40 caracteres.",
-                    "comment": "Muestra aviso: 'El nombre no puede tener más de 40 caracteres.'"
+                    "comment": "Muestra aviso (1/4): 'El nombre no puede tener más de 40 caracteres.'"
                 },
                 {
                     "id": "insertar-2-4",
                     "command": "assertText",
                     "target": "xpath=//p[2]",
                     "value": "Los apellidos no pueden tener más de 60 caracteres.",
-                    "comment": "Muestra aviso: 'Los apellidos no pueden tener más de 60 caracteres.'"
+                    "comment": "Muestra aviso (2/4): 'Los apellidos no pueden tener más de 60 caracteres.'"
                 },
                 {
                     "id": "insertar-2-5",
                     "command": "assertText",
                     "target": "xpath=//p[3]",
                     "value": "El teléfono no puede tener más de 15 caracteres.",
-                    "comment": "Muestra aviso: 'El teléfono no puede tener más de 15 caracteres.'"
+                    "comment": "Muestra aviso (3/4): 'El teléfono no puede tener más de 15 caracteres.'"
                 },
                 {
                     "id": "insertar-2-6",
                     "command": "assertText",
                     "target": "xpath=//p[4]",
                     "value": "El correo no puede tener más de 50 caracteres.",
-                    "comment": "Muestra aviso: 'El correo no puede tener más de 50 caracteres.'"
+                    "comment": "Muestra aviso (4/4): 'El correo no puede tener más de 50 caracteres.'"
                 },
                 {
                     "id": "insertar-2-7",
@@ -311,7 +311,7 @@
                     "command": "assert",
                     "target": "cuentaAvisos",
                     "value": "4",
-                    "comment": "Muestra exactamente 4 avisos."
+                    "comment": "Muestra exactamente 4 avisos"
                 },
                 {
                     "id": "insertar-3-1",
@@ -319,14 +319,14 @@
                     "command": "open",
                     "target": "${urlBase}/insertar-2.php?nombre=Pepito&apellidos=Conejo&telefono=98765&correo=pepito.conejo@micorreo.com",
                     "value": "",
-                    "comment": "Inserta directamente un registro."
+                    "comment": "Inserta directamente un registro"
                 },
                 {
                     "id": "insertar-3-2",
                     "command": "waitForElementPresent",
                     "target": "xpath=//h1[.=\"Bases de datos (1 B) 2 - Añadir 2\"]",
                     "value": "1000",
-                    "comment": "Abre página Añadir 2. Título h1 correcto."
+                    "comment": "Muestra título h1: 'Bases de datos (1 B) 2 - Añadir 2'"
                 },
                 {
                     "id": "insertar-3-3",
@@ -347,7 +347,7 @@
                     "command": "waitForElementPresent",
                     "target": "xpath=//h1[.=\"Bases de datos (1 B) 2 - Inicio\"]",
                     "value": "1000",
-                    "comment": "Vuelve a página Inicio. Título h1 correcto."
+                    "comment": "Muestra título h1: 'Bases de datos (1 B) 2 - Inicio'"
                 },
                 {
                     "id": "listar-1-1",
@@ -362,7 +362,7 @@
                     "command": "waitForElementPresent",
                     "target": "xpath=//h1[.=\"Bases de datos (1 B) 2 - Listar\"]",
                     "value": "1000",
-                    "comment": "Abre página Listar. Título h1 correcto."
+                    "comment": "Muestra título h1: 'Bases de datos (1 B) 2 - Listar'"
                 },
                 {
                     "id": "listar-1-3",
@@ -403,19 +403,22 @@
                     "id": "listar-1-8",
                     "command": "assertText",
                     "target": "xpath=//tr[1]/td[2]",
-                    "value": "Nigerio"
+                    "value": "Nigerio",
+                    "comment": "La segunda celda de la segunda fila de la tabla contiene 'Nigerio'"
                 },
                 {
                     "id": "listar-1-9",
                     "command": "assertText",
                     "target": "xpath=//tr[1]/td[3]",
-                    "value": "123456"
+                    "value": "123456",
+                    "comment": "La tercera celda de la segunda fila de la tabla contiene '123456'"
                 },
                 {
                     "id": "listar-1-10",
                     "command": "assertText",
                     "target": "xpath=//tr[1]/td[4]",
-                    "value": "numa.nigerio@micorreo.com"
+                    "value": "numa.nigerio@micorreo.com",
+                    "comment": "La cuarta celda de la segunda fila de la tabla contiene 'numa.nigerio@micorreo.com'"
                 },
                 {
                     "id": "listar-1-11",
@@ -428,19 +431,22 @@
                     "id": "listar-1-12",
                     "command": "assertText",
                     "target": "xpath=//tr[2]/td[2]",
-                    "value": "Conejo"
+                    "value": "Conejo",
+                    "comment": "La segunda celda de la tercera fila de la tabla contiene 'Conejo'"
                 },
                 {
                     "id": "listar-1-13",
                     "command": "assertText",
                     "target": "xpath=//tr[2]/td[3]",
-                    "value": "98765"
+                    "value": "98765",
+                    "comment": "La tercera celda de la tercera fila de la tabla contiene '98765'"
                 },
                 {
                     "id": "listar-1-14",
                     "command": "assertText",
                     "target": "xpath=//tr[2]/td[4]",
-                    "value": "pepito.conejo@micorreo.com"
+                    "value": "pepito.conejo@micorreo.com",
+                    "comment": "La cuarta celda de la tercera fila de la tabla contiene 'pepito.conejo@micorreo.com'"
                 },
                 {
                     "id": "listar-1-15",
@@ -453,7 +459,7 @@
                     "command": "assert",
                     "target": "cuentaFilas",
                     "value": "3",
-                    "comment": "La tabla contiene exactamente 3 filas."
+                    "comment": "La tabla contiene exactamente 3 filas"
                 },
                 {
                     "id": "listar-1-17",
@@ -467,7 +473,7 @@
                     "command": "waitForElementPresent",
                     "target": "xpath=//h1[.=\"Bases de datos (1 B) 2 - Inicio\"]",
                     "value": "1000",
-                    "comment": "Vuelve a página Inicio. Título h1 correcto."
+                    "comment": "Muestra título h1: 'Bases de datos (1 B) 2 - Inicio'"
                 },
                 {
                     "id": "borrar-1-1",
@@ -482,21 +488,21 @@
                     "command": "waitForElementPresent",
                     "target": "xpath=//h1[.=\"Bases de datos (1 B) 2 - Añadir 1\"]",
                     "value": "1000",
-                    "comment": "Abre página Añadir 1. Título h1 correcto."
+                    "comment": "Muestra título h1: 'Bases de datos (1 B) 2 - Añadir 1'"
                 },
                 {
                     "id": "borrar-1-3",
                     "command": "open",
                     "target": "${urlBase}/insertar-2.php?nombre=Julio&apellidos=César&telefono=3141592&correo=julio.cesar@micorreo.com",
                     "value": "",
-                    "comment": "Inserta directamente un registro."
+                    "comment": "Inserta directamente un registro"
                 },
                 {
                     "id": "borrar-1-4",
                     "command": "waitForElementPresent",
                     "target": "xpath=//h1[.=\"Bases de datos (1 B) 2 - Añadir 2\"]",
                     "value": "1000",
-                    "comment": "Abre página Añadir 2. Título h1 correcto."
+                    "comment": "Muestra título h1: 'Bases de datos (1 B) 2 - Añadir 2'"
                 },
                 {
                     "id": "borrar-1-5",
@@ -517,7 +523,7 @@
                     "command": "waitForElementPresent",
                     "target": "xpath=//h1[.=\"Bases de datos (1 B) 2 - Inicio\"]",
                     "value": "1000",
-                    "comment": "Vuelve a página Inicio. Título h1 correcto."
+                    "comment": "Muestra título h1: 'Bases de datos (1 B) 2 - Inicio'"
                 },
                 {
                     "id": "borrar-2-1",
@@ -532,7 +538,7 @@
                     "command": "waitForElementPresent",
                     "target": "xpath=//h1[.=\"Bases de datos (1 B) 2 - Borrar 1\"]",
                     "value": "1000",
-                    "comment": "Abre página Borrar 1. Título h1 correcto."
+                    "comment": "Muestra título h1: 'Bases de datos (1 B) 2 - Borrar 1'"
                 },
                 {
                     "id": "borrar-2-3",
@@ -545,55 +551,63 @@
                     "command": "assert",
                     "target": "cuentaFilas",
                     "value": "4",
-                    "comment": "La tabla contiene exactamente 4 filas."
+                    "comment": "La tabla contiene exactamente 4 filas"
                 },
                 {
                     "id": "borrar-2-5",
                     "command": "assertText",
                     "target": "xpath=//tr/th[2]",
-                    "value": "Nombre"
+                    "value": "Nombre",
+                    "comment": "La segunda celda de la fila de cabecera de la tabla contiene 'Nombre'"
                 },
                 {
                     "id": "borrar-2-6",
                     "command": "assertText",
                     "target": "xpath=//tr/th[3]",
-                    "value": "Apellidos"
+                    "value": "Apellidos",
+                    "comment": "La tercera celda de la fila de cabecera de la tabla contiene 'Apellidos'"
                 },
                 {
                     "id": "borrar-2-7",
                     "command": "assertText",
                     "target": "xpath=//tr/th[4]",
-                    "value": "Teléfono"
+                    "value": "Teléfono",
+                    "comment": "La cuarta celda de la fila de cabecera de la tabla contiene 'Teléfono'"
                 },
                 {
                     "id": "borrar-2-8",
                     "command": "assertText",
                     "target": "xpath=//tr/th[5]",
-                    "value": "Correo"
+                    "value": "Correo",
+                    "comment": "La quinta celda de la fila de cabecera de la tabla contiene 'Correo'"
                 },
                 {
                     "id": "borrar-2-9",
                     "command": "assertText",
                     "target": "xpath=//tr[1]/td[2]",
-                    "value": "Numa"
+                    "value": "Numa",
+                    "comment": "La segunda celda de la segunda fila de la tabla contiene 'Numa'"
                 },
                 {
                     "id": "borrar-2-10",
                     "command": "assertText",
                     "target": "xpath=//tr[1]/td[3]",
-                    "value": "Nigerio"
+                    "value": "Nigerio",
+                    "comment": "La tercera celda de la segunda fila de la tabla contiene 'Nigerio'"
                 },
                 {
                     "id": "borrar-2-11",
                     "command": "assertText",
                     "target": "xpath=//tr[1]/td[4]",
-                    "value": "123456"
+                    "value": "123456",
+                    "comment": "La cuarta celda de la segunda fila de la tabla contiene '123456'"
                 },
                 {
                     "id": "borrar-2-12",
                     "command": "assertText",
                     "target": "xpath=//tr[1]/td[5]",
-                    "value": "numa.nigerio@micorreo.com"
+                    "value": "numa.nigerio@micorreo.com",
+                    "comment": "La quinta celda de la segunda fila de la tabla contiene 'numa.nigerio@micorreo.com'"
                 },
                 {
                     "id": "borrar-2-13",
@@ -606,7 +620,8 @@
                     "id": "borrar-2-14",
                     "command": "verifyChecked",
                     "target": "xpath=//input[@name=\"id[1]\"]",
-                    "value": ""
+                    "value": "",
+                    "comment": "La casilla con atributo 'name' con valor 'id[1]' está marcada"
                 },
                 {
                     "id": "borrar-3-1",
@@ -620,7 +635,8 @@
                     "id": "borrar-3-2",
                     "command": "verifyNotChecked",
                     "target": "xpath=//input[@name=\"id[1]\"]",
-                    "value": ""
+                    "value": "",
+                    "comment": "La casilla con atributo 'name' con valor 'id[1]' está desmarcada"
                 },
                 {
                     "id": "borrar-3-3",
@@ -634,13 +650,14 @@
                     "command": "waitForElementPresent",
                     "target": "xpath=//h1[.=\"Bases de datos (1 B) 2 - Borrar 2\"]",
                     "value": "1000",
-                    "comment": "Abre página Borrar 2. Título h1 correcto."
+                    "comment": "Muestra título h1: 'Bases de datos (1 B) 2 - Borrar 2'"
                 },
                 {
                     "id": "borrar-3-5",
                     "command": "assertText",
                     "target": "xpath=//p",
-                    "value": "No se ha seleccionado ningún registro."
+                    "value": "No se ha seleccionado ningún registro.",
+                    "comment": "Muestra aviso: 'No se ha seleccionado ningún registro.'"
                 },
                 {
                     "id": "borrar-3-6",
@@ -654,33 +671,36 @@
                     "command": "waitForElementPresent",
                     "target": "xpath=//h1[.=\"Bases de datos (1 B) 2 - Inicio\"]",
                     "value": "1000",
-                    "comment": "Vuelve a página Inicio. Título h1 correcto."
+                    "comment": "Muestra título h1: 'Bases de datos (1 B) 2 - Inicio'"
                 },
                 {
                     "id": "borrar-4-1",
                     "title": "(TEST) Borrar > Intenta borrar dos registros inexistentes",
                     "command": "open",
                     "target": "${urlBase}/borrar-2.php?id[50]=on&id[60]=on",
-                    "value": ""
+                    "value": "",
+                    "comment": "Intenta borrar directamente dos registros inexistentes"
                 },
                 {
                     "id": "borrar-4-2",
                     "command": "waitForElementPresent",
                     "target": "xpath=//h1[.=\"Bases de datos (1 B) 2 - Borrar 2\"]",
                     "value": "1000",
-                    "comment": "Abre página Borrar 2. Título h1 correcto."
+                    "comment": "Muestra título h1: 'Bases de datos (1 B) 2 - Borrar 2'"
                 },
                 {
                     "id": "borrar-4-3",
                     "command": "assertText",
                     "target": "xpath=//p[1]",
-                    "value": "Registro borrado correctamente (si existía)."
+                    "value": "Registro borrado correctamente (si existía).",
+                    "comment": "Muestra mensaje (1/2): 'Registro borrado correctamente (si existía).'"
                 },
                 {
                     "id": "borrar-4-4",
                     "command": "assertText",
                     "target": "xpath=//p[2]",
-                    "value": "Registro borrado correctamente (si existía)."
+                    "value": "Registro borrado correctamente (si existía).",
+                    "comment": "Muestra mensaje (2/2): 'Registro borrado correctamente (si existía).'"
                 },
                 {
                     "id": "borrar-4-5",
@@ -702,7 +722,7 @@
                     "command": "waitForElementPresent",
                     "target": "xpath=//h1[.=\"Bases de datos (1 B) 2 - Borrar 1\"]",
                     "value": "1000",
-                    "comment": "Abre página Borrar 1. Título h1 correcto."
+                    "comment": "Muestra título h1: 'Bases de datos (1 B) 2 - Borrar 1'"
                 },
                 {
                     "id": "borrar-5-3",
@@ -715,7 +735,8 @@
                     "id": "borrar-5-4",
                     "command": "verifyChecked",
                     "target": "xpath=//input[@name=\"id[1]\"]",
-                    "value": ""
+                    "value": "",
+                    "comment": "La casilla con atributo 'name' con valor 'id[1]' está marcada"
                 },
                 {
                     "id": "borrar-5-5",
@@ -729,13 +750,14 @@
                     "command": "waitForElementPresent",
                     "target": "xpath=//h1[.=\"Bases de datos (1 B) 2 - Borrar 2\"]",
                     "value": "1000",
-                    "comment": "Abre página Borrar 2. Título h1 correcto."
+                    "comment": "Muestra título h1: 'Bases de datos (1 B) 2 - Borrar 2'"
                 },
                 {
                     "id": "borrar-5-7",
                     "command": "assertText",
                     "target": "xpath=//p",
-                    "value": "Registro borrado correctamente (si existía)."
+                    "value": "Registro borrado correctamente (si existía).",
+                    "comment": "Muestra mensaje: 'Registro borrado correctamente (si existía).'"
                 },
                 {
                     "id": "borrar-5-8",
@@ -749,7 +771,7 @@
                     "command": "waitForElementPresent",
                     "target": "xpath=//h1[.=\"Bases de datos (1 B) 2 - Inicio\"]",
                     "value": "1000",
-                    "comment": "Vuelve a página Inicio. Título h1 correcto."
+                    "comment": "Muestra título h1: 'Bases de datos (1 B) 2 - Inicio'"
                 },
                 {
                     "id": "borrar-6-1",
@@ -764,7 +786,7 @@
                     "command": "waitForElementPresent",
                     "target": "xpath=//h1[.=\"Bases de datos (1 B) 2 - Borrar 1\"]",
                     "value": "1000",
-                    "comment": "Abre página Borrar 1. Título h1 correcto."
+                    "comment": "Muestra título h1: 'Bases de datos (1 B) 2 - Borrar 1'"
                 },
                 {
                     "id": "borrar-6-3",
@@ -777,7 +799,7 @@
                     "command": "assert",
                     "target": "cuentaFilas",
                     "value": "3",
-                    "comment": "La tabla contiene exactamente 3 filas."
+                    "comment": "La tabla contiene exactamente 3 filas"
                 },
                 {
                     "id": "borrar-6-5",
@@ -790,7 +812,8 @@
                     "id": "borrar-6-6",
                     "command": "verifyChecked",
                     "target": "xpath=//input[@name=\"id[2]\"]",
-                    "value": ""
+                    "value": "",
+                    "comment": "La casilla con atributo 'name' con valor 'id[2]' está marcada"
                 },
                 {
                     "id": "borrar-6-7",
@@ -803,7 +826,8 @@
                     "id": "borrar-6-8",
                     "command": "verifyChecked",
                     "target": "xpath=//input[@name=\"id[3]\"]",
-                    "value": ""
+                    "value": "",
+                    "comment": "La casilla con atributo 'name' con valor 'id[3]' está marcada"
                 },
                 {
                     "id": "borrar-6-9",
@@ -817,19 +841,21 @@
                     "command": "waitForElementPresent",
                     "target": "xpath=//h1[.=\"Bases de datos (1 B) 2 - Borrar 2\"]",
                     "value": "1000",
-                    "comment": "Abre página Borrar 2. Título h1 correcto."
+                    "comment": "Muestra título h1: 'Bases de datos (1 B) 2 - Borrar 2'"
                 },
                 {
                     "id": "borrar-6-11",
                     "command": "assertText",
                     "target": "xpath=//p[1]",
-                    "value": "Registro borrado correctamente (si existía)."
+                    "value": "Registro borrado correctamente (si existía).",
+                    "comment": "Muestra mensaje (1/2): 'Registro borrado correctamente (si existía).'"
                 },
                 {
                     "id": "borrar-6-12",
                     "command": "assertText",
                     "target": "xpath=//p[2]",
-                    "value": "Registro borrado correctamente (si existía)."
+                    "value": "Registro borrado correctamente (si existía).",
+                    "comment": "Muestra mensaje (2/2): 'Registro borrado correctamente (si existía).'"
                 },
                 {
                     "id": "borrar-6-13",
@@ -843,7 +869,7 @@
                     "command": "waitForElementPresent",
                     "target": "xpath=//h1[.=\"Bases de datos (1 B) 2 - Inicio\"]",
                     "value": "1000",
-                    "comment": "Vuelve a página Inicio. Título h1 correcto."
+                    "comment": "Muestra título h1: 'Bases de datos (1 B) 2 - Inicio'"
                 },
                 {
                     "id": "borrar-7-1",
@@ -858,7 +884,7 @@
                     "command": "waitForElementPresent",
                     "target": "xpath=//h1[.=\"Bases de datos (1 B) 2 - Borrar 1\"]",
                     "value": "1000",
-                    "comment": "Abre página Borrar 1. Título h1 correcto."
+                    "comment": "Muestra título h1: 'Bases de datos (1 B) 2 - Borrar 1'"
                 },
                 {
                     "id": "borrar-7-3",
@@ -871,7 +897,7 @@
                     "command": "assert",
                     "target": "cuentaFilas",
                     "value": "1",
-                    "comment": "La tabla contiene exactamente 1 fila."
+                    "comment": "La tabla contiene exactamente 1 fila"
                 },
                 {
                     "id": "borrar-7-5",
@@ -885,7 +911,7 @@
                     "command": "waitForElementPresent",
                     "target": "xpath=//h1[.=\"Bases de datos (1 B) 2 - Inicio\"]",
                     "value": "1000",
-                    "comment": "Vuelve a página Inicio. Título h1 correcto."
+                    "comment": "Muestra título h1: 'Bases de datos (1 B) 2 - Inicio'"
                 },
                 {
                     "id": "buscar-1-1",
@@ -893,14 +919,14 @@
                     "command": "open",
                     "target": "${urlBase}/insertar-2.php?nombre=Numa&apellidos=Nigerio&telefono=123456&correo=numa.nigerio@micorreo.com",
                     "value": "",
-                    "comment": "Inserta directamente un registro."
+                    "comment": "Inserta directamente un registro"
                 },
                 {
                     "id": "buscar-1-2",
                     "command": "waitForElementPresent",
                     "target": "xpath=//h1[.=\"Bases de datos (1 B) 2 - Añadir 2\"]",
                     "value": "1000",
-                    "comment": "Abre página Añadir 2. Título h1 correcto."
+                    "comment": "Muestra título h1: 'Bases de datos (1 B) 2 - Añadir 2'"
                 },
                 {
                     "id": "buscar-1-3",
@@ -914,14 +940,14 @@
                     "command": "open",
                     "target": "${urlBase}/insertar-2.php?nombre=Pepito&apellidos=Conejo&telefono=98765&correo=pepito.conejo@micorreo.com",
                     "value": "",
-                    "comment": "Inserta directamente un registro."
+                    "comment": "Inserta directamente un registro"
                 },
                 {
                     "id": "buscar-1-5",
                     "command": "waitForElementPresent",
                     "target": "xpath=//h1[.=\"Bases de datos (1 B) 2 - Añadir 2\"]",
                     "value": "1000",
-                    "comment": "Abre página Añadir 2. Título h1 correcto."
+                    "comment": "Muestra título h1: 'Bases de datos (1 B) 2 - Añadir 2'"
                 },
                 {
                     "id": "buscar-1-6",
@@ -935,14 +961,14 @@
                     "command": "open",
                     "target": "${urlBase}/insertar-2.php?nombre=Julio&apellidos=César&telefono=3141592&correo=julio.cesar@micorreo.com",
                     "value": "",
-                    "comment": "Inserta directamente un registro."
+                    "comment": "Inserta directamente un registro"
                 },
                 {
                     "id": "buscar-1-8",
                     "command": "waitForElementPresent",
                     "target": "xpath=//h1[.=\"Bases de datos (1 B) 2 - Añadir 2\"]",
                     "value": "1000",
-                    "comment": "Abre página Añadir 2. Título h1 correcto."
+                    "comment": "Muestra título h1: 'Bases de datos (1 B) 2 - Añadir 2'"
                 },
                 {
                     "id": "buscar-1-9",
@@ -963,49 +989,50 @@
                     "command": "waitForElementPresent",
                     "target": "xpath=//h1[.=\"Bases de datos (1 B) 2 - Inicio\"]",
                     "value": "1000",
-                    "comment": "Vuelve a página Inicio. Título h1 correcto."
+                    "comment": "Muestra título h1: 'Bases de datos (1 B) 2 - Inicio'"
                 },
                 {
                     "id": "buscar-11-1",
                     "title": "(TEST) Buscar > Avisos individuales Nombre / Apellidos / Teléfono / Correo largos",
                     "command": "open",
                     "target": "${urlBase}/buscar-2.php?nombre=abcdefghi1abcdefghi2abcdefghi3abcdefghi4a&apellidos=abcdefghi1abcdefghi2abcdefghi3abcdefghi4abcdefghi5abcdefghi6a&telefono=1234567890123456&correo=abcdefghi1abcdefghi2abcdefghi3abcdefghi4abcdefghi5a",
-                    "value": ""
+                    "value": "",
+                    "comment": "Busca directamente con valores demasiado largos"
                 },
                 {
                     "id": "buscar-11-2",
                     "command": "waitForElementPresent",
                     "target": "xpath=//h1[.=\"Bases de datos (1 B) 2 - Buscar 2\"]",
                     "value": "1000",
-                    "comment": "Abre página Buscar 2. Título h1 correcto."
+                    "comment": "Muestra título h1: 'Bases de datos (1 B) 2 - Buscar 2'"
                 },
                 {
                     "id": "buscar-11-3",
                     "command": "assertText",
                     "target": "xpath=//p[1]",
                     "value": "El nombre no puede tener más de 40 caracteres.",
-                    "comment": "Muestra aviso: 'El nombre no puede tener más de 40 caracteres.'"
+                    "comment": "Muestra aviso (1/4): 'El nombre no puede tener más de 40 caracteres.'"
                 },
                 {
                     "id": "buscar-11-4",
                     "command": "assertText",
                     "target": "xpath=//p[2]",
                     "value": "Los apellidos no pueden tener más de 60 caracteres.",
-                    "comment": "Muestra aviso: 'Los apellidos no pueden tener más de 60 caracteres.'"
+                    "comment": "Muestra aviso (2/4): 'Los apellidos no pueden tener más de 60 caracteres.'"
                 },
                 {
                     "id": "buscar-11-5",
                     "command": "assertText",
                     "target": "xpath=//p[3]",
                     "value": "El teléfono no puede tener más de 15 caracteres.",
-                    "comment": "Muestra aviso: 'El teléfono no puede tener más de 15 caracteres.'"
+                    "comment": "Muestra aviso (3/4): 'El teléfono no puede tener más de 15 caracteres.'"
                 },
                 {
                     "id": "buscar-11-6",
                     "command": "assertText",
                     "target": "xpath=//p[4]",
                     "value": "El correo no puede tener más de 50 caracteres.",
-                    "comment": "Muestra aviso: 'El correo no puede tener más de 50 caracteres.'"
+                    "comment": "Muestra aviso (4/4): 'El correo no puede tener más de 50 caracteres.'"
                 },
                 {
                     "id": "buscar-11-7",
@@ -1018,7 +1045,7 @@
                     "command": "assert",
                     "target": "cuentaAvisos",
                     "value": "4",
-                    "comment": "Muestra exactamente 4 avisos."
+                    "comment": "Muestra exactamente 4 avisos"
                 },
                 {
                     "id": "buscar-11-9",
@@ -1032,7 +1059,7 @@
                     "command": "waitForElementPresent",
                     "target": "xpath=//h1[.=\"Bases de datos (1 B) 2 - Inicio\"]",
                     "value": "1000",
-                    "comment": "Vuelve a página Inicio. Título h1 correcto."
+                    "comment": "Muestra título h1: 'Bases de datos (1 B) 2 - Inicio'"
                 },
                 {
                     "id": "buscar-2-1",
@@ -1047,14 +1074,14 @@
                     "command": "waitForElementPresent",
                     "target": "xpath=//h1[.=\"Bases de datos (1 B) 2 - Buscar 1\"]",
                     "value": "1000",
-                    "comment": "Abre página Buscar 1. Título h1 correcto."
+                    "comment": "Muestra título h1: 'Bases de datos (1 B) 2 - Buscar 1'"
                 },
                 {
                     "id": "buscar-2-3",
                     "command": "type",
                     "target": "name=nombre",
                     "value": "u",
-                    "comment": "Escribe 'u' en el campo 'nombre'"
+                    "comment": "Escribe 'u' en la caja de texto 'nombre'"
                 },
                 {
                     "id": "buscar-2-4",
@@ -1068,7 +1095,7 @@
                     "command": "waitForElementPresent",
                     "target": "xpath=//h1[.=\"Bases de datos (1 B) 2 - Buscar 2\"]",
                     "value": "1000",
-                    "comment": "Abre página Buscar 2. Título h1 correcto."
+                    "comment": "Muestra título h1: 'Bases de datos (1 B) 2 - Buscar 2'"
                 },
                 {
                     "id": "buscar-2-6",
@@ -1109,43 +1136,50 @@
                     "id": "buscar-2-11",
                     "command": "assertText",
                     "target": "xpath=//tr[1]/td[2]",
-                    "value": "Nigerio"
+                    "value": "Nigerio",
+                    "comment": "La segunda celda de la segunda fila de la tabla contiene 'Nigerio'"
                 },
                 {
                     "id": "buscar-2-12",
                     "command": "assertText",
                     "target": "xpath=//tr[1]/td[3]",
-                    "value": "123456"
+                    "value": "123456",
+                    "comment": "La tercera celda de la segunda fila de la tabla contiene '123456'"
                 },
                 {
                     "id": "buscar-2-13",
                     "command": "assertText",
                     "target": "xpath=//tr[1]/td[4]",
-                    "value": "numa.nigerio@micorreo.com"
+                    "value": "numa.nigerio@micorreo.com",
+                    "comment": "La cuarta celda de la segunda fila de la tabla contiene 'numa.nigerio@micorreo.com'"
                 },
                 {
                     "id": "buscar-2-14",
                     "command": "assertText",
                     "target": "xpath=//tr[2]/td[1]",
-                    "value": "Julio"
+                    "value": "Julio",
+                    "comment": "La primera celda de la tercera fila de la tabla contiene 'Julio'"
                 },
                 {
                     "id": "buscar-2-15",
                     "command": "assertText",
                     "target": "xpath=//tr[2]/td[2]",
-                    "value": "César"
+                    "value": "César",
+                    "comment": "La segunda celda de la tercera fila de la tabla contiene 'César'"
                 },
                 {
                     "id": "buscar-2-16",
                     "command": "assertText",
                     "target": "xpath=//tr[2]/td[3]",
-                    "value": "3141592"
+                    "value": "3141592",
+                    "comment": "La tercera celda de la tercera fila de la tabla contiene '3141592'"
                 },
                 {
                     "id": "buscar-2-17",
                     "command": "assertText",
                     "target": "xpath=//tr[2]/td[4]",
-                    "value": "julio.cesar@micorreo.com"
+                    "value": "julio.cesar@micorreo.com",
+                    "comment": "La cuarta celda de la tercera fila de la tabla contiene 'julio.cesar@micorreo.com'"
                 },
                 {
                     "id": "buscar-2-18",
@@ -1158,7 +1192,7 @@
                     "command": "assert",
                     "target": "cuentaFilas",
                     "value": "3",
-                    "comment": "La tabla contiene exactamente 3 filas."
+                    "comment": "La tabla contiene exactamente 3 filas"
                 },
                 {
                     "id": "buscar-2-20",
@@ -1172,7 +1206,7 @@
                     "command": "waitForElementPresent",
                     "target": "xpath=//h1[.=\"Bases de datos (1 B) 2 - Inicio\"]",
                     "value": "1000",
-                    "comment": "Vuelve a página Inicio. Título h1 correcto."
+                    "comment": "Muestra título h1: 'Bases de datos (1 B) 2 - Inicio'"
                 },
                 {
                     "id": "buscar-3-1",
@@ -1187,14 +1221,14 @@
                     "command": "waitForElementPresent",
                     "target": "xpath=//h1[.=\"Bases de datos (1 B) 2 - Buscar 1\"]",
                     "value": "1000",
-                    "comment": "Abre página Buscar 1. Título h1 correcto."
+                    "comment": "Muestra título h1: 'Bases de datos (1 B) 2 - Buscar 1'"
                 },
                 {
                     "id": "buscar-3-3",
                     "command": "type",
                     "target": "name=apellidos",
                     "value": "a",
-                    "comment": "Escribe 'a' en el campo 'apellidos'"
+                    "comment": "Escribe 'a' en la caja de texto 'apellidos'"
                 },
                 {
                     "id": "buscar-3-4",
@@ -1208,31 +1242,35 @@
                     "command": "waitForElementPresent",
                     "target": "xpath=//h1[.=\"Bases de datos (1 B) 2 - Buscar 2\"]",
                     "value": "1000",
-                    "comment": "Abre página Buscar 2. Título h1 correcto."
+                    "comment": "Muestra título h1: 'Bases de datos (1 B) 2 - Buscar 2'"
                 },
                 {
                     "id": "buscar-3-6",
                     "command": "assertText",
                     "target": "xpath=//tr[1]/td[1]",
-                    "value": "Julio"
+                    "value": "Julio",
+                    "comment": "La primera celda de la segunda fila de la tabla contiene 'Julio'"
                 },
                 {
                     "id": "buscar-3-7",
                     "command": "assertText",
                     "target": "xpath=//tr[1]/td[2]",
-                    "value": "César"
+                    "value": "César",
+                    "comment": "La segunda celda de la segunda fila de la tabla contiene 'César'"
                 },
                 {
                     "id": "buscar-3-8",
                     "command": "assertText",
                     "target": "xpath=//tr[1]/td[3]",
-                    "value": "3141592"
+                    "value": "3141592",
+                    "comment": "La tercera celda de la segunda fila de la tabla contiene '3141592'"
                 },
                 {
                     "id": "buscar-3-9",
                     "command": "assertText",
                     "target": "xpath=//tr[1]/td[4]",
-                    "value": "julio.cesar@micorreo.com"
+                    "value": "julio.cesar@micorreo.com",
+                    "comment": "La cuarta celda de la segunda fila de la tabla contiene 'julio.cesar@micorreo.com'"
                 },
                 {
                     "id": "buscar-3-10",
@@ -1245,7 +1283,7 @@
                     "command": "assert",
                     "target": "cuentaFilas",
                     "value": "2",
-                    "comment": "La tabla contiene exactamente 2 filas."
+                    "comment": "La tabla contiene exactamente 2 filas"
                 },
                 {
                     "id": "buscar-3-12",
@@ -1259,7 +1297,7 @@
                     "command": "waitForElementPresent",
                     "target": "xpath=//h1[.=\"Bases de datos (1 B) 2 - Inicio\"]",
                     "value": "1000",
-                    "comment": "Vuelve a página Inicio. Título h1 correcto."
+                    "comment": "Muestra título h1: 'Bases de datos (1 B) 2 - Inicio'"
                 },
                 {
                     "id": "buscar-4-1",
@@ -1274,19 +1312,21 @@
                     "command": "waitForElementPresent",
                     "target": "xpath=//h1[.=\"Bases de datos (1 B) 2 - Buscar 1\"]",
                     "value": "1000",
-                    "comment": "Abre página Buscar 1. Título h1 correcto."
+                    "comment": "Muestra título h1: 'Bases de datos (1 B) 2 - Buscar 1'"
                 },
                 {
                     "id": "buscar-4-3",
                     "command": "type",
                     "target": "name=telefono",
-                    "value": "6"
+                    "value": "6",
+                    "comment": "Escribe '6' en la caja de texto 'telefono'"
                 },
                 {
                     "id": "buscar-4-4",
                     "command": "type",
                     "target": "name=correo",
-                    "value": "g"
+                    "value": "g",
+                    "comment": "Escribe 'g' en la caja de texto 'correo'"
                 },
                 {
                     "id": "buscar-4-5",
@@ -1300,7 +1340,7 @@
                     "command": "waitForElementPresent",
                     "target": "xpath=//h1[.=\"Bases de datos (1 B) 2 - Buscar 2\"]",
                     "value": "1000",
-                    "comment": "Abre página Buscar 2. Título h1 correcto."
+                    "comment": "Muestra título h1: 'Bases de datos (1 B) 2 - Buscar 2'"
                 },
                 {
                     "id": "buscar-4-7",
@@ -1313,19 +1353,22 @@
                     "id": "buscar-4-8",
                     "command": "assertText",
                     "target": "xpath=//tr[1]/td[2]",
-                    "value": "Nigerio"
+                    "value": "Nigerio",
+                    "comment": "La segunda celda de la segunda fila de la tabla contiene 'Nigerio'"
                 },
                 {
                     "id": "buscar-4-9",
                     "command": "assertText",
                     "target": "xpath=//tr[1]/td[3]",
-                    "value": "123456"
+                    "value": "123456",
+                    "comment": "La tercera celda de la segunda fila de la tabla contiene '123456'"
                 },
                 {
                     "id": "buscar-4-10",
                     "command": "assertText",
                     "target": "xpath=//tr[1]/td[4]",
-                    "value": "numa.nigerio@micorreo.com"
+                    "value": "numa.nigerio@micorreo.com",
+                    "comment": "La cuarta celda de la segunda fila de la tabla contiene 'numa.nigerio@micorreo.com'"
                 },
                 {
                     "id": "buscar-4-11",
@@ -1338,7 +1381,7 @@
                     "command": "assert",
                     "target": "cuentaFilas",
                     "value": "2",
-                    "comment": "La tabla contiene exactamente 2 filas."
+                    "comment": "La tabla contiene exactamente 2 filas"
                 },
                 {
                     "id": "buscar-4-13",
@@ -1352,7 +1395,7 @@
                     "command": "waitForElementPresent",
                     "target": "xpath=//h1[.=\"Bases de datos (1 B) 2 - Inicio\"]",
                     "value": "1000",
-                    "comment": "Vuelve a página Inicio. Título h1 correcto."
+                    "comment": "Muestra título h1: 'Bases de datos (1 B) 2 - Inicio'"
                 },
                 {
                     "id": "buscar-5-1",
@@ -1367,13 +1410,14 @@
                     "command": "waitForElementPresent",
                     "target": "xpath=//h1[.=\"Bases de datos (1 B) 2 - Buscar 1\"]",
                     "value": "1000",
-                    "comment": "Abre página Buscar 1. Título h1 correcto."
+                    "comment": "Muestra título h1: 'Bases de datos (1 B) 2 - Buscar 1'"
                 },
                 {
                     "id": "buscar-5-3",
                     "command": "type",
                     "target": "name=telefono",
-                    "value": "91"
+                    "value": "91",
+                    "comment": "Escribe '91' en la caja de texto 'telefono'"
                 },
                 {
                     "id": "buscar-5-4",
@@ -1387,7 +1431,7 @@
                     "command": "waitForElementPresent",
                     "target": "xpath=//h1[.=\"Bases de datos (1 B) 2 - Buscar 2\"]",
                     "value": "1000",
-                    "comment": "Abre página Buscar 2. Título h1 correcto."
+                    "comment": "Muestra título h1: 'Bases de datos (1 B) 2 - Buscar 2'"
                 },
                 {
                     "id": "buscar-5-6",
@@ -1400,7 +1444,7 @@
                     "command": "assert",
                     "target": "cuentaFilas",
                     "value": "1",
-                    "comment": "La tabla contiene exactamente 1 fila."
+                    "comment": "La tabla contiene exactamente 1 fila"
                 },
                 {
                     "id": "buscar-5-8",
@@ -1414,27 +1458,29 @@
                     "command": "waitForElementPresent",
                     "target": "xpath=//h1[.=\"Bases de datos (1 B) 2 - Inicio\"]",
                     "value": "1000",
-                    "comment": "Vuelve a página Inicio. Título h1 correcto."
+                    "comment": "Muestra título h1: 'Bases de datos (1 B) 2 - Inicio'"
                 },
                 {
                     "id": "modificar-1-1",
                     "title": "(TEST) Modificar > Sin seleccionar registros.",
                     "command": "open",
                     "target": "${urlBase}/modificar-2.php",
-                    "value": ""
+                    "value": "",
+                    "comment": "Intenta modificar directamente sin seleccionar registro"
                 },
                 {
                     "id": "modificar-1-2",
                     "command": "waitForElementPresent",
                     "target": "xpath=//h1[.=\"Bases de datos (1 B) 2 - Modificar 2\"]",
                     "value": "1000",
-                    "comment": "Abre página Modificar 2. Título h1 correcto."
+                    "comment": "Muestra título h1: 'Bases de datos (1 B) 2 - Modificar 2'"
                 },
                 {
                     "id": "modificar-1-3",
                     "command": "assertText",
                     "target": "xpath=//p",
-                    "value": "No se ha seleccionado ningún registro."
+                    "value": "No se ha seleccionado ningún registro.",
+                    "comment": "Muestra aviso: 'No se ha seleccionado ningún registro.'"
                 },
                 {
                     "id": "modificar-1-4",
@@ -1447,7 +1493,7 @@
                     "command": "assert",
                     "target": "cuentaAvisos",
                     "value": "1",
-                    "comment": "Muestra exactamente 1 aviso."
+                    "comment": "Muestra exactamente 1 aviso"
                 },
                 {
                     "id": "modificar-1-6",
@@ -1461,7 +1507,7 @@
                     "command": "waitForElementPresent",
                     "target": "xpath=//h1[.=\"Bases de datos (1 B) 2 - Inicio\"]",
                     "value": "1000",
-                    "comment": "Vuelve a página Inicio. Título h1 correcto."
+                    "comment": "Muestra título h1: 'Bases de datos (1 B) 2 - Inicio'"
                 },
                 {
                     "id": "modificar-2-1",
@@ -1476,7 +1522,7 @@
                     "command": "waitForElementPresent",
                     "target": "xpath=//h1[.=\"Bases de datos (1 B) 2 - Modificar 1\"]",
                     "value": "1000",
-                    "comment": "Abre página Modificar 1. Título h1 correcto."
+                    "comment": "Muestra título h1: 'Bases de datos (1 B) 2 - Modificar 1'"
                 },
                 {
                     "id": "modificar-2-3",
@@ -1489,61 +1535,70 @@
                     "command": "assert",
                     "target": "cuentaFilas",
                     "value": "4",
-                    "comment": "La tabla contiene exactamente 4 filas."
+                    "comment": "La tabla contiene exactamente 4 filas"
                 },
                 {
                     "id": "modificar-2-5",
                     "command": "assertText",
                     "target": "xpath=//tr/th[1]",
-                    "value": "Modificar"
+                    "value": "Modificar",
+                    "comment": "La primera celda de la fila de cabecera de la tabla contiene 'Modificar'"
                 },
                 {
                     "id": "modificar-2-6",
                     "command": "assertText",
                     "target": "xpath=//tr/th[2]",
-                    "value": "Nombre"
+                    "value": "Nombre",
+                    "comment": "La segunda celda de la fila de cabecera de la tabla contiene 'Nombre'"
                 },
                 {
                     "id": "modificar-2-7",
                     "command": "assertText",
                     "target": "xpath=//tr/th[3]",
-                    "value": "Apellidos"
+                    "value": "Apellidos",
+                    "comment": "La tercera celda de la fila de cabecera de la tabla contiene 'Apellidos'"
                 },
                 {
                     "id": "modificar-2-8",
                     "command": "assertText",
                     "target": "xpath=//tr/th[4]",
-                    "value": "Teléfono"
+                    "value": "Teléfono",
+                    "comment": "La cuarta celda de la fila de cabecera de la tabla contiene 'Teléfono'"
                 },
                 {
                     "id": "modificar-2-9",
                     "command": "assertText",
                     "target": "xpath=//tr/th[5]",
-                    "value": "Correo"
+                    "value": "Correo",
+                    "comment": "La quinta celda de la fila de cabecera de la tabla contiene 'Correo'"
                 },
                 {
                     "id": "modificar-2-10",
                     "command": "assertText",
                     "target": "xpath=//tr[2]/td[2]",
-                    "value": "Pepito"
+                    "value": "Pepito",
+                    "comment": "La segunda celda de la tercera fila de la tabla contiene 'Pepito'"
                 },
                 {
                     "id": "modificar-2-11",
                     "command": "assertText",
                     "target": "xpath=//tr[2]/td[3]",
-                    "value": "Conejo"
+                    "value": "Conejo",
+                    "comment": "La tercera celda de la tercera fila de la tabla contiene 'Conejo'"
                 },
                 {
                     "id": "modificar-2-12",
                     "command": "assertText",
                     "target": "xpath=//tr[2]/td[4]",
-                    "value": "98765"
+                    "value": "98765",
+                    "comment": "La cuarta celda de la tercera fila de la tabla contiene '98765'"
                 },
                 {
                     "id": "modificar-2-13",
                     "command": "assertText",
                     "target": "xpath=//tr[2]/td[5]",
-                    "value": "pepito.conejo@micorreo.com"
+                    "value": "pepito.conejo@micorreo.com",
+                    "comment": "La quinta celda de la tercera fila de la tabla contiene 'pepito.conejo@micorreo.com'"
                 },
                 {
                     "id": "modificar-2-14",
@@ -1565,57 +1620,63 @@
                     "command": "waitForElementPresent",
                     "target": "xpath=//h1[.=\"Bases de datos (1 B) 2 - Modificar 2\"]",
                     "value": "1000",
-                    "comment": "Abre página Modificar 2. Título h1 correcto."
+                    "comment": "Muestra título h1: 'Bases de datos (1 B) 2 - Modificar 2'"
                 },
                 {
                     "id": "modificar-3-3",
                     "command": "assertValue",
                     "target": "xpath=//input[@name='nombre']",
-                    "value": "Pepito"
+                    "value": "Pepito",
+                    "comment": "La caja de texto 'nombre' contiene el texto 'Pepito'"
                 },
                 {
                     "id": "modificar-3-4",
                     "command": "assertValue",
                     "target": "xpath=//input[@name='apellidos']",
-                    "value": "Conejo"
+                    "value": "Conejo",
+                    "comment": "La caja de texto 'apellidos' contiene el texto 'Pepito'"
                 },
                 {
                     "id": "modificar-3-5",
                     "command": "assertValue",
                     "target": "xpath=//input[@name='telefono']",
-                    "value": "98765"
+                    "value": "98765",
+                    "comment": "La caja de texto 'telefono' contiene el texto '98765'"
                 },
                 {
                     "id": "modificar-3-6",
                     "command": "assertValue",
                     "target": "xpath=//input[@name='correo']",
-                    "value": "pepito.conejo@micorreo.com"
+                    "value": "pepito.conejo@micorreo.com",
+                    "comment": "La caja de texto 'correo' contiene el texto 'pepito.conejo@micorreo.com'"
                 },
                 {
                     "id": "modificar-3-7",
                     "command": "type",
                     "target": "name=nombre",
                     "value": "Pepita",
-                    "comment": "Escribe 'Pepita' en el campo 'nombre'"
+                    "comment": "Escribe 'Pepita' en la caja de texto 'nombre'"
                 },
                 {
                     "id": "modificar-3-8",
                     "command": "type",
                     "target": "name=apellidos",
                     "value": "Coneja",
-                    "comment": "Escribe 'Coneja' en el campo 'apellidos'"
+                    "comment": "Escribe 'Coneja' en la caja de texto 'apellidos'"
                 },
                 {
                     "id": "modificar-3-9",
                     "command": "type",
                     "target": "name=telefono",
-                    "value": "4567"
+                    "value": "4567",
+                    "comment": "Escribe '4567' en la caja de texto 'telefono'"
                 },
                 {
                     "id": "modificar-3-10",
                     "command": "type",
                     "target": "name=correo",
-                    "value": "pepita.coneja@micorreo.com"
+                    "value": "pepita.coneja@micorreo.com",
+                    "comment": "Escribe 'pepita.coneja@micorreo.com' en la caja de texto 'correo'"
                 },
                 {
                     "id": "modificar-3-11",
@@ -1629,13 +1690,14 @@
                     "command": "waitForElementPresent",
                     "target": "xpath=//h1[.=\"Bases de datos (1 B) 2 - Modificar 3\"]",
                     "value": "1000",
-                    "comment": "Abre página Modificar 3. Título h1 correcto."
+                    "comment": "Muestra título h1: 'Bases de datos (1 B) 2 - Modificar 3'"
                 },
                 {
                     "id": "modificar-3-13",
                     "command": "assertText",
                     "target": "xpath=//p",
-                    "value": "Registro modificado correctamente."
+                    "value": "Registro modificado correctamente.",
+                    "comment": "Muestra mensaje: 'Registro modificado correctamente.'"
                 },
                 {
                     "id": "modificar-3-14",
@@ -1649,7 +1711,7 @@
                     "command": "waitForElementPresent",
                     "target": "xpath=//h1[.=\"Bases de datos (1 B) 2 - Inicio\"]",
                     "value": "1000",
-                    "comment": "Vuelve a página Inicio. Título h1 correcto."
+                    "comment": "Muestra título h1: 'Bases de datos (1 B) 2 - Inicio'"
                 },
                 {
                     "id": "modificar-3-16",
@@ -1663,31 +1725,35 @@
                     "command": "waitForElementPresent",
                     "target": "xpath=//h1[.=\"Bases de datos (1 B) 2 - Listar\"]",
                     "value": "1000",
-                    "comment": "Abre página Listar. Título h1 correcto."
+                    "comment": "Muestra título h1: 'Bases de datos (1 B) 2 - Listar'"
                 },
                 {
                     "id": "modificar-3-18",
                     "command": "assertText",
                     "target": "xpath=//tr[2]/td[1]",
-                    "value": "Pepita"
+                    "value": "Pepita",
+                    "comment": "La primera celda de la tercera fila de la tabla contiene 'Pepita'"
                 },
                 {
                     "id": "modificar-3-19",
                     "command": "assertText",
                     "target": "xpath=//tr[2]/td[2]",
-                    "value": "Coneja"
+                    "value": "Coneja",
+                    "comment": "La segunda celda de la tercera fila de la tabla contiene 'Coneja'"
                 },
                 {
                     "id": "modificar-3-20",
                     "command": "assertText",
                     "target": "xpath=//tr[2]/td[3]",
-                    "value": "4567"
+                    "value": "4567",
+                    "comment": "La tercera celda de la tercera fila de la tabla contiene '4567'"
                 },
                 {
                     "id": "modificar-3-21",
                     "command": "assertText",
                     "target": "xpath=//tr[2]/td[4]",
-                    "value": "pepita.coneja@micorreo.com"
+                    "value": "pepita.coneja@micorreo.com",
+                    "comment": "La cuarta celda de la tercera fila de la tabla contiene 'pepita.coneja@micorreo.com'"
                 },
                 {
                     "id": "modificar-3-22",
@@ -1700,7 +1766,7 @@
                     "command": "assert",
                     "target": "cuentaFilas",
                     "value": "4",
-                    "comment": "La tabla contiene exactamente 4 filas."
+                    "comment": "La tabla contiene exactamente 4 filas"
                 },
                 {
                     "id": "modificar-3-24",
@@ -1713,7 +1779,8 @@
                     "id": "modificar-3-25",
                     "command": "waitForElementPresent",
                     "target": "xpath=//h1[.=\"Bases de datos (1 B) 2 - Inicio\"]",
-                    "value": "1000"
+                    "value": "1000",
+                    "comment": "Muestra título h1: 'Bases de datos (1 B) 2 - Inicio'. Test terminado correctamente"
                 }
             ]
         }
