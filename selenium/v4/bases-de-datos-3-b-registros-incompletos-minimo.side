@@ -1,107 +1,108 @@
 {
-    "id": "mclibre-bases-de-datos-3-b-confirma-contrasena-tests-minimo",
-    "version": "2024-02-07",
-    "name": "Test ejercicio Bases de datos (3 B) Confirma contraseña Mínimo",
+    "id": "mclibre-bases-de-datos-3-b-registros-incompletos-tests-minimo",
+    "version": "2024-02-08",
+    "name": "Test ejercicio Bases de datos (3 B) Registros incompletos (Mínimo)",
     "url": "http://localhost",
     "tests": [
         {
             "id": "test-completo",
-            "name": "Test ejercicio Bases de datos (3 B) Confirma contraseña Mínimo",
+            "name": "Test ejercicio Bases de datos (3 B) Registros incompletos (Mínimo)",
             "comment": "Comprueba todo",
             "commands": [
                 {
                     "id": "definiciones-generales-1",
                     "command": "store",
-                    "target": "/iaw/php/ejercicios/bases-datos/bases-de-datos-3-b/db-confirma-contrasena",
-                    "value": "urlBase"
+                    "target": "/iaw/php/ejercicios/bases-datos/bases-de-datos-3-b/db-registros-incompletos",
+                    "value": "urlBase",
+                    "comment": "Define la ruta de la aplicación que se va a testear"
                 },
                 {
                     "id": "inicio-1",
                     "command": "open",
                     "target": "${urlBase}/index.php",
                     "value": "",
-                    "comment": "Abre página Inicio"
+                    "comment": "Abre la página de Inicio de la aplicación"
                 },
                 {
                     "id": "inicio-2",
                     "command": "waitForElementPresent",
-                    "target": "xpath=//h1[.=\"Confirma contraseña - Inicio\"]",
+                    "target": "xpath=//h1[.=\"Registros incompletos - Inicio\"]",
                     "value": "20000",
-                    "comment": "Muestra título h1: 'Estadísticas - Inicio'"
+                    "comment": "Muestra título h1: 'Registros incompletos - Inicio'"
                 },
                 {
-                    "id": "preparacion-desconexion-inicial-1",
+                    "id": "desconexion-inicial-1",
                     "command": "executeScript",
                     "target": "return (document.body.innerHTML.includes('Desconectarse'))",
                     "value": "contieneDesconectarse"
                 },
                 {
-                    "id": "preparacion-desconexion-inicial-2",
+                    "id": "desconexion-inicial-2",
                     "command": "if",
                     "target": "${contieneDesconectarse}",
                     "value": ""
                 },
                 {
-                    "id": "preparacion-desconexion-inicial-3",
+                    "id": "desconexion-inicial-3",
                     "command": "click",
                     "target": "linkText=Desconectarse",
                     "value": "",
                     "comment": "Hace clic en el enlace 'Desconectarse'"
                 },
                 {
-                    "id": "preparacion-desconexion-inicial-4",
+                    "id": "desconexion-inicial-4",
                     "command": "end",
                     "target": "",
                     "value": ""
                 },
                 {
-                    "id": "preparacion-desconexion-inicial-5",
+                    "id": "desconexion-inicial-5",
                     "command": "assertText",
                     "target": "xpath=//li[1]/a[1]",
                     "value": "Conectarse",
                     "comment": "Muestra enlace: 'Conectarse'"
                 },
                 {
-                    "id": "preparacion-borrar-todo-con-1",
+                    "id": "borrar-todo-con-1",
                     "command": "click",
                     "target": "linkText=Conectarse",
                     "value": "",
                     "comment": "Hace clic en el enlace 'Conectarse'"
                 },
                 {
-                    "id": "preparacion-borrar-todo-con-2",
+                    "id": "borrar-todo-con-2",
                     "command": "waitForElementPresent",
-                    "target": "xpath=//h1[.=\"Confirma contraseña - Login 1\"]",
+                    "target": "xpath=//h1[.=\"Registros incompletos - Login 1\"]",
                     "value": "1000",
-                    "comment": "Muestra título h1: 'Estadísticas - Login 1'"
+                    "comment": "Muestra título h1: 'Registros incompletos - Login 1'"
                 },
                 {
-                    "id": "preparacion-borrar-todo-con-3",
+                    "id": "borrar-todo-con-3",
                     "command": "type",
                     "target": "name=usuario",
                     "value": "root",
                     "comment": "Escribe 'root' en el campo 'usuario'"
                 },
                 {
-                    "id": "preparacion-borrar-todo-con-4",
+                    "id": "borrar-todo-con-4",
                     "command": "type",
                     "target": "name=password",
                     "value": "root",
                     "comment": "Escribe 'root' en el campo 'password'"
                 },
                 {
-                    "id": "preparacion-borrar-todo-con-5",
+                    "id": "borrar-todo-con-5",
                     "command": "click",
                     "target": "xpath=//input[@value='Identificar']",
                     "value": "",
                     "comment": "Hace clic en el botón 'Identificar'"
                 },
                 {
-                    "id": "preparacion-borrar-todo-con-6",
+                    "id": "borrar-todo-con-6",
                     "command": "waitForElementPresent",
-                    "target": "xpath=//h1[.=\"Confirma contraseña - Inicio\"]",
+                    "target": "xpath=//h1[.=\"Registros incompletos - Inicio\"]",
                     "value": "1000",
-                    "comment": "Muestra título h1: 'Estadísticas - Inicio'"
+                    "comment": "Muestra título h1: 'Registros incompletos - Inicio'"
                 },
                 {
                     "id": "borrar-todo-con-1",
@@ -113,9 +114,9 @@
                 {
                     "id": "borrar-todo-con-2",
                     "command": "waitForElementPresent",
-                    "target": "xpath=//h1[.=\"Confirma contraseña - Administrador - Inicio\"]",
+                    "target": "xpath=//h1[.=\"Registros incompletos - Administrador - Inicio\"]",
                     "value": "1000",
-                    "comment": "Muestra título h1: 'Estadísticas - Administrador - Inicio'"
+                    "comment": "Muestra título h1: 'Registros incompletos - Administrador - Inicio'"
                 },
                 {
                     "id": "borrar-todo-con-3",
@@ -127,9 +128,9 @@
                 {
                     "id": "borrar-todo-con-4",
                     "command": "waitForElementPresent",
-                    "target": "xpath=//h1[.=\"Confirma contraseña - Administrador - Borrar todo 1\"]",
+                    "target": "xpath=//h1[.=\"Registros incompletos - Administrador - Borrar todo 1\"]",
                     "value": "1000",
-                    "comment": "Muestra título h1: 'Estadísticas - Administrador - Borrar todo 1'"
+                    "comment": "Muestra título h1: 'Registros incompletos - Administrador - Borrar todo 1'"
                 },
                 {
                     "id": "borrar-todo-con-5",
@@ -155,9 +156,9 @@
                 {
                     "id": "borrar-todo-con-8",
                     "command": "waitForElementPresent",
-                    "target": "xpath=//h1[.=\"Confirma contraseña - Administrador - Borrar todo 2\"]",
+                    "target": "xpath=//h1[.=\"Registros incompletos - Administrador - Borrar todo 2\"]",
                     "value": "1000",
-                    "comment": "Muestra título h1: 'Estadísticas - Administrador - Borrar todo 2'"
+                    "comment": "Muestra título h1: 'Registros incompletos - Administrador - Borrar todo 2'"
                 },
                 {
                     "id": "borrar-todo-con-9",
@@ -275,18 +276,18 @@
                     "value": ""
                 },
                 {
-                    "id": "borrar-todo-con-24",
+                    "id": "borrar-todo-con-26",
                     "command": "click",
                     "target": "linkText=Volver",
                     "value": "",
                     "comment": "Hace clic en el enlace 'Volver'"
                 },
                 {
-                    "id": "borrar-todo-con-25",
+                    "id": "borrar-todo-con-27",
                     "command": "waitForElementPresent",
-                    "target": "xpath=//h1[.=\"Confirma contraseña - Inicio\"]",
+                    "target": "xpath=//h1[.=\"Registros incompletos - Inicio\"]",
                     "value": "1000",
-                    "comment": "Muestra título h1: 'Estadísticas - Inicio'"
+                    "comment": "Muestra título h1: 'Registros incompletos - Inicio'"
                 },
                 {
                     "id": "registros-incompletos-1-1",
@@ -300,7 +301,8 @@
                     "id": "registros-incompletos-1-2",
                     "command": "waitForElementPresent",
                     "target": "xpath=//h1[.=\"Registros incompletos - Personas - Inicio\"]",
-                    "value": "${maxEspera}"
+                    "value": "1000",
+                    "comment": "Muestra título h1: 'Registros incompletos - Personas - Inicio'"
                 },
                 {
                     "id": "registros-incompletos-1-3",
@@ -319,7 +321,8 @@
                     "id": "registros-incompletos-1-5",
                     "command": "waitForElementPresent",
                     "target": "xpath=//h1[.=\"Registros incompletos - Personas - Incompletos 1\"]",
-                    "value": "${maxEspera}"
+                    "value": "1000",
+                    "comment": "Muestra título h1: 'Registros incompletos - Personas - Incompletos 1'"
                 },
                 {
                     "id": "registros-incompletos-1-6",
@@ -345,13 +348,15 @@
                     "title": "(TEST) Registro sin Nombre",
                     "command": "open",
                     "target": "${urlBase}/db/tabla-personas/insertar-2.php?nombre=&apellidos=prueba-1-2&telefono=1-3&correo=prueba-1-4@example.com",
-                    "value": ""
+                    "value": "",
+                    "comment": "Inserta directamente un registro"
                 },
                 {
                     "id": "registros-incompletos-2-2",
                     "command": "waitForElementPresent",
                     "target": "xpath=//h1[.=\"Registros incompletos - Personas - Añadir 2\"]",
-                    "value": "${maxEspera}"
+                    "value": "1000",
+                    "comment": "Muestra título h1: 'Registros incompletos - Personas - Añadir 2'"
                 },
                 {
                     "id": "registros-incompletos-2-3",
@@ -370,7 +375,8 @@
                     "id": "registros-incompletos-2-5",
                     "command": "waitForElementPresent",
                     "target": "xpath=//h1[.=\"Registros incompletos - Personas - Incompletos 1\"]",
-                    "value": "${maxEspera}"
+                    "value": "1000",
+                    "comment": "Muestra título h1: 'Registros incompletos - Personas - Incompletos 1'"
                 },
                 {
                     "id": "registros-incompletos-2-6",
@@ -458,15 +464,16 @@
                 {
                     "id": "registros-incompletos-2-19",
                     "command": "click",
-                    "target": "xpath=//input[@value=''Completar registro']",
+                    "target": "xpath=//form//input[@value='Completar registro']",
                     "value": "",
-                    "comment": "Hace clic en el botón ''Completa rregistro'"
+                    "comment": "Hace clic en el botón 'Completar registro'"
                 },
                 {
                     "id": "registros-incompletos-2-20",
                     "command": "waitForElementPresent",
                     "target": "xpath=//h1[.=\"Registros incompletos - Personas - Incompletos 2\"]",
-                    "value": "${maxEspera}"
+                    "value": "1000",
+                    "comment": "Muestra título h1: 'Registros incompletos - Personas - Incompletos 2'"
                 },
                 {
                     "id": "registros-incompletos-2-21",
@@ -543,7 +550,7 @@
                 {
                     "id": "registros-incompletos-2-32",
                     "command": "click",
-                    "target": "xpath=//input[@value=''Guardar']",
+                    "target": "xpath=//input[@value='Guardar']",
                     "value": "",
                     "comment": "Hace clic en el botón ''Guardar'"
                 },
@@ -551,7 +558,8 @@
                     "id": "registros-incompletos-2-33",
                     "command": "waitForElementPresent",
                     "target": "xpath=//h1[.=\"Registros incompletos - Personas - Incompletos 3\"]",
-                    "value": "${maxEspera}"
+                    "value": "1000",
+                    "comment": "Muestra título h1: 'Registros incompletos - Personas - Incompletos 3'"
                 },
                 {
                     "id": "registros-incompletos-2-34",
@@ -571,7 +579,8 @@
                     "id": "registros-incompletos-2-36",
                     "command": "waitForElementPresent",
                     "target": "xpath=//h1[.=\"Registros incompletos - Personas - Listar\"]",
-                    "value": "${maxEspera}"
+                    "value": "1000",
+                    "comment": "Muestra título h1: 'Registros incompletos - Personas - Listar'"
                 },
                 {
                     "id": "registros-incompletos-2-37",
@@ -602,13 +611,15 @@
                     "title": "(TEST) Registro sin Apellidos",
                     "command": "open",
                     "target": "${urlBase}/db/tabla-personas/insertar-2.php?nombre=prueba-2-1&telefono=2-3&correo=prueba-2-4@example.com",
-                    "value": ""
+                    "value": "",
+                    "comment": "Inserta directamente un registro"
                 },
                 {
                     "id": "registros-incompletos-3-2",
                     "command": "waitForElementPresent",
                     "target": "xpath=//h1[.=\"Registros incompletos - Personas - Añadir 2\"]",
-                    "value": "${maxEspera}"
+                    "value": "1000",
+                    "comment": "Muestra título h1: 'Registros incompletos - Personas - Añadir 2'"
                 },
                 {
                     "id": "registros-incompletos-3-3",
@@ -627,7 +638,8 @@
                     "id": "registros-incompletos-3-5",
                     "command": "waitForElementPresent",
                     "target": "xpath=//h1[.=\"Registros incompletos - Personas - Incompletos 1\"]",
-                    "value": "${maxEspera}"
+                    "value": "1000",
+                    "comment": "Muestra título h1: 'Registros incompletos - Personas - Incompletos 1'"
                 },
                 {
                     "id": "registros-incompletos-3-6",
@@ -668,15 +680,16 @@
                 {
                     "id": "registros-incompletos-3-12",
                     "command": "click",
-                    "target": "xpath=//input[@value=''Completar registro']",
+                    "target": "xpath=//form//input[@value='Completar registro']",
                     "value": "",
-                    "comment": "Hace clic en el botón ''Completa rregistro'"
+                    "comment": "Hace clic en el botón 'Completar registro'"
                 },
                 {
                     "id": "registros-incompletos-3-13",
                     "command": "waitForElementPresent",
                     "target": "xpath=//h1[.=\"Registros incompletos - Personas - Incompletos 2\"]",
-                    "value": "${maxEspera}"
+                    "value": "1000",
+                    "comment": "Muestra título h1: 'Registros incompletos - Personas - Incompletos 2'"
                 },
                 {
                     "id": "registros-incompletos-3-14",
@@ -712,7 +725,7 @@
                 {
                     "id": "registros-incompletos-3-19",
                     "command": "click",
-                    "target": "xpath=//input[@value=''Guardar']",
+                    "target": "xpath=//input[@value='Guardar']",
                     "value": "",
                     "comment": "Hace clic en el botón ''Guardar'"
                 },
@@ -720,7 +733,8 @@
                     "id": "registros-incompletos-3-20",
                     "command": "waitForElementPresent",
                     "target": "xpath=//h1[.=\"Registros incompletos - Personas - Incompletos 3\"]",
-                    "value": "${maxEspera}"
+                    "value": "1000",
+                    "comment": "Muestra título h1: 'Registros incompletos - Personas - Incompletos 3'"
                 },
                 {
                     "id": "registros-incompletos-3-21",
@@ -740,7 +754,8 @@
                     "id": "registros-incompletos-3-23",
                     "command": "waitForElementPresent",
                     "target": "xpath=//h1[.=\"Registros incompletos - Personas - Listar\"]",
-                    "value": "${maxEspera}"
+                    "value": "1000",
+                    "comment": "Muestra título h1: 'Registros incompletos - Personas - Listar'"
                 },
                 {
                     "id": "registros-incompletos-3-24",
@@ -771,13 +786,15 @@
                     "title": "(TEST) Registro sin Telefono",
                     "command": "open",
                     "target": "${urlBase}/db/tabla-personas/insertar-2.php?nombre=prueba-3-1&apellidos=prueba-3-2&correo=prueba-3-4@example.com",
-                    "value": ""
+                    "value": "",
+                    "comment": "Inserta directamente un registro"
                 },
                 {
                     "id": "registros-incompletos-4-2",
                     "command": "waitForElementPresent",
                     "target": "xpath=//h1[.=\"Registros incompletos - Personas - Añadir 2\"]",
-                    "value": "${maxEspera}"
+                    "value": "1000",
+                    "comment": "Muestra título h1: 'Registros incompletos - Personas - Añadir 2'"
                 },
                 {
                     "id": "registros-incompletos-4-3",
@@ -796,7 +813,8 @@
                     "id": "registros-incompletos-4-5",
                     "command": "waitForElementPresent",
                     "target": "xpath=//h1[.=\"Registros incompletos - Personas - Incompletos 1\"]",
-                    "value": "${maxEspera}"
+                    "value": "1000",
+                    "comment": "Muestra título h1: 'Registros incompletos - Personas - Incompletos 1'"
                 },
                 {
                     "id": "registros-incompletos-4-6",
@@ -837,15 +855,16 @@
                 {
                     "id": "registros-incompletos-4-12",
                     "command": "click",
-                    "target": "xpath=//input[@value=''Completar registro']",
+                    "target": "xpath=//form//input[@value='Completar registro']",
                     "value": "",
-                    "comment": "Hace clic en el botón ''Completa rregistro'"
+                    "comment": "Hace clic en el botón 'Completar registro'"
                 },
                 {
                     "id": "registros-incompletos-4-13",
                     "command": "waitForElementPresent",
                     "target": "xpath=//h1[.=\"Registros incompletos - Personas - Incompletos 2\"]",
-                    "value": "${maxEspera}"
+                    "value": "1000",
+                    "comment": "Muestra título h1: 'Registros incompletos - Personas - Incompletos 2'"
                 },
                 {
                     "id": "registros-incompletos-4-14",
@@ -880,7 +899,7 @@
                 {
                     "id": "registros-incompletos-4-19",
                     "command": "click",
-                    "target": "xpath=//input[@value=''Guardar']",
+                    "target": "xpath=//input[@value='Guardar']",
                     "value": "",
                     "comment": "Hace clic en el botón ''Guardar'"
                 },
@@ -888,7 +907,8 @@
                     "id": "registros-incompletos-4-20",
                     "command": "waitForElementPresent",
                     "target": "xpath=//h1[.=\"Registros incompletos - Personas - Incompletos 3\"]",
-                    "value": "${maxEspera}"
+                    "value": "1000",
+                    "comment": "Muestra título h1: 'Registros incompletos - Personas - Incompletos 3'"
                 },
                 {
                     "id": "registros-incompletos-4-21",
@@ -908,7 +928,8 @@
                     "id": "registros-incompletos-4-23",
                     "command": "waitForElementPresent",
                     "target": "xpath=//h1[.=\"Registros incompletos - Personas - Listar\"]",
-                    "value": "${maxEspera}"
+                    "value": "1000",
+                    "comment": "Muestra título h1: 'Registros incompletos - Personas - Listar'"
                 },
                 {
                     "id": "registros-incompletos-4-24",
@@ -939,13 +960,15 @@
                     "title": "(TEST) Registro sin Correo",
                     "command": "open",
                     "target": "${urlBase}/db/tabla-personas/insertar-2.php?nombre=prueba-4-1&apellidos=prueba-4-2&telefono=4-3",
-                    "value": ""
+                    "value": "",
+                    "comment": "Inserta directamente un registro"
                 },
                 {
                     "id": "registros-incompletos-5-2",
                     "command": "waitForElementPresent",
                     "target": "xpath=//h1[.=\"Registros incompletos - Personas - Añadir 2\"]",
-                    "value": "${maxEspera}"
+                    "value": "1000",
+                    "comment": "Muestra título h1: 'Registros incompletos - Personas - Añadir 2'"
                 },
                 {
                     "id": "registros-incompletos-5-3",
@@ -964,7 +987,8 @@
                     "id": "registros-incompletos-5-5",
                     "command": "waitForElementPresent",
                     "target": "xpath=//h1[.=\"Registros incompletos - Personas - Incompletos 1\"]",
-                    "value": "${maxEspera}"
+                    "value": "1000",
+                    "comment": "Muestra título h1: 'Registros incompletos - Personas - Incompletos 1'"
                 },
                 {
                     "id": "registros-incompletos-5-6",
@@ -1005,15 +1029,16 @@
                 {
                     "id": "registros-incompletos-5-12",
                     "command": "click",
-                    "target": "xpath=//input[@value=''Completar registro']",
+                    "target": "xpath=//form//input[@value='Completar registro']",
                     "value": "",
-                    "comment": "Hace clic en el botón ''Completa rregistro'"
+                    "comment": "Hace clic en el botón 'Completar registro'"
                 },
                 {
                     "id": "registros-incompletos-5-13",
                     "command": "waitForElementPresent",
                     "target": "xpath=//h1[.=\"Registros incompletos - Personas - Incompletos 2\"]",
-                    "value": "${maxEspera}"
+                    "value": "1000",
+                    "comment": "Muestra título h1: 'Registros incompletos - Personas - Incompletos 2'"
                 },
                 {
                     "id": "registros-incompletos-5-14",
@@ -1048,7 +1073,7 @@
                 {
                     "id": "registros-incompletos-5-19",
                     "command": "click",
-                    "target": "xpath=//input[@value=''Guardar']",
+                    "target": "xpath=//input[@value='Guardar']",
                     "value": "",
                     "comment": "Hace clic en el botón ''Guardar'"
                 },
@@ -1056,7 +1081,8 @@
                     "id": "registros-incompletos-5-20",
                     "command": "waitForElementPresent",
                     "target": "xpath=//h1[.=\"Registros incompletos - Personas - Incompletos 3\"]",
-                    "value": "${maxEspera}"
+                    "value": "1000",
+                    "comment": "Muestra título h1: 'Registros incompletos - Personas - Incompletos 3'"
                 },
                 {
                     "id": "registros-incompletos-5-21",
@@ -1076,7 +1102,8 @@
                     "id": "registros-incompletos-5-23",
                     "command": "waitForElementPresent",
                     "target": "xpath=//h1[.=\"Registros incompletos - Personas - Listar\"]",
-                    "value": "${maxEspera}"
+                    "value": "1000",
+                    "comment": "Muestra título h1: 'Registros incompletos - Personas - Listar'"
                 },
                 {
                     "id": "registros-incompletos-5-24",
@@ -1107,13 +1134,15 @@
                     "title": "(TEST) Sale y entra como usuario1. Registro sin Nombre",
                     "command": "open",
                     "target": "${urlBase}/acceso/logout.php",
-                    "value": ""
+                    "value": "",
+                    "comment": "Desconecta al usuario"
                 },
                 {
                     "id": "registros-incompletos-6-2",
                     "command": "waitForElementPresent",
                     "target": "xpath=//h1[.=\"Registros incompletos - Inicio\"]",
-                    "value": "${maxEspera}"
+                    "value": "1000",
+                    "comment": "Muestra título h1: 'Registros incompletos - Inicio'"
                 },
                 {
                     "id": "registros-incompletos-6-3",
@@ -1125,13 +1154,15 @@
                     "id": "registros-incompletos-6-4",
                     "command": "open",
                     "target": "${urlBase}/acceso/login-2.php?usuario=usuario1&password=usuario1",
-                    "value": ""
+                    "value": ".*",
+                    "comment": "Accede directamente como usuario 'usuario1' y contraseña 'usuario1'"
                 },
                 {
                     "id": "registros-incompletos-6-5",
                     "command": "waitForElementPresent",
                     "target": "xpath=//h1[.=\"Registros incompletos - Inicio\"]",
-                    "value": "${maxEspera}"
+                    "value": "1000",
+                    "comment": "Muestra título h1: 'Registros incompletos - Inicio'"
                 },
                 {
                     "id": "registros-incompletos-6-6",
@@ -1150,7 +1181,8 @@
                     "id": "registros-incompletos-6-8",
                     "command": "waitForElementPresent",
                     "target": "xpath=//h1[.=\"Registros incompletos - Personas - Inicio\"]",
-                    "value": "${maxEspera}"
+                    "value": "1000",
+                    "comment": "Muestra título h1: 'Registros incompletos - Personas - Inicio'"
                 },
                 {
                     "id": "registros-incompletos-6-9",
@@ -1169,7 +1201,8 @@
                     "id": "registros-incompletos-6-11",
                     "command": "waitForElementPresent",
                     "target": "xpath=//h1[.=\"Registros incompletos - Personas - Incompletos 1\"]",
-                    "value": "${maxEspera}"
+                    "value": "1000",
+                    "comment": "Muestra título h1: 'Registros incompletos - Personas - Incompletos 1'"
                 },
                 {
                     "id": "registros-incompletos-6-12",
@@ -1194,13 +1227,15 @@
                     "id": "registros-incompletos-6-15",
                     "command": "open",
                     "target": "${urlBase}/db/tabla-personas/insertar-2.php?nombre=&apellidos=prueba-5-2&telefono=5-3&correo=prueba-5-4@example.com",
-                    "value": ""
+                    "value": "",
+                    "comment": "Inserta directamente un registro"
                 },
                 {
                     "id": "registros-incompletos-6-16",
                     "command": "waitForElementPresent",
                     "target": "xpath=//h1[.=\"Registros incompletos - Personas - Añadir 2\"]",
-                    "value": "${maxEspera}"
+                    "value": "1000",
+                    "comment": "Muestra título h1: 'Registros incompletos - Personas - Añadir 2'"
                 },
                 {
                     "id": "registros-incompletos-6-17",
@@ -1219,7 +1254,8 @@
                     "id": "registros-incompletos-6-19",
                     "command": "waitForElementPresent",
                     "target": "xpath=//h1[.=\"Registros incompletos - Personas - Incompletos 1\"]",
-                    "value": "${maxEspera}"
+                    "value": "1000",
+                    "comment": "Muestra título h1: 'Registros incompletos - Personas - Incompletos 1'"
                 },
                 {
                     "id": "registros-incompletos-6-20",
@@ -1307,15 +1343,16 @@
                 {
                     "id": "registros-incompletos-6-33",
                     "command": "click",
-                    "target": "xpath=//input[@value=''Completar registro']",
+                    "target": "xpath=//form//input[@value='Completar registro']",
                     "value": "",
-                    "comment": "Hace clic en el botón ''Completa rregistro'"
+                    "comment": "Hace clic en el botón 'Completar registro'"
                 },
                 {
                     "id": "registros-incompletos-6-34",
                     "command": "waitForElementPresent",
                     "target": "xpath=//h1[.=\"Registros incompletos - Personas - Incompletos 2\"]",
-                    "value": "${maxEspera}"
+                    "value": "1000",
+                    "comment": "Muestra título h1: 'Registros incompletos - Personas - Incompletos 2'"
                 },
                 {
                     "id": "registros-incompletos-6-35",
@@ -1392,7 +1429,7 @@
                 {
                     "id": "registros-incompletos-6-46",
                     "command": "click",
-                    "target": "xpath=//input[@value=''Guardar']",
+                    "target": "xpath=//input[@value='Guardar']",
                     "value": "",
                     "comment": "Hace clic en el botón ''Guardar'"
                 },
@@ -1400,7 +1437,8 @@
                     "id": "registros-incompletos-6-47",
                     "command": "waitForElementPresent",
                     "target": "xpath=//h1[.=\"Registros incompletos - Personas - Incompletos 3\"]",
-                    "value": "${maxEspera}"
+                    "value": "1000",
+                    "comment": "Muestra título h1: 'Registros incompletos - Personas - Incompletos 3'"
                 },
                 {
                     "id": "registros-incompletos-6-48",
@@ -1420,7 +1458,8 @@
                     "id": "registros-incompletos-6-50",
                     "command": "waitForElementPresent",
                     "target": "xpath=//h1[.=\"Registros incompletos - Personas - Listar\"]",
-                    "value": "${maxEspera}"
+                    "value": "1000",
+                    "comment": "Muestra título h1: 'Registros incompletos - Personas - Listar'"
                 },
                 {
                     "id": "registros-incompletos-6-51",
@@ -1457,7 +1496,8 @@
                     "id": "registros-incompletos-6-56",
                     "command": "waitForElementPresent",
                     "target": "xpath=//h1[.=\"Registros incompletos - Inicio\"]",
-                    "value": "${maxEspera}"
+                    "value": "1000",
+                    "comment": "Muestra título h1: 'Registros incompletos - Inicio'"
                 },
                 {
                     "id": "registros-incompletos-6-57",
@@ -1477,7 +1517,8 @@
                     "id": "registros-incompletos-7-2",
                     "command": "waitForElementPresent",
                     "target": "xpath=//h1[.=\"Registros incompletos - Inicio\"]",
-                    "value": "${maxEspera}"
+                    "value": "1000",
+                    "comment": "Muestra título h1: 'Registros incompletos - Inicio'"
                 },
                 {
                     "id": "registros-incompletos-7-3",
@@ -1488,9 +1529,9 @@
                 {
                     "id": "final-1",
                     "command": "waitForElementPresent",
-                    "target": "xpath=//h1[.=\"Confirma contraseña - Inicio\"]",
+                    "target": "xpath=//h1[.=\"Registros incompletos - Inicio\"]",
                     "value": "1000",
-                    "comment": "Muestra título h1: 'Estadísticas - Inicio'. Test terminado correctamente"
+                    "comment": "Muestra título h1: 'Registros incompletos - Inicio'. Test terminado correctamente"
                 }
             ]
         }

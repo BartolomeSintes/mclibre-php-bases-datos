@@ -1,220 +1,229 @@
 {
-    "id": "mclibre-bases-de-datos-3-b-confirma-contrasena-tests-minimo",
-    "version": "2024-02-07",
-    "name": "Test ejercicio Bases de datos (3 B) Confirma contraseña Mínimo",
+    "id": "mclibre-bases-de-datos-3-b-confirma-contador-conexiones-tests-minimo",
+    "version": "2024-02-08",
+    "name": "Test ejercicio Bases de datos (3 B) Contador de conexiones (Mínimo)",
     "url": "http://localhost",
     "tests": [
         {
             "id": "test-completo",
-            "name": "Test ejercicio Bases de datos (3 B) Confirma contraseña Mínimo",
+            "name": "Test ejercicio Bases de datos (3 B) Contador de conexiones (Mínimo)",
             "comment": "Comprueba todo",
             "commands": [
                 {
                     "id": "definiciones-generales-1",
                     "command": "store",
-                    "target": "/iaw/php/ejercicios/bases-datos/bases-de-datos-3-b/db-confirma-contrasena",
-                    "value": "urlBase"
+                    "target": "/iaw/php/ejercicios/bases-datos/bases-de-datos-3-b/db-contador-conexiones",
+                    "value": "urlBase",
+                    "comment": "Define la ruta de la aplicación que se va a testear"
                 },
                 {
                     "id": "inicio-1",
                     "command": "open",
                     "target": "${urlBase}/index.php",
                     "value": "",
-                    "comment": "Abre página Inicio"
+                    "comment": "Abre la página de Inicio de la aplicación"
                 },
                 {
                     "id": "inicio-2",
                     "command": "waitForElementPresent",
-                    "target": "xpath=//h1[.=\"Confirma contraseña - Inicio\"]",
+                    "target": "xpath=//h1[.=\"Contador de conexiones - Inicio\"]",
                     "value": "20000",
-                    "comment": "Muestra título h1: 'Estadísticas - Inicio'"
+                    "comment": "Muestra título h1: 'Contador de conexiones - Inicio'"
                 },
                 {
-                    "id": "preparacion-desconexion-inicial-1",
+                    "id": "desconexion-inicial-1",
                     "command": "executeScript",
                     "target": "return (document.body.innerHTML.includes('Desconectarse'))",
                     "value": "contieneDesconectarse"
                 },
                 {
-                    "id": "preparacion-desconexion-inicial-2",
+                    "id": "desconexion-inicial-2",
                     "command": "if",
                     "target": "${contieneDesconectarse}",
                     "value": ""
                 },
                 {
-                    "id": "preparacion-desconexion-inicial-3",
+                    "id": "desconexion-inicial-3",
                     "command": "click",
                     "target": "linkText=Desconectarse",
                     "value": "",
                     "comment": "Hace clic en el enlace 'Desconectarse'"
                 },
                 {
-                    "id": "preparacion-desconexion-inicial-4",
+                    "id": "desconexion-inicial-4",
                     "command": "end",
                     "target": "",
                     "value": ""
                 },
                 {
-                    "id": "preparacion-desconexion-inicial-5",
+                    "id": "desconexion-inicial-5",
                     "command": "assertText",
                     "target": "xpath=//li[1]/a[1]",
                     "value": "Conectarse",
                     "comment": "Muestra enlace: 'Conectarse'"
                 },
                 {
-                    "id": "preparacion-borrar-todo-con-LIMITE-CONEXION-1",
+                    "id": "borrar-todo-con-LIMITE-CONEXION-1",
                     "command": "click",
                     "target": "linkText=Conectarse",
                     "value": "",
                     "comment": "Hace clic en el enlace 'Conectarse'"
                 },
                 {
-                    "id": "preparacion-borrar-todo-con-LIMITE-CONEXION-2",
+                    "id": "borrar-todo-con-LIMITE-CONEXION-2",
                     "command": "waitForElementPresent",
                     "target": "xpath=//h1[.=\"Contador de conexiones - Login 1\"]",
-                    "value": "${maxEspera}"
+                    "value": "1000",
+                    "comment": "Muestra título h1: 'Contador de conexiones - Login 1'"
                 },
                 {
-                    "id": "preparacion-borrar-todo-con-LIMITE-CONEXION-3",
+                    "id": "borrar-todo-con-LIMITE-CONEXION-3",
                     "command": "type",
                     "target": "name=usuario",
                     "value": "root",
                     "comment": "Escribe 'root' en el campo 'usuario'"
                 },
                 {
-                    "id": "preparacion-borrar-todo-con-LIMITE-CONEXION-4",
+                    "id": "borrar-todo-con-LIMITE-CONEXION-4",
                     "command": "type",
                     "target": "name=password",
                     "value": "root",
                     "comment": "Escribe 'root' en el campo 'password'"
                 },
                 {
-                    "id": "preparacion-borrar-todo-con-LIMITE-CONEXION-5",
+                    "id": "borrar-todo-con-LIMITE-CONEXION-5",
                     "command": "click",
                     "target": "xpath=//input[@value='Identificar']",
                     "value": "",
                     "comment": "Hace clic en el botón 'Identificar'"
                 },
                 {
-                    "id": "preparacion-borrar-todo-con-LIMITE-CONEXION-6",
+                    "id": "borrar-todo-con-LIMITE-CONEXION-6",
                     "command": "executeScript",
                     "target": "return (document.body.innerHTML.includes('Se recomienda cambiar la contraseña.'))",
                     "value": "detectadoSuperadoLimite"
                 },
                 {
-                    "id": "preparacion-borrar-todo-con-LIMITE-CONEXION-7",
+                    "id": "borrar-todo-con-LIMITE-CONEXION-7",
                     "command": "if",
                     "target": "${detectadoSuperadoLimite}",
                     "value": ""
                 },
                 {
-                    "id": "preparacion-borrar-todo-con-LIMITE-CONEXION-8",
+                    "id": "borrar-todo-con-LIMITE-CONEXION-8",
                     "command": "click",
                     "target": "linkText=Volver",
                     "value": "",
                     "comment": "Hace clic en el enlace 'Volver'"
                 },
                 {
-                    "id": "preparacion-borrar-todo-con-LIMITE-CONEXION-9",
+                    "id": "borrar-todo-con-LIMITE-CONEXION-9",
                     "command": "end",
                     "target": "",
                     "value": ""
                 },
                 {
-                    "id": "preparacion-borrar-todo-con-LIMITE-CONEXION-10",
+                    "id": "borrar-todo-con-LIMITE-CONEXION-10",
                     "command": "waitForElementPresent",
                     "target": "xpath=//h1[.=\"Contador de conexiones - Inicio\"]",
-                    "value": "${maxEspera}"
+                    "value": "1000",
+                    "comment": "Muestra título h1: 'Contador de conexiones - Inicio'"
                 },
                 {
-                    "id": "preparacion-borrar-todo-con-LIMITE-CONEXION-11",
+                    "id": "borrar-todo-con-LIMITE-CONEXION-11",
                     "command": "click",
                     "target": "linkText=Administrador",
                     "value": "",
                     "comment": "Hace clic en el enlace 'Administrador'"
                 },
                 {
-                    "id": "preparacion-borrar-todo-con-LIMITE-CONEXION-12",
+                    "id": "borrar-todo-con-LIMITE-CONEXION-12",
                     "command": "waitForElementPresent",
                     "target": "xpath=//h1[.=\"Contador de conexiones - Administrador - Inicio\"]",
-                    "value": "${maxEspera}"
+                    "value": "1000",
+                    "comment": "Muestra título h1: 'Contador de conexiones - Administrador - Inicio'"
                 },
                 {
-                    "id": "preparacion-borrar-todo-con-LIMITE-CONEXION-13",
+                    "id": "borrar-todo-con-LIMITE-CONEXION-13",
                     "command": "click",
                     "target": "linkText=Borrar todo",
                     "value": "",
                     "comment": "Hace clic en el enlace 'Borrar todo'"
                 },
                 {
-                    "id": "preparacion-borrar-todo-con-LIMITE-CONEXION-14",
+                    "id": "borrar-todo-con-LIMITE-CONEXION-14",
                     "command": "waitForElementPresent",
                     "target": "xpath=//h1[.=\"Contador de conexiones - Administrador - Borrar todo 1\"]",
-                    "value": "${maxEspera}"
+                    "value": "1000",
+                    "comment": "Muestra título h1: 'Contador de conexiones - Administrador - Borrar todo 1'"
                 },
                 {
-                    "id": "preparacion-borrar-todo-con-LIMITE-CONEXION-15",
+                    "id": "borrar-todo-con-LIMITE-CONEXION-15",
                     "command": "click",
                     "target": "name=demo",
                     "value": "",
                     "comment": "Hace clic en la casilla 'demo'"
                 },
                 {
-                    "id": "preparacion-borrar-todo-con-LIMITE-CONEXION-16",
+                    "id": "borrar-todo-con-LIMITE-CONEXION-16",
                     "command": "assertChecked",
                     "target": "xpath=//input[@name=\"demo\"]",
                     "value": ""
                 },
                 {
-                    "id": "preparacion-borrar-todo-con-LIMITE-CONEXION-17",
+                    "id": "borrar-todo-con-LIMITE-CONEXION-17",
                     "command": "click",
                     "target": "xpath=//input[@name='borrar' and @value='Sí']",
                     "value": "",
                     "comment": "Hace clic en el botón 'borrar' con atributo 'value' con valor 'Sí'"
                 },
                 {
-                    "id": "preparacion-borrar-todo-con-LIMITE-CONEXION-18",
+                    "id": "borrar-todo-con-LIMITE-CONEXION-18",
                     "command": "waitForElementPresent",
                     "target": "xpath=//h1[.=\"Contador de conexiones - Administrador - Borrar todo 2\"]",
-                    "value": "${maxEspera}"
+                    "value": "1000",
+                    "comment": "Muestra título h1: 'Contador de conexiones - Administrador - Borrar todo 2'"
                 },
                 {
-                    "id": "preparacion-borrar-todo-con-LIMITE-CONEXION-19",
+                    "id": "borrar-todo-con-LIMITE-CONEXION-19",
                     "command": "executeScript",
                     "target": "return (document.body.innerHTML.includes('<p>Insertando registros de prueba ...</p>'))",
                     "value": "${detectadaCadena}"
                 },
                 {
-                    "id": "preparacion-borrar-todo-con-LIMITE-CONEXION-20",
+                    "id": "borrar-todo-con-LIMITE-CONEXION-20",
                     "command": "assert",
                     "target": "${detectadaCadena}",
                     "value": "true"
                 },
                 {
-                    "id": "preparacion-borrar-todo-con-LIMITE-CONEXION-21",
+                    "id": "borrar-todo-con-LIMITE-CONEXION-21",
                     "command": "click",
                     "target": "linkText=Volver",
                     "value": "",
                     "comment": "Hace clic en el enlace 'Volver'"
                 },
                 {
-                    "id": "preparacion-borrar-todo-con-LIMITE-CONEXION-22",
+                    "id": "borrar-todo-con-LIMITE-CONEXION-22",
                     "command": "waitForElementPresent",
                     "target": "xpath=//h1[.=\"Contador de conexiones - Inicio\"]",
-                    "value": "${maxEspera}"
+                    "value": "1000",
+                    "comment": "Muestra título h1: 'Contador de conexiones - Inicio'"
                 },
                 {
                     "id": "contador-conexiones-1-1",
                     "title": "(TEST) Comprobación inicial conexiones root",
                     "command": "open",
                     "target": "${urlBase}/db/tabla-usuarios/listar.php",
-                    "value": ""
+                    "value": "",
+                    "comment": "Abre directamente la página Usuarios > Listar"
                 },
                 {
                     "id": "contador-conexiones-1-2",
                     "command": "waitForElementPresent",
                     "target": "xpath=//h1[.=\"Contador de conexiones - Usuarios - Listar\"]",
-                    "value": "${maxEspera}"
+                    "value": "1000",
+                    "comment": "Muestra título h1: 'Contador de conexiones - Usuarios - Listar'"
                 },
                 {
                     "id": "contador-conexiones-1-3",
@@ -264,13 +273,15 @@
                     "title": "(TEST) Sale y entra como admin1",
                     "command": "open",
                     "target": "${urlBase}/acceso/logout.php",
-                    "value": ""
+                    "value": "",
+                    "comment": "Desconecta al usuario"
                 },
                 {
                     "id": "contador-conexiones-2-2",
                     "command": "waitForElementPresent",
                     "target": "xpath=//h1[.=\"Contador de conexiones - Inicio\"]",
-                    "value": "${maxEspera}"
+                    "value": "1000",
+                    "comment": "Muestra título h1: 'Contador de conexiones - Inicio'"
                 },
                 {
                     "id": "contador-conexiones-2-3",
@@ -282,13 +293,15 @@
                     "id": "contador-conexiones-2-4",
                     "command": "open",
                     "target": "${urlBase}/acceso/login-2.php?usuario=admin1&password=admin1",
-                    "value": ""
+                    "value": ".*",
+                    "comment": "Accede directamente como usuario 'admin1' y contraseña 'admin1'"
                 },
                 {
                     "id": "contador-conexiones-2-5",
                     "command": "waitForElementPresent",
                     "target": "xpath=//h1[.=\"Contador de conexiones - Inicio\"]",
-                    "value": "${maxEspera}"
+                    "value": "1000",
+                    "comment": "Muestra título h1: 'Contador de conexiones - Inicio'"
                 },
                 {
                     "id": "contador-conexiones-2-6",
@@ -301,13 +314,15 @@
                     "title": "(TEST) Sale y entra como admin1",
                     "command": "open",
                     "target": "${urlBase}/acceso/logout.php",
-                    "value": ""
+                    "value": "",
+                    "comment": "Desconecta al usuario"
                 },
                 {
                     "id": "contador-conexiones-3-2",
                     "command": "waitForElementPresent",
                     "target": "xpath=//h1[.=\"Contador de conexiones - Inicio\"]",
-                    "value": "${maxEspera}"
+                    "value": "1000",
+                    "comment": "Muestra título h1: 'Contador de conexiones - Inicio'"
                 },
                 {
                     "id": "contador-conexiones-3-3",
@@ -319,13 +334,15 @@
                     "id": "contador-conexiones-3-4",
                     "command": "open",
                     "target": "${urlBase}/acceso/login-2.php?usuario=admin1&password=admin1",
-                    "value": ""
+                    "value": ".*",
+                    "comment": "Accede directamente como usuario 'admin1' y contraseña 'admin1'"
                 },
                 {
                     "id": "contador-conexiones-3-5",
                     "command": "waitForElementPresent",
                     "target": "xpath=//h1[.=\"Contador de conexiones - Inicio\"]",
-                    "value": "${maxEspera}"
+                    "value": "1000",
+                    "comment": "Muestra título h1: 'Contador de conexiones - Inicio'"
                 },
                 {
                     "id": "contador-conexiones-3-6",
@@ -338,13 +355,15 @@
                     "title": "(TEST) Sale y entra como admin1",
                     "command": "open",
                     "target": "${urlBase}/acceso/logout.php",
-                    "value": ""
+                    "value": "",
+                    "comment": "Desconecta al usuario"
                 },
                 {
                     "id": "contador-conexiones-4-2",
                     "command": "waitForElementPresent",
                     "target": "xpath=//h1[.=\"Contador de conexiones - Inicio\"]",
-                    "value": "${maxEspera}"
+                    "value": "1000",
+                    "comment": "Muestra título h1: 'Contador de conexiones - Inicio'"
                 },
                 {
                     "id": "contador-conexiones-4-3",
@@ -356,13 +375,15 @@
                     "id": "contador-conexiones-4-4",
                     "command": "open",
                     "target": "${urlBase}/acceso/login-2.php?usuario=admin1&password=admin1",
-                    "value": ""
+                    "value": ".*",
+                    "comment": "Accede directamente como usuario 'admin1' y contraseña 'admin1'"
                 },
                 {
                     "id": "contador-conexiones-4-5",
                     "command": "waitForElementPresent",
                     "target": "xpath=//h1[.=\"Contador de conexiones - Inicio\"]",
-                    "value": "${maxEspera}"
+                    "value": "1000",
+                    "comment": "Muestra título h1: 'Contador de conexiones - Inicio'"
                 },
                 {
                     "id": "contador-conexiones-4-6",
@@ -375,13 +396,15 @@
                     "title": "(TEST) Sale y entra como usuario1",
                     "command": "open",
                     "target": "${urlBase}/acceso/logout.php",
-                    "value": ""
+                    "value": "",
+                    "comment": "Desconecta al usuario"
                 },
                 {
                     "id": "contador-conexiones-5-2",
                     "command": "waitForElementPresent",
                     "target": "xpath=//h1[.=\"Contador de conexiones - Inicio\"]",
-                    "value": "${maxEspera}"
+                    "value": "1000",
+                    "comment": "Muestra título h1: 'Contador de conexiones - Inicio'"
                 },
                 {
                     "id": "contador-conexiones-5-3",
@@ -393,13 +416,15 @@
                     "id": "contador-conexiones-5-4",
                     "command": "open",
                     "target": "${urlBase}/acceso/login-2.php?usuario=usuario1&password=usuario1",
-                    "value": ""
+                    "value": ".*",
+                    "comment": "Accede directamente como usuario 'usuario1' y contraseña 'usuario1'"
                 },
                 {
                     "id": "contador-conexiones-5-5",
                     "command": "waitForElementPresent",
                     "target": "xpath=//h1[.=\"Contador de conexiones - Inicio\"]",
-                    "value": "${maxEspera}"
+                    "value": "1000",
+                    "comment": "Muestra título h1: 'Contador de conexiones - Inicio'"
                 },
                 {
                     "id": "contador-conexiones-5-6",
@@ -412,13 +437,15 @@
                     "title": "(TEST) Sale y entra como usuario1",
                     "command": "open",
                     "target": "${urlBase}/acceso/logout.php",
-                    "value": ""
+                    "value": "",
+                    "comment": "Desconecta al usuario"
                 },
                 {
                     "id": "contador-conexiones-6-2",
                     "command": "waitForElementPresent",
                     "target": "xpath=//h1[.=\"Contador de conexiones - Inicio\"]",
-                    "value": "${maxEspera}"
+                    "value": "1000",
+                    "comment": "Muestra título h1: 'Contador de conexiones - Inicio'"
                 },
                 {
                     "id": "contador-conexiones-6-3",
@@ -430,13 +457,15 @@
                     "id": "contador-conexiones-6-4",
                     "command": "open",
                     "target": "${urlBase}/acceso/login-2.php?usuario=usuario1&password=usuario1",
-                    "value": ""
+                    "value": ".*",
+                    "comment": "Accede directamente como usuario 'usuario1' y contraseña 'usuario1'"
                 },
                 {
                     "id": "contador-conexiones-6-5",
                     "command": "waitForElementPresent",
                     "target": "xpath=//h1[.=\"Contador de conexiones - Inicio\"]",
-                    "value": "${maxEspera}"
+                    "value": "1000",
+                    "comment": "Muestra título h1: 'Contador de conexiones - Inicio'"
                 },
                 {
                     "id": "contador-conexiones-6-6",
@@ -449,13 +478,15 @@
                     "title": "(TEST) Sale y entra como root",
                     "command": "open",
                     "target": "${urlBase}/acceso/logout.php",
-                    "value": ""
+                    "value": "",
+                    "comment": "Desconecta al usuario"
                 },
                 {
                     "id": "contador-conexiones-7-2",
                     "command": "waitForElementPresent",
                     "target": "xpath=//h1[.=\"Contador de conexiones - Inicio\"]",
-                    "value": "${maxEspera}"
+                    "value": "1000",
+                    "comment": "Muestra título h1: 'Contador de conexiones - Inicio'"
                 },
                 {
                     "id": "contador-conexiones-7-3",
@@ -467,13 +498,15 @@
                     "id": "contador-conexiones-7-4",
                     "command": "open",
                     "target": "${urlBase}/acceso/login-2.php?usuario=root&password=root",
-                    "value": ""
+                    "value": ".*",
+                    "comment": "Accede directamente como usuario 'root' y contraseña 'root'"
                 },
                 {
                     "id": "contador-conexiones-7-5",
                     "command": "waitForElementPresent",
                     "target": "xpath=//h1[.=\"Contador de conexiones - Inicio\"]",
-                    "value": "${maxEspera}"
+                    "value": "1000",
+                    "comment": "Muestra título h1: 'Contador de conexiones - Inicio'"
                 },
                 {
                     "id": "contador-conexiones-7-6",
@@ -486,13 +519,15 @@
                     "title": "(TEST) Comprobación contadores conexiones",
                     "command": "open",
                     "target": "${urlBase}/db/tabla-usuarios/listar.php",
-                    "value": ""
+                    "value": "",
+                    "comment": "Abre directamente la página Usuarios > Listar"
                 },
                 {
                     "id": "contador-conexiones-8-2",
                     "command": "waitForElementPresent",
                     "target": "xpath=//h1[.=\"Contador de conexiones - Usuarios - Listar\"]",
-                    "value": "${maxEspera}"
+                    "value": "1000",
+                    "comment": "Muestra título h1: 'Contador de conexiones - Usuarios - Listar'"
                 },
                 {
                     "id": "contador-conexiones-8-3",
@@ -566,13 +601,15 @@
                     "title": "(TEST) Reordena listado (conexiones ASC)",
                     "command": "open",
                     "target": "${urlBase}/db/tabla-usuarios/listar.php?ordena=conexiones+ASC",
-                    "value": ""
+                    "value": "",
+                    "comment": "Reordena listado (conexiones ASC)"
                 },
                 {
                     "id": "contador-conexiones-9-2",
                     "command": "waitForElementPresent",
                     "target": "xpath=//h1[.=\"Contador de conexiones - Usuarios - Listar\"]",
-                    "value": "${maxEspera}"
+                    "value": "1000",
+                    "comment": "Muestra título h1: 'Contador de conexiones - Usuarios - Listar'"
                 },
                 {
                     "id": "contador-conexiones-9-3",
@@ -646,13 +683,15 @@
                     "title": "(TEST) Reordena listado (conexiones DESC)",
                     "command": "open",
                     "target": "${urlBase}/db/tabla-usuarios/listar.php?ordena=conexiones+DESC",
-                    "value": ""
+                    "value": "",
+                    "comment": "Reordena listado (conexiones DESC)"
                 },
                 {
                     "id": "contador-conexiones-10-2",
                     "command": "waitForElementPresent",
                     "target": "xpath=//h1[.=\"Contador de conexiones - Usuarios - Listar\"]",
-                    "value": "${maxEspera}"
+                    "value": "1000",
+                    "comment": "Muestra título h1: 'Contador de conexiones - Usuarios - Listar'"
                 },
                 {
                     "id": "contador-conexiones-10-3",
@@ -726,13 +765,15 @@
                     "title": "(TEST) Sale y entra como admin1. Comprueba límite superado",
                     "command": "open",
                     "target": "${urlBase}/acceso/logout.php",
-                    "value": ""
+                    "value": "",
+                    "comment": "Desconecta al usuario"
                 },
                 {
                     "id": "contador-conexiones-11-2",
                     "command": "waitForElementPresent",
                     "target": "xpath=//h1[.=\"Contador de conexiones - Inicio\"]",
-                    "value": "${maxEspera}"
+                    "value": "1000",
+                    "comment": "Muestra título h1: 'Contador de conexiones - Inicio'"
                 },
                 {
                     "id": "contador-conexiones-11-3",
@@ -744,26 +785,30 @@
                     "id": "contador-conexiones-11-4",
                     "command": "open",
                     "target": "${urlBase}/acceso/login-2.php?usuario=admin1&password=admin1",
-                    "value": ""
+                    "value": ".*",
+                    "comment": "Accede directamente como usuario 'admin1' y contraseña 'admin1'"
                 },
                 {
                     "id": "contador-conexiones-11-5",
                     "command": "waitForElementPresent",
                     "target": "xpath=//h1[.=\"Contador de conexiones - Login 2\"]",
-                    "value": "${maxEspera}"
+                    "value": "1000",
+                    "comment": "Muestra título h1: 'Contador de conexiones - Login 2'"
                 },
                 {
                     "id": "contador-conexiones-11-6",
                     "command": "assertText",
                     "target": "xpath=//p",
-                    "value": "Se ha conectado ya 4 veces. Se recomienda cambiar la contraseña."
+                    "value": "Se ha conectado ya 4 veces. Se recomienda cambiar la contraseña.",
+                    "comment": "Muestra mensaje: 'Se ha conectado ya 4 veces. Se recomienda cambiar la contraseña.'"
                 },
                 {
                     "id": "contador-conexiones-12-1",
                     "title": "(TEST) Cambia contraseña admin1 y comprueba contador a 0",
                     "command": "open",
                     "target": "${urlBase}/db/tabla-usuarios/modificar-3.php?usuario=admin1&password=admin1&nivel=20&id=4",
-                    "value": ""
+                    "value": "",
+                    "comment": "Modifica directamente un registro"
                 },
                 {
                     "id": "contador-conexiones-12-2",
@@ -775,13 +820,15 @@
                     "id": "contador-conexiones-12-3",
                     "command": "open",
                     "target": "${urlBase}/db/tabla-usuarios/listar.php",
-                    "value": ""
+                    "value": "",
+                    "comment": "Abre directamente la página Usuarios > Listar"
                 },
                 {
                     "id": "contador-conexiones-12-4",
                     "command": "waitForElementPresent",
                     "target": "xpath=//h1[.=\"Contador de conexiones - Usuarios - Listar\"]",
-                    "value": "${maxEspera}"
+                    "value": "1000",
+                    "comment": "Muestra título h1: 'Contador de conexiones - Usuarios - Listar'"
                 },
                 {
                     "id": "contador-conexiones-12-5",
@@ -861,7 +908,8 @@
                     "id": "contador-conexiones-12-17",
                     "command": "waitForElementPresent",
                     "target": "xpath=//h1[.=\"Contador de conexiones - Inicio\"]",
-                    "value": "${maxEspera}"
+                    "value": "1000",
+                    "comment": "Muestra título h1: 'Contador de conexiones - Inicio'"
                 },
                 {
                     "id": "contador-conexiones-12-18",
@@ -881,7 +929,8 @@
                     "id": "contador-conexiones-13-2",
                     "command": "waitForElementPresent",
                     "target": "xpath=//h1[.=\"Contador de conexiones - Inicio\"]",
-                    "value": "${maxEspera}"
+                    "value": "1000",
+                    "comment": "Muestra título h1: 'Contador de conexiones - Inicio'"
                 },
                 {
                     "id": "contador-conexiones-13-3",
@@ -892,9 +941,9 @@
                 {
                     "id": "final-1",
                     "command": "waitForElementPresent",
-                    "target": "xpath=//h1[.=\"Confirma contraseña - Inicio\"]",
+                    "target": "xpath=//h1[.=\"Contador de conexiones - Inicio\"]",
                     "value": "1000",
-                    "comment": "Muestra título h1: 'Estadísticas - Inicio'. Test terminado correctamente"
+                    "comment": "Muestra título h1: 'Contador de conexiones - Inicio'. Test terminado correctamente"
                 }
             ]
         }
