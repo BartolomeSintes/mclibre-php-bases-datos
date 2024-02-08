@@ -106,7 +106,7 @@ Estas son algunas de las cosas que podría hacer para Selenium
   - <s>Aviso individual: Texto demasiado largo.</s>
 
 Errores detectados:
-  - He puesto ATENCION en el "comment" del json cuando hace algo mal y el test no lo detecta (había puersto verify y la comprobación de lo que debería hacer, para que me señale el error pero termine el test pero cuando hay errores el IDE no presenta la información de forma fácil, así que he dejado assert y la comprobación de lo que hace, pero con el aviso ATENCION).
+  - He puesto ATENCION en el "comment" del json cuando hace algo mal y el test no lo detecta (había puesto verify y la comprobación de lo que debería hacer, para que me señale el error pero termine el test pero cuando hay errores el IDE no presenta la información de forma fácil, así que he dejado assert y la comprobación de lo que hace, pero con el aviso ATENCION).
   - Cuando se marcan varios registros para borrar saca varias veces el mensaje "Registro borrado correctamente.". Lo tengo marcado con ATENCION. Realmente no es incorrecto, pero queda raro. Quizás debería incluir campos del registro en el mensaje para que se viera que cada mensaje corresponde a cada uno de los registros borrados. O quizás sería mejor sacar un único mensaje
 
 

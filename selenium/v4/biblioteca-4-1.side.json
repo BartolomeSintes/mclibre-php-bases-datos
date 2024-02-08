@@ -68,7 +68,8 @@
                     "id": "definiciones-generales-1",
                     "command": "store",
                     "target": "/mclibre/consultar/php-bases-datos/biblioteca-4",
-                    "value": "urlBase"
+                    "value": "urlBase",
+                    "comment": "Define la ruta de la aplicación que se va a testear"
                 },
                 {
                     "id": "definiciones-generales-2",
@@ -269,55 +270,55 @@
             ]
         },
         {
-            "id": "preparacion-desconexion-inicial",
+            "id": "desconexion-inicial",
             "name": "Desconexión inicial",
             "comment": "Se desconecta haciendo clic en Desconectar (si existe).",
             "commands": [
                 {
-                    "id": "preparacion-desconexion-inicial-1",
+                    "id": "desconexion-inicial-1",
                     "command": "run",
                     "target": "Variables General",
                     "value": ""
                 },
                 {
-                    "id": "preparacion-desconexion-inicial-2",
+                    "id": "desconexion-inicial-2",
                     "command": "open",
                     "target": "${urlInicio}",
                     "value": ""
                 },
                 {
-                    "id": "preparacion-desconexion-inicial-3",
+                    "id": "desconexion-inicial-3",
                     "command": "waitForElementPresent",
                     "target": "xpath=//main",
                     "value": "20000"
                 },
                 {
-                    "id": "preparacion-desconexion-inicial-4",
+                    "id": "desconexion-inicial-4",
                     "command": "executeScript",
                     "target": "return (document.querySelectorAll('[data-test-id=\"desconectarse\"]').length != 0)",
                     "value": "test"
                 },
                 {
-                    "id": "preparacion-desconexion-inicial-5",
+                    "id": "desconexion-inicial-5",
                     "command": "if",
                     "target": "${test}",
                     "value": ""
                 },
                 {
-                    "id": "preparacion-desconexion-inicial-6",
+                    "id": "desconexion-inicial-6",
                     "command": "click",
                     "target": "linkText=Desconectarse",
                     "value": "",
                     "comment": "Hace clic en el enlace 'Desconectarse'"
                 },
                 {
-                    "id": "preparacion-desconexion-inicial-7",
+                    "id": "desconexion-inicial-7",
                     "command": "end",
                     "target": "",
                     "value": ""
                 },
                 {
-                    "id": "preparacion-desconexion-inicial-8",
+                    "id": "desconexion-inicial-8",
                     "command": "assertText",
                     "target": "xpath=//li[1]/a[1]",
                     "value": "Conectarse"
@@ -325,105 +326,105 @@
             ]
         },
         {
-            "id": "preparacion-borrar-todo-con",
+            "id": "borrar-todo-con",
             "name": "Borrar Todo (con registros de prueba)",
             "comment": "Se conecta como root / root. Abre Administrador > Borrar todo.",
             "commands": [
                 {
-                    "id": "preparacion-borrar-todo-con-1",
+                    "id": "borrar-todo-con-1",
                     "command": "run",
                     "target": "Variables General",
                     "value": ""
                 },
                 {
-                    "id": "preparacion-borrar-todo-con-2",
+                    "id": "borrar-todo-con-2",
                     "command": "open",
                     "target": "${urlInicio}",
                     "value": ""
                 },
                 {
-                    "id": "preparacion-borrar-todo-con-3",
+                    "id": "borrar-todo-con-3",
                     "command": "click",
                     "target": "linkText=Conectarse",
                     "value": "",
                     "comment": "Hace clic en el enlace 'Conectarse'"
                 },
                 {
-                    "id": "preparacion-borrar-todo-con-4",
+                    "id": "borrar-todo-con-4",
                     "command": "type",
                     "target": "name=usuario",
                     "value": "root",
                     "comment": "Escribe 'root' en el campo 'usuario'"
                 },
                 {
-                    "id": "preparacion-borrar-todo-con-5",
+                    "id": "borrar-todo-con-5",
                     "command": "type",
                     "target": "name=password",
                     "value": "root",
                     "comment": "Escribe 'root' en el campo 'password'"
                 },
                 {
-                    "id": "preparacion-borrar-todo-con-6",
+                    "id": "borrar-todo-con-6",
                     "command": "click",
                     "target": "xpath=//input[@value='Identificar']",
                     "value": "",
                     "comment": "Hace clic en el botón 'Identificar'"
                 },
                 {
-                    "id": "preparacion-borrar-todo-con-7",
+                    "id": "borrar-todo-con-7",
                     "command": "click",
                     "target": "linkText=Administrador",
                     "value": "",
                     "comment": "Hace clic en el enlace 'Administrador'"
                 },
                 {
-                    "id": "preparacion-borrar-todo-con-8",
+                    "id": "borrar-todo-con-8",
                     "command": "click",
                     "target": "linkText=Borrar todo",
                     "value": "",
                     "comment": "Hace clic en el enlace 'Borrar todo'"
                 },
                 {
-                    "id": "preparacion-borrar-todo-con-9",
+                    "id": "borrar-todo-con-9",
                     "command": "verify checked",
                     "target": "name=demo",
                     "value": ""
                 },
                 {
-                    "id": "preparacion-borrar-todo-con-10",
+                    "id": "borrar-todo-con-10",
                     "command": "click",
                     "target": "xpath=//input[@value='Sí']",
                     "value": "",
                     "comment": "Hace clic en el botón 'Sí'"
                 },
                 {
-                    "id": "preparacion-borrar-todo-con-11",
+                    "id": "borrar-todo-con-11",
                     "command": "waitForElementPresent",
                     "target": "xpath=//p[.=\"Base de datos creada, insertando registros de prueba.\"]",
                     "value": "20000"
                 },
                 {
-                    "id": "preparacion-borrar-todo-con-12",
+                    "id": "borrar-todo-con-12",
                     "command": "assertText",
                     "target": "xpath=//p",
                     "value": "Base de datos creada, insertando registros de prueba."
                 },
                 {
-                    "id": "preparacion-borrar-todo-con-13",
+                    "id": "borrar-todo-con-13",
                     "command": "click",
                     "target": "linkText=Volver",
                     "value": "",
                     "comment": "Hace clic en el enlace 'Volver'"
                 },
                 {
-                    "id": "preparacion-borrar-todo-con-14",
+                    "id": "borrar-todo-con-14",
                     "command": "click",
                     "target": "linkText=Desconectarse",
                     "value": "",
                     "comment": "Hace clic en el enlace 'Desconectarse'"
                 },
                 {
-                    "id": "preparacion-borrar-todo-con-15",
+                    "id": "borrar-todo-con-15",
                     "command": "assertText",
                     "target": "xpath=//li[1]/a[1]",
                     "value": "Conectarse"
@@ -1361,7 +1362,8 @@
                     "id": "prueba-2-1",
                     "command": "store",
                     "target": "http://www.mclibre.org",
-                    "value": "urlBase"
+                    "value": "urlBase",
+                    "comment": "Define la ruta de la aplicación que se va a testear"
                 },
                 {
                     "id": "prueba-2-2",

@@ -14,7 +14,8 @@
                     "id": "definiciones-generales-1",
                     "command": "store",
                     "target": "/mclibre/consultar/php-bases-datos/biblioteca-4",
-                    "value": "urlBase"
+                    "value": "urlBase",
+                    "comment": "Define la ruta de la aplicación que se va a testear"
                 },
                 {
                     "id": "definiciones-generales-2",
@@ -25,49 +26,49 @@
             ]
         },
         {
-            "id": "preparacion-desconexion-inicial",
+            "id": "desconexion-inicial",
             "name": "Desconexión inicial",
             "comment": "Se desconecta haciendo clic en Desconectar (si existe).",
             "commands": [
                 {
-                    "id": "preparacion-desconexion-inicial-1",
+                    "id": "desconexion-inicial-1",
                     "command": "open",
                     "target": "${urlInicio}",
                     "value": ""
                 },
                 {
-                    "id": "preparacion-desconexion-inicial-2",
+                    "id": "desconexion-inicial-2",
                     "command": "waitForElementPresent",
                     "target": "xpath=//main",
                     "value": "20000"
                 },
                 {
-                    "id": "preparacion-desconexion-inicial-3",
+                    "id": "desconexion-inicial-3",
                     "command": "executeScript",
                     "target": "return (document.querySelectorAll('[data-test-id=\"desconectarse\"]').length != 0)",
                     "value": "contieneDesconectarse"
                 },
                 {
-                    "id": "preparacion-desconexion-inicial-4",
+                    "id": "desconexion-inicial-4",
                     "command": "if",
                     "target": "${contieneDesconectarse}",
                     "value": ""
                 },
                 {
-                    "id": "preparacion-desconexion-inicial-5",
+                    "id": "desconexion-inicial-5",
                     "command": "click",
                     "target": "linkText=Desconectarse",
                     "value": "",
                     "comment": "Hace clic en el enlace 'Desconectarse'"
                 },
                 {
-                    "id": "preparacion-desconexion-inicial-6",
+                    "id": "desconexion-inicial-6",
                     "command": "end",
                     "target": "",
                     "value": ""
                 },
                 {
-                    "id": "preparacion-desconexion-inicial-7",
+                    "id": "desconexion-inicial-7",
                     "command": "assertText",
                     "target": "xpath=//li[1]/a[1]",
                     "value": "Conectarse"
@@ -80,13 +81,13 @@
             "comment": "Se conecta como root / root.",
             "commands": [
                 {
-                    "id": "preparacion-desconexion-inicial-1",
+                    "id": "desconexion-inicial-1",
                     "command": "open",
                     "target": "${urlInicio}",
                     "value": ""
                 },
                 {
-                    "id": "preparacion-desconexion-inicial-2",
+                    "id": "desconexion-inicial-2",
                     "command": "waitForElementPresent",
                     "target": "xpath=//main",
                     "value": "20000"
@@ -168,13 +169,13 @@
             "name": "Entra en Administrador",
             "commands": [
                 {
-                    "id": "preparacion-desconexion-inicial-1",
+                    "id": "desconexion-inicial-1",
                     "command": "open",
                     "target": "${urlInicio}",
                     "value": ""
                 },
                 {
-                    "id": "preparacion-desconexion-inicial-2",
+                    "id": "desconexion-inicial-2",
                     "command": "waitForElementPresent",
                     "target": "xpath=//main",
                     "value": "20000"
@@ -231,13 +232,13 @@
             "name": "Sale de Administrador",
             "commands": [
                 {
-                    "id": "preparacion-desconexion-inicial-1",
+                    "id": "desconexion-inicial-1",
                     "command": "open",
                     "target": "${urlInicio}",
                     "value": ""
                 },
                 {
-                    "id": "preparacion-desconexion-inicial-2",
+                    "id": "desconexion-inicial-2",
                     "command": "waitForElementPresent",
                     "target": "xpath=//main",
                     "value": "20000"

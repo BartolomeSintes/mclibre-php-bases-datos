@@ -33,3 +33,21 @@ Aunque he probado varias combinaciones (p, p[1]. p[2]), no hay manera de que ide
     "value": "${detectadaCadena}"
 },
 ````
+[2024-02-08] Hoy he encontrado una forma de hacer lo anterior y consiste en añadir form en el XPath
+
+`````
+{
+    "id": "datos-repetidos-5-3",
+    "command": "assertText",
+    "target": "xpath=//p",
+    "value": "Existe un registro con datos similares."
+},
+{
+    "id": "datos-repetidos-5-6",
+    "command": "assertText",
+    "target": "xpath=//form/p[1]",
+    "value": "Por favor, confirme que desea insertar el registro.",
+    "comment": "Muestra mensaje: 'Por favor, confirme que desea insertar el registro.'"
+},
+
+````
