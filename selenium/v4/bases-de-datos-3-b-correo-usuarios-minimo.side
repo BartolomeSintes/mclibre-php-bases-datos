@@ -34,12 +34,12 @@
                     "id": "desconexion-inicial-1",
                     "command": "executeScript",
                     "target": "return (document.body.innerHTML.includes('Desconectarse'))",
-                    "value": "contieneDesconectarse"
+                    "value": "detectadoDesconectarse"
                 },
                 {
                     "id": "desconexion-inicial-2",
                     "command": "if",
-                    "target": "${contieneDesconectarse}",
+                    "target": "${detectadoDesconectarse}",
                     "value": ""
                 },
                 {
@@ -81,14 +81,14 @@
                     "command": "type",
                     "target": "name=usuario",
                     "value": "root",
-                    "comment": "Escribe 'root' en el campo 'usuario'"
+                    "comment": "Escribe 'root' en la caja de texto 'usuario'"
                 },
                 {
                     "id": "borrar-todo-con-4",
                     "command": "type",
                     "target": "name=password",
                     "value": "root",
-                    "comment": "Escribe 'root' en el campo 'password'"
+                    "comment": "Escribe 'root' en la caja de texto 'password'"
                 },
                 {
                     "id": "borrar-todo-con-5",
@@ -342,31 +342,36 @@
                     "id": "correo-usuarios-1-8",
                     "command": "assertText",
                     "target": "xpath=//tr/th[3]",
-                    "value": "Correo"
+                    "value": "Correo",
+                    "comment": "La cuarta celda de la fila de cabecera de la tabla contiene 'Correo'"
                 },
                 {
                     "id": "correo-usuarios-1-9",
                     "command": "assertText",
                     "target": "xpath=//tr[1]/td[3]",
-                    "value": "admin@example.com"
+                    "value": "admin@example.com",
+                    "comment": "La tercera celda de la segunda fila de la tabla contiene 'admin@example.com'"
                 },
                 {
                     "id": "correo-usuarios-1-10",
                     "command": "assertText",
                     "target": "xpath=//tr[2]/td[3]",
-                    "value": "root@example.com"
+                    "value": "root@example.com",
+                    "comment": "La tercera celda de la tercera fila de la tabla contiene 'root@example.com'"
                 },
                 {
                     "id": "correo-usuarios-1-11",
                     "command": "assertText",
                     "target": "xpath=//tr[3]/td[3]",
-                    "value": "usuario1@example.com"
+                    "value": "usuario1@example.com",
+                    "comment": "La tercera celda de la cuarta fila de la tabla contiene 'usuario1@example.com'"
                 },
                 {
                     "id": "correo-usuarios-1-12",
                     "command": "assertText",
                     "target": "xpath=//tr[4]/td[3]",
-                    "value": "usuario2@example.com"
+                    "value": "usuario2@example.com",
+                    "comment": "La tercera celda de la quinta fila de la tabla contiene 'usuario2@example.com'"
                 },
                 {
                     "id": "correo-usuarios-2-1",
@@ -407,31 +412,36 @@
                     "id": "correo-usuarios-2-6",
                     "command": "assertText",
                     "target": "xpath=//tr/th[3]",
-                    "value": "Correo"
+                    "value": "Correo",
+                    "comment": "La cuarta celda de la fila de cabecera de la tabla contiene 'Correo'"
                 },
                 {
                     "id": "correo-usuarios-2-7",
                     "command": "assertText",
                     "target": "xpath=//tr[4]/td[3]",
-                    "value": "admin@example.com"
+                    "value": "admin@example.com",
+                    "comment": "La tercera celda de la quinta fila de la tabla contiene 'admin@example.com'"
                 },
                 {
                     "id": "correo-usuarios-2-8",
                     "command": "assertText",
                     "target": "xpath=//tr[3]/td[3]",
-                    "value": "root@example.com"
+                    "value": "root@example.com",
+                    "comment": "La tercera celda de la cuarta fila de la tabla contiene 'root@example.com'"
                 },
                 {
                     "id": "correo-usuarios-2-9",
                     "command": "assertText",
                     "target": "xpath=//tr[2]/td[3]",
-                    "value": "usuario1@example.com"
+                    "value": "usuario1@example.com",
+                    "comment": "La tercera celda de la cuarta fila de la tabla contiene 'usuario1@example.com'"
                 },
                 {
                     "id": "correo-usuarios-2-10",
                     "command": "assertText",
                     "target": "xpath=//tr[1]/td[3]",
-                    "value": "usuario2@example.com"
+                    "value": "usuario2@example.com",
+                    "comment": "La tercera celda de la segunda fila de la tabla contiene 'usuario2@example.com'"
                 },
                 {
                     "id": "correo-usuarios-3-1",
@@ -535,49 +545,57 @@
                     "id": "correo-usuarios-5-5",
                     "command": "assertText",
                     "target": "xpath=//tr[1]/td[1]",
-                    "value": "Usuario:"
+                    "value": "Usuario:",
+                    "comment": "La primera celda de la primera fila de la tabla contiene 'Usuario:'"
                 },
                 {
                     "id": "correo-usuarios-5-6",
                     "command": "assertText",
                     "target": "xpath=//tr[2]/td[1]",
-                    "value": "Contraseña:"
+                    "value": "Contraseña:",
+                    "comment": "La primera celda de la segunda fila de la tabla contiene 'Contraseña:'"
                 },
                 {
                     "id": "correo-usuarios-5-7",
                     "command": "assertText",
                     "target": "xpath=//tr[3]/td[1]",
-                    "value": "Correo:"
+                    "value": "Correo:",
+                    "comment": "La primera celda de la tercera fila de la tabla contiene 'Correo:'"
                 },
                 {
                     "id": "correo-usuarios-5-8",
                     "command": "assertText",
                     "target": "xpath=//tr[4]/td[1]",
-                    "value": "Nivel:"
+                    "value": "Nivel:",
+                    "comment": "La primera celda de la cuarta fila de la tabla contiene 'Nivel:'"
                 },
                 {
                     "id": "correo-usuarios-5-9",
                     "command": "type",
                     "target": "name=usuario",
-                    "value": "prueba-1-1"
+                    "value": "prueba-1-1",
+                    "comment": "Escribe 'prueba-1-1' en la caja de texto 'usuario'"
                 },
                 {
                     "id": "correo-usuarios-5-10",
                     "command": "type",
                     "target": "name=password",
-                    "value": "prueba-1-2"
+                    "value": "prueba-1-2",
+                    "comment": "Escribe 'prueba-1-2' en la caja de texto 'password'"
                 },
                 {
                     "id": "correo-usuarios-5-11",
                     "command": "type",
                     "target": "name=correo",
-                    "value": "prueba-1-3@example.com"
+                    "value": "prueba-1-3@example.com",
+                    "comment": "Escribe 'prueba-1-3@example.com' en la caja de texto 'password'"
                 },
                 {
                     "id": "correo-usuarios-5-12",
                     "command": "select",
                     "target": "name=nivel",
-                    "value": "label=Administrador"
+                    "value": "label=Administrador",
+                    "comment": "Selecciona la opción 'Administrador' en el menú 'nivel'"
                 },
                 {
                     "id": "correo-usuarios-5-13",
@@ -625,31 +643,36 @@
                     "id": "correo-usuarios-6-4",
                     "command": "assert",
                     "target": "cuentaFilas",
-                    "value": "6"
+                    "value": "6",
+                    "comment": "La tabla contiene exactamente 6 filas"
                 },
                 {
                     "id": "correo-usuarios-6-5",
                     "command": "assertText",
                     "target": "xpath=//tr[2]/td[1]",
-                    "value": "prueba-1-1"
+                    "value": "prueba-1-1",
+                    "comment": "La primera celda de la tercera fila de la tabla contiene 'prueba-1-1'"
                 },
                 {
                     "id": "correo-usuarios-6-6",
                     "command": "assertText",
                     "target": "xpath=//tr[2]/td[2]",
-                    "value": "9864d12dd8ad5e974db20953e78c7a9d4225fc8ded29fcd61ed1dbfca485c57f"
+                    "value": "9864d12dd8ad5e974db20953e78c7a9d4225fc8ded29fcd61ed1dbfca485c57f",
+                    "comment": "La segunda celda de la tercera fila de la tabla contiene '9864d12dd8ad5e974db20953e78c7a9d4225fc8ded29fcd61ed1dbfca485c57f'"
                 },
                 {
                     "id": "correo-usuarios-6-7",
                     "command": "assertText",
                     "target": "xpath=//tr[2]/td[3]",
-                    "value": "prueba-1-3@example.com"
+                    "value": "prueba-1-3@example.com",
+                    "comment": "La tercera celda de la tercera fila de la tabla contiene 'prueba-1-3@example.com'"
                 },
                 {
                     "id": "correo-usuarios-6-8",
                     "command": "assertText",
                     "target": "xpath=//tr[2]/td[4]",
-                    "value": "Administrador"
+                    "value": "Administrador",
+                    "comment": "La cuarta celda de la tercera fila de la tabla contiene 'Administrador'"
                 },
                 {
                     "id": "correo-usuarios-6-9",
@@ -669,7 +692,8 @@
                     "id": "correo-usuarios-6-11",
                     "command": "assertText",
                     "target": "xpath=//li[4]/a",
-                    "value": "Desconectarse"
+                    "value": "Desconectarse",
+                    "comment": "Muestra enlace: 'Desconectarse'"
                 },
                 {
                     "id": "correo-usuarios-7-1",
@@ -690,7 +714,8 @@
                     "id": "correo-usuarios-7-3",
                     "command": "assertText",
                     "target": "xpath=//li/a",
-                    "value": "Conectarse"
+                    "value": "Conectarse",
+                    "comment": "Muestra enlace: Conectarse'"
                 },
                 {
                     "id": "final-1",

@@ -34,12 +34,12 @@
                     "id": "desconexion-inicial-1",
                     "command": "executeScript",
                     "target": "return (document.body.innerHTML.includes('Desconectarse'))",
-                    "value": "contieneDesconectarse"
+                    "value": "detectadoDesconectarse"
                 },
                 {
                     "id": "desconexion-inicial-2",
                     "command": "if",
-                    "target": "${contieneDesconectarse}",
+                    "target": "${detectadoDesconectarse}",
                     "value": ""
                 },
                 {
@@ -81,14 +81,14 @@
                     "command": "type",
                     "target": "name=usuario",
                     "value": "root",
-                    "comment": "Escribe 'root' en el campo 'usuario'"
+                    "comment": "Escribe 'root' en la caja de texto 'usuario'"
                 },
                 {
                     "id": "borrar-todo-con-4",
                     "command": "type",
                     "target": "name=password",
                     "value": "root",
-                    "comment": "Escribe 'root' en el campo 'password'"
+                    "comment": "Escribe 'root' en la caja de texto 'password'"
                 },
                 {
                     "id": "borrar-todo-con-5",
@@ -335,60 +335,60 @@
                     "id": "confirma-contrasena-1-7",
                     "command": "assertText",
                     "target": "xpath=//tr[1]/td[1]",
-                    "value": "Usuario:"
+                    "value": "Usuario:",
+                    "comment": "La primera celda de la primera fila de la tabla contiene 'Usuario:'"
                 },
                 {
                     "id": "confirma-contrasena-1-8",
                     "command": "assertText",
                     "target": "xpath=//tr[2]/td[1]",
-                    "value": "Contraseña:"
+                    "value": "Contraseña:",
+                    "comment": "La primera celda de la segunda fila de la tabla contiene 'Contraseña:'"
                 },
                 {
                     "id": "confirma-contrasena-1-9",
                     "command": "assertText",
                     "target": "xpath=//tr[3]/td[1]",
-                    "value": "Repita la contraseña:"
+                    "value": "Repita la contraseña:",
+                    "comment": "La primera celda de la tercera fila de la tabla contiene 'Repita la contraseña:'"
                 },
                 {
                     "id": "confirma-contrasena-1-10",
                     "command": "assertText",
                     "target": "xpath=//tr[4]/td[1]",
-                    "value": "Nivel:"
+                    "value": "Nivel:",
+                    "comment": "La primera celda de la cuarta fila de la tabla contiene 'Nivel:'"
                 },
                 {
                     "id": "confirma-contrasena-1-11",
                     "command": "type",
                     "target": "name=usuario",
-                    "value": "prueba-1-1"
+                    "value": "prueba-1-1",
+                    "comment": "Escribe 'prueba-1-1' en la caja de texto 'usuario'"
                 },
                 {
                     "id": "confirma-contrasena-1-12",
                     "command": "type",
-                    "target": "name=password",
-                    "value": "prueba-1-2"
+                    "target": "name=password2",
+                    "value": "prueba-1-2",
+                    "comment": "Escribe 'prueba-1-2' en la caja de texto 'password2'"
                 },
                 {
                     "id": "confirma-contrasena-1-13",
-                    "command": "type",
-                    "target": "name=password2",
-                    "value": "prueba-1-2"
-                },
-                {
-                    "id": "confirma-contrasena-1-14",
                     "command": "click",
                     "target": "xpath=//input[@value='Añadir']",
                     "value": "",
                     "comment": "Hace clic en el botón 'Añadir'"
                 },
                 {
-                    "id": "confirma-contrasena-1-15",
+                    "id": "confirma-contrasena-1-14",
                     "command": "waitForElementPresent",
                     "target": "xpath=//h1[.=\"Confirma contraseña - Usuarios - Añadir 2\"]",
                     "value": "1000",
                     "comment": "Muestra título h1: 'Confirma contraseña - Usuarios - Añadir 2'"
                 },
                 {
-                    "id": "confirma-contrasena-1-16",
+                    "id": "confirma-contrasena-1-15",
                     "command": "assertText",
                     "target": "xpath=//p",
                     "value": "Registro creado correctamente.",
@@ -413,7 +413,8 @@
                     "id": "confirma-contrasena-2-3",
                     "command": "assertText",
                     "target": "xpath=//p[1]",
-                    "value": "Las contraseñas no coinciden."
+                    "value": "Las contraseñas no coinciden.",
+                    "comment": "Muestra aviso: 'Las contraseñas no coinciden.'"
                 },
                 {
                     "id": "confirma-contrasena-2-5",
@@ -447,13 +448,15 @@
                     "id": "confirma-contrasena-3-3",
                     "command": "assertText",
                     "target": "xpath=//p[1]",
-                    "value": "El nombre de usuario no puede tener más de 20 caracteres."
+                    "value": "El nombre de usuario no puede tener más de 20 caracteres.",
+                    "comment": "Muestra aviso: 'El nombre de usuario no puede tener más de 20 caracteres.'"
                 },
                 {
                     "id": "confirma-contrasena-3-4",
                     "command": "assertText",
                     "target": "xpath=//p[2]",
-                    "value": "La contraseña no puede tener más de 20 caracteres."
+                    "value": "La contraseña no puede tener más de 20 caracteres.",
+                    "comment": "Muestra aviso: 'La contraseña no puede tener más de 20 caracteres.'"
                 },
                 {
                     "id": "confirma-contrasena-3-5",
@@ -557,7 +560,8 @@
                     "id": "confirma-contrasena-2-3",
                     "command": "assertText",
                     "target": "xpath=//p[1]",
-                    "value": "Las contraseñas no coinciden."
+                    "value": "Las contraseñas no coinciden.",
+                    "comment": "Muestra aviso: 'Las contraseñas no coinciden.'"
                 },
                 {
                     "id": "confirma-contrasena-6-7",
@@ -590,7 +594,8 @@
                     "id": "confirma-contrasena-6-11",
                     "command": "assertText",
                     "target": "xpath=//li[4]/a",
-                    "value": "Desconectarse"
+                    "value": "Desconectarse",
+                    "comment": "Muestra enlace: 'Desconectarse'"
                 },
                 {
                     "id": "confirma-contrasena-7-1",
@@ -611,7 +616,8 @@
                     "id": "confirma-contrasena-7-3",
                     "command": "assertText",
                     "target": "xpath=//li/a",
-                    "value": "Conectarse"
+                    "value": "Conectarse",
+                    "comment": "Muestra enlace: Conectarse'"
                 },
                 {
                     "id": "final-1",

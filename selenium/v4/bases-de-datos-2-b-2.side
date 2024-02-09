@@ -5227,7 +5227,7 @@
                     "command": "type",
                     "target": "name=telefono",
                     "value": "18",
-                    "comment": "Escribe '18' en el campo 'telefono'"
+                    "comment": "Escribe '18' en la caja de texto 'telefono'"
                 },
                 {
                     "id": "buscar-12-10",
@@ -5415,7 +5415,7 @@
                     "command": "type",
                     "target": "name=correo",
                     "value": "an",
-                    "comment": "Escribe 'an' en el campo 'correo'"
+                    "comment": "Escribe 'an' en la caja de texto 'correo'"
                 },
                 {
                     "id": "buscar-13-10",
@@ -5763,7 +5763,7 @@
                     "command": "type",
                     "target": "name=telefono",
                     "value": "1",
-                    "comment": "Escribe '1' en el campo 'telefono'"
+                    "comment": "Escribe '1' en la caja de texto 'telefono'"
                 },
                 {
                     "id": "buscar-15-11",
@@ -5937,14 +5937,14 @@
                     "command": "type",
                     "target": "name=telefono",
                     "value": "3",
-                    "comment": "Escribe '3' en el campo 'telefono'"
+                    "comment": "Escribe '3' en la caja de texto 'telefono'"
                 },
                 {
                     "id": "buscar-16-10",
                     "command": "type",
                     "target": "name=correo",
                     "value": "a.",
-                    "comment": "Escribe 'a.' en el campo 'correo'"
+                    "comment": "Escribe 'a.' en la caja de texto 'correo'"
                 },
                 {
                     "id": "buscar-16-11",
@@ -7812,7 +7812,7 @@
                     "command": "type",
                     "target": "name=telefono",
                     "value": "161",
-                    "comment": "Escribe '161' en el campo 'telefono'"
+                    "comment": "Escribe '161' en la caja de texto 'telefono'"
                 },
                 {
                     "id": "modificar-12-14",

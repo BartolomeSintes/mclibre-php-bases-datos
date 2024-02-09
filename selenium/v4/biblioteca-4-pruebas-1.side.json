@@ -46,12 +46,12 @@
                     "id": "desconexion-inicial-3",
                     "command": "executeScript",
                     "target": "return (document.querySelectorAll('[data-test-id=\"desconectarse\"]').length != 0)",
-                    "value": "contieneDesconectarse"
+                    "value": "detectadoDesconectarse"
                 },
                 {
                     "id": "desconexion-inicial-4",
                     "command": "if",
-                    "target": "${contieneDesconectarse}",
+                    "target": "${detectadoDesconectarse}",
                     "value": ""
                 },
                 {
@@ -71,7 +71,8 @@
                     "id": "desconexion-inicial-7",
                     "command": "assertText",
                     "target": "xpath=//li[1]/a[1]",
-                    "value": "Conectarse"
+                    "value": "Conectarse",
+                    "comment": "Muestra enlace: Conectarse'"
                 }
             ]
         },
@@ -104,14 +105,14 @@
                     "command": "type",
                     "target": "name=usuario",
                     "value": "root",
-                    "comment": "Escribe 'root' en el campo 'usuario'"
+                    "comment": "Escribe 'root' en la caja de texto 'usuario'"
                 },
                 {
                     "id": "conexion-root-3",
                     "command": "type",
                     "target": "name=password",
                     "value": "root",
-                    "comment": "Escribe 'root' en el campo 'password'"
+                    "comment": "Escribe 'root' en la caja de texto 'password'"
                 },
                 {
                     "id": "conexion-root-4",
@@ -124,7 +125,8 @@
                     "id": "conexion-root-5",
                     "command": "assertText",
                     "target": "xpath=//li[6]/a[1]",
-                    "value": "Desconectarse"
+                    "value": "Desconectarse",
+                    "comment": "Muestra enlace: 'Desconectarse'"
                 },
                 {
                     "id": "conexion-root-6",

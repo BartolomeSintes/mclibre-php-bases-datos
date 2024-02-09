@@ -321,7 +321,8 @@
                     "id": "desconexion-inicial-8",
                     "command": "assertText",
                     "target": "xpath=//li[1]/a[1]",
-                    "value": "Conectarse"
+                    "value": "Conectarse",
+                    "comment": "Muestra enlace: Conectarse'"
                 }
             ]
         },
@@ -354,14 +355,14 @@
                     "command": "type",
                     "target": "name=usuario",
                     "value": "root",
-                    "comment": "Escribe 'root' en el campo 'usuario'"
+                    "comment": "Escribe 'root' en la caja de texto 'usuario'"
                 },
                 {
                     "id": "borrar-todo-con-5",
                     "command": "type",
                     "target": "name=password",
                     "value": "root",
-                    "comment": "Escribe 'root' en el campo 'password'"
+                    "comment": "Escribe 'root' en la caja de texto 'password'"
                 },
                 {
                     "id": "borrar-todo-con-6",
@@ -427,7 +428,8 @@
                     "id": "borrar-todo-con-15",
                     "command": "assertText",
                     "target": "xpath=//li[1]/a[1]",
-                    "value": "Conectarse"
+                    "value": "Conectarse",
+                    "comment": "Muestra enlace: Conectarse'"
                 }
             ]
         },
@@ -466,14 +468,14 @@
                     "command": "type",
                     "target": "name=usuario",
                     "value": "root",
-                    "comment": "Escribe 'root' en el campo 'usuario'"
+                    "comment": "Escribe 'root' en la caja de texto 'usuario'"
                 },
                 {
                     "id": "conexion-desconexion-root-6",
                     "command": "type",
                     "target": "name=password",
                     "value": "root",
-                    "comment": "Escribe 'root' en el campo 'password'"
+                    "comment": "Escribe 'root' en la caja de texto 'password'"
                 },
                 {
                     "id": "conexion-desconexion-root-7",
@@ -513,7 +515,8 @@
                     "id": "conexion-desconexion-root-12",
                     "command": "assertText",
                     "target": "xpath=//li[1]/a[1]",
-                    "value": "Conectarse"
+                    "value": "Conectarse",
+                    "comment": "Muestra enlace: Conectarse'"
                 }
             ]
         },
@@ -618,7 +621,8 @@
                     "id": "conexion-desconexion-basico-15",
                     "command": "assertText",
                     "target": "xpath=//li[1]/a[1]",
-                    "value": "Conectarse"
+                    "value": "Conectarse",
+                    "comment": "Muestra enlace: Conectarse'"
                 }
             ]
         },
@@ -723,7 +727,8 @@
                     "id": "conexion-desconexion-avanzado-15",
                     "command": "assertText",
                     "target": "xpath=//li[1]/a[1]",
-                    "value": "Conectarse"
+                    "value": "Conectarse",
+                    "comment": "Muestra enlace: Conectarse'"
                 }
             ]
         },
@@ -762,14 +767,14 @@
                     "command": "type",
                     "target": "name=usuario",
                     "value": "root",
-                    "comment": "Escribe 'root' en el campo 'usuario'"
+                    "comment": "Escribe 'root' en la caja de texto 'usuario'"
                 },
                 {
                     "id": "conexion-root-6",
                     "command": "type",
                     "target": "name=password",
                     "value": "root",
-                    "comment": "Escribe 'root' en el campo 'password'"
+                    "comment": "Escribe 'root' en la caja de texto 'password'"
                 },
                 {
                     "id": "conexion-root-7",
@@ -782,7 +787,8 @@
                     "id": "conexion-root-8",
                     "command": "assertText",
                     "target": "xpath=//li[6]/a[1]",
-                    "value": "Desconectarse"
+                    "value": "Desconectarse",
+                    "comment": "Muestra enlace: 'Desconectarse'"
                 }
             ]
         },
@@ -1136,7 +1142,8 @@
                     "id": "personas-buscar-14",
                     "command": "assertText",
                     "target": "xpath=//p",
-                    "value": "No se han encontrado registros."
+                    "value": "No se han encontrado registros.",
+                    "comment": "Muestra aviso: 'No se han encontrado registros.'"
                 }
             ]
         },

@@ -252,12 +252,14 @@ Detiene Selenium hasta que la página contenga un elemento. La clave **target** 
 
 ### assert: Busca y comprueba que existe un texto en una celda (que no está vacía)
 
+
 ```json
 {
     "id": "numero-registros-usuario-1-6",
     "command": "storeText",
     "target": "xpath=//tr[1]/td[4]",
-    "value": "contenidoCelda"
+    "value": "contenidoCelda",
+    "comment": "Guarda el contenido de una celda"
 },
 {
     "id": "numero-registros-usuario-1-7",
@@ -270,6 +272,17 @@ Detiene Selenium hasta que la página contenga un elemento. La clave **target** 
     "command": "assert",
     "target": "contenidoCeldaVacio",
     "value": "true"
+},
+```
+[2024-02-09] Poniendo "comment" en todos los ficheros he llegado a bases-de-datos-3-b-numero-registros-usuario-minimo.side en el que usaba el ejemplo de antes y me parece que no funciona. No sé si es porque estoy con v4 y el ejemplo lo usé con v3, pero el caso es que lo he sustiutido por esto.
+La diferencia es que en el ejemplo anterior no importa el valor de la celda, mientras que en el segundo hay que saber el contenido de la celda. Y otra cosa es que el nombre de la variable no me gusta porque vale true cuando no es vacía.
+```json
+{
+    "id": "numero-registros-usuario-1-6",
+    "command": "assertText",
+    "target": "xpath=//tr[1]/td[4]",
+    "value": "5",
+    "comment": "La cuarta celda de la primera fila de la tabla contiene '5'"
 },
 ```
 

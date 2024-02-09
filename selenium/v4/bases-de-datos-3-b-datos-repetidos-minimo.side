@@ -34,12 +34,12 @@
                     "id": "desconexion-inicial-1",
                     "command": "executeScript",
                     "target": "return (document.body.innerHTML.includes('Desconectarse'))",
-                    "value": "contieneDesconectarse"
+                    "value": "detectadoDesconectarse"
                 },
                 {
                     "id": "desconexion-inicial-2",
                     "command": "if",
-                    "target": "${contieneDesconectarse}",
+                    "target": "${detectadoDesconectarse}",
                     "value": ""
                 },
                 {
@@ -81,14 +81,14 @@
                     "command": "type",
                     "target": "name=usuario",
                     "value": "root",
-                    "comment": "Escribe 'root' en el campo 'usuario'"
+                    "comment": "Escribe 'root' en la caja de texto 'usuario'"
                 },
                 {
                     "id": "borrar-todo-con-4",
                     "command": "type",
                     "target": "name=password",
                     "value": "root",
-                    "comment": "Escribe 'root' en el campo 'password'"
+                    "comment": "Escribe 'root' en la caja de texto 'password'"
                 },
                 {
                     "id": "borrar-todo-con-5",
@@ -377,13 +377,15 @@
                     "id": "datos-repetidos-1-13",
                     "command": "type",
                     "target": "name=telefono",
-                    "value": "123"
+                    "value": "123",
+                    "comment": "Escribe '123' en la caja de texto 'telefono'"
                 },
                 {
                     "id": "datos-repetidos-1-14",
                     "command": "type",
                     "target": "name=correo",
-                    "value": "aaa.bbb@example.com"
+                    "value": "aaa.bbb@example.com",
+                    "comment": "Escribe 'aaa.bbb@example.com' en la caja de texto 'correo'"
                 },
                 {
                     "id": "datos-repetidos-1-15",
@@ -755,61 +757,71 @@
                     "id": "datos-repetidos-9-4",
                     "command": "assert",
                     "target": "cuentaFilas",
-                    "value": "10"
+                    "value": "10",
+                    "comment": "La tabla contiene exactamente 10 filas"
                 },
                 {
                     "id": "datos-repetidos-9-5",
                     "command": "assertText",
                     "target": "xpath=//tr[1]/td",
-                    "value": "AAA"
+                    "value": "AAA",
+                    "comment": "La primera celda de la segunda fila de la tabla contiene 'AAA'"
                 },
                 {
                     "id": "datos-repetidos-9-6",
                     "command": "assertText",
                     "target": "xpath=//tr[1]/td[2]",
-                    "value": "BBB"
+                    "value": "BBB",
+                    "comment": "La segunda celda de la segunda fila de la tabla contiene 'BBB'"
                 },
                 {
                     "id": "datos-repetidos-9-7",
                     "command": "assertText",
                     "target": "xpath=//tr[1]/td[3]",
-                    "value": "123"
+                    "value": "123",
+                    "comment": "La tercera celda de la segunda fila de la tabla contiene '123'"
                 },
                 {
                     "id": "datos-repetidos-9-8",
                     "command": "assertText",
                     "target": "xpath=//tr[1]/td[4]",
-                    "value": "aaa.bbb@example.com"
+                    "value": "aaa.bbb@example.com",
+                    "comment": "La cuarta celda de la segunda fila de la tabla contiene 'aaa.bbb@example.com'"
                 },
                 {
                     "id": "datos-repetidos-9-9",
                     "command": "assertText",
                     "target": "xpath=//tr[2]/td[2]",
-                    "value": "CCC"
+                    "value": "CCC",
+                    "comment": "La segunda celda de la tercera fila de la tabla contiene 'CCC'"
                 },
                 {
                     "id": "datos-repetidos-9-10",
                     "command": "assertText",
                     "target": "xpath=//tr[3]/td[3]",
-                    "value": "456"
+                    "value": "456",
+                    "comment": "La tercera celda de la cuarta fila de la tabla contiene '456'"
                 },
                 {
                     "id": "datos-repetidos-9-11",
                     "command": "assertText",
                     "target": "xpath=//tr[4]/td[4]",
-                    "value": "bbb@example.com"
+                    "value": "bbb@example.com",
+                    "comment": "La cuarta celda de la cuarta fila de la tabla contiene 'bbb@example.com'"
                 },
                 {
                     "id": "datos-repetidos-9-12",
                     "command": "assertText",
                     "target": "xpath=//tr[8]/td[4]",
-                    "value": "xxx.yyy@example.com"
+                    "value": "xxx.yyy@example.com",
+                    "comment": "La cuarta celda de la novena fila de la tabla contiene 'xxx.yyy@example.com'"
                 },
                 {
                     "id": "datos-repetidos-9-13",
                     "command": "assertText",
                     "target": "xpath=//tr[9]/td[3]",
-                    "value": "789"
+                    "value": "789",
+                    "comment": "La tercera celda de la décima fila de la tabla contiene '789'"
                 },
                 {
                     "id": "datos-repetidos-9-14",
@@ -829,7 +841,8 @@
                     "id": "datos-repetidos-9-16",
                     "command": "assertText",
                     "target": "xpath=//li[4]/a",
-                    "value": "Desconectarse"
+                    "value": "Desconectarse",
+                    "comment": "Muestra enlace: 'Desconectarse'"
                 },
                 {
                     "id": "datos-repetidos-10-1",
@@ -850,7 +863,8 @@
                     "id": "datos-repetidos-10-3",
                     "command": "assertText",
                     "target": "xpath=//li/a",
-                    "value": "Conectarse"
+                    "value": "Conectarse",
+                    "comment": "Muestra enlace: Conectarse'"
                 },
                 {
                     "id": "final-1",

@@ -251,7 +251,8 @@
                     "id": "numero-registros-usuario-1-6",
                     "command": "storeText",
                     "target": "xpath=//tr[1]/td[4]",
-                    "value": "contenidoCelda"
+                    "value": "contenidoCelda",
+                    "comment": "Guarda el contenido de una celda"
                 },
                 {
                     "id": "numero-registros-usuario-1-7",
@@ -269,7 +270,8 @@
                     "id": "numero-registros-usuario-1-9",
                     "command": "storeText",
                     "target": "xpath=//tr[2]/td[4]",
-                    "value": "contenidoCelda"
+                    "value": "contenidoCelda",
+                    "comment": "Guarda el contenido de una celda"
                 },
                 {
                     "id": "numero-registros-usuario-1-10",
@@ -287,7 +289,8 @@
                     "id": "numero-registros-usuario-1-12",
                     "command": "storeText",
                     "target": "xpath=//tr[3]/td[4]",
-                    "value": "contenidoCelda"
+                    "value": "contenidoCelda",
+                    "comment": "Guarda el contenido de una celda"
                 },
                 {
                     "id": "numero-registros-usuario-1-13",
@@ -305,7 +308,8 @@
                     "id": "numero-registros-usuario-1-15",
                     "command": "storeText",
                     "target": "xpath=//tr[4]/td[4]",
-                    "value": "contenidoCelda"
+                    "value": "contenidoCelda",
+                    "comment": "Guarda el contenido de una celda"
                 },
                 {
                     "id": "numero-registros-usuario-1-16",

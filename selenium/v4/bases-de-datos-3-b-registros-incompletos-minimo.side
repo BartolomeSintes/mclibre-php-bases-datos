@@ -34,12 +34,12 @@
                     "id": "desconexion-inicial-1",
                     "command": "executeScript",
                     "target": "return (document.body.innerHTML.includes('Desconectarse'))",
-                    "value": "contieneDesconectarse"
+                    "value": "detectadoDesconectarse"
                 },
                 {
                     "id": "desconexion-inicial-2",
                     "command": "if",
-                    "target": "${contieneDesconectarse}",
+                    "target": "${detectadoDesconectarse}",
                     "value": ""
                 },
                 {
@@ -81,14 +81,14 @@
                     "command": "type",
                     "target": "name=usuario",
                     "value": "root",
-                    "comment": "Escribe 'root' en el campo 'usuario'"
+                    "comment": "Escribe 'root' en la caja de texto 'usuario'"
                 },
                 {
                     "id": "borrar-todo-con-4",
                     "command": "type",
                     "target": "name=password",
                     "value": "root",
-                    "comment": "Escribe 'root' en el campo 'password'"
+                    "comment": "Escribe 'root' en la caja de texto 'password'"
                 },
                 {
                     "id": "borrar-todo-con-5",
@@ -308,7 +308,8 @@
                     "id": "registros-incompletos-1-3",
                     "command": "assertText",
                     "target": "xpath=//li[7]/a[1]",
-                    "value": "Incompletos"
+                    "value": "Incompletos",
+                    "comment": "Muestra enlace: 'Incompletos'"
                 },
                 {
                     "id": "registros-incompletos-1-4",
@@ -328,7 +329,8 @@
                     "id": "registros-incompletos-1-6",
                     "command": "assertText",
                     "target": "xpath=//p[1]",
-                    "value": "No hay ningún registro incompleto."
+                    "value": "No hay ningún registro incompleto.",
+                    "comment": "Muestra aviso: 'No hay ningún registro incompleto.'"
                 },
                 {
                     "id": "registros-incompletos-1-7",
@@ -362,8 +364,8 @@
                     "id": "registros-incompletos-2-3",
                     "command": "assertText",
                     "target": "xpath=//p[1]",
-                    "value": "Registro creado correctamente."
-                },
+                    "value": "Registro creado correctamente.",
+                    "comment": "Muestra mensaje: 'Registro creado correctamente.'"                },
                 {
                     "id": "registros-incompletos-2-4",
                     "command": "click",
@@ -382,7 +384,8 @@
                     "id": "registros-incompletos-2-6",
                     "command": "assertText",
                     "target": "xpath=//p[1]",
-                    "value": "Indique el registro incompleto que quiera completar:"
+                    "value": "Indique el registro incompleto que quiera completar:",
+                    "comment": "Muestra mensaje: 'Indique el registro incompleto que quiera completar:'"
                 },
                 {
                     "id": "registros-incompletos-2-7",
@@ -401,7 +404,8 @@
                     "id": "registros-incompletos-2-9",
                     "command": "assertText",
                     "target": "xpath=//tr/th[1]",
-                    "value": "Completar"
+                    "value": "Completar",
+                    "comment": "La primera celda de la fila de cabecera de la tabla contiene 'Completar'"
                 },
                 {
                     "id": "registros-incompletos-2-10",
@@ -435,31 +439,36 @@
                     "id": "registros-incompletos-2-14",
                     "command": "assertText",
                     "target": "xpath=//tr[1]/td[2]",
-                    "value": ""
+                    "value": "",
+                    "comment": "La segunda celda de la segunda fila de la tabla no contiene texto"
                 },
                 {
                     "id": "registros-incompletos-2-15",
                     "command": "assertText",
                     "target": "xpath=//tr[1]/td[3]",
-                    "value": "prueba-1-2"
+                    "value": "prueba-1-2",
+                    "comment": "La tercera celda de la segunda fila de la tabla contiene 'prueba-1-2'"
                 },
                 {
                     "id": "registros-incompletos-2-16",
                     "command": "assertText",
                     "target": "xpath=//tr[1]/td[4]",
-                    "value": "1-3"
+                    "value": "1-3",
+                    "comment": "La cuarta celda de la segunda fila de la tabla contiene '1-3'"
                 },
                 {
                     "id": "registros-incompletos-2-17",
                     "command": "assertText",
                     "target": "xpath=//tr[1]/td[5]",
-                    "value": "prueba-1-4@example.com"
+                    "value": "prueba-1-4@example.com",
+                    "comment": "La quinta celda de la segunda fila de la tabla contiene 'prueba-1-4@example.com"
                 },
                 {
                     "id": "registros-incompletos-2-18",
                     "command": "click",
                     "target": "xpath=//tr[1]/td[1]/input",
-                    "value": ""
+                    "value": "",
+                    "comment": "Hace clic en el botón radio situado en la primera celda de la segunda fila de la tabla"
                 },
                 {
                     "id": "registros-incompletos-2-19",
@@ -520,25 +529,29 @@
                     "id": "registros-incompletos-2-27",
                     "command": "assertValue",
                     "target": "xpath=//input[@name='nombre']",
-                    "value": ""
+                    "value": "",
+                    "comment": "La caja de texto 'nombre' no contiene texto"
                 },
                 {
                     "id": "registros-incompletos-2-28",
                     "command": "assertText",
                     "target": "xpath=//tr[2]/td[2]",
-                    "value": "prueba-1-2"
+                    "value": "prueba-1-2",
+                    "comment": "La segunda celda de la tercera fila de la tabla contiene 'prueba-1-2'"
                 },
                 {
                     "id": "registros-incompletos-2-29",
                     "command": "assertText",
                     "target": "xpath=//tr[3]/td[2]",
-                    "value": "1-3"
+                    "value": "1-3",
+                    "comment": "La segunda celda de la cuarta fila de la tabla contiene '1-3'"
                 },
                 {
                     "id": "registros-incompletos-2-30",
                     "command": "assertText",
                     "target": "xpath=//tr[4]/td[2]",
-                    "value": "prueba-1-4@example.com"
+                    "value": "prueba-1-4@example.com",
+                    "comment": "La segunda celda de la cuarta fila de la tabla contiene 'prueba-1-4@example.com'"
                 },
                 {
                     "id": "registros-incompletos-2-31",
@@ -552,7 +565,7 @@
                     "command": "click",
                     "target": "xpath=//input[@value='Guardar']",
                     "value": "",
-                    "comment": "Hace clic en el botón ''Guardar'"
+                    "comment": "Hace clic en el botón 'Guardar'"
                 },
                 {
                     "id": "registros-incompletos-2-33",
@@ -586,25 +599,29 @@
                     "id": "registros-incompletos-2-37",
                     "command": "assertText",
                     "target": "xpath=//tr[4]/td[1]",
-                    "value": "prueba-1-1"
+                    "value": "prueba-1-1",
+                    "comment": "La primera celda de la quinta fila de la tabla contiene 'prueba-1-1'"
                 },
                 {
                     "id": "registros-incompletos-2-38",
                     "command": "assertText",
                     "target": "xpath=//tr[4]/td[2]",
-                    "value": "prueba-1-2"
+                    "value": "prueba-1-2",
+                    "comment": "La segunda celda de la quinta fila de la tabla contiene 'prueba-1-2'"
                 },
                 {
                     "id": "registros-incompletos-2-39",
                     "command": "assertText",
                     "target": "xpath=//tr[4]/td[3]",
-                    "value": "1-3"
+                    "value": "1-3",
+                    "comment": "La tercera celda de la quinta fila de la tabla contiene '1-3'"
                 },
                 {
                     "id": "registros-incompletos-2-40",
                     "command": "assertText",
                     "target": "xpath=//tr[4]/td[4]",
-                    "value": "prueba-1-4@example.com"
+                    "value": "prueba-1-4@example.com",
+                    "comment": "La cuarta celda de la quinta fila de la tabla contiene 'prueba-1-4@example.com'"
                 },
                 {
                     "id": "registros-incompletos-3-1",
@@ -625,8 +642,8 @@
                     "id": "registros-incompletos-3-3",
                     "command": "assertText",
                     "target": "xpath=//p[1]",
-                    "value": "Registro creado correctamente."
-                },
+                    "value": "Registro creado correctamente.",
+                    "comment": "Muestra mensaje: 'Registro creado correctamente.'"                },
                 {
                     "id": "registros-incompletos-3-4",
                     "command": "click",
@@ -645,37 +662,43 @@
                     "id": "registros-incompletos-3-6",
                     "command": "assertText",
                     "target": "xpath=//p[1]",
-                    "value": "Indique el registro incompleto que quiera completar:"
+                    "value": "Indique el registro incompleto que quiera completar:",
+                    "comment": "Muestra mensaje: 'Indique el registro incompleto que quiera completar:'"
                 },
                 {
                     "id": "registros-incompletos-3-7",
                     "command": "assertText",
                     "target": "xpath=//tr[1]/td[2]",
-                    "value": "prueba-2-1"
+                    "value": "prueba-2-1",
+                    "comment": "La tercera celda de la segunda fila de la tabla contiene 'prueba-1-2'"
                 },
                 {
                     "id": "registros-incompletos-3-8",
                     "command": "assertText",
                     "target": "xpath=//tr[1]/td[3]",
-                    "value": ""
+                    "value": "",
+                    "comment": "La tercera celda de la segunda fila de la tabla no contiene texto"
                 },
                 {
                     "id": "registros-incompletos-3-9",
                     "command": "assertText",
                     "target": "xpath=//tr[1]/td[4]",
-                    "value": "2-3"
+                    "value": "2-3",
+                    "comment": "La cuarta celda de la segunda fila de la tabla contiene '2-3'"
                 },
                 {
                     "id": "registros-incompletos-3-10",
                     "command": "assertText",
                     "target": "xpath=//tr[1]/td[5]",
-                    "value": "prueba-2-4@example.com"
+                    "value": "prueba-2-4@example.com",
+                    "comment": "La quinta celda de la segunda fila de la tabla contiene 'prueba-2-4@example.com'"
                 },
                 {
                     "id": "registros-incompletos-3-11",
                     "command": "click",
                     "target": "xpath=//tr[1]/td[1]/input",
-                    "value": ""
+                    "value": "",
+                    "comment": "Hace clic en el botón radio situado en la primera celda de la segunda fila de la tabla"
                 },
                 {
                     "id": "registros-incompletos-3-12",
@@ -695,25 +718,29 @@
                     "id": "registros-incompletos-3-14",
                     "command": "assertText",
                     "target": "xpath=//tr[1]/td[2]",
-                    "value": "prueba-2-1"
+                    "value": "prueba-2-1",
+                    "comment": "La segunda celda de la segunda fila de la tabla contiene 'prueba-2-1'"
                 },
                 {
                     "id": "registros-incompletos-3-15",
                     "command": "assertText",
                     "target": "xpath=//input[@name='apellidos']",
-                    "value": ""
+                    "value": "",
+                    "comment": "La caja de texto 'apellidos' no contiene texto"
                 },
                 {
                     "id": "registros-incompletos-3-16",
                     "command": "assertText",
                     "target": "xpath=//tr[3]/td[2]",
-                    "value": "2-3"
+                    "value": "2-3",
+                    "comment": "La segunda celda de la cuarta fila de la tabla contiene '2-3'"
                 },
                 {
                     "id": "registros-incompletos-3-17",
                     "command": "assertText",
                     "target": "xpath=//tr[4]/td[2]",
-                    "value": "prueba-2-4@example.com"
+                    "value": "prueba-2-4@example.com",
+                    "comment": "La segunda celda de la quinta fila de la tabla contiene 'prueba-2-4@example.com'"
                 },
                 {
                     "id": "registros-incompletos-3-18",
@@ -727,7 +754,7 @@
                     "command": "click",
                     "target": "xpath=//input[@value='Guardar']",
                     "value": "",
-                    "comment": "Hace clic en el botón ''Guardar'"
+                    "comment": "Hace clic en el botón 'Guardar'"
                 },
                 {
                     "id": "registros-incompletos-3-20",
@@ -761,25 +788,29 @@
                     "id": "registros-incompletos-3-24",
                     "command": "assertText",
                     "target": "xpath=//tr[5]/td[1]",
-                    "value": "prueba-2-1"
+                    "value": "prueba-2-1",
+                    "comment": "La primera celda de la sexta fila de la tabla contiene 'prueba-2-1'"
                 },
                 {
                     "id": "registros-incompletos-3-25",
                     "command": "assertText",
                     "target": "xpath=//tr[5]/td[2]",
-                    "value": "prueba-2-2"
+                    "value": "prueba-2-2",
+                    "comment": "La segunda celda de la sexta fila de la tabla contiene 'prueba-2-2'"
                 },
                 {
                     "id": "registros-incompletos-3-26",
                     "command": "assertText",
                     "target": "xpath=//tr[5]/td[3]",
-                    "value": "2-3"
+                    "value": "2-3",
+                    "comment": "La tercera celda de la sexta fila de la tabla contiene '2-3'"
                 },
                 {
                     "id": "registros-incompletos-3-27",
                     "command": "assertText",
                     "target": "xpath=//tr[5]/td[4]",
-                    "value": "prueba-2-4@example.com"
+                    "value": "prueba-2-4@example.com",
+                    "comment": "La cuarta celda de la sexta fila de la tabla contiene 'prueba-2-4@example.com'"
                 },
                 {
                     "id": "registros-incompletos-4-1",
@@ -800,8 +831,8 @@
                     "id": "registros-incompletos-4-3",
                     "command": "assertText",
                     "target": "xpath=//p[1]",
-                    "value": "Registro creado correctamente."
-                },
+                    "value": "Registro creado correctamente.",
+                    "comment": "Muestra mensaje: 'Registro creado correctamente.'"                },
                 {
                     "id": "registros-incompletos-4-4",
                     "command": "click",
@@ -820,37 +851,43 @@
                     "id": "registros-incompletos-4-6",
                     "command": "assertText",
                     "target": "xpath=//p[1]",
-                    "value": "Indique el registro incompleto que quiera completar:"
+                    "value": "Indique el registro incompleto que quiera completar:",
+                    "comment": "Muestra mensaje: 'Indique el registro incompleto que quiera completar:'"
                 },
                 {
                     "id": "registros-incompletos-4-7",
                     "command": "assertText",
                     "target": "xpath=//tr[1]/td[2]",
-                    "value": "prueba-3-1"
+                    "value": "prueba-3-1",
+                    "comment": "La segunda celda de la segunda fila de la tabla contiene 'prueba-3-1'"
                 },
                 {
                     "id": "registros-incompletos-4-8",
                     "command": "assertText",
                     "target": "xpath=//tr[1]/td[3]",
-                    "value": "prueba-3-2"
+                    "value": "prueba-3-2",
+                    "comment": "La tercera celda de la segunda fila de la tabla contiene 'prueba-3-2'"
                 },
                 {
                     "id": "registros-incompletos-4-9",
                     "command": "assertText",
                     "target": "xpath=//tr[1]/td[4]",
-                    "value": ""
+                    "value": "",
+                    "comment": "La cuarta celda de la segunda fila de la tabla no contiene texto"
                 },
                 {
                     "id": "registros-incompletos-4-10",
                     "command": "assertText",
                     "target": "xpath=//tr[1]/td[5]",
-                    "value": "prueba-3-4@example.com"
+                    "value": "prueba-3-4@example.com",
+                    "comment": "La quinta celda de la segunda fila de la tabla contiene 'prueba-3-4@example.com'"
                 },
                 {
                     "id": "registros-incompletos-4-11",
                     "command": "click",
                     "target": "xpath=//tr[1]/td[1]/input",
-                    "value": ""
+                    "value": "",
+                    "comment": "Hace clic en el botón radio situado en la primera celda de la segunda fila de la tabla"
                 },
                 {
                     "id": "registros-incompletos-4-12",
@@ -870,38 +907,43 @@
                     "id": "registros-incompletos-4-14",
                     "command": "assertText",
                     "target": "xpath=//tr[1]/td[2]",
-                    "value": "prueba-3-1"
+                    "value": "prueba-3-1",
+                    "comment": "La segunda celda de la segunda fila de la tabla contiene 'prueba-3-1'"
                 },
                 {
                     "id": "registros-incompletos-4-15",
                     "command": "assertText",
                     "target": "xpath=//tr[2]/td[2]",
-                    "value": "prueba-3-2"
+                    "value": "prueba-3-2",
+                    "comment": "La segunda celda de la tercera fila de la tabla contiene 'prueba-3-2'"
                 },
                 {
                     "id": "registros-incompletos-4-16",
                     "command": "assertText",
                     "target": "xpath=//input[@name='telefono']",
-                    "value": ""
+                    "value": "",
+                    "comment": "La caja de texto 'telefono' no contiene texto"
                 },
                 {
                     "id": "registros-incompletos-4-17",
                     "command": "assertText",
                     "target": "xpath=//tr[4]/td[2]",
-                    "value": "prueba-3-4@example.com"
+                    "value": "prueba-3-4@example.com",
+                    "comment": "La segunda celda de la cuarta fila de la tabla contiene 'prueba-3-4@example.com'"
                 },
                 {
                     "id": "registros-incompletos-4-18",
                     "command": "type",
                     "target": "name=telefono",
-                    "value": "3-3"
+                    "value": "3-3",
+                    "comment": "Escribe '3-3' en la caja de texto 'telefono'"
                 },
                 {
                     "id": "registros-incompletos-4-19",
                     "command": "click",
                     "target": "xpath=//input[@value='Guardar']",
                     "value": "",
-                    "comment": "Hace clic en el botón ''Guardar'"
+                    "comment": "Hace clic en el botón 'Guardar'"
                 },
                 {
                     "id": "registros-incompletos-4-20",
@@ -935,25 +977,29 @@
                     "id": "registros-incompletos-4-24",
                     "command": "assertText",
                     "target": "xpath=//tr[6]/td[1]",
-                    "value": "prueba-3-1"
+                    "value": "prueba-3-1",
+                    "comment": "La primera celda de la séptima fila de la tabla contiene 'prueba-3-1'"
                 },
                 {
                     "id": "registros-incompletos-4-25",
                     "command": "assertText",
                     "target": "xpath=//tr[6]/td[2]",
-                    "value": "prueba-3-2"
+                    "value": "prueba-3-2",
+                    "comment": "La segunda celda de la séptima fila de la tabla contiene 'prueba-3-2'"
                 },
                 {
                     "id": "registros-incompletos-4-26",
                     "command": "assertText",
                     "target": "xpath=//tr[6]/td[3]",
-                    "value": "3-3"
+                    "value": "3-3",
+                    "comment": "La tercera celda de la séptima fila de la tabla contiene '3-3'"
                 },
                 {
                     "id": "registros-incompletos-4-27",
                     "command": "assertText",
                     "target": "xpath=//tr[6]/td[4]",
-                    "value": "prueba-3-4@example.com"
+                    "value": "prueba-3-4@example.com",
+                    "comment": "La cuarta celda de la séptima fila de la tabla contiene 'prueba-3-4@example.com'"
                 },
                 {
                     "id": "registros-incompletos-5-1",
@@ -974,8 +1020,8 @@
                     "id": "registros-incompletos-5-3",
                     "command": "assertText",
                     "target": "xpath=//p[1]",
-                    "value": "Registro creado correctamente."
-                },
+                    "value": "Registro creado correctamente.",
+                    "comment": "Muestra mensaje: 'Registro creado correctamente.'"                },
                 {
                     "id": "registros-incompletos-5-4",
                     "command": "click",
@@ -994,37 +1040,43 @@
                     "id": "registros-incompletos-5-6",
                     "command": "assertText",
                     "target": "xpath=//p[1]",
-                    "value": "Indique el registro incompleto que quiera completar:"
+                    "value": "Indique el registro incompleto que quiera completar:",
+                    "comment": "Muestra mensaje: 'Indique el registro incompleto que quiera completar:'"
                 },
                 {
                     "id": "registros-incompletos-5-7",
                     "command": "assertText",
                     "target": "xpath=//tr[1]/td[2]",
-                    "value": "prueba-4-1"
+                    "value": "prueba-4-1",
+                    "comment": "La segunda celda de la segunda fila de la tabla contiene 'prueba-4-1'"
                 },
                 {
                     "id": "registros-incompletos-5-8",
                     "command": "assertText",
                     "target": "xpath=//tr[1]/td[3]",
-                    "value": "prueba-4-2"
+                    "value": "prueba-4-2",
+                    "comment": "La tercera celda de la segunda fila de la tabla contiene 'prueba-4-2'"
                 },
                 {
                     "id": "registros-incompletos-5-9",
                     "command": "assertText",
                     "target": "xpath=//tr[1]/td[4]",
-                    "value": "4-3"
+                    "value": "4-3",
+                    "comment": "La cuarta celda de la segunda fila de la tabla contiene '4-3'"
                 },
                 {
                     "id": "registros-incompletos-5-10",
                     "command": "assertText",
                     "target": "xpath=//tr[1]/td[5]",
-                    "value": ""
+                    "value": "",
+                    "comment": "La quinta celda de la segunda fila de la tabla no contiene texto"
                 },
                 {
                     "id": "registros-incompletos-5-11",
                     "command": "click",
                     "target": "xpath=//tr[1]/td[1]/input",
-                    "value": ""
+                    "value": "",
+                    "comment": "Hace clic en el botón radio situado en la primera celda de la segunda fila de la tabla"
                 },
                 {
                     "id": "registros-incompletos-5-12",
@@ -1044,38 +1096,43 @@
                     "id": "registros-incompletos-5-14",
                     "command": "assertText",
                     "target": "xpath=//tr[1]/td[2]",
-                    "value": "prueba-4-1"
+                    "value": "prueba-4-1",
+                    "comment": "La segunda celda de la segunda fila de la tabla contiene 'prueba-4-1'"
                 },
                 {
                     "id": "registros-incompletos-5-15",
                     "command": "assertText",
                     "target": "xpath=//tr[2]/td[2]",
-                    "value": "prueba-4-2"
+                    "value": "prueba-4-2",
+                    "comment": "La segunda celda de la tercera fila de la tabla contiene 'prueba-4-2'"
                 },
                 {
                     "id": "registros-incompletos-5-16",
                     "command": "assertText",
                     "target": "xpath=//tr[3]/td[2]",
-                    "value": "4-3"
+                    "value": "4-3",
+                    "comment": "La segunda celda de la cuarta fila de la tabla contiene '4-3'"
                 },
                 {
                     "id": "registros-incompletos-5-17",
                     "command": "assertText",
                     "target": "xpath=//input[@name='correo']",
-                    "value": ""
+                    "value": "",
+                    "comment": "La caja de texto 'correo' no contiene texto"
                 },
                 {
                     "id": "registros-incompletos-5-18",
                     "command": "type",
                     "target": "name=correo",
-                    "value": "prueba-4-4@example.com"
+                    "value": "prueba-4-4@example.com",
+                    "comment": "Escribe 'prueba-4-4@example.com' en la caja de texto 'correo'"
                 },
                 {
                     "id": "registros-incompletos-5-19",
                     "command": "click",
                     "target": "xpath=//input[@value='Guardar']",
                     "value": "",
-                    "comment": "Hace clic en el botón ''Guardar'"
+                    "comment": "Hace clic en el botón 'Guardar'"
                 },
                 {
                     "id": "registros-incompletos-5-20",
@@ -1109,25 +1166,29 @@
                     "id": "registros-incompletos-5-24",
                     "command": "assertText",
                     "target": "xpath=//tr[7]/td[1]",
-                    "value": "prueba-4-1"
+                    "value": "prueba-4-1",
+                    "comment": "La primera celda de la octava fila de la tabla contiene 'prueba-4-1'"
                 },
                 {
                     "id": "registros-incompletos-5-25",
                     "command": "assertText",
                     "target": "xpath=//tr[7]/td[2]",
-                    "value": "prueba-4-2"
+                    "value": "prueba-4-2",
+                    "comment": "La segunda celda de la octava fila de la tabla contiene 'prueba-4-2'"
                 },
                 {
                     "id": "registros-incompletos-5-26",
                     "command": "assertText",
                     "target": "xpath=//tr[7]/td[3]",
-                    "value": "4-3"
+                    "value": "4-3",
+                    "comment": "La tercera celda de la octava fila de la tabla contiene '4-3'"
                 },
                 {
                     "id": "registros-incompletos-5-27",
                     "command": "assertText",
                     "target": "xpath=//tr[7]/td[4]",
-                    "value": "prueba-4-4@example.com"
+                    "value": "prueba-4-4@example.com",
+                    "comment": "La cuarta celda de la octava fila de la tabla contiene 'prueba-4-4@example.com'"
                 },
                 {
                     "id": "registros-incompletos-6-1",
@@ -1148,7 +1209,8 @@
                     "id": "registros-incompletos-6-3",
                     "command": "assertText",
                     "target": "xpath=//li/a",
-                    "value": "Conectarse"
+                    "value": "Conectarse",
+                    "comment": "Muestra enlace: Conectarse'"
                 },
                 {
                     "id": "registros-incompletos-6-4",
@@ -1168,7 +1230,8 @@
                     "id": "registros-incompletos-6-6",
                     "command": "assertText",
                     "target": "xpath=//li[2]/a",
-                    "value": "Desconectarse"
+                    "value": "Desconectarse",
+                    "comment": "Muestra enlace: 'Desconectarse'"
                 },
                 {
                     "id": "registros-incompletos-6-7",
@@ -1188,7 +1251,8 @@
                     "id": "registros-incompletos-6-9",
                     "command": "assertText",
                     "target": "xpath=//li[7]/a[1]",
-                    "value": "Incompletos"
+                    "value": "Incompletos",
+                    "comment": "Muestra enlace: 'Incompletos'"
                 },
                 {
                     "id": "registros-incompletos-6-10",
@@ -1208,7 +1272,8 @@
                     "id": "registros-incompletos-6-12",
                     "command": "assertText",
                     "target": "xpath=//p[1]",
-                    "value": "No hay ningún registro incompleto."
+                    "value": "No hay ningún registro incompleto.",
+                    "comment": "Muestra aviso: 'No hay ningún registro incompleto.'"
                 },
                 {
                     "id": "registros-incompletos-6-13",
@@ -1241,8 +1306,8 @@
                     "id": "registros-incompletos-6-17",
                     "command": "assertText",
                     "target": "xpath=//p[1]",
-                    "value": "Registro creado correctamente."
-                },
+                    "value": "Registro creado correctamente.",
+                    "comment": "Muestra mensaje: 'Registro creado correctamente.'"                },
                 {
                     "id": "registros-incompletos-6-18",
                     "command": "click",
@@ -1261,7 +1326,8 @@
                     "id": "registros-incompletos-6-20",
                     "command": "assertText",
                     "target": "xpath=//p[1]",
-                    "value": "Indique el registro incompleto que quiera completar:"
+                    "value": "Indique el registro incompleto que quiera completar:",
+                    "comment": "Muestra mensaje: 'Indique el registro incompleto que quiera completar:'"
                 },
                 {
                     "id": "registros-incompletos-6-21",
@@ -1280,7 +1346,8 @@
                     "id": "registros-incompletos-6-23",
                     "command": "assertText",
                     "target": "xpath=//tr/th[1]",
-                    "value": "Completar"
+                    "value": "Completar",
+                    "comment": "La primera celda de la fila de cabecera de la tabla contiene 'Completar'"
                 },
                 {
                     "id": "registros-incompletos-6-24",
@@ -1314,31 +1381,36 @@
                     "id": "registros-incompletos-6-28",
                     "command": "assertText",
                     "target": "xpath=//tr[1]/td[2]",
-                    "value": ""
+                    "value": "",
+                    "comment": "La segunda celda de la segunda fila de la tabla no contiene texto"
                 },
                 {
                     "id": "registros-incompletos-6-29",
                     "command": "assertText",
                     "target": "xpath=//tr[1]/td[3]",
-                    "value": "prueba-5-2"
+                    "value": "prueba-5-2",
+                    "comment": "La tercera celda de la segunda fila de la tabla contiene 'prueba-5-2'"
                 },
                 {
                     "id": "registros-incompletos-6-30",
                     "command": "assertText",
                     "target": "xpath=//tr[1]/td[4]",
-                    "value": "5-3"
+                    "value": "5-3",
+                    "comment": "La cuarta celda de la segunda fila de la tabla contiene '5-3'"
                 },
                 {
                     "id": "registros-incompletos-6-31",
                     "command": "assertText",
                     "target": "xpath=//tr[1]/td[5]",
-                    "value": "prueba-5-4@example.com"
+                    "value": "prueba-5-4@example.com",
+                    "comment": "La quinta celda de la segunda fila de la tabla contiene 'prueba-5-4@example.com"
                 },
                 {
                     "id": "registros-incompletos-6-32",
                     "command": "click",
                     "target": "xpath=//tr[1]/td[1]/input",
-                    "value": ""
+                    "value": "",
+                    "comment": "Hace clic en el botón radio situado en la primera celda de la segunda fila de la tabla"
                 },
                 {
                     "id": "registros-incompletos-6-33",
@@ -1399,25 +1471,29 @@
                     "id": "registros-incompletos-6-41",
                     "command": "assertValue",
                     "target": "xpath=//input[@name='nombre']",
-                    "value": ""
+                    "value": "",
+                    "comment": "La caja de texto 'nombre' no contiene texto"
                 },
                 {
                     "id": "registros-incompletos-6-42",
                     "command": "assertText",
                     "target": "xpath=//tr[2]/td[2]",
-                    "value": "prueba-5-2"
+                    "value": "prueba-5-2",
+                    "comment": "La segunda celda de la segunda fila de la tabla contiene 'prueba-5-2'"
                 },
                 {
                     "id": "registros-incompletos-6-43",
                     "command": "assertText",
                     "target": "xpath=//tr[3]/td[2]",
-                    "value": "5-3"
+                    "value": "5-3",
+                    "comment": "La segunda celda de la tercera fila de la tabla contiene '5-3'"
                 },
                 {
                     "id": "registros-incompletos-6-44",
                     "command": "assertText",
                     "target": "xpath=//tr[4]/td[2]",
-                    "value": "prueba-5-4@example.com"
+                    "value": "prueba-5-4@example.com",
+                    "comment": "La segunda celda de la cuarta fila de la tabla contiene '5-3'"
                 },
                 {
                     "id": "registros-incompletos-6-45",
@@ -1431,7 +1507,7 @@
                     "command": "click",
                     "target": "xpath=//input[@value='Guardar']",
                     "value": "",
-                    "comment": "Hace clic en el botón ''Guardar'"
+                    "comment": "Hace clic en el botón 'Guardar'"
                 },
                 {
                     "id": "registros-incompletos-6-47",
@@ -1465,25 +1541,29 @@
                     "id": "registros-incompletos-6-51",
                     "command": "assertText",
                     "target": "xpath=//tr[8]/td[1]",
-                    "value": "prueba-5-1"
+                    "value": "prueba-5-1",
+                    "comment": "La primera celda de la novena fila de la tabla contiene 'prueba-5-1'"
                 },
                 {
                     "id": "registros-incompletos-6-52",
                     "command": "assertText",
                     "target": "xpath=//tr[8]/td[2]",
-                    "value": "prueba-5-2"
+                    "value": "prueba-5-2",
+                    "comment": "La segunda celda de la novena fila de la tabla contiene 'prueba-5-2'"
                 },
                 {
                     "id": "registros-incompletos-6-53",
                     "command": "assertText",
                     "target": "xpath=//tr[8]/td[3]",
-                    "value": "5-3"
+                    "value": "5-3",
+                    "comment": "La tercera celda de la novena fila de la tabla contiene '5-3'"
                 },
                 {
                     "id": "registros-incompletos-6-54",
                     "command": "assertText",
                     "target": "xpath=//tr[8]/td[4]",
-                    "value": "prueba-5-4@example.com"
+                    "value": "prueba-5-4@example.com",
+                    "comment": "La cuarta celda de la novena fila de la tabla contiene 'prueba-5-4@example.com'"
                 },
                 {
                     "id": "registros-incompletos-6-55",
@@ -1503,7 +1583,8 @@
                     "id": "registros-incompletos-6-57",
                     "command": "assertText",
                     "target": "xpath=//li[2]/a",
-                    "value": "Desconectarse"
+                    "value": "Desconectarse",
+                    "comment": "Muestra enlace: 'Desconectarse'"
                 },
                 {
                     "id": "registros-incompletos-7-1",
@@ -1524,7 +1605,8 @@
                     "id": "registros-incompletos-7-3",
                     "command": "assertText",
                     "target": "xpath=//li/a",
-                    "value": "Conectarse"
+                    "value": "Conectarse",
+                    "comment": "Muestra enlace: Conectarse'"
                 },
                 {
                     "id": "final-1",
