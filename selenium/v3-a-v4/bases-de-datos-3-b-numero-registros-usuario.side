@@ -391,7 +391,8 @@
                     "id": "numero-registros-usuario-3-4",
                     "command": "storeElementCount",
                     "target": "xpath=//*[contains(@class, 'aviso')]",
-                    "value": "cuentaAvisos"
+                    "value": "cuentaAvisos",
+                    "comment": "Selenium cuenta los avisos (class 'aviso')"
                 },
                 {
                     "id": "numero-registros-usuario-3-5",
@@ -614,7 +615,8 @@
                     "id": "numero-registros-usuario-10-5",
                     "command": "storeElementCount",
                     "target": "xpath=//*[contains(@class, 'aviso')]",
-                    "value": "cuentaAvisos"
+                    "value": "cuentaAvisos",
+                    "comment": "Selenium cuenta los avisos (class 'aviso')"
                 },
                 {
                     "id": "numero-registros-usuario-10-6",

@@ -388,7 +388,8 @@
                     "id": "correo-usuarios-3-4",
                     "command": "storeElementCount",
                     "target": "xpath=//*[contains(@class, 'aviso')]",
-                    "value": "cuentaAvisos"
+                    "value": "cuentaAvisos",
+                    "comment": "Selenium cuenta los avisos (class 'aviso')"
                 },
                 {
                     "id": "correo-usuarios-3-5",
@@ -420,7 +421,8 @@
                     "id": "correo-usuarios-4-4",
                     "command": "storeElementCount",
                     "target": "xpath=//*[contains(@class, 'aviso')]",
-                    "value": "cuentaAvisos"
+                    "value": "cuentaAvisos",
+                    "comment": "Selenium cuenta los avisos (class 'aviso')"
                 },
                 {
                     "id": "correo-usuarios-4-5",

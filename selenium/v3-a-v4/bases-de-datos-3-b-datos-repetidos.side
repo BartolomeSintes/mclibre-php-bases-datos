@@ -376,7 +376,8 @@
                     "id": "datos-repetidos-2-4",
                     "command": "storeElementCount",
                     "target": "xpath=//*[contains(@class, 'aviso')]",
-                    "value": "cuentaAvisos"
+                    "value": "cuentaAvisos",
+                    "comment": "Selenium cuenta los avisos (class 'aviso')"
                 },
                 {
                     "id": "datos-repetidos-2-5",
@@ -448,7 +449,8 @@
                     "id": "datos-repetidos-5-4",
                     "command": "storeElementCount",
                     "target": "xpath=//*[contains(@class, 'aviso')]",
-                    "value": "cuentaAvisos"
+                    "value": "cuentaAvisos",
+                    "comment": "Selenium cuenta los avisos (class 'aviso')"
                 },
                 {
                     "id": "datos-repetidos-5-5",
@@ -505,7 +507,8 @@
                     "id": "datos-repetidos-6-4",
                     "command": "storeElementCount",
                     "target": "xpath=//*[contains(@class, 'aviso')]",
-                    "value": "cuentaAvisos"
+                    "value": "cuentaAvisos",
+                    "comment": "Selenium cuenta los avisos (class 'aviso')"
                 },
                 {
                     "id": "datos-repetidos-6-5",
@@ -569,7 +572,8 @@
                     "id": "datos-repetidos-7-4",
                     "command": "storeElementCount",
                     "target": "xpath=//*[contains(@class, 'aviso')]",
-                    "value": "cuentaAvisos"
+                    "value": "cuentaAvisos",
+                    "comment": "Selenium cuenta los avisos (class 'aviso')"
                 },
                 {
                     "id": "datos-repetidos-7-5",
@@ -633,7 +637,8 @@
                     "id": "datos-repetidos-8-4",
                     "command": "storeElementCount",
                     "target": "xpath=//*[contains(@class, 'aviso')]",
-                    "value": "cuentaAvisos"
+                    "value": "cuentaAvisos",
+                    "comment": "Selenium cuenta los avisos (class 'aviso')"
                 },
                 {
                     "id": "datos-repetidos-8-5",

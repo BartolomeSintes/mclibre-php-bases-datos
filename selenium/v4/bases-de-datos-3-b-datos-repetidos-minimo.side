@@ -1,6 +1,6 @@
 {
     "id": "mclibre-bases-de-datos-3-b-datos-repetidos-tests-minimo",
-    "version": "2024-02-08",
+    "version": "2024-02-09",
     "name": "Test ejercicio Bases de datos (3 B) Datos repetidos (Mínimo)",
     "url": "http://localhost",
     "tests": [
@@ -21,7 +21,7 @@
                     "command": "open",
                     "target": "${urlBase}/index.php",
                     "value": "",
-                    "comment": "Abre la página de Inicio de la aplicación"
+                    "comment": "Selenium abre la página de Inicio de la aplicación"
                 },
                 {
                     "id": "inicio-2",
@@ -34,26 +34,29 @@
                     "id": "desconexion-inicial-1",
                     "command": "executeScript",
                     "target": "return (document.body.innerHTML.includes('Desconectarse'))",
-                    "value": "detectadoDesconectarse"
+                    "value": "detectadoDesconectarse",
+                    "comment": "Selenium busca si se muestra el enlace 'Desconectarse'"
                 },
                 {
                     "id": "desconexion-inicial-2",
                     "command": "if",
                     "target": "${detectadoDesconectarse}",
-                    "value": ""
+                    "value": "",
+                    "comment": "Selenium: estructura 'if'"
                 },
                 {
                     "id": "desconexion-inicial-3",
                     "command": "click",
                     "target": "linkText=Desconectarse",
                     "value": "",
-                    "comment": "Hace clic en el enlace 'Desconectarse'"
+                    "comment": "Selenium hace clic en el enlace 'Desconectarse'"
                 },
                 {
                     "id": "desconexion-inicial-4",
                     "command": "end",
                     "target": "",
-                    "value": ""
+                    "value": "",
+                    "comment": "Selenium: estructura 'end'"
                 },
                 {
                     "id": "desconexion-inicial-5",
@@ -67,7 +70,7 @@
                     "command": "click",
                     "target": "linkText=Conectarse",
                     "value": "",
-                    "comment": "Hace clic en el enlace 'Conectarse'"
+                    "comment": "Selenium hace clic en el enlace 'Conectarse'"
                 },
                 {
                     "id": "borrar-todo-con-2",
@@ -95,7 +98,7 @@
                     "command": "click",
                     "target": "xpath=//input[@value='Identificar']",
                     "value": "",
-                    "comment": "Hace clic en el botón 'Identificar'"
+                    "comment": "Selenium hace clic en el botón 'Identificar'"
                 },
                 {
                     "id": "borrar-todo-con-6",
@@ -109,7 +112,7 @@
                     "command": "click",
                     "target": "linkText=Administrador",
                     "value": "",
-                    "comment": "Hace clic en el enlace 'Administrador'"
+                    "comment": "Selenium hace clic en el enlace 'Administrador'"
                 },
                 {
                     "id": "borrar-todo-con-2",
@@ -123,7 +126,7 @@
                     "command": "click",
                     "target": "linkText=Borrar todo",
                     "value": "",
-                    "comment": "Hace clic en el enlace 'Borrar todo'"
+                    "comment": "Selenium hace clic en el enlace 'Borrar todo'"
                 },
                 {
                     "id": "borrar-todo-con-4",
@@ -137,7 +140,7 @@
                     "command": "click",
                     "target": "name=demo",
                     "value": "",
-                    "comment": "Hace clic en la casilla 'demo'"
+                    "comment": "Selenium hace clic en la casilla 'demo'"
                 },
                 {
                     "id": "borrar-todo-con-6",
@@ -151,7 +154,7 @@
                     "command": "click",
                     "target": "xpath=//input[@name='borrar' and @value='Sí']",
                     "value": "",
-                    "comment": "Hace clic en el botón 'borrar' con atributo 'value' con valor 'Sí'"
+                    "comment": "Selenium hace clic en el botón 'borrar' con atributo 'value' con valor 'Sí'"
                 },
                 {
                     "id": "borrar-todo-con-8",
@@ -164,13 +167,15 @@
                     "id": "borrar-todo-con-9",
                     "command": "executeScript",
                     "target": "return (document.body.innerHTML.includes('Sistema Gestor de Bases de Datos: SQLite.'))",
-                    "value": "detectadoSQLite"
+                    "value": "detectadoSQLite",
+                    "comment": "Selenium busca si la base de datos utilizada es SQLite"
                 },
                 {
                     "id": "borrar-todo-con-10",
                     "command": "if",
                     "target": "${detectadoSQLite}",
-                    "value": ""
+                    "value": "",
+                    "comment": "Selenium: estructura 'if'"
                 },
                 {
                     "id": "borrar-todo-con-11",
@@ -218,7 +223,8 @@
                     "id": "borrar-todo-con-17",
                     "command": "else",
                     "target": "",
-                    "value": ""
+                    "value": "",
+                    "comment": "Selenium: estructura 'else'"
                 },
                 {
                     "id": "borrar-todo-con-18",
@@ -273,14 +279,15 @@
                     "id": "borrar-todo-con-25",
                     "command": "end",
                     "target": "",
-                    "value": ""
+                    "value": "",
+                    "comment": "Selenium: estructura 'end'"
                 },
                 {
                     "id": "borrar-todo-con-26",
                     "command": "click",
                     "target": "linkText=Volver",
                     "value": "",
-                    "comment": "Hace clic en el enlace 'Volver'"
+                    "comment": "Selenium hace clic en el enlace 'Volver'"
                 },
                 {
                     "id": "borrar-todo-con-27",
@@ -295,7 +302,7 @@
                     "command": "click",
                     "target": "linkText=Personas",
                     "value": "",
-                    "comment": "Hace clic en el enlace 'Personas'"
+                    "comment": "Selenium hace clic en el enlace 'Personas'"
                 },
                 {
                     "id": "datos-repetidos-1-2",
@@ -309,7 +316,7 @@
                     "command": "click",
                     "target": "linkText=Añadir registro",
                     "value": "",
-                    "comment": "Hace clic en el enlace 'Añadir registro'"
+                    "comment": "Selenium hace clic en el enlace 'Añadir registro'"
                 },
                 {
                     "id": "datos-repetidos-1-4",
@@ -322,7 +329,8 @@
                     "id": "datos-repetidos-1-5",
                     "command": "storeElementCount",
                     "target": "xpath=//tr",
-                    "value": "cuentaFilas"
+                    "value": "cuentaFilas",
+                    "comment": "Selenium cuenta el número de filas (tr)"
                 },
                 {
                     "id": "datos-repetidos-1-6",
@@ -392,7 +400,7 @@
                     "command": "click",
                     "target": "xpath=//input[@value='Añadir']",
                     "value": "",
-                    "comment": "Hace clic en el botón 'Añadir'"
+                    "comment": "Selenium hace clic en el botón 'Añadir'"
                 },
                 {
                     "id": "datos-repetidos-1-16",
@@ -414,7 +422,7 @@
                     "command": "open",
                     "target": "${urlBase}/db/tabla-personas/insertar-2.php?nombre=AAA&apellidos=BBB&telefono=123&correo=aaa.bbb@example.com",
                     "value": "",
-                    "comment": "Intenta insertar directamente un registro que ya existe"
+                    "comment": "Selenium intenta insertar directamente un registro que ya existe"
                 },
                 {
                     "id": "datos-repetidos-2-2",
@@ -434,7 +442,8 @@
                     "id": "datos-repetidos-2-4",
                     "command": "storeElementCount",
                     "target": "xpath=//*[contains(@class, 'aviso')]",
-                    "value": "cuentaAvisos"
+                    "value": "cuentaAvisos",
+                    "comment": "Selenium cuenta los avisos (class 'aviso')"
                 },
                 {
                     "id": "datos-repetidos-2-5",
@@ -449,7 +458,7 @@
                     "command": "open",
                     "target": "${urlBase}/db/tabla-personas/insertar-2.php?nombre=AAA&apellidos=CCC&telefono=567&correo=aaa@example.com",
                     "value": "",
-                    "comment": "Inserta directamente un registro"
+                    "comment": "Selenium inserta directamente un registro"
                 },
                 {
                     "id": "datos-repetidos-3-2",
@@ -471,7 +480,7 @@
                     "command": "open",
                     "target": "${urlBase}/db/tabla-personas/insertar-2.php?nombre=CCC&apellidos=BBB&telefono=678&correo=bbb@example.com",
                     "value": "",
-                    "comment": "Inserta directamente un registro"
+                    "comment": "Selenium inserta directamente un registro"
                 },
                 {
                     "id": "datos-repetidos-4-2",
@@ -493,7 +502,7 @@
                     "command": "open",
                     "target": "${urlBase}/db/tabla-personas/insertar-2.php?nombre=AAA&apellidos=BBB&telefono=456&correo=a@example.com",
                     "value": "",
-                    "comment": "Intenta insertar directamente un registro con valores similares a otro que ya existe"
+                    "comment": "Selenium intenta insertar directamente un registro con valores similares a otro que ya existe"
                 },
                 {
                     "id": "datos-repetidos-5-2",
@@ -513,7 +522,8 @@
                     "id": "datos-repetidos-5-4",
                     "command": "storeElementCount",
                     "target": "xpath=//*[contains(@class, 'aviso')]",
-                    "value": "cuentaAvisos"
+                    "value": "cuentaAvisos",
+                    "comment": "Selenium cuenta los avisos (class 'aviso')"
                 },
                 {
                     "id": "datos-repetidos-5-5",
@@ -534,7 +544,7 @@
                     "command": "click",
                     "target": "xpath=//input[@value='No']",
                     "value": "",
-                    "comment": "Hace clic en el botón 'No'"
+                    "comment": "Selenium hace clic en el botón 'No'"
                 },
                 {
                     "id": "datos-repetidos-5-8",
@@ -549,7 +559,7 @@
                     "command": "open",
                     "target": "${urlBase}/db/tabla-personas/insertar-2.php?nombre=AAA&apellidos=BBB&telefono=456&correo=a@example.com",
                     "value": "",
-                    "comment": "Intenta insertar directamente un registro con valores similares a otro que ya existe"
+                    "comment": "Selenium intenta insertar directamente un registro con valores similares a otro que ya existe"
                 },
                 {
                     "id": "datos-repetidos-6-2",
@@ -569,7 +579,8 @@
                     "id": "datos-repetidos-6-4",
                     "command": "storeElementCount",
                     "target": "xpath=//*[contains(@class, 'aviso')]",
-                    "value": "cuentaAvisos"
+                    "value": "cuentaAvisos",
+                    "comment": "Selenium cuenta los avisos (class 'aviso')"
                 },
                 {
                     "id": "datos-repetidos-6-5",
@@ -590,7 +601,7 @@
                     "command": "click",
                     "target": "xpath=//input[@value='Sí']",
                     "value": "",
-                    "comment": "Hace clic en el botón 'Sí'"
+                    "comment": "Selenium hace clic en el botón 'Sí'"
                 },
                 {
                     "id": "datos-repetidos-6-8",
@@ -612,7 +623,7 @@
                     "command": "open",
                     "target": "${urlBase}/db/tabla-personas/insertar-2.php?nombre=XXX&apellidos=YYY&telefono=123&correo=xxx.yyy@example.com",
                     "value": "",
-                    "comment": "Intenta insertar directamente un registro con valores similares a otro que ya existe"
+                    "comment": "Selenium intenta insertar directamente un registro con valores similares a otro que ya existe"
                 },
                 {
                     "id": "datos-repetidos-7-2",
@@ -632,7 +643,8 @@
                     "id": "datos-repetidos-7-4",
                     "command": "storeElementCount",
                     "target": "xpath=//*[contains(@class, 'aviso')]",
-                    "value": "cuentaAvisos"
+                    "value": "cuentaAvisos",
+                    "comment": "Selenium cuenta los avisos (class 'aviso')"
                 },
                 {
                     "id": "datos-repetidos-7-5",
@@ -653,7 +665,7 @@
                     "command": "click",
                     "target": "xpath=//input[@value='Sí']",
                     "value": "",
-                    "comment": "Hace clic en el botón 'Sí'"
+                    "comment": "Selenium hace clic en el botón 'Sí'"
                 },
                 {
                     "id": "datos-repetidos-7-8",
@@ -675,7 +687,7 @@
                     "command": "open",
                     "target": "${urlBase}/db/tabla-personas/insertar-2.php?nombre=XXX&apellidos=YYY&telefono=789&correo=aaa.bbb@example.com",
                     "value": "",
-                    "comment": "Intenta insertar directamente un registro con valores similares a otro que ya existe"
+                    "comment": "Selenium intenta insertar directamente un registro con valores similares a otro que ya existe"
                 },
                 {
                     "id": "datos-repetidos-8-2",
@@ -695,7 +707,8 @@
                     "id": "datos-repetidos-8-4",
                     "command": "storeElementCount",
                     "target": "xpath=//*[contains(@class, 'aviso')]",
-                    "value": "cuentaAvisos"
+                    "value": "cuentaAvisos",
+                    "comment": "Selenium cuenta los avisos (class 'aviso')"
                 },
                 {
                     "id": "datos-repetidos-8-5",
@@ -716,7 +729,7 @@
                     "command": "click",
                     "target": "xpath=//input[@value='Sí']",
                     "value": "",
-                    "comment": "Hace clic en el botón 'Sí'"
+                    "comment": "Selenium hace clic en el botón 'Sí'"
                 },
                 {
                     "id": "datos-repetidos-8-8",
@@ -738,7 +751,7 @@
                     "command": "click",
                     "target": "linkText=Listar",
                     "value": "",
-                    "comment": "Hace clic en el enlace 'Listar'"
+                    "comment": "Selenium hace clic en el enlace 'Listar'"
                 },
                 {
                     "id": "datos-repetidos-9-2",
@@ -751,7 +764,8 @@
                     "id": "datos-repetidos-9-3",
                     "command": "storeElementCount",
                     "target": "xpath=//tr",
-                    "value": "cuentaFilas"
+                    "value": "cuentaFilas",
+                    "comment": "Selenium cuenta el número de filas (tr)"
                 },
                 {
                     "id": "datos-repetidos-9-4",
@@ -828,7 +842,7 @@
                     "command": "click",
                     "target": "linkText=Volver",
                     "value": "",
-                    "comment": "Hace clic en el enlace 'Volver'"
+                    "comment": "Selenium hace clic en el enlace 'Volver'"
                 },
                 {
                     "id": "datos-repetidos-9-15",
@@ -850,7 +864,7 @@
                     "command": "click",
                     "target": "linkText=Desconectarse",
                     "value": "",
-                    "comment": "Hace clic en el enlace 'Desconectarse'"
+                    "comment": "Selenium hace clic en el enlace 'Desconectarse'"
                 },
                 {
                     "id": "datos-repetidos-10-2",

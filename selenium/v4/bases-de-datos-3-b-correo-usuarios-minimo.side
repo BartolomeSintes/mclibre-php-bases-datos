@@ -1,6 +1,6 @@
 {
     "id": "mclibre-bases-de-datos-3-b-correo-usuarios-tests-minimo",
-    "version": "2024-02-08",
+    "version": "2024-02-09",
     "name": "Test ejercicio Bases de datos (3 B) Correo usuarios (Mínimo)",
     "url": "http://localhost",
     "tests": [
@@ -21,7 +21,7 @@
                     "command": "open",
                     "target": "${urlBase}/index.php",
                     "value": "",
-                    "comment": "Abre la página de Inicio de la aplicación"
+                    "comment": "Selenium abre la página de Inicio de la aplicación"
                 },
                 {
                     "id": "inicio-2",
@@ -34,26 +34,29 @@
                     "id": "desconexion-inicial-1",
                     "command": "executeScript",
                     "target": "return (document.body.innerHTML.includes('Desconectarse'))",
-                    "value": "detectadoDesconectarse"
+                    "value": "detectadoDesconectarse",
+                    "comment": "Selenium busca si se muestra el enlace 'Desconectarse'"
                 },
                 {
                     "id": "desconexion-inicial-2",
                     "command": "if",
                     "target": "${detectadoDesconectarse}",
-                    "value": ""
+                    "value": "",
+                    "comment": "Selenium: estructura 'if'"
                 },
                 {
                     "id": "desconexion-inicial-3",
                     "command": "click",
                     "target": "linkText=Desconectarse",
                     "value": "",
-                    "comment": "Hace clic en el enlace 'Desconectarse'"
+                    "comment": "Selenium hace clic en el enlace 'Desconectarse'"
                 },
                 {
                     "id": "desconexion-inicial-4",
                     "command": "end",
                     "target": "",
-                    "value": ""
+                    "value": "",
+                    "comment": "Selenium: estructura 'end'"
                 },
                 {
                     "id": "desconexion-inicial-5",
@@ -67,7 +70,7 @@
                     "command": "click",
                     "target": "linkText=Conectarse",
                     "value": "",
-                    "comment": "Hace clic en el enlace 'Conectarse'"
+                    "comment": "Selenium hace clic en el enlace 'Conectarse'"
                 },
                 {
                     "id": "borrar-todo-con-2",
@@ -95,7 +98,7 @@
                     "command": "click",
                     "target": "xpath=//input[@value='Identificar']",
                     "value": "",
-                    "comment": "Hace clic en el botón 'Identificar'"
+                    "comment": "Selenium hace clic en el botón 'Identificar'"
                 },
                 {
                     "id": "borrar-todo-con-6",
@@ -109,7 +112,7 @@
                     "command": "click",
                     "target": "linkText=Administrador",
                     "value": "",
-                    "comment": "Hace clic en el enlace 'Administrador'"
+                    "comment": "Selenium hace clic en el enlace 'Administrador'"
                 },
                 {
                     "id": "borrar-todo-con-2",
@@ -123,7 +126,7 @@
                     "command": "click",
                     "target": "linkText=Borrar todo",
                     "value": "",
-                    "comment": "Hace clic en el enlace 'Borrar todo'"
+                    "comment": "Selenium hace clic en el enlace 'Borrar todo'"
                 },
                 {
                     "id": "borrar-todo-con-4",
@@ -137,7 +140,7 @@
                     "command": "click",
                     "target": "name=demo",
                     "value": "",
-                    "comment": "Hace clic en la casilla 'demo'"
+                    "comment": "Selenium hace clic en la casilla 'demo'"
                 },
                 {
                     "id": "borrar-todo-con-6",
@@ -151,7 +154,7 @@
                     "command": "click",
                     "target": "xpath=//input[@name='borrar' and @value='Sí']",
                     "value": "",
-                    "comment": "Hace clic en el botón 'borrar' con atributo 'value' con valor 'Sí'"
+                    "comment": "Selenium hace clic en el botón 'borrar' con atributo 'value' con valor 'Sí'"
                 },
                 {
                     "id": "borrar-todo-con-8",
@@ -164,13 +167,15 @@
                     "id": "borrar-todo-con-9",
                     "command": "executeScript",
                     "target": "return (document.body.innerHTML.includes('Sistema Gestor de Bases de Datos: SQLite.'))",
-                    "value": "detectadoSQLite"
+                    "value": "detectadoSQLite",
+                    "comment": "Selenium busca si la base de datos utilizada es SQLite"
                 },
                 {
                     "id": "borrar-todo-con-10",
                     "command": "if",
                     "target": "${detectadoSQLite}",
-                    "value": ""
+                    "value": "",
+                    "comment": "Selenium: estructura 'if'"
                 },
                 {
                     "id": "borrar-todo-con-11",
@@ -218,7 +223,8 @@
                     "id": "borrar-todo-con-17",
                     "command": "else",
                     "target": "",
-                    "value": ""
+                    "value": "",
+                    "comment": "Selenium: estructura 'else'"
                 },
                 {
                     "id": "borrar-todo-con-18",
@@ -273,14 +279,15 @@
                     "id": "borrar-todo-con-25",
                     "command": "end",
                     "target": "",
-                    "value": ""
+                    "value": "",
+                    "comment": "Selenium: estructura 'end'"
                 },
                 {
                     "id": "borrar-todo-con-26",
                     "command": "click",
                     "target": "linkText=Volver",
                     "value": "",
-                    "comment": "Hace clic en el enlace 'Volver'"
+                    "comment": "Selenium hace clic en el enlace 'Volver'"
                 },
                 {
                     "id": "borrar-todo-con-27",
@@ -295,7 +302,7 @@
                     "command": "click",
                     "target": "linkText=Usuarios",
                     "value": "",
-                    "comment": "Hace clic en el enlace 'Usuarios'"
+                    "comment": "Selenium hace clic en el enlace 'Usuarios'"
                 },
                 {
                     "id": "correo-usuarios-1-2",
@@ -309,7 +316,7 @@
                     "command": "click",
                     "target": "linkText=Listar",
                     "value": "",
-                    "comment": "Hace clic en el enlace 'Listar'"
+                    "comment": "Selenium hace clic en el enlace 'Listar'"
                 },
                 {
                     "id": "correo-usuarios-1-4",
@@ -329,7 +336,8 @@
                     "id": "correo-usuarios-1-6",
                     "command": "storeElementCount",
                     "target": "xpath=//tr",
-                    "value": "cuentaFilas"
+                    "value": "cuentaFilas",
+                    "comment": "Selenium cuenta el número de filas (tr)"
                 },
                 {
                     "id": "correo-usuarios-1-7",
@@ -379,7 +387,7 @@
                     "command": "click",
                     "target": "xpath=//button[@value='correo DESC']",
                     "value": "",
-                    "comment": "Hace clic en el botón con atributo 'value' con valor 'correo DESC'"
+                    "comment": "Selenium hace clic en el botón con atributo 'value' con valor 'correo DESC'"
                 },
                 {
                     "id": "correo-usuarios-2-2",
@@ -399,7 +407,8 @@
                     "id": "correo-usuarios-2-4",
                     "command": "storeElementCount",
                     "target": "xpath=//tr",
-                    "value": "cuentaFilas"
+                    "value": "cuentaFilas",
+                    "comment": "Selenium cuenta el número de filas (tr)"
                 },
                 {
                     "id": "correo-usuarios-2-5",
@@ -449,7 +458,7 @@
                     "command": "open",
                     "target": "${urlBase}/db/tabla-usuarios/insertar-2.php?usuario=prueba-1-1&password=prueba-1-2&nivel=10",
                     "value": "",
-                    "comment": "Intenta insertar directamente un registro con valores incompletos"
+                    "comment": "Selenium intenta insertar directamente un registro con valores incompletos"
                 },
                 {
                     "id": "correo-usuarios-3-2",
@@ -469,7 +478,8 @@
                     "id": "correo-usuarios-3-4",
                     "command": "storeElementCount",
                     "target": "xpath=//*[contains(@class, 'aviso')]",
-                    "value": "cuentaAvisos"
+                    "value": "cuentaAvisos",
+                    "comment": "Selenium cuenta los avisos (class 'aviso')"
                 },
                 {
                     "id": "correo-usuarios-3-5",
@@ -484,7 +494,7 @@
                     "command": "open",
                     "target": "${urlBase}/db/tabla-usuarios/insertar-2.php?usuario=prueba-1-1&password=prueba-1-2&correo=abcdefghi1abcdefghi2abcdefghi3abcdefghi4abcdefghi5a&nivel=10",
                     "value": "",
-                    "comment": "Intenta insertar directamente un registro con valores demasiado largos"
+                    "comment": "Selenium intenta insertar directamente un registro con valores demasiado largos"
                 },
                 {
                     "id": "correo-usuarios-4-2",
@@ -504,7 +514,8 @@
                     "id": "correo-usuarios-4-4",
                     "command": "storeElementCount",
                     "target": "xpath=//*[contains(@class, 'aviso')]",
-                    "value": "cuentaAvisos"
+                    "value": "cuentaAvisos",
+                    "comment": "Selenium cuenta los avisos (class 'aviso')"
                 },
                 {
                     "id": "correo-usuarios-4-5",
@@ -519,7 +530,7 @@
                     "command": "click",
                     "target": "linkText=Añadir registro",
                     "value": "",
-                    "comment": "Hace clic en el enlace 'Añadir registro'"
+                    "comment": "Selenium hace clic en el enlace 'Añadir registro'"
                 },
                 {
                     "id": "correo-usuarios-5-2",
@@ -532,7 +543,8 @@
                     "id": "correo-usuarios-5-3",
                     "command": "storeElementCount",
                     "target": "xpath=//tr",
-                    "value": "cuentaFilas"
+                    "value": "cuentaFilas",
+                    "comment": "Selenium cuenta el número de filas (tr)"
                 },
                 {
                     "id": "correo-usuarios-5-4",
@@ -602,7 +614,7 @@
                     "command": "click",
                     "target": "xpath=//input[@value='Añadir']",
                     "value": "",
-                    "comment": "Hace clic en el botón 'Añadir'"
+                    "comment": "Selenium hace clic en el botón 'Añadir'"
                 },
                 {
                     "id": "correo-usuarios-5-14",
@@ -624,7 +636,7 @@
                     "command": "click",
                     "target": "linkText=Listar",
                     "value": "",
-                    "comment": "Hace clic en el enlace 'Listar'"
+                    "comment": "Selenium hace clic en el enlace 'Listar'"
                 },
                 {
                     "id": "correo-usuarios-6-2",
@@ -637,7 +649,8 @@
                     "id": "correo-usuarios-6-3",
                     "command": "storeElementCount",
                     "target": "xpath=//tr",
-                    "value": "cuentaFilas"
+                    "value": "cuentaFilas",
+                    "comment": "Selenium cuenta el número de filas (tr)"
                 },
                 {
                     "id": "correo-usuarios-6-4",
@@ -679,7 +692,7 @@
                     "command": "click",
                     "target": "linkText=Volver",
                     "value": "",
-                    "comment": "Hace clic en el enlace 'Volver'"
+                    "comment": "Selenium hace clic en el enlace 'Volver'"
                 },
                 {
                     "id": "correo-usuarios-6-10",
@@ -701,7 +714,7 @@
                     "command": "click",
                     "target": "linkText=Desconectarse",
                     "value": "",
-                    "comment": "Hace clic en el enlace 'Desconectarse'"
+                    "comment": "Selenium hace clic en el enlace 'Desconectarse'"
                 },
                 {
                     "id": "correo-usuarios-7-2",

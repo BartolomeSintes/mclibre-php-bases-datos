@@ -130,20 +130,21 @@
                     "command": "click",
                     "target": "linkText=Volver",
                     "value": "",
-                    "comment": "Hace clic en el enlace 'Volver'"
+                    "comment": "Selenium hace clic en el enlace 'Volver'"
                 },
                 {
                     "id": "funcion-borrar-todo-4",
                     "command": "end",
                     "target": "",
-                    "value": ""
+                    "value": "",
+                    "comment": "Selenium: estructura 'end'"
                 },
                 {
                     "id": "funcion-borrar-todo-5",
                     "command": "click",
                     "target": "linkText=Administrador",
                     "value": "",
-                    "comment": "Hace clic en el enlace 'Administrador'"
+                    "comment": "Selenium hace clic en el enlace 'Administrador'"
                 },
                 {
                     "id": "funcion-borrar-todo-6",
@@ -156,7 +157,7 @@
                     "command": "click",
                     "target": "linkText=Borrar todo",
                     "value": "",
-                    "comment": "Hace clic en el enlace 'Borrar todo'"
+                    "comment": "Selenium hace clic en el enlace 'Borrar todo'"
                 },
                 {
                     "id": "funcion-borrar-todo-8",
@@ -175,7 +176,7 @@
                     "command": "click",
                     "target": "xpath=//input[@value='Sí']",
                     "value": "",
-                    "comment": "Hace clic en el botón 'Sí'"
+                    "comment": "Selenium hace clic en el botón 'Sí'"
                 },
                 {
                     "id": "funcion-borrar-todo-11",
@@ -194,7 +195,7 @@
                     "command": "click",
                     "target": "linkText=Volver",
                     "value": "",
-                    "comment": "Hace clic en el enlace 'Volver'"
+                    "comment": "Selenium hace clic en el enlace 'Volver'"
                 },
                 {
                     "id": "funcion-borrar-todo-14",
@@ -232,20 +233,22 @@
                     "id": "desconexion-inicial-4",
                     "command": "if",
                     "target": "${detectadoDesconectarse}",
-                    "value": ""
+                    "value": "",
+                    "comment": "Selenium: estructura 'if'"
                 },
                 {
                     "id": "desconexion-inicial-5",
                     "command": "click",
                     "target": "linkText=Desconectarse",
                     "value": "",
-                    "comment": "Hace clic en el enlace 'Desconectarse'"
+                    "comment": "Selenium hace clic en el enlace 'Desconectarse'"
                 },
                 {
                     "id": "desconexion-inicial-6",
                     "command": "end",
                     "target": "",
-                    "value": ""
+                    "value": "",
+                    "comment": "Selenium: estructura 'end'"
                 },
                 {
                     "id": "desconexion-inicial-7",
@@ -278,7 +281,7 @@
                     "command": "click",
                     "target": "linkText=Conectarse",
                     "value": "",
-                    "comment": "Hace clic en el enlace 'Conectarse'"
+                    "comment": "Selenium hace clic en el enlace 'Conectarse'"
                 },
                 {
                     "id": "borrar-todo-con-4",
@@ -305,7 +308,7 @@
                     "command": "click",
                     "target": "xpath=//input[@value='Identificar']",
                     "value": "",
-                    "comment": "Hace clic en el botón 'Identificar'"
+                    "comment": "Selenium hace clic en el botón 'Identificar'"
                 },
                 {
                     "id": "borrar-todo-con-8",
@@ -318,7 +321,7 @@
                     "command": "click",
                     "target": "linkText=Administrador",
                     "value": "",
-                    "comment": "Hace clic en el enlace 'Administrador'"
+                    "comment": "Selenium hace clic en el enlace 'Administrador'"
                 },
                 {
                     "id": "borrar-todo-con-10",
@@ -331,7 +334,7 @@
                     "command": "click",
                     "target": "linkText=Borrar todo",
                     "value": "",
-                    "comment": "Hace clic en el enlace 'Borrar todo'"
+                    "comment": "Selenium hace clic en el enlace 'Borrar todo'"
                 },
                 {
                     "id": "borrar-todo-con-12",
@@ -350,7 +353,7 @@
                     "command": "click",
                     "target": "xpath=//input[@value='Sí']",
                     "value": "",
-                    "comment": "Hace clic en el botón 'Sí'"
+                    "comment": "Selenium hace clic en el botón 'Sí'"
                 },
                 {
                     "id": "borrar-todo-con-15",
@@ -369,7 +372,7 @@
                     "command": "click",
                     "target": "linkText=Volver",
                     "value": "",
-                    "comment": "Hace clic en el enlace 'Volver'"
+                    "comment": "Selenium hace clic en el enlace 'Volver'"
                 },
                 {
                     "id": "borrar-todo-con-18",
@@ -382,7 +385,7 @@
                     "command": "click",
                     "target": "linkText=Desconectarse",
                     "value": "",
-                    "comment": "Hace clic en el enlace 'Desconectarse'"
+                    "comment": "Selenium hace clic en el enlace 'Desconectarse'"
                 },
                 {
                     "id": "borrar-todo-con-20",
@@ -428,7 +431,7 @@
                     "command": "click",
                     "target": "linkText=Conectarse",
                     "value": "",
-                    "comment": "Hace clic en el enlace 'Conectarse'"
+                    "comment": "Selenium hace clic en el enlace 'Conectarse'"
                 },
                 {
                     "id": "conexion-desconexion-niveles-5",
@@ -455,7 +458,7 @@
                     "command": "click",
                     "target": "xpath=//input[@value='Identificar']",
                     "value": "",
-                    "comment": "Hace clic en el botón 'Identificar'"
+                    "comment": "Selenium hace clic en el botón 'Identificar'"
                 },
                 {
                     "id": "conexion-desconexion-niveles-9",
@@ -468,7 +471,7 @@
                     "command": "click",
                     "target": "linkText=Administrador",
                     "value": "",
-                    "comment": "Hace clic en el enlace 'Administrador'"
+                    "comment": "Selenium hace clic en el enlace 'Administrador'"
                 },
                 {
                     "id": "conexion-desconexion-niveles-11",
@@ -481,7 +484,7 @@
                     "command": "click",
                     "target": "linkText=Volver",
                     "value": "",
-                    "comment": "Hace clic en el enlace 'Volver'"
+                    "comment": "Selenium hace clic en el enlace 'Volver'"
                 },
                 {
                     "id": "conexion-desconexion-niveles-13",
@@ -494,7 +497,7 @@
                     "command": "click",
                     "target": "linkText=Desconectarse",
                     "value": "",
-                    "comment": "Hace clic en el enlace 'Desconectarse'"
+                    "comment": "Selenium hace clic en el enlace 'Desconectarse'"
                 },
                 {
                     "id": "conexion-desconexion-niveles-15",
@@ -515,7 +518,7 @@
                     "command": "click",
                     "target": "linkText=Conectarse",
                     "value": "",
-                    "comment": "Hace clic en el enlace 'Conectarse'"
+                    "comment": "Selenium hace clic en el enlace 'Conectarse'"
                 },
                 {
                     "id": "conexion-desconexion-niveles-18",
@@ -540,7 +543,7 @@
                     "command": "click",
                     "target": "xpath=//input[@value='Identificar']",
                     "value": "",
-                    "comment": "Hace clic en el botón 'Identificar'"
+                    "comment": "Selenium hace clic en el botón 'Identificar'"
                 },
                 {
                     "id": "conexion-desconexion-niveles-22",
@@ -553,7 +556,7 @@
                     "command": "click",
                     "target": "linkText=Obras",
                     "value": "",
-                    "comment": "Hace clic en el enlace 'Obras'"
+                    "comment": "Selenium hace clic en el enlace 'Obras'"
                 },
                 {
                     "id": "conexion-desconexion-niveles-24",
@@ -572,7 +575,7 @@
                     "command": "click",
                     "target": "linkText=Buscar",
                     "value": "",
-                    "comment": "Hace clic en el enlace 'Buscar'"
+                    "comment": "Selenium hace clic en el enlace 'Buscar'"
                 },
                 {
                     "id": "conexion-desconexion-niveles-27",
@@ -599,7 +602,7 @@
                     "command": "click",
                     "target": "linkText=Volver",
                     "value": "",
-                    "comment": "Hace clic en el enlace 'Volver'"
+                    "comment": "Selenium hace clic en el enlace 'Volver'"
                 },
                 {
                     "id": "conexion-desconexion-niveles-31",
@@ -612,7 +615,7 @@
                     "command": "click",
                     "target": "linkText=Desconectarse",
                     "value": "",
-                    "comment": "Hace clic en el enlace 'Desconectarse'"
+                    "comment": "Selenium hace clic en el enlace 'Desconectarse'"
                 },
                 {
                     "id": "conexion-desconexion-niveles-33",
@@ -633,7 +636,7 @@
                     "command": "click",
                     "target": "linkText=Conectarse",
                     "value": "",
-                    "comment": "Hace clic en el enlace 'Conectarse'"
+                    "comment": "Selenium hace clic en el enlace 'Conectarse'"
                 },
                 {
                     "id": "conexion-desconexion-niveles-36",
@@ -658,7 +661,7 @@
                     "command": "click",
                     "target": "xpath=//input[@value='Identificar']",
                     "value": "",
-                    "comment": "Hace clic en el botón 'Identificar'"
+                    "comment": "Selenium hace clic en el botón 'Identificar'"
                 },
                 {
                     "id": "conexion-desconexion-niveles-40",
@@ -671,7 +674,7 @@
                     "command": "click",
                     "target": "linkText=Obras",
                     "value": "",
-                    "comment": "Hace clic en el enlace 'Obras'"
+                    "comment": "Selenium hace clic en el enlace 'Obras'"
                 },
                 {
                     "id": "conexion-desconexion-niveles-42",
@@ -698,7 +701,7 @@
                     "command": "click",
                     "target": "linkText=Volver",
                     "value": "",
-                    "comment": "Hace clic en el enlace 'Volver'"
+                    "comment": "Selenium hace clic en el enlace 'Volver'"
                 },
                 {
                     "id": "conexion-desconexion-niveles-46",
@@ -711,7 +714,7 @@
                     "command": "click",
                     "target": "linkText=Desconectarse",
                     "value": "",
-                    "comment": "Hace clic en el enlace 'Desconectarse'"
+                    "comment": "Selenium hace clic en el enlace 'Desconectarse'"
                 },
                 {
                     "id": "conexion-desconexion-niveles-48",
@@ -756,7 +759,7 @@
                     "command": "click",
                     "target": "linkText=Conectarse",
                     "value": "",
-                    "comment": "Hace clic en el enlace 'Conectarse'"
+                    "comment": "Selenium hace clic en el enlace 'Conectarse'"
                 },
                 {
                     "id": "conexion-root-5",
@@ -783,7 +786,7 @@
                     "command": "click",
                     "target": "xpath=//input[@value='Identificar']",
                     "value": "",
-                    "comment": "Hace clic en el botón 'Identificar'"
+                    "comment": "Selenium hace clic en el botón 'Identificar'"
                 },
                 {
                     "id": "conexion-root-9",
@@ -828,7 +831,7 @@
                     "command": "click",
                     "target": "linkText=Personas",
                     "value": "",
-                    "comment": "Hace clic en el enlace 'Personas'"
+                    "comment": "Selenium hace clic en el enlace 'Personas'"
                 },
                 {
                     "id": "testea-personas-1-1-4",
@@ -842,7 +845,7 @@
                     "command": "click",
                     "target": "linkText=Borrar",
                     "value": "",
-                    "comment": "Hace clic en el enlace 'Borrar'"
+                    "comment": "Selenium hace clic en el enlace 'Borrar'"
                 },
                 {
                     "id": "testea-personas-1-2-2",
@@ -855,21 +858,21 @@
                     "command": "click",
                     "target": "name=id[1]",
                     "value": "",
-                    "comment": "Hace clic en la casilla con atributo 'name' con valor 'id[1]'"
+                    "comment": "Selenium hace clic en la casilla con atributo 'name' con valor 'id[1]'"
                 },
                 {
                     "id": "testea-personas-1-2-4",
                     "command": "click",
                     "target": "name=id[2]",
                     "value": "",
-                    "comment": "Hace clic en la casilla con atributo 'name' con valor 'id[2]'"
+                    "comment": "Selenium hace clic en la casilla con atributo 'name' con valor 'id[2]'"
                 },
                 {
                     "id": "testea-personas-1-2-5",
                     "command": "click",
                     "target": "xpath=//input[@value='Borrar registro']",
                     "value": "",
-                    "comment": "Hace clic en el botón 'Borrar registro'"
+                    "comment": "Selenium hace clic en el botón 'Borrar registro'"
                 },
                 {
                     "id": "testea-personas-1-2-6",
@@ -922,7 +925,7 @@
                     "command": "click",
                     "target": "linkText=Listar",
                     "value": "",
-                    "comment": "Hace clic en el enlace 'Listar'"
+                    "comment": "Selenium hace clic en el enlace 'Listar'"
                 },
                 {
                     "id": "testea-personas-1-3-2",
@@ -974,7 +977,7 @@
                     "command": "click",
                     "target": "linkText=Borrar",
                     "value": "",
-                    "comment": "Hace clic en el enlace 'Borrar'"
+                    "comment": "Selenium hace clic en el enlace 'Borrar'"
                 },
                 {
                     "id": "testea-personas-1-4-2",
@@ -1026,7 +1029,7 @@
                     "command": "click",
                     "target": "linkText=Modificar",
                     "value": "",
-                    "comment": "Hace clic en el enlace 'Modificar'"
+                    "comment": "Selenium hace clic en el enlace 'Modificar'"
                 },
                 {
                     "id": "testea-personas-1-5-2",
@@ -1083,7 +1086,7 @@
                     "command": "click",
                     "target": "linkText=Personas",
                     "value": "",
-                    "comment": "Hace clic en el enlace 'Personas'"
+                    "comment": "Selenium hace clic en el enlace 'Personas'"
                 },
                 {
                     "id": "testea-personas-1-5-11",
@@ -1097,7 +1100,7 @@
                     "command": "click",
                     "target": "linkText=Listar",
                     "value": "",
-                    "comment": "Hace clic en el enlace 'Listar'"
+                    "comment": "Selenium hace clic en el enlace 'Listar'"
                 },
                 {
                     "id": "testea-personas-1-6-2",
@@ -1122,7 +1125,8 @@
                     "id": "testea-personas-1-6-5",
                     "command": "storeElementCount",
                     "target": "xpath=//tr",
-                    "value": "cuentaFilas"
+                    "value": "cuentaFilas",
+                    "comment": "Selenium cuenta el número de filas (tr)"
                 },
                 {
                     "id": "testea-personas-1-6-6",
@@ -1149,7 +1153,7 @@
                     "command": "click",
                     "target": "xpath=//button[@value='nombre ASC']",
                     "value": "",
-                    "comment": "Hace clic en el botón con atributo 'value' con valor 'nombre ASC'"
+                    "comment": "Selenium hace clic en el botón con atributo 'value' con valor 'nombre ASC'"
                 },
                 {
                     "id": "testea-personas-1-7-2",
@@ -1174,7 +1178,8 @@
                     "id": "testea-personas-1-7-5",
                     "command": "storeElementCount",
                     "target": "xpath=//tr",
-                    "value": "cuentaFilas"
+                    "value": "cuentaFilas",
+                    "comment": "Selenium cuenta el número de filas (tr)"
                 },
                 {
                     "id": "testea-personas-1-7-6",
@@ -1201,7 +1206,7 @@
                     "command": "click",
                     "target": "xpath=//button[@value='nombre DESC']",
                     "value": "",
-                    "comment": "Hace clic en el botón con atributo 'value' con valor 'nombre DESC'"
+                    "comment": "Selenium hace clic en el botón con atributo 'value' con valor 'nombre DESC'"
                 },
                 {
                     "id": "testea-personas-1-8-2",
@@ -1226,7 +1231,8 @@
                     "id": "testea-personas-1-8-5",
                     "command": "storeElementCount",
                     "target": "xpath=//tr",
-                    "value": "cuentaFilas"
+                    "value": "cuentaFilas",
+                    "comment": "Selenium cuenta el número de filas (tr)"
                 },
                 {
                     "id": "testea-personas-1-8-6",
@@ -1253,7 +1259,7 @@
                     "command": "click",
                     "target": "xpath=//button[@value='apellidos DESC']",
                     "value": "",
-                    "comment": "Hace clic en el botón con atributo 'value' con valor 'apellidos DESC'"
+                    "comment": "Selenium hace clic en el botón con atributo 'value' con valor 'apellidos DESC'"
                 },
                 {
                     "id": "testea-personas-1-9-2",
@@ -1278,7 +1284,8 @@
                     "id": "testea-personas-1-9-5",
                     "command": "storeElementCount",
                     "target": "xpath=//tr",
-                    "value": "cuentaFilas"
+                    "value": "cuentaFilas",
+                    "comment": "Selenium cuenta el número de filas (tr)"
                 },
                 {
                     "id": "testea-personas-1-9-6",
@@ -1305,7 +1312,7 @@
                     "command": "click",
                     "target": "xpath=//button[@value='apellidos ASC']",
                     "value": "",
-                    "comment": "Hace clic en el botón con atributo 'value' con valor 'apellidos ASC'"
+                    "comment": "Selenium hace clic en el botón con atributo 'value' con valor 'apellidos ASC'"
                 },
                 {
                     "id": "testea-personas-1-10-2",
@@ -1330,7 +1337,8 @@
                     "id": "testea-personas-1-10-5",
                     "command": "storeElementCount",
                     "target": "xpath=//tr",
-                    "value": "cuentaFilas"
+                    "value": "cuentaFilas",
+                    "comment": "Selenium cuenta el número de filas (tr)"
                 },
                 {
                     "id": "testea-personas-1-10-6",
@@ -1381,7 +1389,8 @@
                     "id": "testea-personas-1-11-5",
                     "command": "storeElementCount",
                     "target": "xpath=//tr",
-                    "value": "cuentaFilas"
+                    "value": "cuentaFilas",
+                    "comment": "Selenium cuenta el número de filas (tr)"
                 },
                 {
                     "id": "testea-personas-1-11-6",
@@ -1432,7 +1441,8 @@
                     "id": "testea-personas-1-12-5",
                     "command": "storeElementCount",
                     "target": "xpath=//tr",
-                    "value": "cuentaFilas"
+                    "value": "cuentaFilas",
+                    "comment": "Selenium cuenta el número de filas (tr)"
                 },
                 {
                     "id": "testea-personas-1-12-6",
@@ -1459,7 +1469,7 @@
                     "command": "click",
                     "target": "linkText=Añadir registro",
                     "value": "",
-                    "comment": "Hace clic en el enlace 'Añadir registro'"
+                    "comment": "Selenium hace clic en el enlace 'Añadir registro'"
                 },
                 {
                     "id": "testea-personas-1-13-2",
@@ -1492,7 +1502,7 @@
                     "command": "click",
                     "target": "xpath=//input[@value='Añadir']",
                     "value": "",
-                    "comment": "Hace clic en el botón 'Añadir'"
+                    "comment": "Selenium hace clic en el botón 'Añadir'"
                 },
                 {
                     "id": "testea-personas-1-13-7",
@@ -1537,7 +1547,7 @@
                     "command": "click",
                     "target": "linkText=Listar",
                     "value": "",
-                    "comment": "Hace clic en el enlace 'Listar'"
+                    "comment": "Selenium hace clic en el enlace 'Listar'"
                 },
                 {
                     "id": "testea-personas-1-13-14",
@@ -1567,7 +1577,8 @@
                     "id": "testea-personas-1-13-18",
                     "command": "storeElementCount",
                     "target": "xpath=//tr",
-                    "value": "cuentaFilas"
+                    "value": "cuentaFilas",
+                    "comment": "Selenium cuenta el número de filas (tr)"
                 },
                 {
                     "id": "testea-personas-1-13-19",
@@ -1594,7 +1605,7 @@
                     "command": "click",
                     "target": "linkText=Añadir registro",
                     "value": "",
-                    "comment": "Hace clic en el enlace 'Añadir registro'"
+                    "comment": "Selenium hace clic en el enlace 'Añadir registro'"
                 },
                 {
                     "id": "testea-personas-1-14-2",
@@ -1607,7 +1618,7 @@
                     "command": "click",
                     "target": "xpath=//input[@value='Añadir']",
                     "value": "",
-                    "comment": "Hace clic en el botón 'Añadir'"
+                    "comment": "Selenium hace clic en el botón 'Añadir'"
                 },
                 {
                     "id": "testea-personas-1-14-4",
@@ -1653,7 +1664,7 @@
                     "command": "click",
                     "target": "linkText=Añadir registro",
                     "value": "",
-                    "comment": "Hace clic en el enlace 'Añadir registro'"
+                    "comment": "Selenium hace clic en el enlace 'Añadir registro'"
                 },
                 {
                     "id": "testea-personas-1-15-2",
@@ -1686,7 +1697,7 @@
                     "command": "click",
                     "target": "xpath=//input[@value='Añadir']",
                     "value": "",
-                    "comment": "Hace clic en el botón 'Añadir'"
+                    "comment": "Selenium hace clic en el botón 'Añadir'"
                 },
                 {
                     "id": "testea-personas-1-15-7",
@@ -2105,7 +2116,7 @@
                     "command": "click",
                     "target": "linkText=Personas",
                     "value": "",
-                    "comment": "Hace clic en el enlace 'Personas'"
+                    "comment": "Selenium hace clic en el enlace 'Personas'"
                 },
                 {
                     "id": "testea-personas-1-23-10",
@@ -2119,7 +2130,7 @@
                     "command": "click",
                     "target": "linkText=Borrar",
                     "value": "",
-                    "comment": "Hace clic en el enlace 'Borrar'"
+                    "comment": "Selenium hace clic en el enlace 'Borrar'"
                 },
                 {
                     "id": "testea-personas-1-24-2",
@@ -2131,7 +2142,8 @@
                     "id": "testea-personas-1-24-3",
                     "command": "storeElementCount",
                     "target": "xpath=//tr",
-                    "value": "cuentaFilas"
+                    "value": "cuentaFilas",
+                    "comment": "Selenium cuenta el número de filas (tr)"
                 },
                 {
                     "id": "testea-personas-1-24-4",
@@ -2152,7 +2164,7 @@
                     "command": "click",
                     "target": "name=id[1]",
                     "value": "",
-                    "comment": "Hace clic en la casilla con atributo 'name' con valor 'id[1]'"
+                    "comment": "Selenium hace clic en la casilla con atributo 'name' con valor 'id[1]'"
                 },
                 {
                     "id": "testea-personas-1-25-1",
@@ -2160,7 +2172,7 @@
                     "command": "click",
                     "target": "xpath=//button[@value='nombre ASC']",
                     "value": "",
-                    "comment": "Hace clic en el botón con atributo 'value' con valor 'nombre ASC'"
+                    "comment": "Selenium hace clic en el botón con atributo 'value' con valor 'nombre ASC'"
                 },
                 {
                     "id": "testea-personas-1-25-2",
@@ -2172,7 +2184,8 @@
                     "id": "testea-personas-1-25-3",
                     "command": "storeElementCount",
                     "target": "xpath=//tr",
-                    "value": "cuentaFilas"
+                    "value": "cuentaFilas",
+                    "comment": "Selenium cuenta el número de filas (tr)"
                 },
                 {
                     "id": "testea-personas-1-25-4",
@@ -2213,7 +2226,7 @@
                     "command": "click",
                     "target": "xpath=//button[@value='nombre DESC']",
                     "value": "",
-                    "comment": "Hace clic en el botón con atributo 'value' con valor 'nombre DESC'"
+                    "comment": "Selenium hace clic en el botón con atributo 'value' con valor 'nombre DESC'"
                 },
                 {
                     "id": "testea-personas-1-26-2",
@@ -2225,7 +2238,8 @@
                     "id": "testea-personas-1-26-3",
                     "command": "storeElementCount",
                     "target": "xpath=//tr",
-                    "value": "cuentaFilas"
+                    "value": "cuentaFilas",
+                    "comment": "Selenium cuenta el número de filas (tr)"
                 },
                 {
                     "id": "testea-personas-1-26-4",
@@ -2266,7 +2280,7 @@
                     "command": "click",
                     "target": "xpath=//button[@value='apellidos DESC']",
                     "value": "",
-                    "comment": "Hace clic en el botón con atributo 'value' con valor 'apellidos DESC'"
+                    "comment": "Selenium hace clic en el botón con atributo 'value' con valor 'apellidos DESC'"
                 },
                 {
                     "id": "testea-personas-1-27-2",
@@ -2278,7 +2292,8 @@
                     "id": "testea-personas-1-27-3",
                     "command": "storeElementCount",
                     "target": "xpath=//tr",
-                    "value": "cuentaFilas"
+                    "value": "cuentaFilas",
+                    "comment": "Selenium cuenta el número de filas (tr)"
                 },
                 {
                     "id": "testea-personas-1-27-4",
@@ -2319,7 +2334,7 @@
                     "command": "click",
                     "target": "xpath=//button[@value='apellidos ASC']",
                     "value": "",
-                    "comment": "Hace clic en el botón con atributo 'value' con valor 'apellidos ASC'"
+                    "comment": "Selenium hace clic en el botón con atributo 'value' con valor 'apellidos ASC'"
                 },
                 {
                     "id": "testea-personas-1-28-2",
@@ -2331,7 +2346,8 @@
                     "id": "testea-personas-1-28-3",
                     "command": "storeElementCount",
                     "target": "xpath=//tr",
-                    "value": "cuentaFilas"
+                    "value": "cuentaFilas",
+                    "comment": "Selenium cuenta el número de filas (tr)"
                 },
                 {
                     "id": "testea-personas-1-28-4",
@@ -2383,7 +2399,8 @@
                     "id": "testea-personas-1-29-3",
                     "command": "storeElementCount",
                     "target": "xpath=//tr",
-                    "value": "cuentaFilas"
+                    "value": "cuentaFilas",
+                    "comment": "Selenium cuenta el número de filas (tr)"
                 },
                 {
                     "id": "testea-personas-1-29-4",
@@ -2435,7 +2452,8 @@
                     "id": "testea-personas-1-30-3",
                     "command": "storeElementCount",
                     "target": "xpath=//tr",
-                    "value": "cuentaFilas"
+                    "value": "cuentaFilas",
+                    "comment": "Selenium cuenta el número de filas (tr)"
                 },
                 {
                     "id": "testea-personas-1-30-4",
@@ -2476,7 +2494,7 @@
                     "command": "click",
                     "target": "linkText=Borrar",
                     "value": "",
-                    "comment": "Hace clic en el enlace 'Borrar'"
+                    "comment": "Selenium hace clic en el enlace 'Borrar'"
                 },
                 {
                     "id": "testea-personas-1-31-2",
@@ -2489,14 +2507,14 @@
                     "command": "click",
                     "target": "name=id[1]",
                     "value": "",
-                    "comment": "Hace clic en la casilla con atributo 'name' con valor 'id[1]'"
+                    "comment": "Selenium hace clic en la casilla con atributo 'name' con valor 'id[1]'"
                 },
                 {
                     "id": "testea-personas-1-31-4",
                     "command": "click",
                     "target": "xpath=//input[@value='Borrar registro']",
                     "value": "",
-                    "comment": "Hace clic en el botón 'Borrar registro'"
+                    "comment": "Selenium hace clic en el botón 'Borrar registro'"
                 },
                 {
                     "id": "testea-personas-1-31-5",
@@ -2541,7 +2559,7 @@
                     "command": "click",
                     "target": "linkText=Listar",
                     "value": "",
-                    "comment": "Hace clic en el enlace 'Listar'"
+                    "comment": "Selenium hace clic en el enlace 'Listar'"
                 },
                 {
                     "id": "testea-personas-1-31-12",
@@ -2559,7 +2577,8 @@
                     "id": "testea-personas-1-31-14",
                     "command": "storeElementCount",
                     "target": "xpath=//tr",
-                    "value": "cuentaFilas"
+                    "value": "cuentaFilas",
+                    "comment": "Selenium cuenta el número de filas (tr)"
                 },
                 {
                     "id": "testea-personas-1-31-15",
@@ -2591,7 +2610,7 @@
                     "command": "click",
                     "target": "linkText=Personas",
                     "value": "",
-                    "comment": "Hace clic en el enlace 'Personas'"
+                    "comment": "Selenium hace clic en el enlace 'Personas'"
                 },
                 {
                     "id": "testea-personas-1-31-20",
@@ -2605,7 +2624,7 @@
                     "command": "click",
                     "target": "linkText=Borrar",
                     "value": "",
-                    "comment": "Hace clic en el enlace 'Borrar'"
+                    "comment": "Selenium hace clic en el enlace 'Borrar'"
                 },
                 {
                     "id": "testea-personas-1-32-2",
@@ -2618,7 +2637,7 @@
                     "command": "click",
                     "target": "xpath=//input[@value='Borrar registro']",
                     "value": "",
-                    "comment": "Hace clic en el botón 'Borrar registro'"
+                    "comment": "Selenium hace clic en el botón 'Borrar registro'"
                 },
                 {
                     "id": "testea-personas-1-32-4",
@@ -2636,7 +2655,8 @@
                     "id": "testea-personas-1-32-6",
                     "command": "storeElementCount",
                     "target": "xpath=//tr",
-                    "value": "cuentaFilas"
+                    "value": "cuentaFilas",
+                    "comment": "Selenium cuenta el número de filas (tr)"
                 },
                 {
                     "id": "testea-personas-1-32-7",
@@ -2693,7 +2713,8 @@
                     "id": "testea-personas-1-33-4",
                     "command": "storeElementCount",
                     "target": "xpath=//tr",
-                    "value": "cuentaFilas"
+                    "value": "cuentaFilas",
+                    "comment": "Selenium cuenta el número de filas (tr)"
                 },
                 {
                     "id": "testea-personas-1-33-5",
@@ -2750,7 +2771,8 @@
                     "id": "testea-personas-1-34-4",
                     "command": "storeElementCount",
                     "target": "xpath=//tr",
-                    "value": "cuentaFilas"
+                    "value": "cuentaFilas",
+                    "comment": "Selenium cuenta el número de filas (tr)"
                 },
                 {
                     "id": "testea-personas-1-34-5",
@@ -2795,7 +2817,8 @@
                     "id": "testea-personas-1-34-11",
                     "command": "storeElementCount",
                     "target": "xpath=//tr",
-                    "value": "cuentaFilas"
+                    "value": "cuentaFilas",
+                    "comment": "Selenium cuenta el número de filas (tr)"
                 },
                 {
                     "id": "testea-personas-1-34-12",
@@ -2827,7 +2850,8 @@
                     "id": "testea-personas-1-35-4",
                     "command": "storeElementCount",
                     "target": "xpath=//tr",
-                    "value": "cuentaFilas"
+                    "value": "cuentaFilas",
+                    "comment": "Selenium cuenta el número de filas (tr)"
                 },
                 {
                     "id": "testea-personas-1-35-5",
@@ -2867,7 +2891,7 @@
                     "command": "click",
                     "target": "linkText=Borrar",
                     "value": "",
-                    "comment": "Hace clic en el enlace 'Borrar'"
+                    "comment": "Selenium hace clic en el enlace 'Borrar'"
                 },
                 {
                     "id": "testea-personas-1-36-2",
@@ -2880,21 +2904,21 @@
                     "command": "click",
                     "target": "name=id[1]",
                     "value": "",
-                    "comment": "Hace clic en la casilla con atributo 'name' con valor 'id[1]'"
+                    "comment": "Selenium hace clic en la casilla con atributo 'name' con valor 'id[1]'"
                 },
                 {
                     "id": "testea-personas-1-36-4",
                     "command": "click",
                     "target": "name=id[2]",
                     "value": "",
-                    "comment": "Hace clic en la casilla con atributo 'name' con valor 'id[2]'"
+                    "comment": "Selenium hace clic en la casilla con atributo 'name' con valor 'id[2]'"
                 },
                 {
                     "id": "testea-personas-1-36-5",
                     "command": "click",
                     "target": "xpath=//input[@value='Borrar registro']",
                     "value": "",
-                    "comment": "Hace clic en el botón 'Borrar registro'"
+                    "comment": "Selenium hace clic en el botón 'Borrar registro'"
                 },
                 {
                     "id": "testea-personas-1-36-6",
@@ -2946,7 +2970,7 @@
                     "command": "click",
                     "target": "linkText=Buscar",
                     "value": "",
-                    "comment": "Hace clic en el enlace 'Buscar'"
+                    "comment": "Selenium hace clic en el enlace 'Buscar'"
                 },
                 {
                     "id": "testea-personas-1-36-14",
@@ -2998,7 +3022,7 @@
                     "command": "click",
                     "target": "linkText=Personas",
                     "value": "",
-                    "comment": "Hace clic en el enlace 'Personas'"
+                    "comment": "Selenium hace clic en el enlace 'Personas'"
                 },
                 {
                     "id": "testea-personas-1-37-2",
@@ -3011,7 +3035,7 @@
                     "command": "click",
                     "target": "linkText=Buscar",
                     "value": "",
-                    "comment": "Hace clic en el enlace 'Buscar'"
+                    "comment": "Selenium hace clic en el enlace 'Buscar'"
                 },
                 {
                     "id": "testea-personas-1-37-4",
@@ -3031,7 +3055,7 @@
                     "command": "click",
                     "target": "xpath=//input[@value='Buscar']",
                     "value": "",
-                    "comment": "Hace clic en el botón 'Buscar'"
+                    "comment": "Selenium hace clic en el botón 'Buscar'"
                 },
                 {
                     "id": "testea-personas-1-37-7",
@@ -3049,7 +3073,8 @@
                     "id": "testea-personas-1-37-9",
                     "command": "storeElementCount",
                     "target": "xpath=//tr",
-                    "value": "cuentaFilas"
+                    "value": "cuentaFilas",
+                    "comment": "Selenium cuenta el número de filas (tr)"
                 },
                 {
                     "id": "testea-personas-1-37-10",
@@ -3076,7 +3101,7 @@
                     "command": "click",
                     "target": "linkText=Buscar",
                     "value": "",
-                    "comment": "Hace clic en el enlace 'Buscar'"
+                    "comment": "Selenium hace clic en el enlace 'Buscar'"
                 },
                 {
                     "id": "testea-personas-1-38-2",
@@ -3096,7 +3121,7 @@
                     "command": "click",
                     "target": "xpath=//input[@value='Buscar']",
                     "value": "",
-                    "comment": "Hace clic en el botón 'Buscar'"
+                    "comment": "Selenium hace clic en el botón 'Buscar'"
                 },
                 {
                     "id": "testea-personas-1-38-5",
@@ -3121,7 +3146,8 @@
                     "id": "testea-personas-1-38-8",
                     "command": "storeElementCount",
                     "target": "xpath=//tr",
-                    "value": "cuentaFilas"
+                    "value": "cuentaFilas",
+                    "comment": "Selenium cuenta el número de filas (tr)"
                 },
                 {
                     "id": "testea-personas-1-38-9",
@@ -3148,7 +3174,7 @@
                     "command": "click",
                     "target": "linkText=Buscar",
                     "value": "",
-                    "comment": "Hace clic en el enlace 'Buscar'"
+                    "comment": "Selenium hace clic en el enlace 'Buscar'"
                 },
                 {
                     "id": "testea-personas-1-39-2",
@@ -3167,7 +3193,7 @@
                     "command": "click",
                     "target": "xpath=//input[@value='Buscar']",
                     "value": "",
-                    "comment": "Hace clic en el botón 'Buscar'"
+                    "comment": "Selenium hace clic en el botón 'Buscar'"
                 },
                 {
                     "id": "testea-personas-1-39-5",
@@ -3186,7 +3212,8 @@
                     "id": "testea-personas-1-39-7",
                     "command": "storeElementCount",
                     "target": "xpath=//tr",
-                    "value": "cuentaFilas"
+                    "value": "cuentaFilas",
+                    "comment": "Selenium cuenta el número de filas (tr)"
                 },
                 {
                     "id": "testea-personas-1-39-8",
@@ -3213,7 +3240,7 @@
                     "command": "click",
                     "target": "linkText=Buscar",
                     "value": "",
-                    "comment": "Hace clic en el enlace 'Buscar'"
+                    "comment": "Selenium hace clic en el enlace 'Buscar'"
                 },
                 {
                     "id": "testea-personas-1-40-2",
@@ -3233,7 +3260,7 @@
                     "command": "click",
                     "target": "xpath=//input[@value='Buscar']",
                     "value": "",
-                    "comment": "Hace clic en el botón 'Buscar'"
+                    "comment": "Selenium hace clic en el botón 'Buscar'"
                 },
                 {
                     "id": "testea-personas-1-40-5",
@@ -3414,7 +3441,7 @@
                     "command": "click",
                     "target": "linkText=Modificar",
                     "value": "",
-                    "comment": "Hace clic en el enlace 'Modificar'"
+                    "comment": "Selenium hace clic en el enlace 'Modificar'"
                 },
                 {
                     "id": "testea-personas-1-44-2",
@@ -3426,7 +3453,8 @@
                     "id": "testea-personas-1-44-3",
                     "command": "storeElementCount",
                     "target": "xpath=//tr",
-                    "value": "cuentaFilas"
+                    "value": "cuentaFilas",
+                    "comment": "Selenium cuenta el número de filas (tr)"
                 },
                 {
                     "id": "testea-personas-1-44-4",
@@ -3454,7 +3482,7 @@
                     "command": "click",
                     "target": "xpath=//button[@value='nombre ASC']",
                     "value": "",
-                    "comment": "Hace clic en el botón con atributo 'value' con valor 'nombre ASC'"
+                    "comment": "Selenium hace clic en el botón con atributo 'value' con valor 'nombre ASC'"
                 },
                 {
                     "id": "testea-personas-1-45-2",
@@ -3466,7 +3494,8 @@
                     "id": "testea-personas-1-45-3",
                     "command": "storeElementCount",
                     "target": "xpath=//tr",
-                    "value": "cuentaFilas"
+                    "value": "cuentaFilas",
+                    "comment": "Selenium cuenta el número de filas (tr)"
                 },
                 {
                     "id": "testea-personas-1-45-4",
@@ -3506,7 +3535,7 @@
                     "command": "click",
                     "target": "xpath=//button[@value='nombre DESC']",
                     "value": "",
-                    "comment": "Hace clic en el botón con atributo 'value' con valor 'nombre DESC'"
+                    "comment": "Selenium hace clic en el botón con atributo 'value' con valor 'nombre DESC'"
                 },
                 {
                     "id": "testea-personas-1-46-2",
@@ -3518,7 +3547,8 @@
                     "id": "testea-personas-1-46-3",
                     "command": "storeElementCount",
                     "target": "xpath=//tr",
-                    "value": "cuentaFilas"
+                    "value": "cuentaFilas",
+                    "comment": "Selenium cuenta el número de filas (tr)"
                 },
                 {
                     "id": "testea-personas-1-46-4",
@@ -3558,7 +3588,7 @@
                     "command": "click",
                     "target": "xpath=//button[@value='apellidos DESC']",
                     "value": "",
-                    "comment": "Hace clic en el botón con atributo 'value' con valor 'apellidos DESC'"
+                    "comment": "Selenium hace clic en el botón con atributo 'value' con valor 'apellidos DESC'"
                 },
                 {
                     "id": "testea-personas-1-47-2",
@@ -3570,7 +3600,8 @@
                     "id": "testea-personas-1-47-3",
                     "command": "storeElementCount",
                     "target": "xpath=//tr",
-                    "value": "cuentaFilas"
+                    "value": "cuentaFilas",
+                    "comment": "Selenium cuenta el número de filas (tr)"
                 },
                 {
                     "id": "testea-personas-1-47-4",
@@ -3610,7 +3641,7 @@
                     "command": "click",
                     "target": "xpath=//button[@value='apellidos ASC']",
                     "value": "",
-                    "comment": "Hace clic en el botón con atributo 'value' con valor 'apellidos ASC'"
+                    "comment": "Selenium hace clic en el botón con atributo 'value' con valor 'apellidos ASC'"
                 },
                 {
                     "id": "testea-personas-1-48-2",
@@ -3622,7 +3653,8 @@
                     "id": "testea-personas-1-48-3",
                     "command": "storeElementCount",
                     "target": "xpath=//tr",
-                    "value": "cuentaFilas"
+                    "value": "cuentaFilas",
+                    "comment": "Selenium cuenta el número de filas (tr)"
                 },
                 {
                     "id": "testea-personas-1-48-4",
@@ -3673,7 +3705,8 @@
                     "id": "testea-personas-1-49-3",
                     "command": "storeElementCount",
                     "target": "xpath=//tr",
-                    "value": "cuentaFilas"
+                    "value": "cuentaFilas",
+                    "comment": "Selenium cuenta el número de filas (tr)"
                 },
                 {
                     "id": "testea-personas-1-49-4",
@@ -3724,7 +3757,8 @@
                     "id": "testea-personas-1-50-3",
                     "command": "storeElementCount",
                     "target": "xpath=//tr",
-                    "value": "cuentaFilas"
+                    "value": "cuentaFilas",
+                    "comment": "Selenium cuenta el número de filas (tr)"
                 },
                 {
                     "id": "testea-personas-1-50-4",
@@ -3764,7 +3798,7 @@
                     "command": "open",
                     "target": "$modificar-2.php?id=100",
                     "value": "",
-                    "comment": "Intenta modificar directamente un registro inexistente"
+                    "comment": "Selenium selecciona directamente para modificar un registro inexistente"
                 },
                 {
                     "id": "testea-personas-1-51-2",
@@ -3782,7 +3816,8 @@
                     "id": "testea-personas-1-51-4",
                     "command": "storeElementCount",
                     "target": "xpath=//tr",
-                    "value": "cuentaFilas"
+                    "value": "cuentaFilas",
+                    "comment": "Selenium cuenta el número de filas (tr)"
                 },
                 {
                     "id": "testea-personas-1-51-5",
@@ -3822,7 +3857,7 @@
                     "command": "open",
                     "target": "$modificar-2.php",
                     "value": "",
-                    "comment": "Intenta modificar directamente sin seleccionar registro"
+                    "comment": "Selenium intenta modificar directamente sin seleccionar registro"
                 },
                 {
                     "id": "testea-personas-1-52-2",
@@ -3840,7 +3875,8 @@
                     "id": "testea-personas-1-52-4",
                     "command": "storeElementCount",
                     "target": "xpath=//tr",
-                    "value": "cuentaFilas"
+                    "value": "cuentaFilas",
+                    "comment": "Selenium cuenta el número de filas (tr)"
                 },
                 {
                     "id": "testea-personas-1-52-5",
@@ -3880,7 +3916,7 @@
                     "command": "click",
                     "target": "linkText=Modificar",
                     "value": "",
-                    "comment": "Hace clic en el enlace 'Modificar'"
+                    "comment": "Selenium hace clic en el enlace 'Modificar'"
                 },
                 {
                     "id": "testea-personas-1-53-2",
@@ -3906,7 +3942,7 @@
                     "command": "click",
                     "target": "xpath=//input[@value='Modificar registro']",
                     "value": "",
-                    "comment": "Hace clic en el botón 'Modificar registro'"
+                    "comment": "Selenium hace clic en el botón 'Modificar registro'"
                 },
                 {
                     "id": "testea-personas-1-53-6",
@@ -3959,7 +3995,7 @@
                     "command": "click",
                     "target": "xpath=//input[@value='Actualizar']",
                     "value": "",
-                    "comment": "Hace clic en el botón 'Actualizar'"
+                    "comment": "Selenium hace clic en el botón 'Actualizar'"
                 },
                 {
                     "id": "testea-personas-1-53-14",
@@ -4004,7 +4040,7 @@
                     "command": "click",
                     "target": "linkText=Listar",
                     "value": "",
-                    "comment": "Hace clic en el enlace 'Listar'"
+                    "comment": "Selenium hace clic en el enlace 'Listar'"
                 },
                 {
                     "id": "testea-personas-1-53-21",
@@ -4034,7 +4070,8 @@
                     "id": "testea-personas-1-53-25",
                     "command": "storeElementCount",
                     "target": "xpath=//tr",
-                    "value": "cuentaFilas"
+                    "value": "cuentaFilas",
+                    "comment": "Selenium cuenta el número de filas (tr)"
                 },
                 {
                     "id": "testea-personas-1-53-26",
@@ -4078,7 +4115,8 @@
                     "id": "testea-personas-1-54-4",
                     "command": "storeElementCount",
                     "target": "xpath=//tr",
-                    "value": "cuentaFilas"
+                    "value": "cuentaFilas",
+                    "comment": "Selenium cuenta el número de filas (tr)"
                 },
                 {
                     "id": "testea-personas-1-54-5",
@@ -4135,7 +4173,8 @@
                     "id": "testea-personas-1-55-4",
                     "command": "storeElementCount",
                     "target": "xpath=//tr",
-                    "value": "cuentaFilas"
+                    "value": "cuentaFilas",
+                    "comment": "Selenium cuenta el número de filas (tr)"
                 },
                 {
                     "id": "testea-personas-1-55-5",
@@ -4210,7 +4249,8 @@
                     "id": "testea-personas-1-56-7",
                     "command": "storeElementCount",
                     "target": "xpath=//tr",
-                    "value": "cuentaFilas"
+                    "value": "cuentaFilas",
+                    "comment": "Selenium cuenta el número de filas (tr)"
                 },
                 {
                     "id": "testea-personas-1-56-8",
@@ -4270,7 +4310,7 @@
                     "command": "click",
                     "target": "xpath=//input[@value='Actualizar']",
                     "value": "",
-                    "comment": "Hace clic en el botón 'Actualizar'"
+                    "comment": "Selenium hace clic en el botón 'Actualizar'"
                 },
                 {
                     "id": "testea-personas-1-57-5",
@@ -4306,7 +4346,8 @@
                     "id": "testea-personas-1-57-10",
                     "command": "storeElementCount",
                     "target": "xpath=//tr",
-                    "value": "cuentaFilas"
+                    "value": "cuentaFilas",
+                    "comment": "Selenium cuenta el número de filas (tr)"
                 },
                 {
                     "id": "testea-personas-1-57-11",
@@ -4694,7 +4735,7 @@
                     "command": "click",
                     "target": "linkText=Personas",
                     "value": "",
-                    "comment": "Hace clic en el enlace 'Personas'"
+                    "comment": "Selenium hace clic en el enlace 'Personas'"
                 },
                 {
                     "id": "testea-personas-1-65-10",
@@ -4726,7 +4767,7 @@
                     "command": "click",
                     "target": "linkText=Personas",
                     "value": "",
-                    "comment": "Hace clic en el enlace 'Personas'"
+                    "comment": "Selenium hace clic en el enlace 'Personas'"
                 },
                 {
                     "id": "testea-personas-2-4",
@@ -4764,7 +4805,7 @@
                     "command": "click",
                     "target": "linkText=Personas",
                     "value": "",
-                    "comment": "Hace clic en el enlace 'Personas'"
+                    "comment": "Selenium hace clic en el enlace 'Personas'"
                 }
             ]
         },

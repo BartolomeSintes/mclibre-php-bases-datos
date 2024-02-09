@@ -1,6 +1,6 @@
 {
     "id": "mclibre-bases-de-datos-3-b-registros-incompletos-tests-minimo",
-    "version": "2024-02-08",
+    "version": "2024-02-09",
     "name": "Test ejercicio Bases de datos (3 B) Registros incompletos (Mínimo)",
     "url": "http://localhost",
     "tests": [
@@ -21,7 +21,7 @@
                     "command": "open",
                     "target": "${urlBase}/index.php",
                     "value": "",
-                    "comment": "Abre la página de Inicio de la aplicación"
+                    "comment": "Selenium abre la página de Inicio de la aplicación"
                 },
                 {
                     "id": "inicio-2",
@@ -34,26 +34,29 @@
                     "id": "desconexion-inicial-1",
                     "command": "executeScript",
                     "target": "return (document.body.innerHTML.includes('Desconectarse'))",
-                    "value": "detectadoDesconectarse"
+                    "value": "detectadoDesconectarse",
+                    "comment": "Selenium busca si se muestra el enlace 'Desconectarse'"
                 },
                 {
                     "id": "desconexion-inicial-2",
                     "command": "if",
                     "target": "${detectadoDesconectarse}",
-                    "value": ""
+                    "value": "",
+                    "comment": "Selenium: estructura 'if'"
                 },
                 {
                     "id": "desconexion-inicial-3",
                     "command": "click",
                     "target": "linkText=Desconectarse",
                     "value": "",
-                    "comment": "Hace clic en el enlace 'Desconectarse'"
+                    "comment": "Selenium hace clic en el enlace 'Desconectarse'"
                 },
                 {
                     "id": "desconexion-inicial-4",
                     "command": "end",
                     "target": "",
-                    "value": ""
+                    "value": "",
+                    "comment": "Selenium: estructura 'end'"
                 },
                 {
                     "id": "desconexion-inicial-5",
@@ -67,7 +70,7 @@
                     "command": "click",
                     "target": "linkText=Conectarse",
                     "value": "",
-                    "comment": "Hace clic en el enlace 'Conectarse'"
+                    "comment": "Selenium hace clic en el enlace 'Conectarse'"
                 },
                 {
                     "id": "borrar-todo-con-2",
@@ -95,7 +98,7 @@
                     "command": "click",
                     "target": "xpath=//input[@value='Identificar']",
                     "value": "",
-                    "comment": "Hace clic en el botón 'Identificar'"
+                    "comment": "Selenium hace clic en el botón 'Identificar'"
                 },
                 {
                     "id": "borrar-todo-con-6",
@@ -109,7 +112,7 @@
                     "command": "click",
                     "target": "linkText=Administrador",
                     "value": "",
-                    "comment": "Hace clic en el enlace 'Administrador'"
+                    "comment": "Selenium hace clic en el enlace 'Administrador'"
                 },
                 {
                     "id": "borrar-todo-con-2",
@@ -123,7 +126,7 @@
                     "command": "click",
                     "target": "linkText=Borrar todo",
                     "value": "",
-                    "comment": "Hace clic en el enlace 'Borrar todo'"
+                    "comment": "Selenium hace clic en el enlace 'Borrar todo'"
                 },
                 {
                     "id": "borrar-todo-con-4",
@@ -137,7 +140,7 @@
                     "command": "click",
                     "target": "name=demo",
                     "value": "",
-                    "comment": "Hace clic en la casilla 'demo'"
+                    "comment": "Selenium hace clic en la casilla 'demo'"
                 },
                 {
                     "id": "borrar-todo-con-6",
@@ -151,7 +154,7 @@
                     "command": "click",
                     "target": "xpath=//input[@name='borrar' and @value='Sí']",
                     "value": "",
-                    "comment": "Hace clic en el botón 'borrar' con atributo 'value' con valor 'Sí'"
+                    "comment": "Selenium hace clic en el botón 'borrar' con atributo 'value' con valor 'Sí'"
                 },
                 {
                     "id": "borrar-todo-con-8",
@@ -164,13 +167,15 @@
                     "id": "borrar-todo-con-9",
                     "command": "executeScript",
                     "target": "return (document.body.innerHTML.includes('Sistema Gestor de Bases de Datos: SQLite.'))",
-                    "value": "detectadoSQLite"
+                    "value": "detectadoSQLite",
+                    "comment": "Selenium busca si la base de datos utilizada es SQLite"
                 },
                 {
                     "id": "borrar-todo-con-10",
                     "command": "if",
                     "target": "${detectadoSQLite}",
-                    "value": ""
+                    "value": "",
+                    "comment": "Selenium: estructura 'if'"
                 },
                 {
                     "id": "borrar-todo-con-11",
@@ -218,7 +223,8 @@
                     "id": "borrar-todo-con-17",
                     "command": "else",
                     "target": "",
-                    "value": ""
+                    "value": "",
+                    "comment": "Selenium: estructura 'else'"
                 },
                 {
                     "id": "borrar-todo-con-18",
@@ -273,14 +279,15 @@
                     "id": "borrar-todo-con-25",
                     "command": "end",
                     "target": "",
-                    "value": ""
+                    "value": "",
+                    "comment": "Selenium: estructura 'end'"
                 },
                 {
                     "id": "borrar-todo-con-26",
                     "command": "click",
                     "target": "linkText=Volver",
                     "value": "",
-                    "comment": "Hace clic en el enlace 'Volver'"
+                    "comment": "Selenium hace clic en el enlace 'Volver'"
                 },
                 {
                     "id": "borrar-todo-con-27",
@@ -295,7 +302,7 @@
                     "command": "click",
                     "target": "linkText=Personas",
                     "value": "",
-                    "comment": "Hace clic en el enlace 'Personas'"
+                    "comment": "Selenium hace clic en el enlace 'Personas'"
                 },
                 {
                     "id": "registros-incompletos-1-2",
@@ -316,7 +323,7 @@
                     "command": "click",
                     "target": "linkText=Incompletos",
                     "value": "",
-                    "comment": "Hace clic en el enlace 'Incompletos'"
+                    "comment": "Selenium hace clic en el enlace 'Incompletos'"
                 },
                 {
                     "id": "registros-incompletos-1-5",
@@ -336,7 +343,8 @@
                     "id": "registros-incompletos-1-7",
                     "command": "storeElementCount",
                     "target": "xpath=//*[contains(@class, 'aviso')]",
-                    "value": "cuentaAvisos"
+                    "value": "cuentaAvisos",
+                    "comment": "Selenium cuenta los avisos (class 'aviso')"
                 },
                 {
                     "id": "registros-incompletos-1-8",
@@ -351,7 +359,7 @@
                     "command": "open",
                     "target": "${urlBase}/db/tabla-personas/insertar-2.php?nombre=&apellidos=prueba-1-2&telefono=1-3&correo=prueba-1-4@example.com",
                     "value": "",
-                    "comment": "Inserta directamente un registro"
+                    "comment": "Selenium inserta directamente un registro"
                 },
                 {
                     "id": "registros-incompletos-2-2",
@@ -371,7 +379,7 @@
                     "command": "click",
                     "target": "linkText=Incompletos",
                     "value": "",
-                    "comment": "Hace clic en el enlace 'Incompletos'"
+                    "comment": "Selenium hace clic en el enlace 'Incompletos'"
                 },
                 {
                     "id": "registros-incompletos-2-5",
@@ -391,7 +399,8 @@
                     "id": "registros-incompletos-2-7",
                     "command": "storeElementCount",
                     "target": "xpath=//tr",
-                    "value": "cuentaFilas"
+                    "value": "cuentaFilas",
+                    "comment": "Selenium cuenta el número de filas (tr)"
                 },
                 {
                     "id": "registros-incompletos-2-8",
@@ -475,7 +484,7 @@
                     "command": "click",
                     "target": "xpath=//form//input[@value='Completar registro']",
                     "value": "",
-                    "comment": "Hace clic en el botón 'Completar registro'"
+                    "comment": "Selenium hace clic en el botón 'Completar registro'"
                 },
                 {
                     "id": "registros-incompletos-2-20",
@@ -488,7 +497,8 @@
                     "id": "registros-incompletos-2-21",
                     "command": "storeElementCount",
                     "target": "xpath=//tr",
-                    "value": "cuentaFilas"
+                    "value": "cuentaFilas",
+                    "comment": "Selenium cuenta el número de filas (tr)"
                 },
                 {
                     "id": "registros-incompletos-2-22",
@@ -565,7 +575,7 @@
                     "command": "click",
                     "target": "xpath=//input[@value='Guardar']",
                     "value": "",
-                    "comment": "Hace clic en el botón 'Guardar'"
+                    "comment": "Selenium hace clic en el botón 'Guardar'"
                 },
                 {
                     "id": "registros-incompletos-2-33",
@@ -586,7 +596,7 @@
                     "command": "click",
                     "target": "linkText=Listar",
                     "value": "",
-                    "comment": "Hace clic en el enlace 'Listar'"
+                    "comment": "Selenium hace clic en el enlace 'Listar'"
                 },
                 {
                     "id": "registros-incompletos-2-36",
@@ -629,7 +639,7 @@
                     "command": "open",
                     "target": "${urlBase}/db/tabla-personas/insertar-2.php?nombre=prueba-2-1&telefono=2-3&correo=prueba-2-4@example.com",
                     "value": "",
-                    "comment": "Inserta directamente un registro"
+                    "comment": "Selenium inserta directamente un registro"
                 },
                 {
                     "id": "registros-incompletos-3-2",
@@ -649,7 +659,7 @@
                     "command": "click",
                     "target": "linkText=Incompletos",
                     "value": "",
-                    "comment": "Hace clic en el enlace 'Incompletos'"
+                    "comment": "Selenium hace clic en el enlace 'Incompletos'"
                 },
                 {
                     "id": "registros-incompletos-3-5",
@@ -705,7 +715,7 @@
                     "command": "click",
                     "target": "xpath=//form//input[@value='Completar registro']",
                     "value": "",
-                    "comment": "Hace clic en el botón 'Completar registro'"
+                    "comment": "Selenium hace clic en el botón 'Completar registro'"
                 },
                 {
                     "id": "registros-incompletos-3-13",
@@ -754,7 +764,7 @@
                     "command": "click",
                     "target": "xpath=//input[@value='Guardar']",
                     "value": "",
-                    "comment": "Hace clic en el botón 'Guardar'"
+                    "comment": "Selenium hace clic en el botón 'Guardar'"
                 },
                 {
                     "id": "registros-incompletos-3-20",
@@ -775,7 +785,7 @@
                     "command": "click",
                     "target": "linkText=Listar",
                     "value": "",
-                    "comment": "Hace clic en el enlace 'Listar'"
+                    "comment": "Selenium hace clic en el enlace 'Listar'"
                 },
                 {
                     "id": "registros-incompletos-3-23",
@@ -818,7 +828,7 @@
                     "command": "open",
                     "target": "${urlBase}/db/tabla-personas/insertar-2.php?nombre=prueba-3-1&apellidos=prueba-3-2&correo=prueba-3-4@example.com",
                     "value": "",
-                    "comment": "Inserta directamente un registro"
+                    "comment": "Selenium inserta directamente un registro"
                 },
                 {
                     "id": "registros-incompletos-4-2",
@@ -838,7 +848,7 @@
                     "command": "click",
                     "target": "linkText=Incompletos",
                     "value": "",
-                    "comment": "Hace clic en el enlace 'Incompletos'"
+                    "comment": "Selenium hace clic en el enlace 'Incompletos'"
                 },
                 {
                     "id": "registros-incompletos-4-5",
@@ -894,7 +904,7 @@
                     "command": "click",
                     "target": "xpath=//form//input[@value='Completar registro']",
                     "value": "",
-                    "comment": "Hace clic en el botón 'Completar registro'"
+                    "comment": "Selenium hace clic en el botón 'Completar registro'"
                 },
                 {
                     "id": "registros-incompletos-4-13",
@@ -943,7 +953,7 @@
                     "command": "click",
                     "target": "xpath=//input[@value='Guardar']",
                     "value": "",
-                    "comment": "Hace clic en el botón 'Guardar'"
+                    "comment": "Selenium hace clic en el botón 'Guardar'"
                 },
                 {
                     "id": "registros-incompletos-4-20",
@@ -964,7 +974,7 @@
                     "command": "click",
                     "target": "linkText=Listar",
                     "value": "",
-                    "comment": "Hace clic en el enlace 'Listar'"
+                    "comment": "Selenium hace clic en el enlace 'Listar'"
                 },
                 {
                     "id": "registros-incompletos-4-23",
@@ -1007,7 +1017,7 @@
                     "command": "open",
                     "target": "${urlBase}/db/tabla-personas/insertar-2.php?nombre=prueba-4-1&apellidos=prueba-4-2&telefono=4-3",
                     "value": "",
-                    "comment": "Inserta directamente un registro"
+                    "comment": "Selenium inserta directamente un registro"
                 },
                 {
                     "id": "registros-incompletos-5-2",
@@ -1027,7 +1037,7 @@
                     "command": "click",
                     "target": "linkText=Incompletos",
                     "value": "",
-                    "comment": "Hace clic en el enlace 'Incompletos'"
+                    "comment": "Selenium hace clic en el enlace 'Incompletos'"
                 },
                 {
                     "id": "registros-incompletos-5-5",
@@ -1083,7 +1093,7 @@
                     "command": "click",
                     "target": "xpath=//form//input[@value='Completar registro']",
                     "value": "",
-                    "comment": "Hace clic en el botón 'Completar registro'"
+                    "comment": "Selenium hace clic en el botón 'Completar registro'"
                 },
                 {
                     "id": "registros-incompletos-5-13",
@@ -1132,7 +1142,7 @@
                     "command": "click",
                     "target": "xpath=//input[@value='Guardar']",
                     "value": "",
-                    "comment": "Hace clic en el botón 'Guardar'"
+                    "comment": "Selenium hace clic en el botón 'Guardar'"
                 },
                 {
                     "id": "registros-incompletos-5-20",
@@ -1153,7 +1163,7 @@
                     "command": "click",
                     "target": "linkText=Listar",
                     "value": "",
-                    "comment": "Hace clic en el enlace 'Listar'"
+                    "comment": "Selenium hace clic en el enlace 'Listar'"
                 },
                 {
                     "id": "registros-incompletos-5-23",
@@ -1196,7 +1206,7 @@
                     "command": "open",
                     "target": "${urlBase}/acceso/logout.php",
                     "value": "",
-                    "comment": "Desconecta al usuario"
+                    "comment": "Selenium desconecta al usuario"
                 },
                 {
                     "id": "registros-incompletos-6-2",
@@ -1217,7 +1227,7 @@
                     "command": "open",
                     "target": "${urlBase}/acceso/login-2.php?usuario=usuario1&password=usuario1",
                     "value": ".*",
-                    "comment": "Accede directamente como usuario 'usuario1' y contraseña 'usuario1'"
+                    "comment": "Selenium accede directamente como usuario 'usuario1' y contraseña 'usuario1'"
                 },
                 {
                     "id": "registros-incompletos-6-5",
@@ -1238,7 +1248,7 @@
                     "command": "click",
                     "target": "linkText=Personas",
                     "value": "",
-                    "comment": "Hace clic en el enlace 'Personas'"
+                    "comment": "Selenium hace clic en el enlace 'Personas'"
                 },
                 {
                     "id": "registros-incompletos-6-8",
@@ -1259,7 +1269,7 @@
                     "command": "click",
                     "target": "linkText=Incompletos",
                     "value": "",
-                    "comment": "Hace clic en el enlace 'Incompletos'"
+                    "comment": "Selenium hace clic en el enlace 'Incompletos'"
                 },
                 {
                     "id": "registros-incompletos-6-11",
@@ -1279,7 +1289,8 @@
                     "id": "registros-incompletos-6-13",
                     "command": "storeElementCount",
                     "target": "xpath=//*[contains(@class, 'aviso')]",
-                    "value": "cuentaAvisos"
+                    "value": "cuentaAvisos",
+                    "comment": "Selenium cuenta los avisos (class 'aviso')"
                 },
                 {
                     "id": "registros-incompletos-6-14",
@@ -1293,7 +1304,7 @@
                     "command": "open",
                     "target": "${urlBase}/db/tabla-personas/insertar-2.php?nombre=&apellidos=prueba-5-2&telefono=5-3&correo=prueba-5-4@example.com",
                     "value": "",
-                    "comment": "Inserta directamente un registro"
+                    "comment": "Selenium inserta directamente un registro"
                 },
                 {
                     "id": "registros-incompletos-6-16",
@@ -1313,7 +1324,7 @@
                     "command": "click",
                     "target": "linkText=Incompletos",
                     "value": "",
-                    "comment": "Hace clic en el enlace 'Incompletos'"
+                    "comment": "Selenium hace clic en el enlace 'Incompletos'"
                 },
                 {
                     "id": "registros-incompletos-6-19",
@@ -1333,7 +1344,8 @@
                     "id": "registros-incompletos-6-21",
                     "command": "storeElementCount",
                     "target": "xpath=//tr",
-                    "value": "cuentaFilas"
+                    "value": "cuentaFilas",
+                    "comment": "Selenium cuenta el número de filas (tr)"
                 },
                 {
                     "id": "registros-incompletos-6-22",
@@ -1417,7 +1429,7 @@
                     "command": "click",
                     "target": "xpath=//form//input[@value='Completar registro']",
                     "value": "",
-                    "comment": "Hace clic en el botón 'Completar registro'"
+                    "comment": "Selenium hace clic en el botón 'Completar registro'"
                 },
                 {
                     "id": "registros-incompletos-6-34",
@@ -1430,7 +1442,8 @@
                     "id": "registros-incompletos-6-35",
                     "command": "storeElementCount",
                     "target": "xpath=//tr",
-                    "value": "cuentaFilas"
+                    "value": "cuentaFilas",
+                    "comment": "Selenium cuenta el número de filas (tr)"
                 },
                 {
                     "id": "registros-incompletos-6-36",
@@ -1507,7 +1520,7 @@
                     "command": "click",
                     "target": "xpath=//input[@value='Guardar']",
                     "value": "",
-                    "comment": "Hace clic en el botón 'Guardar'"
+                    "comment": "Selenium hace clic en el botón 'Guardar'"
                 },
                 {
                     "id": "registros-incompletos-6-47",
@@ -1528,7 +1541,7 @@
                     "command": "click",
                     "target": "linkText=Listar",
                     "value": "",
-                    "comment": "Hace clic en el enlace 'Listar'"
+                    "comment": "Selenium hace clic en el enlace 'Listar'"
                 },
                 {
                     "id": "registros-incompletos-6-50",
@@ -1570,7 +1583,7 @@
                     "command": "click",
                     "target": "linkText=Volver",
                     "value": "",
-                    "comment": "Hace clic en el enlace 'Volver'"
+                    "comment": "Selenium hace clic en el enlace 'Volver'"
                 },
                 {
                     "id": "registros-incompletos-6-56",
@@ -1592,7 +1605,7 @@
                     "command": "click",
                     "target": "linkText=Desconectarse",
                     "value": "",
-                    "comment": "Hace clic en el enlace 'Desconectarse'"
+                    "comment": "Selenium hace clic en el enlace 'Desconectarse'"
                 },
                 {
                     "id": "registros-incompletos-7-2",

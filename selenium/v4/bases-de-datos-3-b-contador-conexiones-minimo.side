@@ -1,6 +1,6 @@
 {
     "id": "mclibre-bases-de-datos-3-b-confirma-contador-conexiones-tests-minimo",
-    "version": "2024-02-08",
+    "version": "2024-02-09",
     "name": "Test ejercicio Bases de datos (3 B) Contador de conexiones (Mínimo)",
     "url": "http://localhost",
     "tests": [
@@ -21,7 +21,7 @@
                     "command": "open",
                     "target": "${urlBase}/index.php",
                     "value": "",
-                    "comment": "Abre la página de Inicio de la aplicación"
+                    "comment": "Selenium abre la página de Inicio de la aplicación"
                 },
                 {
                     "id": "inicio-2",
@@ -34,26 +34,29 @@
                     "id": "desconexion-inicial-1",
                     "command": "executeScript",
                     "target": "return (document.body.innerHTML.includes('Desconectarse'))",
-                    "value": "detectadoDesconectarse"
+                    "value": "detectadoDesconectarse",
+                    "comment": "Selenium busca si se muestra el enlace 'Desconectarse'"
                 },
                 {
                     "id": "desconexion-inicial-2",
                     "command": "if",
                     "target": "${detectadoDesconectarse}",
-                    "value": ""
+                    "value": "",
+                    "comment": "Selenium: estructura 'if'"
                 },
                 {
                     "id": "desconexion-inicial-3",
                     "command": "click",
                     "target": "linkText=Desconectarse",
                     "value": "",
-                    "comment": "Hace clic en el enlace 'Desconectarse'"
+                    "comment": "Selenium hace clic en el enlace 'Desconectarse'"
                 },
                 {
                     "id": "desconexion-inicial-4",
                     "command": "end",
                     "target": "",
-                    "value": ""
+                    "value": "",
+                    "comment": "Selenium: estructura 'end'"
                 },
                 {
                     "id": "desconexion-inicial-5",
@@ -67,7 +70,7 @@
                     "command": "click",
                     "target": "linkText=Conectarse",
                     "value": "",
-                    "comment": "Hace clic en el enlace 'Conectarse'"
+                    "comment": "Selenium hace clic en el enlace 'Conectarse'"
                 },
                 {
                     "id": "borrar-todo-con-LIMITE-CONEXION-2",
@@ -95,32 +98,35 @@
                     "command": "click",
                     "target": "xpath=//input[@value='Identificar']",
                     "value": "",
-                    "comment": "Hace clic en el botón 'Identificar'"
+                    "comment": "Selenium hace clic en el botón 'Identificar'"
                 },
                 {
                     "id": "borrar-todo-con-LIMITE-CONEXION-6",
                     "command": "executeScript",
                     "target": "return (document.body.innerHTML.includes('Se recomienda cambiar la contraseña.'))",
-                    "value": "detectadoSuperadoLimite"
+                    "value": "detectadoSuperadoLimite",
+                    "comment": "Selenium busca si se muestra el mensaje 'Se recomienda cambiar la contraseña.'"
                 },
                 {
                     "id": "borrar-todo-con-LIMITE-CONEXION-7",
                     "command": "if",
                     "target": "${detectadoSuperadoLimite}",
-                    "value": ""
+                    "value": "",
+                    "comment": "Selenium: estructura 'if'"
                 },
                 {
                     "id": "borrar-todo-con-LIMITE-CONEXION-8",
                     "command": "click",
                     "target": "linkText=Volver",
                     "value": "",
-                    "comment": "Hace clic en el enlace 'Volver'"
+                    "comment": "Selenium hace clic en el enlace 'Volver'"
                 },
                 {
                     "id": "borrar-todo-con-LIMITE-CONEXION-9",
                     "command": "end",
                     "target": "",
-                    "value": ""
+                    "value": "",
+                    "comment": "Selenium: estructura 'end'"
                 },
                 {
                     "id": "borrar-todo-con-LIMITE-CONEXION-10",
@@ -134,7 +140,7 @@
                     "command": "click",
                     "target": "linkText=Administrador",
                     "value": "",
-                    "comment": "Hace clic en el enlace 'Administrador'"
+                    "comment": "Selenium hace clic en el enlace 'Administrador'"
                 },
                 {
                     "id": "borrar-todo-con-LIMITE-CONEXION-12",
@@ -148,7 +154,7 @@
                     "command": "click",
                     "target": "linkText=Borrar todo",
                     "value": "",
-                    "comment": "Hace clic en el enlace 'Borrar todo'"
+                    "comment": "Selenium hace clic en el enlace 'Borrar todo'"
                 },
                 {
                     "id": "borrar-todo-con-LIMITE-CONEXION-14",
@@ -162,7 +168,7 @@
                     "command": "click",
                     "target": "name=demo",
                     "value": "",
-                    "comment": "Hace clic en la casilla 'demo'"
+                    "comment": "Selenium hace clic en la casilla 'demo'"
                 },
                 {
                     "id": "borrar-todo-con-LIMITE-CONEXION-16",
@@ -176,7 +182,7 @@
                     "command": "click",
                     "target": "xpath=//input[@name='borrar' and @value='Sí']",
                     "value": "",
-                    "comment": "Hace clic en el botón 'borrar' con atributo 'value' con valor 'Sí'"
+                    "comment": "Selenium hace clic en el botón 'borrar' con atributo 'value' con valor 'Sí'"
                 },
                 {
                     "id": "borrar-todo-con-LIMITE-CONEXION-18",
@@ -188,21 +194,23 @@
                 {
                     "id": "borrar-todo-con-LIMITE-CONEXION-19",
                     "command": "executeScript",
-                    "target": "return (document.body.innerHTML.includes('<p>Insertando registros de prueba ...</p>'))",
-                    "value": "${detectadaCadena}"
+                    "target": "return (document.body.innerHTML.includes('Insertando registros de prueba ...'))",
+                    "value": "${detectadaCadena}",
+                    "comment": "Selenium busca si se muestra el mensaje 'Insertando registros de prueba ...'"
                 },
                 {
                     "id": "borrar-todo-con-LIMITE-CONEXION-20",
                     "command": "assert",
                     "target": "${detectadaCadena}",
-                    "value": "true"
+                    "value": "true",
+                    "comment": "Muestra mensaje: 'Insertando registros de prueba ...'"
                 },
                 {
                     "id": "borrar-todo-con-LIMITE-CONEXION-21",
                     "command": "click",
                     "target": "linkText=Volver",
                     "value": "",
-                    "comment": "Hace clic en el enlace 'Volver'"
+                    "comment": "Selenium hace clic en el enlace 'Volver'"
                 },
                 {
                     "id": "borrar-todo-con-LIMITE-CONEXION-22",
@@ -217,7 +225,7 @@
                     "command": "open",
                     "target": "${urlBase}/db/tabla-usuarios/listar.php",
                     "value": "",
-                    "comment": "Abre directamente la página Usuarios > Listar"
+                    "comment": "Selenium abre directamente la página Usuarios > Listar"
                 },
                 {
                     "id": "contador-conexiones-1-2",
@@ -230,7 +238,8 @@
                     "id": "contador-conexiones-1-3",
                     "command": "storeElementCount",
                     "target": "xpath=//tr",
-                    "value": "cuentaFilas"
+                    "value": "cuentaFilas",
+                    "comment": "Selenium cuenta el número de filas (tr)"
                 },
                 {
                     "id": "contador-conexiones-1-4",
@@ -280,7 +289,7 @@
                     "command": "open",
                     "target": "${urlBase}/acceso/logout.php",
                     "value": "",
-                    "comment": "Desconecta al usuario"
+                    "comment": "Selenium desconecta al usuario"
                 },
                 {
                     "id": "contador-conexiones-2-2",
@@ -301,7 +310,7 @@
                     "command": "open",
                     "target": "${urlBase}/acceso/login-2.php?usuario=admin1&password=admin1",
                     "value": ".*",
-                    "comment": "Accede directamente como usuario 'admin1' y contraseña 'admin1'"
+                    "comment": "Selenium accede directamente como usuario 'admin1' y contraseña 'admin1'"
                 },
                 {
                     "id": "contador-conexiones-2-5",
@@ -323,7 +332,7 @@
                     "command": "open",
                     "target": "${urlBase}/acceso/logout.php",
                     "value": "",
-                    "comment": "Desconecta al usuario"
+                    "comment": "Selenium desconecta al usuario"
                 },
                 {
                     "id": "contador-conexiones-3-2",
@@ -344,7 +353,7 @@
                     "command": "open",
                     "target": "${urlBase}/acceso/login-2.php?usuario=admin1&password=admin1",
                     "value": ".*",
-                    "comment": "Accede directamente como usuario 'admin1' y contraseña 'admin1'"
+                    "comment": "Selenium accede directamente como usuario 'admin1' y contraseña 'admin1'"
                 },
                 {
                     "id": "contador-conexiones-3-5",
@@ -366,7 +375,7 @@
                     "command": "open",
                     "target": "${urlBase}/acceso/logout.php",
                     "value": "",
-                    "comment": "Desconecta al usuario"
+                    "comment": "Selenium desconecta al usuario"
                 },
                 {
                     "id": "contador-conexiones-4-2",
@@ -387,7 +396,7 @@
                     "command": "open",
                     "target": "${urlBase}/acceso/login-2.php?usuario=admin1&password=admin1",
                     "value": ".*",
-                    "comment": "Accede directamente como usuario 'admin1' y contraseña 'admin1'"
+                    "comment": "Selenium accede directamente como usuario 'admin1' y contraseña 'admin1'"
                 },
                 {
                     "id": "contador-conexiones-4-5",
@@ -409,7 +418,7 @@
                     "command": "open",
                     "target": "${urlBase}/acceso/logout.php",
                     "value": "",
-                    "comment": "Desconecta al usuario"
+                    "comment": "Selenium desconecta al usuario"
                 },
                 {
                     "id": "contador-conexiones-5-2",
@@ -430,7 +439,7 @@
                     "command": "open",
                     "target": "${urlBase}/acceso/login-2.php?usuario=usuario1&password=usuario1",
                     "value": ".*",
-                    "comment": "Accede directamente como usuario 'usuario1' y contraseña 'usuario1'"
+                    "comment": "Selenium accede directamente como usuario 'usuario1' y contraseña 'usuario1'"
                 },
                 {
                     "id": "contador-conexiones-5-5",
@@ -452,7 +461,7 @@
                     "command": "open",
                     "target": "${urlBase}/acceso/logout.php",
                     "value": "",
-                    "comment": "Desconecta al usuario"
+                    "comment": "Selenium desconecta al usuario"
                 },
                 {
                     "id": "contador-conexiones-6-2",
@@ -473,7 +482,7 @@
                     "command": "open",
                     "target": "${urlBase}/acceso/login-2.php?usuario=usuario1&password=usuario1",
                     "value": ".*",
-                    "comment": "Accede directamente como usuario 'usuario1' y contraseña 'usuario1'"
+                    "comment": "Selenium accede directamente como usuario 'usuario1' y contraseña 'usuario1'"
                 },
                 {
                     "id": "contador-conexiones-6-5",
@@ -495,7 +504,7 @@
                     "command": "open",
                     "target": "${urlBase}/acceso/logout.php",
                     "value": "",
-                    "comment": "Desconecta al usuario"
+                    "comment": "Selenium desconecta al usuario"
                 },
                 {
                     "id": "contador-conexiones-7-2",
@@ -516,7 +525,7 @@
                     "command": "open",
                     "target": "${urlBase}/acceso/login-2.php?usuario=root&password=root",
                     "value": ".*",
-                    "comment": "Accede directamente como usuario 'root' y contraseña 'root'"
+                    "comment": "Selenium accede directamente como usuario 'root' y contraseña 'root'"
                 },
                 {
                     "id": "contador-conexiones-7-5",
@@ -538,7 +547,7 @@
                     "command": "open",
                     "target": "${urlBase}/db/tabla-usuarios/listar.php",
                     "value": "",
-                    "comment": "Abre directamente la página Usuarios > Listar"
+                    "comment": "Selenium abre directamente la página Usuarios > Listar"
                 },
                 {
                     "id": "contador-conexiones-8-2",
@@ -551,7 +560,8 @@
                     "id": "contador-conexiones-8-3",
                     "command": "storeElementCount",
                     "target": "xpath=//tr",
-                    "value": "cuentaFilas"
+                    "value": "cuentaFilas",
+                    "comment": "Selenium cuenta el número de filas (tr)"
                 },
                 {
                     "id": "contador-conexiones-8-4",
@@ -629,7 +639,7 @@
                     "command": "open",
                     "target": "${urlBase}/db/tabla-usuarios/listar.php?ordena=conexiones+ASC",
                     "value": "",
-                    "comment": "Reordena listado (conexiones ASC)"
+                    "comment": "Selenium reordena listado (conexiones ASC)"
                 },
                 {
                     "id": "contador-conexiones-9-2",
@@ -642,7 +652,8 @@
                     "id": "contador-conexiones-9-3",
                     "command": "storeElementCount",
                     "target": "xpath=//tr",
-                    "value": "cuentaFilas"
+                    "value": "cuentaFilas",
+                    "comment": "Selenium cuenta el número de filas (tr)"
                 },
                 {
                     "id": "contador-conexiones-9-4",
@@ -720,7 +731,7 @@
                     "command": "open",
                     "target": "${urlBase}/db/tabla-usuarios/listar.php?ordena=conexiones+DESC",
                     "value": "",
-                    "comment": "Reordena listado (conexiones DESC)"
+                    "comment": "Selenium reordena listado (conexiones DESC)"
                 },
                 {
                     "id": "contador-conexiones-10-2",
@@ -733,7 +744,8 @@
                     "id": "contador-conexiones-10-3",
                     "command": "storeElementCount",
                     "target": "xpath=//tr",
-                    "value": "cuentaFilas"
+                    "value": "cuentaFilas",
+                    "comment": "Selenium cuenta el número de filas (tr)"
                 },
                 {
                     "id": "contador-conexiones-10-4",
@@ -811,7 +823,7 @@
                     "command": "open",
                     "target": "${urlBase}/acceso/logout.php",
                     "value": "",
-                    "comment": "Desconecta al usuario"
+                    "comment": "Selenium desconecta al usuario"
                 },
                 {
                     "id": "contador-conexiones-11-2",
@@ -832,7 +844,7 @@
                     "command": "open",
                     "target": "${urlBase}/acceso/login-2.php?usuario=admin1&password=admin1",
                     "value": ".*",
-                    "comment": "Accede directamente como usuario 'admin1' y contraseña 'admin1'"
+                    "comment": "Selenium accede directamente como usuario 'admin1' y contraseña 'admin1'"
                 },
                 {
                     "id": "contador-conexiones-11-5",
@@ -854,7 +866,7 @@
                     "command": "open",
                     "target": "${urlBase}/db/tabla-usuarios/modificar-3.php?usuario=admin1&password=admin1&nivel=20&id=4",
                     "value": "",
-                    "comment": "Modifica directamente un registro"
+                    "comment": "Selenium modifica directamente un registro"
                 },
                 {
                     "id": "contador-conexiones-12-2",
@@ -868,7 +880,7 @@
                     "command": "open",
                     "target": "${urlBase}/db/tabla-usuarios/listar.php",
                     "value": "",
-                    "comment": "Abre directamente la página Usuarios > Listar"
+                    "comment": "Selenium abre directamente la página Usuarios > Listar"
                 },
                 {
                     "id": "contador-conexiones-12-4",
@@ -881,7 +893,8 @@
                     "id": "contador-conexiones-12-5",
                     "command": "storeElementCount",
                     "target": "xpath=//tr",
-                    "value": "cuentaFilas"
+                    "value": "cuentaFilas",
+                    "comment": "Selenium cuenta el número de filas (tr)"
                 },
                 {
                     "id": "contador-conexiones-12-6",
@@ -958,7 +971,7 @@
                     "command": "click",
                     "target": "linkText=Volver",
                     "value": "",
-                    "comment": "Hace clic en el enlace 'Volver'"
+                    "comment": "Selenium hace clic en el enlace 'Volver'"
                 },
                 {
                     "id": "contador-conexiones-12-17",
@@ -980,7 +993,7 @@
                     "command": "click",
                     "target": "linkText=Desconectarse",
                     "value": "",
-                    "comment": "Hace clic en el enlace 'Desconectarse'"
+                    "comment": "Selenium hace clic en el enlace 'Desconectarse'"
                 },
                 {
                     "id": "contador-conexiones-13-2",

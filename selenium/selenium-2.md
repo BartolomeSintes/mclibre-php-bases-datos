@@ -248,6 +248,9 @@ Detiene Selenium hasta que la página contenga un elemento. La clave **target** 
     "target": "${detectadaCadena}",
     "value": "true"
 },
+
+[2024-02-09] Lo uso por ejemplo al cargar registros de prueba para comprobar que sale el mensaje. No uso assertText normal y corriente porque según que sea SQLite o MySQL el mensaje sale en un p[n] distinto.
+
 ```
 
 ### assert: Busca y comprueba que existe un texto en una celda (que no está vacía)

@@ -181,27 +181,28 @@
                     "command": "click",
                     "target": "linkText=Volver",
                     "value": "",
-                    "comment": "Hace clic en el enlace 'Volver'"
+                    "comment": "Selenium hace clic en el enlace 'Volver'"
                 },
                 {
                     "id": "funcion-borrar-todo-7",
                     "command": "end",
                     "target": "",
-                    "value": ""
+                    "value": "",
+                    "comment": "Selenium: estructura 'end'"
                 },
                 {
                     "id": "funcion-borrar-todo-8",
                     "command": "click",
                     "target": "linkText=Administrador",
                     "value": "",
-                    "comment": "Hace clic en el enlace 'Administrador'"
+                    "comment": "Selenium hace clic en el enlace 'Administrador'"
                 },
                 {
                     "id": "funcion-borrar-todo-9",
                     "command": "click",
                     "target": "linkText=Borrar todo",
                     "value": "",
-                    "comment": "Hace clic en el enlace 'Borrar todo'"
+                    "comment": "Selenium hace clic en el enlace 'Borrar todo'"
                 },
                 {
                     "id": "funcion-borrar-todo-10",
@@ -214,7 +215,7 @@
                     "command": "click",
                     "target": "linkText=Volver",
                     "value": "",
-                    "comment": "Hace clic en el enlace 'Volver'"
+                    "comment": "Selenium hace clic en el enlace 'Volver'"
                 }
             ]
         },
@@ -246,7 +247,7 @@
                     "command": "click",
                     "target": "linkText=Listar",
                     "value": "",
-                    "comment": "Hace clic en el enlace 'Listar'"
+                    "comment": "Selenium hace clic en el enlace 'Listar'"
                 },
                 {
                     "id": "funcion-listar-5",
@@ -265,7 +266,7 @@
                     "command": "click",
                     "target": "linkText=Volver",
                     "value": "",
-                    "comment": "Hace clic en el enlace 'Volver'"
+                    "comment": "Selenium hace clic en el enlace 'Volver'"
                 }
             ]
         },
@@ -309,13 +310,14 @@
                     "command": "click",
                     "target": "linkText=Desconectarse",
                     "value": "",
-                    "comment": "Hace clic en el enlace 'Desconectarse'"
+                    "comment": "Selenium hace clic en el enlace 'Desconectarse'"
                 },
                 {
                     "id": "desconexion-inicial-7",
                     "command": "end",
                     "target": "",
-                    "value": ""
+                    "value": "",
+                    "comment": "Selenium: estructura 'end'"
                 },
                 {
                     "id": "desconexion-inicial-8",
@@ -348,7 +350,7 @@
                     "command": "click",
                     "target": "linkText=Conectarse",
                     "value": "",
-                    "comment": "Hace clic en el enlace 'Conectarse'"
+                    "comment": "Selenium hace clic en el enlace 'Conectarse'"
                 },
                 {
                     "id": "borrar-todo-con-4",
@@ -369,21 +371,21 @@
                     "command": "click",
                     "target": "xpath=//input[@value='Identificar']",
                     "value": "",
-                    "comment": "Hace clic en el botón 'Identificar'"
+                    "comment": "Selenium hace clic en el botón 'Identificar'"
                 },
                 {
                     "id": "borrar-todo-con-7",
                     "command": "click",
                     "target": "linkText=Administrador",
                     "value": "",
-                    "comment": "Hace clic en el enlace 'Administrador'"
+                    "comment": "Selenium hace clic en el enlace 'Administrador'"
                 },
                 {
                     "id": "borrar-todo-con-8",
                     "command": "click",
                     "target": "linkText=Borrar todo",
                     "value": "",
-                    "comment": "Hace clic en el enlace 'Borrar todo'"
+                    "comment": "Selenium hace clic en el enlace 'Borrar todo'"
                 },
                 {
                     "id": "borrar-todo-con-9",
@@ -396,7 +398,7 @@
                     "command": "click",
                     "target": "xpath=//input[@value='Sí']",
                     "value": "",
-                    "comment": "Hace clic en el botón 'Sí'"
+                    "comment": "Selenium hace clic en el botón 'Sí'"
                 },
                 {
                     "id": "borrar-todo-con-11",
@@ -415,14 +417,14 @@
                     "command": "click",
                     "target": "linkText=Volver",
                     "value": "",
-                    "comment": "Hace clic en el enlace 'Volver'"
+                    "comment": "Selenium hace clic en el enlace 'Volver'"
                 },
                 {
                     "id": "borrar-todo-con-14",
                     "command": "click",
                     "target": "linkText=Desconectarse",
                     "value": "",
-                    "comment": "Hace clic en el enlace 'Desconectarse'"
+                    "comment": "Selenium hace clic en el enlace 'Desconectarse'"
                 },
                 {
                     "id": "borrar-todo-con-15",
@@ -461,7 +463,7 @@
                     "command": "click",
                     "target": "linkText=Conectarse",
                     "value": "",
-                    "comment": "Hace clic en el enlace 'Conectarse'"
+                    "comment": "Selenium hace clic en el enlace 'Conectarse'"
                 },
                 {
                     "id": "conexion-desconexion-root-5",
@@ -482,14 +484,14 @@
                     "command": "click",
                     "target": "xpath=//input[@value='Identificar']",
                     "value": "",
-                    "comment": "Hace clic en el botón 'Identificar'"
+                    "comment": "Selenium hace clic en el botón 'Identificar'"
                 },
                 {
                     "id": "conexion-desconexion-root-8",
                     "command": "click",
                     "target": "linkText=Administrador",
                     "value": "",
-                    "comment": "Hace clic en el enlace 'Administrador'"
+                    "comment": "Selenium hace clic en el enlace 'Administrador'"
                 },
                 {
                     "id": "conexion-desconexion-root-9",
@@ -502,14 +504,14 @@
                     "command": "click",
                     "target": "linkText=Volver",
                     "value": "",
-                    "comment": "Hace clic en el enlace 'Volver'"
+                    "comment": "Selenium hace clic en el enlace 'Volver'"
                 },
                 {
                     "id": "conexion-desconexion-root-11",
                     "command": "click",
                     "target": "linkText=Desconectarse",
                     "value": "",
-                    "comment": "Hace clic en el enlace 'Desconectarse'"
+                    "comment": "Selenium hace clic en el enlace 'Desconectarse'"
                 },
                 {
                     "id": "conexion-desconexion-root-12",
@@ -548,7 +550,7 @@
                     "command": "click",
                     "target": "linkText=Conectarse",
                     "value": "",
-                    "comment": "Hace clic en el enlace 'Conectarse'"
+                    "comment": "Selenium hace clic en el enlace 'Conectarse'"
                 },
                 {
                     "id": "conexion-desconexion-basico-5",
@@ -567,14 +569,14 @@
                     "command": "click",
                     "target": "xpath=//input[@value='Identificar']",
                     "value": "",
-                    "comment": "Hace clic en el botón 'Identificar'"
+                    "comment": "Selenium hace clic en el botón 'Identificar'"
                 },
                 {
                     "id": "conexion-desconexion-basico-8",
                     "command": "click",
                     "target": "linkText=Obras",
                     "value": "",
-                    "comment": "Hace clic en el enlace 'Obras'"
+                    "comment": "Selenium hace clic en el enlace 'Obras'"
                 },
                 {
                     "id": "conexion-desconexion-basico-9",
@@ -608,14 +610,14 @@
                     "command": "click",
                     "target": "linkText=Volver",
                     "value": "",
-                    "comment": "Hace clic en el enlace 'Volver'"
+                    "comment": "Selenium hace clic en el enlace 'Volver'"
                 },
                 {
                     "id": "conexion-desconexion-basico-14",
                     "command": "click",
                     "target": "linkText=Desconectarse",
                     "value": "",
-                    "comment": "Hace clic en el enlace 'Desconectarse'"
+                    "comment": "Selenium hace clic en el enlace 'Desconectarse'"
                 },
                 {
                     "id": "conexion-desconexion-basico-15",
@@ -654,7 +656,7 @@
                     "command": "click",
                     "target": "linkText=Conectarse",
                     "value": "",
-                    "comment": "Hace clic en el enlace 'Conectarse'"
+                    "comment": "Selenium hace clic en el enlace 'Conectarse'"
                 },
                 {
                     "id": "conexion-desconexion-avanzado-5",
@@ -673,14 +675,14 @@
                     "command": "click",
                     "target": "xpath=//input[@value='Identificar']",
                     "value": "",
-                    "comment": "Hace clic en el botón 'Identificar'"
+                    "comment": "Selenium hace clic en el botón 'Identificar'"
                 },
                 {
                     "id": "conexion-desconexion-avanzado-8",
                     "command": "click",
                     "target": "linkText=Obras",
                     "value": "",
-                    "comment": "Hace clic en el enlace 'Obras'"
+                    "comment": "Selenium hace clic en el enlace 'Obras'"
                 },
                 {
                     "id": "conexion-desconexion-avanzado-9",
@@ -693,7 +695,7 @@
                     "command": "click",
                     "target": "linkText=Buscar",
                     "value": "",
-                    "comment": "Hace clic en el enlace 'Buscar'"
+                    "comment": "Selenium hace clic en el enlace 'Buscar'"
                 },
                 {
                     "id": "conexion-desconexion-avanzado-11",
@@ -714,14 +716,14 @@
                     "command": "click",
                     "target": "linkText=Volver",
                     "value": "",
-                    "comment": "Hace clic en el enlace 'Volver'"
+                    "comment": "Selenium hace clic en el enlace 'Volver'"
                 },
                 {
                     "id": "conexion-desconexion-avanzado-14",
                     "command": "click",
                     "target": "linkText=Desconectarse",
                     "value": "",
-                    "comment": "Hace clic en el enlace 'Desconectarse'"
+                    "comment": "Selenium hace clic en el enlace 'Desconectarse'"
                 },
                 {
                     "id": "conexion-desconexion-avanzado-15",
@@ -760,7 +762,7 @@
                     "command": "click",
                     "target": "linkText=Conectarse",
                     "value": "",
-                    "comment": "Hace clic en el enlace 'Conectarse'"
+                    "comment": "Selenium hace clic en el enlace 'Conectarse'"
                 },
                 {
                     "id": "conexion-root-5",
@@ -781,7 +783,7 @@
                     "command": "click",
                     "target": "xpath=//input[@value='Identificar']",
                     "value": "",
-                    "comment": "Hace clic en el botón 'Identificar'"
+                    "comment": "Selenium hace clic en el botón 'Identificar'"
                 },
                 {
                     "id": "conexion-root-8",
@@ -820,14 +822,14 @@
                     "command": "click",
                     "target": "linkText=Personas",
                     "value": "",
-                    "comment": "Hace clic en el enlace 'Personas'"
+                    "comment": "Selenium hace clic en el enlace 'Personas'"
                 },
                 {
                     "id": "personas-listar-5",
                     "command": "click",
                     "target": "linkText=Listar",
                     "value": "",
-                    "comment": "Hace clic en el enlace 'Listar'"
+                    "comment": "Selenium hace clic en el enlace 'Listar'"
                 },
                 {
                     "id": "personas-listar-6",
@@ -847,7 +849,7 @@
                     "command": "click",
                     "target": "xpath=//button[@value='nombre ASC']",
                     "value": "",
-                    "comment": "Hace clic en el botón con atributo 'value' con valor 'nombre ASC'"
+                    "comment": "Selenium hace clic en el botón con atributo 'value' con valor 'nombre ASC'"
                 },
                 {
                     "id": "personas-listar-9",
@@ -867,7 +869,7 @@
                     "command": "click",
                     "target": "xpath=//button[@value='nombre DESC']",
                     "value": "",
-                    "comment": "Hace clic en el botón con atributo 'value' con valor 'nombre DESC'"
+                    "comment": "Selenium hace clic en el botón con atributo 'value' con valor 'nombre DESC'"
                 },
                 {
                     "id": "personas-listar-12",
@@ -887,7 +889,7 @@
                     "command": "click",
                     "target": "xpath=//button[@value='apellidos DESC']",
                     "value": "",
-                    "comment": "Hace clic en el botón con atributo 'value' con valor 'apellidos DESC'"
+                    "comment": "Selenium hace clic en el botón con atributo 'value' con valor 'apellidos DESC'"
                 },
                 {
                     "id": "personas-listar-15",
@@ -907,7 +909,7 @@
                     "command": "click",
                     "target": "xpath=//button[@value='apellidos ASC']",
                     "value": "",
-                    "comment": "Hace clic en el botón con atributo 'value' con valor 'apellidos ASC'"
+                    "comment": "Selenium hace clic en el botón con atributo 'value' con valor 'apellidos ASC'"
                 },
                 {
                     "id": "personas-listar-18",
@@ -990,14 +992,14 @@
                     "command": "click",
                     "target": "linkText=Personas",
                     "value": "",
-                    "comment": "Hace clic en el enlace 'Personas'"
+                    "comment": "Selenium hace clic en el enlace 'Personas'"
                 },
                 {
                     "id": "personas-insertar-5",
                     "command": "click",
                     "target": "linkText=Añadir registro",
                     "value": "",
-                    "comment": "Hace clic en el enlace 'Añadir registro'"
+                    "comment": "Selenium hace clic en el enlace 'Añadir registro'"
                 },
                 {
                     "id": "personas-insertar-6",
@@ -1024,7 +1026,7 @@
                     "command": "click",
                     "target": "xpath=//input[@value='Añadir']",
                     "value": "",
-                    "comment": "Hace clic en el botón 'Añadir'"
+                    "comment": "Selenium hace clic en el botón 'Añadir'"
                 },
                 {
                     "id": "personas-insertar-10",
@@ -1037,7 +1039,7 @@
                     "command": "click",
                     "target": "linkText=Listar",
                     "value": "",
-                    "comment": "Hace clic en el enlace 'Listar'"
+                    "comment": "Selenium hace clic en el enlace 'Listar'"
                 },
                 {
                     "id": "personas-insertar-12",
@@ -1075,14 +1077,14 @@
                     "command": "click",
                     "target": "linkText=Personas",
                     "value": "",
-                    "comment": "Hace clic en el enlace 'Personas'"
+                    "comment": "Selenium hace clic en el enlace 'Personas'"
                 },
                 {
                     "id": "personas-buscar-5",
                     "command": "click",
                     "target": "linkText=Buscar",
                     "value": "",
-                    "comment": "Hace clic en el enlace 'Buscar'"
+                    "comment": "Selenium hace clic en el enlace 'Buscar'"
                 },
                 {
                     "id": "personas-buscar-6",
@@ -1096,7 +1098,7 @@
                     "command": "click",
                     "target": "xpath=//input[@value='Buscar']",
                     "value": "",
-                    "comment": "Hace clic en el botón 'Buscar'"
+                    "comment": "Selenium hace clic en el botón 'Buscar'"
                 },
                 {
                     "id": "personas-buscar-8",
@@ -1122,7 +1124,7 @@
                     "command": "click",
                     "target": "linkText=Buscar",
                     "value": "",
-                    "comment": "Hace clic en el enlace 'Buscar'"
+                    "comment": "Selenium hace clic en el enlace 'Buscar'"
                 },
                 {
                     "id": "personas-buscar-12",
@@ -1136,7 +1138,7 @@
                     "command": "click",
                     "target": "xpath=//input[@value='Buscar']",
                     "value": "",
-                    "comment": "Hace clic en el botón 'Buscar'"
+                    "comment": "Selenium hace clic en el botón 'Buscar'"
                 },
                 {
                     "id": "personas-buscar-14",
@@ -1175,28 +1177,28 @@
                     "command": "click",
                     "target": "linkText=Personas",
                     "value": "",
-                    "comment": "Hace clic en el enlace 'Personas'"
+                    "comment": "Selenium hace clic en el enlace 'Personas'"
                 },
                 {
                     "id": "personas-modificar-5",
                     "command": "click",
                     "target": "linkText=Modificar",
                     "value": "",
-                    "comment": "Hace clic en el enlace 'Modificar'"
+                    "comment": "Selenium hace clic en el enlace 'Modificar'"
                 },
                 {
                     "id": "personas-modificar-6",
                     "command": "click",
                     "target": "xpath=//input[@value='3']",
                     "value": "",
-                    "comment": "Hace clic en la casilla con atributo 'value' con valor '3'"
+                    "comment": "Selenium hace clic en la casilla con atributo 'value' con valor '3'"
                 },
                 {
                     "id": "personas-modificar-7",
                     "command": "click",
                     "target": "xpath=//input[@value='Modificar registro']",
                     "value": "",
-                    "comment": "Hace clic en el botón 'Modificar registro'"
+                    "comment": "Selenium hace clic en el botón 'Modificar registro'"
                 },
                 {
                     "id": "personas-modificar-8",
@@ -1210,7 +1212,7 @@
                     "command": "click",
                     "target": "xpath=//input[@value='Actualizar']",
                     "value": "",
-                    "comment": "Hace clic en el botón 'Actualizar'"
+                    "comment": "Selenium hace clic en el botón 'Actualizar'"
                 },
                 {
                     "id": "personas-modificar-10",
@@ -1224,7 +1226,7 @@
                     "command": "click",
                     "target": "linkText=Listar",
                     "value": "",
-                    "comment": "Hace clic en el enlace 'Listar'"
+                    "comment": "Selenium hace clic en el enlace 'Listar'"
                 },
                 {
                     "id": "personas-modificar-12",
@@ -1262,21 +1264,21 @@
                     "command": "click",
                     "target": "linkText=Personas",
                     "value": "",
-                    "comment": "Hace clic en el enlace 'Personas'"
+                    "comment": "Selenium hace clic en el enlace 'Personas'"
                 },
                 {
                     "id": "personas-borrar-5",
                     "command": "click",
                     "target": "linkText=Borrar",
                     "value": "",
-                    "comment": "Hace clic en el enlace 'Borrar'"
+                    "comment": "Selenium hace clic en el enlace 'Borrar'"
                 },
                 {
                     "id": "personas-borrar-6",
                     "command": "click",
                     "target": "xpath=//button[@value='nombre ASC']",
                     "value": "",
-                    "comment": "Hace clic en el botón con atributo 'value' con valor 'nombre ASC'"
+                    "comment": "Selenium hace clic en el botón con atributo 'value' con valor 'nombre ASC'"
                 },
                 {
                     "id": "personas-borrar-7",
@@ -1289,14 +1291,14 @@
                     "command": "click",
                     "target": "name=id[3]",
                     "value": "",
-                    "comment": "Hace clic en la casilla con atributo 'name' con valor 'id[3]'"
+                    "comment": "Selenium hace clic en la casilla con atributo 'name' con valor 'id[3]'"
                 },
                 {
                     "id": "personas-borrar-9",
                     "command": "click",
                     "target": "xpath=//input[@value='Borrar registro']",
                     "value": "",
-                    "comment": "Hace clic en el botón 'Borrar registro'"
+                    "comment": "Selenium hace clic en el botón 'Borrar registro'"
                 },
                 {
                     "id": "personas-borrar-10",
@@ -1310,14 +1312,14 @@
                     "command": "click",
                     "target": "linkText=Listar",
                     "value": "",
-                    "comment": "Hace clic en el enlace 'Listar'"
+                    "comment": "Selenium hace clic en el enlace 'Listar'"
                 },
                 {
                     "id": "personas-borrar-12",
                     "command": "click",
                     "target": "xpath=//button[@value='nombre ASC']",
                     "value": "",
-                    "comment": "Hace clic en el botón con atributo 'value' con valor 'nombre ASC'"
+                    "comment": "Selenium hace clic en el botón con atributo 'value' con valor 'nombre ASC'"
                 },
                 {
                     "id": "personas-borrar-13",
@@ -1349,14 +1351,14 @@
                     "command": "click",
                     "target": "linkText=Personas",
                     "value": "",
-                    "comment": "Hace clic en el enlace 'Personas'"
+                    "comment": "Selenium hace clic en el enlace 'Personas'"
                 },
                 {
                     "id": "prueba-1-4",
                     "command": "click",
                     "target": "linkText=Listar",
                     "value": "",
-                    "comment": "Hace clic en el enlace 'Listar'"
+                    "comment": "Selenium hace clic en el enlace 'Listar'"
                 }
             ]
         },
